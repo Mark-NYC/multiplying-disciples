@@ -366,6 +366,59 @@ collisions, no guessed slugs, sitemap count matches exactly, and
 `/blog/` now lists all 40 migrated articles (was 33). No redirects
 implemented. 41 tier-3 URLs remain.
 
+### Phase 7B Batch 2 — Second Tier 3 batch (done)
+
+Migrated the second 7 Tier 3 pages, per `PHASE_7B_TIER_3_BATCH_2.md`:
+`/starter-tools/` (dual-nav-linked from Header/Footer on every page —
+inspected directly against the WordPress export first, confirmed a
+GenerateBlocks resource/tool grid rather than prose, and migrated into
+the existing `articles` collection + `ArticleLayout` rather than a new
+content type, same page-type judgment call as `/stickers/` in Phase 4
+Batch 4), plus 6 articles selected by impressions:
+`/royal-priest-strategy-explodes-disciple-making-movement-worldwide/`,
+`/unlock-biblical-principles-for-multiplying-disciples/`,
+`/5-insightful-keys-into-the-biblical-jesus/`,
+`/missionary-verses-in-the-bible-reveal-gods-heart/`,
+`/the-clear-pathway-of-jesus-a-biblical-model-for-disciple-making/`,
+and `/7-surprising-disciple-making-movement-examples/`.
+
+Each of the 6 articles was added to a hub's `key_articles`: royal-priest-
+strategy and 7-surprising add to **Church Planting Movements** (now
+10 slots — hubs have no hard cap), unlock-biblical-principles adds to
+**Disciple Making**, missionary-verses-in-the-bible adds to **Share
+the Gospel**, the-clear-pathway-of-jesus adds to **Four Fields**, and
+5-insightful-keys-into-the-biblical-jesus adds to **Jesus and the
+Twelve**.
+
+Same cleanup discipline as every prior phase: removed 2 junk embedded
+`<html><head><style>...</style></head><body>...</body></html>`
+placeholder shells (one held a real table that was extracted and
+converted; the other was a pure "Example Site - FAQ" export artifact),
+several duplicate pull-quote-style headings that repeated adjacent
+paragraph text verbatim, the reusable "Are you in? / Start Here. / Get
+Started" promotional CTA block (appeared verbatim across 3 of these 7
+pages), and stray Elementor `<style>` blocks. Converted a Spotify
+embed and an Apple Podcasts embed to plain links, removed 2 dead
+`/podcast/...` hyperlinks (kept the surrounding text, no confirmed
+replacement destination), converted 20 raw-HTML `<table>` blocks
+(including one large custom-CSS infographic block) to Markdown tables,
+and normalized 4 plain-`<p>`/bold-styled "question" lines that matched
+sibling heading formatting into proper heading levels on one article.
+
+11 media files across 5 of these pages are missing from supplied
+uploads (7 featured/`og_image`-only, 2 `/starter-tools/` card
+thumbnails, 1 decorative CTA background, 4 inline supporting images on
+`unlock-biblical-principles-for-multiplying-disciples`) — all
+deferred, non-blocking, none above-the-fold or a direct PDF; see
+`PHASE_7B_TIER_3_BATCH_2.md` and `MEDIA_ACQUISITION_CHECKLIST.md` for
+the full breakdown. `astro check`/`astro build` clean, 60 pages (was
+53). Verified in `dist/`: all 7 canonicals correct, no noindex,
+exactly 1 H1 each, no broken images introduced by this batch, no hub
+collisions (including the `/4-fields/` vs. `/four-fields/` distinction
+inside `/starter-tools/`'s content), no guessed slugs, and `/blog/`
+now lists all 47 migrated articles (was 40). No redirects implemented.
+34 tier-3 URLs remain.
+
 ## Repo structure
 
 ```

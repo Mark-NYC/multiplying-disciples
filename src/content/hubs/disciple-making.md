@@ -16,6 +16,7 @@ key_articles:
   - "/disciple-making-movement-books-top-25-must-reads/"
   - "/breakthrough-guide-for-a-modern-day-disciple/"
   - "/love-and-obedience-exploring-the-biblical-relationship-between-the-two/"
+  - "/unlock-biblical-principles-for-multiplying-disciples/"
 related_tools:
   - "3 Circles"
   - "Stories of Hope"

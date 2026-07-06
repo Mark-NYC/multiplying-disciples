@@ -54,6 +54,33 @@ referenced in the shipped HTML (unlike the `apostles-meaning` gap,
 where the `<img>` tags remain and are genuinely broken) — all 8 were
 simply left out of the migrated content instead.
 
+**Phase 7B Batch 2 gap — deferred, not blocking:** migrating the
+second Tier 3 batch surfaced 11 more genuinely missing files across 5
+of the 7 pages. 7 are featured/`og_image`-only (omitted, same pattern
+as every prior phase — no inline image lost): `2023/06/pexels-leonardo-
+dourado-13011294-1.jpg` (unlock-biblical-principles),
+`2023/04/pexels-photo-8383489.jpeg` (5-insightful-keys),
+`2025/02/prayer-walking-in-city.webp` (the-clear-pathway-of-jesus — only
+a `-100x100` thumbnail crop exists, full size missing), and
+`2023/05/B89DECCC-91D3-4DA4-8CCD-F1482F0DB33F.webp`
+(7-surprising-disciple-making-movement-examples). `/starter-tools/`
+is missing 2 card thumbnails (Three Thirds, 4 Fields — the cards keep
+their label and link, just without an image) and 1 decorative CTA
+background image (purely decorative, omitted). 4 are inline supporting
+images on `/unlock-biblical-principles-for-multiplying-disciples/`,
+dropped from the body with their surrounding prose left intact:
+`pexels-tara-winstead-8383460-1024x683.jpg`,
+`lightstock_69771_xsmall_jared_callais.jpeg`,
+`pexels-photo-4400997-e1686571140942.jpeg`, and
+`pexels-photo-14933981.jpeg`. None are above-the-fold hero-only
+necessities or direct-access PDFs, so none of this blocks the batch —
+see `PHASE_7B_TIER_3_BATCH_2.md` for the full breakdown.
+`/royal-priest-strategy-explodes-disciple-making-movement-worldwide/`
+and `/missionary-verses-in-the-bible-reveal-gods-heart/` have zero
+missing media — all referenced files (including 3 inline images on
+royal-priest-strategy and the featured image on missionary-verses)
+confirmed present.
+
 **Received-uploads log:**
 
 - 2026-07-06 — `2023/02` month folder (559 files) supplied and extracted

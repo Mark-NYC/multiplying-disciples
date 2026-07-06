@@ -16,6 +16,8 @@ key_articles:
   - "/equipping-your-church-for-disciple-making-movements-a-pastors-guide-to-effective-training/"
   - "/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/"
   - "/4-stages-of-movement-unlock-your-next-steps/"
+  - "/royal-priest-strategy-explodes-disciple-making-movement-worldwide/"
+  - "/7-surprising-disciple-making-movement-examples/"
 related_tools: []
 next_step:
   label: "See the 4 stages of movement"

@@ -12,6 +12,7 @@ key_articles:
   - "/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/"
   - "/unlocking-the-power-of-apest-the-ultimate-guide/"
   - "/seven-words-of-jesus-on-the-cross/"
+  - "/5-insightful-keys-into-the-biblical-jesus/"
 related_tools: []
 next_step:
   label: "Learn the 3 Circles gospel presentation"

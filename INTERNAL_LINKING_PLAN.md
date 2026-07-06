@@ -129,6 +129,21 @@ not-yet-migrated children via `related_articles`, tying the whole
 `/movement-resources/` subtree together. See
 `PHASE_7B_TIER_3_BATCH_1.md` for the full batch plan.
 
+As of Phase 7B Batch 2, 7 more pages are migrated: `/starter-tools/`
+(no hub assignment — the page links out to many different topics
+rather than belonging to one, same reasoning as `/stickers/` and
+`/movement-resources/`; it is a GenerateBlocks resource/tool grid
+migrated into the existing `articles` collection + `ArticleLayout`,
+same page-type precedent as `/stickers/`), plus 6 articles each added
+to a hub's `key_articles`: royal-priest-strategy and 7-surprising
+disciple-making-movement-examples both add to **Church Planting
+Movements** (now 10 slots, beyond its original 8-slot framing — hubs
+have no hard cap), unlock-biblical-principles adds to **Disciple
+Making**, missionary-verses-in-the-bible adds to **Share the Gospel**,
+the-clear-pathway-of-jesus adds to **Four Fields**, and
+5-insightful-keys-into-the-biblical-jesus adds to **Jesus and the
+Twelve**. See `PHASE_7B_TIER_3_BATCH_2.md` for the full batch plan.
+
 Tool entries themselves (`src/content/tools/`) are not yet created —
 `ToolCTA` renders "(coming soon)" for tool names with no matching entry.
 Creating real tool pages (3 Circles, Stories of Hope, etc.) is future
@@ -138,9 +153,9 @@ work, not part of the Phase 1 batch.
 
 Built in Phase 7A (`src/pages/blog/index.astro`) as a new site-wide
 directory, not a per-hub mechanism: it dynamically lists every
-migrated article (33 at launch, 40 after Phase 7B Batch 1, growing
-automatically as more are migrated — sorted by tier, then by
-best-available date) and links out to all 11
+migrated article (33 at launch, 40 after Phase 7B Batch 1, 47 after
+Phase 7B Batch 2, growing automatically as more are migrated — sorted
+by tier, then by best-available date) and links out to all 11
 hubs for topic browsing. It's linked from header and footer nav on
 every page (`src/data/navigation.ts`), giving every migrated article a
 second real, crawlable inbound path beyond its hub and

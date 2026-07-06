@@ -131,6 +131,28 @@ PDFs); see `PHASE_7B_TIER_3_BATCH_1.md` and
 `MEDIA_ACQUISITION_CHECKLIST.md` for the full breakdown. 53 pages now
 build clean (was 46). 41 tier-3 URLs remain (48 − 7).
 
+**Phase 7B Batch 2 status:** second Tier 3 batch migrated — 7 pages,
+see `PHASE_7B_TIER_3_BATCH_2.md`. `/starter-tools/` (a header/footer
+dual-nav-linked WordPress "page" that turned out to be a GenerateBlocks
+resource/tool grid, not prose — migrated into the existing `articles`
+collection + `ArticleLayout`, same page-type judgment call as
+`/stickers/` in Phase 4 Batch 4, documented in the file's own
+frontmatter notes), plus 6 articles:
+`/royal-priest-strategy-explodes-disciple-making-movement-worldwide/`,
+`/unlock-biblical-principles-for-multiplying-disciples/`,
+`/5-insightful-keys-into-the-biblical-jesus/`,
+`/missionary-verses-in-the-bible-reveal-gods-heart/`,
+`/the-clear-pathway-of-jesus-a-biblical-model-for-disciple-making/`,
+and `/7-surprising-disciple-making-movement-examples/`. Adds 2 more
+key-article slots to the Church Planting Movements hub (now 10),
+1 slot each to Disciple Making, Share the Gospel, Four Fields, and
+Jesus and the Twelve hubs. 11 files across 5 of these pages are
+missing from supplied uploads (7 featured/og_images plus 4 inline
+supporting images on `unlock-biblical-principles-for-multiplying-disciples`)
+— all deferred, non-blocking; see `PHASE_7B_TIER_3_BATCH_2.md` and
+`MEDIA_ACQUISITION_CHECKLIST.md` for the full breakdown. 60 pages now
+build clean (was 53). 34 tier-3 URLs remain (41 − 7).
+
 ## Full inventory — all 122 published posts/pages
 
 Sorted by impressions (real GSC data where available).
@@ -174,17 +196,17 @@ Sorted by impressions (real GSC data where available).
 | `/blog/` | new Astro index page (not a WP content migration — see Phase 7A) | published | 0 | 95 | tier-3 |
 | `/disciple-making-resources-for-churches-that-will-multiply/` | article | migrated | 1 | 92 | tier-3 |
 | `/under-the-hood-of-disciple-making-movements/` | article | migrated | 0 | 86 | tier-3 |
-| `/starter-tools/` | page | not-migrated | 0 | 78 | tier-3 |
+| `/starter-tools/` | page | migrated | 0 | 78 | tier-3 |
 | `/what-are-disciple-making-movements-5-examples-from-around-the-world/` | article | migrated | 1 | 74 | tier-3 |
 | `/equipping-your-church-for-disciple-making-movements-a-pastors-guide-to-effective-training/` | article | migrated | 0 | 71 | tier-3 |
 | `/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/` | article | migrated | 0 | 66 | tier-3 |
 | `/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/` | article | migrated | 1 | 66 | tier-3 |
-| `/royal-priest-strategy-explodes-disciple-making-movement-worldwide/` | article | not-migrated | 0 | 55 | tier-3 |
-| `/unlock-biblical-principles-for-multiplying-disciples/` | article | not-migrated | 1 | 52 | tier-3 |
-| `/5-insightful-keys-into-the-biblical-jesus/` | article | not-migrated | 0 | 49 | tier-3 |
-| `/missionary-verses-in-the-bible-reveal-gods-heart/` | article | not-migrated | 0 | 48 | tier-3 |
-| `/the-clear-pathway-of-jesus-a-biblical-model-for-disciple-making/` | article | not-migrated | 0 | 46 | tier-3 |
-| `/7-surprising-disciple-making-movement-examples/` | article | not-migrated | 1 | 43 | tier-3 |
+| `/royal-priest-strategy-explodes-disciple-making-movement-worldwide/` | article | migrated | 0 | 55 | tier-3 |
+| `/unlock-biblical-principles-for-multiplying-disciples/` | article | migrated | 1 | 52 | tier-3 |
+| `/5-insightful-keys-into-the-biblical-jesus/` | article | migrated | 0 | 49 | tier-3 |
+| `/missionary-verses-in-the-bible-reveal-gods-heart/` | article | migrated | 0 | 48 | tier-3 |
+| `/the-clear-pathway-of-jesus-a-biblical-model-for-disciple-making/` | article | migrated | 0 | 46 | tier-3 |
+| `/7-surprising-disciple-making-movement-examples/` | article | migrated | 1 | 43 | tier-3 |
 | `/the-hidden-power-of-bonhoeffers-discipleship-model-and-why-its-more-relevant-than-ever/` | article | not-migrated | 0 | 42 | tier-3 |
 | `/bible-passages-about-love-what-scripture-really-says/` | article | not-migrated | 0 | 41 | tier-3 |
 | `/breaking-the-mold-a-guide-to-shifting-your-church-to-movement-strategy/` | article | not-migrated | 0 | 33 | tier-3 |

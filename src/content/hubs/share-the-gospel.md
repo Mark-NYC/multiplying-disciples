@@ -13,6 +13,7 @@ key_articles:
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/5-proven-strategies-unlock-the-secrets-of-effective-personal-evangelism/"
   - "/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/"
+  - "/missionary-verses-in-the-bible-reveal-gods-heart/"
 related_tools:
   - "3 Circles"
   - "Stories of Hope"

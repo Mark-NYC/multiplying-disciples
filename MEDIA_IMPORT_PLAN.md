@@ -336,3 +336,10 @@ every table above on purpose; they need no local preservation.
   (already tracked above, row already "Yes") is now actually linked
   from a migrated page for the first time
   (`/disciple-making-resources-for-churches-that-will-multiply/`).
+- **Phase 7B Batch 2:** same tier-3 scope note as Batch 1 above —
+  tracked in `MEDIA_ACQUISITION_CHECKLIST.md`, updated with this
+  batch's findings: 11 newly missing files (7 featured/og_image-only,
+  2 `/starter-tools/` card thumbnails, 1 decorative CTA background,
+  4 inline supporting images on one page), all deferred and
+  non-blocking, none above-the-fold or a direct PDF. No new PDF or
+  tier-1/tier-2-scope files referenced by this batch.
