@@ -39,10 +39,17 @@ for `imports/*.zip`).
 
 Only one file tracked in `MEDIA_IMPORT_PLAN.md` falls in this folder
 (`nonresident-JTW6AUbCLC4-unsplash-3-1.jpg`, Priority C, needed by two
-not-yet-migrated tier-2 pages), and it's still missing — the upload has
-23 differently-suffixed size variants of that image but not the exact
-tracked filename. No Priority A or B files exist in `2023/02`, so this
-upload doesn't affect any currently-migrated page.
+not-yet-migrated tier-2 pages) — the upload has 23 differently-suffixed
+size variants of that image but not the exact tracked filename. No
+Priority A or B files exist in `2023/02`, so this doesn't affect any
+currently-migrated page.
+
+**Decision (2026-07-06): will not chase this file further.** Marked
+"Won't fix" in `MEDIA_IMPORT_PLAN.md`. Left blank pending a redesign of
+the two tier-2 pages that reference it
+(`4-stages-of-movement-unlock-your-next-steps`,
+`breakthrough-guide-for-a-modern-day-disciple`) — not requested in any
+future upload batch.
 
 ## Received (2026-07-06, third upload): second media month folder
 

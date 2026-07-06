@@ -12,7 +12,7 @@ tracked rows matched exactly), `2023/05` (39 files, all 39 tracked rows
 matched exactly), `2023/06` (3 files, all 3 tracked rows matched
 exactly), `2023/07` (6 files, all 6 tracked rows matched exactly),
 `2023/08` (56 files landed, all 5 tracked rows matched exactly plus 51
-untracked size variants), `2023/09` (6 files across two uploads, all 5
+untracked size variants), `2023/09` (6 files across two uploads, all 6
 tracked rows now matched exactly), and `2025/11` (136 files landed, all
 19 tracked rows matched exactly plus 117 untracked size variants) — see
 "Received uploads log" below. Every other row still reads "No" under
@@ -167,7 +167,7 @@ never the actual image/PDF bytes.
 | WordPress path | Type | Source page(s) | Present? | Impressions |
 |---|---|---|---|---:|
 | `/wp-content/uploads/2020/12/Screenshot-2023-09-02-at-4.18.46-PM.png` | png | `/stickers/` | No | 0 |
-| `/wp-content/uploads/2023/02/nonresident-JTW6AUbCLC4-unsplash-3-1.jpg` | jpg | `/4-stages-of-movement-unlock-your-next-steps/`, `/breakthrough-guide-for-a-modern-day-disciple/` | No — near miss, see note | 0 |
+| `/wp-content/uploads/2023/02/nonresident-JTW6AUbCLC4-unsplash-3-1.jpg` | jpg | `/4-stages-of-movement-unlock-your-next-steps/`, `/breakthrough-guide-for-a-modern-day-disciple/` | Won't fix — see note | 0 |
 | `/wp-content/uploads/2023/04/75598-scaled.webp` | webp | `/love-and-obedience-exploring-the-biblical-relationship-between-the-two/` | Yes | 0 |
 | `/wp-content/uploads/2023/04/eliott-reyna-jCEpN62oWL4-unsplash.jpg` | jpg | `/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/` | Yes | 0 |
 | `/wp-content/uploads/2023/04/image-1024x576.jpg` | jpg | `/the-high-price-of-discipleship-what-it-really-costs-to-follow-jesus/` | Yes | 0 |
@@ -249,13 +249,13 @@ folder structure untouched (no renames, no re-encoding, no move to
 
 | Date | Month folder | Files | Notes |
 |---|---|---|---|
-| 2026-07-06 | `2023/02` | 559 | Only 1 file in this folder is tracked in this doc (`nonresident-JTW6AUbCLC4-unsplash-3-1.jpg`, Priority C) and it is **still missing** — the upload contains 23 differently-suffixed size variants (e.g. `nonresident-JTW6AUbCLC4-unsplash-3-1-1024x452.jpg`, `nonresident-JTW6AUbCLC4-unsplash-3-e1675705283323-*.jpg`) but not the exact filename referenced by the two tier-2 pages that need it. No Priority A or B files exist in `2023/02` at all, so this upload has zero effect on any currently-migrated page. |
+| 2026-07-06 | `2023/02` | 559 | Only 1 file in this folder is tracked in this doc (`nonresident-JTW6AUbCLC4-unsplash-3-1.jpg`, Priority C) and it does not exist in the upload at its exact filename — only 23 differently-suffixed size variants (e.g. `nonresident-JTW6AUbCLC4-unsplash-3-1-1024x452.jpg`, `nonresident-JTW6AUbCLC4-unsplash-3-e1675705283323-*.jpg`). No Priority A or B files exist in `2023/02`, so this has zero effect on any currently-migrated page. **Decision (2026-07-06): will not chase this file further.** It's left blank pending a redesign of the two tier-2 pages that reference it (`4-stages-of-movement-unlock-your-next-steps`, `breakthrough-guide-for-a-modern-day-disciple`) — not blocking, not re-requested in future upload batches. |
 | 2026-07-06 | `2023/04` | 47 | **All 47 tracked rows in this folder matched exactly** (4 Priority A, 35 Priority B, 8 Priority C) — every one flipped to "Yes" above. This fixes every currently-broken image on the 3 already-live migrated pages that reference `2023/04` assets (12-disciples, unlocking-APEST, three-thirds). The 1 Priority A row tagged to `what-is-a-simple-church-...` and the 8 Priority C rows are for tier-2 pages not yet migrated, so they're collected ahead of need rather than fixing anything live today. |
 | 2026-07-06 | `2023/05` | 39 | **All 39 tracked rows in this folder matched exactly** (10 Priority A, 9 Priority B, 20 Priority C) — every one flipped to "Yes" above. This fixes every currently-broken image on the 5 already-live migrated pages that reference `2023/05` assets (homepage, three-circles-step-by-step, how-to-evangelize, 15-second-testimony, three-thirds). The remaining Priority C rows (four-fields, DBS, disciple-making-movement, and other tier-2 pages) are collected ahead of need, not fixing anything live today. |
 | 2026-07-06 | `2023/06` | 3 | **All 3 tracked rows in this folder matched exactly** (1 Priority A — `Virtual-Training-Packet.pdf`, 2 Priority B — both used on the homepage) — every one flipped to "Yes" above. This upload arrived as a zip containing macOS `.DS_Store`/`__MACOSX` junk alongside the 3 real files; the junk was excluded during extraction and never touched the repo. |
 | 2026-07-06 | `2023/07` | 6 | **All 6 tracked rows in this folder matched exactly** (1 Priority A, 5 Priority B) — every one flipped to "Yes" above. Same macOS junk pattern as `2023/06` (excluded during extraction). One Priority B file, `personal-evangelism-main-header-1024x576.png`, is tagged to the already-live `/how-to-evangelize-ultimate-step-by-step-guide/` page — confirmed present in that page's `dist/` output. The rest (4 svg icons + 1 header image) are tagged to tier-2 pages not yet migrated (`4-stages-of-movement-unlock-your-next-steps`, `5-proven-strategies-...`), collected ahead of need. |
 | 2026-07-06 | `2023/08` | 56 landed, 5 tracked | **All 5 tracked rows in this folder matched exactly** (5 Priority B, all tagged to the already-live `/how-to-evangelize-ultimate-step-by-step-guide/` page) — every one flipped to "Yes" above. This fixes 5 real broken images on that page. Same macOS junk pattern as `2023/06`/`2023/07` (excluded during extraction). The other 51 files that landed are untracked WordPress-generated size variants of the same 4 base screenshots (e.g. `Screen-Shot-2023-08-07-at-8.24.33-PM-1300x1117.png`) — preserved at their exact original paths since they're real WordPress media, just not individually referenced by any known page or GSC row. |
-| 2026-07-06 | `2023/09` | 5 (first upload) + 1 (follow-up) = 6 | **First upload:** 4 of 5 tracked rows matched (1 Priority A — `3-Circles-Sticker-QR-Code.pdf` — and 3 of 4 Priority C rows, all tagged to `/stickers/`, a tier-2 page not yet migrated). **Still missing after first upload:** `Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.png`. **Follow-up upload (same day):** that exact missing file was supplied individually and now matches exactly — **all 5 tracked `2023/09` rows are present.** No Priority B files exist in `2023/09`, so neither upload affects any currently-migrated page either way (`/stickers/` isn't migrated). Same macOS junk pattern as prior uploads (excluded during extraction). |
+| 2026-07-06 | `2023/09` | 5 (first upload) + 1 (follow-up) = 6 | **First upload:** 5 of 6 tracked rows matched (1 Priority A — `3-Circles-Sticker-QR-Code.pdf` — and 4 of 5 Priority C rows, all tagged to `/stickers/`, a tier-2 page not yet migrated). **Still missing after first upload:** `Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.png`. **Follow-up upload (same day):** that exact missing file was supplied individually and now matches exactly — **all 6 tracked `2023/09` rows are present.** No Priority B files exist in `2023/09`, so neither upload affects any currently-migrated page either way (`/stickers/` isn't migrated). Same macOS junk pattern as prior uploads (excluded during extraction). |
 | 2026-07-06 | `2025/11` | 136 landed, 19 tracked | **All 19 tracked rows in this folder matched exactly** (5 Priority A, 13 Priority B, 1 Priority C) — every one flipped to "Yes" above. 17 of these 19 (4 A + 13 B) are tagged to 5 already-live migrated pages (7-stories-of-hope, bible-verse-about-spreading-the-gospel, testimony-in-the-bible, how-to-evangelize, 15-second-testimony) — this fixes real broken images on all 5. The remaining 2 rows (1 A + 1 C) are tagged to `/the-power-of-sharing-your-testimony-scripture-...`, a tier-2 page not yet migrated. Same macOS junk pattern as prior uploads (excluded during extraction). The other 117 files that landed are untracked size variants and unrelated media in the same month folder — preserved at their exact original paths. Recommend `2025/01` next — now the clear highest-value remaining folder (23 tracked files: 2 A + 6 B + 15 C). |
 
 ## Note on `/movement-resources/12-practice-church-circle/`
@@ -272,11 +272,11 @@ every table above on purpose; they need no local preservation.
 - Priority C: 68 files
 - Priority D: 0 files
 - **Total distinct files tracked: 171**
-- **Present so far: 124 of 171 tracked rows** (all 47 `2023/04` rows —
+- **Present so far: 125 of 171 tracked rows** (all 47 `2023/04` rows —
   4 A, 35 B, 8 C — plus all 39 `2023/05` rows — 10 A, 9 B, 20 C — plus
   all 3 `2023/06` rows — 1 A, 2 B — plus all 6 `2023/07` rows — 1 A,
-  5 B — plus all 5 `2023/08` rows — 5 B — plus all 5 `2023/09` rows —
-  1 A, 4 C — plus all 19 `2025/11` rows — 5 A, 13 B, 1 C. The `2023/02`
+  5 B — plus all 5 `2023/08` rows — 5 B — plus all 6 `2023/09` rows —
+  1 A, 5 C — plus all 19 `2025/11` rows — 5 A, 13 B, 1 C. The `2023/02`
   upload landed on disk but didn't match this doc's one tracked row for
   that folder — see "Received uploads log" above. That's the only gap
   remaining anywhere in the folders received so far)
