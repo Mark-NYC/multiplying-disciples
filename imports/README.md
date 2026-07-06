@@ -296,8 +296,40 @@ Resolving the 5 missing `apostles-meaning` files documented above still
 takes priority over any other folder, since it's the only known broken
 image on a live page right now.
 
-**Next recommended month folder (after that): `2025/03`** — 2 tracked
-files remaining (0 Priority A, 2 Priority B, 0 Priority C).
+## Received (2026-07-06, fifteenth upload): last three tracked folders — 2025/03, 2026/02, 2020/12
+
+Supplied together as a single precisely-scoped zip
+(`ad8a9129-wpcontent.zip`) containing exactly the 4 remaining tracked
+files across these three folders, no extras beyond the usual macOS
+junk (excluded during extraction). Moved into
+`public/wp-content/uploads/2025/03/`, `public/wp-content/uploads/2026/02/`,
+and `public/wp-content/uploads/2020/12/` respectively.
+
+**All 4 matched exactly.** `astro build` re-ran clean (23 pages, no new
+errors), and the `dist/` output was checked precisely:
+
+- `2025/03/gen-z-bible-study.jpg` is genuinely embedded in the
+  already-live `/movement-resources/7-stories-of-hope-complete-facilitation-guide/`
+  page — confirmed it now resolves. **This fixes a real broken image**
+  that was flagged in the previous status update.
+- `2025/03/maxresdefault-7-1024x576.jpg` and
+  `2026/02/Multiply-disciples-in-real-life.webp` (both tagged to the
+  homepage) are confirmed **not** actually embedded in its rendered
+  output — no visible fix, but the files are safely stored for if/when
+  they're used.
+- `2020/12/Screenshot-2023-09-02-at-4.18.46-PM.png` is for `/stickers/`,
+  not yet migrated — no live impact.
+
+**This closes out every tracked month folder** except the `2023/02`
+file marked "Won't fix" (by explicit decision) and the `2025/02` gap.
+
+## The only remaining gap: `2025/02`'s 5 apostles-meaning files
+
+This is now the single outstanding item across the entire 171-file
+tracked list. Please re-upload the full-size originals for those 5
+files specifically — the previous `2025/02` upload only contained
+thumbnail-sized crops. See the "Received (..., twelfth upload)" section
+above for the exact filenames and details.
 
 ## Still needed: media binary files (this is the one blocking thing)
 
