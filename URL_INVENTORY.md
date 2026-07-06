@@ -44,6 +44,18 @@ any page — all migrated pages have real content, not placeholders.)
 Phase 1/2 + 7 from Phase 3 — see `PHASE_3_TIER_1_BATCH.md`). 0 tier-1
 pages remain. Tier-2 (22 URLs) and below are Phase 4+ work.
 
+**Phase 4 status:** Batch 1 of Tier 2 is migrated — 7 of 22 tier-2 URLs
+(see `PHASE_4_TIER_2_BATCH_PLAN.md`): `/5-proven-strategies-unlock-the-
+secrets-of-effective-personal-evangelism/`, `/understanding-biblical-
+discipleship-a-complete-guide-to-following-jesus/`, `/four-fields-of-
+kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-
+kari-shank/`, `/how-to-get-started-in-four-fields-training/`,
+`/disciple-making-movement-books-top-25-must-reads/`, `/prayer-is-
+essential-12-key-prayer-points-for-disciple-making-movements/`,
+`/seven-words-of-jesus-on-the-cross/`. 15 tier-2 URLs remain
+(Batches 2-4, `/stickers/` held separately as Batch 4 pending a
+layout/hub decision).
+
 ## Full inventory — all 122 published posts/pages
 
 Sorted by impressions (real GSC data where available).
@@ -59,15 +71,15 @@ Sorted by impressions (real GSC data where available).
 | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` | article | migrated | 0 | 2,430 | tier-1 |
 | `/how-to-evangelize-ultimate-step-by-step-guide/` | article | migrated | 0 | 1,817 | tier-1 |
 | `/unlocking-the-power-of-apest-the-ultimate-guide/` | article | migrated | 4 | 1,290 | tier-1 |
-| `/5-proven-strategies-unlock-the-secrets-of-effective-personal-evangelism/` | article | not-migrated | 0 | 906 | tier-2 |
+| `/5-proven-strategies-unlock-the-secrets-of-effective-personal-evangelism/` | article | migrated | 0 | 906 | tier-2 |
 | `/three-thirds/` | article | migrated | 13 | 737 | tier-1 |
-| `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` | article | not-migrated | 1 | 609 | tier-2 |
-| `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | page | not-migrated | 7 | 603 | tier-2 |
-| `/how-to-get-started-in-four-fields-training/` | article | not-migrated | 5 | 495 | tier-2 |
-| `/disciple-making-movement-books-top-25-must-reads/` | article | not-migrated | 3 | 415 | tier-2 |
-| `/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/` | article | not-migrated | 2 | 403 | tier-2 |
+| `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` | article | migrated | 1 | 609 | tier-2 |
+| `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | page | migrated | 7 | 603 | tier-2 |
+| `/how-to-get-started-in-four-fields-training/` | article | migrated | 5 | 495 | tier-2 |
+| `/disciple-making-movement-books-top-25-must-reads/` | article | migrated | 3 | 415 | tier-2 |
+| `/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/` | article | migrated | 2 | 403 | tier-2 |
 | `/stickers/` | page | not-migrated | 7 | 359 | tier-2 |
-| `/seven-words-of-jesus-on-the-cross/` | article | not-migrated | 1 | 339 | tier-2 |
+| `/seven-words-of-jesus-on-the-cross/` | article | migrated | 1 | 339 | tier-2 |
 | `/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/` | article | not-migrated | 8 | 335 | tier-2 |
 | `/movement-resources/12-practice-church-circle/` | resource | migrated | 12 | 308 | tier-1 |
 | `/` | homepage | migrated | 23 | 277 | tier-1 |

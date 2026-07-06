@@ -55,15 +55,15 @@ but not yet migrated (renders as "(coming soon)" via `RelatedArticles`).
 
 | Hub | Key articles wired so far | Related tools |
 |---|---|---|
-| Jesus and the Twelve | **12 disciples**, **apostles meaning**, **unlocking APEST**, 7 words on the cross | — |
+| Jesus and the Twelve | **12 disciples**, **apostles meaning**, **unlocking APEST**, **7 words on the cross** | — |
 | Testimony | **15-second testimony**, **testimony in the Bible**, sharing your testimony | 3 Circles, Stories of Hope |
-| Share the Gospel | **how to evangelize**, **bible verse about spreading the gospel**, **3 circles guide**, 5 strategies, finding persons of peace | 3 Circles, Stories of Hope |
+| Share the Gospel | **how to evangelize**, **bible verse about spreading the gospel**, **3 circles guide**, **5 strategies**, finding persons of peace | 3 Circles, Stories of Hope |
 | 3 Circles | **3 circles step-by-step guide**, **how to evangelize** | 3 Circles |
 | Stories of Hope | **7 stories of hope guide**, **12 practice church circle (Church Waffle)** | Stories of Hope |
-| Prayer | prayer walking guide, prayer wheel, Fornier 12 prayer points | — |
-| Disciple Making | biblical discipleship guide, 3 ways to make disciples, radical discipleship, high price of discipleship, disciple-making resources, top 25 books | 3 Circles, Stories of Hope |
+| Prayer | prayer walking guide, prayer wheel, **prayer is essential (12 key prayer points)** | — |
+| Disciple Making | **biblical discipleship guide**, 3 ways to make disciples, radical discipleship, high price of discipleship, disciple-making resources, **top 25 books** | 3 Circles, Stories of Hope |
 | Simple Church | simple church article, **12 practice church circle (Church Waffle)**, **three thirds** | — |
-| Four Fields | four fields article, getting started in four fields training | — |
+| Four Fields | **four fields (Nathan &amp; Kari Shank manual)**, **getting started in four fields training** | — |
 | Church Planting Movements | power of multiplication, 10 qualities, DMM characteristics, 5 examples, under the hood, equipping your church, breaking down barriers, 4 stages of movement | — |
 | Strategy Coordinator | strategy coordinator role article | — |
 
@@ -72,6 +72,16 @@ As of Phase 3, 12 real tier-1 pages are migrated (all of them — see
 renders a real, crawlable link to its final planned URL (verified
 against `URL_INVENTORY.md`, not guessed) — it just shows "(coming soon)"
 until that page is migrated in a later phase.
+
+As of Phase 4 Batch 1, 7 more tier-2 pages are migrated (bolded above
+alongside the tier-1 set — see `PHASE_4_TIER_2_BATCH_PLAN.md`): the
+5 strategies personal evangelism article, the biblical discipleship
+guide, the four fields Nathan &amp; Kari Shank manual, getting started
+in four fields training, the top 25 disciple-making books list, prayer
+is essential (12 key prayer points), and 7 words on the cross. The
+remaining tier-2 key-article slots (prayer walking guide, prayer wheel,
+3 ways to make disciples, radical discipleship, high price of
+discipleship, disciple-making resources) are Batches 2-4 work.
 
 Tool entries themselves (`src/content/tools/`) are not yet created —
 `ToolCTA` renders "(coming soon)" for tool names with no matching entry.

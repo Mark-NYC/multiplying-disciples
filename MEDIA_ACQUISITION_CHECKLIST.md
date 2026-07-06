@@ -237,6 +237,33 @@ they're legitimate external links, consistent with this site's
 | `/wp-content/uploads/2025/11/Two-Gen-Z-Young-People-Having-Spiritual-Conversation-on-Park-Bench.webp` | `public/wp-content/uploads/2025/11/Two-Gen-Z-Young-People-Having-Spiritual-Conversation-on-Park-Bench.webp` | Yes | `/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2025/11/GREAT-COMMISSION-LANDING-1-1.webp` | `public/wp-content/uploads/2025/11/GREAT-COMMISSION-LANDING-1-1.webp` | Yes | `/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/` (tier-1, pending) | 0 |
 
+### Phase 4 — Tier 2 Batch 1 media (2026-07-06)
+
+All 14 media files referenced by the 7 Phase 4 Tier 2 Batch 1 pages
+were confirmed already present under `public/wp-content/uploads/` —
+no new uploads were needed for this batch.
+
+| WordPress path | Expected public path | Binary present? | Referenced by | Impressions |
+|---|---|---|---|---|
+| `/wp-content/uploads/2023/07/personal-evangelism-main-header.png` | `public/wp-content/uploads/2023/07/personal-evangelism-main-header.png` | Yes | `/5-proven-strategies-unlock-the-secrets-of-effective-personal-evangelism/` (tier-2, migrated — featured) | 906 |
+| `/wp-content/uploads/2025/01/disciple-making-leader.webp` | `public/wp-content/uploads/2025/01/disciple-making-leader.webp` | Yes | `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` (tier-2, migrated) | 609 |
+| `/wp-content/uploads/2025/01/reading-the-bible.webp` | `public/wp-content/uploads/2025/01/reading-the-bible.webp` | Yes | `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` (tier-2, migrated) | 609 |
+| `/wp-content/uploads/2025/02/Untitled-design-2025-11-28T172403.122.webp` | `public/wp-content/uploads/2025/02/Untitled-design-2025-11-28T172403.122.webp` | Yes | `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` (tier-2, migrated — featured) | 609 |
+| `/wp-content/uploads/2023/05/4-Fields-e1685451695430.jpg` | `public/wp-content/uploads/2023/05/4-Fields-e1685451695430.jpg` | Yes | `/how-to-get-started-in-four-fields-training/` (tier-2, migrated) | 495 |
+| `/wp-content/uploads/2023/05/4-Fields-1-e1685451774487.jpg` | `public/wp-content/uploads/2023/05/4-Fields-1-e1685451774487.jpg` | Yes | `/how-to-get-started-in-four-fields-training/` (tier-2, migrated) | 495 |
+| `/wp-content/uploads/2023/05/Screenshot-2023-05-06-at-10.05.09-AM.jpg` | `public/wp-content/uploads/2023/05/Screenshot-2023-05-06-at-10.05.09-AM.jpg` | Yes | `/how-to-get-started-in-four-fields-training/` (tier-2, migrated — featured) | 495 |
+| `/wp-content/uploads/2023/04/pexels-photo-2258251.jpeg` | `public/wp-content/uploads/2023/04/pexels-photo-2258251.jpeg` | Yes | `/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/` (tier-2, migrated — featured) | 403 |
+| `/wp-content/uploads/2023/05/pexels-photo-977659.jpeg` | `public/wp-content/uploads/2023/05/pexels-photo-977659.jpeg` | Yes | `/seven-words-of-jesus-on-the-cross/` (tier-2, migrated — featured) | 339 |
+| `/wp-content/uploads/2023/05/books.jpeg` | `public/wp-content/uploads/2023/05/books.jpeg` | Yes | `/disciple-making-movement-books-top-25-must-reads/` (tier-2, migrated — featured) | 415 |
+| `/wp-content/uploads/2023/05/Includes-3-Circles-Video-1-1024x576.jpg` | `public/wp-content/uploads/2023/05/Includes-3-Circles-Video-1-1024x576.jpg` | Yes | `/disciple-making-movement-books-top-25-must-reads/` (tier-2, migrated) | 415 |
+| `/wp-content/uploads/2023/05/Untitled-design-5-1024x576.jpg` | `public/wp-content/uploads/2023/05/Untitled-design-5-1024x576.jpg` | Yes | `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` (tier-2, migrated — featured) | 603 |
+| `/wp-content/uploads/2023/05/4-Fields-Nathan-Shank-2014.pdf` | `public/wp-content/uploads/2023/05/4-Fields-Nathan-Shank-2014.pdf` | Yes | `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` (tier-2, migrated — directly-linked PDF) | 603 |
+
+Note: `/wp-content/uploads/2023/05/Screen-Shot-2023-05-20-at-12.10.25-PM-scaled.jpg`
+is also referenced (inline, `how-to-get-started-in-four-fields-training`) but
+was already tracked as Priority C in `MEDIA_IMPORT_PLAN.md` prior to this
+batch and confirmed present there; not duplicated here.
+
 ## Acquisition priority
 
 1. **Highest** — the 9 rows above with real Search Console impressions

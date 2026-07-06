@@ -12,6 +12,10 @@ pages remain not-migrated. See `PHASE_3_TIER_1_BATCH.md` for what was
 migrated in this phase and `MEDIA_ACQUISITION_CHECKLIST.md` for their
 media dependencies (still no binary files supplied).
 
+**Phase 4 status:** Batch 1 of tier-2 (7 of 22 URLs) is now migrated.
+See `PHASE_4_TIER_2_BATCH_PLAN.md` for the full batch plan and which
+URLs remain in Batches 2-4.
+
 Tiers (per the rule in `URL_INVENTORY.md`):
 - **Tier 1** — more than 1,000 impressions or more than 10 clicks.
 - **Tier 2** — 100 to 999 impressions.
@@ -40,15 +44,15 @@ All 6 "especially important" pages named in the original brief are now migrated.
 | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` | article | 0 | 2,430 | tier-1 | migrated |
 | `/how-to-evangelize-ultimate-step-by-step-guide/` | article | 0 | 1,817 | tier-1 | migrated |
 | `/unlocking-the-power-of-apest-the-ultimate-guide/` | article | 4 | 1,290 | tier-1 | migrated |
-| `/5-proven-strategies-unlock-the-secrets-of-effective-personal-evangelism/` | article | 0 | 906 | tier-2 | not-migrated |
+| `/5-proven-strategies-unlock-the-secrets-of-effective-personal-evangelism/` | article | 0 | 906 | tier-2 | migrated |
 | `/three-thirds/` | article | 13 | 737 | tier-1 | migrated |
-| `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` | article | 1 | 609 | tier-2 | not-migrated |
-| `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | page | 7 | 603 | tier-2 | not-migrated |
-| `/how-to-get-started-in-four-fields-training/` | article | 5 | 495 | tier-2 | not-migrated |
-| `/disciple-making-movement-books-top-25-must-reads/` | article | 3 | 415 | tier-2 | not-migrated |
-| `/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/` | article | 2 | 403 | tier-2 | not-migrated |
+| `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` | article | 1 | 609 | tier-2 | migrated |
+| `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | page | 7 | 603 | tier-2 | migrated |
+| `/how-to-get-started-in-four-fields-training/` | article | 5 | 495 | tier-2 | migrated |
+| `/disciple-making-movement-books-top-25-must-reads/` | article | 3 | 415 | tier-2 | migrated |
+| `/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/` | article | 2 | 403 | tier-2 | migrated |
 | `/stickers/` | page | 7 | 359 | tier-2 | not-migrated |
-| `/seven-words-of-jesus-on-the-cross/` | article | 1 | 339 | tier-2 | not-migrated |
+| `/seven-words-of-jesus-on-the-cross/` | article | 1 | 339 | tier-2 | migrated |
 | `/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/` | article | 8 | 335 | tier-2 | not-migrated |
 | `/movement-resources/12-practice-church-circle/` | resource (page) | 12 | 308 | tier-1 | migrated |
 | `/` | homepage | 23 | 277 | tier-1 | migrated |

@@ -108,7 +108,7 @@ in `PHASE_3_TIER_1_BATCH.md`.
   and no media binary files have been supplied yet. Nothing launched,
   DNS untouched, WordPress untouched.
 
-### Phase 4 — Remaining pages + launch prep (later, not started)
+### Phase 4 — Remaining pages + launch prep (in progress)
 
 Migrate the remaining ~110 published pages (tier-2 and tier-3, real
 counts from the WordPress export) plus decide how to handle
@@ -116,6 +116,22 @@ category/tag archive URLs, using `URL_INVENTORY.md` as the tracking
 sheet. Gated for launch by `LAUNCH_CHECKLIST.md`, which requires 100% of
 old URLs either present in Astro or redirected per `REDIRECTS.md`, and
 all media binaries acquired per `MEDIA_ACQUISITION_CHECKLIST.md`.
+
+**Batch 1 (done):** full batch plan in `PHASE_4_TIER_2_BATCH_PLAN.md`.
+Migrated the 7 highest-value tier-2 pages: 5 strategies for personal
+evangelism, the biblical discipleship guide, the four fields Nathan &
+Kari Shank training manual (the largest single page migrated so far,
+~356KB of embedded book content preserved verbatim), getting started
+in four fields training, the top 25 disciple-making books list, prayer
+is essential (12 key prayer points), and 7 words on the cross. Same
+cleanup discipline as Phases 2-3 (chrome removal, heading
+normalization, absolute-to-relative URL conversion) plus one new
+pattern: converting a raw-HTML rowspan summary table into a flattened
+Markdown table. All 14 distinct media files this batch depends on were
+already present under `public/wp-content/uploads/` — no new uploads
+needed. `astro check` and `astro build` both clean; all 7 URLs verified
+in `dist/` with correct canonicals, no noindex, no broken internal
+links, no hub collisions. 15 tier-2 URLs remain (Batches 2-4).
 
 ## Repo structure
 
