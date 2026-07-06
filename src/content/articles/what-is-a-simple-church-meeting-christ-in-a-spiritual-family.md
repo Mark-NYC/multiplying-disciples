@@ -1,0 +1,92 @@
+---
+title: "What is a Simple Church? Meeting Christ in a Spiritual Family"
+description: "A simple church is a spiritual family that has Christ as King in the areas of loving God, loving others, and making disciples. What house churches are, why people join them, and their core characteristics."
+slug: "/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/"
+canonical: "https://multiplyingdisciples.us/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/"
+hub: "simple-church"
+related_articles:
+  - "/movement-resources/12-practice-church-circle/"
+  - "/three-thirds/"
+  - "/starter-tools/"
+related_tools: []
+og_image: "/wp-content/uploads/2023/04/12044-small-group-bible-study-gettyimages-rawpixel.jpeg"
+status: "migrated"
+migration_priority: "tier-2"
+original_url: "https://multiplyingdisciples.us/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/"
+notes: >
+  Migrated from WordPress post_id 7002. Removed a leading stray
+  Elementor <style> block (no visible content, pure chrome). The
+  opening H2 ("A simple church is a spiritual family...") is a genuine
+  thesis statement, not a duplicate of other body text, so it was kept
+  but reformatted as a lead blockquote rather than a floating H2 with
+  no section beneath it — it introduces the whole piece, not a
+  subsection. Removed a duplicate H4 pull-quote near the end that
+  repeated the "What is Church?" section's sentence ("The church is
+  not a building, but a community of people...") verbatim. Removed the
+  trailing raw-HTML "Are you in? / Start Here." Elementor CTA block,
+  replaced by this article's own related_articles mechanism. Removed a
+  trailing WordPress "related posts" widget (3 raw <article> blocks
+  with dates, titles, and SVG arrow icons) — auto-generated plugin
+  chrome, not authorial content; its 2 linked posts
+  (breaking-the-mold-a-guide-to-shifting-your-church-to-movement-
+  strategy, what-is-a-disciple-making-movement-and-why-does-it-matter)
+  aren't in URL_INVENTORY.md, so they weren't used as related_articles
+  here either. Converted 2 numbered sequences that were plain
+  paragraphs ("1. The Universal Church:" etc., "1. Intimacy:" etc.)
+  into proper Markdown numbered lists, and converted the "Characteristics
+  of Simple Churches" <ul> (which had stray double <br><br> spacing
+  artifacts inside each <li>) into a clean Markdown bullet list.
+  Converted 1 absolute link to starter-tools into a relative path.
+  Featured image 12044-small-group-bible-study-gettyimages-
+  rawpixel.jpeg confirmed present, used as og_image only (page has no
+  inline images, matching the original). Completes the Simple Church
+  hub's 3rd and final key-article slot.
+---
+
+> A simple church is a spiritual family that has Christ as King in the areas of loving God, loving others, and making disciples.
+
+When most people think of a church, they envision a building with a steeple, pews, and a pulpit. However, in the Bible, the word "church" is used in different ways, and one of those ways is the "house church."
+
+**A house church is simply a group of believers who meet regularly in a home for worship, fellowship, and discipleship.**
+
+The concept of a house church is not a new one; in fact, it dates back to the early days of Christianity.
+
+In the New Testament, we see examples of house churches in the book of Acts, where believers met in the homes of Lydia, Aquila and Priscilla, and others. The apostle Paul often wrote letters to these house churches, providing guidance and instruction on how to live out their faith.
+
+### What is Church?
+
+So, what exactly is a church? According to the Bible, a church is a gathering of believers who are committed to Jesus Christ and to one another. This commitment is expressed in a number of ways, including worship, fellowship, prayer, and service.
+
+The church is not a building, but a community of people who are seeking to live out their faith together.
+
+There are three main ways in which the word "church" is used in the Bible:
+
+1. **The Universal Church:** This refers to all believers in all places at all times. It is the collective body of Christ, made up of all those who have put their faith in Jesus.
+2. **The City or Regional Church:** This refers to the church in a specific city or region, such as the church in Jerusalem or the church at Ephesus. These churches were made up of believers who lived in close proximity to one another and who were committed to worshipping and serving together.
+3. **The House Church:** This refers to the church that meets in a person's home. These churches were common in the early days of Christianity, and they continue to be a popular form of church today.
+
+### 5 Reasons People Participate in Simple Church
+
+So, why would someone choose to be part of a house church? There are a number of reasons:
+
+1. **Intimacy:** House churches are typically small, which allows for a greater sense of intimacy and community among the members.
+2. **Flexibility:** House churches are often more flexible than traditional churches when it comes to meeting times, format, and style of worship.
+3. **Participation:** In a house church, everyone has the opportunity to participate in the worship and teaching, rather than simply sitting and listening.
+4. **Discipleship:** House churches often place a greater emphasis on discipleship, as members have more opportunities to build relationships and mentor one another.
+5. **Mission:** House churches are often more effective at reaching out to non-believers, as they are more accessible and less intimidating than traditional churches.
+
+### Characteristics of Simple Churches
+
+- **Christ as the Head:** Simple churches have Christ as the head, and all members submit to His lordship. They are led by the Holy Spirit, who guides and directs their activities.
+- **Intimacy:** Simple churches are built on relationships, not programs. Members meet together in homes or other informal settings, which allows for deeper, more meaningful relationships to form. Members are not just attendees or spectators, but active participants in the community.
+- **Flexibility:** Simple churches are adaptable and flexible to the needs of their members. They can be started anywhere, and their structure can vary depending on the context. They are not bound by traditional church structures, which allows them to be more agile and responsive to the needs of the community.
+- **Multiplication:** Simple churches are designed for multiplication. They are intentionally kept small and simple, making it easy for them to be replicated in other locations. New churches are planted when members feel called to start a new community, and the process continues.
+- **Discipleship:** Simple churches prioritize discipleship, which involves not only learning about Christ but also putting His teachings into practice. Members are encouraged to share their struggles and victories with each other, and they support and hold each other accountable in their faith journey.
+- **Worship:** Simple churches typically have a relaxed and informal style of worship. Members may sing songs or hymns, pray together, read Scripture, and share testimonies. The focus is on building intimacy with God and fostering a sense of community.
+- **Gospel Sharing:** Simple churches have an evangelistic missional focus. Members are encouraged to reach out to their neighbors and friends with the love of Christ, and to share the gospel with those who do not yet know Him. They may also engage in other forms of outreach, such as serving the poor or partnering with other ministries.
+
+### Conclusion
+
+Simple churches are a valuable and effective way to build community and further the kingdom of God. They prioritize intimacy, discipleship, and mission, and they are adaptable and flexible to the needs of their members.
+
+Learn how you can multiply disciples by [getting started with these starter tools](/starter-tools/).

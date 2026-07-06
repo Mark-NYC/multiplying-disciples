@@ -14,6 +14,8 @@ key_articles:
   - "/the-high-price-of-discipleship-what-it-really-costs-to-follow-jesus/"
   - "/disciple-making-resources-for-churches-that-will-multiply/"
   - "/disciple-making-movement-books-top-25-must-reads/"
+  - "/breakthrough-guide-for-a-modern-day-disciple/"
+  - "/love-and-obedience-exploring-the-biblical-relationship-between-the-two/"
 related_tools:
   - "3 Circles"
   - "Stories of Hope"

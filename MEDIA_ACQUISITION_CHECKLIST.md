@@ -299,6 +299,50 @@ tier-2 page, as flagged in `PHASE_4_TIER_2_BATCH_PLAN.md`).
 | `/wp-content/uploads/2023/05/Screen-Shot-2023-04-02-at-7.11.17-AM-copy-2-1024x766.jpg` | `public/wp-content/uploads/2023/05/Screen-Shot-2023-04-02-at-7.11.17-AM-copy-2-1024x766.jpg` | Yes | `/ridiculously-simple-3-ways-to-make-disciples/` (tier-2, migrated) | 164 |
 | `/wp-content/uploads/2023/05/pexels-photo-4051134.jpeg` | `public/wp-content/uploads/2023/05/pexels-photo-4051134.jpeg` | Yes | `/ridiculously-simple-3-ways-to-make-disciples/` (tier-2, migrated — featured) | 164 |
 
+### Phase 4 — Tier 2 Batch 3 media (2026-07-06)
+
+10 of 12 distinct media files referenced by the 7 Phase 4 Tier 2
+Batch 3 pages were confirmed already present under
+`public/wp-content/uploads/` — no new uploads were needed. **2 rows
+were already-known exceptions, both resolved per prior documented
+decisions, neither blocking:**
+
+- `breakthrough-guide-for-a-modern-day-disciple`'s only media
+  dependency (its featured image,
+  `/wp-content/uploads/2023/02/nonresident-JTW6AUbCLC4-unsplash-3-1.jpg`)
+  is the file marked "Won't fix" on 2026-07-06 (see row above under
+  the Tier 1/migrated section). The page body has zero inline images,
+  so this migrated with `og_image` omitted from frontmatter rather
+  than a broken path — no visible content is missing.
+- `4-stages-of-movement-unlock-your-next-steps` also referenced that
+  same "Won't fix" file, but only as a decorative low-opacity CSS
+  background image inside the trailing Elementor CTA block, which was
+  removed as chrome during migration (replaced by the article's own
+  related_articles mechanism) — so this page has no unresolved media
+  dependency at all once migrated.
+- `love-and-obedience-exploring-the-biblical-relationship-between-the-two`'s
+  featured image: WordPress's `_thumbnail_id` attachment record
+  resolves to `/wp-content/uploads/2023/04/75598.webp` (no "-scaled"
+  suffix), but only `75598-scaled.webp` was ever supplied. "-scaled"
+  is WordPress's own auto-generated large-image label for oversized
+  uploads, so this is the same source image at a different
+  auto-generated size, not a different photo — used directly as
+  `og_image`, confirmed present.
+
+| WordPress path | Expected public path | Binary present? | Referenced by | Impressions |
+|---|---|---|---|---|
+| `/wp-content/uploads/2023/04/12044-small-group-bible-study-gettyimages-rawpixel.jpeg` | `public/wp-content/uploads/2023/04/12044-small-group-bible-study-gettyimages-rawpixel.jpeg` | Yes | `/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/` (tier-2, migrated — featured) | 142 |
+| `/wp-content/uploads/2023/04/75598-scaled.webp` | `public/wp-content/uploads/2023/04/75598-scaled.webp` | Yes | `/love-and-obedience-exploring-the-biblical-relationship-between-the-two/` (tier-2, migrated — featured, substitute for mismatched `75598.webp`) | 134 |
+| `/wp-content/uploads/2023/04/maxresdefault-3.jpg` | `public/wp-content/uploads/2023/04/maxresdefault-3.jpg` | Yes | `/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/` (tier-2, migrated — featured) | 107 |
+| `/wp-content/uploads/2023/04/multiplication.jpeg` | `public/wp-content/uploads/2023/04/multiplication.jpeg` | Yes | `/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/` (tier-2, migrated — featured) | 160 |
+| `/wp-content/uploads/2023/05/DBS_2-e1686219964976-1024x538.jpeg` | `public/wp-content/uploads/2023/05/DBS_2-e1686219964976-1024x538.jpeg` | Yes | `/disciple-making-movement-dmm-key-characteristics-and-definition/` (tier-2, migrated) | 128 |
+| `/wp-content/uploads/2023/05/pexels-photo-5543191.jpeg` | `public/wp-content/uploads/2023/05/pexels-photo-5543191.jpeg` | Yes | `/disciple-making-movement-dmm-key-characteristics-and-definition/` (tier-2, migrated — featured) | 128 |
+| `/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement.svg` | `public/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement.svg` | Yes | `/4-stages-of-movement-unlock-your-next-steps/` (tier-2, migrated) | 165 |
+| `/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-2.svg` | `public/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-2.svg` | Yes | `/4-stages-of-movement-unlock-your-next-steps/` (tier-2, migrated) | 165 |
+| `/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-3.svg` | `public/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-3.svg` | Yes | `/4-stages-of-movement-unlock-your-next-steps/` (tier-2, migrated) | 165 |
+| `/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-4.svg` | `public/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-4.svg` | Yes | `/4-stages-of-movement-unlock-your-next-steps/` (tier-2, migrated — featured) | 165 |
+| `/wp-content/uploads/2023/02/nonresident-JTW6AUbCLC4-unsplash-3-1.jpg` | `public/wp-content/uploads/2023/02/nonresident-JTW6AUbCLC4-unsplash-3-1.jpg` | **No — "Won't fix" (2026-07-06)** | `/breakthrough-guide-for-a-modern-day-disciple/` (tier-2, migrated — `og_image` omitted, no inline images); `/4-stages-of-movement-unlock-your-next-steps/` (tier-2, migrated — was decorative CTA background only, chrome removed) | 228 / 165 |
+
 ## Acquisition priority
 
 1. **Highest** — the 9 rows above with real Search Console impressions

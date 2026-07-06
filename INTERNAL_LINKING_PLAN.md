@@ -61,10 +61,10 @@ but not yet migrated (renders as "(coming soon)" via `RelatedArticles`).
 | 3 Circles | **3 circles step-by-step guide**, **how to evangelize** | 3 Circles |
 | Stories of Hope | **7 stories of hope guide**, **12 practice church circle (Church Waffle)** | Stories of Hope |
 | Prayer | **prayer walking guide**, **prayer wheel**, **prayer is essential (12 key prayer points)** | — |
-| Disciple Making | **biblical discipleship guide**, **3 ways to make disciples**, **radical discipleship**, **high price of discipleship**, disciple-making resources, **top 25 books** | 3 Circles, Stories of Hope |
-| Simple Church | simple church article, **12 practice church circle (Church Waffle)**, **three thirds** | — |
+| Disciple Making | **biblical discipleship guide**, **3 ways to make disciples**, **radical discipleship**, **high price of discipleship**, disciple-making resources, **top 25 books**, **breakthrough guide for a modern day disciple**, **love and obedience** | 3 Circles, Stories of Hope |
+| Simple Church | **simple church article**, **12 practice church circle (Church Waffle)**, **three thirds** | — |
 | Four Fields | **four fields (Nathan &amp; Kari Shank manual)**, **getting started in four fields training** | — |
-| Church Planting Movements | power of multiplication, 10 qualities, DMM characteristics, 5 examples, under the hood, equipping your church, breaking down barriers, 4 stages of movement | — |
+| Church Planting Movements | **power of multiplication**, **10 qualities**, **DMM characteristics**, 5 examples, under the hood, equipping your church, breaking down barriers, **4 stages of movement** | — |
 | Strategy Coordinator | **strategy coordinator role article** | — |
 
 As of Phase 3, 12 real tier-1 pages are migrated (all of them — see
@@ -85,9 +85,22 @@ walking guide, the prayer wheel, the strategy coordinator role article,
 3 ways to make disciples, radical discipleship, the high price of
 discipleship, and the power of sharing your testimony scripture. This
 fully completes the Prayer hub (3/3), the Testimony hub (3/3), and the
-Strategy Coordinator hub (1/1, its only slot). The remaining tier-2
-key-article slots (disciple-making resources, and everything in the
-Church Planting Movements hub) are Batches 3-4 work.
+Strategy Coordinator hub (1/1, its only slot).
+
+As of Phase 4 Batch 3, 7 more tier-2 pages are migrated: the
+breakthrough guide for a modern day disciple, 4 stages of movement, the
+power of multiplication, the simple church article, love and
+obedience, DMM key characteristics, and 10 qualities of church planting
+movements. This fully completes the Simple Church hub (3/3) and the
+Church Planting Movements hub's tier-2 scope (4 of its 8 listed slots
+are now migrated — 5-examples, under-the-hood, equipping-your-church,
+and breaking-down-barriers remain tier-3, out of this phase). It also
+adds 2 more slots to Disciple Making (breakthrough guide, love and
+obedience — added directly to that hub's key_articles alongside this
+migration, since neither had a pre-reserved slot from earlier phases).
+Only `/stickers/` remains not-migrated among the 22 real tier-2 URLs
+(Batch 4, pending a layout/media decision — see
+`PHASE_4_TIER_2_BATCH_PLAN.md`).
 
 Tool entries themselves (`src/content/tools/`) are not yet created —
 `ToolCTA` renders "(coming soon)" for tool names with no matching entry.

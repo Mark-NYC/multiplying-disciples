@@ -44,8 +44,8 @@ any page — all migrated pages have real content, not placeholders.)
 Phase 1/2 + 7 from Phase 3 — see `PHASE_3_TIER_1_BATCH.md`). 0 tier-1
 pages remain. Tier-2 (22 URLs) and below are Phase 4+ work.
 
-**Phase 4 status:** Batches 1 and 2 of Tier 2 are migrated — 14 of 22
-tier-2 URLs (see `PHASE_4_TIER_2_BATCH_PLAN.md`). Batch 1: `/5-proven-
+**Phase 4 status:** Batches 1, 2, and 3 of Tier 2 are migrated — 21 of
+22 tier-2 URLs (see `PHASE_4_TIER_2_BATCH_PLAN.md`). Batch 1: `/5-proven-
 strategies-unlock-the-secrets-of-effective-personal-evangelism/`,
 `/understanding-biblical-discipleship-a-complete-guide-to-following-
 jesus/`, `/four-fields-of-kingdom-growth-starting-and-releasing-
@@ -60,9 +60,16 @@ hour-of-prayer-that-actually-works/`, `/radical-discipleship-
 understanding-what-it-means-and-how-to-live-it/`, `/the-power-of-
 sharing-your-testimony-scripture-7-biblical-reasons-you-cant-stay-
 silent/`, `/the-high-price-of-discipleship-what-it-really-costs-to-
-follow-jesus/`, `/ridiculously-simple-3-ways-to-make-disciples/`. 8
-tier-2 URLs remain (Batches 3-4, `/stickers/` held separately as
-Batch 4 pending a layout/hub decision).
+follow-jesus/`, `/ridiculously-simple-3-ways-to-make-disciples/`.
+Batch 3: `/breakthrough-guide-for-a-modern-day-disciple/`,
+`/4-stages-of-movement-unlock-your-next-steps/`, `/the-power-of-
+multiplication-how-church-planting-movements-accomplish-the-great-
+commission/`, `/what-is-a-simple-church-meeting-christ-in-a-spiritual-
+family/`, `/love-and-obedience-exploring-the-biblical-relationship-
+between-the-two/`, `/disciple-making-movement-dmm-key-characteristics-
+and-definition/`, `/10-qualities-present-in-every-church-planting-
+movement-keys-to-sustainable-growth-and-multiplication/`. Only
+`/stickers/` remains (Batch 4, pending a layout/media decision).
 
 ## Full inventory — all 122 published posts/pages
 
@@ -91,19 +98,19 @@ Sorted by impressions (real GSC data where available).
 | `/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/` | article | migrated | 8 | 335 | tier-2 |
 | `/movement-resources/12-practice-church-circle/` | resource | migrated | 12 | 308 | tier-1 |
 | `/` | homepage | migrated | 23 | 277 | tier-1 |
-| `/breakthrough-guide-for-a-modern-day-disciple/` | article | not-migrated | 0 | 228 | tier-2 |
+| `/breakthrough-guide-for-a-modern-day-disciple/` | article | migrated | 0 | 228 | tier-2 |
 | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` | article | migrated | 4 | 228 | tier-2 |
 | `/christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/` | article | migrated | 4 | 190 | tier-2 |
 | `/radical-discipleship-understanding-what-it-means-and-how-to-live-it/` | article | migrated | 1 | 181 | tier-2 |
 | `/the-power-of-sharing-your-testimony-scripture-7-biblical-reasons-you-cant-stay-silent/` | article | migrated | 0 | 166 | tier-2 |
 | `/the-high-price-of-discipleship-what-it-really-costs-to-follow-jesus/` | article | migrated | 2 | 165 | tier-2 |
-| `/4-stages-of-movement-unlock-your-next-steps/` | article | not-migrated | 7 | 165 | tier-2 |
+| `/4-stages-of-movement-unlock-your-next-steps/` | article | migrated | 7 | 165 | tier-2 |
 | `/ridiculously-simple-3-ways-to-make-disciples/` | article | migrated | 0 | 164 | tier-2 |
-| `/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/` | article | not-migrated | 0 | 160 | tier-2 |
-| `/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/` | article | not-migrated | 0 | 142 | tier-2 |
-| `/love-and-obedience-exploring-the-biblical-relationship-between-the-two/` | article | not-migrated | 1 | 134 | tier-2 |
-| `/disciple-making-movement-dmm-key-characteristics-and-definition/` | article | not-migrated | 3 | 128 | tier-2 |
-| `/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/` | article | not-migrated | 1 | 107 | tier-2 |
+| `/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/` | article | migrated | 0 | 160 | tier-2 |
+| `/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/` | article | migrated | 0 | 142 | tier-2 |
+| `/love-and-obedience-exploring-the-biblical-relationship-between-the-two/` | article | migrated | 1 | 134 | tier-2 |
+| `/disciple-making-movement-dmm-key-characteristics-and-definition/` | article | migrated | 3 | 128 | tier-2 |
+| `/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/` | article | migrated | 1 | 107 | tier-2 |
 | `/blog/` | page | not-migrated | 0 | 95 | tier-3 |
 | `/disciple-making-resources-for-churches-that-will-multiply/` | article | not-migrated | 1 | 92 | tier-3 |
 | `/under-the-hood-of-disciple-making-movements/` | article | not-migrated | 0 | 86 | tier-3 |

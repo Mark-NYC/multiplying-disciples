@@ -152,6 +152,32 @@ with correct canonicals, no noindex, no broken internal links (including
 the repointed in-page anchors), no hub collisions. 8 tier-2 URLs remain
 (Batches 3-4).
 
+**Batch 3 (done):** migrated the next 7 tier-2 pages: the breakthrough
+guide for a modern day disciple, 4 stages of movement, the power of
+multiplication, the simple church article, love and obedience, DMM key
+characteristics, and 10 qualities of church planting movements. Fully
+completes the Simple Church hub (3/3) and brings the Church Planting
+Movements hub to 4 of its 8 listed slots (the remaining 4 are tier-3,
+out of this phase). Handled 2 pages sharing a previously-documented
+"Won't fix" deferred media file (`breakthrough-guide-for-a-modern-day-
+disciple` migrated with `og_image` omitted since it has no inline
+images; `4-stages-of-movement-unlock-your-next-steps` needed the file
+only as a decorative CTA-block background that was removed as chrome)
+and 1 page with a previously-documented featured-image filename
+mismatch (`love-and-obedience-exploring-the-biblical-relationship-
+between-the-two`, resolved by using the tracked `-scaled` variant,
+WordPress's own auto-generated large-image size, not a different
+photo). Same cleanup discipline as Batches 1-2 (chrome removal, heading
+normalization, duplicate pull-quote removal, absolute-to-relative URL
+conversion, one Spotify-embed-to-plain-link conversion, one raw-HTML-
+table-to-Markdown-table flattening). All 10 non-deferred media files
+this batch depends on were already present. `astro check` and `astro
+build` both clean; all 7 URLs verified in `dist/` with correct
+canonicals, no noindex, no broken internal links, no hub collisions,
+and confirmed the deferred file appears nowhere in the rendered output.
+This completes 21 of the 22 real tier-2 URLs — only `/stickers/`
+remains, held for Batch 4 pending a layout/media decision.
+
 ## Repo structure
 
 ```
