@@ -48,9 +48,10 @@ until every item below is checked and a human has signed off.
       `src/pages/blog/index.astro`). Dynamically lists every migrated
       article (40 as of Phase 7B Batch 1, 47 as of Phase 7B Batch 2,
       54 as of Phase 7B Batch 3, 60 as of Phase 7B Batch 4, 65 as of
-      Phase 7B Batch 5 — excludes `/privacy-policy/`,
-      `/kingdom-ministry-training/`, and
-      `/the-four-fields-sticker-simple-2x2/` via `exclude_from_blog`,
+      Phase 7B Batch 5, 71 as of Phase 7B Batch 6 — excludes
+      `/privacy-policy/`, `/kingdom-ministry-training/`,
+      `/the-four-fields-sticker-simple-2x2/`, and `/contact-us/` via
+      `exclude_from_blog`,
       was 33), links all
       11 hubs,
       correct canonical/title/description, no noindex, sitemap
@@ -74,6 +75,24 @@ until every item below is checked and a human has signed off.
 - Do not delete or replace the WordPress site.
 - Do not rewrite the whole site.
 - Do not change existing URL paths.
+
+## Status snapshot (Phase 7B Batch 6)
+
+Sixth Tier 3 batch migrated — 7 pages, see
+`PHASE_7B_TIER_3_BATCH_6.md`. `/contact-us/` received the special
+inspection this batch called for: a utility contact page whose Brevo
+subscription form embed could not be migrated (no form-handling
+infrastructure exists in the Astro project), replaced with a plain
+`mailto:contact@multiplyingdisciples.us` fallback and documented; no
+hub, no tool CTA, no related_articles, `exclude_from_blog: true`
+(same reasoning as `/privacy-policy/`). 1 hub gained 1 new
+`key_articles` entry (Disciple Making) and another hub gained 5
+(Church Planting Movements, now 21 slots). 88 pages now build clean
+(was 81). 5 tier-3 URLs remain of the original 48. 5 more media files
+found missing, plus 1 resolved as present under a dedup `-1` suffix
+(all deferred, non-blocking — see `MEDIA_ACQUISITION_CHECKLIST.md`).
+No slug issues or hub collisions found. Still no redirects
+implemented, nothing launched.
 
 ## Status snapshot (Phase 7B Batch 5)
 

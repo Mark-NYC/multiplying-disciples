@@ -21,6 +21,7 @@ key_articles:
   - "/discovering-the-disciple-meaning-a-life-changing-journey/"
   - "/unlock-the-power-of-friendly-accountability/"
   - "/discover-the-game-changing-secrets-starfish-and-the-spirit-review/"
+  - "/the-3-core-habits-of-a-disciple/"
 related_tools:
   - "3 Circles"
   - "Stories of Hope"

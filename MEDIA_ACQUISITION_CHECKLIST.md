@@ -171,6 +171,37 @@ see `PHASE_7B_TIER_3_BATCH_5.md` for the full breakdown.
 `/kingdom-ministry-training/` reference no missing media (the latter's
 featured image and linked screenshot/PDF are all confirmed present).
 
+**Phase 7B Batch 6 gap — deferred, not blocking:** migrating the
+sixth Tier 3 batch surfaced 5 more genuinely missing files across 3
+of the 7 pages. 2 are featured/`og_image`-only (omitted, same pattern
+as every prior phase): `2023/06/pexels-photo-6146961.jpeg`
+(filtering-unlock-this-essential-for-disciple-making-movements) and
+`2024/10/Muddy-Boots-Leadership.jpg`
+(setting-the-stage-jesus-as-the-model-for-muddy-boots-church-planting
+— the entire `2024/10` month folder has never been supplied). 3 are
+inline supporting images on `/the-3-core-habits-of-a-disciple/`,
+dropped with their surrounding prose left intact:
+`2025/03/oikos-map-example.jpg`, `2025/03/15-Second-Testimony-Format.jpg`,
+and `2025/03/3-Circles-English-presentation.jpg` (the `2025/03` month
+folder was supplied but only contains 2 unrelated files). Separately,
+2 files were resolved as present, not missing: the
+"Includes-3-Circles-Video" image referenced on
+`/filtering-unlock-this-essential-for-disciple-making-movements/` is
+present under a dedup `-1` suffix
+(`2023/05/Includes-3-Circles-Video-1-1024x576.jpg`, same pattern as
+Batches 4-5), and 2 `images.pexels.com` hotlinked images on the same
+page were kept as external hotlinks per the established precedent
+(e.g. `/7-surprising-disciple-making-movement-examples/`), not treated
+as local media at all. `/contact-us/` references no media (its Brevo
+subscription form was replaced with a `mailto:` fallback — see
+`PHASE_7B_TIER_3_BATCH_6.md`). None of the missing files block the
+batch — see `PHASE_7B_TIER_3_BATCH_6.md` for the full breakdown.
+`/go-slow-to-go-fast-could-transform-your-leadership-pipeline/`,
+`/start-strengthen-sustain-core-insights-on-building-lasting-ministry/`,
+and `/next-gen-local-owners-building-beachheads-of-the-kingdom/`
+reference no missing media — all featured and inline images confirmed
+present.
+
 **Received-uploads log:**
 
 - 2026-07-06 — `2023/02` month folder (559 files) supplied and extracted

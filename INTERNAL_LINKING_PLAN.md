@@ -199,6 +199,21 @@ discover-the-game-changing-secrets-starfish-and-the-spirit-review both
 add to **Disciple Making**. See `PHASE_7B_TIER_3_BATCH_5.md` for the
 full batch plan.
 
+As of Phase 7B Batch 6, 7 more pages are migrated: `/contact-us/` (no
+hub assignment, no tool CTA, no related_articles — a utility contact
+page whose Brevo subscription form could not be migrated and was
+replaced with a `mailto:` fallback; the third page after
+`/privacy-policy/` and `/kingdom-ministry-training/` to use
+`exclude_from_blog: true`), plus 6 articles: the-3-core-habits-of-a-disciple
+adds to **Disciple Making**; and
+filtering-unlock-this-essential-for-disciple-making-movements,
+setting-the-stage-jesus-as-the-model-for-muddy-boots-church-planting,
+go-slow-to-go-fast-could-transform-your-leadership-pipeline,
+start-strengthen-sustain-core-insights-on-building-lasting-ministry,
+and next-gen-local-owners-building-beachheads-of-the-kingdom all add
+to **Church Planting Movements** (now 21 slots). See
+`PHASE_7B_TIER_3_BATCH_6.md` for the full batch plan.
+
 Tool entries themselves (`src/content/tools/`) are not yet created —
 `ToolCTA` renders "(coming soon)" for tool names with no matching entry.
 Creating real tool pages (3 Circles, Stories of Hope, etc.) is future
@@ -210,8 +225,9 @@ Built in Phase 7A (`src/pages/blog/index.astro`) as a new site-wide
 directory, not a per-hub mechanism: it dynamically lists every
 migrated article (33 at launch, 40 after Phase 7B Batch 1, 47 after
 Phase 7B Batch 2, 54 after Phase 7B Batch 3, 60 after Phase 7B Batch 4,
-65 after Phase 7B Batch 5 — excluding `/privacy-policy/`,
-`/kingdom-ministry-training/`, and `/the-four-fields-sticker-simple-2x2/`
+65 after Phase 7B Batch 5, 71 after Phase 7B Batch 6 — excluding
+`/privacy-policy/`, `/kingdom-ministry-training/`,
+`/the-four-fields-sticker-simple-2x2/`, and `/contact-us/`
 via their `exclude_from_blog` flags,
 growing automatically as more are migrated — sorted
 by tier, then by best-available date) and links out to all 11

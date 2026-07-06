@@ -624,6 +624,64 @@ guessed slugs, and `/blog/` now lists 65 articles (60 + 5 blog-eligible
 correctly excluded via `exclude_from_blog`). No redirects implemented.
 13 tier-3 URLs remain.
 
+### Phase 7B Batch 6 — Sixth Tier 3 batch (done)
+
+Migrated the sixth 7 Tier 3 pages, per `PHASE_7B_TIER_3_BATCH_6.md`.
+Re-derivation confirmed 12 (not 13) Tier 3 URLs actually remained
+not-migrated — a minor count correction, not a selection error — and
+the 7 recommended URLs were exactly the top 7 by impressions.
+
+`/contact-us/` received the special inspection this batch called for:
+confirmed via the WordPress export as a utility page (post_id 2181)
+whose entire visible content was an H1 "Connect" heading plus a
+Brevo/Sendinblue subscription-form embed (First Name, Email, Country,
+Zip Code, an "I am interested in..." checkbox group, reCAPTCHA, and
+~250 lines of embedded CSS/JS) — the same Brevo form already converted
+to a plain CTA on `/content-vs-systems-the-game-changer-for-leadership-development/`
+in Batch 5. The Astro project has no form-handling infrastructure, so
+the form could not be migrated directly; it was replaced with a plain
+`mailto:contact@multiplyingdisciples.us` fallback (the same address
+already used as a real `mailto:` link on `/privacy-policy/` in Batch
+4), documented as a temporary preserved fallback in the page's own
+frontmatter notes. No hub, no tool CTA, no related_articles.
+**Excluded from `/blog/`** via `exclude_from_blog: true`, same
+reasoning as `/privacy-policy/`.
+
+Plus 6 articles: `/the-3-core-habits-of-a-disciple/` (added to
+**Disciple Making**); `/filtering-unlock-this-essential-for-disciple-making-movements/`,
+`/setting-the-stage-jesus-as-the-model-for-muddy-boots-church-planting/`,
+`/go-slow-to-go-fast-could-transform-your-leadership-pipeline/`,
+`/start-strengthen-sustain-core-insights-on-building-lasting-ministry/`,
+and `/next-gen-local-owners-building-beachheads-of-the-kingdom/` (all
+5 added to **Church Planting Movements**, now 21 slots).
+
+Same cleanup discipline as every prior phase: removed 3 trailing
+reusable "Are you in? / Start Here." CTA blocks (`wp:block` refs),
+3 duplicate pull-quote `<h4>` blocks, and 2 stray Elementor `<style>`
+blocks. Converted a Spotify podcast embed and 2 Apple Podcasts embeds
+to plain links. Converted a raw-HTML "Key Takeaways" table to a
+Markdown table. Represented `has-base-2-background-color` highlighted
+paragraphs and one highlighted list as blockquotes. Converted a
+closing "Four Fields Action Guide" + `[sibwp_form id=2]` block into a
+plain CTA linking to the real migrated Four Fields article (same
+conversion precedent as Batch 5). Kept 2 `images.pexels.com` hotlinked
+images with their captions (external, not locally hosted — established
+precedent).
+
+5 media files across 3 of these pages are missing from supplied
+uploads (2 featured/`og_image`-only, 3 inline supporting images on one
+page whose month folder was only partially supplied), plus 1 file
+resolved as present under a WordPress dedup `-1` suffix (not counted
+as missing) — all deferred, non-blocking, none above-the-fold, a
+contact-functionality blocker, or a direct-access PDF; see
+`PHASE_7B_TIER_3_BATCH_6.md` and `MEDIA_ACQUISITION_CHECKLIST.md` for
+the full breakdown. `astro check`/`astro build` clean, 88 pages (was
+81). Verified in `dist/`: all 7 canonicals correct, no noindex, exactly
+1 H1 each, no broken internal links introduced by this batch, no hub
+collisions, no guessed slugs, and `/blog/` now lists 71 articles (65 +
+6 blog-eligible — `/contact-us/` correctly excluded via
+`exclude_from_blog`). No redirects implemented. 5 tier-3 URLs remain.
+
 ## Repo structure
 
 ```

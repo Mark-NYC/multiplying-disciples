@@ -238,6 +238,34 @@ build clean (was 74). `/blog/` lists 65 articles (60 + 5 blog-eligible
 correctly excluded via `exclude_from_blog`). 13 tier-3 URLs remain
 (20 − 7).
 
+**Phase 7B Batch 6 status:** sixth Tier 3 batch migrated — 7 pages,
+see `PHASE_7B_TIER_3_BATCH_6.md`. Batch list re-derived directly from
+this file, confirming all 7 recommended URLs were indeed the top 7
+remaining tier-3 rows by impressions (re-derivation also caught that
+the actual remaining-tier-3 count was 12, not the 13 carried forward
+in the prior batch's note — a minor count discrepancy, not a selection
+error). `/contact-us/` (a page, not an article) received the special
+inspection this batch called for: its Brevo/Sendinblue subscription
+form could not be migrated (the Astro project has no form-handling
+infrastructure), so it was replaced with a plain
+`mailto:contact@multiplyingdisciples.us` fallback (same address used
+on `/privacy-policy/` in Batch 4) and documented in the page's own
+frontmatter notes; no hub, no tool CTA, no related_articles, and
+`exclude_from_blog: true` (same reasoning as `/privacy-policy/`). Plus
+6 articles: `/the-3-core-habits-of-a-disciple/` → Disciple Making hub;
+`/filtering-unlock-this-essential-for-disciple-making-movements/`,
+`/setting-the-stage-jesus-as-the-model-for-muddy-boots-church-planting/`,
+`/go-slow-to-go-fast-could-transform-your-leadership-pipeline/`,
+`/start-strengthen-sustain-core-insights-on-building-lasting-ministry/`,
+and `/next-gen-local-owners-building-beachheads-of-the-kingdom/` → all
+5 to Church Planting Movements hub (now 21 slots). 5 files across 3 of
+these pages are missing from supplied uploads (2 featured/og_images, 3
+inline supporting images on one page) — all deferred, non-blocking;
+see `PHASE_7B_TIER_3_BATCH_6.md` and `MEDIA_ACQUISITION_CHECKLIST.md`
+for the full breakdown. 88 pages now build clean (was 81). `/blog/`
+lists 71 articles (65 + 6 blog-eligible — `/contact-us/` correctly
+excluded via `exclude_from_blog`). 5 tier-3 URLs remain (12 − 7).
+
 ## Full inventory — all 122 published posts/pages
 
 Sorted by impressions (real GSC data where available).
@@ -314,13 +342,13 @@ Sorted by impressions (real GSC data where available).
 | `/unlock-the-power-of-friendly-accountability/` | article | migrated | 0 | 17 | tier-3 |
 | `/discover-the-game-changing-secrets-starfish-and-the-spirit-review/` | article | migrated | 1 | 17 | tier-3 |
 | `/the-four-fields-sticker-simple-2x2/` | page | migrated | 3 | 14 | tier-3 |
-| `/filtering-unlock-this-essential-for-disciple-making-movements/` | article | not-migrated | 0 | 10 | tier-3 |
-| `/the-3-core-habits-of-a-disciple/` | article | not-migrated | 0 | 10 | tier-3 |
-| `/contact-us/` | page | not-migrated | 0 | 7 | tier-3 |
-| `/setting-the-stage-jesus-as-the-model-for-muddy-boots-church-planting/` | article | not-migrated | 0 | 7 | tier-3 |
-| `/go-slow-to-go-fast-could-transform-your-leadership-pipeline/` | article | not-migrated | 0 | 7 | tier-3 |
-| `/start-strengthen-sustain-core-insights-on-building-lasting-ministry/` | article | not-migrated | 0 | 5 | tier-3 |
-| `/next-gen-local-owners-building-beachheads-of-the-kingdom/` | article | not-migrated | 0 | 4 | tier-3 |
+| `/filtering-unlock-this-essential-for-disciple-making-movements/` | article | migrated | 0 | 10 | tier-3 |
+| `/the-3-core-habits-of-a-disciple/` | article | migrated | 0 | 10 | tier-3 |
+| `/contact-us/` | page | migrated | 0 | 7 | tier-3 |
+| `/setting-the-stage-jesus-as-the-model-for-muddy-boots-church-planting/` | article | migrated | 0 | 7 | tier-3 |
+| `/go-slow-to-go-fast-could-transform-your-leadership-pipeline/` | article | migrated | 0 | 7 | tier-3 |
+| `/start-strengthen-sustain-core-insights-on-building-lasting-ministry/` | article | migrated | 0 | 5 | tier-3 |
+| `/next-gen-local-owners-building-beachheads-of-the-kingdom/` | article | migrated | 0 | 4 | tier-3 |
 | `/action-plan/` | page | not-migrated | 0 | 2 | tier-3 |
 | `/get-ready-to-be-empowered-evangelists-revolutionize-disciple-making/` | article | not-migrated | 0 | 2 | tier-3 |
 | `/4-responses-to-the-gospel/` | page | not-migrated | 0 | 1 | tier-3 |

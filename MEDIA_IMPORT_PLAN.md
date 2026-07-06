@@ -373,3 +373,14 @@ every table above on purpose; they need no local preservation.
   `/kingdom-ministry-training/` was already confirmed present in an
   earlier phase — no new PDF or tier-1/tier-2-scope files referenced
   by this batch.
+- **Phase 7B Batch 6:** same tier-3 scope note as Batch 1 above —
+  tracked in `MEDIA_ACQUISITION_CHECKLIST.md`, updated with this
+  batch's findings: 5 newly missing files (2 featured/og_image-only,
+  3 inline supporting images on one page), plus 1 file resolved as
+  present under a WordPress dedup `-1` suffix and 2 kept as external
+  `images.pexels.com` hotlinks (neither counted as missing), all
+  deferred and non-blocking, none above-the-fold, contact-functionality,
+  or a direct-access PDF. `/contact-us/` referenced no media at all —
+  its Brevo subscription form was replaced with a `mailto:` fallback,
+  documented in `PHASE_7B_TIER_3_BATCH_6.md`. No new PDF or
+  tier-1/tier-2-scope files referenced by this batch.

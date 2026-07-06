@@ -24,6 +24,11 @@ key_articles:
   - "/spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication/"
   - "/unleashing-the-movement-how-paul-catalyzed-a-disciple-making-movement-in-ephesus-lessons-for-todays-church/"
   - "/content-vs-systems-the-game-changer-for-leadership-development/"
+  - "/filtering-unlock-this-essential-for-disciple-making-movements/"
+  - "/setting-the-stage-jesus-as-the-model-for-muddy-boots-church-planting/"
+  - "/go-slow-to-go-fast-could-transform-your-leadership-pipeline/"
+  - "/start-strengthen-sustain-core-insights-on-building-lasting-ministry/"
+  - "/next-gen-local-owners-building-beachheads-of-the-kingdom/"
 related_tools: []
 next_step:
   label: "See the 4 stages of movement"
