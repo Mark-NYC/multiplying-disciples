@@ -142,7 +142,7 @@ It doesn't require any special training or equipment, and anyone can use it. By 
 
 #### Conclusion
 
-If you're looking for a simple and effective way to share the gospel, the Three Circles tool is an excellent option. See a [step-by-step Google Slide deck on 3 Circles here](https://multiplyingdisciples.us/3-circles/).
+If you're looking for a simple and effective way to share the gospel, the Three Circles tool is an excellent option. See a [step-by-step Google Slide deck on 3 Circles here](/3-circles/).
 
 With just a piece of paper and a pen, you can help others understand the fundamental concepts of sin, brokenness, and salvation. By sharing your own personal testimony and using the Three Circles, you can help others find the salvation Jesus alone offers us.
 
@@ -228,4 +228,4 @@ Recognizing these different types of "soil" can help us understand how to highli
 
 Get starter tools and coaching to multiply disciples, leaders, and churches in your city.
 
-[Start Training](https://multiplyingdisciples.us/free-training) &middot; [Connect](/contact-us/)
+[Start Training](/free-training/) &middot; [Connect](/contact-us/)

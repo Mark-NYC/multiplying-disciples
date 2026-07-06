@@ -46,10 +46,35 @@ until every item below is checked and a human has signed off.
 - Do not rewrite the whole site.
 - Do not change existing URL paths.
 
-## Status snapshot (Phase 1)
+## Status snapshot (Phase 5)
 
-Every box above is currently unchecked. The current repo state covers:
-foundation (layouts/components/schema/docs), a real 122-page inventory
-with real Search Console tiers documented, 5 pages migrated with real
-content, 11 new hub pages drafted. ~117 published pages and all media
-binaries still remain. Nothing here should be read as launch-ready.
+Every box above is still unchecked — none of them can be honestly
+checked until 100% of the 122-page inventory is migrated or
+redirected, which is not yet the case. Progress so far:
+
+- Full Search Console export: obtained (Phase 2, 2026-07-06).
+- Protected URL inventory: built from real data, 122 published
+  posts/pages classified into real tiers (`URL_INVENTORY.md`,
+  `PROTECTED_URLS.md`).
+- Migrated: all 12 tier-1 URLs + all 22 tier-2 URLs (34 of 122, 100%
+  of tier-1/2). 48 tier-3 URLs and 40 "unknown"-tier URLs remain
+  not-migrated — this is most of what's left before every box above
+  can be checked.
+- **Phase 5 protected URL audit (`PHASE_5_PROTECTED_URL_AUDIT.md`)
+  completed:** every one of the 34 migrated tier-1/2 URLs individually
+  verified against the generated `dist/` output — exact path
+  preservation, trailing slash, canonical correctness, no accidental
+  noindex, title/description/H1 present, no stray absolute internal
+  links, no guessed slugs, no hub collisions, sitemap is an exact
+  match to the generated pages, robots.txt correct. 2 real bugs found
+  and fixed (a duplicate H1, 3 stray absolute internal links). This
+  satisfies the *canonical test*, *robots.txt test*, and *internal
+  link crawl* items above **for the currently-migrated 34 URLs only**
+  — they are not checked off above because those items describe the
+  full, eventual site, not a subset, and re-verification will be
+  needed again after Tier 3 lands.
+- 1 known, explicitly deferred media gap remains (`apostles-meaning`,
+  2 broken images — see `MEDIA_ACQUISITION_CHECKLIST.md`).
+- Media/redirects/full-sitemap/Lighthouse/rollback items remain
+  unaddressed pending full-site completion. Nothing here should be
+  read as launch-ready.

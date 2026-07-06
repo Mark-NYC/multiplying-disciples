@@ -74,6 +74,16 @@ page, migrated into the existing articles collection with no new
 content type; see `PHASE_4_TIER_2_BATCH_PLAN.md` for the layout
 decision and media findings). 0 tier-2 URLs remain.
 
+**Phase 5 status:** full protected URL audit completed across all 34
+migrated tier-1/tier-2 URLs — see `PHASE_5_PROTECTED_URL_AUDIT.md`.
+Found and fixed 2 real bugs (a duplicate H1, 3 stray absolute internal
+links). All 34 URLs re-confirmed preserved at their exact original
+path with correct canonical, no noindex, no guessed slugs, no hub
+collisions. Sitemap confirmed an exact match to the 45 built pages.
+1 known deferred media gap (`apostles-meaning`, 2 images) unchanged.
+Next: Tier 3 (48 URLs) + the 40 "unknown"-tier URLs + the
+category/tag archive URL question.
+
 ## Full inventory — all 122 published posts/pages
 
 Sorted by impressions (real GSC data where available).

@@ -316,3 +316,13 @@ every table above on purpose; they need no local preservation.
   chrome never rendered on the live site, dropped during migration, not
   needed. See "Received uploads log" above and
   `PHASE_4_TIER_2_BATCH_PLAN.md` row 7.
+- **Phase 5 re-confirmation:** the protected URL audit
+  (`PHASE_5_PROTECTED_URL_AUDIT.md`) independently re-checked every
+  image reference across all 45 built pages against disk. Result
+  unchanged: the 2 `apostles-meaning` Priority B files remain the only
+  gap on any migrated page. All 6 direct-hit PDFs with their own GSC
+  impressions (`4-Fields-Nathan-Shank-2014.pdf`,
+  `Church-Waffle-English-04-2023.pdf`, `Virtual-Training-Packet.pdf`,
+  `Church-Waffle-English-112222-1.pdf`,
+  `4-Fields-Toolbox-Updated-03.31.23.pdf`,
+  `3-Circles-Sticker-QR-Code.pdf`) reconfirmed present on disk.

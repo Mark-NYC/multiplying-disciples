@@ -208,6 +208,37 @@ noindex, no broken internal/external links, no broken images, no hub
 collision, no guessed slugs. **This completes all 22 of 22 real
 tier-2 URLs — Tier 2 is now 100% migrated.**
 
+### Phase 5 — Protected URL audit (done)
+
+Full audit of all 34 migrated tier-1/tier-2 URLs before starting Tier
+3, per `PHASE_5_PROTECTED_URL_AUDIT.md`. Verified against fresh
+`astro check`/`astro build` output and the generated `dist/` files
+directly (not just source): exact path/trailing-slash preservation,
+canonical correctness, no accidental noindex, title/description/H1
+present, crawlable internal links, related-link resolution, media
+presence, no stray absolute internal links, no guessed slugs, no hub
+collisions, no duplicate pages at wrong slugs — plus the homepage, all
+11 hubs, `/stickers/`, 6 direct-hit PDFs with GSC impressions, the
+generated sitemap, and `robots.txt`.
+
+Found and fixed 2 real, pre-existing bugs: a duplicate H1 on the Four
+Fields manual page (a stray level-1 Markdown heading left over from
+Phase 4 Batch 1, demoted to match its sibling headings), and 3 stray
+absolute `multiplyingdisciples.us` internal links across 2 articles
+(2 of them also missing their trailing slash) that should have been
+relative like every other migrated page — all fixed to relative paths
+pointing at the same confirmed real URLs. Re-ran `astro check`/`astro
+build` clean after both fixes.
+
+Confirmed 1 known, unchanged risk: `apostles-meaning` still has 2
+broken images, deferred by explicit 2026-07-06 decision (unchanged by
+this audit). Confirmed the generated sitemap is an exact 1:1 match to
+the 45 built pages, and flagged (as a recommendation, not a bug) that
+`astro.config.mjs`'s sitemap integration has no `source-pending`
+filter configured yet — harmless today since 0 such pages exist, but
+worth adding before Tier 3 if any placeholder pages are introduced.
+No redirects needed; `REDIRECTS.md` remains empty.
+
 ## Repo structure
 
 ```

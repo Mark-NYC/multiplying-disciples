@@ -5,6 +5,15 @@ a planned 301 documented here before launch. This file is the single
 source of truth for redirects — do not launch with an entry still marked
 `pending`.
 
+## Status as of Phase 5
+
+**No redirects are currently planned.** The Phase 5 protected URL
+audit (`PHASE_5_PROTECTED_URL_AUDIT.md`) re-confirmed, via a scripted
+diff against the generated `dist/` output, that all 34 migrated
+tier-1/tier-2 URLs are live at their exact original WordPress path —
+zero renames, zero merges, zero redirects needed. This file remains
+correctly empty.
+
 ## Status as of Phase 4 Batch 4
 
 **No redirects are currently planned.** Nothing has been renamed, merged,

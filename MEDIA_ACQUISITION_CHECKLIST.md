@@ -25,6 +25,13 @@ broken images (down from 5)**, confirmed via a fresh `astro build` +
 — will be examined and resolved later once the site is live, not
 chased further in this phase.
 
+**Phase 5 re-confirmation:** the protected URL audit
+(`PHASE_5_PROTECTED_URL_AUDIT.md`) re-checked every one of the 92
+distinct `/wp-content/uploads/` image references across all 45 built
+pages plus 31 `og:image` values — the 2 `apostles-meaning` files above
+remain the **only** broken images anywhere on the migrated site.
+Nothing new is missing.
+
 **Received-uploads log:**
 
 - 2026-07-06 — `2023/02` month folder (559 files) supplied and extracted

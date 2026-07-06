@@ -86,9 +86,9 @@ The fifth field, Leadership Development, is crucial for the long-term success of
 
 By focusing on these five key fields, the Four Fields of Kingdom Growth methodology seeks to empower individuals and communities to take ownership of their faith and become agents of change. Sharing the gospel message is at the heart of this methodology, as it seeks to connect with people in their context and communicate the message of Christ in a way that resonates with them. The ultimate goal is to establish healthy, self-sustaining churches that can continue to grow and multiply, creating a lasting impact on the community.
 
-# Four Fields of Kingdom Growth
+## Four Fields of Kingdom Growth
 
-## Starting and Releasing Healthy Churches
+### Starting and Releasing Healthy Churches
 
 By Nathan and Kari Shank – 2007 Revised - 2014
 

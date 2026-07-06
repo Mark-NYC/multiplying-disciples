@@ -1713,4 +1713,4 @@ By following Jesus’ model of ministry, we can train and equip believers to bec
 
 Get starter tools and coaching to multiply disciples, leaders, and churches in your city.
 
-[Start Training](https://multiplyingdisciples.us/free-training) &middot; [Connect](/contact-us/)
+[Start Training](/free-training/) &middot; [Connect](/contact-us/)

@@ -17,6 +17,14 @@ URLs, 100% complete. `/stickers/` (Batch 4) migrated into the existing
 `articles` collection with no new content type. See
 `PHASE_4_TIER_2_BATCH_PLAN.md` for the full batch plan.
 
+**Phase 5 status:** full audit of all 34 migrated tier-1/tier-2 URLs
+completed — see `PHASE_5_PROTECTED_URL_AUDIT.md`. 2 real bugs found
+and fixed (duplicate H1 on the Four Fields manual page; 3 stray
+absolute internal links across 2 articles). All 34 URLs re-verified:
+exact path preserved, correct canonical, no noindex, no guessed slugs,
+no hub collisions. 1 known deferred media gap (`apostles-meaning`, 2
+images) unchanged from prior phases.
+
 Tiers (per the rule in `URL_INVENTORY.md`):
 - **Tier 1** — more than 1,000 impressions or more than 10 clicks.
 - **Tier 2** — 100 to 999 impressions.
