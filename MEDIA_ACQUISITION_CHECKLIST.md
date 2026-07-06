@@ -13,6 +13,13 @@ environment has never received their actual image/PDF bytes, only
 their paths and metadata (via WordPress attachment records and the GSC
 export). See `/imports/README.md`.
 
+**Known gap — most urgent one right now:** the 5 rows below tagged to
+`/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/`
+are still not supplied despite a `2025/02` upload landing 132 files —
+that upload only contained thumbnail-sized crops, not the full-size
+originals these rows need. **This already-live page currently has 5
+broken images**, confirmed via a fresh `astro build` + `dist/` check.
+
 **Received-uploads log:**
 
 - 2026-07-06 — `2023/02` month folder (559 files) supplied and extracted
@@ -77,8 +84,19 @@ export). See `/imports/README.md`.
   `Copy-of-Untitled-48`) are tagged to the homepage but confirmed not
   embedded in its rendered output — matches this doc's pre-existing
   "not currently used" annotation. The other 367 files that landed are
-  untracked size variants and unrelated media in the same month. Next
-  recommended folder: `2025/02` (see `MEDIA_IMPORT_PLAN.md`).
+  untracked size variants and unrelated media in the same month.
+- 2026-07-06 — `2025/02` month folder attempted (132 files landed, same
+  macOS junk pattern excluded) into `public/wp-content/uploads/2025/02/`
+  — but **none of this checklist's 5 tracked `2025/02` rows matched.**
+  The upload was almost entirely `100x100`/`150x150` thumbnail crops;
+  near-miss checks confirm size-variant versions of these filenames
+  exist (e.g. `5520c44066fbc694ac1c2e207151fe125162f59d-100x100.jpeg`)
+  but never the full-size originals the page actually references.
+  **The `apostles-meaning` page has 5 broken images right now** as a
+  result. Next recommended folder: `2025/03` (see
+  `MEDIA_IMPORT_PLAN.md`) — but the `2025/02` gap above should be
+  resolved with a proper full-size upload as soon as possible, since
+  it's the only currently-known broken-image case on a live page.
 
 ## Rule
 

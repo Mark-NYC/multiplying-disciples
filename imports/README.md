@@ -241,8 +241,44 @@ Priority C rows are for 2 tier-2 pages not yet migrated. The other 352
 files that landed are untracked size variants and unrelated media in
 the same month, preserved at their exact original paths.
 
-**Next recommended month folder: `2025/02`** — highest-value remaining
-folder, with 9 tracked files (0 Priority A, 5 Priority B, 4 Priority C).
+## Received (2026-07-06, twelfth upload): tenth media month folder — mostly missed
+
+The `2025/02` month folder was supplied as a zip
+(`f8e1dc58-wpcontent.zip`), same macOS junk pattern excluded, and 132
+real files were moved into `public/wp-content/uploads/2025/02/`.
+
+**Only 1 of the 9 tracked files in this folder matched**
+(`Untitled-design-2025-11-28T172403.122.webp`, Priority C, for a
+not-yet-migrated tier-2 page — no live impact). **8 tracked files are
+still genuinely missing**, and this is the most consequential gap
+found so far:
+
+- **5 Priority B files** needed by the already-live
+  `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/`
+  page: `5520c44066fbc694ac1c2e207151fe125162f59d.jpeg`,
+  `760px-Ghirlandaio_Domenico_-_Calling_of_the_Apostles_-_1481.jpg`,
+  `Jesus-with-disciples-1024x513.jpg`, `Paul-in-Athens.jpg`,
+  `jesus_chooses_twelve_apostles.webp`.
+- 3 Priority C files for `/stickers/` (not yet migrated).
+
+The upload appears to be a **thumbnail/crop-only export** — nearly all
+132 files that landed are `100x100` or `150x150` size variants. Checked
+for near-misses: size-variant versions of most missing filenames do
+exist (e.g. `5520c44066fbc694ac1c2e207151fe125162f59d-100x100.jpeg`),
+but never the full-size originals the pages actually reference.
+
+**Verified via a fresh `astro build` and `dist/` check: the
+`apostles-meaning` page currently has 5 broken images** — this is the
+first live-page image break found across all uploads so far. Please
+re-upload the full-size originals for those 5 files specifically if
+possible (via WordPress Media Library search, or a fresh export of
+`2025/02` from the actual `wp-content/uploads/` directory rather than a
+thumbnail cache).
+
+**Next recommended month folder: `2025/03`** — but resolving the
+`2025/02` gap above (the 5 apostles-meaning files) takes priority over
+any other folder, since it's the only known broken image on a live page
+right now.
 
 ## Still needed: media binary files (this is the one blocking thing)
 
