@@ -57,14 +57,14 @@ but not yet migrated (renders as "(coming soon)" via `RelatedArticles`).
 |---|---|---|
 | Jesus and the Twelve | **12 disciples**, **apostles meaning**, **unlocking APEST**, **7 words on the cross** | — |
 | Testimony | **15-second testimony**, **testimony in the Bible**, sharing your testimony | 3 Circles, Stories of Hope |
-| Share the Gospel | **how to evangelize**, **bible verse about spreading the gospel**, **3 circles guide**, **5 strategies**, finding persons of peace | 3 Circles, Stories of Hope |
+| Share the Gospel | **how to evangelize**, **bible verse about spreading the gospel**, **3 circles guide**, **5 strategies**, **finding persons of peace** | 3 Circles, Stories of Hope |
 | 3 Circles | **3 circles step-by-step guide**, **how to evangelize** | 3 Circles |
 | Stories of Hope | **7 stories of hope guide**, **12 practice church circle (Church Waffle)** | Stories of Hope |
 | Prayer | **prayer walking guide**, **prayer wheel**, **prayer is essential (12 key prayer points)** | — |
-| Disciple Making | **biblical discipleship guide**, **3 ways to make disciples**, **radical discipleship**, **high price of discipleship**, disciple-making resources, **top 25 books**, **breakthrough guide for a modern day disciple**, **love and obedience** | 3 Circles, Stories of Hope |
+| Disciple Making | **biblical discipleship guide**, **3 ways to make disciples**, **radical discipleship**, **high price of discipleship**, **disciple-making resources**, **top 25 books**, **breakthrough guide for a modern day disciple**, **love and obedience** | 3 Circles, Stories of Hope |
 | Simple Church | **simple church article**, **12 practice church circle (Church Waffle)**, **three thirds** | — |
 | Four Fields | **four fields (Nathan &amp; Kari Shank manual)**, **getting started in four fields training** | — |
-| Church Planting Movements | **power of multiplication**, **10 qualities**, **DMM characteristics**, 5 examples, under the hood, equipping your church, breaking down barriers, **4 stages of movement** | — |
+| Church Planting Movements | **power of multiplication**, **10 qualities**, **DMM characteristics**, **5 examples**, **under the hood**, **equipping your church**, **breaking down barriers**, **4 stages of movement** | — |
 | Strategy Coordinator | **strategy coordinator role article** | — |
 
 As of Phase 3, 12 real tier-1 pages are migrated (all of them — see
@@ -107,6 +107,28 @@ Fields, Church Waffle) and back-links already existed from the
 Christian Prayer Wheel article's `related_articles`. Tier 2 is now
 100% migrated (22 of 22) — see `PHASE_4_TIER_2_BATCH_PLAN.md`.
 
+As of Phase 7B Batch 1, 6 more articles are migrated (bolded above),
+plus `/movement-resources/` (no hub assignment — see below): the
+disciple-making resources for churches article, under the hood of
+disciple-making movements, 5 examples of disciple-making movements
+around the world, equipping your church for disciple-making
+movements, finding persons of peace, and breaking down barriers
+addressing pastors' objections. This **fully completes the Church
+Planting Movements hub (8 of 8 key-article slots)** — the hub's last
+4 open slots (5-examples, under-the-hood, equipping-your-church,
+breaking-down-barriers) were all pre-reserved from Phase 4 Batch 3 and
+now all resolve to real pages — and fills the **Share the Gospel
+hub's last open slot** (finding-persons-of-peace) and the **Disciple
+Making hub's** reserved slot + `next_step` target
+(disciple-making-resources-for-churches-that-will-multiply, also
+already linked from primary site nav). `/movement-resources/` gets no
+hub assignment (its curated external-resource content spans too many
+topics for a single clean fit, per the Phase 6 finding) — instead it
+links directly to its 2 already-migrated children and 2 real
+not-yet-migrated children via `related_articles`, tying the whole
+`/movement-resources/` subtree together. See
+`PHASE_7B_TIER_3_BATCH_1.md` for the full batch plan.
+
 Tool entries themselves (`src/content/tools/`) are not yet created —
 `ToolCTA` renders "(coming soon)" for tool names with no matching entry.
 Creating real tool pages (3 Circles, Stories of Hope, etc.) is future
@@ -115,8 +137,10 @@ work, not part of the Phase 1 batch.
 ## Blog index (`/blog/`)
 
 Built in Phase 7A (`src/pages/blog/index.astro`) as a new site-wide
-directory, not a per-hub mechanism: it lists all 33 migrated articles
-(sorted by tier, then by best-available date) and links out to all 11
+directory, not a per-hub mechanism: it dynamically lists every
+migrated article (33 at launch, 40 after Phase 7B Batch 1, growing
+automatically as more are migrated — sorted by tier, then by
+best-available date) and links out to all 11
 hubs for topic browsing. It's linked from header and footer nav on
 every page (`src/data/navigation.ts`), giving every migrated article a
 second real, crawlable inbound path beyond its hub and

@@ -111,6 +111,26 @@ hubs for topic browsing. `/blog/` status flipped from `not-migrated`
 to `published` above. 46 pages now build clean (was 45). Site nav's
 `/blog/` links (present on every page) now resolve instead of 404ing.
 
+**Phase 7B Batch 1 status:** first Tier 3 batch migrated — 7 pages,
+see `PHASE_7B_TIER_3_BATCH_1.md`. Led with `/movement-resources/` (real
+content, not an archive, per Phase 6), then
+`/disciple-making-resources-for-churches-that-will-multiply/`,
+`/under-the-hood-of-disciple-making-movements/`,
+`/what-are-disciple-making-movements-5-examples-from-around-the-world/`,
+`/equipping-your-church-for-disciple-making-movements-a-pastors-guide-to-effective-training/`,
+`/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/`,
+and `/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/`.
+This **completes the Church Planting Movements hub fully (8 of 8
+key-article slots)**, fills the Share the Gospel hub's last open slot,
+and fills the Disciple Making hub's reserved slot + `next_step`
+target. 8 files across 5 of these pages are missing from supplied
+uploads (5 featured/og_images plus 2 inline supporting images on
+`under-the-hood-of-disciple-making-movements`) — all deferred,
+non-blocking (none are above-the-fold hero necessities or direct
+PDFs); see `PHASE_7B_TIER_3_BATCH_1.md` and
+`MEDIA_ACQUISITION_CHECKLIST.md` for the full breakdown. 53 pages now
+build clean (was 46). 41 tier-3 URLs remain (48 − 7).
+
 ## Full inventory — all 122 published posts/pages
 
 Sorted by impressions (real GSC data where available).
@@ -152,13 +172,13 @@ Sorted by impressions (real GSC data where available).
 | `/disciple-making-movement-dmm-key-characteristics-and-definition/` | article | migrated | 3 | 128 | tier-2 |
 | `/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/` | article | migrated | 1 | 107 | tier-2 |
 | `/blog/` | new Astro index page (not a WP content migration — see Phase 7A) | published | 0 | 95 | tier-3 |
-| `/disciple-making-resources-for-churches-that-will-multiply/` | article | not-migrated | 1 | 92 | tier-3 |
-| `/under-the-hood-of-disciple-making-movements/` | article | not-migrated | 0 | 86 | tier-3 |
+| `/disciple-making-resources-for-churches-that-will-multiply/` | article | migrated | 1 | 92 | tier-3 |
+| `/under-the-hood-of-disciple-making-movements/` | article | migrated | 0 | 86 | tier-3 |
 | `/starter-tools/` | page | not-migrated | 0 | 78 | tier-3 |
-| `/what-are-disciple-making-movements-5-examples-from-around-the-world/` | article | not-migrated | 1 | 74 | tier-3 |
-| `/equipping-your-church-for-disciple-making-movements-a-pastors-guide-to-effective-training/` | article | not-migrated | 0 | 71 | tier-3 |
-| `/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/` | article | not-migrated | 0 | 66 | tier-3 |
-| `/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/` | article | not-migrated | 1 | 66 | tier-3 |
+| `/what-are-disciple-making-movements-5-examples-from-around-the-world/` | article | migrated | 1 | 74 | tier-3 |
+| `/equipping-your-church-for-disciple-making-movements-a-pastors-guide-to-effective-training/` | article | migrated | 0 | 71 | tier-3 |
+| `/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/` | article | migrated | 0 | 66 | tier-3 |
+| `/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/` | article | migrated | 1 | 66 | tier-3 |
 | `/royal-priest-strategy-explodes-disciple-making-movement-worldwide/` | article | not-migrated | 0 | 55 | tier-3 |
 | `/unlock-biblical-principles-for-multiplying-disciples/` | article | not-migrated | 1 | 52 | tier-3 |
 | `/5-insightful-keys-into-the-biblical-jesus/` | article | not-migrated | 0 | 49 | tier-3 |
@@ -176,7 +196,7 @@ Sorted by impressions (real GSC data where available).
 | `/beliefs-values/` | page | not-migrated | 0 | 26 | tier-3 |
 | `/privacy-policy/` | page | not-migrated | 0 | 25 | tier-3 |
 | `/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/` | article | not-migrated | 1 | 24 | tier-3 |
-| `/movement-resources/` | page | not-migrated | 0 | 22 | tier-3 |
+| `/movement-resources/` | page | migrated | 0 | 22 | tier-3 |
 | `/the-leadership-phase-everyone-skips-why-investment-matters/` | article | not-migrated | 2 | 21 | tier-3 |
 | `/discovering-the-disciple-meaning-a-life-changing-journey/` | article | not-migrated | 0 | 20 | tier-3 |
 | `/5-surprising-ways-to-attract-multiplying-leaders/` | article | not-migrated | 2 | 20 | tier-3 |

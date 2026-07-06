@@ -315,6 +315,57 @@ will-multiply/`) that appear on every page site-wide — not introduced
 by this page, not a regression. Header/footer nav's `/blog/` links
 (present on every page since Phase 1) now resolve instead of 404ing.
 
+### Phase 7B Batch 1 — First Tier 3 batch (done)
+
+Migrated the first 7 Tier 3 pages, per `PHASE_7B_TIER_3_BATCH_1.md`:
+led with `/movement-resources/` (confirmed real content, not an
+archive, per Phase 6 — a curated external-resource list, "Emerging
+Network Resources," across 6 sections, converted from
+Elementor/GenerateBlocks accordion markup to plain headings and lists
+since Astro has no accordion component and fancy JS is prohibited),
+then the two named strong candidates
+(`/disciple-making-resources-for-churches-that-will-multiply/`,
+`/under-the-hood-of-disciple-making-movements/`) plus 4 more selected
+by impressions and hub completion
+(`/what-are-disciple-making-movements-5-examples-from-around-the-world/`,
+`/equipping-your-church-for-disciple-making-movements-a-pastors-guide-to-effective-training/`,
+`/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/`,
+`/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/`).
+
+Every non-`/movement-resources/` page already had a pre-reserved hub
+`key_articles` slot from earlier phases (confirmed by reading each hub
+file directly before selecting) — this batch **completes the Church
+Planting Movements hub fully (8 of 8)**, fills the **Share the
+Gospel hub's** last open slot, and fills the **Disciple Making hub's**
+reserved slot + `next_step` target
+(`disciple-making-resources-for-churches-that-will-multiply`, also
+already linked from primary site nav — closing another live
+nav-linked 404).
+
+Same cleanup discipline as every prior phase: removed a one-off junk
+embedded HTML placeholder block, a reusable "Are you in? / Start
+Here. / Get Started" promotional CTA block (appeared verbatim across
+3 of these 7 pages), several duplicate pull-quote-style headings that
+repeated adjacent paragraph text verbatim, stray Elementor `<style>`
+blocks, and trailing reusable-block shortcodes. Converted 2 Spotify
+embeds to plain links, fixed 1 broken internal link (a dead
+`/podcast/...` permalink) to a real confirmed article, converted
+several absolute internal links to relative, and normalized one
+article's inconsistent heading hierarchy.
+
+8 media files across 5 of these pages are missing from supplied
+uploads (5 featured/`og_image`-only, 1 decorative icon, 2 inline
+supporting images on `under-the-hood-of-disciple-making-movements`) —
+all deferred, non-blocking, none above-the-fold or a direct PDF; see
+`PHASE_7B_TIER_3_BATCH_1.md` and `MEDIA_ACQUISITION_CHECKLIST.md` for
+the full breakdown. `astro check`/`astro build` clean, 53 pages (was
+46). Verified in `dist/`: all 7 canonicals correct, no noindex,
+exactly 1 H1 each, no stray absolute internal links, no broken images
+beyond the 1 already-known `apostles-meaning` gap (unchanged), no hub
+collisions, no guessed slugs, sitemap count matches exactly, and
+`/blog/` now lists all 40 migrated articles (was 33). No redirects
+implemented. 41 tier-3 URLs remain.
+
 ## Repo structure
 
 ```

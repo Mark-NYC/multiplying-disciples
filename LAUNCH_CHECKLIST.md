@@ -45,14 +45,16 @@ until every item below is checked and a human has signed off.
       `pending` to `verified` (currently `pending` — decided, not
       implemented).
 - [x] `/blog/` built as a real Astro index page (Phase 7A —
-      `src/pages/blog/index.astro`). Lists all 33 migrated articles,
-      links all 11 hubs, correct canonical/title/description, no
-      noindex, sitemap includes it. Nav's `/blog/` links now resolve.
-- [ ] `/movement-resources/` and its 2 real not-yet-migrated children
+      `src/pages/blog/index.astro`). Dynamically lists every migrated
+      article (40 as of Phase 7B Batch 1, was 33), links all 11 hubs,
+      correct canonical/title/description, no noindex, sitemap
+      includes it. Nav's `/blog/` links now resolve.
+- [x] `/movement-resources/` migrated normally as real Tier 3 content
+      (Phase 7B Batch 1) — confirmed real content, not an archive.
+      **Still pending:** its 2 real not-yet-migrated children
       (`/movement-resources/strategy-coordinator/`,
-      `/movement-resources/4-fields-toolbox/`) migrated normally as
-      Tier 3/unknown-tier content — confirmed real pages, not
-      archives, must not be dropped or merged.
+      `/movement-resources/4-fields-toolbox/`), unknown-tier content,
+      must not be dropped or merged when migrated.
 - [ ] Live spot-check for any `/author/...` or date-archive URLs
       (`/20XX/...`) actually resolving on the current WordPress site —
       none were found in any exported data source (GSC, sitemap index,
@@ -66,6 +68,17 @@ until every item below is checked and a human has signed off.
 - Do not delete or replace the WordPress site.
 - Do not rewrite the whole site.
 - Do not change existing URL paths.
+
+## Status snapshot (Phase 7B Batch 1)
+
+First Tier 3 batch migrated — 7 pages, see
+`PHASE_7B_TIER_3_BATCH_1.md`. `/movement-resources/` migrated normally
+(confirmed real content, not an archive), completing that checklist
+item above. The Church Planting Movements hub is now fully complete
+(8/8 key-article slots). 53 pages now build clean (was 46). 41 tier-3
+URLs remain of the original 48. 8 more media files found missing (all
+deferred, non-blocking — see `MEDIA_ACQUISITION_CHECKLIST.md`). Still
+no redirects implemented, nothing launched.
 
 ## Status snapshot (Phase 7A)
 

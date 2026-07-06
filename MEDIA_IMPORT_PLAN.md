@@ -326,3 +326,13 @@ every table above on purpose; they need no local preservation.
   `Church-Waffle-English-112222-1.pdf`,
   `4-Fields-Toolbox-Updated-03.31.23.pdf`,
   `3-Circles-Sticker-QR-Code.pdf`) reconfirmed present on disk.
+- **Phase 7B Batch 1:** this doc's original 171-file tracked scope was
+  built for tier-1/tier-2 only (per its opening scope note above).
+  Tier 3 media is now tracked in `MEDIA_ACQUISITION_CHECKLIST.md`
+  instead, which has been updated with this batch's findings: 8 newly
+  missing files (5 featured/og_image-only, 1 decorative icon, 2 inline
+  supporting images on one page), all deferred and non-blocking, none
+  above-the-fold or a direct PDF. `Church-Waffle-English-112222-1.pdf`
+  (already tracked above, row already "Yes") is now actually linked
+  from a migrated page for the first time
+  (`/disciple-making-resources-for-churches-that-will-multiply/`).

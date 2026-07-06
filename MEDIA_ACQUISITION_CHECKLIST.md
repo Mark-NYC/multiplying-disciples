@@ -32,6 +32,28 @@ pages plus 31 `og:image` values — the 2 `apostles-meaning` files above
 remain the **only** broken images anywhere on the migrated site.
 Nothing new is missing.
 
+**Phase 7B Batch 1 gap — deferred, not blocking:** migrating the
+first Tier 3 batch surfaced 8 more genuinely missing files, none
+previously tracked (they weren't referenced by any migrated page
+until now). 5 are featured/`og_image`-only (omitted, same as every
+prior phase's pattern — no inline image lost): `pexels-photo-
+8383470.jpeg` (disciple-making-resources), `weds-night-
+discipleship__1608243288.jpeg` (under-the-hood),
+`19369-gettyimages-1097758946-morsaimagesjpeg.jpeg` (5-examples),
+`Untitled-design-2023-03-28T085102.000.webp` (equipping-your-church),
+`Untitled-design-2023-03-12T170248.450.webp` (finding-persons-of-peace).
+1 is a decorative download-button icon, also omitted: `1.webp`
+(disciple-making-resources). 2 are inline supporting images on
+`/under-the-hood-of-disciple-making-movements/`, dropped from the body
+with their surrounding prose left intact: `picture1-
+e1692189886892.jpeg` and `Table-of-Math.jpeg`. None are above-the-fold
+hero-only necessities or direct-access PDFs, so none of this blocks
+the batch — see `PHASE_7B_TIER_3_BATCH_1.md` for the full breakdown.
+No broken *visible* images resulted: none of these files are actually
+referenced in the shipped HTML (unlike the `apostles-meaning` gap,
+where the `<img>` tags remain and are genuinely broken) — all 8 were
+simply left out of the migrated content instead.
+
 **Received-uploads log:**
 
 - 2026-07-06 — `2023/02` month folder (559 files) supplied and extracted
@@ -157,7 +179,7 @@ they're legitimate external links, consistent with this site's
 | `/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called-with-Bible-References.webp` | `public/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called-with-Bible-References.webp` | Yes | `/discover-the-12-disciples-of-jesus-christ/` | 266 |
 | `/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called.webp` | `public/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called.webp` | Yes | `/discover-the-12-disciples-of-jesus-christ/` (featured) | 89 |
 | `/wp-content/uploads/2023/06/Virtual-Training-Packet.pdf` | `public/wp-content/uploads/2023/06/Virtual-Training-Packet.pdf` | Yes | not on a migrated/tier-1 page yet | 41 |
-| `/wp-content/uploads/2023/05/Church-Waffle-English-112222-1.pdf` | `public/wp-content/uploads/2023/05/Church-Waffle-English-112222-1.pdf` | Yes | not on a migrated/tier-1 page yet | 36 |
+| `/wp-content/uploads/2023/05/Church-Waffle-English-112222-1.pdf` | `public/wp-content/uploads/2023/05/Church-Waffle-English-112222-1.pdf` | Yes | `/disciple-making-resources-for-churches-that-will-multiply/` (tier-3, migrated — direct-access PDF) | 36 |
 | `/wp-content/uploads/2023/04/4-Fields-Toolbox-Updated-03.31.23.pdf` | `public/wp-content/uploads/2023/04/4-Fields-Toolbox-Updated-03.31.23.pdf` | Yes | not on a migrated/tier-1 page yet | 36 |
 | `/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1.webp` | `public/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1.webp` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` (featured) | 10 |
 | `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-5.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-5.jpg` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` | 5 |
@@ -175,7 +197,7 @@ they're legitimate external links, consistent with this site's
 | `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-2.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-2.jpg` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` | 1 |
 | `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-4.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-4.jpg` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` | 1 |
 | `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-1.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-1.jpg` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` | 1 |
-| `/wp-content/uploads/2023/05/Screen-Shot-2023-08-16-at-8.47.48-AM-1024x499.png` | `public/wp-content/uploads/2023/05/Screen-Shot-2023-08-16-at-8.47.48-AM-1024x499.png` | Yes | not on a migrated/tier-1 page yet | 1 |
+| `/wp-content/uploads/2023/05/Screen-Shot-2023-08-16-at-8.47.48-AM-1024x499.png` | `public/wp-content/uploads/2023/05/Screen-Shot-2023-08-16-at-8.47.48-AM-1024x499.png` | Yes | `/under-the-hood-of-disciple-making-movements/` (tier-3, migrated — inline) | 86 |
 | `/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-4.svg` | `public/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-4.svg` | Yes | not on a migrated/tier-1 page yet | 1 |
 | `/wp-content/uploads/2025/01/e3adfe1623cfb8a49a60f903b1515adb.Screen-Shot-2023-08-05-at-8.26.31-AM-1.webp` | `public/wp-content/uploads/2025/01/e3adfe1623cfb8a49a60f903b1515adb.Screen-Shot-2023-08-05-at-8.26.31-AM-1.webp` | Yes | `/movement-resources/7-stories-of-hope-complete-facilitation-guide/` | 0 |
 | `/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible-3.webp` | `public/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible-3.webp` | Yes | `/movement-resources/7-stories-of-hope-complete-facilitation-guide/` | 0 |
@@ -360,7 +382,7 @@ decisions, neither blocking:**
 | `/wp-content/uploads/2023/04/12044-small-group-bible-study-gettyimages-rawpixel.jpeg` | `public/wp-content/uploads/2023/04/12044-small-group-bible-study-gettyimages-rawpixel.jpeg` | Yes | `/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/` (tier-2, migrated — featured) | 142 |
 | `/wp-content/uploads/2023/04/75598-scaled.webp` | `public/wp-content/uploads/2023/04/75598-scaled.webp` | Yes | `/love-and-obedience-exploring-the-biblical-relationship-between-the-two/` (tier-2, migrated — featured, substitute for mismatched `75598.webp`) | 134 |
 | `/wp-content/uploads/2023/04/maxresdefault-3.jpg` | `public/wp-content/uploads/2023/04/maxresdefault-3.jpg` | Yes | `/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/` (tier-2, migrated — featured) | 107 |
-| `/wp-content/uploads/2023/04/multiplication.jpeg` | `public/wp-content/uploads/2023/04/multiplication.jpeg` | Yes | `/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/` (tier-2, migrated — featured) | 160 |
+| `/wp-content/uploads/2023/04/multiplication.jpeg` | `public/wp-content/uploads/2023/04/multiplication.jpeg` | Yes | `/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/` (tier-2, migrated — featured); also `/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/` (tier-3, migrated — featured, shared source photo) | 160 |
 | `/wp-content/uploads/2023/05/DBS_2-e1686219964976-1024x538.jpeg` | `public/wp-content/uploads/2023/05/DBS_2-e1686219964976-1024x538.jpeg` | Yes | `/disciple-making-movement-dmm-key-characteristics-and-definition/` (tier-2, migrated) | 128 |
 | `/wp-content/uploads/2023/05/pexels-photo-5543191.jpeg` | `public/wp-content/uploads/2023/05/pexels-photo-5543191.jpeg` | Yes | `/disciple-making-movement-dmm-key-characteristics-and-definition/` (tier-2, migrated — featured) | 128 |
 | `/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement.svg` | `public/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement.svg` | Yes | `/4-stages-of-movement-unlock-your-next-steps/` (tier-2, migrated) | 165 |
