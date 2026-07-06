@@ -5,11 +5,11 @@ Tier 1 page (the 7 in `PHASE_3_TIER_1_BATCH.md`), cross-referenced
 against Search Console impressions. Source: WordPress export XML +
 Google Search Console Pages CSV (supplied 2026-07-06).
 
-**Binary status: 63 of 103 files have now been supplied.** These are
-every row that lives in `2023/04`, `2023/05`, `2023/06`, or `2023/07`,
-all received in full. All other rows below still read "No — not
-supplied" because this environment has never received their actual
-image/PDF bytes, only their paths and metadata (via WordPress
+**Binary status: 68 of 103 files have now been supplied.** These are
+every row that lives in `2023/04`, `2023/05`, `2023/06`, `2023/07`, or
+`2023/08`, all received in full. All other rows below still read
+"No — not supplied" because this environment has never received their
+actual image/PDF bytes, only their paths and metadata (via WordPress
 attachment records and the GSC export). See `/imports/README.md`.
 
 **Received-uploads log:**
@@ -41,7 +41,16 @@ attachment records and the GSC export). See `/imports/README.md`.
   tracked files that live in `2023/07` matched exactly and are now
   marked "Yes" below (the other 4 tracked `2023/07` files are Priority C
   in `MEDIA_IMPORT_PLAN.md`, out of this doc's migrated/tier-1 scope).
-  Next recommended folder: `2025/11` (see `MEDIA_IMPORT_PLAN.md`).
+- 2026-07-06 — `2023/08` month folder (56 files landed, same macOS junk
+  pattern excluded) supplied and extracted into
+  `public/wp-content/uploads/2023/08/`. All 5 of this checklist's
+  tracked files that live in `2023/08` matched exactly and are now
+  marked "Yes" below — all 5 are on the already-live
+  `/how-to-evangelize-ultimate-step-by-step-guide/` page, so this fixes
+  5 real broken images. The other 51 files that landed are untracked
+  WordPress-generated size variants of the same 4 base screenshots, not
+  individually referenced by any known page. Next recommended folder:
+  `2025/11` (see `MEDIA_IMPORT_PLAN.md`).
 
 ## Rule
 
@@ -148,14 +157,14 @@ they're legitimate external links, consistent with this site's
 | `/wp-content/uploads/2023/04/5-1024x1024.png` | `public/wp-content/uploads/2023/04/5-1024x1024.png` | Yes | `/unlocking-the-power-of-apest-the-ultimate-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/04/Untitled-design-14.png` | `public/wp-content/uploads/2023/04/Untitled-design-14.png` | Yes | `/unlocking-the-power-of-apest-the-ultimate-guide/` (tier-1, pending — featured) | 0 |
 | `/wp-content/uploads/2023/05/pexels-charlotte-may-5965923-1024x683.jpg` | `public/wp-content/uploads/2023/05/pexels-charlotte-may-5965923-1024x683.jpg` | Yes | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
-| `/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.26.03-PM-1024x575.png` | `public/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.26.03-PM-1024x575.png` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
+| `/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.26.03-PM-1024x575.png` | `public/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.26.03-PM-1024x575.png` | Yes | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2025/11/short-christian-testimony-examples-1024x576.webp` | `public/wp-content/uploads/2025/11/short-christian-testimony-examples-1024x576.webp` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1-1024x576.webp` | `public/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1-1024x576.webp` | Yes | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
-| `/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.29.37-PM-1024x577.png` | `public/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.29.37-PM-1024x577.png` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
+| `/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.29.37-PM-1024x577.png` | `public/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.29.37-PM-1024x577.png` | Yes | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/07/personal-evangelism-main-header-1024x576.png` | `public/wp-content/uploads/2023/07/personal-evangelism-main-header-1024x576.png` | Yes | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
-| `/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.28.45-PM-1024x573.png` | `public/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.28.45-PM-1024x573.png` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
-| `/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.27.25-PM-1024x575.png` | `public/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.27.25-PM-1024x575.png` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
-| `/wp-content/uploads/2023/08/Step-by-Step-Guide-to-Evangelizing-Confident-Conversations-About-Faith.webp` | `public/wp-content/uploads/2023/08/Step-by-Step-Guide-to-Evangelizing-Confident-Conversations-About-Faith.webp` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending — featured) | 0 |
+| `/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.28.45-PM-1024x573.png` | `public/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.28.45-PM-1024x573.png` | Yes | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
+| `/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.27.25-PM-1024x575.png` | `public/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.27.25-PM-1024x575.png` | Yes | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
+| `/wp-content/uploads/2023/08/Step-by-Step-Guide-to-Evangelizing-Confident-Conversations-About-Faith.webp` | `public/wp-content/uploads/2023/08/Step-by-Step-Guide-to-Evangelizing-Confident-Conversations-About-Faith.webp` | Yes | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending — featured) | 0 |
 | `/wp-content/uploads/2025/02/Jesus-with-disciples-1024x513.jpg` | `public/wp-content/uploads/2025/02/Jesus-with-disciples-1024x513.jpg` | No — not supplied | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2025/02/5520c44066fbc694ac1c2e207151fe125162f59d.jpeg` | `public/wp-content/uploads/2025/02/5520c44066fbc694ac1c2e207151fe125162f59d.jpeg` | No — not supplied | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2025/02/Paul-in-Athens.jpg` | `public/wp-content/uploads/2025/02/Paul-in-Athens.jpg` | No — not supplied | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` (tier-1, pending) | 0 |

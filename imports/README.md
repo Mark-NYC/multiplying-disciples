@@ -121,6 +121,29 @@ has actually been migrated since Phase 3) — confirmed present in that
 page's `dist/` output, so this fixes a real broken image. The rest are
 tagged to tier-2 pages not yet migrated, collected ahead of need.
 
+## Received (2026-07-06, seventh upload): sixth media month folder
+
+The `2023/08` month folder was supplied as a zip
+(`e1adfedb-wpcontent.zip`), which again contained macOS `.DS_Store` and
+`__MACOSX/` junk — excluded during extraction, never touched the repo.
+56 real files were moved into `public/wp-content/uploads/2023/08/` —
+exact original filenames, no re-encoding, no flattening. The zip itself
+was not committed.
+
+**All 5 tracked files in this folder matched exactly** (5 Priority B,
+all tagged to the already-live
+`/how-to-evangelize-ultimate-step-by-step-guide/` page) — every row
+flipped to "Yes" in `MEDIA_IMPORT_PLAN.md` and
+`MEDIA_ACQUISITION_CHECKLIST.md`. `astro build` was re-run clean (23
+pages, no new errors), and the `dist/` output for that page was
+spot-checked — all 5 referenced image paths resolve to files that now
+exist on disk. **This fixes 5 real broken images** on that page. The
+other 51 files that landed in this folder are untracked
+WordPress-generated size variants of the same 4 base screenshots (e.g.
+`Screen-Shot-2023-08-07-at-8.24.33-PM-1300x1117.png`) — preserved at
+their exact original paths since they're real WordPress media, just not
+individually referenced by any known page or GSC row.
+
 **Next recommended month folder: `2025/11`** — not the largest
 remaining folder by file count (`2025/01` has 23 vs. `2025/11`'s 19),
 but the higher-value pick: 5 Priority A + 13 Priority B vs. `2025/01`'s
