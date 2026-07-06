@@ -1,0 +1,79 @@
+---
+title: "Jesus the Leader: Examining How He Identified, Trained, and Sent Leaders in the Gospel of Mark"
+description: "How Jesus identified, trained, and sent leaders in the first five chapters of Mark — a model for multiplying disciples and leaders today."
+slug: "/jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark/"
+canonical: "https://multiplyingdisciples.us/jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark/"
+hub: "jesus-and-the-twelve"
+related_articles:
+  - "/discover-the-12-disciples-of-jesus-christ/"
+  - "/the-leadership-phase-everyone-skips-why-investment-matters/"
+  - "/5-insightful-keys-into-the-biblical-jesus/"
+  - "/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/"
+related_tools: []
+status: "migrated"
+migration_priority: "tier-3"
+original_url: "https://multiplyingdisciples.us/jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark/"
+notes: >
+  Migrated from WordPress post_id 6973. Removed the reusable "Are you
+  in? / Start Here. / Get Started" promotional CTA block, a stray
+  Elementor <style> block, and a trailing WordPress "related posts"
+  auto-widget (3 auto-generated article blocks with date-archive links
+  and a decorative SVG arrow icon — not authored content). Otherwise
+  clean, preserved close to verbatim. Featured image
+  (4-ways-multiply-disciples-way-jesus-did.jpeg) not found under
+  supplied uploads — og_image omitted.
+---
+
+In the first five chapters of the Gospel of Mark, we see Jesus identifying, training, and sending leaders to advance His mission. This model of leadership development can be used as a guide for us as we seek to follow in Jesus' footsteps in multiplying disciples and leaders.
+
+### Called to a Task
+
+In Mark 1:16-20, Jesus calls four fishermen to follow Him and become "fishers of men."
+
+This encounter demonstrates Jesus' ability to identify potential leaders who have the necessary skills and character to become effective disciples and leaders. In verse 17, Jesus tells them, "Follow me, and I will make you become fishers of men." This is the first step in their training process - following Jesus and learning from Him as He modeled the task.
+
+### Modeling and Filtering
+
+In Mark 1:21-28, we see Jesus teaching in the synagogue, and a man with an unclean spirit cries out, "What have you to do with us, Jesus of Nazareth? Have you come to destroy us? I know who you are—the Holy One of God!" Jesus rebukes the unclean spirit and it leaves the man.
+
+This demonstration of authority and power shows the disciples that Jesus is more than just a teacher, but also has authority over spiritual forces.
+
+### What Not to Focus on
+
+In Mark 2:13-17, we see Jesus call Levi, a tax collector, to follow Him.
+
+This is significant because tax collectors were not well-respected in Jewish society and were often seen as collaborators with the Roman oppressors. By calling Levi, Jesus demonstrates that His mission is for all people, regardless of their social status or reputation.
+
+This teaches us that when identifying potential leaders, we should not overlook people who may not fit our preconceived notions of what a leader should look like.
+
+### Reproducing Himself Into The Right Disciples
+
+Ultimately we see Jesus identifying and appointing His primary leaders in Mark 3:13-19.
+
+Jesus goes up on a mountain and calls to Himself those He wanted, and they came to Him. He then appointed twelve, whom He also named apostles, to be with Him, to send them out to preach, and to have authority to drive out demons. The twelve apostles that Jesus chose were not necessarily the most educated, influential or religiously trained people of their time. Rather, they were ordinary men who were willing to follow Jesus and be trained by Him. Jesus knew that these men would eventually become the leaders of the early church and that their influence would extend far beyond their own lives.
+
+### "With-ness"
+
+Jesus' training of these leaders was not done in isolation, but rather in the context of everyday life and ministry. It happened through "with-ness" alongside of Jesus.
+
+As Jesus traveled and ministered, He allowed the disciples to observe and participate in His work. He taught them through parables, rebuked them when they failed, and encouraged them when they succeeded. He also gave them specific instructions and guidance for their ministry.
+
+### Giving Responsibility
+
+One notable example of Jesus' empowering of their development by giving them responsibility can be seen in Mark 6:7-13, where Jesus sends out the twelve apostles two by two, giving them specific instructions for their journey.
+
+He tells them to take nothing for the journey except a staff, no bread, no bag, no money in their belts, but to wear sandals and not to put on two tunics. He also instructs them to preach repentance, heal the sick, and drive out demons. The disciples follow Jesus' instructions and return with stories of their successes.
+
+Throughout the gospel of Mark, we see Jesus intentionally investing in the lives of His disciples, preparing them to continue His ministry after He is gone. He modeled for them what it means to be a servant leader, teaching them to put the needs of others above their own. He also taught them to rely on the power of the Holy Spirit for strength and guidance in their ministry.
+
+### Conclusion
+
+In conclusion, the gospel of Mark provides us with a clear picture of how Jesus identified, trained, and sent leaders.
+
+Jesus selected ordinary people, invested in their lives, and taught them how to serve others and rely on the Holy Spirit. As we seek to identify and train leaders in our own churches and ministries, we can look to Jesus as our example and seek to follow in His footsteps.
+
+In these first few chapters of Mark, we see Jesus identifying, training, and sending leaders who would carry on His mission. He chooses unlikely candidates, demonstrates His authority and power, entrusts His mission to His followers, and teaches the importance of hearing and understanding the word of God.
+
+These principles are still relevant today as we seek to follow in Jesus' footsteps in multiplying disciples and leaders.
+
+Learn how you can multiply disciples by [getting started with these starter tools](/starter-tools/).

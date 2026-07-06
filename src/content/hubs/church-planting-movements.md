@@ -20,6 +20,7 @@ key_articles:
   - "/7-surprising-disciple-making-movement-examples/"
   - "/breaking-the-mold-a-guide-to-shifting-your-church-to-movement-strategy/"
   - "/the-multiplier-mandate-revealed-from-genesis-to-revelation/"
+  - "/the-leadership-phase-everyone-skips-why-investment-matters/"
 related_tools: []
 next_step:
   label: "See the 4 stages of movement"

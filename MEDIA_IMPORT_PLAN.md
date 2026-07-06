@@ -352,3 +352,12 @@ every table above on purpose; they need no local preservation.
   section on `/start-here/` that was dropped entirely as chrome), all
   deferred and non-blocking, none above-the-fold or a direct PDF. No
   new PDF or tier-1/tier-2-scope files referenced by this batch.
+- **Phase 7B Batch 4:** same tier-3 scope note as Batch 1 above —
+  tracked in `MEDIA_ACQUISITION_CHECKLIST.md`, updated with this
+  batch's findings: 8 newly missing files (5 featured/og_image-only,
+  3 inline supporting images on one page — a 4th inline image on that
+  page is present under a slightly different filename/month, kept),
+  plus 1 unresolvable text-only PDF reference on `/beliefs-values/`
+  with no actual link in the export, all deferred and non-blocking,
+  none above-the-fold, legal content, or a direct-access PDF. No new
+  PDF or tier-1/tier-2-scope files referenced by this batch.

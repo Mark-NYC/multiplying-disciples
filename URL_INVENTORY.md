@@ -178,6 +178,38 @@ deferred, non-blocking; see `PHASE_7B_TIER_3_BATCH_3.md` and
 `MEDIA_ACQUISITION_CHECKLIST.md` for the full breakdown. 67 pages now
 build clean (was 60). 27 tier-3 URLs remain (34 − 7).
 
+**Phase 7B Batch 4 status:** fourth Tier 3 batch migrated — 7 pages,
+see `PHASE_7B_TIER_3_BATCH_4.md`. `/beliefs-values/` (the ministry's
+doctrinal statement, linked from `/vision/` — genuine prose, migrated
+into the existing `articles` collection + `ArticleLayout`, deliberately
+given no hub assignment) and `/privacy-policy/` (a standard legal
+page — WordPress block-comment artifacts stripped from leaked `<h2>`
+tags, 2 bare contact links completed as real `mailto:` links, no hub/
+tool CTA/related_articles added) both received special inspection per
+this batch's instructions. `/privacy-policy/` is also the first page
+to use the new `exclude_from_blog: true` frontmatter field (added to
+`src/content.config.ts` and filtered in `src/pages/blog/index.astro`)
+so it doesn't appear in the `/blog/` article index. Plus 4 articles:
+`/jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark/`
+(→ Jesus and the Twelve hub),
+`/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/`
+(no hub — general leadership-diligence principle),
+`/the-leadership-phase-everyone-skips-why-investment-matters/` (→
+Church Planting Movements hub, now 13 slots),
+`/discovering-the-disciple-meaning-a-life-changing-journey/` (→
+Disciple Making hub), and
+`/5-surprising-ways-to-attract-multiplying-leaders/` (→ Four Fields
+hub). 8 files across 4 of these pages are missing from supplied
+uploads (5 featured/og_images, 3 inline images on one page — a 4th
+inline image on that same page is present under a slightly different
+filename/month, kept), plus 1 unresolvable text-only PDF reference on
+`/beliefs-values/` with no actual link in the export (not a broken
+link, just an unlinked mention) — all deferred, non-blocking; see
+`PHASE_7B_TIER_3_BATCH_4.md` and `MEDIA_ACQUISITION_CHECKLIST.md` for
+the full breakdown. 74 pages now build clean (was 67). `/blog/` lists
+60 articles (54 + 6 blog-eligible — `/privacy-policy/` correctly
+excluded). 20 tier-3 URLs remain (27 − 7).
+
 ## Full inventory — all 122 published posts/pages
 
 Sorted by impressions (real GSC data where available).
@@ -239,14 +271,14 @@ Sorted by impressions (real GSC data where available).
 | `/start-here/` | page | migrated | 0 | 32 | tier-3 |
 | `/vision/` | page | migrated | 1 | 30 | tier-3 |
 | `/how-to-spot-a-lone-wolf-and-not-become-one/` | article | migrated | 0 | 30 | tier-3 |
-| `/jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark/` | article | not-migrated | 0 | 29 | tier-3 |
-| `/beliefs-values/` | page | not-migrated | 0 | 26 | tier-3 |
-| `/privacy-policy/` | page | not-migrated | 0 | 25 | tier-3 |
-| `/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/` | article | not-migrated | 1 | 24 | tier-3 |
+| `/jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark/` | article | migrated | 0 | 29 | tier-3 |
+| `/beliefs-values/` | page | migrated | 0 | 26 | tier-3 |
+| `/privacy-policy/` | page | migrated | 0 | 25 | tier-3 |
+| `/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/` | article | migrated | 1 | 24 | tier-3 |
 | `/movement-resources/` | page | migrated | 0 | 22 | tier-3 |
-| `/the-leadership-phase-everyone-skips-why-investment-matters/` | article | not-migrated | 2 | 21 | tier-3 |
-| `/discovering-the-disciple-meaning-a-life-changing-journey/` | article | not-migrated | 0 | 20 | tier-3 |
-| `/5-surprising-ways-to-attract-multiplying-leaders/` | article | not-migrated | 2 | 20 | tier-3 |
+| `/the-leadership-phase-everyone-skips-why-investment-matters/` | article | migrated | 2 | 21 | tier-3 |
+| `/discovering-the-disciple-meaning-a-life-changing-journey/` | article | migrated | 0 | 20 | tier-3 |
+| `/5-surprising-ways-to-attract-multiplying-leaders/` | article | migrated | 2 | 20 | tier-3 |
 | `/spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication/` | article | not-migrated | 0 | 20 | tier-3 |
 | `/kingdom-ministry-training/` | page | not-migrated | 0 | 19 | tier-3 |
 | `/unleashing-the-movement-how-paul-catalyzed-a-disciple-making-movement-in-ephesus-lessons-for-todays-church/` | article | not-migrated | 0 | 19 | tier-3 |

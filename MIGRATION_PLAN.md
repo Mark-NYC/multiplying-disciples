@@ -480,6 +480,70 @@ the full breakdown. `astro check`/`astro build` clean, 67 pages (was
 collisions, no guessed slugs, and `/blog/` now lists all 54 migrated
 articles (was 47). No redirects implemented. 27 tier-3 URLs remain.
 
+### Phase 7B Batch 4 — Fourth Tier 3 batch (done)
+
+Migrated the fourth 7 Tier 3 pages, per `PHASE_7B_TIER_3_BATCH_4.md`.
+Two pages received special inspection per this batch's instructions:
+
+- `/beliefs-values/` — genuine, clean doctrinal content ("Doctrinal
+  Center & Theological Values," written by Sentergy), linked from
+  `/vision/`. Collapsed a duplicated `<h2>` title (export artifact).
+  Kept an unresolvable "*Download PDF below for Scripture References"
+  as plain text — no actual link or attachment exists anywhere in the
+  export for it, so nothing was fabricated. Migrated into the existing
+  `articles` collection + `ArticleLayout`, no hub assignment (a core
+  doctrinal statement, not one hub's specific topic).
+- `/privacy-policy/` — a standard legal privacy policy. Stripped
+  WordPress block-comment artifacts that had leaked into visible
+  `<h2>` tags in the export, converted 2 bare `contact@` text nodes
+  into real `mailto:` links, and preserved all legal text verbatim.
+  No hub, no tool CTA, no `related_articles` — none were present in
+  the original and none are appropriate. **Excluded from `/blog/`**
+  via a new `exclude_from_blog` boolean field added to the `articles`
+  collection schema (`src/content.config.ts`, defaults to `false` so
+  every other migrated article is unaffected) and filtered in
+  `src/pages/blog/index.astro` before sorting.
+
+Plus 5 articles:
+`/jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark/`
+(added to **Jesus and the Twelve**),
+`/the-leadership-phase-everyone-skips-why-investment-matters/` (added
+to **Church Planting Movements**, now 13 slots),
+`/discovering-the-disciple-meaning-a-life-changing-journey/` (added to
+**Disciple Making**), `/5-surprising-ways-to-attract-multiplying-leaders/`
+(added to **Four Fields** — its "Model, Assist, Watch, & Launch"
+framework directly mirrors the hub's existing content), and
+`/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/`
+(no hub assignment — a general leadership-diligence principle, no
+clean fit among the existing hubs).
+
+Same cleanup discipline as every prior phase: removed the reusable
+"Are you in? / Start Here. / Get Started" promotional CTA block, stray
+Elementor `<style>` blocks, duplicate pull-quote headings, a trailing
+WordPress "related posts" auto-widget (date-archive links, not
+authored content), 1 embedded third-party interactive widget iframe
+(`ask.swellai.com`, an AI chat/Q&A gadget), and 1 junk embedded
+`<html><head><title>...FAQ</title>...</html>` placeholder shell.
+Converted 2 Apple Podcasts embeds and 1 bare pasted YouTube URL into
+plain links. Represented `has-base-2-background-color` highlighted
+callout paragraphs (a genuine visual callout style, not a default
+background) as blockquotes on 2 articles.
+
+8 media files across 4 of these pages are missing from supplied
+uploads (5 featured/`og_image`-only, 3 inline supporting images on one
+page — a 4th inline image on that page is present under a slightly
+different filename/month and was kept), plus 1 unresolvable text-only
+PDF reference on `/beliefs-values/` with no actual link in the export
+— all deferred, non-blocking, none above-the-fold, legal content, or a
+direct-access PDF; see `PHASE_7B_TIER_3_BATCH_4.md` and
+`MEDIA_ACQUISITION_CHECKLIST.md` for the full breakdown. `astro
+check`/`astro build` clean, 74 pages (was 67). Verified in `dist/`:
+all 7 canonicals correct, no noindex, exactly 1 H1 each, no broken
+images introduced by this batch, no hub collisions, no guessed slugs,
+and `/blog/` now lists 60 articles (54 + 6 blog-eligible —
+`/privacy-policy/` correctly excluded via `exclude_from_blog`). No
+redirects implemented. 20 tier-3 URLs remain.
+
 ## Repo structure
 
 ```

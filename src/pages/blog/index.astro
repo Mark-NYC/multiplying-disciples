@@ -28,7 +28,9 @@ function bestDate(entry: CollectionEntry<'articles'>): Date | undefined {
 // across WordPress export data), migration priority (tier) is the
 // primary sort key and date is the secondary tiebreaker within a tier,
 // per this phase's instructions.
-const sorted = [...articles].sort((a, b) => {
+const sorted = articles
+  .filter((entry) => !entry.data.exclude_from_blog)
+  .sort((a, b) => {
   const tierDiff = (TIER_RANK[a.data.migration_priority] ?? 99) - (TIER_RANK[b.data.migration_priority] ?? 99);
   if (tierDiff !== 0) return tierDiff;
 

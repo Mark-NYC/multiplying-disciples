@@ -47,7 +47,9 @@ until every item below is checked and a human has signed off.
 - [x] `/blog/` built as a real Astro index page (Phase 7A —
       `src/pages/blog/index.astro`). Dynamically lists every migrated
       article (40 as of Phase 7B Batch 1, 47 as of Phase 7B Batch 2,
-      54 as of Phase 7B Batch 3, was 33), links all 11 hubs,
+      54 as of Phase 7B Batch 3, 60 as of Phase 7B Batch 4 — excludes
+      `/privacy-policy/` via `exclude_from_blog`, was 33), links all
+      11 hubs,
       correct canonical/title/description, no noindex, sitemap
       includes it. Nav's `/blog/` links now resolve.
 - [x] `/movement-resources/` migrated normally as real Tier 3 content
@@ -69,6 +71,25 @@ until every item below is checked and a human has signed off.
 - Do not delete or replace the WordPress site.
 - Do not rewrite the whole site.
 - Do not change existing URL paths.
+
+## Status snapshot (Phase 7B Batch 4)
+
+Fourth Tier 3 batch migrated — 7 pages, see
+`PHASE_7B_TIER_3_BATCH_4.md`. `/beliefs-values/` and `/privacy-policy/`
+both received the special inspection this batch called for:
+`/beliefs-values/` is the ministry's genuine doctrinal statement,
+linked from `/vision/`, migrated with no hub assignment;
+`/privacy-policy/` is a standard legal page — chrome removed, 2 bare
+contact links completed as `mailto:` links, no hub/tool CTA/related
+articles added, and it is the first page to use the new
+`exclude_from_blog` frontmatter field so it correctly does not appear
+in `/blog/`. 3 hubs each gained a new `key_articles` entry (Church
+Planting Movements now 13 slots). 74 pages now build clean (was 67).
+20 tier-3 URLs remain of the original 48. 8 more media files found
+missing plus 1 unresolvable text-only PDF reference (all deferred,
+non-blocking — see `MEDIA_ACQUISITION_CHECKLIST.md`). No slug issues
+or hub collisions found. Still no redirects implemented, nothing
+launched.
 
 ## Status snapshot (Phase 7B Batch 3)
 

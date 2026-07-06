@@ -162,6 +162,26 @@ how-to-spot-a-lone-wolf-and-not-become-one get no hub assignment
 respectively — neither is a clean fit for any single existing hub).
 See `PHASE_7B_TIER_3_BATCH_3.md` for the full batch plan.
 
+As of Phase 7B Batch 4, 7 more pages are migrated: `/beliefs-values/`
+(no hub assignment — the ministry's doctrinal statement, linked from
+`/vision/`, deliberately kept outside any single hub) and
+`/privacy-policy/` (no hub assignment, no tool CTA, no
+related_articles — a legal page; also the first page to use the new
+`exclude_from_blog: true` frontmatter field so it doesn't appear in
+the `/blog/` index), plus 5 articles:
+jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark
+adds to **Jesus and the Twelve**;
+the-leadership-phase-everyone-skips-why-investment-matters adds to
+**Church Planting Movements** (now 13 slots);
+discovering-the-disciple-meaning-a-life-changing-journey adds to
+**Disciple Making**; 5-surprising-ways-to-attract-multiplying-leaders
+adds to **Four Fields** (its "Model, Assist, Watch, & Launch"
+framework directly mirrors the hub's existing content); and
+the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence
+gets no hub assignment (a general leadership-diligence principle, no
+clean fit among the existing hubs). See `PHASE_7B_TIER_3_BATCH_4.md`
+for the full batch plan.
+
 Tool entries themselves (`src/content/tools/`) are not yet created —
 `ToolCTA` renders "(coming soon)" for tool names with no matching entry.
 Creating real tool pages (3 Circles, Stories of Hope, etc.) is future
@@ -172,8 +192,9 @@ work, not part of the Phase 1 batch.
 Built in Phase 7A (`src/pages/blog/index.astro`) as a new site-wide
 directory, not a per-hub mechanism: it dynamically lists every
 migrated article (33 at launch, 40 after Phase 7B Batch 1, 47 after
-Phase 7B Batch 2, 54 after Phase 7B Batch 3, growing automatically as
-more are migrated — sorted
+Phase 7B Batch 2, 54 after Phase 7B Batch 3, 60 after Phase 7B Batch 4
+— excluding `/privacy-policy/` via its `exclude_from_blog` flag,
+growing automatically as more are migrated — sorted
 by tier, then by best-available date) and links out to all 11
 hubs for topic browsing. It's linked from header and footer nav on
 every page (`src/data/navigation.ts`), giving every migrated article a

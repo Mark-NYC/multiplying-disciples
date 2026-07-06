@@ -13,6 +13,7 @@ key_articles:
   - "/unlocking-the-power-of-apest-the-ultimate-guide/"
   - "/seven-words-of-jesus-on-the-cross/"
   - "/5-insightful-keys-into-the-biblical-jesus/"
+  - "/jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark/"
 related_tools: []
 next_step:
   label: "Learn the 3 Circles gospel presentation"

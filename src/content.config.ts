@@ -40,6 +40,9 @@ const articles = defineCollection({
     related_tools: z.array(z.string()).default([]),
     external_links: z.array(externalLink).default([]),
     og_image: z.string().optional(),
+    // True for utility/legal pages (e.g. /privacy-policy/) that should
+    // exist as a real page but not appear in the /blog/ article index.
+    exclude_from_blog: z.boolean().default(false),
     ...migrationFields,
   }),
 });

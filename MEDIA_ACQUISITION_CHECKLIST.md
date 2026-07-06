@@ -113,6 +113,38 @@ button) referenced 4 more `2020/12` images that were dropped along
 with that section itself — not real site content, so not tracked here
 as a media gap.
 
+**Phase 7B Batch 4 gap — deferred, not blocking:** migrating the
+fourth Tier 3 batch surfaced 8 more genuinely missing files across 4
+of the 7 pages, plus 1 unresolvable text-only reference. 5 are
+featured/`og_image`-only (omitted, same pattern as every prior phase):
+`2023/04/4-ways-multiply-disciples-way-jesus-did.jpeg`
+(jesus-the-leader), `2025/02/photo-1555122125-7cea8b612ca0.avif`
+(the-secret-ingredient — only `-100x100`/`-150x150` crops of a
+differently-suffixed `-e1740396668837` variant exist),
+`2025/02/making-disciples.jpeg` (the-leadership-phase), and
+`2023/05/pexels-photo-194094.jpeg` (5-surprising-ways). 3 are inline
+supporting images on `/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/`,
+dropped with their surrounding prose left intact:
+`2024/11/diligence-in-disciple-making-movements.jpeg`,
+`2024/11/diligence-in-discipleship.webp`, and
+`2024/11/diligence-in-discipleship-Jesus.webp` (the entire `2024/11`
+month folder was never supplied). A 4th inline image on that same page
+(`2023/08/personal-evangelism-main-header-1-1024x576.png`) is present
+under a slightly different filename/month
+(`2023/07/personal-evangelism-main-header-1024x576.png` — same photo
+family, missing only a WordPress dedup `-1` suffix) — kept. 1
+unresolvable reference: `/beliefs-values/`'s "*Download PDF below for
+Scripture References" has no actual `<a href>` or attachment anywhere
+in the export — no postmeta attachment captured, no matching filename
+in supplied uploads — kept as plain text since there is no real
+destination, not a broken link to defer. None of the missing files
+block the batch — see `PHASE_7B_TIER_3_BATCH_4.md` for the full
+breakdown. `/discovering-the-disciple-meaning-a-life-changing-journey/`
+has zero missing media — its featured image confirmed present
+(exact filename match). `/privacy-policy/` and
+`/the-leadership-phase-everyone-skips-why-investment-matters/`
+(beyond its missing featured image) reference no inline images at all.
+
 **Received-uploads log:**
 
 - 2026-07-06 — `2023/02` month folder (559 files) supplied and extracted
