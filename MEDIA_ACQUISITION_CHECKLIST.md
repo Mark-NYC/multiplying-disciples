@@ -5,12 +5,12 @@ Tier 1 page (the 7 in `PHASE_3_TIER_1_BATCH.md`), cross-referenced
 against Search Console impressions. Source: WordPress export XML +
 Google Search Console Pages CSV (supplied 2026-07-06).
 
-**Binary status: 61 of 103 files have now been supplied.** These are
-every row that lives in `2023/04`, `2023/05`, or `2023/06`, all received
-in full. All other rows below still read "No — not supplied" because
-this environment has never received their actual image/PDF bytes, only
-their paths and metadata (via WordPress attachment records and the GSC
-export). See `/imports/README.md`.
+**Binary status: 63 of 103 files have now been supplied.** These are
+every row that lives in `2023/04`, `2023/05`, `2023/06`, or `2023/07`,
+all received in full. All other rows below still read "No — not
+supplied" because this environment has never received their actual
+image/PDF bytes, only their paths and metadata (via WordPress
+attachment records and the GSC export). See `/imports/README.md`.
 
 **Received-uploads log:**
 
@@ -34,8 +34,14 @@ export). See `/imports/README.md`.
   extraction, never touched the repo) and extracted into
   `public/wp-content/uploads/2023/06/`. All 3 of this checklist's
   tracked files that live in `2023/06` matched exactly and are now
-  marked "Yes" below. Next recommended folder: `2025/11` (see
-  `MEDIA_IMPORT_PLAN.md`).
+  marked "Yes" below.
+- 2026-07-06 — `2023/07` month folder (6 files) supplied as a zip with
+  the same macOS junk pattern (excluded during extraction) and extracted
+  into `public/wp-content/uploads/2023/07/`. The 2 of this checklist's
+  tracked files that live in `2023/07` matched exactly and are now
+  marked "Yes" below (the other 4 tracked `2023/07` files are Priority C
+  in `MEDIA_IMPORT_PLAN.md`, out of this doc's migrated/tier-1 scope).
+  Next recommended folder: `2025/11` (see `MEDIA_IMPORT_PLAN.md`).
 
 ## Rule
 
@@ -84,7 +90,7 @@ they're legitimate external links, consistent with this site's
 | `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-4.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-4.jpg` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` | 1 |
 | `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-1.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-1.jpg` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` | 1 |
 | `/wp-content/uploads/2023/05/Screen-Shot-2023-08-16-at-8.47.48-AM-1024x499.png` | `public/wp-content/uploads/2023/05/Screen-Shot-2023-08-16-at-8.47.48-AM-1024x499.png` | Yes | not on a migrated/tier-1 page yet | 1 |
-| `/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-4.svg` | `public/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-4.svg` | No — not supplied | not on a migrated/tier-1 page yet | 1 |
+| `/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-4.svg` | `public/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-4.svg` | Yes | not on a migrated/tier-1 page yet | 1 |
 | `/wp-content/uploads/2025/01/e3adfe1623cfb8a49a60f903b1515adb.Screen-Shot-2023-08-05-at-8.26.31-AM-1.webp` | `public/wp-content/uploads/2025/01/e3adfe1623cfb8a49a60f903b1515adb.Screen-Shot-2023-08-05-at-8.26.31-AM-1.webp` | No — not supplied | `/movement-resources/7-stories-of-hope-complete-facilitation-guide/` | 0 |
 | `/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible-3.webp` | `public/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible-3.webp` | No — not supplied | `/movement-resources/7-stories-of-hope-complete-facilitation-guide/` | 0 |
 | `/wp-content/uploads/2025/03/gen-z-bible-study.jpg` | `public/wp-content/uploads/2025/03/gen-z-bible-study.jpg` | No — not supplied | `/movement-resources/7-stories-of-hope-complete-facilitation-guide/` | 0 |
@@ -146,7 +152,7 @@ they're legitimate external links, consistent with this site's
 | `/wp-content/uploads/2025/11/short-christian-testimony-examples-1024x576.webp` | `public/wp-content/uploads/2025/11/short-christian-testimony-examples-1024x576.webp` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1-1024x576.webp` | `public/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1-1024x576.webp` | Yes | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.29.37-PM-1024x577.png` | `public/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.29.37-PM-1024x577.png` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
-| `/wp-content/uploads/2023/07/personal-evangelism-main-header-1024x576.png` | `public/wp-content/uploads/2023/07/personal-evangelism-main-header-1024x576.png` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
+| `/wp-content/uploads/2023/07/personal-evangelism-main-header-1024x576.png` | `public/wp-content/uploads/2023/07/personal-evangelism-main-header-1024x576.png` | Yes | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.28.45-PM-1024x573.png` | `public/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.28.45-PM-1024x573.png` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.27.25-PM-1024x575.png` | `public/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.27.25-PM-1024x575.png` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/08/Step-by-Step-Guide-to-Evangelizing-Confident-Conversations-About-Faith.webp` | `public/wp-content/uploads/2023/08/Step-by-Step-Guide-to-Evangelizing-Confident-Conversations-About-Faith.webp` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending — featured) | 0 |

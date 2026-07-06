@@ -99,6 +99,28 @@ so this upload doesn't fix any visibly-broken image today — it's
 collected ahead of need, same as the doc's pre-existing "not currently
 used" annotation already said.
 
+## Received (2026-07-06, sixth upload): fifth media month folder
+
+The `2023/07` month folder (6 files) was supplied as a zip
+(`190dda0e-wpcontent.zip`), which again contained macOS `.DS_Store` and
+`__MACOSX/` junk — excluded during extraction, never touched the repo.
+The 6 real files were moved into `public/wp-content/uploads/2023/07/` —
+exact original filenames, no re-encoding, no flattening. The zip itself
+was not committed.
+
+**All 6 tracked files in this folder matched exactly** (1 Priority A —
+4 SVG icons and header images for `4-stages-of-movement-...` and a
+personal-evangelism header — 5 Priority B) — every row flipped to
+"Yes" in `MEDIA_IMPORT_PLAN.md`, and the 2 also tracked in
+`MEDIA_ACQUISITION_CHECKLIST.md` flipped there too. `astro build` was
+re-run clean (23 pages, no new errors). One of the Priority B files,
+`personal-evangelism-main-header-1024x576.png`, is genuinely embedded in
+the already-live `/how-to-evangelize-ultimate-step-by-step-guide/` page
+(despite that checklist's stale "(tier-1, pending)" label — the page
+has actually been migrated since Phase 3) — confirmed present in that
+page's `dist/` output, so this fixes a real broken image. The rest are
+tagged to tier-2 pages not yet migrated, collected ahead of need.
+
 **Next recommended month folder: `2025/11`** — not the largest
 remaining folder by file count (`2025/01` has 23 vs. `2025/11`'s 19),
 but the higher-value pick: 5 Priority A + 13 Priority B vs. `2025/01`'s
