@@ -323,13 +323,29 @@ errors), and the `dist/` output was checked precisely:
 **This closes out every tracked month folder** except the `2023/02`
 file marked "Won't fix" (by explicit decision) and the `2025/02` gap.
 
-## The only remaining gap: `2025/02`'s 5 apostles-meaning files
+## Received (2026-07-06, sixteenth upload): 3 of 5 apostles-meaning files, at full size
 
-This is now the single outstanding item across the entire 171-file
-tracked list. Please re-upload the full-size originals for those 5
-files specifically — the previous `2025/02` upload only contained
-thumbnail-sized crops. See the "Received (..., twelfth upload)" section
-above for the exact filenames and details.
+A follow-up zip (`eb6bf499-wpcontent.zip`) supplied 3 of the 5 needed
+files at full size this time — `Jesus-with-disciples-1024x513.jpg`,
+`Paul-in-Athens.jpg`, `jesus_chooses_twelve_apostles.webp` — moved into
+`public/wp-content/uploads/2025/02/` and confirmed via a fresh `astro
+build` + `dist/` check to now resolve on the live `apostles-meaning`
+page.
+
+**2 files remain genuinely missing.** The zip still only contained
+`-100x100` thumbnail crops for these two exact filenames, not the
+full-size originals:
+
+```
+5520c44066fbc694ac1c2e207151fe125162f59d.jpeg
+760px-Ghirlandaio_Domenico_-_Calling_of_the_Apostles_-_1481.jpg
+```
+
+**`apostles-meaning` now has 2 broken images, down from 5.** Only 5 of
+the original 171 tracked files remain missing across the entire
+project: these 2 Priority B files plus 3 Priority C files for
+`/stickers/` (`2-1024x1024.jpg`, `3-Circles-Sticker-Multiplying-Disciples.webp`,
+`3.jpg`), also still needed in `2025/02`.
 
 ## Still needed: media binary files (this is the one blocking thing)
 

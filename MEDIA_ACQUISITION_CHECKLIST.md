@@ -5,20 +5,23 @@ Tier 1 page (the 7 in `PHASE_3_TIER_1_BATCH.md`), cross-referenced
 against Search Console impressions. Source: WordPress export XML +
 Google Search Console Pages CSV (supplied 2026-07-06).
 
-**Binary status: 95 of 103 files have now been supplied.** These are
+**Binary status: 98 of 103 files have now been supplied.** These are
 every row that lives in `2023/04`, `2023/05`, `2023/06`, `2023/07`,
-`2023/08`, `2023/09`, `2025/11`, or `2025/01`, all received in full.
-All other rows below still read "No — not supplied" because this
-environment has never received their actual image/PDF bytes, only
-their paths and metadata (via WordPress attachment records and the GSC
-export). See `/imports/README.md`.
+`2023/08`, `2023/09`, `2025/11`, or `2025/01`, plus 3 of the 5
+`2025/02` rows, all received in full. All other rows below still read
+"No — not supplied" because this environment has never received their
+actual image/PDF bytes, only their paths and metadata (via WordPress
+attachment records and the GSC export). See `/imports/README.md`.
 
-**Known gap — most urgent one right now:** the 5 rows below tagged to
+**Known gap — most urgent one right now:** 3 of the 5 rows tagged to
 `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/`
-are still not supplied despite a `2025/02` upload landing 132 files —
-that upload only contained thumbnail-sized crops, not the full-size
-originals these rows need. **This already-live page currently has 5
-broken images**, confirmed via a fresh `astro build` + `dist/` check.
+were resupplied at full size and now marked "Yes" below. **2 rows are
+still not supplied** — `5520c44066fbc694ac1c2e207151fe125162f59d.jpeg`
+and `760px-Ghirlandaio_Domenico_-_Calling_of_the_Apostles_-_1481.jpg` —
+the follow-up upload still only contained `-100x100` thumbnail crops of
+these two exact filenames. **This already-live page currently has 2
+broken images (down from 5)**, confirmed via a fresh `astro build` +
+`dist/` check.
 
 **Received-uploads log:**
 
@@ -93,10 +96,16 @@ broken images**, confirmed via a fresh `astro build` + `dist/` check.
   exist (e.g. `5520c44066fbc694ac1c2e207151fe125162f59d-100x100.jpeg`)
   but never the full-size originals the page actually references.
   **The `apostles-meaning` page has 5 broken images right now** as a
-  result. Next recommended folder: `2025/03` (see
-  `MEDIA_IMPORT_PLAN.md`) — but the `2025/02` gap above should be
-  resolved with a proper full-size upload as soon as possible, since
-  it's the only currently-known broken-image case on a live page.
+  result.
+- 2026-07-06 — `2025/02` follow-up upload supplied 3 of the 5 needed
+  files at full size (`Jesus-with-disciples-1024x513.jpg`,
+  `Paul-in-Athens.jpg`, `jesus_chooses_twelve_apostles.webp`) — now
+  marked "Yes" below. Confirmed via fresh `astro build` + `dist/` check
+  that these 3 now resolve on the live page. **2 files remain
+  genuinely missing** — the follow-up upload still only contained
+  `-100x100` thumbnail crops for `5520c44066fbc694ac1c2e207151fe125162f59d.jpeg`
+  and `760px-Ghirlandaio_Domenico_-_Calling_of_the_Apostles_-_1481.jpg`.
+  **`apostles-meaning` now has 2 broken images (down from 5).**
 
 ## Rule
 
@@ -211,11 +220,11 @@ they're legitimate external links, consistent with this site's
 | `/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.28.45-PM-1024x573.png` | `public/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.28.45-PM-1024x573.png` | Yes | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.27.25-PM-1024x575.png` | `public/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.27.25-PM-1024x575.png` | Yes | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/08/Step-by-Step-Guide-to-Evangelizing-Confident-Conversations-About-Faith.webp` | `public/wp-content/uploads/2023/08/Step-by-Step-Guide-to-Evangelizing-Confident-Conversations-About-Faith.webp` | Yes | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending — featured) | 0 |
-| `/wp-content/uploads/2025/02/Jesus-with-disciples-1024x513.jpg` | `public/wp-content/uploads/2025/02/Jesus-with-disciples-1024x513.jpg` | No — not supplied | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` (tier-1, pending) | 0 |
+| `/wp-content/uploads/2025/02/Jesus-with-disciples-1024x513.jpg` | `public/wp-content/uploads/2025/02/Jesus-with-disciples-1024x513.jpg` | Yes | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2025/02/5520c44066fbc694ac1c2e207151fe125162f59d.jpeg` | `public/wp-content/uploads/2025/02/5520c44066fbc694ac1c2e207151fe125162f59d.jpeg` | No — not supplied | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` (tier-1, pending) | 0 |
-| `/wp-content/uploads/2025/02/Paul-in-Athens.jpg` | `public/wp-content/uploads/2025/02/Paul-in-Athens.jpg` | No — not supplied | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` (tier-1, pending) | 0 |
+| `/wp-content/uploads/2025/02/Paul-in-Athens.jpg` | `public/wp-content/uploads/2025/02/Paul-in-Athens.jpg` | Yes | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2025/02/760px-Ghirlandaio_Domenico_-_Calling_of_the_Apostles_-_1481.jpg` | `public/wp-content/uploads/2025/02/760px-Ghirlandaio_Domenico_-_Calling_of_the_Apostles_-_1481.jpg` | No — not supplied | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` (tier-1, pending) | 0 |
-| `/wp-content/uploads/2025/02/jesus_chooses_twelve_apostles.webp` | `public/wp-content/uploads/2025/02/jesus_chooses_twelve_apostles.webp` | No — not supplied | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` (tier-1, pending — featured) | 0 |
+| `/wp-content/uploads/2025/02/jesus_chooses_twelve_apostles.webp` | `public/wp-content/uploads/2025/02/jesus_chooses_twelve_apostles.webp` | Yes | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` (tier-1, pending — featured) | 0 |
 | `/wp-content/uploads/2025/11/two-young-men-sharing-their-faith-in-Jesus.jpg` | `public/wp-content/uploads/2025/11/two-young-men-sharing-their-faith-in-Jesus.jpg` | Yes | `/testimony-in-the-bible-20-verses-to-ignite-your-faith/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2025/11/A-Mans-Testimony-of-Faith-in-the-Midst-of-Struggle.webp` | `public/wp-content/uploads/2025/11/A-Mans-Testimony-of-Faith-in-the-Midst-of-Struggle.webp` | Yes | `/testimony-in-the-bible-20-verses-to-ignite-your-faith/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2025/11/Mid-30s-Professor-Shares-Personal-Testimony-with-Students.webp` | `public/wp-content/uploads/2025/11/Mid-30s-Professor-Shares-Personal-Testimony-with-Students.webp` | Yes | `/testimony-in-the-bible-20-verses-to-ignite-your-faith/` (tier-1, pending) | 0 |

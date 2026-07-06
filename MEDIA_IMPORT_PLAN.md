@@ -16,18 +16,19 @@ untracked size variants), `2023/09` (6 files across two uploads, all 6
 tracked rows now matched exactly), `2025/11` (136 files landed, all 19
 tracked rows matched exactly plus 117 untracked size variants), `2025/01`
 (375 files landed, all 23 tracked rows matched exactly plus 352
-untracked size variants), `2025/02` (132 files landed, but only 1 of 9
-tracked rows matched — **8 still genuinely missing, including all 5
-Priority B files needed by the already-live `apostles-meaning` page**
-— see "Received uploads log" below for detail), `2025/10` (35 files
+untracked size variants), `2025/02` (two uploads: first landed 132
+files with only 1 of 9 tracked rows matched; a follow-up landed 3 more
+of the 5 needed `apostles-meaning` files at full size — **2 files still
+genuinely missing, only as `-100x100` thumbnails**: `5520c44066fbc694ac1c2e207151fe125162f59d.jpeg`
+and `760px-Ghirlandaio_Domenico_-_Calling_of_the_Apostles_-_1481.jpg` —
+see "Received uploads log" below for detail), `2025/10` (35 files
 landed, all 4 tracked rows matched exactly), `2025/12` (61 files
 landed, all 5 tracked rows matched exactly), and `2025/03` + `2026/02`
-+ `2020/12` (4 files total across three folders, all matched exactly —
-this closes out every tracked folder except the `2023/02` "Won't fix"
-file and the `2025/02` gap). Every other row still reads "No" under
-Present — this environment has only ever received paths and metadata
-(via WordPress attachment records and the GSC export) for the rest,
-never the actual image/PDF bytes.
++ `2020/12` (4 files total across three folders, all matched exactly).
+Every other row still reads "No" under Present — this environment has
+only ever received paths and metadata (via WordPress attachment
+records and the GSC export) for the rest, never the actual image/PDF
+bytes.
 
 ## Rule — do not violate this during import
 
@@ -152,9 +153,9 @@ never the actual image/PDF bytes.
 | `/wp-content/uploads/2025/01/e3adfe1623cfb8a49a60f903b1515adb.Screen-Shot-2023-08-05-at-8.26.31-AM-1.webp` | webp | `/movement-resources/7-stories-of-hope-complete-facilitation-guide/` | Yes | 0 |
 | `/wp-content/uploads/2025/02/5520c44066fbc694ac1c2e207151fe125162f59d.jpeg` | jpeg | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` | No | 0 |
 | `/wp-content/uploads/2025/02/760px-Ghirlandaio_Domenico_-_Calling_of_the_Apostles_-_1481.jpg` | jpg | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` | No | 0 |
-| `/wp-content/uploads/2025/02/Jesus-with-disciples-1024x513.jpg` | jpg | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` | No | 0 |
-| `/wp-content/uploads/2025/02/Paul-in-Athens.jpg` | jpg | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` | No | 0 |
-| `/wp-content/uploads/2025/02/jesus_chooses_twelve_apostles.webp` | webp | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` | No | 0 |
+| `/wp-content/uploads/2025/02/Jesus-with-disciples-1024x513.jpg` | jpg | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` | Yes | 0 |
+| `/wp-content/uploads/2025/02/Paul-in-Athens.jpg` | jpg | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` | Yes | 0 |
+| `/wp-content/uploads/2025/02/jesus_chooses_twelve_apostles.webp` | webp | `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` | Yes | 0 |
 | `/wp-content/uploads/2025/03/gen-z-bible-study.jpg` | jpg | `/movement-resources/7-stories-of-hope-complete-facilitation-guide/` | Yes | 0 |
 | `/wp-content/uploads/2025/03/maxresdefault-7-1024x576.jpg` | jpg | `/` | Yes | 0 |
 | `/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible-1.webp` | webp | `/movement-resources/7-stories-of-hope-complete-facilitation-guide/` | Yes | 0 |
@@ -268,6 +269,7 @@ folder structure untouched (no renames, no re-encoding, no move to
 | 2026-07-06 | `2025/11` | 136 landed, 19 tracked | **All 19 tracked rows in this folder matched exactly** (5 Priority A, 13 Priority B, 1 Priority C) — every one flipped to "Yes" above. 17 of these 19 (4 A + 13 B) are tagged to 5 already-live migrated pages (7-stories-of-hope, bible-verse-about-spreading-the-gospel, testimony-in-the-bible, how-to-evangelize, 15-second-testimony) — this fixes real broken images on all 5. The remaining 2 rows (1 A + 1 C) are tagged to `/the-power-of-sharing-your-testimony-scripture-...`, a tier-2 page not yet migrated. Same macOS junk pattern as prior uploads (excluded during extraction). The other 117 files that landed are untracked size variants and unrelated media in the same month folder — preserved at their exact original paths. |
 | 2026-07-06 | `2025/01` | 375 landed, 23 tracked | **All 23 tracked rows in this folder matched exactly** (2 Priority A, 6 Priority B, 15 Priority C) — every one flipped to "Yes" above. Verified against `dist/` output: 5 of these 23 files are genuinely embedded and now fix real broken images on 3 already-live pages (2 on discover-the-12-disciples, 2 on 12-practice-church-circle, 1 on 7-stories-of-hope). 3 more Priority B rows (`Untitled-design-52`, `Copy-of-Untitled-47`, `Copy-of-Untitled-48`) are tagged to the homepage but confirmed **not** embedded in its rendered output. The remaining 15 Priority C rows are tagged to 2 tier-2 pages not yet migrated (`what-is-a-strategy-coordinator-...`, `understanding-biblical-discipleship-...`). Same macOS junk pattern as prior uploads (excluded during extraction). The other 352 files that landed are untracked size variants and unrelated media in the same month folder. |
 | 2026-07-06 | `2025/02` | 132 landed, 9 tracked | **Only 1 of 9 tracked rows matched** (`Untitled-design-2025-11-28T172403.122.webp`, Priority C, tagged to `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/`, a tier-2 page not yet migrated — no live impact). **8 tracked rows are still genuinely missing**, and this is the most consequential gap so far: **all 5 Priority B files needed by the already-live `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` page** (`5520c44066fbc694ac1c2e207151fe125162f59d.jpeg`, `760px-Ghirlandaio_Domenico_-_Calling_of_the_Apostles_-_1481.jpg`, `Jesus-with-disciples-1024x513.jpg`, `Paul-in-Athens.jpg`, `jesus_chooses_twelve_apostles.webp`) plus 3 more Priority C rows for `/stickers/` (`2-1024x1024.jpg`, `3-Circles-Sticker-Multiplying-Disciples.webp`, `3.jpg`). This upload appears to be a thumbnail/crop-only export — the 132 files that landed are almost entirely small `100x100`/`150x150` variants, and near-miss checks confirm size-variant versions of most missing filenames exist (e.g. `5520c44066fbc694ac1c2e207151fe125162f59d-100x100.jpeg`) but never the full-size originals actually referenced by the pages. Confirmed via fresh `astro build` + `dist/` check that the `apostles-meaning` page does reference these exact 5 filenames and they do not resolve — **this page currently has 5 broken images.** |
+| 2026-07-06 | `2025/02` (follow-up) | 3 exact | **3 of the 5 needed `apostles-meaning` files now supplied at full size** — `Jesus-with-disciples-1024x513.jpg`, `Paul-in-Athens.jpg`, `jesus_chooses_twelve_apostles.webp` — flipped to "Yes" above. Confirmed via fresh `astro build` + `dist/` check that these 3 now resolve on the live page. **2 files remain genuinely missing**: `5520c44066fbc694ac1c2e207151fe125162f59d.jpeg` and `760px-Ghirlandaio_Domenico_-_Calling_of_the_Apostles_-_1481.jpg` — the follow-up upload still only contained `-100x100` thumbnail crops of these two exact filenames, not the full-size originals. **The `apostles-meaning` page now has 2 broken images (down from 5).** |
 | 2026-07-06 | `2025/10` | 35 | **All 4 tracked rows matched exactly** (4 Priority C, all tagged to `/stickers/`, a tier-2 page not yet migrated) — every one flipped to "Yes" above. No Priority A or B files exist in `2025/10`, so this upload has zero effect on any currently-migrated page. Same macOS junk pattern as prior uploads (excluded during extraction). The other 31 files that landed are untracked size variants. |
 | 2026-07-06 | `2025/12` | 61 | **All 5 tracked rows matched exactly** (5 Priority C — 3 tagged to `/stickers/`, 2 tagged to `/christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/`, both tier-2 pages not yet migrated) — every one flipped to "Yes" above. No Priority A or B files exist in `2025/12`, so this upload has zero effect on any currently-migrated page. Same macOS junk pattern as prior uploads (excluded during extraction). The other 56 files that landed are untracked size variants. |
 | 2026-07-06 | `2025/03` + `2026/02` + `2020/12` | 4 (exact match) | **All 4 remaining tracked files across these three folders matched exactly**, uploaded together as a single precisely-scoped zip (no extra files, no junk beyond the usual macOS `.DS_Store`/`__MACOSX`, which was excluded). `2025/03/gen-z-bible-study.jpg` (Priority B) is genuinely embedded in the already-live `/movement-resources/7-stories-of-hope-complete-facilitation-guide/` page — confirmed via fresh `astro build` + `dist/` check that it now resolves, **fixing a real broken image**. `2025/03/maxresdefault-7-1024x576.jpg` and `2026/02/Multiply-disciples-in-real-life.webp` (both Priority B, tagged to `/`) are **not** currently embedded in the homepage's rendered output, so they don't fix a visible break. `2020/12/Screenshot-2023-09-02-at-4.18.46-PM.png` (Priority C) is for `/stickers/`, not yet migrated. **This closes out every tracked folder** except the `2023/02` file marked "Won't fix" and the `2025/02` gap (5 Priority B files still needed by `apostles-meaning`). |
@@ -286,17 +288,18 @@ every table above on purpose; they need no local preservation.
 - Priority C: 68 files
 - Priority D: 0 files
 - **Total distinct files tracked: 171**
-- **Present so far: 162 of 171 tracked rows** (all 47 `2023/04` rows —
+- **Present so far: 165 of 171 tracked rows** (all 47 `2023/04` rows —
   4 A, 35 B, 8 C — plus all 39 `2023/05` rows — 10 A, 9 B, 20 C — plus
   all 3 `2023/06` rows — 1 A, 2 B — plus all 6 `2023/07` rows — 1 A,
   5 B — plus all 5 `2023/08` rows — 5 B — plus all 6 `2023/09` rows —
   1 A, 5 C — plus all 19 `2025/11` rows — 5 A, 13 B, 1 C — plus all 23
-  `2025/01` rows — 2 A, 6 B, 15 C — plus 1 of 9 `2025/02` rows — 1 C —
-  plus all 4 `2025/10` rows — 4 C — plus all 5 `2025/12` rows — 5 C —
-  plus all 4 `2025/03`/`2026/02`/`2020/12` rows — 3 B, 1 C. The
-  `2023/02` file is marked "Won't fix" (not counted as a gap). **Every
-  tracked folder is now fully accounted for except the 8
-  still-genuinely-missing `2025/02` files** — 5 of them Priority B,
-  causing 5 real broken images on the live `apostles-meaning` page right
-  now — see "Received uploads log" above. That is the only remaining
+  `2025/01` rows — 2 A, 6 B, 15 C — plus 4 of 9 `2025/02` rows — 3 B,
+  1 C — plus all 4 `2025/10` rows — 4 C — plus all 5 `2025/12` rows —
+  5 C — plus all 4 `2025/03`/`2026/02`/`2020/12` rows — 3 B, 1 C. The
+  `2023/02` file is marked "Won't fix" (not counted as a gap). **Only 5
+  of the original 171 tracked files remain missing, all in `2025/02`**:
+  2 Priority B files still needed by `apostles-meaning` (causing 2 real
+  broken images on that live page right now) and 3 Priority C files for
+  the not-yet-migrated `/stickers/` page — see "Received uploads log"
+  above. That is the only remaining
   gap in the entire 171-file tracked list)
