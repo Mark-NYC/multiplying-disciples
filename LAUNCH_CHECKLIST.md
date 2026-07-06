@@ -49,6 +49,7 @@ until every item below is checked and a human has signed off.
 ## Status snapshot (Phase 1)
 
 Every box above is currently unchecked. The current repo state covers:
-foundation (layouts/components/schema/docs), 45 known protected URLs
-documented, 5 pages placeholder-migrated, 11 new hub pages drafted.
-Nothing here should be read as launch-ready.
+foundation (layouts/components/schema/docs), a real 122-page inventory
+with real Search Console tiers documented, 5 pages migrated with real
+content, 11 new hub pages drafted. ~117 published pages and all media
+binaries still remain. Nothing here should be read as launch-ready.

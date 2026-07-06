@@ -10,11 +10,11 @@ intro: >
 key_articles:
   - "/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/"
   - "/movement-resources/12-practice-church-circle/"
-  - "/the-three-thirds/"
+  - "/three-thirds/"
 related_tools: []
 next_step:
   label: "Learn the Three-Thirds process"
-  href: "/the-three-thirds/"
+  href: "/three-thirds/"
 status: "migrated-draft"
 migration_priority: "tier-1"
 notes: >

@@ -1,30 +1,141 @@
 ---
-// Homepage placeholder. This is a migration stub, not a redesign.
-// See /imports/README.md for what's needed to replace this with the
-// real WordPress homepage content (structure, copy, nav links, etc).
+// Homepage. Real content ported from the live WordPress "Home" page
+// (post_id 4788, post_name "main-home") via the WordPress export XML,
+// lightly cleaned up. See MIGRATION_PLAN.md for what "lightly cleaned
+// up" means here.
+//
+// One deliberate simplification: the live page embeds a third-party
+// Supabase-backed "next lab" widget (live JS pulling the next open
+// CoVo Multipliers training slot). That's out of scope for a static
+// Astro migration in Phase 1 — instead this uses the widget's own
+// documented fallback copy/link (verbatim from its source), which
+// points to the same destination it would show when no lab data loads.
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const ORIGINAL_URL = 'https://multiplyingdisciples.us/';
+const COVO_LABS_URL = 'https://www.covomultipliers.com/#upcoming-labs';
 ---
 
 <BaseLayout
   title="Multiplying Disciples"
-  description="A practical disciple-making library: tools, articles, and next steps for evangelism, discipleship, and church planting movements."
+  description="Every believer needs to be equipped to share the gospel, disciple others and start churches. Get tools and training to multiply disciples and reach the lost."
   canonical="https://multiplyingdisciples.us/"
   type="website"
-  noindex={true}
 >
-  <div class="page-container">
-    <p class="source-pending-banner">
-      This homepage is a migration placeholder. Live content has not been imported from
-      WordPress yet. Original URL: <a href={ORIGINAL_URL}>{ORIGINAL_URL}</a>
-    </p>
+  <div class="page-container page-container--wide">
+    <section class="hero">
+      <h1>Multiply disciples in real life.</h1>
+      <p class="hero__subhead">
+        Get field-tested tools and ongoing coaching <strong>that push you to act.</strong>
+      </p>
+      <img
+        src="/wp-content/uploads/2023/05/Copy-of-Experience-confidence-in-your-disciple-making-1.png"
+        alt=""
+      />
+      <p class="hero__ctas">
+        <a class="button" href={COVO_LABS_URL}>Start Training</a>
+        <a class="button button--secondary" href="/contact-us/">Connect</a>
+      </p>
+    </section>
 
-    <h1>Multiplying Disciples</h1>
-    <p>
-      Content pending import from the live WordPress homepage. Do not treat this copy as
-      final — see <code>/imports/README.md</code> for what's needed to migrate the real
-      homepage content.
-    </p>
+    <section>
+      <h2>
+        Disciple making resources and tools can be found everywhere. Resources without
+        coaching will never get you to multiplication.
+      </h2>
+      <p>
+        Let's be honest: we've all Googled disciple-making resources or looked up YouTube
+        videos and found them helpful. But you either don't know how to start or the tools
+        you tried "haven't worked" to multiply disciples, leaders, and churches. It's not
+        the tools&hellip;
+      </p>
+      <p><em>You need effective coaching.</em></p>
+      <p>
+        Get methods that have been field tested by practitioners in North America. Know that
+        the tools and process we share are <strong>not only Biblical, but fruitful.</strong>
+      </p>
+      <p>
+        We bring together like-minded practitioners into training cohorts that are committed
+        to action. <strong>Everyone benefits from that momentum.</strong>
+      </p>
+
+      <h3>What is the purpose of the disciple making training?</h3>
+      <p>
+        The purpose of our disciple making training and coaching is to equip and empower
+        individuals to become effective disciple makers who can multiply disciples and reach
+        the lost. The reality is, the process of training matters and equips disciple makers
+        to equip others in both confidence and competence. We believe in cultivating a
+        movement of disciple makers who are passionate about sharing the Gospel and making
+        disciples.
+      </p>
+
+      <h3>Why is coaching important in the process of disciple making?</h3>
+      <p>
+        Coaching within a community of practice plays a crucial role in disciple making as it
+        provides personalized guidance, support, and accountability. Growth happens through
+        both challenge and support. Our training includes coaching from experienced
+        practitioners who have seen fruitful results in their own disciple making efforts.
+        They will walk alongside you, offering insights, answering questions, and helping you
+        navigate challenges along the way.
+      </p>
+
+      <h3>Is the training completely free, or are there any hidden costs involved?</h3>
+      <p>
+        Yes, the training we offer is completely free of charge. Always. There are no hidden
+        costs or fees associated with participating in the training. Our goal is to make
+        high-quality disciple making resources and coaching accessible to all who have a
+        passion for reaching and discipling people for Jesus.
+      </p>
+    </section>
+
+    <section class="next-lab">
+      <h2>Get Hands-on Training on Zoom</h2>
+      <p>Join our next 45-minute Multipliers Lab.</p>
+      <p>New free labs are announced regularly. See the current schedule and save your seat for the next live session.</p>
+      <a class="button" href={COVO_LABS_URL}>See Upcoming Labs</a>
+    </section>
   </div>
 </BaseLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+
+  .hero__subhead {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+  }
+
+  .hero__ctas {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.65rem 1.25rem;
+    background: var(--color-accent);
+    color: var(--color-accent-text);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .button--secondary {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .next-lab {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    text-align: center;
+  }
+</style>

@@ -1,0 +1,231 @@
+---
+title: "3 Circles Gospel Presentation (Step-by-Step Guide)"
+description: "Learn the 3 Circles Gospel Presentation step-by-step. A simple visual tool to explain God's design, our brokenness, and how Jesus restores us."
+slug: "/the-three-circles-gospel-presentation-step-by-step/"
+canonical: "https://multiplyingdisciples.us/the-three-circles-gospel-presentation-step-by-step/"
+date: 2025-11-18
+updated: 2025-12-29
+primary_keyword: "3 circles gospel presentation"
+secondary_keywords:
+  - "how to use the 3 circles"
+  - "circles gospel presentation"
+  - "three circles gospel"
+hub: "3-circles"
+related_articles:
+  - "/how-to-evangelize-ultimate-step-by-step-guide/"
+  - "/15-second-testimony-examples-ignite-your-faith/"
+  - "/movement-resources/7-stories-of-hope-complete-facilitation-guide/"
+related_tools:
+  - "3 Circles"
+external_links: []
+og_image: "/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1.webp"
+status: "migrated"
+migration_priority: "tier-1"
+original_url: "https://multiplyingdisciples.us/the-three-circles-gospel-presentation-step-by-step/"
+notes: >
+  Real content ported from the WordPress export (post_id 7836). IMPORTANT:
+  the migration brief's slug (/use-the-circles-gospel-presentation-step-by-step/)
+  was wrong — the real live URL is /the-three-circles-gospel-presentation-step-by-step/
+  (62 clicks / 6,670 impressions in the known GSC export). Preserved as
+  close to verbatim as possible. Removed: a decorative "click for
+  language" image-link (replaced with a plain text link down to the
+  Select Language section), a Spotify podcast-episode iframe embed
+  (replaced with a plain link), and a shared reusable "Blog Post Last
+  Blocks" CTA at the end (rendered as plain text + links, same as it
+  appears on the 12-disciples article). Fixed one missing "2nd Circle"
+  heading, one duplicated paragraph, and the typo "desgin" → "design" —
+  all faithful corrections, not rewrites. Body text still references the
+  real, not-yet-migrated WordPress page /3-circles/ (the actual Google
+  Slides tool) — do not confuse that with this site's new /3-circles-guide/
+  hub, which was deliberately named to avoid colliding with it.
+---
+
+The 3 Circles Gospel Presentation is a simple method or tool that has been used by tens of thousands of people and is both engaging and effective. In this guide, we'll walk you through how to use the Three Circles to introduce the gospel to others.
+
+[Get 3 Circles stickers](/stickers/) or jump straight to [Select Language](#select-language) for videos in other languages.
+
+### How to Introduce the Three Circles
+
+Begin by approaching someone and asking:
+
+Have you heard of the Three Circles?
+
+If the person says no, say something like:
+
+I'd really like to show it to you. It only takes a minute or two. Would that be OK?
+
+You can also try bridging the conversation with something from your own life to set the tone before asking the introducing question.
+
+### 1st Circle: The Brokenness
+
+To start, draw a circle on the right-hand side of a piece of paper.
+
+![3 Circles Gospel Tool](/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1.jpg)
+
+### Draw a jagged line through the circle and say:
+
+You may have noticed when you turn on the news, a lot of brokenness in the World.
+
+### Mention briefly a few relevant examples depending on what you have learned about the person.
+
+These things might include anxiety, stress, family breakdown, pain, economic problems, broken systems or any number of things that people would agree are an example of brokenness. For school children, it might be bullying.
+
+Different things for different people.
+
+Then say:
+
+This circle represents the fact that we live in a BROKEN world. In fact, we were born into brokenness. Nothing is really fully the way it ought to be.
+
+### 2nd Circle: God's Original Design
+
+Next, draw a second circle to the left of the first one.
+
+![3 Circles Gospel Tool](/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-1.jpg)
+
+But it wasn't always this way. When God first made the world, He made it beautiful and perfect.
+
+In this circle, draw a heart, representing "God's original design."
+
+Adam and Eve, the first man and woman lived this way for a short time.
+
+Through one act of disobedience, they broke their connection to God.
+
+Draw a line and an arrow from the Circle representing God's Design to the Broken Circle. Label it **"SIN"**. Basically, what sin is, is the choice to leave God out, to do things our own way, and not respect God's Word.
+
+![3 Circles Gospel Tool](/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-2.jpg)
+
+You might like to elaborate on this very briefly, depending on the amount of time you feel is right to use. But don't go on and on because if a person is interested, there will be opportunities to explain it more later.
+
+People don't like living in brokenness, so they try various things to get out of it. For example, money, or success, or achievement, or relationships, or philosophy, or good works, or religious activity. The problem is, none of these things actually get people out of brokenness. They might seem to help for a short time, but then people find themselves back in brokenness.
+
+![3 Circles Gospel Tool](/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-3.jpg)
+
+### 3rd Circle: The Good News of Jesus
+
+Finally, draw a third circle below the two circles already drawn. In the circle, draw a cross, a crown, and two arrows you will use to share the gospel.
+
+![3 Circles Gospel Tool](/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-4.jpg)
+
+God had a plan and sent his Son Jesus to the earth. Fully God and fully man. He was born of a virgin, lived a perfect life, died on the cross, and rose from the dead three days later.
+
+When Jesus died on the cross, He took the punishment we deserved for our sin. When He rose from the dead, He defeated sin and made a way for us to experience salvation.
+
+![3 Circles Gospel Tool](/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-5.jpg)
+
+Now explain what happened as a result of the good news of what Jesus did.
+
+Now we have been made new and reconnected to God's original design.
+
+### Next Steps in 3 Questions
+
+What happens next?
+
+That will depend on their response to the gospel.
+
+Ask them 3 main questions:
+
+1. Between the brokenness and the God's design circle, what circle are you in?
+2. What circle do you want to be in?
+3. (If they said they want to be in God's design): what is keeping you from following Jesus?
+
+From there, trust the Holy Spirit to guide the conversation. Some people may not be ready to turn and believe, but that's okay. We can invite them to pray and be open to talking again in the future.
+
+For those who do want to go forward, it's important to lead them to immediate obedience to the gospel through baptism, regular discipleship, and participation in a church.
+
+Allow the gospel to be the filter for the God-prepared people and lead those that respond in next steps of obedient repentance and baptism.
+
+### Why the Three Circles Works
+
+The Three Circles is an effective tool for sharing the gospel because it is simple, engaging, and easy to remember.
+
+It doesn't require any special training or equipment, and anyone can use it. By using the Three Circles, you can help others understand the basic concepts of sin, brokenness, and salvation in a way that is easy to understand.
+
+#### Conclusion
+
+If you're looking for a simple and effective way to share the gospel, the Three Circles tool is an excellent option. See a [step-by-step Google Slide deck on 3 Circles here](https://multiplyingdisciples.us/3-circles/).
+
+With just a piece of paper and a pen, you can help others understand the fundamental concepts of sin, brokenness, and salvation. By sharing your own personal testimony and using the Three Circles, you can help others find the salvation Jesus alone offers us.
+
+## Watch 3 Circles Videos
+
+### Select Language
+
+[🇸🇦 Arabic – ٣ دوائر](https://youtu.be/cxqmFSacr5k)
+[🇦🇿 Azeri – Üç dairə](https://youtu.be/-yQvLQXG9BU)
+[🇨🇿 Czech – 3 Kruhy](https://youtu.be/6dT9G_VVpj8)
+[🇩🇪 Deutsch – 3 Kreise](https://youtu.be/quZN8PBxXok)
+[🇺🇸 English – 3 Circles](https://youtu.be/5W8ynRMr59k)
+[🇪🇸 Español – 3 Círculos](https://youtu.be/i3Ken_7k4xI)
+[🇮🇷 Farsi – سه دایره](https://youtu.be/XNI4AIUg9sM)
+[🇫🇮 Finnish – Kolme Ympyrää](https://youtu.be/kR4IiL8Asac)
+[🇫🇷 Français – 3 Cercles](https://youtu.be/kDnKU_hKz2M)
+[🇬🇷 Greek – 3 κύκλοι](https://youtu.be/SGsT6l8cl1I)
+[🇮🇳 Gujarati – ૩ વૃત્તો](https://youtu.be/KFI5HPGl6E4)
+[🇮🇳 Hindi – तीन गोले](https://youtu.be/mIQy_akRkBA)
+[🇮🇩 Indonesian (Bahasa) – 3 Lingkaran](https://youtu.be/6ngRFPDbVR8)
+[🇯🇵 Japanese – 3 つの円](https://youtu.be/w_2qHO9sKY8)
+[🇮🇳 Kannada – ಮೂರು ವಲಯಗಳು](https://youtu.be/ONOuuBDStnE)
+[🇰🇭 Khmer – ៣ រង្វង់](https://youtu.be/xMc_ROiuY0Q)
+[🇨🇳 Mandarin – 三圈福音](https://youtu.be/GvkKJCEmNiM)
+[🇳🇵 Nepali – तीन सर्कल](https://youtu.be/oVnUiPR59U0)
+[🇸🇸 Nuer – 3 Circles](https://youtu.be/doJFJ_fts-Q)
+[🇮🇳 Oriya – ତିନି ବୃତ୍ତ](https://youtu.be/jwVkLmCef60)
+[🇵🇱 Polish – 3 Okręgi](https://youtu.be/3V8U7T5vElU)
+[🇵🇹 Portuguese – 3 Círculos](https://youtu.be/nNhCy-QBiis)
+[🇷🇴 Română – 3 Cercuri](https://youtu.be/BbvJS-AxqEI)
+[🇷🇺 Russian – Три круга](https://youtu.be/Iqfy4YvVbp8)
+[🇷🇸 Serbian – 3 Kruga](https://youtu.be/-srCkSEx8vI)
+[🇵🇭 Tagalog – Tatlong Sirkulo](https://youtu.be/O2RTjStCE5g)
+[🇮🇳 Tamil – மூன்று வட்டங்கள்](https://youtu.be/PJOc220tA0s)
+[🇰🇭 Tampuan – 3 Circles](https://youtu.be/WWsw4zqu-NI)
+[🇮🇳 Telugu – మూడు 3 Circles](https://youtu.be/8Hu_nsY9XHI)
+[🇹🇷 Turkish – Üç Daire](https://youtu.be/5bTD46Onb-E)
+[🇵🇰 Urdu – تین حلقے](https://youtu.be/4W-Wfs7x0lk)
+[🇻🇳 Vietnamese – 3 Vòng tròn](https://youtu.be/vHTKavU63K8)
+
+### Frequently Asked Questions
+
+#### 1. What is the 3 Circles gospel sharing method?
+
+The 3 Circles gospel sharing method is a simple and effective way to communicate the message of the Christian gospel using a visual representation. This method uses three interconnected circles to explain key concepts: God's Design, Brokenness, and the Gospel. The purpose of the 3 Circles method is to engage in intentional spiritual conversation where the gospel message is proclaimed and given space to respond.
+
+#### 2. How does the 3 Circles diagram work?
+
+The 3 Circles diagram consists of three circles, each representing a different aspect of the gospel message:
+
+a. God's Design: This circle depicts God's original plan for a perfect world, highlighting concepts like love, peace, and harmony. It emphasizes that humanity was created to have a meaningful relationship with God.
+
+b. Brokenness: The second circle portrays the brokenness that entered the world due to sin. It encompasses struggles, pain, and separation from God. This circle helps people recognize the imperfections in the world and in their own lives.
+
+c. The Gospel: The third circle represents the solution to brokenness—Jesus Christ's life, death, and resurrection. It signifies the redemption and restoration offered through faith in Christ. This circle explains the path to reconciliation with God and eternal life.
+
+The diagram serves as a visual aid to guide conversations about these concepts, making the gospel message easier to understand and remember.
+
+#### 3. Where can someone start in the 3 Circles diagram?
+
+Individuals can start at any point within the 3 Circles diagram, depending on their current understanding and beliefs. Someone might begin at "God's Design," acknowledging the original purpose of a perfect world. Others might identify with the "Brokenness" circle, recognizing the challenges and broken aspects of their lives. Some may even begin at the "Gospel" circle, having heard about Christ's redemptive work before.
+
+Identifying one's starting point helps in tailoring the conversation to address their specific concerns, questions, and needs, leading them toward a deeper comprehension of the gospel.
+
+#### 4. Where does someone want to be in the 3 Circles diagram?
+
+The ultimate goal of the 3 Circles method is for individuals to move from their starting point toward the center of the diagram—the cross in the "Gospel" circle. This represents a journey of understanding and accepting God's plan of salvation through Jesus Christ. The desired outcome is for individuals to embrace faith in Christ, experience forgiveness, and establish a renewed relationship with God, ultimately receiving the gift of eternal life.
+
+#### 5. What might stop someone from turning and trusting in the gospel?
+
+In the context of the 3 Circles gospel sharing method, hindrances to turning and trusting in the gospel can be likened to the four types of soil mentioned in Mark 4:1-20.
+
+- **Hard Soil:** Hardened hearts may resist the gospel due to skepticism or a closed mindset. Doubts, intellectual barriers, and preconceived notions can create a barrier to understanding and accepting the message.
+- **Rocky Soil:** Just as shallow soil lacks depth for roots to grow, some individuals might initially respond enthusiastically to the gospel but lack a strong foundation. They may be swayed by emotions or external factors, making their commitment to the gospel fleeting and easily undermined when challenges arise.
+- **Thorny Soil:** Similar to soil choked by thorns, distractions and worldly concerns can hinder someone from fully embracing the gospel. Materialism, worries, and competing priorities can suffocate the desire to trust in Christ and prioritize spiritual matters.
+- **Good Soil:** The goal is for individuals to be like the good soil, receptive and open to the gospel message. Good soil represents hearts that are willing to listen, understand, and cultivate a lasting relationship with God through Jesus Christ. These individuals are willing to turn and trust in the gospel, allowing it to take deep root in their lives.
+
+Recognizing these different types of "soil" can help us understand how to highlight and exhort the listener to turn from the barriers in their life.
+
+[Listen to the related episode on Spotify](https://open.spotify.com/episode/60UpURTbj6LkX2m901WEAJ)
+
+### Be a movement multiplier.
+
+Get starter tools and coaching to multiply disciples, leaders, and churches in your city.
+
+[Start Training](https://multiplyingdisciples.us/free-training) &middot; [Connect](/contact-us/)

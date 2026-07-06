@@ -9,7 +9,7 @@ intro: >
   pastors can move past common objections.
 key_articles:
   - "/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/"
-  - "/10-qualities-present-in-every-church-planting-movement-key-to-sustainable-growth-and-multiplication/"
+  - "/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/"
   - "/disciple-making-movement-dmm-key-characteristics-and-definition/"
   - "/what-are-disciple-making-movements-5-examples-from-around-the-world/"
   - "/under-the-hood-of-disciple-making-movements/"

@@ -10,12 +10,12 @@ intro: >
 key_articles:
   - "/discover-the-12-disciples-of-jesus-christ/"
   - "/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/"
-  - "/unlocking-the-power-of-apostle-the-ultimate-guide/"
+  - "/unlocking-the-power-of-apest-the-ultimate-guide/"
   - "/seven-words-of-jesus-on-the-cross/"
 related_tools: []
 next_step:
   label: "Learn the 3 Circles gospel presentation"
-  href: "/use-the-circles-gospel-presentation-step-by-step/"
+  href: "/the-three-circles-gospel-presentation-step-by-step/"
 status: "migrated-draft"
 migration_priority: "tier-1"
 notes: >

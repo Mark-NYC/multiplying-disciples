@@ -1,36 +1,516 @@
 ---
-title: "7 Stories of Hope: Complete Facilitation Guide"
-description: "Source content pending import from WordPress. Placeholder description only — do not treat as final meta description."
+title: "7 Stories of Hope in the Bible: A Discovery Process to Help Seekers Find Jesus"
+description: "Discover how to use the 7 Stories of Hope in the Bible to help seekers find Jesus. Includes the complete 3/3rds facilitation process and weekly discussion guide."
 slug: "/movement-resources/7-stories-of-hope-complete-facilitation-guide/"
 canonical: "https://multiplyingdisciples.us/movement-resources/7-stories-of-hope-complete-facilitation-guide/"
+date: 2025-11-21
+updated: 2025-11-23
 primary_keyword: "stories of hope facilitation guide"
 secondary_keywords:
   - "7 stories of hope"
   - "stories of hope bible study"
 hub: "stories-of-hope"
 related_articles:
-  - "/use-the-circles-gospel-presentation-step-by-step/"
+  - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/movement-resources/12-practice-church-circle/"
   - "/15-second-testimony-examples-ignite-your-faith/"
 related_tools:
   - "Stories of Hope"
-external_links: []
-status: "source-pending"
+external_links:
+  - label: "Obey.Tools facilitation guides (per-story)"
+    url: "https://obey.tools/"
+og_image: "/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible-1.webp"
+status: "migrated"
 migration_priority: "tier-1"
 original_url: "https://multiplyingdisciples.us/movement-resources/7-stories-of-hope-complete-facilitation-guide/"
 notes: >
-  Listed explicitly as an "especially important" page in the migration
-  brief. Note the nested URL path (/movement-resources/...) — the `slug`
-  field (not the filename) controls routing, so this nested path is
-  preserved exactly regardless of where the file lives in
-  src/content/articles/. Do not write body content until the live page
-  HTML or WordPress export is supplied — see /imports/README.md.
+  Real content ported from the WordPress export (post_id 5937, a child
+  page of "Movement Resources"). "Especially important" per the migration
+  brief (75 clicks / 5,396 impressions in the known GSC export). This was
+  the cleanest source of the batch — almost no WordPress plugin chrome to
+  remove, just one redundant bold wrapper on a heading. Each story links
+  out to its own per-story facilitation guide on Obey.Tools, consistent
+  with this site's stated strategy of linking to Obey.Tools for practical
+  tools rather than duplicating content. The top jump-links use in-page
+  anchors generated from headings — verify these resolve correctly after
+  build (Astro auto-generates heading ids; exact slugs for headings with
+  punctuation like "3/3rds" or a trailing "?" should be spot-checked).
 ---
 
-This page is a **migration placeholder**. The original article content has not
-been imported yet.
+![7 Stories of Hope in the Bible](/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible-3.webp)
 
-Next step: supply the WordPress export XML, a saved copy of the live page
-HTML, or the raw article text (including all 7 stories) so this placeholder
-can be replaced with the real, lightly-improved article. See
-`/imports/README.md`.
+The **7 Stories of Hope in the Bible** are a proven process for helping people who are curious about Jesus but not yet ready to commit. These aren't random inspirational stories, they're biblical accounts specifically designed to help seekers discover who Jesus really is and lead them to repentance and faith.
+
+- [The 7 Stories of Hope in the Bible](#the-7-stories-of-hope-in-the-bible)
+- [How To Lead The 7 Stories of Hope: The 3/3rds Process](#how-to-lead-the-7-stories-of-hope-the-33rds-process)
+- [What Happens After The 7 Stories?](#what-happens-after-the-7-stories)
+
+![7 Stories of Hope in the Bible](/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible.webp)
+
+## What Makes The 7 Stories of Hope Different?
+
+In our post-Christian culture, many people are inoculated against one-time Gospel presentations. They're interested in learning about Jesus, but they need time, space, and a non-threatening environment to process what they're discovering.
+
+![Gen Z Bible study](/wp-content/uploads/2025/03/gen-z-bible-study.jpg)
+
+The 7 Stories of Hope provide an extended Gospel presentation that:
+
+- Allows people to see their need for Jesus
+- Shows them biblical examples of people like them encountering Christ
+- Leads them to committed faith through discovery, not lecture
+- Trains them to become disciple-makers from day one
+
+## Who Are The Stories For?
+
+**Target Audience: "Yellow Light" People**
+
+In Acts 17:32-34, when Paul preached in Athens, people responded three ways:
+
+- **Green Light (Yes):** Immediate belief—"Some became followers of Jesus and believed"
+- **Yellow Light (Maybe):** Curious but hesitant—"We want to hear you again on this subject"
+- **Red Light (No):** Outright rejection—"Some sneered"
+
+![4 responses to the gospel](/wp-content/uploads/2025/01/e3adfe1623cfb8a49a60f903b1515adb.Screen-Shot-2023-08-05-at-8.26.31-AM-1.webp)
+
+The 7 Stories of Hope are designed specifically for yellow lights—people whose hearts God has already prepared but who need a process to discover Jesus for themselves.
+
+### What Is a "Person of Peace"?
+
+Someone far from God whose heart has been prepared by God for the Good News (Luke 10). They demonstrate:
+
+- Openness to spiritual conversation
+- Willingness to meet regularly
+- Interest in learning about Jesus
+- Receptivity to hosting others in their home
+
+## The 7 Stories of Hope in The Bible
+
+### 1. Hope for the Rejected: The Woman Weeping at Jesus' Feet (Luke 7:36-50)
+
+**Who This Reaches:** Those who feel disqualified by their past, carry shame, or believe they're too far gone.
+
+A woman "known as a sinner" crashes a Pharisee's dinner party to worship Jesus. She weeps at his feet, wiping them with her hair and expensive perfume. The religious elite are disgusted. Jesus receives her with open arms.
+
+**The Hope:** Your past doesn't disqualify you. Faith saves you.
+
+**Jesus' Words:** "Your faith has saved you; go in peace."
+
+**The Question:** Do you see yourself as the woman—broken and desperate—or the Pharisee—self-righteous and judgmental?
+
+[Start the 1st Story facilitation guide](https://obey.tools/hope-for-the-rejected-the-woman-weeping-at-jesus-feet-luke-736-50/)
+
+---
+
+### 2. Hope for the Non-Religious: Pharisee & Tax Collector (Luke 18:9-17)
+
+**Who This Reaches:** Those who think Christianity is for "religious people" or who feel like they could never measure up.
+
+Two men pray. The Pharisee thanks God he's not like "those sinners"—listing his religious achievements. The tax collector can't even look up, beating his chest: "God, have mercy on me, a sinner."
+
+Jesus' verdict shocks everyone: the tax collector went home justified before God, not the religious man.
+
+**The Hope:** God doesn't want your performance—he wants your honesty.
+
+**The Reversal:** "Everyone who exalts himself will be humbled, and he who humbles himself will be exalted."
+
+**The Question:** Which man's prayer sounds more like yours?
+
+[Start the 2nd Story facilitation guide](https://obey.tools/hope-for-the-non-religious-pharisee-tax-collector-luke-189-17/)
+
+---
+
+### 3. Hope Changes Things: Zacchaeus (Luke 19:1-10)
+
+**Who This Reaches:** Those who wonder if real change is possible or if they've gone too far.
+
+Zacchaeus was a chief tax collector—rich, powerful, and hated for extorting his own people. Curiosity drove him to climb a tree just to see Jesus pass by.
+
+Jesus didn't just see him—he invited himself to Zacchaeus' house. The crowd grumbled. Zacchaeus' heart melted.
+
+That same day, he pledged to give half his possessions to the poor and repay everyone he'd cheated four times over. That's not behavior modification—that's transformation.
+
+**The Hope:** When Jesus shows up, everything changes.
+
+**Jesus' Declaration:** "Today salvation has come to this house... For the Son of Man came to seek and to save the lost."
+
+**The Question:** What in your life needs to change if you follow Jesus?
+
+[Start the 3rd Story facilitation guide](https://obey.tools/hope-changes-things-zacchaeus-luke-1818-30/)
+
+---
+
+### 4. Hope Forgives: Unforgiving Servant (Matthew 18:21-35)
+
+**Who This Reaches:** Those trapped in bitterness, unforgiveness, or resentment.
+
+A servant owed his master an impossible debt—millions in today's money. He begged for mercy, and shockingly, the master canceled the entire debt.
+
+But that same servant immediately grabbed a fellow servant by the throat, demanding repayment of a few dollars. When the master heard about it, he reinstated the original debt.
+
+**The Hope:** We've been forgiven an unpayable debt. We can forgive others.
+
+**The Truth:** Being forgiven transforms us into people who forgive. Holding onto bitterness means you haven't grasped how much you've been forgiven.
+
+**The Question:** Who do you need to forgive? What debt are you holding against someone that's smaller than what God has forgiven you?
+
+[Start the 4th Story facilitation guide](https://obey.tools/hope-forgives-unforgiving-servant-matthew-1821-35/)
+
+---
+
+### 5. Hope Through Death: Thieves on the Cross (Luke 23:26-43)
+
+**Who This Reaches:** Those who think it's too late, who feel they've wasted too much time or done too much damage.
+
+Two criminals dying beside Jesus. One mocked him. The other—with his last breaths—turned to Jesus: "Remember me when you come into your kingdom."
+
+Jesus' response is the clearest picture of grace in Scripture: "Today you will be with me in paradise."
+
+No baptism. No good works. No time to make amends. Just faith in his final moments.
+
+**The Hope:** It's never too late to turn to Jesus. Even at the point of death, faith saves.
+
+**The Power:** You don't need time to clean up your life first. You just need to turn to Jesus and ask.
+
+**The Question:** Do you believe it could really be this simple?
+
+[Start the 5th Story facilitation guide](https://obey.tools/hope-through-death-thieves-on-the-cross/)
+
+---
+
+### 6. Hope Rose From The Dead: Resurrection (Luke 24:1-20)
+
+**Who This Reaches:** Those who need proof that this is real, that Jesus is who he claimed to be.
+
+The women came to the tomb expecting to anoint a dead body. Instead, they found an empty tomb and angels declaring, "He is not here; he has risen!"
+
+The disciples didn't believe them at first. They needed to see for themselves. And when they did, everything changed.
+
+**The Hope:** Jesus conquered death. He's alive. And because he lives, we can face tomorrow.
+
+**The Truth:** This isn't a philosophy or a nice idea. Christianity stands or falls on the historical reality of the resurrection. If Jesus rose from the dead, everything he said is true.
+
+**The Foundation:** Your hope isn't in a dead teacher—it's in a living Savior.
+
+**The Question:** Do you believe Jesus actually rose from the dead? What would change in your life if you knew for certain that Jesus is alive?
+
+[Start the 6th Story facilitation guide](https://obey.tools/hope-rose-from-the-dead-resurrection-luke-241-20/)
+
+---
+
+### 7. Hope is Waiting For You: Prodigal Son (Luke 15:11-32)
+
+**Who This Reaches:** Those who've walked away from God and wonder if they can ever come back—plus those who stayed but resent it.
+
+A son demanded his inheritance early—essentially wishing his father dead. He took the money and wasted it on wild living. When he hit rock bottom, feeding pigs and starving, he decided to go home and beg to be a servant.
+
+But while he was still far off, his father saw him, ran to him, threw his arms around him, and threw a party. No lecture. No probation period. Just celebration.
+
+Meanwhile, the older brother—who'd stayed and worked faithfully—grew bitter and refused to join the celebration.
+
+**The Hope:** No matter how far you've run, God is watching for your return. He's not waiting to punish you—he's waiting to celebrate you.
+
+**The Warning:** You can be physically close to God but spiritually far—resentful, self-righteous, unmoved by grace.
+
+**The Invitation:** "This son of mine was dead and is alive again; he was lost and is found."
+
+**The Question:** Are you the younger son who ran away, or the older son who stayed but resented? Either way—will you come home?
+
+[Start the 7th Story facilitation guide](https://obey.tools/hope-is-waiting-for-you-prodigal-son-luke-1511-32/)
+
+---
+
+## How To Lead The 7 Stories of Hope: The 3/3rds Process
+
+The power isn't just in the stories—it's in the **process**. The 3/3rds method creates well-rounded disciples, prevents you from only focusing on teaching, and trains self-feeders who can reproduce this without you.
+
+### The Framework: Three Equal Parts
+
+**1/3 Look Back** (20-30 min): Pastoral Care and Accountability
+**2/3 Look Up** (20-30 min): New Teaching and Practice
+**3/3 Look Ahead** (20-30 min): Planning and Commissioning
+
+Total time: 1 to 1.5 hours per story
+Frequency: Once per week
+
+---
+
+## Story 1: Hope for the Rejected (Luke 7:36-50)
+
+### 1/3 LOOK BACK (20-30 minutes)
+
+**First meeting is different—build relationship:**
+
+- Share your own story of coming to Christ
+- Ask people where they are in life (don't force sharing)
+- Ask what you can pray for from each person
+- Pray for their needs and ask the Holy Spirit for guidance
+
+### 2/3 LOOK UP (20-30 minutes)
+
+**Discovery, not lecture. Talk 20%, let them talk 80%:**
+
+1. **Tell the story** as best as you can remember (don't read it yet)
+2. **Ask everyone to retell** the story as a group (pair up if larger group)
+3. **Read the story** from the Bible: Luke 7:36-50
+4. **Discuss with the 3 Questions** (encourage ALL to participate):
+   - What does this story say about Jesus or God?
+   - What does this story say about people?
+   - Pause to pray and listen.
+   - How will you obey the story?
+
+**Critical Rules:**
+
+- DO stick to THIS story only
+- DO let the Holy Spirit work (don't correct for "right" answers)
+- DO have fun
+- DON'T chase rabbits (off-topic subjects)
+- DON'T talk about politics or religion (good or bad)
+- DON'T bring this outline with you
+
+### 3/3 LOOK AHEAD (20-30 minutes)
+
+**Obedience and reproduction:**
+
+1. **What do you need to DO this week from this story?**
+   - When and where will you do this?
+   - Start with what YOU will do this week (model it)
+2. **Who needs to HEAR this story from you this week?**
+   - Be specific—name the person
+   - Start with who YOU will share with (model it)
+3. **Remind them WHY obedience matters:**
+   - The Bible is true and we can believe what it says
+   - Jesus changed my life, this person's life, and He wants to change your life
+   - If we love Jesus, we obey what He says
+4. **Pray** and ask the Holy Spirit to help everyone obey
+
+---
+
+## Stories 2-6: The Same Process
+
+Every story from 2-6 follows this identical pattern:
+
+### 1/3 LOOK BACK (20-30 minutes)
+
+- Ask what God has been doing in their life this week (share yours briefly)
+- Let them know you've been praying for their requests from last week
+- **Ask if they did what they planned** (accountability):
+  - How did it go?
+  - Start with YOUR accountability—be honest
+- Ask what you can pray for this week
+- Pray for needs and ask the Holy Spirit for guidance
+
+### 2/3 LOOK UP (20-30 minutes)
+
+Same discovery process:
+
+1. Tell the story from memory
+2. Have them retell it as a group
+3. Read it from the Bible
+4. Discuss with 3 questions
+
+### 3/3 LOOK AHEAD (20-30 minutes)
+
+Same obedience focus:
+
+1. What will I DO?
+2. Who will I TELL?
+3. Why obedience matters
+4. Pray for Holy Spirit's help
+
+**Story Progression:**
+
+- **Story 2:** Hope for the Non-Religious: Pharisee & Tax Collector (Luke 18:9-17)
+- **Story 3:** Hope Changes Things: Zacchaeus (Luke 19:1-10)
+- **Story 4:** Hope Forgives: Unforgiving Servant (Matthew 18:21-35)
+- **Story 5:** Hope Through Death: Thieves on the Cross (Luke 23:26-43)
+- **Story 6:** Hope Rose From The Dead: Resurrection (Luke 24:1-20)
+
+---
+
+## Story 7: The Decision Point
+
+### Hope is Waiting For You: Prodigal Son (Luke 15:11-32)
+
+Follow the same 3/3rds process BUT add this critical element:
+
+**In the 3/3 LOOK AHEAD section:**
+
+Use this session to help people **repent and turn to Jesus in faith**.
+
+Include a solid Gospel presentation asking people to make a decision to follow Jesus. This is where you ask: "Are you the younger brother who needs to come home? Are you the older brother who's been close but resentful? Either way—will you surrender your life to Jesus today?"
+
+This is typically included when you ask "What do you need to do this week?" The answer should be: "Repent and believe in Jesus."
+
+---
+
+## Critical Success Factors
+
+### 1. Meet in a Home of Peace
+
+The most effective environment is in the home of your person of peace—their living room, around their table. This is their turf, non-threatening, and allows them to invite others naturally.
+
+**Group size:** Smaller than 10 people. Have more than 10? Train others to start new groups.
+
+### 2. Stick to the 3/3rds Process
+
+Don't skip sections. Don't get stuck in one section. The balance is what creates mature disciples:
+
+- Look Back = relationship and accountability
+- Look Up = discovery and truth
+- Look Ahead = obedience and reproduction
+
+### 3. 20% You Talk, 80% They Talk
+
+You're a **facilitator, not a teacher**. You're not delivering a lesson with a single application—you're creating space for the Holy Spirit to lead each person to their own discovery and application.
+
+**This means anyone can do this.** You don't need the gift of teaching.
+
+### 4. Lead With Accountability
+
+Always start meetings #2-7 by asking: "Did you do what you said you'd do? How did it go?"
+
+If there was no obedience, ask why and help them obey. Don't move forward until obedience is happening. This sets the DNA: disciples who obey, not just learn.
+
+### 5. Let the Holy Spirit Work
+
+Don't correct for "right" answers. Let people discover truth themselves. The Spirit transforms hearts—you can't. Your job is to ask good questions and create space for discovery.
+
+### 6. Include a Gospel Presentation
+
+**Three options for when:**
+
+- If you see people confessing sin and Christ on their own—respond to that
+- If the Holy Spirit prompts you to share a direct presentation—do it
+- If neither happens, definitely include a clear Gospel call with Story 7
+
+Don't push them to decide if they're not ready. But do make the invitation clear.
+
+---
+
+## What Happens After The 7 Stories?
+
+### If They Accept Jesus
+
+**Start discipling them immediately.** Use short-term discipleship that introduces new disciples to the foundational commandments of Jesus.
+
+Recommended next step: **The 7 Commands of Christ** (or similar foundational obedience-based discipleship).
+
+### If They Don't Accept Jesus
+
+**Do NOT push them to decide.** Let God do His work. Remember—He transforms hearts, not you.
+
+If the Holy Spirit prompts you to continue meeting to share and answer questions, do it. But **do not move to discipleship** ("7 Commands") until they've surrendered to Christ.
+
+### Yellow Light Strategy (Critical)
+
+The 7 Stories aren't exhaustive content you must complete. They're a **yellow light strategy**—designed to help you determine if people are moving toward Jesus.
+
+**If yes:** Keep meeting, keep sharing the next story until they believe.
+
+**If no:** Bless them, leave the door open for future conversations, but move on to the next group the Lord has for you.
+
+Don't get stuck endlessly meeting with people who aren't progressing toward faith.
+
+---
+
+## Adapting These Stories
+
+### Can You Use Different Stories?
+
+**Yes.** The process is more important than the specific content.
+
+**Guidelines for choosing stories:**
+
+- Stick to stories of Jesus from the Gospels
+- Choose stories that contrast Jesus with man
+- Show people encountering Jesus and being transformed
+- **Do NOT change the 3/3rds process**
+
+Feel free to experiment with different stories or order as the Holy Spirit leads.
+
+### Can You Change the Order?
+
+**Yes.** Adapt as needed for the group you're working with.
+
+The key: Keep sharing stories of people who met Jesus in Scripture and their lives were changed.
+
+---
+
+## Practical Coaching Tips
+
+### Where to Share
+
+**Best:** In the home of a person of peace
+**Why:** Non-threatening, natural environment, easy for them to invite others
+
+### When to Share
+
+**Frequency:** Once per week
+**Duration:** 1 to 1.5 hours per story
+
+### Group Size
+
+**Ideal:** Smaller than 10 people
+**Why:** More intimate, everyone can participate
+**Solution if larger:** Train others to start new groups (reproduction thinking)
+
+### What NOT to Do
+
+- Don't chase "rabbits" (appealing but off-topic subjects)
+- Don't talk about politics or religion (either good or bad)
+- Don't bring your outline with you (know it, don't read it)
+- Don't get stuck in one of the 3 thirds
+- Don't correct people for "wrong" answers
+- Don't lecture—facilitate discovery
+
+### What TO Do
+
+- Stick to the specific Bible story each week
+- Let the group talk 80% of the time
+- Let the Holy Spirit work through discovery
+- Have fun—enjoy the process
+- Model obedience yourself first
+- Be honest about your own struggles
+- Pray for each person between meetings
+
+---
+
+## The Power of This Method
+
+This isn't just evangelism. It's disciple-making from day one.
+
+**You're training people to:**
+
+- Discover truth from Scripture (not just hear sermons)
+- Obey immediately (not just learn intellectually)
+- Share with others (not just consume)
+- Be accountable (not just attend)
+- Facilitate discovery (not just teach)
+
+By the time they finish the 7 Stories, they won't just be converts—they'll be disciple-makers who can reproduce this exact process with others.
+
+**That's how movements start.**
+
+---
+
+## Your Next Steps
+
+1. **Identify your person of peace** (someone showing yellow light interest)
+2. **Schedule your first meeting** in their home
+3. **Prepare Story 1** by knowing the framework (don't bring notes)
+4. **Lead them through the 3/3rds process** exactly as outlined
+5. **Follow up within 48 hours** to encourage obedience
+6. **Repeat weekly** until they surrender to Christ
+7. **Immediately begin discipleship** when they believe
+
+---
+
+## The Bottom Line
+
+The 7 Stories of Hope aren't just a curriculum. They're a reproducible process that creates disciples who make disciples.
+
+Use them with yellow light people. Follow the 3/3rds process. Let the Holy Spirit do the heart work. And watch what happens when seekers discover Jesus for themselves.
+
+**Ready to start?** Pick your person of peace and schedule Story 1 this week.
+
+Hope isn't just available. Hope has a name—Jesus. And these seven stories show seekers how to find him.

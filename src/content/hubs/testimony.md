@@ -10,7 +10,7 @@ intro: >
 key_articles:
   - "/15-second-testimony-examples-ignite-your-faith/"
   - "/testimony-in-the-bible-20-verses-to-ignite-your-faith/"
-  - "/the-power-of-sharing-your-testimony-scripture-a-biblical-reasons-you-cant-stay-silent/"
+  - "/the-power-of-sharing-your-testimony-scripture-7-biblical-reasons-you-cant-stay-silent/"
 related_tools:
   - "3 Circles"
   - "Stories of Hope"

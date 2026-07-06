@@ -30,57 +30,62 @@ Make it prettier later.
 6. Internal links must be plain crawlable `<a href>` HTML, never
    JavaScript-only navigation.
 
-## Current constraint: no live network access in this environment
+## Network constraint (Phase 1) and how it was resolved
 
 This build environment's egress policy blocks all outbound web access,
 including `multiplyingdisciples.us`, its sitemap, and general internet
-access (confirmed — even unrelated domains fail at the proxy level). That
-means Phase 1 was built **without being able to fetch the live site,
-sitemap.xml, or any page content**.
+access (confirmed — even unrelated domains fail at the proxy level).
+Phase 1 was therefore built **without being able to fetch the live site,
+sitemap.xml, or any page content** — the first migration batch shipped as
+structural placeholders only (real frontmatter, no invented body copy).
 
-Everything in this repo for the first migration batch is a **structural
-placeholder**: real frontmatter (title, slug, canonical, related links,
-priority), but body content marked `status: source-pending` and clearly
-bannered on-page as not-yet-real. No article body copy has been invented.
-
-To move past this, see `/imports/README.md` — it explains exactly what
-files to provide (WordPress export XML, Search Console CSV, saved
-sitemap.xml, saved page HTML, media files) so real content can replace
-these placeholders.
+Phase 2 unblocked this: the user supplied the real WordPress export XML
+(Tools → Export → All Content), the Google Search Console Pages/Queries
+exports, and the sitemap index directly as files (2026-07-06). All 5
+Phase 1 batch pages have since been replaced with real, lightly-improved
+content extracted from that export. See `/imports/README.md` for the
+remaining gaps (individual sub-sitemaps, media binaries).
 
 ## Phases
 
-### Phase 1 — Foundation (this phase)
+### Phase 1 — Foundation (done)
 
 - Astro project scaffolded: layouts, components, content collections,
   frontmatter schema, SEO component, sitemap integration.
 - Migration docs created (this file and its siblings).
-- Known protected URL list captured from the brief (45 URLs) in
-  `PROTECTED_URLS.md` and `URL_INVENTORY.md`.
+- Known protected URL list captured from the brief (45 URLs, later found
+  to have 7 wrong slugs — see `PROTECTED_URLS.md`).
 - First migration batch (homepage + 4 articles) created as **structural
   placeholders only** — real content pending import.
 - 11 initial hub pages written (these are new pages, not migrated from
-  WordPress, so their copy is original and not a placeholder).
+  WordPress, so their copy is original and not a placeholder). One
+  (`/3-circles/`) had to be renamed to `/3-circles-guide/` after
+  discovering it collided with a real existing WordPress page.
 - **Nothing launched. DNS untouched. WordPress untouched.**
 
-### Phase 2 — Real content import (next, not started)
+### Phase 2 — Real content import (done for the Phase 1 batch)
 
-Blocked on the user providing:
-- Full Google Search Console Pages export (last 3+ months), CSV.
-- WordPress export XML (Tools → Export → All Content) or saved HTML for
-  each protected page.
-- A manually saved copy of `sitemap.xml` (and any sub-sitemaps).
-- The media files listed in `MEDIA_URLS_TO_PRESERVE.md`.
+Unblocked by the user supplying: WordPress export XML, Google Search
+Console Pages + Queries CSVs, and the sitemap index XML.
 
-Once supplied, replace `source-pending` placeholders with real,
-lightly-improved content (see the 15-second testimony article's `notes`
-field for the specific query targets to serve without a full rewrite).
+- `URL_INVENTORY.md` and `PROTECTED_URLS.md` rebuilt from real data:
+  122 published posts/pages, real click/impression tiers.
+- All 5 Phase 1 batch pages (homepage, 12-disciples, 15-second-testimony,
+  3-circles, 7-stories-of-hope) now have real content extracted from the
+  WordPress export, lightly cleaned up (WordPress plugin/widget chrome
+  removed, heading levels normalized, dead links fixed) — not rewritten.
+  `status: migrated` in frontmatter, no longer `noindex`.
+- Media requirements documented against real usage (`MEDIA_URLS_TO_PRESERVE.md`)
+  — binary files still not supplied, only paths/metadata.
+- **Still not done:** real content for the remaining ~117 published
+  pages, and the media binary files themselves. Still nothing launched.
 
 ### Phase 3 — Full site migration (later, not started)
 
-Migrate the remaining ~134+ pages from the full sitemap, using
-`URL_INVENTORY.md` as the tracking sheet. Assign real tiers once the GSC
-export is available (see tier rules in `URL_INVENTORY.md`).
+Migrate the remaining ~117 published pages (real count from the
+WordPress export) plus category/tag archive URLs, using
+`URL_INVENTORY.md` as the tracking sheet — tiers are now real, not
+provisional.
 
 ### Phase 4 — Launch (later, not started)
 
@@ -110,7 +115,7 @@ imports/         Drop zone + instructions for source material (git-ignored
 ## Routing model
 
 Every article/tool/hub's `slug` frontmatter field is the **exact, full,
-site-relative output path** (e.g. `/the-three-thirds/` or
+site-relative output path** (e.g. `/three-thirds/` or
 `/movement-resources/7-stories-of-hope-complete-facilitation-guide/`).
 `src/pages/[...slug].astro` reads all three collections and generates a
 static path per entry using that field — not the filename, not the

@@ -8,7 +8,7 @@ export interface NavLink {
 export const PRIMARY_NAV: NavLink[] = [
   { label: 'Home', href: '/' },
   { label: 'Disciple Making', href: '/disciple-making-resources-for-churches-that-will-multiply/' },
-  { label: 'Share the Gospel', href: '/use-the-circles-gospel-presentation-step-by-step/' },
+  { label: 'Share the Gospel', href: '/the-three-circles-gospel-presentation-step-by-step/' },
   { label: 'Testimony', href: '/15-second-testimony-examples-ignite-your-faith/' },
   { label: 'Starter Tools', href: '/starter-tools/' },
   { label: 'Blog', href: '/blog/' },

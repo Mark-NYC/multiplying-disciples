@@ -27,7 +27,7 @@ Hubs link to:
 ## Why paths, not IDs
 
 `related_articles` and `key_articles` store the exact site-relative
-**path** (e.g. `/the-three-thirds/`), matched at render time against
+**path** (e.g. `/three-thirds/`), matched at render time against
 each collection entry's `slug` field — not the Astro/Markdown filename.
 This means:
 

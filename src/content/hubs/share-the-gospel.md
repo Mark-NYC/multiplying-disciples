@@ -9,8 +9,8 @@ intro: >
   actually finishing it.
 key_articles:
   - "/how-to-evangelize-ultimate-step-by-step-guide/"
-  - "/bible-verses-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/"
-  - "/use-the-circles-gospel-presentation-step-by-step/"
+  - "/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/"
+  - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/5-proven-strategies-unlock-the-secrets-of-effective-personal-evangelism/"
   - "/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/"
 related_tools:
@@ -18,7 +18,7 @@ related_tools:
   - "Stories of Hope"
 next_step:
   label: "Walk through the 3 Circles"
-  href: "/use-the-circles-gospel-presentation-step-by-step/"
+  href: "/the-three-circles-gospel-presentation-step-by-step/"
 status: "migrated-draft"
 migration_priority: "tier-1"
 notes: >

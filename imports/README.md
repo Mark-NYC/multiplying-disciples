@@ -1,89 +1,74 @@
-# Imports — what to provide next
+# Imports — status and what's still needed
 
-This folder is the drop zone for real source material so Phase 1's
-placeholder pages (and the full site inventory) can become real. Nothing
-in this repo invents article content — everything migrated must come
-from an actual export or a copy you provide.
+## Received (2026-07-06)
 
-This build environment has **no outbound internet access** (confirmed:
-even unrelated domains fail at the network proxy), so Claude Code cannot
-fetch the live site, sitemap, or Search Console data itself. Everything
-below has to be supplied manually.
+The user supplied these directly as uploaded files (not placed in this
+folder, since they came through chat rather than the repo):
 
-## 1. Google Search Console — Pages export (CSV)
+- **Google Search Console Pages export (CSV)** — 179 rows, last 3 months.
+  Used to compute real tiers in `URL_INVENTORY.md` / `PROTECTED_URLS.md`.
+- **Google Search Console Queries export (CSV)** — 1,000 rows of
+  query-level data. Not yet mined beyond the 15-second-testimony
+  article's target-query list; available for future keyword mapping.
+- **Google Search Console Search Appearance export (CSV)** — 2 rows
+  (Translated results, Product snippets). The "Product snippets" row
+  (107 impressions) suggests at least one page carries Product schema,
+  likely a sticker/merch page under WooCommerce.
+- **WordPress export XML** (`Tools → Export → All Content`) — 122
+  published posts/pages, 1,124 media attachments (metadata/URLs only, no
+  binary files), reusable blocks, nav menus. This is what let the 5
+  Phase 1 batch pages get real content.
+- **Sitemap index XML** — confirms the live sitemap structure
+  (`post-sitemap.xml`, `page-sitemap.xml`, `category-sitemap.xml`,
+  `post_tag-sitemap.xml`, `gblocks_pattern_collections-sitemap.xml`) but
+  not the individual sub-sitemaps themselves.
 
-Search Console → Performance → Pages tab → date range: last 3 months (or
-longer) → Export → CSV.
+This closed the network-access gap described in `MIGRATION_PLAN.md` for
+everything except binary media files.
 
-This is what turns every `tier-1 (provisional)` / `unknown` row in
-`URL_INVENTORY.md` into a real tier-1/2/3 based on actual impressions and
-clicks, and is required before the full ~179+ page inventory can be
-built out. Drop it at `imports/search-console-pages.csv`.
+## Still needed
 
-## 2. WordPress export XML
+### 1. Media binary files
 
-WP Admin → Tools → Export → All Content → Download Export File.
+The WordPress export gives media *paths and metadata* (via attachment
+records) but not the actual image/PDF bytes. See
+`MEDIA_URLS_TO_PRESERVE.md` for the full list — 24 files with confirmed
+Search Console impressions, ~39 more referenced by the 5 migrated pages.
+Highest priority:
 
-This gives the full post/page list with real titles, bodies, dates, and
-featured images in one file — the most reliable way to get real content
-for every page without hand-copying each one. Drop it at
-`imports/wordpress-export.xml`.
-
-If dashboard access isn't available, saved HTML per page (see #5) is an
-acceptable substitute for individual priority pages.
-
-## 3. `sitemap.xml`, saved manually
-
-Since this environment can't fetch `https://multiplyingdisciples.us/sitemap.xml`
-itself, save it manually (open in a browser, View Source, Save As) and
-drop it at `imports/sitemap.xml`. If it's a sitemap index (pointing to
-sub-sitemaps), save those too, e.g. `imports/sitemap-posts.xml`,
-`imports/sitemap-pages.xml`.
-
-This is what lets `URL_INVENTORY.md` grow from 45 known URLs to the full
-~179+ (or more) actual URL list.
-
-## 4. Media files
-
-Any media under `/wp-content/uploads/` that ranks, gets impressions, or
-is linked from a page being migrated — especially the three already
-identified in `MEDIA_URLS_TO_PRESERVE.md`:
-
-- `2023/04/Church-Waffle-English-04-2023.pdf`
-- `2025/01/12-Disciples-of-Jesus-in-Order-Called-with-Bible-References.webp`
-- `2025/01/12-Disciples-of-Jesus-in-Order-Called.webp`
+- `2023/04/Church-Waffle-English-04-2023.pdf` (58 clicks, 16.71% CTR)
+- `2025/01/12-Disciples-of-Jesus-in-Order-Called.webp` (featured image, #1 page)
+- `2025/01/12-Disciples-of-Jesus-in-Order-Called-with-Bible-References.webp` (266 impressions)
+- `2023/05/3-Circles-Gospel-Presentation-1.webp` (featured image)
+- `2025/11/short-christian-testimony-examples.webp` (featured image)
+- `2025/11/7-Stories-of-Hope-in-the-Bible-1.webp` (featured image)
 
 Drop these into `imports/media/`, preserving the `<year>/<month>/`
-subfolder structure, e.g.:
-
-```
-imports/media/2023/04/Church-Waffle-English-04-2023.pdf
-imports/media/2025/01/12-Disciples-of-Jesus-in-Order-Called.webp
-```
-
+subfolder structure, e.g. `imports/media/2023/04/Church-Waffle-English-04-2023.pdf`.
 From there they get moved (not re-encoded) into
 `public/wp-content/uploads/...` so the URL is preserved exactly.
 
-## 5. Saved HTML for top-performing pages (optional but helpful)
+### 2. Individual sitemap sub-files (optional — the WordPress export already substitutes for this)
 
-For the highest-priority pages — especially the 6 "especially important"
-ones in `PROTECTED_URLS.md` — a saved copy of the rendered page (browser
-→ Save Page As → "Webpage, HTML Only", or View Source) is enough to
-extract real body copy, headings, and existing internal links without
-needing the full WordPress export. Drop these at
-`imports/pages/<slug>.html`.
+`post-sitemap.xml`, `page-sitemap.xml`, `category-sitemap.xml`,
+`post_tag-sitemap.xml` would give an independent cross-check against the
+WordPress export's 122-page list, and would include the individual
+category/tag archive URLs already documented in `URL_INVENTORY.md` from
+the GSC export instead. Not blocking — nice to have for verification.
 
-## What happens once these are provided
+### 3. Real content for the remaining ~117 published pages
 
-1. `URL_INVENTORY.md` and `PROTECTED_URLS.md` get rebuilt from the real
-   sitemap + GSC data, with real tiers instead of "provisional."
-2. The 5 `status: source-pending` placeholders in
-   `src/content/articles/` and `src/pages/index.astro` get replaced with
-   real content, lightly improved per `MIGRATION_PLAN.md` (not
-   rewritten).
-3. Media files move into `public/wp-content/uploads/...` at their exact
-   original paths.
-4. Any URL that genuinely can't be preserved gets a documented 301 in
+The WordPress export already contains this — it just hasn't been
+processed into Astro content files yet. This is Phase 3 work
+(`MIGRATION_PLAN.md`), not blocked on anything further from the user.
+
+## What happens next
+
+1. Supply media binaries (item 1 above) → move into `public/wp-content/uploads/...`.
+2. Phase 3: process the remaining ~117 pages from the WordPress export
+   into `src/content/articles/` following the same pattern as the 5
+   Phase 1 batch pages (real content, light cleanup, no rewrite).
+3. Any URL that genuinely can't be preserved gets a documented 301 in
    `REDIRECTS.md`.
-5. Phase 3 (full site migration) can start from a complete inventory
-   instead of the current 45-URL known subset.
+4. Once 100% of real URLs exist in Astro or are redirected, work through
+   `LAUNCH_CHECKLIST.md`.
