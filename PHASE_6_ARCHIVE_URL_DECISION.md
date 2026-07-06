@@ -102,6 +102,11 @@ Same live-spot-check caveat as author archives.
 
 ## 5. Blog index and pagination
 
+**Update (Phase 7A, done):** `/blog/` has since been built as a real
+Astro index page — see `src/pages/blog/index.astro` and
+`MIGRATION_PLAN.md`'s Phase 7A entry. The recommendation below is now
+fulfilled; kept as-is for the historical record of the decision.
+
 `/blog/` is already tracked in `URL_INVENTORY.md` (tier-3, 0 clicks,
 95 impressions, type `page`) and is **already wired into site
 navigation today** — `src/data/navigation.ts` links to `/blog/` from

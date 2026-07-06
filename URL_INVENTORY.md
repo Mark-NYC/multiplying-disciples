@@ -102,6 +102,15 @@ migrated children, `/movement-resources/strategy-coordinator/` and
 are confirmed via the export's `post_parent` field to be genuine
 WordPress child pages of `/movement-resources/`, not archives either.
 
+**Phase 7A status:** `/blog/` built — see `src/pages/blog/index.astro`
+and `MIGRATION_PLAN.md`. A real Astro index page, not a WordPress
+content migration (there was no body content to port). Lists all 33
+migrated articles (sorted by tier, then by best-available date),
+shows each article's title/description/hub/date, and links to all 11
+hubs for topic browsing. `/blog/` status flipped from `not-migrated`
+to `published` above. 46 pages now build clean (was 45). Site nav's
+`/blog/` links (present on every page) now resolve instead of 404ing.
+
 ## Full inventory — all 122 published posts/pages
 
 Sorted by impressions (real GSC data where available).
@@ -142,7 +151,7 @@ Sorted by impressions (real GSC data where available).
 | `/love-and-obedience-exploring-the-biblical-relationship-between-the-two/` | article | migrated | 1 | 134 | tier-2 |
 | `/disciple-making-movement-dmm-key-characteristics-and-definition/` | article | migrated | 3 | 128 | tier-2 |
 | `/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/` | article | migrated | 1 | 107 | tier-2 |
-| `/blog/` | page | not-migrated | 0 | 95 | tier-3 |
+| `/blog/` | new Astro index page (not a WP content migration — see Phase 7A) | published | 0 | 95 | tier-3 |
 | `/disciple-making-resources-for-churches-that-will-multiply/` | article | not-migrated | 1 | 92 | tier-3 |
 | `/under-the-hood-of-disciple-making-movements/` | article | not-migrated | 0 | 86 | tier-3 |
 | `/starter-tools/` | page | not-migrated | 0 | 78 | tier-3 |

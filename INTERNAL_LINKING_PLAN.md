@@ -112,6 +112,17 @@ Tool entries themselves (`src/content/tools/`) are not yet created —
 Creating real tool pages (3 Circles, Stories of Hope, etc.) is future
 work, not part of the Phase 1 batch.
 
+## Blog index (`/blog/`)
+
+Built in Phase 7A (`src/pages/blog/index.astro`) as a new site-wide
+directory, not a per-hub mechanism: it lists all 33 migrated articles
+(sorted by tier, then by best-available date) and links out to all 11
+hubs for topic browsing. It's linked from header and footer nav on
+every page (`src/data/navigation.ts`), giving every migrated article a
+second real, crawlable inbound path beyond its hub and
+`related_articles` links. Not part of the hub → article → tool graph
+above — it sits above it as a flat, chronological index.
+
 ## Sister sites
 
 CoVo Multipliers (training/tribe/next-step pathways) and Obey.Tools

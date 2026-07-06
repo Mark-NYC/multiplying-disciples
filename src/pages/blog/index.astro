@@ -1,0 +1,178 @@
+---
+// /blog/ — a new Astro page, not a migration of WordPress content.
+// The WordPress export confirmed `post_name: blog` is an empty
+// posts-page placeholder (WordPress's Settings -> Reading "posts
+// page", auto-populated by the post loop, no authored body of its
+// own) — see PHASE_6_ARCHIVE_URL_DECISION.md section 5. Already
+// linked from header/footer nav (src/data/navigation.ts) today, so
+// this closes what would otherwise be a live nav-linked 404.
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const [articles, hubs] = await Promise.all([getCollection('articles'), getCollection('hubs')]);
+
+const TIER_RANK: Record<string, number> = {
+  'tier-1': 0,
+  'tier-2': 1,
+  'tier-3': 2,
+  unknown: 3,
+};
+
+function bestDate(entry: CollectionEntry<'articles'>): Date | undefined {
+  return entry.data.updated ?? entry.data.date;
+}
+
+// Sort newest-first when a reliable date exists; since roughly half of
+// migrated articles have no date/updated field at all (inconsistent
+// across WordPress export data), migration priority (tier) is the
+// primary sort key and date is the secondary tiebreaker within a tier,
+// per this phase's instructions.
+const sorted = [...articles].sort((a, b) => {
+  const tierDiff = (TIER_RANK[a.data.migration_priority] ?? 99) - (TIER_RANK[b.data.migration_priority] ?? 99);
+  if (tierDiff !== 0) return tierDiff;
+
+  const dateA = bestDate(a);
+  const dateB = bestDate(b);
+  if (dateA && dateB) return dateB.valueOf() - dateA.valueOf();
+  if (dateA && !dateB) return -1;
+  if (!dateA && dateB) return 1;
+  return a.data.title.localeCompare(b.data.title);
+});
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+function hubFor(entry: CollectionEntry<'articles'>) {
+  if (!entry.data.hub) return undefined;
+  return hubs.find((hub) => hub.id === entry.data.hub);
+}
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Blog', href: '/blog/' },
+];
+
+const sortedHubs = [...hubs].sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<BaseLayout
+  title="Blog"
+  description="Browse every article from Multiplying Disciples on evangelism, discipleship, prayer, and church planting movements — sorted newest first."
+  canonical="https://multiplyingdisciples.us/blog/"
+  type="website"
+>
+  <div class="page-container">
+    <Breadcrumbs items={breadcrumbItems} />
+
+    <h1>Blog</h1>
+    <p class="blog-intro">
+      Every article we've published on evangelism, discipleship, prayer, and church planting
+      movements — in one place.
+    </p>
+
+    {
+      sortedHubs.length > 0 && (
+        <nav class="blog-hub-links" aria-label="Browse by topic">
+          <span class="blog-hub-links__label">Browse by topic:</span>
+          <ul>
+            {sortedHubs.map((hub) => (
+              <li>
+                <a href={hub.data.slug}>{hub.data.title}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )
+    }
+
+    <ul class="blog-list">
+      {sorted.map((entry) => {
+        const hub = hubFor(entry);
+        const date = bestDate(entry);
+        return (
+          <li class="blog-list__item">
+            <h2>
+              <a href={entry.data.slug}>{entry.data.title}</a>
+            </h2>
+            <p class="blog-list__description">{entry.data.description}</p>
+            <p class="blog-list__meta">
+              {hub && (
+                <>
+                  <a href={hub.data.slug}>{hub.data.title}</a>
+                  {date && <span aria-hidden="true"> &middot; </span>}
+                </>
+              )}
+              {date && <time datetime={date.toISOString()}>{dateFormatter.format(date)}</time>}
+            </p>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .blog-intro {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-hub-links {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .blog-hub-links__label {
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+
+  .blog-hub-links ul {
+    display: inline;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .blog-hub-links li {
+    display: inline;
+  }
+
+  .blog-hub-links li:not(:last-child)::after {
+    content: ' \00b7 ';
+    color: var(--color-text-muted);
+  }
+
+  .blog-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .blog-list__item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .blog-list__item h2 {
+    margin: 0 0 0.4rem;
+    font-size: 1.15rem;
+  }
+
+  .blog-list__description {
+    margin: 0 0 0.5rem;
+    color: var(--color-text-muted);
+  }
+
+  .blog-list__meta {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+</style>

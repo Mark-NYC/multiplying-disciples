@@ -282,6 +282,39 @@ routes directly (not just the existing inventory summary):
 No redirects were implemented (docs-only, per phase scope). No Tier 3
 pages were migrated. `astro check`/`astro build` re-verified clean.
 
+### Phase 7A — Build `/blog/` index page (done)
+
+Built `/blog/` as a real Astro page (`src/pages/blog/index.astro`),
+not a content migration — the WordPress export confirmed it has no
+body content to port (empty posts-page placeholder), so this is new
+page-building work using the existing `articles` and `hubs`
+collections, not a Tier 3 batch.
+
+Queries `getCollection('articles')` and `getCollection('hubs')`
+directly (no new content-collection entry, no frontmatter file — same
+pattern as the homepage, which also isn't a collection entry). Lists
+all 33 migrated articles, sorted by `migration_priority` (tier-1
+before tier-2) first, then by best-available date (`updated ?? date`)
+descending within a tier, since roughly half of migrated articles have
+neither field set — verified this produces the intended order with an
+independent script before shipping. Each entry shows title,
+description, its hub (if any, linked), and formatted date (if any).
+Also lists all 11 hubs as plain crawlable links for topic browsing.
+`canonical: https://multiplyingdisciples.us/blog/`, `type="website"`,
+no `noindex`. Reused `BaseLayout` and `Breadcrumbs`, no new components,
+no client-side JS.
+
+`astro check`/`astro build` clean, 46 pages (was 45). Verified in
+`dist/`: canonical correct, exactly 1 H1, title/description present,
+no noindex, sitemap count now matches 46 generated pages exactly, all
+33 article links and all 11 hub links resolve to real generated pages.
+The only unresolved hrefs on the page are the same 2 sitewide nav
+links to real, already-tracked, not-yet-migrated tier-3 URLs
+(`/starter-tools/`, `/disciple-making-resources-for-churches-that-
+will-multiply/`) that appear on every page site-wide — not introduced
+by this page, not a regression. Header/footer nav's `/blog/` links
+(present on every page since Phase 1) now resolve instead of 404ing.
+
 ## Repo structure
 
 ```

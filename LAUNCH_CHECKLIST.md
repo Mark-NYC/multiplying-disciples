@@ -44,9 +44,10 @@ until every item below is checked and a human has signed off.
       implemented in the chosen hosting config and moved from
       `pending` to `verified` (currently `pending` — decided, not
       implemented).
-- [ ] `/blog/` built as a real Astro index page before launch (it's
-      already linked from nav on every page today; leaving it
-      un-migrated means a live 404 from primary navigation).
+- [x] `/blog/` built as a real Astro index page (Phase 7A —
+      `src/pages/blog/index.astro`). Lists all 33 migrated articles,
+      links all 11 hubs, correct canonical/title/description, no
+      noindex, sitemap includes it. Nav's `/blog/` links now resolve.
 - [ ] `/movement-resources/` and its 2 real not-yet-migrated children
       (`/movement-resources/strategy-coordinator/`,
       `/movement-resources/4-fields-toolbox/`) migrated normally as
@@ -65,6 +66,14 @@ until every item below is checked and a human has signed off.
 - Do not delete or replace the WordPress site.
 - Do not rewrite the whole site.
 - Do not change existing URL paths.
+
+## Status snapshot (Phase 7A)
+
+`/blog/` is now built and live in the build — see `MIGRATION_PLAN.md`
+Phase 7A and `URL_INVENTORY.md`. This is the first archive-checklist
+item above checked off. 46 pages now build clean (was 45). Nothing
+else in this checklist changed: still no redirects implemented, still
+no Tier 3 pages migrated, nothing launched.
 
 ## Status snapshot (Phase 6)
 
