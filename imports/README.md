@@ -44,11 +44,26 @@ not-yet-migrated tier-2 pages), and it's still missing — the upload has
 tracked filename. No Priority A or B files exist in `2023/02`, so this
 upload doesn't affect any currently-migrated page.
 
-**Next recommended month folder: `2023/04`** — highest remaining value,
-with 47 tracked files (4 Priority A, 35 Priority B, 8 Priority C). The 35
-Priority B files matter most: they're embedded in already-live migrated
-pages, so missing them means broken images on real published pages
-today.
+## Received (2026-07-06, third upload): second media month folder
+
+The `2023/04` month folder (47 files) was supplied as a zip
+(`32f2a13d-media202304priority.zip`), extracted, and moved into
+`public/wp-content/uploads/2023/04/` — exact original filenames, no
+re-encoding, no flattening. The zip itself was not committed.
+
+**All 47 tracked files in this folder matched exactly** (4 Priority A,
+35 Priority B, 8 Priority C) — every row flipped to "Yes" in
+`MEDIA_IMPORT_PLAN.md` and the 39 of them also tracked in
+`MEDIA_ACQUISITION_CHECKLIST.md` flipped there too. `astro build` was
+re-run clean (23 pages, no new errors) and the `dist/` output for the
+three live pages using `2023/04` assets (12-disciples, unlocking-APEST,
+three-thirds) was spot-checked — every referenced image path resolves
+to a file that now exists on disk. This fixes every previously-broken
+image on those three pages sourced from `2023/04`.
+
+**Next recommended month folder: `2023/05`** — the largest remaining
+folder, with 39 tracked files (10 Priority A, 9 Priority B, 20 Priority
+C).
 
 ## Still needed: media binary files (this is the one blocking thing)
 

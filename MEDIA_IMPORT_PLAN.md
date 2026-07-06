@@ -5,9 +5,10 @@ page (all 12 — done), or a real Tier 2 page (22 — not yet migrated, but
 cataloged ahead of time so we know what to collect). Source: WordPress
 export XML + Google Search Console Pages CSV (supplied 2026-07-06).
 
-**Most of these files have not been supplied yet.** One month folder
-(`2023/02`, 559 files) has now been received and extracted into
-`public/wp-content/uploads/2023/02/` — see "Received uploads log" below.
+**Most of these files have not been supplied yet.** Two month folders
+have now been received and extracted: `2023/02` (559 files, only 1
+tracked here and still not an exact match) and `2023/04` (47 files, all
+47 tracked rows now matched exactly) — see "Received uploads log" below.
 Every other row still reads "No" under Present — this environment has
 only ever received paths and metadata (via WordPress attachment records
 and the GSC export) for the rest, never the actual image/PDF bytes.
@@ -47,11 +48,11 @@ and the GSC export) for the rest, never the actual image/PDF bytes.
 
 | WordPress path | Type | Source page(s) | Present? | Impressions |
 |---|---|---|---|---:|
-| `/wp-content/uploads/2023/04/Church-Waffle-English-04-2023.pdf` | pdf | (GSC only, no known page) | No | 347 |
+| `/wp-content/uploads/2023/04/Church-Waffle-English-04-2023.pdf` | pdf | (GSC only, no known page) | Yes | 347 |
 | `/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called-with-Bible-References.webp` | webp | `/discover-the-12-disciples-of-jesus-christ/` | No | 266 |
 | `/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called.webp` | webp | `/discover-the-12-disciples-of-jesus-christ/` | No | 89 |
 | `/wp-content/uploads/2023/06/Virtual-Training-Packet.pdf` | pdf | (GSC only, no known page) | No | 41 |
-| `/wp-content/uploads/2023/04/4-Fields-Toolbox-Updated-03.31.23.pdf` | pdf | (GSC only, no known page) | No | 36 |
+| `/wp-content/uploads/2023/04/4-Fields-Toolbox-Updated-03.31.23.pdf` | pdf | (GSC only, no known page) | Yes | 36 |
 | `/wp-content/uploads/2023/05/Church-Waffle-English-112222-1.pdf` | pdf | (GSC only, no known page) | No | 36 |
 | `/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1.webp` | webp | `/the-three-circles-gospel-presentation-step-by-step/` | No | 10 |
 | `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-5.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | No | 5 |
@@ -59,13 +60,13 @@ and the GSC export) for the rest, never the actual image/PDF bytes.
 | `/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible.webp` | webp | `/movement-resources/7-stories-of-hope-complete-facilitation-guide/` | No | 4 |
 | `/wp-content/uploads/2025/11/Bible-Verse-About-Spreading-the-Gospel-Matthew-28.18-20-Great-Commission-Infographic.webp` | webp | `/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/` | No | 4 |
 | `/wp-content/uploads/2025/11/Bible-Verses-About-Spreading-the-Gospel-Complete-Scripture-Guide.webp` | webp | `/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/` | No | 4 |
-| `/wp-content/uploads/2023/04/12044-small-group-bible-study-gettyimages-rawpixel.jpeg` | jpeg | `/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/` | No | 3 |
+| `/wp-content/uploads/2023/04/12044-small-group-bible-study-gettyimages-rawpixel.jpeg` | jpeg | `/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/` | Yes | 3 |
 | `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-3.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | No | 3 |
 | `/wp-content/uploads/2025/11/7-Scripture-Based-Reasons-Your-Testimony-Is-a-Spiritual-Weapon.webp` | webp | `/the-power-of-sharing-your-testimony-scripture-7-biblical-reasons-you-cant-stay-silent/` | No | 3 |
 | `/wp-content/uploads/2023/05/Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.webp` | webp | `/the-three-circles-gospel-presentation-step-by-step/` | No | 2 |
 | `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | No | 2 |
 | `/wp-content/uploads/2025/11/Testimony-in-the-bible.webp` | webp | `/testimony-in-the-bible-20-verses-to-ignite-your-faith/` | No | 2 |
-| `/wp-content/uploads/2023/04/3-5.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 1 |
+| `/wp-content/uploads/2023/04/3-5.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 1 |
 | `/wp-content/uploads/2023/05/Screen-Shot-2023-08-16-at-8.47.48-AM-1024x499.png` | png | (GSC only, no known page) | No | 1 |
 | `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-1.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | No | 1 |
 | `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-2.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | No | 1 |
@@ -75,41 +76,41 @@ and the GSC export) for the rest, never the actual image/PDF bytes.
 
 | WordPress path | Type | Source page(s) | Present? | Impressions |
 |---|---|---|---|---:|
-| `/wp-content/uploads/2023/04/1-1-1024x1024.png` | png | `/unlocking-the-power-of-apest-the-ultimate-guide/` | No | 0 |
-| `/wp-content/uploads/2023/04/1-4-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/1-5.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/10-1.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/10-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/11-1.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/11-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/12-1.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/12-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/2-1-1024x1024.png` | png | `/unlocking-the-power-of-apest-the-ultimate-guide/` | No | 0 |
-| `/wp-content/uploads/2023/04/2-4-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/2-5.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/3-2-1024x1024.png` | png | `/unlocking-the-power-of-apest-the-ultimate-guide/` | No | 0 |
-| `/wp-content/uploads/2023/04/3-4-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/4-1-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/4-2-1024x1024.png` | png | `/unlocking-the-power-of-apest-the-ultimate-guide/` | No | 0 |
-| `/wp-content/uploads/2023/04/4-2.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/5-1.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/5-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/5-1024x1024.png` | png | `/unlocking-the-power-of-apest-the-ultimate-guide/` | No | 0 |
-| `/wp-content/uploads/2023/04/6-1.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/6-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/7-1.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/7-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/8-1.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/8-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/9-1.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/9-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | No | 0 |
-| `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.08-AM-1024x804.jpg` | jpg | `/three-thirds/` | No | 0 |
-| `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM-1024x766.png` | png | `/three-thirds/` | No | 0 |
-| `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM-1536x1149.png` | png | `/three-thirds/` | No | 0 |
-| `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM-300x224.png` | png | `/three-thirds/` | No | 0 |
-| `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM-768x574.png` | png | `/three-thirds/` | No | 0 |
-| `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM.png` | png | `/three-thirds/` | No | 0 |
-| `/wp-content/uploads/2023/04/Untitled-design-14.png` | png | `/unlocking-the-power-of-apest-the-ultimate-guide/` | No | 0 |
+| `/wp-content/uploads/2023/04/1-1-1024x1024.png` | png | `/unlocking-the-power-of-apest-the-ultimate-guide/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/1-4-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/1-5.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/10-1.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/10-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/11-1.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/11-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/12-1.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/12-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/2-1-1024x1024.png` | png | `/unlocking-the-power-of-apest-the-ultimate-guide/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/2-4-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/2-5.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/3-2-1024x1024.png` | png | `/unlocking-the-power-of-apest-the-ultimate-guide/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/3-4-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/4-1-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/4-2-1024x1024.png` | png | `/unlocking-the-power-of-apest-the-ultimate-guide/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/4-2.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/5-1.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/5-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/5-1024x1024.png` | png | `/unlocking-the-power-of-apest-the-ultimate-guide/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/6-1.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/6-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/7-1.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/7-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/8-1.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/8-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/9-1.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/9-1024x1024.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.08-AM-1024x804.jpg` | jpg | `/three-thirds/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM-1024x766.png` | png | `/three-thirds/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM-1536x1149.png` | png | `/three-thirds/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM-300x224.png` | png | `/three-thirds/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM-768x574.png` | png | `/three-thirds/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM.png` | png | `/three-thirds/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/Untitled-design-14.png` | png | `/unlocking-the-power-of-apest-the-ultimate-guide/` | Yes | 0 |
 | `/wp-content/uploads/2023/05/1-1.webp` | webp | `/` | No | 0 |
 | `/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1-1024x576.webp` | webp | `/how-to-evangelize-ultimate-step-by-step-guide/` | No | 0 |
 | `/wp-content/uploads/2023/05/4-1-1-YFC-1-e1684600816203.jpg` | jpg | `/15-second-testimony-examples-ignite-your-faith/` | No | 0 |
@@ -160,14 +161,14 @@ and the GSC export) for the rest, never the actual image/PDF bytes.
 |---|---|---|---|---:|
 | `/wp-content/uploads/2020/12/Screenshot-2023-09-02-at-4.18.46-PM.png` | png | `/stickers/` | No | 0 |
 | `/wp-content/uploads/2023/02/nonresident-JTW6AUbCLC4-unsplash-3-1.jpg` | jpg | `/4-stages-of-movement-unlock-your-next-steps/`, `/breakthrough-guide-for-a-modern-day-disciple/` | No — near miss, see note | 0 |
-| `/wp-content/uploads/2023/04/75598-scaled.webp` | webp | `/love-and-obedience-exploring-the-biblical-relationship-between-the-two/` | No | 0 |
-| `/wp-content/uploads/2023/04/eliott-reyna-jCEpN62oWL4-unsplash.jpg` | jpg | `/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/` | No | 0 |
-| `/wp-content/uploads/2023/04/image-1024x576.jpg` | jpg | `/the-high-price-of-discipleship-what-it-really-costs-to-follow-jesus/` | No | 0 |
-| `/wp-content/uploads/2023/04/maxresdefault-3.jpg` | jpg | `/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/` | No | 0 |
-| `/wp-content/uploads/2023/04/multiplication.jpeg` | jpeg | `/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/` | No | 0 |
-| `/wp-content/uploads/2023/04/pexels-photo-2258251.jpeg` | jpeg | `/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/` | No | 0 |
-| `/wp-content/uploads/2023/04/pexels-photo-5543374.jpeg` | jpeg | `/radical-discipleship-understanding-what-it-means-and-how-to-live-it/` | No | 0 |
-| `/wp-content/uploads/2023/04/pexels-photo-6860404.jpeg` | jpeg | `/the-high-price-of-discipleship-what-it-really-costs-to-follow-jesus/` | No | 0 |
+| `/wp-content/uploads/2023/04/75598-scaled.webp` | webp | `/love-and-obedience-exploring-the-biblical-relationship-between-the-two/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/eliott-reyna-jCEpN62oWL4-unsplash.jpg` | jpg | `/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/image-1024x576.jpg` | jpg | `/the-high-price-of-discipleship-what-it-really-costs-to-follow-jesus/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/maxresdefault-3.jpg` | jpg | `/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/multiplication.jpeg` | jpeg | `/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/pexels-photo-2258251.jpeg` | jpeg | `/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/pexels-photo-5543374.jpeg` | jpeg | `/radical-discipleship-understanding-what-it-means-and-how-to-live-it/` | Yes | 0 |
+| `/wp-content/uploads/2023/04/pexels-photo-6860404.jpeg` | jpeg | `/the-high-price-of-discipleship-what-it-really-costs-to-follow-jesus/` | Yes | 0 |
 | `/wp-content/uploads/2023/05/4-Fields-1-e1685451774487.jpg` | jpg | `/how-to-get-started-in-four-fields-training/` | No | 0 |
 | `/wp-content/uploads/2023/05/4-Fields-Nathan-Shank-2014.pdf` | pdf | `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | No | 0 |
 | `/wp-content/uploads/2023/05/4-Fields-e1685451695430.jpg` | jpg | `/how-to-get-started-in-four-fields-training/` | No | 0 |
@@ -241,7 +242,8 @@ folder structure untouched (no renames, no re-encoding, no move to
 
 | Date | Month folder | Files | Notes |
 |---|---|---|---|
-| 2026-07-06 | `2023/02` | 559 | Only 1 file in this folder is tracked in this doc (`nonresident-JTW6AUbCLC4-unsplash-3-1.jpg`, Priority C) and it is **still missing** — the upload contains 23 differently-suffixed size variants (e.g. `nonresident-JTW6AUbCLC4-unsplash-3-1-1024x452.jpg`, `nonresident-JTW6AUbCLC4-unsplash-3-e1675705283323-*.jpg`) but not the exact filename referenced by the two tier-2 pages that need it. No Priority A or B files exist in `2023/02` at all, so this upload has zero effect on any currently-migrated page. Recommend `2023/04` next (47 tracked files: 4 A + 35 B + 8 C — highest-value remaining folder). |
+| 2026-07-06 | `2023/02` | 559 | Only 1 file in this folder is tracked in this doc (`nonresident-JTW6AUbCLC4-unsplash-3-1.jpg`, Priority C) and it is **still missing** — the upload contains 23 differently-suffixed size variants (e.g. `nonresident-JTW6AUbCLC4-unsplash-3-1-1024x452.jpg`, `nonresident-JTW6AUbCLC4-unsplash-3-e1675705283323-*.jpg`) but not the exact filename referenced by the two tier-2 pages that need it. No Priority A or B files exist in `2023/02` at all, so this upload has zero effect on any currently-migrated page. |
+| 2026-07-06 | `2023/04` | 47 | **All 47 tracked rows in this folder matched exactly** (4 Priority A, 35 Priority B, 8 Priority C) — every one flipped to "Yes" above. This fixes every currently-broken image on the 3 already-live migrated pages that reference `2023/04` assets (12-disciples, unlocking-APEST, three-thirds). The 1 Priority A row tagged to `what-is-a-simple-church-...` and the 8 Priority C rows are for tier-2 pages not yet migrated, so they're collected ahead of need rather than fixing anything live today. Recommend `2023/05` next (39 tracked files — the largest remaining folder: 10 A + 9 B + 20 C). |
 
 ## Note on `/movement-resources/12-practice-church-circle/`
 
@@ -257,6 +259,7 @@ every table above on purpose; they need no local preservation.
 - Priority C: 68 files
 - Priority D: 0 files
 - **Total distinct files tracked: 171**
-- **Present so far: 0 of 171 tracked rows** (the `2023/02` upload landed
-  on disk but didn't match this doc's one tracked row for that folder —
-  see "Received uploads log" above)
+- **Present so far: 47 of 171 tracked rows** (all 47 `2023/04` rows —
+  4 A, 35 B, 8 C. The `2023/02` upload landed on disk but didn't match
+  this doc's one tracked row for that folder — see "Received uploads
+  log" above)
