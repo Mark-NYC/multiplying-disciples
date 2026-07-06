@@ -60,12 +60,12 @@ but not yet migrated (renders as "(coming soon)" via `RelatedArticles`).
 | Share the Gospel | **how to evangelize**, **bible verse about spreading the gospel**, **3 circles guide**, **5 strategies**, finding persons of peace | 3 Circles, Stories of Hope |
 | 3 Circles | **3 circles step-by-step guide**, **how to evangelize** | 3 Circles |
 | Stories of Hope | **7 stories of hope guide**, **12 practice church circle (Church Waffle)** | Stories of Hope |
-| Prayer | prayer walking guide, prayer wheel, **prayer is essential (12 key prayer points)** | — |
-| Disciple Making | **biblical discipleship guide**, 3 ways to make disciples, radical discipleship, high price of discipleship, disciple-making resources, **top 25 books** | 3 Circles, Stories of Hope |
+| Prayer | **prayer walking guide**, **prayer wheel**, **prayer is essential (12 key prayer points)** | — |
+| Disciple Making | **biblical discipleship guide**, **3 ways to make disciples**, **radical discipleship**, **high price of discipleship**, disciple-making resources, **top 25 books** | 3 Circles, Stories of Hope |
 | Simple Church | simple church article, **12 practice church circle (Church Waffle)**, **three thirds** | — |
 | Four Fields | **four fields (Nathan &amp; Kari Shank manual)**, **getting started in four fields training** | — |
 | Church Planting Movements | power of multiplication, 10 qualities, DMM characteristics, 5 examples, under the hood, equipping your church, breaking down barriers, 4 stages of movement | — |
-| Strategy Coordinator | strategy coordinator role article | — |
+| Strategy Coordinator | **strategy coordinator role article** | — |
 
 As of Phase 3, 12 real tier-1 pages are migrated (all of them — see
 `PHASE_3_TIER_1_BATCH.md`). Every other key-article slot above still
@@ -78,10 +78,16 @@ alongside the tier-1 set — see `PHASE_4_TIER_2_BATCH_PLAN.md`): the
 5 strategies personal evangelism article, the biblical discipleship
 guide, the four fields Nathan &amp; Kari Shank manual, getting started
 in four fields training, the top 25 disciple-making books list, prayer
-is essential (12 key prayer points), and 7 words on the cross. The
-remaining tier-2 key-article slots (prayer walking guide, prayer wheel,
-3 ways to make disciples, radical discipleship, high price of
-discipleship, disciple-making resources) are Batches 2-4 work.
+is essential (12 key prayer points), and 7 words on the cross.
+
+As of Phase 4 Batch 2, 7 more tier-2 pages are migrated: the prayer
+walking guide, the prayer wheel, the strategy coordinator role article,
+3 ways to make disciples, radical discipleship, the high price of
+discipleship, and the power of sharing your testimony scripture. This
+fully completes the Prayer hub (3/3), the Testimony hub (3/3), and the
+Strategy Coordinator hub (1/1, its only slot). The remaining tier-2
+key-article slots (disciple-making resources, and everything in the
+Church Planting Movements hub) are Batches 3-4 work.
 
 Tool entries themselves (`src/content/tools/`) are not yet created —
 `ToolCTA` renders "(coming soon)" for tool names with no matching entry.

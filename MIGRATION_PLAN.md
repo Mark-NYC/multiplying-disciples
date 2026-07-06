@@ -133,6 +133,25 @@ needed. `astro check` and `astro build` both clean; all 7 URLs verified
 in `dist/` with correct canonicals, no noindex, no broken internal
 links, no hub collisions. 15 tier-2 URLs remain (Batches 2-4).
 
+**Batch 2 (done):** migrated the next 7 tier-2 pages: the prayer
+walking guide, the Christian Prayer Wheel guide, the strategy
+coordinator role article (the highest media count of any tier-2 page —
+13 files), 3 ways to make disciples, radical discipleship, the high
+price of discipleship, and the power of sharing your testimony
+scripture. Fully completes the Prayer hub (3/3), the Testimony hub
+(3/3), and the Strategy Coordinator hub (1/1, its only slot). Same
+cleanup discipline as Batch 1, plus 2 new patterns: repointing 3
+same-page "jump to" anchor links to Astro's actual generated heading-
+slug ids (WordPress-era custom ids like `#5H` and `#guide` don't exist
+in the Astro build), and unwrapping YouTube-redirect click-tracking
+URLs down to their real bit.ly destination when the visible anchor
+text already named that destination. All 24 distinct media files this
+batch depends on were already present — no new uploads needed. `astro
+check` and `astro build` both clean; all 7 URLs verified in `dist/`
+with correct canonicals, no noindex, no broken internal links (including
+the repointed in-page anchors), no hub collisions. 8 tier-2 URLs remain
+(Batches 3-4).
+
 ## Repo structure
 
 ```

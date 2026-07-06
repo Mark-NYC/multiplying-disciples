@@ -264,6 +264,41 @@ is also referenced (inline, `how-to-get-started-in-four-fields-training`) but
 was already tracked as Priority C in `MEDIA_IMPORT_PLAN.md` prior to this
 batch and confirmed present there; not duplicated here.
 
+### Phase 4 — Tier 2 Batch 2 media (2026-07-06)
+
+All 24 distinct media files referenced by the 7 Phase 4 Tier 2 Batch 2
+pages were confirmed already present under `public/wp-content/uploads/`
+— no new uploads were needed for this batch. The strategy-coordinator
+page alone accounts for 13 of these 24 (the highest media count of any
+tier-2 page, as flagged in `PHASE_4_TIER_2_BATCH_PLAN.md`).
+
+| WordPress path | Expected public path | Binary present? | Referenced by | Impressions |
+|---|---|---|---|---|
+| `/wp-content/uploads/2023/04/eliott-reyna-jCEpN62oWL4-unsplash.jpg` | `public/wp-content/uploads/2023/04/eliott-reyna-jCEpN62oWL4-unsplash.jpg` | Yes | `/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/` (tier-2, migrated — featured) | 335 |
+| `/wp-content/uploads/2025/01/Untitled-design-2025-01-21T095505.451.jpg` | `public/wp-content/uploads/2025/01/Untitled-design-2025-01-21T095505.451.jpg` | Yes | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` (tier-2, migrated — featured) | 228 |
+| `/wp-content/uploads/2025/01/1-2.jpg` | `public/wp-content/uploads/2025/01/1-2.jpg` | Yes | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` (tier-2, migrated) | 228 |
+| `/wp-content/uploads/2025/01/2-3.jpg` | `public/wp-content/uploads/2025/01/2-3.jpg` | Yes | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` (tier-2, migrated) | 228 |
+| `/wp-content/uploads/2025/01/3-3.jpg` | `public/wp-content/uploads/2025/01/3-3.jpg` | Yes | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` (tier-2, migrated) | 228 |
+| `/wp-content/uploads/2025/01/4-3.jpg` | `public/wp-content/uploads/2025/01/4-3.jpg` | Yes | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` (tier-2, migrated) | 228 |
+| `/wp-content/uploads/2025/01/5-2.jpg` | `public/wp-content/uploads/2025/01/5-2.jpg` | Yes | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` (tier-2, migrated) | 228 |
+| `/wp-content/uploads/2025/01/6-3.jpg` | `public/wp-content/uploads/2025/01/6-3.jpg` | Yes | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` (tier-2, migrated) | 228 |
+| `/wp-content/uploads/2025/01/1-4.jpg` | `public/wp-content/uploads/2025/01/1-4.jpg` | Yes | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` (tier-2, migrated) | 228 |
+| `/wp-content/uploads/2025/01/2-5.jpg` | `public/wp-content/uploads/2025/01/2-5.jpg` | Yes | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` (tier-2, migrated) | 228 |
+| `/wp-content/uploads/2025/01/3-5.jpg` | `public/wp-content/uploads/2025/01/3-5.jpg` | Yes | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` (tier-2, migrated) | 228 |
+| `/wp-content/uploads/2025/01/4-4.jpg` | `public/wp-content/uploads/2025/01/4-4.jpg` | Yes | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` (tier-2, migrated) | 228 |
+| `/wp-content/uploads/2025/01/68471e1fad432c1ff6f1c342ff450a0d.Target.webp` | `public/wp-content/uploads/2025/01/68471e1fad432c1ff6f1c342ff450a0d.Target.webp` | Yes | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` (tier-2, migrated) | 228 |
+| `/wp-content/uploads/2025/01/Untitled-design-2025-01-22T193434.274.jpg` | `public/wp-content/uploads/2025/01/Untitled-design-2025-01-22T193434.274.jpg` | Yes | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` (tier-2, migrated) | 228 |
+| `/wp-content/uploads/2025/12/Christian-Prayer-Wheel-diagram-showing-12-prayer-segments.webp` | `public/wp-content/uploads/2025/12/Christian-Prayer-Wheel-diagram-showing-12-prayer-segments.webp` | Yes | `/christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/` (tier-2, migrated — featured) | 190 |
+| `/wp-content/uploads/2025/12/Christian-Prayer-Wheel-diagram-with-12-segments.webp` | `public/wp-content/uploads/2025/12/Christian-Prayer-Wheel-diagram-with-12-segments.webp` | Yes | `/christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/` (tier-2, migrated) | 190 |
+| `/wp-content/uploads/2025/12/christian-prayer-wheel-sticker.webp` | `public/wp-content/uploads/2025/12/christian-prayer-wheel-sticker.webp` | Yes | `/christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/` (tier-2, migrated) | 190 |
+| `/wp-content/uploads/2023/04/pexels-photo-5543374.jpeg` | `public/wp-content/uploads/2023/04/pexels-photo-5543374.jpeg` | Yes | `/radical-discipleship-understanding-what-it-means-and-how-to-live-it/` (tier-2, migrated — featured) | 181 |
+| `/wp-content/uploads/2025/11/Sharing-Your-Testimony-Scripture-7-Biblical-Reasons-You-Cant-Stay-Silent.webp` | `public/wp-content/uploads/2025/11/Sharing-Your-Testimony-Scripture-7-Biblical-Reasons-You-Cant-Stay-Silent.webp` | Yes | `/the-power-of-sharing-your-testimony-scripture-7-biblical-reasons-you-cant-stay-silent/` (tier-2, migrated — featured) | 166 |
+| `/wp-content/uploads/2025/11/7-Scripture-Based-Reasons-Your-Testimony-Is-a-Spiritual-Weapon.webp` | `public/wp-content/uploads/2025/11/7-Scripture-Based-Reasons-Your-Testimony-Is-a-Spiritual-Weapon.webp` | Yes | `/the-power-of-sharing-your-testimony-scripture-7-biblical-reasons-you-cant-stay-silent/` (tier-2, migrated) | 166 |
+| `/wp-content/uploads/2023/04/image-1024x576.jpg` | `public/wp-content/uploads/2023/04/image-1024x576.jpg` | Yes | `/the-high-price-of-discipleship-what-it-really-costs-to-follow-jesus/` (tier-2, migrated) | 165 |
+| `/wp-content/uploads/2023/04/pexels-photo-6860404.jpeg` | `public/wp-content/uploads/2023/04/pexels-photo-6860404.jpeg` | Yes | `/the-high-price-of-discipleship-what-it-really-costs-to-follow-jesus/` (tier-2, migrated — featured) | 165 |
+| `/wp-content/uploads/2023/05/Screen-Shot-2023-04-02-at-7.11.17-AM-copy-2-1024x766.jpg` | `public/wp-content/uploads/2023/05/Screen-Shot-2023-04-02-at-7.11.17-AM-copy-2-1024x766.jpg` | Yes | `/ridiculously-simple-3-ways-to-make-disciples/` (tier-2, migrated) | 164 |
+| `/wp-content/uploads/2023/05/pexels-photo-4051134.jpeg` | `public/wp-content/uploads/2023/05/pexels-photo-4051134.jpeg` | Yes | `/ridiculously-simple-3-ways-to-make-disciples/` (tier-2, migrated — featured) | 164 |
+
 ## Acquisition priority
 
 1. **Highest** — the 9 rows above with real Search Console impressions

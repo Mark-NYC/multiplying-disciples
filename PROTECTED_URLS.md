@@ -12,9 +12,9 @@ pages remain not-migrated. See `PHASE_3_TIER_1_BATCH.md` for what was
 migrated in this phase and `MEDIA_ACQUISITION_CHECKLIST.md` for their
 media dependencies (still no binary files supplied).
 
-**Phase 4 status:** Batch 1 of tier-2 (7 of 22 URLs) is now migrated.
-See `PHASE_4_TIER_2_BATCH_PLAN.md` for the full batch plan and which
-URLs remain in Batches 2-4.
+**Phase 4 status:** Batches 1 and 2 of tier-2 (14 of 22 URLs) are now
+migrated. See `PHASE_4_TIER_2_BATCH_PLAN.md` for the full batch plan
+and which URLs remain in Batches 3-4.
 
 Tiers (per the rule in `URL_INVENTORY.md`):
 - **Tier 1** — more than 1,000 impressions or more than 10 clicks.
@@ -53,17 +53,17 @@ All 6 "especially important" pages named in the original brief are now migrated.
 | `/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/` | article | 2 | 403 | tier-2 | migrated |
 | `/stickers/` | page | 7 | 359 | tier-2 | not-migrated |
 | `/seven-words-of-jesus-on-the-cross/` | article | 1 | 339 | tier-2 | migrated |
-| `/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/` | article | 8 | 335 | tier-2 | not-migrated |
+| `/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/` | article | 8 | 335 | tier-2 | migrated |
 | `/movement-resources/12-practice-church-circle/` | resource (page) | 12 | 308 | tier-1 | migrated |
 | `/` | homepage | 23 | 277 | tier-1 | migrated |
 | `/breakthrough-guide-for-a-modern-day-disciple/` | article | 0 | 228 | tier-2 | not-migrated |
-| `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` | article | 4 | 228 | tier-2 | not-migrated |
-| `/christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/` | article | 4 | 190 | tier-2 | not-migrated |
-| `/radical-discipleship-understanding-what-it-means-and-how-to-live-it/` | article | 1 | 181 | tier-2 | not-migrated |
-| `/the-power-of-sharing-your-testimony-scripture-7-biblical-reasons-you-cant-stay-silent/` | article | 0 | 166 | tier-2 | not-migrated |
-| `/the-high-price-of-discipleship-what-it-really-costs-to-follow-jesus/` | article | 2 | 165 | tier-2 | not-migrated |
+| `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` | article | 4 | 228 | tier-2 | migrated |
+| `/christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/` | article | 4 | 190 | tier-2 | migrated |
+| `/radical-discipleship-understanding-what-it-means-and-how-to-live-it/` | article | 1 | 181 | tier-2 | migrated |
+| `/the-power-of-sharing-your-testimony-scripture-7-biblical-reasons-you-cant-stay-silent/` | article | 0 | 166 | tier-2 | migrated |
+| `/the-high-price-of-discipleship-what-it-really-costs-to-follow-jesus/` | article | 2 | 165 | tier-2 | migrated |
 | `/4-stages-of-movement-unlock-your-next-steps/` | article | 7 | 165 | tier-2 | not-migrated |
-| `/ridiculously-simple-3-ways-to-make-disciples/` | article | 0 | 164 | tier-2 | not-migrated |
+| `/ridiculously-simple-3-ways-to-make-disciples/` | article | 0 | 164 | tier-2 | migrated |
 | `/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/` | article | 0 | 160 | tier-2 | not-migrated |
 | `/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/` | article | 0 | 142 | tier-2 | not-migrated |
 | `/love-and-obedience-exploring-the-biblical-relationship-between-the-two/` | article | 1 | 134 | tier-2 | not-migrated |
