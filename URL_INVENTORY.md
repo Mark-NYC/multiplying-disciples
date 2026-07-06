@@ -84,6 +84,24 @@ collisions. Sitemap confirmed an exact match to the 45 built pages.
 Next: Tier 3 (48 URLs) + the 40 "unknown"-tier URLs + the
 category/tag archive URL question.
 
+**Phase 6 status:** archive/URL-structure decision completed — see
+`PHASE_6_ARCHIVE_URL_DECISION.md`. The 20 category/tag archive rows
+below now carry their decided redirect target (301 to the closest
+hub). `/blog/` (row below, tier-3, 95 impressions) is confirmed via
+the WordPress export to have **empty body content** — it's WordPress's
+configured posts-page placeholder, not a page with real content to
+port — and needs to become a newly-built Astro index page, recommended
+before Tier 3 since it's already linked from site nav today.
+`/movement-resources/` (row below, tier-3, 22 impressions) is
+confirmed to be **real, distinct content** ("Emerging Network
+Resources," a curated external-resource list unrelated to its child
+pages) — not an archive or directory — and will migrate normally as a
+real Tier 3 article, a good Batch 1 candidate. Its 2 real not-yet-
+migrated children, `/movement-resources/strategy-coordinator/` and
+`/movement-resources/4-fields-toolbox/` (both below, "unknown" tier),
+are confirmed via the export's `post_parent` field to be genuine
+WordPress child pages of `/movement-resources/`, not archives either.
+
 ## Full inventory — all 122 published posts/pages
 
 Sorted by impressions (real GSC data where available).
@@ -215,33 +233,41 @@ Sorted by impressions (real GSC data where available).
 
 ## Category and tag archive URLs (from GSC, not in the export above)
 
-These are WordPress taxonomy archive pages. Astro's content collections
-model doesn't have a direct equivalent yet — decide in Phase 3 whether
-to recreate them, fold them into hub pages, or 301 them to hubs covering
-the same topic.
+These are WordPress taxonomy archive pages. **Decided in Phase 6**
+(see `PHASE_6_ARCHIVE_URL_DECISION.md`): all 20 get a 301 to their
+closest matching hub — every one has 0 clicks despite having
+impressions, and a stronger, curated hub replacement already exists
+for every topic. Proposed redirects are documented as `pending` rows
+in `REDIRECTS.md`, not yet implemented (no hosting config chosen yet).
 
-| Archive URL | Type | Clicks | Impressions |
-|---|---|---:|---:|
-| `/category/movements/` | category | 0 | 43 |
-| `/category/four-fields-training/` | category | 0 | 18 |
-| `/category/entry-strategies/` | category | 0 | 2 |
-| `/category/discipleship-tools/` | category | 0 | 2 |
-| `/category/missionary-strategies/` | category | 0 | 1 |
-| `/category/spiritual-gifts/` | category | 0 | 1 |
-| `/category/great-commission/` | category | 0 | 1 |
-| `/tag/apostle/` | tag | 0 | 25 |
-| `/tag/conversation-quadrant/` | tag | 0 | 10 |
-| `/tag/disciple-making-movement/` | tag | 0 | 9 |
-| `/tag/sustainable-disciple-making/` | tag | 0 | 7 |
-| `/tag/oikos-mapping/` | tag | 0 | 7 |
-| `/tag/disciple-making/` | tag | 0 | 3 |
-| `/tag/community/` | tag | 0 | 2 |
-| `/tag/apostolic/` | tag | 0 | 2 |
-| `/tag/hybrid-model/` | tag | 0 | 1 |
-| `/tag/revival/` | tag | 0 | 1 |
-| `/tag/prayer-walking/` | tag | 0 | 1 |
-| `/tag/precision-harvesting/` | tag | 0 | 1 |
-| `/tag/15-second-testimony-examples/` | tag | 0 | 1 |
+| Archive URL | Type | Clicks | Impressions | Redirect target (Phase 6) |
+|---|---|---:|---:|---|
+| `/category/movements/` | category | 0 | 43 | `/church-planting-movements/` |
+| `/category/four-fields-training/` | category | 0 | 18 | `/four-fields/` |
+| `/category/entry-strategies/` | category | 0 | 2 | `/share-the-gospel/` |
+| `/category/discipleship-tools/` | category | 0 | 2 | `/disciple-making/` |
+| `/category/missionary-strategies/` | category | 0 | 1 | `/strategy-coordinator/` |
+| `/category/spiritual-gifts/` | category | 0 | 1 | `/jesus-and-the-twelve/` |
+| `/category/great-commission/` | category | 0 | 1 | `/share-the-gospel/` |
+| `/tag/apostle/` | tag | 0 | 25 | `/jesus-and-the-twelve/` |
+| `/tag/conversation-quadrant/` | tag | 0 | 10 | `/share-the-gospel/` |
+| `/tag/disciple-making-movement/` | tag | 0 | 9 | `/church-planting-movements/` |
+| `/tag/sustainable-disciple-making/` | tag | 0 | 7 | `/disciple-making/` |
+| `/tag/oikos-mapping/` | tag | 0 | 7 | `/share-the-gospel/` |
+| `/tag/disciple-making/` | tag | 0 | 3 | `/disciple-making/` |
+| `/tag/community/` | tag | 0 | 2 | `/simple-church/` |
+| `/tag/apostolic/` | tag | 0 | 2 | `/jesus-and-the-twelve/` |
+| `/tag/hybrid-model/` | tag | 0 | 1 | `/simple-church/` |
+| `/tag/revival/` | tag | 0 | 1 | `/church-planting-movements/` |
+| `/tag/prayer-walking/` | tag | 0 | 1 | `/prayer/` |
+| `/tag/precision-harvesting/` | tag | 0 | 1 | `/share-the-gospel/` |
+| `/tag/15-second-testimony-examples/` | tag | 0 | 1 | `/testimony/` |
+
+**Author and date archive URLs:** checked directly against the GSC
+export, the live sitemap index, and the WordPress export — zero
+presence in any of the three. No rows tracked here since there's no
+confirmed URL; default recommendation is allow 404/410 once live
+(see `PHASE_6_ARCHIVE_URL_DECISION.md` sections 3-4).
 
 ## Media URLs
 

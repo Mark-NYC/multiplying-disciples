@@ -38,6 +38,26 @@ until every item below is checked and a human has signed off.
 - [ ] Explicit human go/no-go sign-off. Claude Code should not initiate
       a DNS or hosting cutover on its own authority.
 
+## Archive URL checks (added Phase 6 — see `PHASE_6_ARCHIVE_URL_DECISION.md`)
+
+- [ ] All 20 proposed category/tag archive redirects in `REDIRECTS.md`
+      implemented in the chosen hosting config and moved from
+      `pending` to `verified` (currently `pending` — decided, not
+      implemented).
+- [ ] `/blog/` built as a real Astro index page before launch (it's
+      already linked from nav on every page today; leaving it
+      un-migrated means a live 404 from primary navigation).
+- [ ] `/movement-resources/` and its 2 real not-yet-migrated children
+      (`/movement-resources/strategy-coordinator/`,
+      `/movement-resources/4-fields-toolbox/`) migrated normally as
+      Tier 3/unknown-tier content — confirmed real pages, not
+      archives, must not be dropped or merged.
+- [ ] Live spot-check for any `/author/...` or date-archive URLs
+      (`/20XX/...`) actually resolving on the current WordPress site —
+      none were found in any exported data source (GSC, sitemap index,
+      WXR export), but this was inferred from exports, not a live
+      crawl. Confirm before allowing them to 404/410.
+
 ## Explicitly out of scope for Phase 1
 
 - Do not launch.
@@ -45,6 +65,22 @@ until every item below is checked and a human has signed off.
 - Do not delete or replace the WordPress site.
 - Do not rewrite the whole site.
 - Do not change existing URL paths.
+
+## Status snapshot (Phase 6)
+
+Since the Phase 5 snapshot below: the archive-URL question (category,
+tag, author, date, blog index, pagination, and the
+`/movement-resources/` section path) has been resolved as a decision,
+per `PHASE_6_ARCHIVE_URL_DECISION.md`. 20 redirects proposed
+(category/tag archives → closest hub, all documented `pending` in
+`REDIRECTS.md`), author/date archives found to have zero presence in
+any data source (default to 404/410, not a redirect), `/blog/`
+confirmed to need new construction as a real Astro index page
+(recommended before Tier 3, not yet built), and `/movement-resources/`
+confirmed to be real content (not an archive) safe to migrate normally
+in a future Tier 3 batch. No redirects were implemented yet (no
+hosting config exists), no Tier 3 pages were migrated, nothing was
+launched.
 
 ## Status snapshot (Phase 5)
 

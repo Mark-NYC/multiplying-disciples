@@ -5,6 +5,60 @@ a planned 301 documented here before launch. This file is the single
 source of truth for redirects — do not launch with an entry still marked
 `pending`.
 
+## Status as of Phase 6
+
+**20 redirects proposed (not yet implemented anywhere)** — all 7
+WordPress category archives and all 13 tag archives, each 301'd to
+its closest matching hub page. See `PHASE_6_ARCHIVE_URL_DECISION.md`
+for the full evidence and per-URL reasoning (all 20 have 0 GSC clicks
+despite having impressions — the classic thin-taxonomy-page signature
+— and a stronger, curated hub replacement already exists for every
+topic). These are added below as `pending` rows: identified and
+documented, but no hosting/redirect config exists yet to implement
+them in (see "Hosting note" below, unchanged from earlier phases).
+
+Author and date archive URLs were checked (GSC export, WordPress
+export, live sitemap index) and found to have **zero presence in any
+source** — no rows, no sitemap entries, no content. Recommended
+default is allow 404/410 once live, not a redirect; no rows added
+here since there's no confirmed URL to redirect *from*.
+
+`/movement-resources/` and its 2 real not-yet-migrated children
+(`/movement-resources/strategy-coordinator/`,
+`/movement-resources/4-fields-toolbox/`) are **not archives** — real
+WordPress content pages (confirmed via the export: real
+`post_parent`/`post_type`/body content) that will be migrated
+normally in a future Tier 3 batch, at their exact existing URLs. No
+redirect involved.
+
+`/blog/` is recommended to become a real Astro index page (not a
+redirect target) — see `PHASE_6_ARCHIVE_URL_DECISION.md` section 5.
+
+### Proposed archive redirects (pending)
+
+| Old URL | New URL / destination | Type | Reason | Status |
+|---|---|---|---|---|
+| `/category/movements/` | `/church-planting-movements/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/category/four-fields-training/` | `/four-fields/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/category/entry-strategies/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/category/discipleship-tools/` | `/disciple-making/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/category/missionary-strategies/` | `/strategy-coordinator/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/category/spiritual-gifts/` | `/jesus-and-the-twelve/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/category/great-commission/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/tag/apostle/` | `/jesus-and-the-twelve/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/tag/conversation-quadrant/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/tag/disciple-making-movement/` | `/church-planting-movements/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/tag/sustainable-disciple-making/` | `/disciple-making/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/tag/oikos-mapping/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/tag/disciple-making/` | `/disciple-making/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/tag/community/` | `/simple-church/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/tag/apostolic/` | `/jesus-and-the-twelve/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/tag/hybrid-model/` | `/simple-church/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/tag/revival/` | `/church-planting-movements/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/tag/prayer-walking/` | `/prayer/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/tag/precision-harvesting/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/tag/15-second-testimony-examples/` | `/testimony/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+
 ## Status as of Phase 5
 
 **No redirects are currently planned.** The Phase 5 protected URL

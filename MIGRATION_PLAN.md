@@ -239,6 +239,49 @@ filter configured yet — harmless today since 0 such pages exist, but
 worth adding before Tier 3 if any placeholder pages are introduced.
 No redirects needed; `REDIRECTS.md` remains empty.
 
+### Phase 6 — Archive and URL structure decision (done)
+
+Decided how to handle WordPress archive-style URLs before starting
+Tier 3, per `PHASE_6_ARCHIVE_URL_DECISION.md`. Checked GSC exports,
+the live sitemap index, the WordPress export XML, and current Astro
+routes directly (not just the existing inventory summary):
+
+- **20 category/tag archive URLs** (7 category, 13 tag) — all present
+  in the live site's own sitemap, all with **0 clicks** despite having
+  impressions (1-43 each). Decision: **301 each to its closest
+  matching hub** (all 11 hubs already exist; no new hub paths
+  needed). Documented as `pending` redirects in `REDIRECTS.md` —
+  not implemented yet, since no hosting/redirect config exists.
+- **Author and date archive URLs** — zero presence in any data source
+  (no GSC rows, no dedicated sitemap file, no export mentions).
+  Decision: default to allow 404/410 once live, not a redirect (there's
+  no confirmed URL to redirect from). Still subject to a live
+  spot-check per `LAUNCH_CHECKLIST.md` before final sign-off.
+- **`/blog/`** — confirmed via the WordPress export to be WordPress's
+  configured "posts page" with **empty body content** (nothing to
+  port), already linked from site nav (`src/data/navigation.ts`)
+  today. Decision: needs to become a **real, newly-built Astro index
+  page** (not a content migration) — recommended as a pre-Tier-3 step
+  since it's zero content-risk and already a live nav-linked 404 in
+  every current build. Not built in this phase (decisions/docs only).
+- **`/movement-resources/`** — confirmed via the export to be a real,
+  distinct WordPress content page (33 KB, "Emerging Network
+  Resources," a curated external-resource list), not an archive or
+  directory of its children — it doesn't even link to them. Its 2
+  already-migrated children (`7-stories-of-hope-...`,
+  `12-practice-church-circle`) and 2 not-yet-migrated real children
+  (`/movement-resources/strategy-coordinator/`,
+  `/movement-resources/4-fields-toolbox/`) are confirmed via
+  `post_parent` to be a genuine WordPress page hierarchy. Decision:
+  migrate `/movement-resources/` normally as a real Tier 3 article
+  (not "recreate an index") — good Tier 3 Batch 1 candidate. No index
+  page is needed; no risk to its existing migrated children, since
+  Astro's routing is keyed by each entry's `slug` field, not folder
+  structure.
+
+No redirects were implemented (docs-only, per phase scope). No Tier 3
+pages were migrated. `astro check`/`astro build` re-verified clean.
+
 ## Repo structure
 
 ```
