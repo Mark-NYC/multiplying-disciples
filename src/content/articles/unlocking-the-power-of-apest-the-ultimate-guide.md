@@ -1,0 +1,438 @@
+---
+title: "Unlocking the Power of APEST: The Ultimate Guide"
+description: "Discover the untapped potential of APEST leadership and unleash the power of disciple making movements. Learn how in our ultimate guide."
+slug: "/unlocking-the-power-of-apest-the-ultimate-guide/"
+canonical: "https://multiplyingdisciples.us/unlocking-the-power-of-apest-the-ultimate-guide/"
+date: 2023-04-25
+updated: 2025-02-03
+primary_keyword: "apest leadership"
+secondary_keywords:
+  - "apostles prophets evangelists shepherds teachers"
+  - "apest disciple making movements"
+hub: "jesus-and-the-twelve"
+related_articles:
+  - "/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/"
+  - "/discover-the-12-disciples-of-jesus-christ/"
+  - "/starter-tools/"
+related_tools: []
+external_links:
+  - label: "Neil Cole, Primal Fire (Amazon)"
+    url: "https://www.amazon.com/Primal-Fire-Reigniting-Church-Gifts/dp/1414385501"
+  - label: "Alan Hirsch"
+    url: "https://www.alanhirsch.org/about"
+  - label: "Alan Hirsch, The Forgotten Ways (Amazon)"
+    url: "https://www.amazon.com/Forgotten-Ways-Reactivating-Apostolic-Movements/dp/1587433869"
+og_image: "/wp-content/uploads/2023/04/Untitled-design-14.png"
+status: "migrated"
+migration_priority: "tier-1"
+original_url: "https://multiplyingdisciples.us/unlocking-the-power-of-apest-the-ultimate-guide/"
+notes: >
+  Real content ported from the WordPress export (post_id 7212). 4 clicks
+  / 1,290 impressions in the known GSC export. Conceptually overlaps
+  with /apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/
+  — kept as a separate page per the no-merge rule. This is also the page
+  whose slug the original migration brief got wrong (apostle vs apest),
+  corrected in Phase 2.
+
+  Cleanup performed: removed 5 repeated non-functional "BACK TO TOP"
+  jump links (they pointed at a WordPress anchor id="top" that never
+  existed even on the live site) and one truly empty heading. Normalized
+  a long run of inconsistent `######` sub-subheadings down to `####` to
+  fix skipped heading levels (the source jumped straight from H3 to H6
+  for dozens of "Who is a New Testament example of X" / "What do
+  immature expressions look like" call-out boxes). Converted 6 bare
+  pasted YouTube URLs (WordPress oEmbed remnants) into plain links.
+  Removed one duplicated pull-quote that was misplaced under the
+  Evangelist section but was actually about shepherds (the same
+  sentence already appears correctly under "The Function of the
+  Shepherd"). Fixed one typo ("evagelist" → "evangelist") and one
+  malformed bold+link at the very end. The in-page jump list
+  ("The Function of the Apostle" etc.) uses Astro's real generated
+  heading ids — verified against the build output, not assumed.
+---
+
+In this ultimate guide to APEST, we'll be discussing APEST leadership and its role in disciple making movements using [Neil Cole's, "Primal Fire,"](https://www.amazon.com/Primal-Fire-Reigniting-Church-Gifts/dp/1414385501/ref=sr_1_1?crid=264ULYUWWSVVB&keywords=primal+fire&qid=1682471666&sprefix=primal+fire%2Caps%2C247&sr=8-1) and content by [Alan Hirsch](https://www.alanhirsch.org/about).
+
+As the world continues to change rapidly, there is a growing need for effective leadership in the church.
+
+In response to this need, Hirsch, a leading missiologist, has developed the concept of APEST leadership, which focuses on five key leadership roles: apostles, prophets, evangelists, shepherds, and teachers. Each role plays a unique and vital part in the development of healthy and vibrant churches.
+
+In this post, we will explore the role of APEST leadership in the context of disciple making movements.
+
+We will discuss the importance of each leadership role, how the concept of APEST was developed, and the impact it has had on the church. By the end of this post, you will have a deeper understanding of APEST leadership and how it can be used to develop effective discipleship strategies.
+
+### What is APEST Leadership?
+
+APEST stands for Apostles, Prophets, Evangelists, Shepherds, and Teachers.
+
+These are the five biblical roles of leadership that Paul writes about in Ephesians 4:11-13. Each of these roles has a unique purpose and function in the body of Christ.
+
+Below are definitions of each leadership role from prominent thought leaders on the topic of APEST including Neil Cole, Alan Hirsch, and Mike Breen.
+
+Read a more in depth explanation of the function of each role [later in this article](#the-function-of-the-apostle).
+
+![](/wp-content/uploads/2023/04/1-1-1024x1024.png)
+
+#### The Apostle
+
+- Sent with a specific God-given assignment to lay a foundation for the expansion of the church and they are mature enough to equip others to do the same. – *Neil Cole*
+- Innovator and cultural architect who initiates a new product, or service, and develops the organization. – *Alan Hirsch*
+- A visionary, catalytic pioneer, always pushing into new territory, eager to discover and explore. Apostles like to establish new churches or ministries. They constantly come up with new, innovative means to do kingdom work. – *Mike Breen*
+
+![](/wp-content/uploads/2023/04/2-1-1024x1024.png)
+
+#### The Prophet
+
+- Speak to the church on God’s behalf, bringing words of edification, exhortation, and consolation and are mature enough to help others to do the same. – *Neil Cole*
+- Provocateur who probes awareness and fosters questioning of current programming leading to organizational learning. – *Alan Hirsch*
+- Listens closely to God and humbly communicates to the Body, even if it’s sometimes with a challenging or corrective word. Prophets are in-tune with God and therefore able to discern his will and his truth. They can stand back from circumstances and get a clear picture of what is happening; this allows them to see creative solutions and cast vision. – *Mike Breen*
+
+![](/wp-content/uploads/2023/04/3-2-1024x1024.png)
+
+#### The Evangelist
+
+- Evangelists will passionately seek out opportunities to share Gospel with others and lead them toward acceptance of Jesus and are mature enough to equip others to do the same; driven by love of God and love of people. – *Neil Cole*
+- Evangelists are people who are passionate about sharing the gospel and reaching the lost. They are often gifted in communicating the gospel in ways that resonate with people who are outside of the church. – *Alan Hirsch*
+- Is an infectious communicator of the Gospel message, who recruits others to join the cause. Evangelists call for a personal response to God’s loving, saving redemption in Christ and draw believers to engage with the ongoing mission of growing the Church. – *Mike Breen*
+
+![](/wp-content/uploads/2023/04/4-2-1024x1024.png)
+
+#### The Shepherd
+
+- Shepherds' overwhelming concern for continuing care of a specific community and are mature enough to equip others to do the same. – *Neil Cole*
+- Shepherds are people who care for and nurture others, providing support, guidance, and encouragement. They are often gifted in creating safe spaces and building relationships with those in need of pastoral care. – *Alan Hirsch*
+- A Shepherd can identify needs, provide comfort, and encourage others. Pastors easily empathize with others and exhibit lots of patience with those in need. Out of a drive to nurture, protect, and love God’s people, they spend most of their time with other Christians. – *Mike Breen*
+
+![](/wp-content/uploads/2023/04/5-1024x1024.png)
+
+#### The Teacher
+
+- Teachers spur the progressive growth of understanding and application of truth, and are mature enough to equip others to do the same. – *Neil Cole*
+- Teachers are people who have a deep understanding of God's word and are gifted in explaining and applying it to others. They help to ground and strengthen the church by providing solid biblical teaching. – *Alan Hirsch*
+- Teachers look for effective methods to explain, enlighten and apply God’s truth, wisdom and ways. Teachers assist others in remaining biblically grounded, learning to discern God’s will, and helping the community remain faithful to Christ’s own teachings. – *Mike Breen*
+
+> APEST leadership is not a hierarchy, but a team effort that requires each role to work together for the growth and health of the church.
+
+### Who Came Up with APEST?
+
+APEST leadership was popularized by [Alan Hirsch](https://www.alanhirsch.org/about), an author and missional strategist. In his book, ["The Forgotten Ways,"](https://www.amazon.com/Forgotten-Ways-Reactivating-Apostolic-Movements/dp/1587433869/ref=sr_1_1?crid=61SVD3IHGWE0&keywords=forgotten+ways&qid=1682471980&sprefix=forgotten+ways%2Caps%2C136&sr=8-1) Hirsch outlines the importance of APEST in creating a missional movement.
+
+He argues that the church has become too institutionalized and needs to rediscover the biblical model of leadership and community.
+
+As Hirsch notes, many churches today tend to focus primarily on the shepherd/teacher role (i.e., pastoral ministry and teaching) and neglect the other roles. This leads to a lopsided understanding of what the church is and what it is called to do.
+
+Hirsch argues that the APEST framework provides a more holistic and biblical perspective on the church and its mission.
+
+#### Five Roles Essential for Health and Growth
+
+Hirsch suggests that these five roles are essential for the health and growth of the church and that every believer has a role to play in one or more of these areas.
+
+He also notes that each role has its own strengths and weaknesses, and that the five-fold ministry is most effective when all five roles are working together in a complementary and collaborative way.
+
+Alan Hirsch's APEST framework provides a powerful and biblical perspective on the roles and functions within the church.
+
+By recognizing and embracing the full range of gifts and callings that God has given to his people, we can become a more effective and fruitful community of disciples who are fully committed to the mission of Jesus Christ.
+
+#### Watch to hear Alan Hirsch unpack the APEST concept in this episode of the AsOne Leadership Podcast with host Luke Williams.
+
+[Watch on YouTube](https://www.youtube.com/watch?v=SM9ryxRK-AE&t=291s)
+
+### APEST Leadership and Disciple Making Movements
+
+Disciple making movements (DMMs) are a growing trend in the global church. These movements focus on making disciples who make disciples, creating a self-replicating network of believers. APEST leadership plays a crucial role in the success of these movements.
+
+#### APEST Functions in Disciple Making Movements
+
+##### Apostles are essential for starting new works and pioneering new areas.
+
+##### Prophets help keep the movement focused on God's mission and direction.
+
+##### Evangelists are passionate about sharing the gospel and recruiting new disciples.
+
+##### Shepherds provide care and support to the growing network of believers.
+
+##### Teachers help disciples grow in their understanding of the faith and equip the network to avoid doctrinal pitfalls.
+
+Below is a more in depth look at the function of each of the leadership roles in movements.
+
+- [The Function of the Apostle](#the-function-of-the-apostle)
+- [The Function of the Prophet](#the-function-of-the-prophet)
+- [The Function of the Evangelist](#the-function-of-the-evangelist)
+- [The Function of the Shepherd](#the-function-of-the-shepherd)
+- [The Function of the Teacher](#the-function-of-the-teacher)
+
+### The Function of the Apostle
+
+According to Cole, the apostle is a "sent one" who carries a unique calling to pioneer new works and establish new communities of faith. The apostle is not simply a church planter, but rather someone who has a passion for taking the gospel to new frontiers and breaking down barriers that keep people from hearing the good news of Jesus Christ. The apostle is an entrepreneur of the gospel, willing to take risks and innovate new ways of reaching people with the message of salvation.
+
+One of the key roles of the apostle, according to Cole, is to create networks of relationships that can support and sustain the growth of new works. The apostle is not a lone ranger, but rather someone who understands the importance of collaboration and partnership in building healthy and vibrant communities of faith. The apostle is skilled at connecting people and resources, and is committed to working with others to achieve a common vision.
+
+##### Overview of the Apostle
+
+- **Basic Definition:** Sent with a specific God-given assignment to lay a foundation for the expansion of the church and they are mature enough to equip others to do the same
+- **Basic Effect on Others:** I can do this
+- **Primary Characteristics:**
+  - *Sent Ones:* our word ‘missionary’ comes from a Latin translation of the Greek ‘apostolos;’ not bound to a specific locality over time; may have home base, but are on road often; sent to specific people groups; pioneering gift that blazes new trails for others to follow; designed by God with the ability to identify, empower, and release leaders
+  - *Foundational:* appears first on any list of roles not because it is more important/higher, but because a solid foundation must be laid before anything can be built; calling may be as specific as a neighborhood or as broad as the world; don’t want to build on another’s foundation; wired to be entrepreneurial, drawn to places where no one else has gone before and motivated to start something that has never existed in that place; more likely to start something from scratch than join existing staff
+  - *Architect of multiplying methods:* can create methods that are simple yet profound and set them loose to reproduce; bring together elements necessary for growth and fashion them together in simple ways that accelerate the effects of those elements;
+  - *Less is More:* Evangelists and teachers are inclined to try to reach masses of people with a ‘more is better’ approach, apostolic leaders have a ‘less is more’ approach; satisfied with smaller groupings; more concerned about the ‘right’ people be in the room; empower people to do work of Kingdom; people sense a destiny within themselves tied to God’s purpose and DNA and feel empowered to walk into it; not motivating people to fit into a program or volunteer for a cause, the apostolic gift empowers and releases people to discover their own place in the Kingdom and accomplish it wherever that may be; they love to see disciples carry the work on to others
+  - *Custodian of the DNA:* a guardian/steward of the Gospel
+  - *Planter of the Gospel:* starting something doesn’t mean someone is an apostle, it is planting the Gospel that is key (Mark 4.1-20)
+  - *Parent:* father/son dynamic
+  - *Scum of the Earth:* often pushed into margins; not easily knocked off course by others
+  - *Authority is Relational and Results-Oriented:* recognizes that love is always a choice and therefore empowers people to choose love; understands distributed, relational authority is more effective/powerful than positional authority
+- **Shadow Cast by Immaturity:**
+  - Tempted to go it alone: competent in many areas so can do too much
+  - View others in black/white terms: you are a leader or a wasted cause
+  - On the go a lot: hard on family and partners in ministry
+  - Can leave too quickly
+  - Can be seen as agitators in the church
+  - Can be more concerned with results than the motive behind the results
+  - Put too much trust in their own methodology versus trusting Jesus
+  - Don’t play well with others
+  - Can play the martyr and assume others are out to get them
+  - Not very good at managing new works once they are started o Can leave behind a leadership vacuum
+
+#### Who is a New Testament example of an apostle?
+
+Paul. His emphasis on expanding and extending the kingdom to new people groups and places was a major focus of his efforts (Rom. 15:18–20).
+
+#### What do immature expressions of the apostle look like?
+
+Immature apostles may forget to ensure the firm establishment of work they have helped to catalyze. It is possible to be mobile without abandoning ongoing
+
+#### What might it look like if only the apostle is functioning well in a movement?
+
+We would get (as we sometimes see today) continued but fragmented growth. United and cooperative action would be limited. Apostles acting alone may tend to only “move with the movers” and neglect people who are not actively engaged in advancing the kingdom
+
+#### How is the apostle ideally interdependent with the other APEST gifts?
+
+Apostles need to seek counsel from prophets to direct their efforts. Once they get their work established, they need to involve evangelists in communicating the good news more broadly and effectively in their field of service. They need to rely on shepherds to provide deeper levels of care and unity as the work grows, since this becomes more difficult as the work scales up. They need to rely on teachers, not only to enhance disciples’ depth of understanding, but also to be more effective in passing on their insights and experiences to others.
+
+Going Deeper Questions by Curtis Seargeant in [Equipping Disciples for Ministry as Kingdom Priests Article.](https://www.missionfrontiers.org/pdfs/MF_45-4_JULY-AUG_23_Web_2.pdf)
+
+Another important aspect of the apostolic calling, according to Cole, is the ability to see the big picture and develop a strategic plan for achieving long-term goals. The apostle is not simply focused on short-term success or immediate results, but rather understands the importance of laying a strong foundation for sustainable growth and impact. The apostle is a visionary leader who can inspire others to join in the mission and work towards a shared goal.
+
+Finally, Cole emphasizes that the apostle is a servant leader who is willing to lay down his or her life for the sake of the gospel. The apostle is not interested in personal fame or glory, but rather in seeing the kingdom of God advanced and the gospel proclaimed to all nations. The apostle is a humble leader who understands that true greatness comes through serving others and putting their needs above his or her own.
+
+In conclusion, the role of the apostle is essential for igniting the primal fire of the gospel in the church today. The apostle is a sent one who is passionate about pioneering new works and breaking down barriers to the gospel. The apostle is a networker, strategist, visionary, and servant leader who is committed to building healthy and vibrant communities of faith. By embracing the apostolic calling, we can tap into the power of the Holy Spirit and see the church grow and flourish in new and exciting ways.
+
+#### The apostle is an entrepreneur of the gospel, willing to take risks and innovate new ways of reaching people with the message of salvation.
+
+[Watch on YouTube](https://youtu.be/rlbGZbyI-QA)
+
+### The Function of the Prophet
+
+In Primal Fire, Cole emphasizes that the prophet's primary function is not to predict the future or offer personal guidance to individuals.
+
+Rather, the prophet's role is to equip the body of Christ to hear God's voice for themselves. This includes helping believers learn to discern God's voice from their own thoughts, emotions, and external influences.
+
+Cole also stresses the importance of the prophetic gift in keeping the Church focused on God's mission.
+
+Prophets are called to speak truth to power and challenge the status quo when it deviates from God's will. This may include exposing false teachings, addressing systemic injustices, or calling leaders to repentance.
+
+Furthermore, Cole highlights the importance of the prophetic gift in facilitating spiritual growth and transformation. Prophets are called to speak the truth in love, offering correction and encouragement when needed.
+
+This helps believers grow in their faith, deepen their relationship with God, and become more effective in their ministry.
+
+In addition to these functions, Cole notes that prophets also have a unique ability to inspire and motivate others. Through their words and actions, prophets can stir up passion and enthusiasm for God's mission, encouraging others to join in the work of the Kingdom.
+
+#### Who is a New Testament example of an prophet?
+
+John. In Revelation, he spoke God’s personalized message to several churches in Asia for that specific time (Rev. 2–3), as well as to God’s people generally in the book as a whole.
+
+#### What do immature expressions of the prophet look like?
+
+Immature prophets may be tempted to pride because they hear from the Lord more clearly. They may also be so focused on hearing that they forget to take practical action in response to what is heard.
+
+#### What might it look like if only the prophet is functioning well in a movement?
+
+We would get a lot more listening and watching, but a lot less action. Growth would decrease significantly. Prophets acting alone can tend to listen far more than they act on what they have heard.
+
+#### How is the prophet ideally interdependent with the other APEST gifts?
+
+Prophets need to communicate with and be patient with apostles who have enthusiasm that may not always be aimed in the right direction. They must remember that without the apostles, new ground will not be gained effectively. They need to rely on evangelists, especially when they have a message for outside the church, because the evangelists are far more winsome in their communications. They need the shepherds for a similar reason when communicating within the church, because the shepherds can “translate” the message in such a way as not to discourage or divide the body more than necessary. They need teachers to help them communicate the truth they hear in a way that can be more effectively understood and passed on to others.
+
+Going Deeper Questions by Curtis Seargeant in [Equipping Disciples for Ministry as Kingdom Priests Article.](https://www.missionfrontiers.org/pdfs/MF_45-4_JULY-AUG_23_Web_2.pdf)
+
+> Prophets are not just talkers; they are doers. They live what they preach and model the values they espouse. They are not afraid to take a stand for what is right, even if it means going against the flow.
+
+[Watch on YouTube](https://youtu.be/s3E8hjQK_Sg)
+
+However, Cole cautions that the prophetic gift can also be abused or misused.
+
+Prophets must be careful not to rely on their own intuition or personal agendas when speaking on behalf of God. They must always submit their words to the testing and confirmation of the broader Christian community and be willing to receive correction and feedback.
+
+Overall, Cole's vision of the prophetic gift is one of empowerment, correction, and inspiration.
+
+He sees prophets as vital members of the body of Christ, equipping believers to hear God's voice and challenging the Church to stay focused on God's mission. By embracing the prophetic gift and its function, the Church can grow in its relationship with God and become more effective in fulfilling its mission.
+
+### The Function of the Evangelist
+
+In Neil Cole's book, "Primal Fire," he discusses the role of the evangelist in the context of the five-fold ministry described in Ephesians 4:11. According to Cole, the evangelist has a unique gifting and function within the church, which is to proclaim the gospel and bring people into the Kingdom of God.
+
+#### What an Evangelist Brings to the Party
+
+Cole emphasizes that the evangelist's role is not just to preach the gospel to unbelievers but also to ignite a passion for evangelism in other believers.
+
+He describes the evangelist as a "firestarter" who inspires and equips others to share their faith with those around them.
+
+The evangelist is not simply a one-time evangelizer but rather a person who is constantly seeking out opportunities to share the gospel with others. This means that the evangelist is not limited to a specific place or group of people, but rather they are always on the lookout for anyone who needs to hear the good news of Jesus Christ.
+
+According to Cole, the evangelist has a deep compassion for the lost and a burning desire to see people come to faith in Christ.
+
+This passion is contagious and inspires others to share the gospel as well. The evangelist is not content to simply share the message of salvation but also wants to see people transformed by the power of the Holy Spirit.
+
+#### Who is a New Testament example of an evangelist?
+
+Peter. He was moved to share the good news with those outside the kingdom both in public (Acts 2:14ff. and 3:11ff.) and private settings (Acts 10:34ff.), in large and small groups alike.
+
+#### What do immature expressions of the evangelist look like?
+
+Immature evangelists may minimize the cost of discipleship in their communications, in order to maximize the number of people who respond to the good news. They can become conversion-focused rather than discipleship-focused.
+
+#### What might it look like if only the evangelist is functioning well in a movement?
+
+We would get continued growth, and maybe even faster growth for a while. However, depth of discipleship would suffer, and long-term growth would likely falter as well. Evangelists acting alone can tend to bring a lot of babies into the family who are then neglected.
+
+#### How is the evangelist ideally interdependent with the other APEST gifts?
+
+Evangelists need apostles to help establish foundations for them to build on as they reach out to new places or people groups who require more crosscultural awareness and fluency. They need prophets to equip new followers of Christ in how to hear God more effectively on an ongoing basis. They need shepherds to provide ongoing encouragement and community building for those whom they bring to the body. They need teachers to help take the new believers to continue to grow in an ongoing basis.
+
+Going Deeper Questions by Curtis Seargeant in [Equipping Disciples for Ministry as Kingdom Priests Article.](https://www.missionfrontiers.org/pdfs/MF_45-4_JULY-AUG_23_Web_2.pdf)
+
+> The evangelist is a "firestarter" who inspires and equips others to share their faith with those around them.
+
+[Watch on YouTube](https://youtu.be/94oPr1MckUU)
+
+#### Creating a Sense of Urgency
+
+One of the key roles of the evangelist, according to Cole, is to create a sense of urgency around the gospel message. They help people to understand that the time to receive Christ is now, and that there is no time to waste.
+
+This sense of urgency can be a powerful motivator for people to respond to the gospel.
+
+Cole also emphasizes the importance of the evangelist in the context of the larger church community. The evangelist is not a lone ranger but rather a vital part of the church body.
+
+They work in conjunction with other members of the five-fold ministry, particularly the apostle and pastor, to build up the church and bring people into the Kingdom of God.
+
+#### The Evangelist: The Bottom Line
+
+In conclusion, the role of the evangelist, according to Neil Cole's "Primal Fire," is to proclaim the gospel message with passion and urgency, ignite a passion for evangelism in others, and work within the larger church community to bring people into the Kingdom of God.
+
+The evangelist is not just a one-time evangelizer but rather a firestarter who inspires and equips others to share their faith and see lives transformed by the power of the Holy Spirit.
+
+[Watch on YouTube](https://youtu.be/gK359tl6hTA)
+
+### The Function of the Shepherd
+
+In Neil Cole's book, "Primal Fire," he discusses the fivefold ministry model and the role of the shepherd in the church. The shepherd, also known as the pastor, is an essential part of the church's leadership team, responsible for nurturing and caring for the congregation.
+
+#### Understanding the Shepherd
+
+Cole explains that the shepherd's primary function is to care for the people in the church.
+
+This role is not just about teaching and preaching but also involves developing deep and meaningful relationships with the members of the congregation. The shepherd is called to love and serve the people, as Jesus did, and to be a source of comfort and support for those in need.
+
+#### THIS is the Shepherd's Focus
+
+The shepherd is responsible for overseeing the spiritual health of the church, ensuring that the members are growing in their relationship with Christ and that they are equipped to carry out the work of the ministry. This involves teaching and discipling individuals, providing pastoral care and counseling, and helping to facilitate the church's worship and prayer life.
+
+One of the key functions of the shepherd is to protect the flock.
+
+This means being watchful and alert for any dangers or threats to the spiritual health of the congregation. The shepherd must be vigilant in recognizing false teachings or practices that could lead the people astray and must take action to correct or address these issues.
+
+Cole also emphasizes the importance of the shepherd in maintaining unity within the church. As the spiritual overseer, the shepherd is called to mediate conflicts and promote peace and harmony among the members. This involves listening to and understanding the needs and concerns of the congregation and working to find solutions that bring about reconciliation and healing.
+
+#### The Shepherd Models
+
+Finally, the shepherd is called to be a servant-leader, following the example of Jesus. This means being humble and putting the needs of others before one's own. The shepherd must be willing to sacrifice their own time, energy, and resources to serve the people and to empower them to carry out the work of the ministry.
+
+In conclusion, the role of the shepherd in the church is essential for the spiritual health and well-being of the congregation.
+
+The shepherd is responsible for caring for and nurturing the people, overseeing the church's spiritual health, protecting the flock from harm, maintaining unity within the church, and serving as a humble and servant-leader. As Cole emphasizes in his book, the fivefold ministry model, including the role of the shepherd, is crucial for the church's effectiveness in carrying out the work of the ministry and fulfilling its mission to make disciples of all nations.
+
+#### Who is a New Testament example of a shepherd?
+
+Barnabas was used to unite and encourage God’s people consistently. Consider for example his work with Paul (Acts 9:26–27; 11:25–26), John Mark (Acts 12:25, 15:36–39), and generally in the Church (Acts 4:36–37; 11:19–23).
+
+#### What do immature expressions of the shepherd look like?
+
+An immature shepherd may compromise in failing to call people to change or grow in the interest of encouraging people and seeking to maintain unity. This can end up sacrificing growth for comfort.
+
+#### What might it look like if only the shepherd is functioning well in a movement?
+
+We would have great morale, but growth would decrease dramatically. Everyone already inside the church would be well taken care of, but those outside would be largely neglected. Shepherds acting alone can tend to create an inward-focused ethos.
+
+#### How is the shepherd ideally interdependent with the other APEST gifts?
+
+Shepherds need apostles to help keep the church growing beyond the families of those who are already followers of Christ. They need prophets to make sure the hard-to-hear messages that lead to further growth in Christ are shared. They need evangelists to help bring others into the body and to equip others to do the same. They need teachers to ensure continued growth of the disciples in understanding and in passing on what they are learning to others.
+
+Going Deeper Questions by Curtis Seargeant in [Equipping Disciples for Ministry as Kingdom Priests Article.](https://www.missionfrontiers.org/pdfs/MF_45-4_JULY-AUG_23_Web_2.pdf)
+
+[Watch on YouTube](https://youtu.be/atL52su2QYc)
+
+### The Function of the Teacher
+
+Neil Cole describes the teacher as one who has a natural gifting for explaining and interpreting scripture. They have the ability to make complex concepts understandable to others, and are passionate about helping others grow in their understanding of God's Word. They are patient, thorough, and enjoy taking the time to delve deeply into scripture to uncover its meaning.
+
+#### The Teacher's Primary Focus
+
+The teacher's primary focus is on helping others grow in their knowledge of God's Word.
+
+They are not satisfied with shallow understanding, but desire to help others truly comprehend and apply the truths found in scripture. They value accuracy, and are willing to spend the time necessary to ensure that their teachings are based on a solid foundation of biblical truth.
+
+The teacher also has a heart for discipleship, and understands the importance of helping others grow in their faith. They are skilled at identifying areas where individuals may be struggling or lacking understanding, and work to address those issues in a patient and loving manner.
+
+They are not afraid to challenge their students to grow, but do so in a way that is gentle and respectful.
+
+#### Teachers as Equippers
+
+In addition to teaching, the teacher also plays an important role in equipping others for ministry.
+
+They understand that the church is a community of believers, and that each individual has a unique role to play in fulfilling God's purposes. As such, they are committed to helping others discover and develop their spiritual gifts, and encourage them to use those gifts to serve others.
+
+The teacher also values learning and personal growth, and recognizes the importance of ongoing education and training. They are constantly seeking to deepen their own understanding of scripture, and are open to learning from others who may have different perspectives or insights.
+
+#### The Struggle of the Teacher
+
+One of the challenges that the teacher may face is the temptation to prioritize knowledge over relationship. While it is important to have a strong foundation of biblical understanding, it is equally important to cultivate deep and meaningful relationships with others. The teacher must be intentional about building relationships with their students, and creating a safe and welcoming environment where individuals feel valued and cared for.
+
+Overall, the role of the teacher is critical in helping individuals grow in their knowledge of God's Word, discover and develop their spiritual gifts, and ultimately fulfill their role in the body of Christ.
+
+As Cole writes in "Primal Fire," "The teacher helps us to understand what we believe and why, and to translate that into everyday life. They inspire us to keep learning and growing in our faith, and to share our knowledge and understanding with others."
+
+#### Who is a New Testament example of a teacher?
+
+Aquila and Priscilla. Consider how they taught Apollos to teach others (Acts 18:24–28).
+
+#### What do immature expressions of the teacher look like?
+
+Immature teachers may be tempted to pride because of their deeper insights into Scripture. They can be tempted to view themselves as irreplaceable and may treat teaching opportunities as performances.
+
+#### What might it look like if only the teacher is functioning well in a movement?
+
+We would have very knowledgeable disciples, not necessarily applying what they learned. Growth would slow dramatically, and pride would likely become a major problem. Teachers acting alone can tend toward a theoretical and academic approach as they teach about things that may go beyond relevance for the personal experience and application of their hearers.
+
+#### How is the teacher ideally interdependent with the other APEST gifts?
+
+> Teachers need apostles to establish patterns of faithfulness in disciples, so they will apply what they learn and pass it on to others. They need prophets to keep disciples alert to hearing from the Spirit of God as well as the Word of God. They need evangelists to ensure there will always be more new believers to equip. They need shepherds to care for the disciples so that these disciples will be in a position of health and thus better able to learn and teach others.
+
+Going Deeper Questions by Curtis Seargeant in [Equipping Disciples for Ministry as Kingdom Priests Article.](https://www.missionfrontiers.org/pdfs/MF_45-4_JULY-AUG_23_Web_2.pdf)
+
+### Conclusion
+
+In conclusion, the APEST model is a powerful tool for understanding the different roles within leadership and how they can be utilized to create effective disciple-making movements. As we've discussed, the APEST model encompasses the roles of Apostle, Prophet, Evangelist, Shepherd, and Teacher, each of which plays a critical role in leading and growing a movement.
+
+The APEST model was developed by Alan Hirsch, a leading expert on missional church planting and movement dynamics. Through his extensive research and experience, Hirsch identified these five key leadership roles as essential for building and sustaining movements.
+
+By understanding the APEST model, leaders can better identify their own strengths and weaknesses, as well as those of their team members. This can lead to more effective delegation and collaboration, allowing for a more well-rounded and comprehensive leadership approach.
+
+One of the key benefits of the APEST model is that it emphasizes the importance of diversity within leadership. By recognizing and valuing the unique contributions of each role, leaders can create a more inclusive and collaborative environment, which can help to break down barriers and foster greater unity within the movement.
+
+Furthermore, by leveraging the strengths of each role, leaders can more effectively engage and disciple new followers, while also empowering them to become leaders themselves. This can lead to a multiplication effect, where the movement grows and expands exponentially over time.
+
+In short, the APEST model is a powerful tool for understanding and leveraging the unique strengths of different leadership roles within disciple-making movements. By embracing the APEST model and utilizing it effectively, leaders can create more dynamic, inclusive, and effective movements that transform communities and impact the world.
+
+> In short, the APEST model is a powerful tool for understanding and leveraging the unique strengths of different leadership roles within disciple-making movements.
+
+Learn how you can multiply disciples by **[getting started with these starter tools](/starter-tools/)**.

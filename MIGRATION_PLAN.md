@@ -80,17 +80,42 @@ Console Pages + Queries CSVs, and the sitemap index XML.
 - **Still not done:** real content for the remaining ~117 published
   pages, and the media binary files themselves. Still nothing launched.
 
-### Phase 3 — Full site migration (later, not started)
+### Phase 3 — Remaining Tier 1 pages + media checklist (done)
 
-Migrate the remaining ~117 published pages (real count from the
-WordPress export) plus category/tag archive URLs, using
-`URL_INVENTORY.md` as the tracking sheet — tiers are now real, not
-provisional.
+Scope was deliberately narrow: preserve media asset paths and migrate
+only the remaining real tier-1 pages, not the whole site. Full breakdown
+in `PHASE_3_TIER_1_BATCH.md`.
 
-### Phase 4 — Launch (later, not started)
+- Identified and migrated the 7 remaining tier-1 pages: testimony in the
+  Bible, bible verse about spreading the gospel, apostles meaning,
+  unlocking APEST, how to evangelize, three thirds, and the Church
+  Waffle guide (`/movement-resources/12-practice-church-circle/`).
+- All 12 real tier-1 URLs are now migrated — 0 remain.
+- Same cleanup discipline as Phase 2: WordPress plugin/widget chrome
+  removed (share buttons, accordion toggles, a broken flattened contact
+  form, a `[forminator_form]` shortcode), heading levels normalized,
+  broken in-page anchors repointed to Astro's real generated ids, one
+  internal link to a WordPress tag archive fixed to point at the real
+  migrated article instead — content otherwise preserved close to
+  verbatim.
+- `MEDIA_ACQUISITION_CHECKLIST.md` created: 103 distinct media files
+  across every migrated page, none supplied yet, prioritized by real
+  Search Console impressions.
+- Caught one more mis-attribution bug: 12 images on the Church Waffle
+  page are actually hosted on `obey.tools` (the sister site), not this
+  one — corrected before it could pollute the media checklist.
+- **Still not done:** ~110 published pages remain (tier-2 and tier-3),
+  and no media binary files have been supplied yet. Nothing launched,
+  DNS untouched, WordPress untouched.
 
-Gated by `LAUNCH_CHECKLIST.md`. Requires 100% of old URLs either present
-in Astro or redirected per `REDIRECTS.md`.
+### Phase 4 — Remaining pages + launch prep (later, not started)
+
+Migrate the remaining ~110 published pages (tier-2 and tier-3, real
+counts from the WordPress export) plus decide how to handle
+category/tag archive URLs, using `URL_INVENTORY.md` as the tracking
+sheet. Gated for launch by `LAUNCH_CHECKLIST.md`, which requires 100% of
+old URLs either present in Astro or redirected per `REDIRECTS.md`, and
+all media binaries acquired per `MEDIA_ACQUISITION_CHECKLIST.md`.
 
 ## Repo structure
 

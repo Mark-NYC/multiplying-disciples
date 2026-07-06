@@ -1,0 +1,372 @@
+---
+title: "Testimony in the Bible: 20 Verses to Ignite Your Faith"
+description: "Testimony in the Bible explained: 20 powerful verses including Revelation 12:11 and real examples. Learn to share your testimony confidently today."
+slug: "/testimony-in-the-bible-20-verses-to-ignite-your-faith/"
+canonical: "https://multiplyingdisciples.us/testimony-in-the-bible-20-verses-to-ignite-your-faith/"
+date: 2025-11-23
+updated: 2026-07-05
+primary_keyword: "testimony in the bible"
+secondary_keywords:
+  - "what does testimony mean in the bible"
+  - "revelation 12:11"
+  - "bible verses about testimony"
+hub: "testimony"
+related_articles:
+  - "/15-second-testimony-examples-ignite-your-faith/"
+  - "/the-three-circles-gospel-presentation-step-by-step/"
+  - "/the-power-of-sharing-your-testimony-scripture-7-biblical-reasons-you-cant-stay-silent/"
+related_tools:
+  - "3 Circles"
+external_links:
+  - label: "CoVo Multipliers — How to Share the Gospel"
+    url: "https://www.covomultipliers.com/blog/how-to-share-the-gospel/"
+og_image: "/wp-content/uploads/2025/11/testimony-in-the-bible-20-powerful-verses-real-examples.webp"
+status: "migrated"
+migration_priority: "tier-1"
+original_url: "https://multiplyingdisciples.us/testimony-in-the-bible-20-verses-to-ignite-your-faith/"
+notes: >
+  Real content ported from the WordPress export (post_id 13702). 19
+  clicks / 9,723 impressions in the known GSC export — the highest
+  impressions of any remaining tier-1 page. Already linked from the
+  migrated 15-second-testimony article and the testimony hub; those
+  links finally resolve now. This was clean source content — the only
+  fixes needed were replacing one internal link that pointed at a
+  WordPress tag archive (/tag/15-second-testimony-examples/, not a real
+  content page in this site) with a direct link to the actual migrated
+  article it was describing, and un-escaping some literal backslash
+  characters left over from markdown conversion of a fill-in-the-blank
+  template.
+---
+
+This is the heart of **testimony in the Bible:** the man had been possessed by a legion of demons. His family had given up. The town chained him among the tombs because they feared him. Then Jesus stepped off the boat, spoke one word, and everything changed.
+
+When the man begged to follow Jesus, Christ gave him a **mission** instead:
+
+> Go home to your own people and tell them how much the Lord has done for you, and how he has had mercy on you
+>
+> Mark 5:19
+
+That's **what testimony in the Bible means** — not a seminary degree, not a perfect past, but a simple, Spirit-empowered declaration of what Jesus has actually done.
+
+Scripture says we overcome "by the blood of the Lamb and by the word of our testimony" (Revelation 12:11). Your story is a weapon. When you speak it, darkness loses ground.
+
+![Testimony in the bible infographic showing 20 powerful verses including Revelation 12:11, Psalm 66:16, Luke 8:39, 1 Peter 3:15, Acts 4:33, Psalm 107:2, John 4:39, Acts 26:22-23, 1 John 5:11, Mark 5:19, Psalm 22:22, Isaiah 43:10, Acts 1:8, 2 Timothy 1:8, John 15:27, Psalm 119:46, Romans 10:9-10, Deuteronomy 32:3, Matthew 10:32, and 1 Chronicles 16:8 with scripture references](/wp-content/uploads/2025/11/Testimony-in-the-bible.webp "Testimony in the bible")
+
+
+In this article you'll get:
+
+- The exact **[definition of testimony in the Bible](/testimony-in-the-bible-20-verses-to-ignite-your-faith/#definition)**
+- The [20 most powerful Bible verses of testimony in the Bible](/testimony-in-the-bible-20-verses-to-ignite-your-faith/#verses) (with plain-English explanations)
+- Real modern and biblical stories that bring each verse alive
+- A **[15-second testimony](/15-second-testimony-examples-ignite-your-faith/)** template you can use today
+
+Let's dive in.
+
+## What Does Testimony Mean in the Bible?
+
+The Greek word is marturia — the root of our English word "martyr." The meaning of **testimony in the Bible** is bearing witness to something you have personally seen, heard, or experienced — even when it costs you.
+
+There are two main kinds in Scripture:
+
+God's **testimony** about His Son (John 5:31–39; 1 John 5:9–11) Our **testimony** about what the Son has done in us as a part of the gospel message. [Learn to share the gospel](https://www.covomultipliers.com/blog/how-to-share-the-gospel/) along with your testimony using a simple tool called the [3 Circles Gospel Presentation](/the-three-circles-gospel-presentation-step-by-step/).
+
+The second one is what turns the world upside down. When the woman at the well said, "Come, see a man who told me everything I ever did," her entire town came out to meet Jesus. ***The meaning of testimony in the Bible: witness that is authentic, personal, and pointing straight to Christ.***
+
+## 20 Most Powerful Verses of Testimony in the Bible
+
+![](/wp-content/uploads/2025/11/two-young-men-sharing-their-faith-in-Jesus.jpg "two young men sharing their faith in Jesus")
+
+### 1. Revelation 12:11 – Overcoming by the Blood and the Word of Our Testimony
+
+> They triumphed over him by the blood of the Lamb and by the word of their testimony; they did not love their lives so much as to shrink from death.
+>
+> Revelation 12:11
+
+This is the nuclear option of testimony in the Bible verses. Victory comes through two things working together: Christ's finished work (the blood) and your spoken witness (the word of your testimony). The enemy is defeated when we proclaim what Jesus has done.
+
+Real-life example: A missionary in a closed Buddhist country faced nightly demonic oppression when planting a church. Every time fear or accusation hit, she declared Revelation 12:11 out loud — "I overcome by the blood of the Lamb and the word of my testimony." She refused to stay silent about what Jesus had done in her life. Within months, the first house church was planted and twelve families came to Christ. She didn't overcome by being strong enough; she overcame by speaking the truth.
+
+You can use this verse when: spiritual attack, fear, or accusation tries to silence you — your spoken testimony is a weapon.
+
+### 2. Psalm 66:16 – Come and Hear What God Has Done
+
+> Come and hear, all you who fear God; let me tell you what he has done for me.
+>
+> Psalm 66:16, NIV
+
+The psalmist isn't writing a treatise. He's gathering people and saying, "Let me tell you what happened." This verse captures the relational, conversational nature of biblical testimony — it's an invitation, not a lecture.
+
+Real-life example: A college student started a dorm Bible study using this exact approach: "Come and hear what God has been doing in my life this semester." No pressure, no agenda — just stories. Seven guys showed up the first week. By semester's end, three had given their lives to Christ and the group had multiplied to twenty. Psalm 66:16 became their rallying cry.
+
+You can use this verse when: inviting someone to hear your story for the first time — frame it as a gift, not a sales pitch.
+
+### 3. Luke 8:39 – Return Home and Tell What God Has Done
+
+"Return home and tell how much God has done for you." So the man went away and told all over town how much Jesus had done for him. (Luke 8:39, NIV)
+
+After delivering the demon-possessed man, Jesus doesn't take him on staff. He sends him back to the people who knew him before — the hardest audience. This verse shows that your most powerful mission field is often the people who saw you at your worst.
+
+Real-life example: A woman came out of years of addiction and wanted to join a ministry team immediately. Her pastor wisely told her, "Go tell your family first." She reconnected with her estranged sister, shared her story, and within six months her sister, brother-in-law, and two cousins had all come to faith. They knew the before. They couldn't deny the after.
+
+You can use this verse when: someone close to you has seen your transformation and you're wondering if your story will matter to them — it will matter most.
+
+### 4. 1 Peter 3:15–16 – Testimony in the Bible Shows People Always Ready to Give an Answer
+
+> But in your hearts revere Christ as Lord. Always be prepared to give an answer to everyone who asks you to give the reason for the hope that you have. But do this with gentleness and respect.
+>
+> 1 Peter 3:15–16, NIV
+
+Peter says your life should spark questions. When people see something different in you — hope, peace, joy in hardship — they'll ask why. Your testimony is the answer to that "why," delivered with gentleness, not arrogance.
+
+Real-life example: A nurse worked through COVID exhausted and afraid like everyone else, but her coworkers noticed she wasn't bitter or despairing. One asked, "How are you not losing it?" She shared a three-minute version of how Jesus had carried her through depression years earlier and was doing it again. That conversation led to a lunch meeting, then a Bible study, then a baptism.
+
+You can use this verse when: someone notices something different about you and asks a genuine question — that's your open door.
+
+### 5. Acts 4:33 – Great Power in Apostolic Testimony in the Bible
+
+> With great power the apostles continued to testify to the resurrection of the Lord Jesus. And God's grace was so powerfully at work in them all.
+>
+> Acts 4:33, NIV
+
+The apostles' testimony wasn't theoretical. They said, "We saw Him dead, we saw Him alive, and everything changes because of it." [The power of the testimony](/the-power-of-sharing-your-testimony-scripture-7-biblical-reasons-you-cant-stay-silent/) is on display: it wasn't their speaking skills — it was in the truth they witnessed and the grace backing them up.
+
+Real-life example: A former gang member spoke at a high school assembly about his life before and after meeting Jesus. He wasn't polished. He stumbled over words. But when he described seeing his murdered friend and then encountering the resurrected Christ in a jail cell, 40 students stayed after to ask questions. Truth carries its own power.
+
+You can use this verse when: you feel inadequate to share because you're not a great speaker — the power is in the message, not your delivery.
+
+### 6. Psalm 107:2 – Let the Redeemed of the Lord Say So
+
+> Let the redeemed of the Lord tell their story—those he redeemed from the hand of the foe.
+>
+> Psalm 107:2, NIV
+
+This is a command, not a suggestion. If Jesus redeemed you, speak up. The silence of the redeemed is one of Satan's best strategies. This verse says your story is meant to be told.
+
+Real-life example: A business owner felt God prompting him to share his testimony at a Rotary Club lunch — totally out of his comfort zone. He almost bailed but remembered Psalm 107:2: if you're redeemed, say so. He shared a five-minute story of bankruptcy, brokenness, and how Jesus rebuilt his life. Three men approached him afterward wanting to know more about this Jesus.
+
+You can use this verse when: you're hesitating to speak up because it feels awkward or risky — God says the redeemed have an obligation to tell.
+
+### 7. John 4:39 – Many Believed Because of Her Testimony
+
+> Many of the Samaritans from that town believed in him because of the woman's testimony, 'He told me everything I ever did.'
+>
+> John 4:39, NIV
+
+The woman at the well had a messy past and zero theological training. But her testimony — "He told me everything I ever did" — brought an entire town to Jesus. Your story doesn't need to be pretty; it needs to be true.
+
+Real-life example: A single mom shared at a community center about how Jesus met her in shame and gave her dignity. She didn't clean up the story. She didn't pretend she had it all together. Fifteen women showed up to the follow-up Bible study because her raw honesty resonated with their own hidden pain.
+
+You can use this verse when: you think your past disqualifies you from sharing — it actually makes your testimony more credible, not less.
+
+### 8. Acts 26:22–23 – Paul's Testimony Before Kings
+
+> But God has helped me to this very day; so I stand here and testify to small and great alike. I am saying nothing beyond what the prophets and Moses said would happen—that the Messiah would suffer and, as the first to rise from the dead, would bring the message of light to his own people and to the Gentiles.
+>
+> Acts 26:22–23, NIV
+
+Paul told his testimony everywhere — in chains, before governors, before kings. He customized the delivery but never changed the core: Jesus died, rose, and rescued me. This passage shows that testimony works in any setting when rooted in Scripture.
+
+Real-life example: A software engineer shared his testimony at a tech conference, framing it around problem-solving: "I tried to debug my life with philosophy, success, relationships — nothing worked. Then I encountered Jesus Christ, and He didn't just patch the bugs, He rewrote the code." Five engineers asked for coffee meetings that month.
+
+You can use this verse when: you're speaking to people where you live, work, and play and need confidence that your testimony translates across cultures and contexts.
+
+### 9. 1 John 5:11 – Testimony About Eternal Life
+
+> And this is the testimony: God has given us eternal life, and this life is in his Son.
+>
+> 1 John 5:11, NIV
+
+This verse frames testimony as not just personal experience but cosmic truth. When you share your story, you're bearing witness to the fact that real life — eternal, abundant life — exists only in Jesus.
+
+Real-life example: A hospice chaplain sat with a dying atheist who asked, "What if this is all there is?" The chaplain shared his testimony about losing his daughter and finding that Jesus offered not just comfort but resurrection hope — life beyond death. The man prayed to receive Christ three days before passing. That's the testimony of eternal life.
+
+You can use this verse when: talking with someone facing death or meaninglessness and needing to know there's more than this broken world.
+
+### 10. Mark 5:19 – Testimony in the Bible to Tell Your Own People
+
+> Go home to your own people and tell them how much the Lord has done for you, and how he has had mercy on you.
+>
+> Mark 5:19, NIV
+
+Jesus sends the delivered man to the people who knew his demons intimately. Your testimony has unique power with your own family, hometown, or former crowd because they saw the "before."
+
+![A man sitting and sharing his Christian testimony in a circle of people in a weathered room, illustrating a modern-day biblical testimony of faith.](/wp-content/uploads/2025/11/A-Mans-Testimony-of-Faith-in-the-Midst-of-Struggle.webp "A Man's Testimony of Faith in the Midst of Struggle")
+
+Real-life example: A man delivered from alcoholism avoided his old drinking buddies for a year. His pastor encouraged him: "They knew your demons. Show them your Deliverer." He reached out, met for coffee, and within eighteen months, five of his old crew were sober, baptized, and in recovery groups.
+
+You can use this verse when: you're avoiding your old life instead of going back to tell them what Jesus did — that's exactly where He may be sending you.
+
+### 11. Psalm 22:22 – Testimony in the Bible Declares God's Name Publicly
+
+> I will declare your name to my people; in the assembly I will praise you.
+>
+> Psalm 22:22, NIV
+
+This prophetic psalm, quoted by Jesus on the cross, shows that testimony is public declaration and praise. We don't just acknowledge God privately; we proclaim His name before others.
+
+Real-life example: A teenager terrified of public speaking felt God calling her to share her testimony at youth camp. She spent a week in Psalm 22:22, asking God for courage to declare His name. When she finally spoke about God rescuing her from suicidal thoughts, twelve students gave their lives to Christ that night.
+
+You can use this verse when: you're called to share publicly and fear is screaming at you to stay silent.
+
+### 12. Isaiah 43:10 – You Are My Witnesses
+
+> You are my witnesses," declares the Lord, "and my servant whom I have chosen, so that you may know and believe me and understand that I am he. Before me no god was formed, nor will there be one after me.
+>
+> Isaiah 43:10, NIV
+
+God calls His people witnesses — not because we're perfect, but because we've seen Him work. Our testimony declares that He alone is God, and we've experienced it firsthand.
+
+Real-life example: A refugee who escaped persecution shared her story at a church: "In my country, they said many gods could save. I tried them all. Only Jesus showed up when I prayed in that prison cell." Her witness to God's uniqueness moved twenty people to tears and renewed commitment.
+
+You can use this verse when: speaking in a pluralistic culture where people think all paths lead to God — your testimony proves otherwise.
+
+### 13. Acts 1:8 – Testimony in the Bible is a Witnesses to the Ends of the Earth
+
+> But you will receive power when the Holy Spirit comes on you; and you will be my witnesses in Jerusalem, and in all Judea and Samaria, and to the ends of the earth.
+>
+> Acts 1:8, NIV
+
+Jesus's last words before ascending were about testimony. The Holy Spirit's power isn't for private blessing — it's for public witness. Your story starts local (Jerusalem) and ripples outward.
+
+Real-life example: A couple shared their testimony at their church, then at a regional conference, then recorded it for a podcast that reached eight countries. They didn't plan global impact — they just started by being obedient witnesses in their Jerusalem.
+
+You can use this verse when: you think your testimony is too small or local to matter — God takes faithful witnesses from Jerusalem to the ends of the earth.
+
+### 14. 2 Timothy 1:8 – Not Ashamed of the Testimony
+
+> So do not be ashamed of the testimony about our Lord or of me his prisoner. Rather, join with me in suffering for the gospel, by the power of God.
+>
+> 2 Timothy 1:8, NIV
+
+Paul tells Timothy: don't be embarrassed about what is testimony in the bible — the declaration that Jesus saves. Shame silences testimony, and that's exactly what the enemy wants.
+
+![A gritty, real-looking photograph of a young male professor in his 30s sharing a personal testimony with a group of diverse college students sitting around him.](/wp-content/uploads/2025/11/Mid-30s-Professor-Shares-Personal-Testimony-with-Students.webp "Mid-30s Professor Shares Personal Testimony with Students")
+
+
+Professor sharing his ***personal testimony*** with a group of college students sitting around him.
+
+Real-life example: A college professor faced ridicule when he shared his testimony in an academic journal about how Christ changed his worldview. Colleagues mocked him. Students protested. But three graduate students privately reached out, and all three ended up following Jesus. He suffered, but the gospel advanced.
+
+You can use this verse when: fear of mockery or rejection is keeping you silent about Jesus.
+
+### 15. John 15:27 – Testify Because You've Been with Me
+
+> And you also must testify, for you have been with me from the beginning.
+>
+> John 15:27, NIV
+
+Jesus tells the disciples their qualification for testimony is simple: they've been with Him. Your time with Jesus — in prayer, in Scripture, in daily life — is what makes your testimony authentic.
+
+Real-life example: A new believer hesitated to share because he'd only known Jesus six months. A mentor pointed him to John 15:27: "You've been with Him. That's enough." He shared his fresh, raw story of encountering Jesus, and two coworkers responded because his joy was undeniable.
+
+You can use this verse when: you think you need years of Bible knowledge before you can testify — if you've been with Jesus, you're qualified.
+
+### 16. Psalm 119:46 – Speak of Your Statutes Before Kings
+
+> I will speak of your statutes before kings and will not be put to shame.
+>
+> Psalm 119:46, NIV)
+
+The psalmist declares he'll testify even before hostile authorities. This verse reminds us that testimony isn't limited to safe church settings — we speak truth wherever God places us.
+
+Real-life example: A lawyer invited to speak at a secular legal conference felt nudged to include his testimony about integrity and Jesus. He almost cut it, fearing professional backlash. He left it in. Afterward, a senior partner approached him about mentoring young attorneys in ethics — and asked about this Jesus who made such a difference.
+
+You can use this verse when: you're in a professional or public setting and wondering if testimony is appropriate — it always is.
+
+### 17. Romans 10:9–10 – Confessing with Your Mouth
+
+> If you declare with your mouth, 'Jesus is Lord,' and believe in your heart that God raised him from the dead, you will be saved. For it is with your heart that you believe and are justified, and it is with your mouth that you profess your faith and are saved.
+>
+> Romans 10:9–10, NIV
+
+Salvation isn't complete until it's spoken. Heart belief leads to mouth confession. Your testimony is the public declaration that Jesus is Lord, and Romans says that confession is part of salvation itself.
+
+Real-life example: A man believed in Jesus privately for months but never told anyone. A friend challenged him with Romans 10:9–10: "You've believed in your heart — now confess with your mouth." He shared his testimony at a barbecue that weekend, and speaking it out loud cemented something in his soul. He said later, "I wasn't fully free until I said it out loud."
+
+You can use this verse when: you're holding back from verbalizing your faith and need to understand that confession completes what belief begins.
+
+### 18. Deuteronomy 32:3 – Proclaim the Name of the Lord
+
+> I will proclaim the name of the Lord. Oh, praise the greatness of our God!
+>
+> Deuteronomy 32:3, NIV
+
+Moses models testimony as proclamation and praise combined. When we tell our story, we're not just recounting facts — we're magnifying God's character and greatness.
+
+Real-life example: A worship leader started every testimony at his church with Deuteronomy 32:3: "I'm about to proclaim the name of the Lord." It shifted the atmosphere from "here's my story" to "here's what the great God has done." People leaned in differently when they knew they were about to hear God's name exalted.
+
+You can use this verse when: you want to frame your testimony as worship, not just information.
+
+### 19. Matthew 10:32 – Confess Me Before Others
+
+> Whoever acknowledges me before others, I will also acknowledge before my Father in heaven.
+>
+> Matthew 10:32, NIV
+
+Jesus makes a direct promise: public testimony here leads to recognition there. When you confess Christ before people, He confesses you before the Father.
+
+Real-life example: A businessman faced a choice: stay quiet about Jesus to preserve relationships with secular clients, or speak up and risk losing contracts. He chose to put a simple testimony line on his website: "My work is built on the foundation that Jesus Christ has given me purpose and integrity." He lost one client. He gained four more, all believers who wanted to work with someone who shared their values.
+
+You can use this verse when: you're weighing the cost of public acknowledgment of Christ and need to remember the eternal reward.
+
+### 20. 1 Chronicles 16:8 – Make Known His Deeds Among the Nations
+
+> Give praise to the Lord, proclaim his name; make known among the nations what he has done.
+>
+> 1 Chronicles 16:8, NIV
+
+David's psalm of thanksgiving commands us to broadcast God's deeds — not keep them private. Testimony in the Bible is how the nations learn what the Lord has done.
+
+You can use this verse when: sharing testimony for the purpose of mobilizing others for mission, reminding them that your story can spark movement.
+
+## The Power of Your Personal Testimony Today
+
+Your story beats a theological argument every time. People can debate doctrine, but they can't argue with "this is what Jesus did in my life." That's why the early church grew through testimony, not just teaching.
+
+The power isn't in having a dramatic story. It's in having an authentic one. The guy delivered from demons has a story. So does the woman who found peace in the middle of cancer. So does the businessman who learned integrity from Jesus. Different stories, same Savior.
+
+### How to Share Your Testimony: Testimony Template
+
+![](/wp-content/uploads/2025/11/short-christian-testimony-examples.webp "short christian testimony examples")
+
+Here's the 15-second testimony template that works everywhere:
+
+Before: "I was _____ (lost, broken, searching, successful but empty)." Met Jesus: "Then I encountered Jesus, who _____ (forgave, healed, gave purpose)." After: "Now I'm _____ (free, hopeful, living with purpose)." Question: "Has anything like that ever happened to you?"
+
+That's it. You can share that at Starbucks, at a barbecue, in an Uber. No pressure, no script, just your story and a question.
+
+The beauty of a short testimony is it invites conversation instead of shutting it down. Long monologues turn people off. A quick, honest story with a question creates space for the Holy Spirit to work.
+
+We've got a whole post on [15-second testimony examples](/15-second-testimony-examples-ignite-your-faith/) that breaks down exactly how to craft yours in different settings. Check it out and practice your version until it feels natural.
+
+Your testimony isn't optional if you've been redeemed. Psalm 107:2 says, "Let the redeemed of the Lord say so." Saying so is how the Gospel spreads. Every revival in history was fueled by people who refused to shut up about what Jesus had done.
+
+## Frequently Asked Questions
+
+### What does testimony mean in the Bible?
+
+Testimony in the Bible (*marturia* in Greek) means bearing witness to something you've personally experienced or know to be true. In the Christian context, it's telling what Jesus has done in your life — salvation, healing, transformation, provision. It's not theory; it's firsthand evidence.
+
+### What is the most important testimony verse?
+
+Revelation 12:11 stands out: "They triumphed over him by the blood of the Lamb and by the word of their testimony." This verse shows that testimony isn't just sharing — it's spiritual warfare. Your spoken story, combined with Christ's finished work, defeats the enemy.
+
+### How did Jesus tell people to share their testimony?
+
+Jesus told people to go and tell what He had done. In Mark 5:19, He told the delivered demoniac, "Go home to your own people and tell them how much the Lord has done for you, and how he has had mercy on you." Simple, relational, focused on what God did, not what you achieved.
+
+### What is Revelation 12:11 talking about?
+
+Revelation 12:11 meaning centers on spiritual victory through two weapons: the blood of the Lamb (Christ's finished work on the cross) and the word of our testimony (our spoken witness about what He's done). Satan is defeated when we proclaim the truth of Jesus's work in our lives, refusing to stay silent even under threat.
+
+### How can I share my testimony without being awkward?
+
+Keep it short, authentic, and conversational. Use the before-Jesus-after-question format. Don't preach — just tell what happened to you and ask if they've experienced anything similar. Practice it until it feels natural, like telling a friend about a movie you loved. The awkwardness fades when you realize you're just sharing good news, not giving a performance.
+
+## Conclusion — Let the Redeemed Say So
+
+Your testimony is a weapon, not a decoration. Revelation 12:11 says we overcome by the blood of the Lamb and the word of our testimony — that's not poetry, that's strategy. When you tell your story, you're not just encouraging people; you're pushing back darkness.
+
+These 20 verses aren't meant to sit in your Bible untouched. They're marching orders. Psalm 107:2 says let the redeemed of the Lord say so. If Jesus redeemed you, you have an obligation and a privilege to speak up.
+
+Start this week. Share your story once. Use the 15-second format. Tell one person at work, one neighbor, one family member who needs to hear what Jesus has done. Don't wait until you feel ready — you're ready now because you've been with Jesus.

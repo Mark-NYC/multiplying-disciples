@@ -9,6 +9,16 @@ Source data: the WordPress export XML and the Google Search Console Pages
 CSV supplied on 2026-07-06. No binary media files have been supplied yet
 — only their paths and metadata are known. See `/imports/README.md`.
 
+**Phase 3 update:** the 7 Tier 1 pages migrated in Phase 3 (see
+`PHASE_3_TIER_1_BATCH.md`) added 42 more media files hosted on
+multiplyingdisciples.us, none supplied yet. `MEDIA_ACQUISITION_CHECKLIST.md`
+is now the single authoritative, up-to-date table for every media file
+across every migrated page (103 files total) — this file's tables below
+cover the original 5 Phase 1/2 pages only and are kept for history.
+`/movement-resources/12-practice-church-circle/` also links to 12 images
+correctly hosted on `obey.tools` (the sister site) — those are external
+and need no local preservation.
+
 ## How this works in Astro
 
 Static files placed under `public/` are served at the same path relative

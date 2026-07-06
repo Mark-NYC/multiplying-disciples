@@ -38,7 +38,11 @@ list of what the brief got wrong.
 - `published` — reviewed and launch-ready.
 
 (The earlier `draft-migrated` placeholder status no longer applies to
-any page — all 5 Phase 1 batch pages now have real content.)
+any page — all migrated pages have real content, not placeholders.)
+
+**Phase 3 status:** all 12 real tier-1 URLs are now migrated (5 from
+Phase 1/2 + 7 from Phase 3 — see `PHASE_3_TIER_1_BATCH.md`). 0 tier-1
+pages remain. Tier-2 (22 URLs) and below are Phase 4+ work.
 
 ## Full inventory — all 122 published posts/pages
 
@@ -47,16 +51,16 @@ Sorted by impressions (real GSC data where available).
 | URL | Type | Status | Clicks | Impressions | Tier |
 |---|---|---|---:|---:|---|
 | `/discover-the-12-disciples-of-jesus-christ/` | article | migrated | 330 | 116,772 | tier-1 |
-| `/testimony-in-the-bible-20-verses-to-ignite-your-faith/` | article | not-migrated | 19 | 9,723 | tier-1 |
-| `/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/` | article | not-migrated | 2 | 8,305 | tier-1 |
+| `/testimony-in-the-bible-20-verses-to-ignite-your-faith/` | article | migrated | 19 | 9,723 | tier-1 |
+| `/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/` | article | migrated | 2 | 8,305 | tier-1 |
 | `/15-second-testimony-examples-ignite-your-faith/` | article | migrated | 13 | 7,669 | tier-1 |
 | `/the-three-circles-gospel-presentation-step-by-step/` | article | migrated | 62 | 6,670 | tier-1 |
 | `/movement-resources/7-stories-of-hope-complete-facilitation-guide/` | resource | migrated | 75 | 5,396 | tier-1 |
-| `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` | article | not-migrated | 0 | 2,430 | tier-1 |
-| `/how-to-evangelize-ultimate-step-by-step-guide/` | article | not-migrated | 0 | 1,817 | tier-1 |
-| `/unlocking-the-power-of-apest-the-ultimate-guide/` | article | not-migrated | 4 | 1,290 | tier-1 |
+| `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/` | article | migrated | 0 | 2,430 | tier-1 |
+| `/how-to-evangelize-ultimate-step-by-step-guide/` | article | migrated | 0 | 1,817 | tier-1 |
+| `/unlocking-the-power-of-apest-the-ultimate-guide/` | article | migrated | 4 | 1,290 | tier-1 |
 | `/5-proven-strategies-unlock-the-secrets-of-effective-personal-evangelism/` | article | not-migrated | 0 | 906 | tier-2 |
-| `/three-thirds/` | article | not-migrated | 13 | 737 | tier-1 |
+| `/three-thirds/` | article | migrated | 13 | 737 | tier-1 |
 | `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` | article | not-migrated | 1 | 609 | tier-2 |
 | `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | page | not-migrated | 7 | 603 | tier-2 |
 | `/how-to-get-started-in-four-fields-training/` | article | not-migrated | 5 | 495 | tier-2 |
@@ -65,7 +69,7 @@ Sorted by impressions (real GSC data where available).
 | `/stickers/` | page | not-migrated | 7 | 359 | tier-2 |
 | `/seven-words-of-jesus-on-the-cross/` | article | not-migrated | 1 | 339 | tier-2 |
 | `/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/` | article | not-migrated | 8 | 335 | tier-2 |
-| `/movement-resources/12-practice-church-circle/` | resource | not-migrated | 12 | 308 | tier-1 |
+| `/movement-resources/12-practice-church-circle/` | resource | migrated | 12 | 308 | tier-1 |
 | `/` | homepage | migrated | 23 | 277 | tier-1 |
 | `/breakthrough-guide-for-a-modern-day-disciple/` | article | not-migrated | 0 | 228 | tier-2 |
 | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` | article | not-migrated | 4 | 228 | tier-2 |

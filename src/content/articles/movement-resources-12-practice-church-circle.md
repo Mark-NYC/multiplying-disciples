@@ -1,0 +1,126 @@
+---
+title: "Church Waffle"
+description: "The Church Waffle: 12 practices of a healthy church, each paired with a command of Jesus and a Bible story you can use to train disciples."
+slug: "/movement-resources/12-practice-church-circle/"
+canonical: "https://multiplyingdisciples.us/movement-resources/12-practice-church-circle/"
+date: 2023-04-02
+updated: 2025-02-01
+primary_keyword: "church waffle"
+secondary_keywords:
+  - "12 practices of the church"
+  - "church waffle disciple making"
+hub: "simple-church"
+related_articles:
+  - "/ridiculously-simple-3-ways-to-make-disciples/"
+  - "/three-thirds/"
+  - "/movement-resources/7-stories-of-hope-complete-facilitation-guide/"
+related_tools:
+  - "Stories of Hope"
+external_links:
+  - label: "Church Waffle (churchwaffle.com)"
+    url: "https://www.churchwaffle.com/"
+  - label: "Obey.Tools — Church Waffle web app"
+    url: "https://obey.tools/"
+og_image: "/wp-content/uploads/2025/01/4-1-1-12-Stories-Packet.webp"
+status: "migrated"
+migration_priority: "tier-1"
+original_url: "https://multiplyingdisciples.us/movement-resources/12-practice-church-circle/"
+notes: >
+  Real content ported from the WordPress export (post_id 5856, a child
+  page of "Movement Resources" — same nested-path pattern as the
+  migrated 7-Stories-of-Hope guide). One of the 6 "especially important"
+  pages named in the original migration brief. 12 clicks / 308
+  impressions in the known GSC export. The page has been rebranded from
+  "12 Practice Church Circle" to "Church Waffle" without changing the
+  slug — preserved the slug exactly, used the real current title.
+  Simplified one Google-redirect-wrapped link
+  (google.com/url?q=https://www.churchwaffle.com/...) down to a direct
+  link to the same destination. The 12 numbered practice images in the
+  body are hosted on obey.tools (the sister site), not this site — left
+  as external links/images as-is, consistent with linking to Obey.Tools
+  for practical tools rather than duplicating them. Only 1 inline image
+  plus the featured image actually need local preservation — see
+  MEDIA_ACQUISITION_CHECKLIST.md.
+---
+
+![4-1-1 / 12 Stories packet](/wp-content/uploads/2025/01/4-1-1-12-Stories-Packet-1024x576.webp)
+
+[View Packet PDF — FREE](https://www.churchwaffle.com/) &middot; [View Web App](https://obey.tools/)
+
+### Want to learn more about the Church Waffle?
+
+The church waffle is an effective model for short-term discipleship stories that can be used to train disciples to obey Jesus and identify as a church around the practice of those stories that correspond to the passage in Acts 2:36-47.
+
+Read this article, [Ridiculously Simple: 3 Ways to Make Disciples](/ridiculously-simple-3-ways-to-make-disciples/), to learn more.
+
+[![](https://obey.tools/wp-content/uploads/2024/11/3-1-1024x435.jpg)](https://obey.tools/repent-believe/)
+
+*Command: Mk 1:15 / Story: Lk 19:1-10 (Zacchaeus)*
+
+[**1. Repent & Believe**](https://obey.tools/repent-believe/)
+
+[![](https://obey.tools/wp-content/uploads/2024/05/3-1024x435.jpg)](https://obey.tools/be-baptized/)
+
+*Command: Matt. 28:19 / Story: Acts 8:26-39 (Philip & The Ethiopian)*
+
+[**2. Be Baptized**](https://obey.tools/be-baptized/)
+
+[![](https://obey.tools/wp-content/uploads/2024/05/4-1024x435.jpg)](https://obey.tools/holy-spirit/)
+
+*Story: Acts 4:27-31 (Empowered Church)*
+
+[**3. Holy Spirit**](https://obey.tools/holy-spirit/)
+
+[![](https://obey.tools/wp-content/uploads/2024/05/5-1024x435.jpg)](https://obey.tools/the-word-of-god/)
+
+*Command: Jn 8:31-32 / Story: Jn 15:1-17 (I am the Vine)*
+
+[**4. The Word of God**](https://obey.tools/the-word-of-god/)
+
+[![](https://obey.tools/wp-content/uploads/2024/05/6-1024x435.jpg)](https://obey.tools/love-one-another/)
+
+*Command: Jn 15:12 / Story: Lk 10.25-37 (The Good Samaritan)*
+
+[**5. Love One Another**](https://obey.tools/love-one-another/)
+
+[![](https://obey.tools/wp-content/uploads/2024/05/7-1024x435.jpg)](https://obey.tools/lords-supper/)
+
+*Command: Lk 22:19-20 / Story: Lk 22:7-20 (The Last Supper)*
+
+[**6. Lord's Supper**](https://obey.tools/lords-supper/)
+
+[![](https://obey.tools/wp-content/uploads/2024/05/8-1024x435.jpg)](https://obey.tools/pray/)
+
+*Command: Matt 6:9 / Story: Matt 6:5-15 (Lord's Prayer)*
+
+[**7. Pray**](https://obey.tools/pray/)
+
+[![](https://obey.tools/wp-content/uploads/2024/05/9-1024x435.jpg)](https://obey.tools/signs-wonders/)
+
+*Teaching: Jn 14:6-14 / Story: Lk 5:17-39 (Through the Roof)*
+
+[**8. Signs & Wonders**](https://obey.tools/signs-wonders/)
+
+[![](https://obey.tools/wp-content/uploads/2024/05/10-1024x435.jpg)](https://obey.tools/generosity/)
+
+*Command: Matt 6:1-4 / Story: Mark 12:41-44 (The Widow's Coins)*
+
+[**9. Generosity**](https://obey.tools/generosity/)
+
+[![](https://obey.tools/wp-content/uploads/2024/05/11-1024x435.jpg)](https://obey.tools/worship/)
+
+*Command: Mk 12:28-34 / Story: Lk 7:36-50 (The Sinful Woman)*
+
+[**10. Worship**](https://obey.tools/worship/)
+
+[![](https://obey.tools/wp-content/uploads/2024/05/12-1024x435.jpg)](https://obey.tools/go-make-disciples/)
+
+*Command: Matt 28:18-20 / Story: Lk 10:1-11 (The 72)*
+
+[**11. Go...Make Disciples**](https://obey.tools/go-make-disciples/)
+
+[![](https://obey.tools/wp-content/uploads/2024/05/Untitled-design-29-1024x435.jpg)](https://obey.tools/gather/)
+
+*Command: Heb 10:24-25 / Story: Acts 2:36-47 (The First Church)*
+
+[**12. Gather**](https://obey.tools/gather/)

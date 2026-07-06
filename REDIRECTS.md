@@ -5,13 +5,17 @@ a planned 301 documented here before launch. This file is the single
 source of truth for redirects — do not launch with an entry still marked
 `pending`.
 
-## Status as of Phase 1
+## Status as of Phase 3
 
 **No redirects are currently planned.** Nothing has been renamed, merged,
-or removed. All URLs in `URL_INVENTORY.md` are being preserved at their
-exact original path. This file exists as the mechanism for the *future*
-case where a path genuinely cannot be preserved (see rule 8 in the
-brief's SEO rules).
+or removed — including through Phase 3, which migrated 7 more tier-1
+pages (all at their exact original real URLs, several of which differed
+from what the migration brief originally guessed — see the corrections
+table in `PROTECTED_URLS.md`; those were caught and fixed *before*
+publishing, not via redirect). All URLs in `URL_INVENTORY.md` are being
+preserved at their exact original path. This file exists as the
+mechanism for the *future* case where a path genuinely cannot be
+preserved (see rule 8 in the brief's SEO rules).
 
 ## Format for future entries
 

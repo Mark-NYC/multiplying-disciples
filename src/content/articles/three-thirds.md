@@ -1,0 +1,199 @@
+---
+title: "Three Thirds Bible Study Process"
+description: "The Three Thirds Bible Study is a powerful tool for observing, interpreting, and applying Scripture in community. Learn more about it and unlock the potential of the Word."
+slug: "/three-thirds/"
+canonical: "https://multiplyingdisciples.us/three-thirds/"
+date: 2023-04-02
+updated: 2025-12-07
+primary_keyword: "three thirds bible study"
+secondary_keywords:
+  - "three thirds process"
+  - "T4T three thirds"
+  - "disciple making bible study format"
+hub: "simple-church"
+related_articles:
+  - "/ridiculously-simple-3-ways-to-make-disciples/"
+  - "/movement-resources/12-practice-church-circle/"
+  - "/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/"
+related_tools:
+  - "Stories of Hope"
+external_links:
+  - label: "T4T Global — Three Thirds Process"
+    url: "https://www.t4tglobal.org/three-thirds-process"
+og_image: "/wp-content/uploads/2023/05/Three-Thirds-Meeting-Format.webp"
+status: "migrated"
+migration_priority: "tier-1"
+original_url: "https://multiplyingdisciples.us/three-thirds/"
+notes: >
+  Real content ported from the WordPress export (post_id 5959). One of
+  the 6 "especially important" pages named in the original migration
+  brief (under the wrong slug /the-three-thirds/, corrected in Phase 2).
+  13 clicks / 737 impressions in the known GSC export. This page had
+  almost no WordPress chrome to remove — clean source. The lead image
+  links to an external Google Slides deck (kept as-is). Featured image
+  and one inline screenshot are the only 2 media files this page
+  actually needs preserved locally (5 other size variants referenced in
+  the source are WordPress responsive-image srcset candidates, not
+  separate content images — no action needed for those).
+---
+
+[![Three Thirds meeting format slide deck](/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM-1024x766.png)](https://docs.google.com/presentation/d/1sjg3nIHY_pWX02XojDXt8tFpmukY_xS2sfaDjOEL7AA/edit?usp=sharing)
+
+Most discipleship groups die the same death: they meet for months, study Scripture, maybe pray together, then disband without producing a single disciple-maker.
+
+The **Three Thirds Bible Study process** fixes this. Not because it's complicated—because it's brutally simple. It forces the one behavior most Bible studies avoid: *actually doing something with what you learn.*
+
+Here's what you need to know.
+
+## What Three Thirds Is
+
+Three Thirds is a 90-120 minute discipleship training format divided into three equal sections:
+
+1. **Looking Back** (First Third) - Worship, care, accountability, vision
+2. **Looking Up** (Middle Third) - New Bible lesson
+3. **Looking Ahead** (Final Third) - Practice, goal-setting, prayer
+
+It originated from Ying Kai's [Training for Trainers (T4T)](https://www.t4tglobal.org/three-thirds-process) and is the primary engine behind modern disciple multiplication movements. The format is non-negotiable if you want multiplication. Here's why.
+
+## Why Three Thirds Actually Works (And Why Your Current Method Doesn't)
+
+Most discipleship follows this pattern: show up, consume content, discuss, leave. Maybe pray. You're producing informed Christians, not disciple-makers.
+
+Three Thirds reverses the equation. It assumes the point isn't *knowing more*—it's *obeying what you know and passing it on.*
+
+**The thought process:**
+
+- **Accountability before content** - You report on last week's obedience before getting new teaching. This trains your brain: the goal isn't learning, it's doing. Miss this and you're back to Bible study mode.
+- **Practice beats theory** - You don't leave until you've engaged in interactive practice of a tool or the story. This is uncomfortable. It's also why it works. Most people won't share the gospel because they've never practiced. You're removing the friction.
+- **Public goals create pressure** - Writing down measurable goals in front of others activates loss aversion. You don't want to come back next week empty-handed.
+- **Worship first centers the mission** - Starting with God instead of your week reframes everything as spiritual warfare, not religious activity.
+
+The system creates a feedback loop: obey → report → learn → practice → set goals → obey. Each week builds momentum.
+
+## Breaking Down Each Third
+
+![Three Thirds process overview](/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.08-AM-1024x804.jpg)
+
+### First Third: Looking Back (30-40 minutes)
+
+**1. Worship (5-10 min)** Sing, pray Scripture, read a Psalm. Keep it simple. The goal is to focus everyone on God, not showcase talent.
+
+**Common mistake:** Letting this run long because someone brought a guitar. Time-box it.
+
+**2. Pastoral Care (10-15 min)** "How are you doing?" Go around the circle. One highlight, one challenge from the past week.
+
+**Common mistake:** Turning this into therapy. If someone's in crisis, care for them, but don't let personal issues consume the whole meeting every week. You're training disciple-makers, not running a support group.
+
+**3. Accountability (10-15 min)** Two questions:
+
+- Follow: "How did you obey last week's lesson?"
+- Fish: "Who did you share with in your relational network this week?"
+
+**Common mistake:** Skipping this because it's awkward. The awkwardness is the point. If no one's obeying, you need to know now, not six months from now.
+
+**4. Vision-Casting (5 min)** Short story or Scripture that points to the Great Commission. Remind them why this matters. The Book of Acts works well here.
+
+**Why this third works:** You're celebrating wins, exposing problems, and recalibrating the mission before anyone gets comfortable.
+
+### Middle Third: Looking Up (30-40 minutes)
+
+**New Lesson** Teach one biblical concept. Not three. One.
+
+Use a simple Bible study method. The goal is to extract one clear obedience point they can live out and teach others this week.
+
+**Common mistake:** Teaching too much. If they can't repeat it back and practice it in 15 minutes, you've taught too much. You're not trying to impress them with your knowledge. You're giving them something they can immediately obey and pass on.
+
+**Why this third works:** The content is sandwiched between accountability (what you did) and practice (what you'll do). It never exists in a vacuum.
+
+### Final Third: Looking Ahead (30-40 minutes)
+
+**1. Practice (20-30 min)** Break into pairs. Person A teaches the lesson to Person B as if B is a new believer. Then Person B teaches it back to Person A.
+
+Then role-play: "You're at work. Someone asks about your faith. How do you transition to this lesson?"
+
+**Common mistake:** Skipping this because you run out of time or think it's just for the newbie. Wrong. Your people aren't sharing because they don't know what to say. Practice removes that barrier.
+
+**2. Set Goals (5-10 min)** Each person writes down:
+
+- One obedience goal (How will I live out this lesson?)
+- One evangelism goal (Who will I share with? When?)
+- One training goal (if applicable - Who am I training?)
+
+Write it down. Say it out loud.
+
+**Common mistake:** Vague goals. "I'll try to share with someone" is not clear enough. "I'll share with my coworker Mark at lunch on Tuesday" is a goal.
+
+**3. Pray (5 min)** Short prayers for each person's specific goals. Not general "bless us" prayers.
+
+**Why this third works:** You're removing every excuse. They know the content. They've practiced. They've set measurable goals. Now they just have to do it.
+
+## Where Three Thirds Falls Apart
+
+**It goes long on Looking Back** Someone shares a crisis. An hour later you're still processing. You skip the lesson and practice. Do this twice and you've trained your group: this is therapy, not disciple-making. Solution: Set a hard timer. Care for crises outside the meeting.
+
+**The leader lectures** You spent 20 hours preparing. You want to download it all. Resist. If you talk for 45 minutes in the Middle Third, you've killed multiplication. They can't reproduce a seminary lecture. Solution: One lesson, simple enough for a new believer to teach.
+
+**You skip practice** "We're running late, just practice at home." They won't. Next week no one shared. Solution: Cut something else. Never cut practice.
+
+**Accountability becomes judgment** "Why didn't you share this week? What's wrong with you?" Your group shuts down. Solution: Ask with curiosity, not accusation. "What made it hard to share this week? How can we help?"
+
+**You don't actually set goals** "Let's all try to share." Weak. Solution: Write down names, dates, specific actions. Check them next week.
+
+## Common Problems & How to Fix Them
+
+**"This feels mechanical"** Good. It should feel mechanical until it becomes muscle memory. You're building a habit system, not hosting a spontaneous spiritual experience.
+
+**"My group hates accountability"** Then they don't want to make disciples. They want Bible study. Decide what you're actually doing.
+
+**"We don't have 90 minutes"** Do 60. Keep the structure: 20/20/20. Don't drop sections. The moment you drop accountability or practice, you're back to consumer Christianity.
+
+**"People don't do their goals"** Lower the bar. "Share with three people" might be too much. Start with "Have one spiritual conversation." Build momentum.
+
+**"The same person dominates worship/sharing"** "Thanks, John. Let's hear from someone else." You're the leader. Lead.
+
+## How to Start Your First Three Thirds Group
+
+**Week 1:** Model the format. Let everyone experience it as you go. Set small goals. Don't expect perfection.
+
+**Weeks 2-4:** Run the full format. Report on goals. Adjust. People will resist accountability. Push through. By week 4 you'll see who's serious.
+
+**Weeks 5-8:** You should have at least one person who's shared the gospel and has a new believer. Start coaching them to train that person. This is when it gets real.
+
+**Week 12:** If you've done this right, someone in your group is running their own Three Thirds group with new believers. You're not just studying anymore—you're multiplying.
+
+## Three Thirds vs Traditional Small Groups
+
+| Three Thirds | Traditional Small Group |
+| --- | --- |
+| 60-90 min, structured | 90-120 min, loose |
+| Accountability for obedience | Discussion of ideas |
+| Practice before leaving | Hope people apply later |
+| Goal: make disciple-makers | Goal: grow in knowledge |
+| Multiplication expected | Addition if you're lucky |
+| Everyone trains others | Leader teaches group |
+
+Traditional groups produce better Bible students. Three Thirds produces movements.
+
+## Three Thirds vs Simple Church / House Church
+
+Simple church focuses on organic relationships and participatory gatherings. Three Thirds is more structured.
+
+**Overlap:** Both reject lecture-based teaching. Both expect everyone to participate.
+
+**Difference:** Simple church may or may not include accountability and goal-setting. Three Thirds is non-negotiable on these. You can run Three Thirds *within* a simple church model, but simple church alone doesn't guarantee multiplication without the accountability structure.
+
+## The Bottom Line
+
+Three Thirds isn't a Bible study method. It's a disciple-making factory.
+
+It works because it removes every variable between hearing and doing. You can't show up, consume, and leave unchanged. The structure won't let you.
+
+Most churches won't do this. It's too uncomfortable. It exposes who's actually obeying and who's just attending.
+
+But if you want movements instead of meetings, this is the engine. Read this article, [Ridiculously Simple: 3 Ways to Make Disciples](/ridiculously-simple-3-ways-to-make-disciples/), to learn more.
+
+Start with one group. Run it for 12 weeks without compromising the structure. Then watch what happens when normal people actually obey what they learn and train others to do the same.
+
+The Great Commission doesn't need better content. It needs better process.
+
+This is the process.
