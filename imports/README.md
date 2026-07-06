@@ -79,6 +79,26 @@ how-to-evangelize, 15-second-testimony, three-thirds) was spot-checked
 disk. This fixes every previously-broken image on those five pages
 sourced from `2023/05`.
 
+## Received (2026-07-06, fifth upload): fourth media month folder
+
+The `2023/06` month folder (3 files) was supplied as a zip
+(`586eff88-wpcontent.zip`), which also contained macOS `.DS_Store` and
+`__MACOSX/` junk entries — these were excluded during extraction
+(`unzip -x "__MACOSX/*" "*.DS_Store"`) and never touched the repo. The 3
+real files were moved into `public/wp-content/uploads/2023/06/` — exact
+original filenames, no re-encoding, no flattening. The zip itself was
+not committed.
+
+**All 3 tracked files in this folder matched exactly** (1 Priority A —
+`Virtual-Training-Packet.pdf` — and 2 Priority B, both tagged to the
+homepage) — every row flipped to "Yes" in `MEDIA_IMPORT_PLAN.md` and
+`MEDIA_ACQUISITION_CHECKLIST.md`. `astro build` was re-run clean (23
+pages, no new errors); confirmed the 2 Priority B images aren't
+currently embedded in the homepage's rendered output or source content,
+so this upload doesn't fix any visibly-broken image today — it's
+collected ahead of need, same as the doc's pre-existing "not currently
+used" annotation already said.
+
 **Next recommended month folder: `2025/11`** — not the largest
 remaining folder by file count (`2025/01` has 23 vs. `2025/11`'s 19),
 but the higher-value pick: 5 Priority A + 13 Priority B vs. `2025/01`'s

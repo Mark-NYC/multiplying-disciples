@@ -5,11 +5,11 @@ Tier 1 page (the 7 in `PHASE_3_TIER_1_BATCH.md`), cross-referenced
 against Search Console impressions. Source: WordPress export XML +
 Google Search Console Pages CSV (supplied 2026-07-06).
 
-**Binary status: 58 of 103 files have now been supplied.** These are
-every row that lives in `2023/04` or `2023/05`, both received in full.
-All other rows below still read "No — not supplied" because this
-environment has never received their actual image/PDF bytes, only their
-paths and metadata (via WordPress attachment records and the GSC
+**Binary status: 61 of 103 files have now been supplied.** These are
+every row that lives in `2023/04`, `2023/05`, or `2023/06`, all received
+in full. All other rows below still read "No — not supplied" because
+this environment has never received their actual image/PDF bytes, only
+their paths and metadata (via WordPress attachment records and the GSC
 export). See `/imports/README.md`.
 
 **Received-uploads log:**
@@ -29,7 +29,13 @@ export). See `/imports/README.md`.
   tracked files that live in `2023/05` matched exactly and are now
   marked "Yes" below (the other 20 tracked `2023/05` files are Priority
   C in `MEDIA_IMPORT_PLAN.md`, out of this doc's migrated/tier-1 scope).
-  Next recommended folder: `2025/11` (see `MEDIA_IMPORT_PLAN.md`).
+- 2026-07-06 — `2023/06` month folder (3 files) supplied as a zip that
+  also contained macOS `.DS_Store`/`__MACOSX` junk (excluded during
+  extraction, never touched the repo) and extracted into
+  `public/wp-content/uploads/2023/06/`. All 3 of this checklist's
+  tracked files that live in `2023/06` matched exactly and are now
+  marked "Yes" below. Next recommended folder: `2025/11` (see
+  `MEDIA_IMPORT_PLAN.md`).
 
 ## Rule
 
@@ -58,7 +64,7 @@ they're legitimate external links, consistent with this site's
 | `/wp-content/uploads/2023/04/Church-Waffle-English-04-2023.pdf` | `public/wp-content/uploads/2023/04/Church-Waffle-English-04-2023.pdf` | Yes | not on a migrated/tier-1 page yet | 347 |
 | `/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called-with-Bible-References.webp` | `public/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called-with-Bible-References.webp` | No — not supplied | `/discover-the-12-disciples-of-jesus-christ/` | 266 |
 | `/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called.webp` | `public/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called.webp` | No — not supplied | `/discover-the-12-disciples-of-jesus-christ/` (featured) | 89 |
-| `/wp-content/uploads/2023/06/Virtual-Training-Packet.pdf` | `public/wp-content/uploads/2023/06/Virtual-Training-Packet.pdf` | No — not supplied | not on a migrated/tier-1 page yet | 41 |
+| `/wp-content/uploads/2023/06/Virtual-Training-Packet.pdf` | `public/wp-content/uploads/2023/06/Virtual-Training-Packet.pdf` | Yes | not on a migrated/tier-1 page yet | 41 |
 | `/wp-content/uploads/2023/05/Church-Waffle-English-112222-1.pdf` | `public/wp-content/uploads/2023/05/Church-Waffle-English-112222-1.pdf` | Yes | not on a migrated/tier-1 page yet | 36 |
 | `/wp-content/uploads/2023/04/4-Fields-Toolbox-Updated-03.31.23.pdf` | `public/wp-content/uploads/2023/04/4-Fields-Toolbox-Updated-03.31.23.pdf` | Yes | not on a migrated/tier-1 page yet | 36 |
 | `/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1.webp` | `public/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1.webp` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` (featured) | 10 |
@@ -112,13 +118,13 @@ they're legitimate external links, consistent with this site's
 | `/wp-content/uploads/2023/05/4-1-1-YFC-e1684600391124-768x430.jpg` | `public/wp-content/uploads/2023/05/4-1-1-YFC-e1684600391124-768x430.jpg` | Yes | `/15-second-testimony-examples-ignite-your-faith/` | 0 |
 | `/wp-content/uploads/2025/11/short-christian-testimony-examples.webp` | `public/wp-content/uploads/2025/11/short-christian-testimony-examples.webp` | No — not supplied | `/15-second-testimony-examples-ignite-your-faith/` (featured), `/testimony-in-the-bible-20-verses-to-ignite-your-faith/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2026/02/Multiply-disciples-in-real-life.webp` | `public/wp-content/uploads/2026/02/Multiply-disciples-in-real-life.webp` | No — not supplied | `/` (homepage, not currently used) | 0 |
-| `/wp-content/uploads/2023/06/1-2-1-1-1.png` | `public/wp-content/uploads/2023/06/1-2-1-1-1.png` | No — not supplied | `/` (homepage, not currently used) | 0 |
+| `/wp-content/uploads/2023/06/1-2-1-1-1.png` | `public/wp-content/uploads/2023/06/1-2-1-1-1.png` | Yes | `/` (homepage, not currently used) | 0 |
 | `/wp-content/uploads/2025/01/Untitled-design-52.webp` | `public/wp-content/uploads/2025/01/Untitled-design-52.webp` | No — not supplied | `/` (homepage, not currently used) | 0 |
 | `/wp-content/uploads/2025/03/maxresdefault-7-1024x576.jpg` | `public/wp-content/uploads/2025/03/maxresdefault-7-1024x576.jpg` | No — not supplied | `/` (homepage, not currently used) | 0 |
 | `/wp-content/uploads/2025/01/Copy-of-Untitled-48-1024x1024.webp` | `public/wp-content/uploads/2025/01/Copy-of-Untitled-48-1024x1024.webp` | No — not supplied | `/` (homepage, not currently used) | 0 |
 | `/wp-content/uploads/2023/05/1-1.webp` | `public/wp-content/uploads/2023/05/1-1.webp` | Yes | `/` (homepage, not currently used) | 0 |
 | `/wp-content/uploads/2025/01/Copy-of-Untitled-47-1024x1024.webp` | `public/wp-content/uploads/2025/01/Copy-of-Untitled-47-1024x1024.webp` | No — not supplied | `/` (homepage, not currently used) | 0 |
-| `/wp-content/uploads/2023/06/1-2-1-1.png` | `public/wp-content/uploads/2023/06/1-2-1-1.png` | No — not supplied | `/` (homepage, not currently used) | 0 |
+| `/wp-content/uploads/2023/06/1-2-1-1.png` | `public/wp-content/uploads/2023/06/1-2-1-1.png` | Yes | `/` (homepage, not currently used) | 0 |
 | `/wp-content/uploads/2023/05/Copy-of-Experience-confidence-in-your-disciple-making-1.png` | `public/wp-content/uploads/2023/05/Copy-of-Experience-confidence-in-your-disciple-making-1.png` | Yes | `/` (homepage, hero image, in use) | 0 |
 | `/wp-content/uploads/2025/01/4-1-1-12-Stories-Packet-1024x576.webp` | `public/wp-content/uploads/2025/01/4-1-1-12-Stories-Packet-1024x576.webp` | No — not supplied | `/movement-resources/12-practice-church-circle/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2025/01/4-1-1-12-Stories-Packet.webp` | `public/wp-content/uploads/2025/01/4-1-1-12-Stories-Packet.webp` | No — not supplied | `/movement-resources/12-practice-church-circle/` (tier-1, pending — featured) | 0 |
