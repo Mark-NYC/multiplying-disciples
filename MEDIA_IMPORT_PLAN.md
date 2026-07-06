@@ -12,9 +12,9 @@ tracked rows matched exactly), `2023/05` (39 files, all 39 tracked rows
 matched exactly), `2023/06` (3 files, all 3 tracked rows matched
 exactly), `2023/07` (6 files, all 6 tracked rows matched exactly),
 `2023/08` (56 files landed, all 5 tracked rows matched exactly plus 51
-untracked size variants), `2023/09` (5 files, 4 of 5 tracked rows
-matched — 1 still missing), and `2025/11` (136 files landed, all 19
-tracked rows matched exactly plus 117 untracked size variants) — see
+untracked size variants), `2023/09` (6 files across two uploads, all 5
+tracked rows now matched exactly), and `2025/11` (136 files landed, all
+19 tracked rows matched exactly plus 117 untracked size variants) — see
 "Received uploads log" below. Every other row still reads "No" under
 Present — this environment has only ever received paths and metadata
 (via WordPress attachment records and the GSC export) for the rest,
@@ -201,7 +201,7 @@ never the actual image/PDF bytes.
 | `/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement.svg` | svg | `/4-stages-of-movement-unlock-your-next-steps/` | Yes | 0 |
 | `/wp-content/uploads/2023/07/personal-evangelism-main-header.png` | png | `/5-proven-strategies-unlock-the-secrets-of-effective-personal-evangelism/` | Yes | 0 |
 | `/wp-content/uploads/2023/09/Four-Fields-1024x1024.png` | png | `/stickers/` | Yes | 0 |
-| `/wp-content/uploads/2023/09/Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.png` | png | `/stickers/` | No | 0 |
+| `/wp-content/uploads/2023/09/Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.png` | png | `/stickers/` | Yes | 0 |
 | `/wp-content/uploads/2023/09/Untitled-design-2023-09-03T125747.090-1024x1024.png` | png | `/stickers/` | Yes | 0 |
 | `/wp-content/uploads/2023/09/Untitled-design-2023-09-03T132350.205-1024x1024.png` | png | `/stickers/` | Yes | 0 |
 | `/wp-content/uploads/2023/09/Untitled-design-2023-09-03T134034.787-1024x1024.jpg` | jpg | `/stickers/` | Yes | 0 |
@@ -255,7 +255,7 @@ folder structure untouched (no renames, no re-encoding, no move to
 | 2026-07-06 | `2023/06` | 3 | **All 3 tracked rows in this folder matched exactly** (1 Priority A — `Virtual-Training-Packet.pdf`, 2 Priority B — both used on the homepage) — every one flipped to "Yes" above. This upload arrived as a zip containing macOS `.DS_Store`/`__MACOSX` junk alongside the 3 real files; the junk was excluded during extraction and never touched the repo. |
 | 2026-07-06 | `2023/07` | 6 | **All 6 tracked rows in this folder matched exactly** (1 Priority A, 5 Priority B) — every one flipped to "Yes" above. Same macOS junk pattern as `2023/06` (excluded during extraction). One Priority B file, `personal-evangelism-main-header-1024x576.png`, is tagged to the already-live `/how-to-evangelize-ultimate-step-by-step-guide/` page — confirmed present in that page's `dist/` output. The rest (4 svg icons + 1 header image) are tagged to tier-2 pages not yet migrated (`4-stages-of-movement-unlock-your-next-steps`, `5-proven-strategies-...`), collected ahead of need. |
 | 2026-07-06 | `2023/08` | 56 landed, 5 tracked | **All 5 tracked rows in this folder matched exactly** (5 Priority B, all tagged to the already-live `/how-to-evangelize-ultimate-step-by-step-guide/` page) — every one flipped to "Yes" above. This fixes 5 real broken images on that page. Same macOS junk pattern as `2023/06`/`2023/07` (excluded during extraction). The other 51 files that landed are untracked WordPress-generated size variants of the same 4 base screenshots (e.g. `Screen-Shot-2023-08-07-at-8.24.33-PM-1300x1117.png`) — preserved at their exact original paths since they're real WordPress media, just not individually referenced by any known page or GSC row. |
-| 2026-07-06 | `2023/09` | 5 | **4 of 5 tracked rows matched** (1 Priority A — `3-Circles-Sticker-QR-Code.pdf` — and 3 of 4 Priority C rows, all tagged to `/stickers/`, a tier-2 page not yet migrated) — flipped to "Yes" above. **Still missing:** `Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.png`, Priority C, also for `/stickers/`. No Priority B files exist in `2023/09`, so this upload has zero effect on any currently-migrated page either way. Same macOS junk pattern as prior uploads (excluded during extraction). |
+| 2026-07-06 | `2023/09` | 5 (first upload) + 1 (follow-up) = 6 | **First upload:** 4 of 5 tracked rows matched (1 Priority A — `3-Circles-Sticker-QR-Code.pdf` — and 3 of 4 Priority C rows, all tagged to `/stickers/`, a tier-2 page not yet migrated). **Still missing after first upload:** `Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.png`. **Follow-up upload (same day):** that exact missing file was supplied individually and now matches exactly — **all 5 tracked `2023/09` rows are present.** No Priority B files exist in `2023/09`, so neither upload affects any currently-migrated page either way (`/stickers/` isn't migrated). Same macOS junk pattern as prior uploads (excluded during extraction). |
 | 2026-07-06 | `2025/11` | 136 landed, 19 tracked | **All 19 tracked rows in this folder matched exactly** (5 Priority A, 13 Priority B, 1 Priority C) — every one flipped to "Yes" above. 17 of these 19 (4 A + 13 B) are tagged to 5 already-live migrated pages (7-stories-of-hope, bible-verse-about-spreading-the-gospel, testimony-in-the-bible, how-to-evangelize, 15-second-testimony) — this fixes real broken images on all 5. The remaining 2 rows (1 A + 1 C) are tagged to `/the-power-of-sharing-your-testimony-scripture-...`, a tier-2 page not yet migrated. Same macOS junk pattern as prior uploads (excluded during extraction). The other 117 files that landed are untracked size variants and unrelated media in the same month folder — preserved at their exact original paths. Recommend `2025/01` next — now the clear highest-value remaining folder (23 tracked files: 2 A + 6 B + 15 C). |
 
 ## Note on `/movement-resources/12-practice-church-circle/`
@@ -272,12 +272,11 @@ every table above on purpose; they need no local preservation.
 - Priority C: 68 files
 - Priority D: 0 files
 - **Total distinct files tracked: 171**
-- **Present so far: 123 of 171 tracked rows** (all 47 `2023/04` rows —
+- **Present so far: 124 of 171 tracked rows** (all 47 `2023/04` rows —
   4 A, 35 B, 8 C — plus all 39 `2023/05` rows — 10 A, 9 B, 20 C — plus
   all 3 `2023/06` rows — 1 A, 2 B — plus all 6 `2023/07` rows — 1 A,
-  5 B — plus all 5 `2023/08` rows — 5 B — plus 4 of 5 `2023/09` rows —
-  1 A, 3 C — plus all 19 `2025/11` rows — 5 A, 13 B, 1 C. The `2023/02`
+  5 B — plus all 5 `2023/08` rows — 5 B — plus all 5 `2023/09` rows —
+  1 A, 4 C — plus all 19 `2025/11` rows — 5 A, 13 B, 1 C. The `2023/02`
   upload landed on disk but didn't match this doc's one tracked row for
-  that folder, and 1 `2023/09` row
-  (`Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.png`) is also
-  genuinely still missing — see "Received uploads log" above)
+  that folder — see "Received uploads log" above. That's the only gap
+  remaining anywhere in the folders received so far)

@@ -185,6 +185,19 @@ page not yet migrated. The other 117 files that landed are untracked
 size variants and unrelated media in the same month, preserved at their
 exact original paths.
 
+## Received (2026-07-06, tenth upload): missing 2023/09 file, resupplied correctly
+
+The one file still missing from `2023/09`
+(`Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.png`) was re-uploaded
+as a proper file attachment (`647c63eb-wpcontent.zip`, same macOS junk
+pattern excluded) after an earlier attempt to paste it inline in chat
+couldn't be read as a file. Moved into
+`public/wp-content/uploads/2023/09/` at its exact original filename —
+**`2023/09` is now fully complete, 5 of 5 tracked rows present.** No
+Priority B files exist in this folder, so `/stickers/` (still
+unmigrated) is the only page affected, and `astro build` re-ran clean
+(23 pages, no new errors).
+
 **Next recommended month folder: `2025/01`** — now the clear
 highest-value remaining folder, with 23 tracked files (2 Priority A, 6
 Priority B, 15 Priority C).
