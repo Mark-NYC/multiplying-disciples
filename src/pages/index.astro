@@ -1,0 +1,30 @@
+---
+// Homepage placeholder. This is a migration stub, not a redesign.
+// See /imports/README.md for what's needed to replace this with the
+// real WordPress homepage content (structure, copy, nav links, etc).
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const ORIGINAL_URL = 'https://multiplyingdisciples.us/';
+---
+
+<BaseLayout
+  title="Multiplying Disciples"
+  description="A practical disciple-making library: tools, articles, and next steps for evangelism, discipleship, and church planting movements."
+  canonical="https://multiplyingdisciples.us/"
+  type="website"
+  noindex={true}
+>
+  <div class="page-container">
+    <p class="source-pending-banner">
+      This homepage is a migration placeholder. Live content has not been imported from
+      WordPress yet. Original URL: <a href={ORIGINAL_URL}>{ORIGINAL_URL}</a>
+    </p>
+
+    <h1>Multiplying Disciples</h1>
+    <p>
+      Content pending import from the live WordPress homepage. Do not treat this copy as
+      final — see <code>/imports/README.md</code> for what's needed to migrate the real
+      homepage content.
+    </p>
+  </div>
+</BaseLayout>

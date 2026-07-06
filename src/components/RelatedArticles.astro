@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  // Site-relative paths matching an article's `slug` frontmatter field,
+  // e.g. "/testimony-in-the-bible-20-verses-to-ignite-your-faith/".
+  paths: string[];
+  heading?: string;
+}
+
+const { paths, heading = 'Related articles' } = Astro.props;
+
+const allArticles = paths.length ? await getCollection('articles') : [];
+
+function humanize(path: string): string {
+  const last = path.replace(/^\/|\/$/g, '').split('/').pop() ?? path;
+  return last
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+const items = paths.map((path) => {
+  const match = allArticles.find((entry) => entry.data.slug === path);
+  return {
+    href: path,
+    label: match ? match.data.title : humanize(path),
+    pending: !match,
+  };
+});
+---
+
+{
+  items.length > 0 && (
+    <section class="related-articles" aria-label={heading}>
+      <h2>{heading}</h2>
+      <ul>
+        {items.map((item) => (
+          <li>
+            <a href={item.href}>{item.label}</a>
+            {item.pending && <span class="related-articles__pending"> (coming soon)</span>}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
+<style>
+  .related-articles {
+    margin: 2.5rem 0;
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+  }
+
+  .related-articles h2 {
+    font-size: 1.05rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .related-articles ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .related-articles li {
+    margin: 0.35rem 0;
+  }
+
+  .related-articles__pending {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+import { SITE } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage?: string;
+  type?: 'website' | 'article';
+  publishedDate?: Date;
+  updatedDate?: Date;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage,
+  type = 'website',
+  publishedDate,
+  updatedDate,
+  noindex = false,
+} = Astro.props;
+
+const pageTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
+const resolvedImage = ogImage
+  ? new URL(ogImage, SITE.url).toString()
+  : undefined;
+
+const jsonLd =
+  type === 'article'
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: title,
+        description,
+        mainEntityOfPage: canonical,
+        url: canonical,
+        ...(publishedDate ? { datePublished: publishedDate.toISOString() } : {}),
+        ...(updatedDate ? { dateModified: updatedDate.toISOString() } : {}),
+        ...(resolvedImage ? { image: [resolvedImage] } : {}),
+        publisher: {
+          '@type': 'Organization',
+          name: SITE.name,
+          url: SITE.url,
+        },
+      }
+    : {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: title,
+        description,
+        url: canonical,
+      };
+---
+
+<title>{pageTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<meta property="og:type" content={type === 'article' ? 'article' : 'website'} />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+{resolvedImage && <meta property="og:image" content={resolvedImage} />}
+
+<meta name="twitter:card" content={resolvedImage ? 'summary_large_image' : 'summary'} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{resolvedImage && <meta name="twitter:image" content={resolvedImage} />}
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />

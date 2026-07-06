@@ -1,0 +1,71 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import ToolLayout from '../layouts/ToolLayout.astro';
+import HubLayout from '../layouts/HubLayout.astro';
+
+type Kind = 'article' | 'tool' | 'hub';
+
+export async function getStaticPaths() {
+  // A single catch-all route drives every migrated URL. Routing is keyed
+  // off each entry's `slug` frontmatter field (the exact original
+  // WordPress path), NOT the collection folder or filename, so nested
+  // paths like /movement-resources/7-stories-of-hope-.../ work without
+  // mirroring that folder structure in src/content/. Defined inline
+  // (rather than as an outer helper) because Astro extracts
+  // getStaticPaths into an isolated prerender context that doesn't
+  // retain other module-scope declarations.
+  const toParam = (slug: string) => slug.replace(/^\/+|\/+$/g, '');
+
+  const [articles, tools, hubs] = await Promise.all([
+    getCollection('articles'),
+    getCollection('tools'),
+    getCollection('hubs'),
+  ]);
+
+  const articlePaths = articles.map((entry) => ({
+    params: { slug: toParam(entry.data.slug) },
+    props: { kind: 'article' as const, entry },
+  }));
+  const toolPaths = tools.map((entry) => ({
+    params: { slug: toParam(entry.data.slug) },
+    props: { kind: 'tool' as const, entry },
+  }));
+  const hubPaths = hubs.map((entry) => ({
+    params: { slug: toParam(entry.data.slug) },
+    props: { kind: 'hub' as const, entry },
+  }));
+
+  return [...articlePaths, ...toolPaths, ...hubPaths];
+}
+
+interface Props {
+  kind: Kind;
+  entry: CollectionEntry<'articles'> | CollectionEntry<'tools'> | CollectionEntry<'hubs'>;
+}
+
+const { kind, entry } = Astro.props as Props;
+const { Content } = await render(entry as any);
+---
+
+{
+  kind === 'article' && (
+    <ArticleLayout article={entry as CollectionEntry<'articles'>}>
+      <Content />
+    </ArticleLayout>
+  )
+}
+{
+  kind === 'tool' && (
+    <ToolLayout tool={entry as CollectionEntry<'tools'>}>
+      <Content />
+    </ToolLayout>
+  )
+}
+{
+  kind === 'hub' && (
+    <HubLayout hub={entry as CollectionEntry<'hubs'>}>
+      <Content />
+    </HubLayout>
+  )
+}

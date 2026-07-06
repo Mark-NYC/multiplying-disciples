@@ -1,0 +1,97 @@
+---
+import { getCollection } from 'astro:content';
+
+interface NextStep {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  // Tool names as written in article/hub frontmatter (e.g. "3 Circles"),
+  // matched case-insensitively against the tools collection's `title`.
+  tools?: string[];
+  nextStep?: NextStep;
+}
+
+const { tools = [], nextStep } = Astro.props;
+
+const allTools = tools.length ? await getCollection('tools') : [];
+
+const items = tools.map((name) => {
+  const match = allTools.find((entry) => entry.data.title.toLowerCase() === name.toLowerCase());
+  return {
+    label: name,
+    href: match ? (match.data.external_url ?? match.data.slug) : undefined,
+    pending: !match,
+  };
+});
+---
+
+{
+  (items.length > 0 || nextStep) && (
+    <aside class="tool-cta" aria-label="Related tools and next step">
+      {items.length > 0 && (
+        <>
+          <h2>Tools for this</h2>
+          <ul>
+            {items.map((item) =>
+              item.href ? (
+                <li>
+                  <a href={item.href}>{item.label}</a>
+                </li>
+              ) : (
+                <li>
+                  {item.label} <span class="tool-cta__pending">(coming soon)</span>
+                </li>
+              ),
+            )}
+          </ul>
+        </>
+      )}
+      {nextStep && (
+        <a class="tool-cta__button" href={nextStep.href}>
+          {nextStep.label}
+        </a>
+      )}
+    </aside>
+  )
+}
+
+<style>
+  .tool-cta {
+    margin: 2.5rem 0;
+    padding: 1.25rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+  }
+
+  .tool-cta h2 {
+    font-size: 1.05rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .tool-cta ul {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+  }
+
+  .tool-cta__pending {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .tool-cta__button {
+    display: inline-block;
+    padding: 0.6rem 1.1rem;
+    background: var(--color-accent);
+    color: var(--color-accent-text);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .tool-cta__button:hover {
+    opacity: 0.9;
+  }
+</style>

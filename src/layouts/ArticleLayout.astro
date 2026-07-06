@@ -1,0 +1,70 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
+import ToolCTA from '../components/ToolCTA.astro';
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
+
+const { article } = Astro.props;
+const { data } = article;
+
+const hubs = data.hub ? await getCollection('hubs') : [];
+const parentHub = hubs.find((hub) => hub.id === data.hub);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  ...(parentHub ? [{ label: parentHub.data.title, href: parentHub.data.slug }] : []),
+  { label: data.title, href: data.slug },
+];
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  canonical={data.canonical}
+  ogImage={data.og_image}
+  type="article"
+  publishedDate={data.date}
+  updatedDate={data.updated}
+  noindex={data.status === 'source-pending'}
+>
+  <div class="page-container">
+    <Breadcrumbs items={breadcrumbItems} />
+
+    {
+      data.status === 'source-pending' && (
+        <p class="source-pending-banner">
+          This page is a migration placeholder. Live content has not been imported from
+          WordPress yet. Original URL:{' '}
+          <a href={data.original_url}>{data.original_url}</a>
+        </p>
+      )
+    }
+
+    <article>
+      <h1>{data.title}</h1>
+      <slot />
+    </article>
+
+    {parentHub && (
+      <p class="article-hub-link">
+        Part of the <a href={parentHub.data.slug}>{parentHub.data.title}</a> hub.
+      </p>
+    )}
+
+    {data.related_articles.length > 0 && <RelatedArticles paths={data.related_articles} />}
+    {data.related_tools.length > 0 && <ToolCTA tools={data.related_tools} />}
+  </div>
+</BaseLayout>
+
+<style>
+  .article-hub-link {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+  }
+</style>

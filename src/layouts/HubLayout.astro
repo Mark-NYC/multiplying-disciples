@@ -1,0 +1,59 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
+import ToolCTA from '../components/ToolCTA.astro';
+
+interface Props {
+  hub: CollectionEntry<'hubs'>;
+}
+
+const { hub } = Astro.props;
+const { data } = hub;
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: data.title, href: data.slug },
+];
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  canonical={data.canonical}
+  type="website"
+  noindex={data.status === 'source-pending'}
+>
+  <div class="page-container">
+    <Breadcrumbs items={breadcrumbItems} />
+
+    {
+      data.status === 'source-pending' && (
+        <p class="source-pending-banner">
+          This hub is a migration placeholder. Original URL:{' '}
+          <a href={data.original_url}>{data.original_url}</a>
+        </p>
+      )
+    }
+
+    <h1>{data.title}</h1>
+    <p class="hub-intro">{data.intro}</p>
+
+    {data.key_articles.length > 0 && (
+      <RelatedArticles paths={data.key_articles} heading="Key articles" />
+    )}
+
+    {(data.related_tools.length > 0 || data.next_step) && (
+      <ToolCTA tools={data.related_tools} nextStep={data.next_step} />
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .hub-intro {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+  }
+</style>

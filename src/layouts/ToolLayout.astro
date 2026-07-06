@@ -1,0 +1,60 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
+
+interface Props {
+  tool: CollectionEntry<'tools'>;
+}
+
+const { tool } = Astro.props;
+const { data } = tool;
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Starter Tools', href: '/starter-tools/' },
+  { label: data.title, href: data.slug },
+];
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  canonical={data.canonical}
+  type="article"
+  noindex={data.status === 'source-pending'}
+>
+  <div class="page-container">
+    <Breadcrumbs items={breadcrumbItems} />
+
+    {
+      data.status === 'source-pending' && (
+        <p class="source-pending-banner">
+          This page is a migration placeholder. Live content has not been imported from
+          WordPress yet. Original URL:{' '}
+          <a href={data.original_url}>{data.original_url}</a>
+        </p>
+      )
+    }
+
+    <article>
+      <h1>{data.title}</h1>
+      <slot />
+    </article>
+
+    {data.external_url && (
+      <p class="tool-external-link">
+        Use this tool: <a href={data.external_url}>{data.external_url}</a>
+      </p>
+    )}
+
+    {data.related_articles.length > 0 && <RelatedArticles paths={data.related_articles} />}
+  </div>
+</BaseLayout>
+
+<style>
+  .tool-external-link {
+    font-size: 0.95rem;
+  }
+</style>

@@ -1,0 +1,28 @@
+---
+title: "Share the Gospel"
+description: "Simple, repeatable ways to share the gospel in normal conversation, without needing a script."
+slug: "/share-the-gospel/"
+canonical: "https://multiplyingdisciples.us/share-the-gospel/"
+intro: >
+  Sharing the gospel doesn't have to be complicated. This hub gathers the
+  simplest, most repeatable tools for starting a spiritual conversation and
+  actually finishing it.
+key_articles:
+  - "/how-to-evangelize-ultimate-step-by-step-guide/"
+  - "/bible-verses-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/"
+  - "/use-the-circles-gospel-presentation-step-by-step/"
+  - "/5-proven-strategies-unlock-the-secrets-of-effective-personal-evangelism/"
+  - "/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/"
+related_tools:
+  - "3 Circles"
+  - "Stories of Hope"
+next_step:
+  label: "Walk through the 3 Circles"
+  href: "/use-the-circles-gospel-presentation-step-by-step/"
+status: "migrated-draft"
+migration_priority: "tier-1"
+notes: >
+  New hub page (no WordPress original). Verify before launch that
+  /share-the-gospel/ does not collide with an existing WordPress
+  category/tag archive URL.
+---

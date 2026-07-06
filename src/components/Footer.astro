@@ -1,0 +1,72 @@
+---
+import { FOOTER_NAV } from '../data/navigation';
+import { SITE, SISTER_SITES } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <nav aria-label="Footer">
+      <ul class="site-footer__nav">
+        {
+          FOOTER_NAV.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+        <li>
+          <a href={SISTER_SITES.covoMultipliers.url}>{SISTER_SITES.covoMultipliers.name}</a>
+        </li>
+        <li>
+          <a href={SISTER_SITES.obeyTools.url}>{SISTER_SITES.obeyTools.name}</a>
+        </li>
+      </ul>
+    </nav>
+    <p class="site-footer__copy">&copy; {year} {SITE.name}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    margin-top: 3rem;
+  }
+
+  .site-footer__inner {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .site-footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-footer__nav a {
+    text-decoration: none;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .site-footer__nav a:hover {
+    text-decoration: underline;
+  }
+
+  .site-footer__copy {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+</style>
