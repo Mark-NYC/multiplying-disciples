@@ -144,6 +144,24 @@ WordPress-generated size variants of the same 4 base screenshots (e.g.
 their exact original paths since they're real WordPress media, just not
 individually referenced by any known page or GSC row.
 
+## Received (2026-07-06, eighth upload): seventh media month folder
+
+The `2023/09` month folder was supplied as a zip
+(`20428b45-wpcontent.zip`), with the same macOS junk pattern excluded
+during extraction. 5 real files were moved into
+`public/wp-content/uploads/2023/09/` — exact original filenames, no
+re-encoding, no flattening. The zip itself was not committed.
+
+**4 of 5 tracked files matched** (1 Priority A —
+`3-Circles-Sticker-QR-Code.pdf` — and 3 Priority C, all tagged to
+`/stickers/`) — flipped to "Yes" in `MEDIA_IMPORT_PLAN.md`. **Still
+missing:** `Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.png`
+(Priority C, also for `/stickers/`) — genuinely absent from this
+upload, not a naming mismatch this time. No Priority B files exist in
+`2023/09`, and `/stickers/` isn't migrated yet, so this upload has zero
+effect on any currently-live page either way. `astro build` was re-run
+clean (23 pages, no new errors).
+
 **Next recommended month folder: `2025/11`** — not the largest
 remaining folder by file count (`2025/01` has 23 vs. `2025/11`'s 19),
 but the higher-value pick: 5 Priority A + 13 Priority B vs. `2025/01`'s

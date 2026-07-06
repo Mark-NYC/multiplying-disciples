@@ -5,14 +5,15 @@ page (all 12 — done), or a real Tier 2 page (22 — not yet migrated, but
 cataloged ahead of time so we know what to collect). Source: WordPress
 export XML + Google Search Console Pages CSV (supplied 2026-07-06).
 
-**Most of these files have not been supplied yet.** Six month folders
+**Most of these files have not been supplied yet.** Seven month folders
 have now been received and extracted: `2023/02` (559 files, only 1
 tracked here and still not an exact match), `2023/04` (47 files, all 47
 tracked rows matched exactly), `2023/05` (39 files, all 39 tracked rows
 matched exactly), `2023/06` (3 files, all 3 tracked rows matched
-exactly), `2023/07` (6 files, all 6 tracked rows matched exactly), and
+exactly), `2023/07` (6 files, all 6 tracked rows matched exactly),
 `2023/08` (56 files landed, all 5 tracked rows matched exactly plus 51
-untracked size variants) — see "Received uploads log" below. Every
+untracked size variants), and `2023/09` (5 files, 4 of 5 tracked rows
+matched — 1 still missing) — see "Received uploads log" below. Every
 other row still reads "No" under Present — this environment has only
 ever received paths and metadata (via WordPress attachment records and
 the GSC export) for the rest, never the actual image/PDF bytes.
@@ -60,7 +61,7 @@ the GSC export) for the rest, never the actual image/PDF bytes.
 | `/wp-content/uploads/2023/05/Church-Waffle-English-112222-1.pdf` | pdf | (GSC only, no known page) | Yes | 36 |
 | `/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1.webp` | webp | `/the-three-circles-gospel-presentation-step-by-step/` | Yes | 10 |
 | `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-5.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | Yes | 5 |
-| `/wp-content/uploads/2023/09/3-Circles-Sticker-QR-Code.pdf` | pdf | (GSC only, no known page) | No | 5 |
+| `/wp-content/uploads/2023/09/3-Circles-Sticker-QR-Code.pdf` | pdf | (GSC only, no known page) | Yes | 5 |
 | `/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible.webp` | webp | `/movement-resources/7-stories-of-hope-complete-facilitation-guide/` | No | 4 |
 | `/wp-content/uploads/2025/11/Bible-Verse-About-Spreading-the-Gospel-Matthew-28.18-20-Great-Commission-Infographic.webp` | webp | `/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/` | No | 4 |
 | `/wp-content/uploads/2025/11/Bible-Verses-About-Spreading-the-Gospel-Complete-Scripture-Guide.webp` | webp | `/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/` | No | 4 |
@@ -197,11 +198,11 @@ the GSC export) for the rest, never the actual image/PDF bytes.
 | `/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-3.svg` | svg | `/4-stages-of-movement-unlock-your-next-steps/` | Yes | 0 |
 | `/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement.svg` | svg | `/4-stages-of-movement-unlock-your-next-steps/` | Yes | 0 |
 | `/wp-content/uploads/2023/07/personal-evangelism-main-header.png` | png | `/5-proven-strategies-unlock-the-secrets-of-effective-personal-evangelism/` | Yes | 0 |
-| `/wp-content/uploads/2023/09/Four-Fields-1024x1024.png` | png | `/stickers/` | No | 0 |
+| `/wp-content/uploads/2023/09/Four-Fields-1024x1024.png` | png | `/stickers/` | Yes | 0 |
 | `/wp-content/uploads/2023/09/Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.png` | png | `/stickers/` | No | 0 |
-| `/wp-content/uploads/2023/09/Untitled-design-2023-09-03T125747.090-1024x1024.png` | png | `/stickers/` | No | 0 |
-| `/wp-content/uploads/2023/09/Untitled-design-2023-09-03T132350.205-1024x1024.png` | png | `/stickers/` | No | 0 |
-| `/wp-content/uploads/2023/09/Untitled-design-2023-09-03T134034.787-1024x1024.jpg` | jpg | `/stickers/` | No | 0 |
+| `/wp-content/uploads/2023/09/Untitled-design-2023-09-03T125747.090-1024x1024.png` | png | `/stickers/` | Yes | 0 |
+| `/wp-content/uploads/2023/09/Untitled-design-2023-09-03T132350.205-1024x1024.png` | png | `/stickers/` | Yes | 0 |
+| `/wp-content/uploads/2023/09/Untitled-design-2023-09-03T134034.787-1024x1024.jpg` | jpg | `/stickers/` | Yes | 0 |
 | `/wp-content/uploads/2025/01/1-2.jpg` | jpg | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` | No | 0 |
 | `/wp-content/uploads/2025/01/1-4.jpg` | jpg | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` | No | 0 |
 | `/wp-content/uploads/2025/01/2-3.jpg` | jpg | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` | No | 0 |
@@ -251,7 +252,8 @@ folder structure untouched (no renames, no re-encoding, no move to
 | 2026-07-06 | `2023/05` | 39 | **All 39 tracked rows in this folder matched exactly** (10 Priority A, 9 Priority B, 20 Priority C) — every one flipped to "Yes" above. This fixes every currently-broken image on the 5 already-live migrated pages that reference `2023/05` assets (homepage, three-circles-step-by-step, how-to-evangelize, 15-second-testimony, three-thirds). The remaining Priority C rows (four-fields, DBS, disciple-making-movement, and other tier-2 pages) are collected ahead of need, not fixing anything live today. |
 | 2026-07-06 | `2023/06` | 3 | **All 3 tracked rows in this folder matched exactly** (1 Priority A — `Virtual-Training-Packet.pdf`, 2 Priority B — both used on the homepage) — every one flipped to "Yes" above. This upload arrived as a zip containing macOS `.DS_Store`/`__MACOSX` junk alongside the 3 real files; the junk was excluded during extraction and never touched the repo. |
 | 2026-07-06 | `2023/07` | 6 | **All 6 tracked rows in this folder matched exactly** (1 Priority A, 5 Priority B) — every one flipped to "Yes" above. Same macOS junk pattern as `2023/06` (excluded during extraction). One Priority B file, `personal-evangelism-main-header-1024x576.png`, is tagged to the already-live `/how-to-evangelize-ultimate-step-by-step-guide/` page — confirmed present in that page's `dist/` output. The rest (4 svg icons + 1 header image) are tagged to tier-2 pages not yet migrated (`4-stages-of-movement-unlock-your-next-steps`, `5-proven-strategies-...`), collected ahead of need. |
-| 2026-07-06 | `2023/08` | 56 landed, 5 tracked | **All 5 tracked rows in this folder matched exactly** (5 Priority B, all tagged to the already-live `/how-to-evangelize-ultimate-step-by-step-guide/` page) — every one flipped to "Yes" above. This fixes 5 real broken images on that page. Same macOS junk pattern as `2023/06`/`2023/07` (excluded during extraction). The other 51 files that landed are untracked WordPress-generated size variants of the same 4 base screenshots (e.g. `Screen-Shot-2023-08-07-at-8.24.33-PM-1300x1117.png`) — preserved at their exact original paths since they're real WordPress media, just not individually referenced by any known page or GSC row. Recommend `2025/11` next — smaller in total files (19) than `2025/01` (23), but higher-value: 5 Priority A + 13 Priority B vs. `2025/01`'s 2 A + 6 B, so it fixes more currently-broken live images. |
+| 2026-07-06 | `2023/08` | 56 landed, 5 tracked | **All 5 tracked rows in this folder matched exactly** (5 Priority B, all tagged to the already-live `/how-to-evangelize-ultimate-step-by-step-guide/` page) — every one flipped to "Yes" above. This fixes 5 real broken images on that page. Same macOS junk pattern as `2023/06`/`2023/07` (excluded during extraction). The other 51 files that landed are untracked WordPress-generated size variants of the same 4 base screenshots (e.g. `Screen-Shot-2023-08-07-at-8.24.33-PM-1300x1117.png`) — preserved at their exact original paths since they're real WordPress media, just not individually referenced by any known page or GSC row. |
+| 2026-07-06 | `2023/09` | 5 | **4 of 5 tracked rows matched** (1 Priority A — `3-Circles-Sticker-QR-Code.pdf` — and 3 of 4 Priority C rows, all tagged to `/stickers/`, a tier-2 page not yet migrated) — flipped to "Yes" above. **Still missing:** `Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.png`, Priority C, also for `/stickers/`. No Priority B files exist in `2023/09`, so this upload has zero effect on any currently-migrated page either way. Same macOS junk pattern as prior uploads (excluded during extraction). Recommend `2025/11` next — smaller in total files (19) than `2025/01` (23), but higher-value: 5 Priority A + 13 Priority B vs. `2025/01`'s 2 A + 6 B, so it fixes more currently-broken live images. |
 
 ## Note on `/movement-resources/12-practice-church-circle/`
 
@@ -267,9 +269,11 @@ every table above on purpose; they need no local preservation.
 - Priority C: 68 files
 - Priority D: 0 files
 - **Total distinct files tracked: 171**
-- **Present so far: 100 of 171 tracked rows** (all 47 `2023/04` rows —
+- **Present so far: 104 of 171 tracked rows** (all 47 `2023/04` rows —
   4 A, 35 B, 8 C — plus all 39 `2023/05` rows — 10 A, 9 B, 20 C — plus
   all 3 `2023/06` rows — 1 A, 2 B — plus all 6 `2023/07` rows — 1 A,
-  5 B — plus all 5 `2023/08` rows — 5 B. The `2023/02` upload landed on
-  disk but didn't match this doc's one tracked row for that folder —
-  see "Received uploads log" above)
+  5 B — plus all 5 `2023/08` rows — 5 B — plus 4 of 5 `2023/09` rows —
+  1 A, 3 C. The `2023/02` upload landed on disk but didn't match this
+  doc's one tracked row for that folder, and 1 `2023/09` row
+  (`Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.png`) is also
+  genuinely still missing — see "Received uploads log" above)
