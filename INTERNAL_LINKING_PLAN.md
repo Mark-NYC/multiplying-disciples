@@ -144,6 +144,24 @@ the-clear-pathway-of-jesus adds to **Four Fields**, and
 5-insightful-keys-into-the-biblical-jesus adds to **Jesus and the
 Twelve**. See `PHASE_7B_TIER_3_BATCH_2.md` for the full batch plan.
 
+As of Phase 7B Batch 3, 7 more pages are migrated: `/start-here/` (no
+hub assignment, same reasoning as `/starter-tools/` — a near-duplicate
+resource grid with unrelated podcast-theme demo content dropped as
+chrome, migrated into the existing `articles` collection +
+`ArticleLayout`) and `/vision/` (no hub assignment — the site's
+foundational "No Place Left" vision statement, deliberately kept
+outside any single hub so it doesn't narrow or collide with a hub's
+own topic framing), plus 5 articles:
+the-hidden-power-of-bonhoeffers-discipleship-model adds to **Disciple
+Making**; breaking-the-mold-a-guide-to-shifting-your-church-to-movement-strategy
+and the-multiplier-mandate-revealed-from-genesis-to-revelation both add
+to **Church Planting Movements** (now 12 slots); and
+bible-passages-about-love-what-scripture-really-says and
+how-to-spot-a-lone-wolf-and-not-become-one get no hub assignment
+(a scripture roundup and a team/community-dynamics article,
+respectively — neither is a clean fit for any single existing hub).
+See `PHASE_7B_TIER_3_BATCH_3.md` for the full batch plan.
+
 Tool entries themselves (`src/content/tools/`) are not yet created —
 `ToolCTA` renders "(coming soon)" for tool names with no matching entry.
 Creating real tool pages (3 Circles, Stories of Hope, etc.) is future
@@ -154,7 +172,8 @@ work, not part of the Phase 1 batch.
 Built in Phase 7A (`src/pages/blog/index.astro`) as a new site-wide
 directory, not a per-hub mechanism: it dynamically lists every
 migrated article (33 at launch, 40 after Phase 7B Batch 1, 47 after
-Phase 7B Batch 2, growing automatically as more are migrated — sorted
+Phase 7B Batch 2, 54 after Phase 7B Batch 3, growing automatically as
+more are migrated — sorted
 by tier, then by best-available date) and links out to all 11
 hubs for topic browsing. It's linked from header and footer nav on
 every page (`src/data/navigation.ts`), giving every migrated article a

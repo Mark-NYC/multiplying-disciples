@@ -81,6 +81,38 @@ missing media — all referenced files (including 3 inline images on
 royal-priest-strategy and the featured image on missionary-verses)
 confirmed present.
 
+**Phase 7B Batch 3 gap — deferred, not blocking:** migrating the
+third Tier 3 batch surfaced 12 more genuinely missing files across 5
+of the 7 pages. 4 are featured/`og_image`-only (omitted, same pattern
+as every prior phase): `2023/04/pexels-photo-976866.jpeg`
+(breaking-the-mold), `2024/08/unsplash-image-Hzi7U2SZ2GE.jpg`
+(the-multiplier-mandate — the entire `2024/08` month folder was never
+supplied), `2023/06/pexels-photo-6146961.jpeg` (vision), and
+`2023/08/lonewolf-big-2018-May17-1.jpg` (how-to-spot-a-lone-wolf — the
+`2023/08` folder exists but doesn't contain this filename). `/vision/`
+is also missing its decorative hero image
+(`2020/12/2827019a-b6c6-4e5d-83b2-93290955c933-e1693686473697.png` —
+the `2020/12` folder only contains one unrelated screenshot), dropped
+with the surrounding text kept intact (purely decorative banner, not a
+diagram). `/start-here/` is missing 1 of 8 grid-image size variants
+(`2023/02/Untitled-design-34-1024x1024.png` for the Church Circle
+card) — substituted with the already-present `-300x300` variant of the
+same image, the same substitution `starter-tools.md` made for its
+identical Church Waffle card. 2 are inline supporting images on
+`/how-to-spot-a-lone-wolf-and-not-become-one/`, dropped from the body
+with their captions kept as plain text: `2023/08/maxresdefault-2.jpg`
+and `2023/08/ChristianAlley-1.jpg`. None are above-the-fold hero-only
+necessities or direct-access PDFs, so none of this blocks the batch —
+see `PHASE_7B_TIER_3_BATCH_3.md` for the full breakdown.
+`/the-hidden-power-of-bonhoeffers-discipleship-model-and-why-its-more-relevant-than-ever/`
+and `/bible-passages-about-love-what-scripture-really-says/` have zero
+missing media — all referenced files (including the inline infographic
+on bible-passages-about-love) confirmed present. `/start-here/`'s
+demo-content junk section (fake testimonials, Vimeo icon, Patreon
+button) referenced 4 more `2020/12` images that were dropped along
+with that section itself — not real site content, so not tracked here
+as a media gap.
+
 **Received-uploads log:**
 
 - 2026-07-06 — `2023/02` month folder (559 files) supplied and extracted

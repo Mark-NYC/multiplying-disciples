@@ -343,3 +343,12 @@ every table above on purpose; they need no local preservation.
   4 inline supporting images on one page), all deferred and
   non-blocking, none above-the-fold or a direct PDF. No new PDF or
   tier-1/tier-2-scope files referenced by this batch.
+- **Phase 7B Batch 3:** same tier-3 scope note as Batch 1 above —
+  tracked in `MEDIA_ACQUISITION_CHECKLIST.md`, updated with this
+  batch's findings: 12 newly missing files (4 featured/og_image-only,
+  1 decorative hero image, 1 grid-image size variant substituted with
+  an already-present variant instead, 2 inline supporting images on
+  one page, plus 4 more images referenced only by a junk demo-content
+  section on `/start-here/` that was dropped entirely as chrome), all
+  deferred and non-blocking, none above-the-fold or a direct PDF. No
+  new PDF or tier-1/tier-2-scope files referenced by this batch.

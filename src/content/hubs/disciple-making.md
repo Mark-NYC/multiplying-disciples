@@ -17,6 +17,7 @@ key_articles:
   - "/breakthrough-guide-for-a-modern-day-disciple/"
   - "/love-and-obedience-exploring-the-biblical-relationship-between-the-two/"
   - "/unlock-biblical-principles-for-multiplying-disciples/"
+  - "/the-hidden-power-of-bonhoeffers-discipleship-model-and-why-its-more-relevant-than-ever/"
 related_tools:
   - "3 Circles"
   - "Stories of Hope"

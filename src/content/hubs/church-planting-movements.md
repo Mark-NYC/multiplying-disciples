@@ -18,6 +18,8 @@ key_articles:
   - "/4-stages-of-movement-unlock-your-next-steps/"
   - "/royal-priest-strategy-explodes-disciple-making-movement-worldwide/"
   - "/7-surprising-disciple-making-movement-examples/"
+  - "/breaking-the-mold-a-guide-to-shifting-your-church-to-movement-strategy/"
+  - "/the-multiplier-mandate-revealed-from-genesis-to-revelation/"
 related_tools: []
 next_step:
   label: "See the 4 stages of movement"

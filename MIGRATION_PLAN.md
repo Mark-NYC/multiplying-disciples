@@ -419,6 +419,67 @@ inside `/starter-tools/`'s content), no guessed slugs, and `/blog/`
 now lists all 47 migrated articles (was 40). No redirects implemented.
 34 tier-3 URLs remain.
 
+### Phase 7B Batch 3 — Third Tier 3 batch (done)
+
+Migrated the third 7 Tier 3 pages, per `PHASE_7B_TIER_3_BATCH_3.md`.
+Two pages received special inspection per this batch's instructions:
+
+- `/start-here/` — a near-duplicate of `/starter-tools/`'s resource
+  grid (same 8 cards, same 2023/02 images, all "VIEW" links dead
+  `href=""` in the raw export), with an unrelated podcast-theme
+  demo/placeholder second half (Lorem-ipsum "About us" text, fake team
+  testimonials, a Patreon donate button pointing at an unrelated
+  domain) dropped entirely as chrome, not preserved as content. Cards
+  repointed to the same confirmed real destinations already used for
+  the identical cards on `/starter-tools/`. Migrated into the existing
+  `articles` collection + `ArticleLayout`, same precedent as
+  `/starter-tools/` and `/stickers/`, kept as its own file at its own
+  URL (not merged).
+- `/vision/` — genuine, clean prose: the ministry's "No Place Left"
+  vision statement. Migrated into the same collection with no new
+  layout needed. Deliberately given no hub assignment, since it is the
+  site's foundational theology rather than one hub's specific topic;
+  checked every hub's `intro` directly and confirmed no collision.
+
+Plus 5 articles: `/the-hidden-power-of-bonhoeffers-discipleship-model-and-why-its-more-relevant-than-ever/`
+(added to **Disciple Making**),
+`/breaking-the-mold-a-guide-to-shifting-your-church-to-movement-strategy/`
+and `/the-multiplier-mandate-revealed-from-genesis-to-revelation/`
+(both added to **Church Planting Movements**, now 12 slots), and
+`/bible-passages-about-love-what-scripture-really-says/` and
+`/how-to-spot-a-lone-wolf-and-not-become-one/` (no hub assignment — a
+scripture roundup and a team/community-dynamics article, neither a
+clean single-hub fit).
+
+Same cleanup discipline as every prior phase: dropped `/start-here/`'s
+demo-content section as described above; removed 2 duplicate
+pull-quote headings that repeated adjacent paragraph text verbatim,
+the reusable "Are you in? / Start Here. / Get Started" promotional CTA
+block, 1 junk embedded `<html><head><title>...FAQs</title>...</html>`
+placeholder shell, and several stray Elementor `<style>` blocks.
+Converted an embedded Forminator training-signup form into a plain CTA
+linking to `/free-training/`, converted an Apple Podcasts embed and a
+bare pasted YouTube URL into plain links, unwrapped one
+Google-redirect-tracker-wrapped citation link to its real Wikipedia
+destination, removed one embedded HTML/CSS/JS "share this" button
+block (decorative, no fancy JS per policy), converted several raw-HTML
+`<table>`/`wp:table` blocks to Markdown tables, and removed 2 more
+trailing reusable-block shortcodes (`ref:12760`, `ref:11750` — the
+same recurring CTA/subscribe blocks removed in every prior batch).
+
+12 media files across 5 of these pages are missing from supplied
+uploads (4 featured/`og_image`-only, 1 decorative hero image on
+`/vision/`, 1 grid-image size variant on `/start-here/` substituted
+with an already-present variant of the same image, 2 inline supporting
+images on `/how-to-spot-a-lone-wolf-and-not-become-one/`) — all
+deferred, non-blocking, none above-the-fold or a direct PDF; see
+`PHASE_7B_TIER_3_BATCH_3.md` and `MEDIA_ACQUISITION_CHECKLIST.md` for
+the full breakdown. `astro check`/`astro build` clean, 67 pages (was
+60). Verified in `dist/`: all 7 canonicals correct, no noindex, exactly
+1 H1 each, no broken images introduced by this batch, no hub
+collisions, no guessed slugs, and `/blog/` now lists all 54 migrated
+articles (was 47). No redirects implemented. 27 tier-3 URLs remain.
+
 ## Repo structure
 
 ```

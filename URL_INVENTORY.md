@@ -153,6 +153,31 @@ supporting images on `unlock-biblical-principles-for-multiplying-disciples`)
 `MEDIA_ACQUISITION_CHECKLIST.md` for the full breakdown. 60 pages now
 build clean (was 53). 34 tier-3 URLs remain (41 − 7).
 
+**Phase 7B Batch 3 status:** third Tier 3 batch migrated — 7 pages,
+see `PHASE_7B_TIER_3_BATCH_3.md`. `/start-here/` (a near-duplicate of
+`/starter-tools/`'s resource grid, plus unrelated podcast-theme
+demo/placeholder content dropped as chrome — migrated into the
+existing `articles` collection + `ArticleLayout`, same precedent as
+`/starter-tools/` and `/stickers/`) and `/vision/` (the ministry's
+core "No Place Left" vision statement — genuine prose, migrated into
+the same collection, deliberately given no hub assignment so it
+doesn't collide with any hub's own topic framing) both received
+special inspection per this batch's instructions. Plus 5 articles:
+`/the-hidden-power-of-bonhoeffers-discipleship-model-and-why-its-more-relevant-than-ever/`
+(→ Disciple Making hub),
+`/bible-passages-about-love-what-scripture-really-says/` (no hub — scripture
+roundup),
+`/breaking-the-mold-a-guide-to-shifting-your-church-to-movement-strategy/`
+and `/the-multiplier-mandate-revealed-from-genesis-to-revelation/`
+(both → Church Planting Movements hub, now 12 slots), and
+`/how-to-spot-a-lone-wolf-and-not-become-one/` (no hub — team/community
+dynamics, no clean single-hub fit). 12 files across 5 of these pages
+are missing from supplied uploads (8 featured/og_images, 1 hero image,
+1 grid-image size variant substituted instead, 2 inline images) — all
+deferred, non-blocking; see `PHASE_7B_TIER_3_BATCH_3.md` and
+`MEDIA_ACQUISITION_CHECKLIST.md` for the full breakdown. 67 pages now
+build clean (was 60). 27 tier-3 URLs remain (34 − 7).
+
 ## Full inventory — all 122 published posts/pages
 
 Sorted by impressions (real GSC data where available).
@@ -207,13 +232,13 @@ Sorted by impressions (real GSC data where available).
 | `/missionary-verses-in-the-bible-reveal-gods-heart/` | article | migrated | 0 | 48 | tier-3 |
 | `/the-clear-pathway-of-jesus-a-biblical-model-for-disciple-making/` | article | migrated | 0 | 46 | tier-3 |
 | `/7-surprising-disciple-making-movement-examples/` | article | migrated | 1 | 43 | tier-3 |
-| `/the-hidden-power-of-bonhoeffers-discipleship-model-and-why-its-more-relevant-than-ever/` | article | not-migrated | 0 | 42 | tier-3 |
-| `/bible-passages-about-love-what-scripture-really-says/` | article | not-migrated | 0 | 41 | tier-3 |
-| `/breaking-the-mold-a-guide-to-shifting-your-church-to-movement-strategy/` | article | not-migrated | 0 | 33 | tier-3 |
-| `/the-multiplier-mandate-revealed-from-genesis-to-revelation/` | article | not-migrated | 0 | 33 | tier-3 |
-| `/start-here/` | page | not-migrated | 0 | 32 | tier-3 |
-| `/vision/` | page | not-migrated | 1 | 30 | tier-3 |
-| `/how-to-spot-a-lone-wolf-and-not-become-one/` | article | not-migrated | 0 | 30 | tier-3 |
+| `/the-hidden-power-of-bonhoeffers-discipleship-model-and-why-its-more-relevant-than-ever/` | article | migrated | 0 | 42 | tier-3 |
+| `/bible-passages-about-love-what-scripture-really-says/` | article | migrated | 0 | 41 | tier-3 |
+| `/breaking-the-mold-a-guide-to-shifting-your-church-to-movement-strategy/` | article | migrated | 0 | 33 | tier-3 |
+| `/the-multiplier-mandate-revealed-from-genesis-to-revelation/` | article | migrated | 0 | 33 | tier-3 |
+| `/start-here/` | page | migrated | 0 | 32 | tier-3 |
+| `/vision/` | page | migrated | 1 | 30 | tier-3 |
+| `/how-to-spot-a-lone-wolf-and-not-become-one/` | article | migrated | 0 | 30 | tier-3 |
 | `/jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark/` | article | not-migrated | 0 | 29 | tier-3 |
 | `/beliefs-values/` | page | not-migrated | 0 | 26 | tier-3 |
 | `/privacy-policy/` | page | not-migrated | 0 | 25 | tier-3 |

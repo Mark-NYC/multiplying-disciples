@@ -47,7 +47,7 @@ until every item below is checked and a human has signed off.
 - [x] `/blog/` built as a real Astro index page (Phase 7A —
       `src/pages/blog/index.astro`). Dynamically lists every migrated
       article (40 as of Phase 7B Batch 1, 47 as of Phase 7B Batch 2,
-      was 33), links all 11 hubs,
+      54 as of Phase 7B Batch 3, was 33), links all 11 hubs,
       correct canonical/title/description, no noindex, sitemap
       includes it. Nav's `/blog/` links now resolve.
 - [x] `/movement-resources/` migrated normally as real Tier 3 content
@@ -69,6 +69,24 @@ until every item below is checked and a human has signed off.
 - Do not delete or replace the WordPress site.
 - Do not rewrite the whole site.
 - Do not change existing URL paths.
+
+## Status snapshot (Phase 7B Batch 3)
+
+Third Tier 3 batch migrated — 7 pages, see
+`PHASE_7B_TIER_3_BATCH_3.md`. `/start-here/` and `/vision/` both
+received the special inspection this batch called for: `/start-here/`
+turned out to be a near-duplicate of `/starter-tools/`'s resource grid
+plus unrelated podcast-theme demo content (dropped as chrome),
+migrated into the existing `articles` collection + `ArticleLayout`
+(same precedent as `/starter-tools/`/`/stickers/`); `/vision/` is the
+site's genuine "No Place Left" vision statement, migrated into the
+same collection with deliberately no hub assignment so it doesn't
+collide with any hub's own framing. 3 hubs each gained a new
+`key_articles` entry (Church Planting Movements now 12 slots). 67
+pages now build clean (was 60). 27 tier-3 URLs remain of the original
+48. 12 more media files found missing (all deferred, non-blocking —
+see `MEDIA_ACQUISITION_CHECKLIST.md`). No slug issues or hub collisions
+found. Still no redirects implemented, nothing launched.
 
 ## Status snapshot (Phase 7B Batch 2)
 
