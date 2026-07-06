@@ -162,11 +162,32 @@ upload, not a naming mismatch this time. No Priority B files exist in
 effect on any currently-live page either way. `astro build` was re-run
 clean (23 pages, no new errors).
 
-**Next recommended month folder: `2025/11`** — not the largest
-remaining folder by file count (`2025/01` has 23 vs. `2025/11`'s 19),
-but the higher-value pick: 5 Priority A + 13 Priority B vs. `2025/01`'s
-2 Priority A + 6 Priority B, so it fixes more currently-broken images on
-already-live pages.
+## Received (2026-07-06, ninth upload): eighth media month folder
+
+The `2025/11` month folder was supplied as a zip
+(`55c17dd9-wpcontent.zip`), with the same macOS junk pattern excluded
+during extraction. 136 real files were moved into
+`public/wp-content/uploads/2025/11/` — exact original filenames, no
+re-encoding, no flattening. The zip itself was not committed.
+
+**All 19 tracked files in this folder matched exactly** (5 Priority A,
+13 Priority B, 1 Priority C) — every row flipped to "Yes" in
+`MEDIA_IMPORT_PLAN.md`, and the 18 also tracked in
+`MEDIA_ACQUISITION_CHECKLIST.md` flipped there too. `astro build` was
+re-run clean (23 pages, no new errors), and the `dist/` output was
+spot-checked across all 5 affected live pages — every referenced image
+path resolves to a file that now exists on disk. **This fixes real
+broken images on 5 already-live pages**: 7-stories-of-hope,
+bible-verse-about-spreading-the-gospel, testimony-in-the-bible,
+how-to-evangelize, and 15-second-testimony. The remaining 2 tracked rows
+are for `/the-power-of-sharing-your-testimony-scripture-...`, a tier-2
+page not yet migrated. The other 117 files that landed are untracked
+size variants and unrelated media in the same month, preserved at their
+exact original paths.
+
+**Next recommended month folder: `2025/01`** — now the clear
+highest-value remaining folder, with 23 tracked files (2 Priority A, 6
+Priority B, 15 Priority C).
 
 ## Still needed: media binary files (this is the one blocking thing)
 
