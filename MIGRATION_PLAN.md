@@ -175,8 +175,38 @@ this batch depends on were already present. `astro check` and `astro
 build` both clean; all 7 URLs verified in `dist/` with correct
 canonicals, no noindex, no broken internal links, no hub collisions,
 and confirmed the deferred file appears nowhere in the rendered output.
-This completes 21 of the 22 real tier-2 URLs — only `/stickers/`
-remains, held for Batch 4 pending a layout/media decision.
+This completed 21 of the 22 real tier-2 URLs — only `/stickers/`
+remained, held for Batch 4 pending a layout/media decision.
+
+**Batch 4 (done):** migrated the final tier-2 page, `/stickers/` — a
+Sticker Mule product showcase (6 movement-themed stickers with
+external purchase links), not an editorial article. Investigated
+before migrating per the batch's explicit checklist: confirmed the
+slug against the WordPress export (post_id 9927, empty categories, no
+natural hub fit) and reviewed the full original content directly from
+the export XML. Decided against a new content type or layout — the
+live content is plain prose, images, and external links, which the
+existing `articles` collection and `ArticleLayout` already render
+fine, consistent with "do not create a new content type unless
+genuinely needed." No hub assignment, matching its prior
+classification. Resolved the batch's "3 missing images" flag
+(`2-1024x1024.jpg`, `3-Circles-Sticker-Multiplying-Disciples.webp`,
+`3.jpg`): inspecting the WordPress export's block nesting directly
+showed all 3 appear only inside a GenerateBlocks container with
+`hideOnDesktop`, `hideOnTablet`, and `hideOnMobile` all set `true`
+simultaneously — hidden on every breakpoint, i.e. dead chrome never
+rendered to any visitor on the live site — so they were not needed and
+are not part of the migrated page. That same dead container held a
+second, near-duplicate "Movement Stickers at Cost" section with stale
+copy (referencing "Printify" instead of Sticker Mule) and a bulk-
+pricing list; removed entirely as chrome, since it was never visible
+in the first place. The 6 real, visible sticker images were already
+present under `public/wp-content/uploads/2025/10/` and `2025/12/` — no
+new uploads needed. `astro check` and `astro build` both clean; the
+`/stickers/` URL verified in `dist/` with correct canonical, no
+noindex, no broken internal/external links, no broken images, no hub
+collision, no guessed slugs. **This completes all 22 of 22 real
+tier-2 URLs — Tier 2 is now 100% migrated.**
 
 ## Repo structure
 

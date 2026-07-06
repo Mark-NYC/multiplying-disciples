@@ -303,8 +303,16 @@ every table above on purpose; they need no local preservation.
   `2023/02` file is marked "Won't fix" (not counted as a gap). **Only 5
   of the original 171 tracked files remain missing, all in `2025/02`**:
   2 Priority B files still needed by `apostles-meaning` (causing 2 real
-  broken images on that live page right now) and 3 Priority C files for
-  the not-yet-migrated `/stickers/` page. **Deferred by explicit
-  decision (2026-07-06)** — will be examined and resolved later once
-  the site is live, not chased further in this phase — see "Received
-  uploads log" above)
+  broken images on that live page right now) and 3 Priority C files
+  tagged to `/stickers/` (`2-1024x1024.jpg`,
+  `3-Circles-Sticker-Multiplying-Disciples.webp`, `3.jpg`). The
+  `apostles-meaning` gap is **deferred by explicit decision
+  (2026-07-06)** — will be examined and resolved later once the site
+  is live, not chased further in this phase. The `/stickers/` gap is
+  **resolved, not deferred**: Phase 4 Batch 4 migrated `/stickers/` and
+  confirmed these 3 files only ever appeared inside a GenerateBlocks
+  container hidden on every breakpoint in the WordPress export
+  (`hideOnDesktop`+`hideOnTablet`+`hideOnMobile` all `true`) — dead
+  chrome never rendered on the live site, dropped during migration, not
+  needed. See "Received uploads log" above and
+  `PHASE_4_TIER_2_BATCH_PLAN.md` row 7.

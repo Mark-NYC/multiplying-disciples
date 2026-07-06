@@ -5,25 +5,29 @@ a planned 301 documented here before launch. This file is the single
 source of truth for redirects — do not launch with an entry still marked
 `pending`.
 
-## Status as of Phase 4 Batch 3
+## Status as of Phase 4 Batch 4
 
 **No redirects are currently planned.** Nothing has been renamed, merged,
 or removed — including through Phase 3, which migrated 7 more tier-1
 pages (all at their exact original real URLs, several of which differed
 from what the migration brief originally guessed — see the corrections
 table in `PROTECTED_URLS.md`; those were caught and fixed *before*
-publishing, not via redirect), and through Phase 4 Batches 1, 2, and 3,
-which migrated 21 tier-2 pages total (see
-`PHASE_4_TIER_2_BATCH_PLAN.md`), again all at their exact original real
-URLs with no slug changes, no merges, and no collisions with existing
-hub or protected URLs. This includes the 2 pages that shared a
-deferred "Won't fix" media file and the 1 page with a featured-image
-filename mismatch migrated in Batch 3 — none of those required a
-redirect or slug change, only documented media-handling decisions (see
-`MEDIA_ACQUISITION_CHECKLIST.md`). All URLs in `URL_INVENTORY.md` are
-being preserved at their exact original path. This file exists as the
-mechanism for the *future* case where a path genuinely cannot be
-preserved (see rule 8 in the brief's SEO rules).
+publishing, not via redirect), and through Phase 4 Batches 1-4, which
+migrated all 22 tier-2 pages (see `PHASE_4_TIER_2_BATCH_PLAN.md`),
+again all at their exact original real URLs with no slug changes, no
+merges, and no collisions with existing hub or protected URLs. This
+includes the 2 pages that shared a deferred "Won't fix" media file and
+the 1 page with a featured-image filename mismatch migrated in Batch
+3, and the Batch 4 page (`/stickers/`) which despite a nonstandard
+product-page layout decision and a resolved missing-media flag, was
+still preserved at its exact original URL with no redirect needed —
+none of these required a redirect or slug change, only documented
+layout/media-handling decisions (see `MEDIA_ACQUISITION_CHECKLIST.md`
+and `MIGRATION_PLAN.md`). All URLs in `URL_INVENTORY.md` are being
+preserved at their exact original path. Tier 2 is now 100% migrated
+(22 of 22). This file exists as the mechanism for the *future* case
+where a path genuinely cannot be preserved (see rule 8 in the brief's
+SEO rules).
 
 ## Format for future entries
 

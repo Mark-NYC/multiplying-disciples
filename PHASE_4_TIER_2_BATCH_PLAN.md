@@ -30,7 +30,7 @@ Sorted by impressions, descending.
 | 4 | `/how-to-get-started-in-four-fields-training/` | 5 | 495 | migrated | four-fields | 3 files, all present (`4-Fields-1-e1685451774487.jpg`, `4-Fields-e1685451695430.jpg`, `Screenshot-2023-05-06-at-10.05.09-AM.jpg`) | **Low** | Pairs with #3 to fully complete the Four Fields hub (both its key-article slots). |
 | 5 | `/disciple-making-movement-books-top-25-must-reads/` | 3 | 415 | migrated | disciple-making | 2 files, both present (`Includes-3-Circles-Video-1-1024x576.jpg`, `books.jpeg`) | **Medium** | Large content (~142 KB) — a 25-book annotated list with external retailer links to verify/preserve, not rewrite. |
 | 6 | `/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/` | 2 | 403 | migrated | prayer | 1 file, present (`pexels-photo-2258251.jpeg`, featured image only, not inline in body) | **Low** | Clean Gutenberg-block content, no inline images to place. |
-| 7 | `/stickers/` | 7 | 359 | not-migrated | **none** | 11 files present + 3 missing (`2-1024x1024.jpg`, `3-Circles-Sticker-Multiplying-Disciples.webp`, `3.jpg` — deferred per 2026-07-06 decision) | **High** | No `key_articles` slot in any hub — this is a WooCommerce-adjacent product/sticker showcase page, not an article. Needs its own layout decision (does it belong in `articles`, or does it need a new pattern?) before migrating. Also currently missing its own featured/thumbnail image match. Held to its own batch (Batch 4) rather than mixed with article content. |
+| 7 | `/stickers/` | 7 | 359 | migrated | **none** | 6 sticker images present (2025/10 + 2025/12); 3 originally-flagged files (`2-1024x1024.jpg`, `3-Circles-Sticker-Multiplying-Disciples.webp`, `3.jpg`) confirmed genuinely absent at full size under both `2023/04/` and `2025/02/` — moot, since all 3 only appeared inside a GenerateBlocks container with `hideOnDesktop`+`hideOnTablet`+`hideOnMobile` all `true`, i.e. dead chrome never rendered on the live site | **Resolved** | Migrated into the existing `articles` collection (no new content type needed — the live content is plain prose + images + external Sticker Mule links, which the existing schema/`ArticleLayout` already render fine). No hub assignment (empty WP categories, no clean topical fit, consistent with this row's original flag). See `MIGRATION_PLAN.md` Batch 4 notes and the migration notes in `src/content/articles/stickers.md` for full detail. |
 | 8 | `/seven-words-of-jesus-on-the-cross/` | 1 | 339 | migrated | jesus-and-the-twelve | 1 file, present (`pexels-photo-977659.jpeg`, featured image only) | **Low** | Fills the one remaining "coming soon" slot in the Jesus and the Twelve hub (alongside 3 already-migrated tier-1 pages). |
 | 9 | `/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/` | 8 | 335 | migrated | prayer | 1 file, present (`eliott-reyna-jCEpN62oWL4-unsplash.jpg`) | **Low** | Content is sizable (~40 KB) but media is simple (single hero image, also the featured image). |
 | 10 | `/breakthrough-guide-for-a-modern-day-disciple/` | 0 | 228 | migrated | disciple-making (likely — content not yet reviewed in detail) | 1 file **missing** (`nonresident-JTW6AUbCLC4-unsplash-3-1.jpg` — this is the page's own featured image, and is the file marked "Won't fix" on 2026-07-06) | **Medium** | This page's only tracked image is the deferred won't-fix file, meaning it would launch with a genuinely missing hero/featured image unless a substitute is found or the image reference is dropped. Hold until that's resolved or a decision is made to migrate without a featured image. |
@@ -98,19 +98,31 @@ slots — the other 3, `5-examples`, `under-the-hood`, and
 `equipping-your-church`/`breaking-down-barriers`, are tier-3, out of
 this phase's scope) and Disciple Making's remaining slots (6/6).
 
-### Batch 4 (separate, needs a decision first) — 1 page
+### Batch 4 (done) — 1 page
 
-22. `/stickers/` — before migrating, decide: (a) does this need a new
-    content-collection type or layout (it reads as a product page, not
-    an article), (b) is a hub assignment appropriate or should it stay
-    hub-less, (c) how to handle its 3 still-missing sticker images. Not
-    blocking Batches 1–3.
+22. `/stickers/` — migrated into the `articles` collection, no new
+    content type. Investigation found the page's 6 real sticker
+    images (3 Circles, 3 Circles Black, 15 Second Testimony, Prayer
+    Wheel, 4 Fields, Church Waffle) all already present under
+    `public/wp-content/uploads/2025/10/` and `2025/12/`. The 3
+    originally-flagged missing files only ever appeared inside a
+    GenerateBlocks container hidden on every breakpoint
+    (`hideOnDesktop`+`hideOnTablet`+`hideOnMobile` all `true`) — dead
+    chrome, never rendered live, dropped entirely along with the rest
+    of that duplicate "Movement Stickers at Cost" section (which also
+    had stale "Printify" copy inconsistent with the live "How it
+    Works" text). No hub assignment (empty WP categories, no clean
+    topical fit). 6 Gutenberg "BUY NOW" buttons converted to plain
+    Markdown links to their unchanged Sticker Mule item URLs. See
+    `src/content/articles/stickers.md` migration notes for full detail.
+
+This completes Tier 2 — 22 of 22 URLs migrated, 0 remaining.
 
 ## What this plan does not do yet
 
-- Does not migrate anything — that's Step 2 of this phase, Batch 1
-  only.
-- Does not resolve the `/stickers/` page-type question.
-- Does not re-request the 2 remaining `apostles-meaning` media files or
-  the 3 `/stickers/` files — those stay deferred per the 2026-07-06
-  decision in `imports/README.md`.
+- Tier 2 is fully migrated (Batches 1-4, 22/22 URLs) — nothing left to
+  do under this plan.
+- Does not re-request the 2 remaining `apostles-meaning` media files —
+  those stay deferred per the 2026-07-06 decision in
+  `imports/README.md`. The `/stickers/` media question is now resolved
+  (see Batch 4 above), not deferred.

@@ -5,7 +5,7 @@ Tier 1 page (the 7 in `PHASE_3_TIER_1_BATCH.md`), cross-referenced
 against Search Console impressions. Source: WordPress export XML +
 Google Search Console Pages CSV (supplied 2026-07-06).
 
-**Binary status: 98 of 103 files have now been supplied.** These are
+**Binary status: 104 of 109 files have now been supplied.** These are
 every row that lives in `2023/04`, `2023/05`, `2023/06`, `2023/07`,
 `2023/08`, `2023/09`, `2025/11`, or `2025/01`, plus 3 of the 5
 `2025/02` rows, all received in full. All other rows below still read
@@ -108,6 +108,19 @@ chased further in this phase.
   `-100x100` thumbnail crops for `5520c44066fbc694ac1c2e207151fe125162f59d.jpeg`
   and `760px-Ghirlandaio_Domenico_-_Calling_of_the_Apostles_-_1481.jpg`.
   **`apostles-meaning` now has 2 broken images (down from 5).**
+- 2026-07-06 — Phase 4 Batch 4 migrated `/stickers/`, adding 6 files to
+  this checklist (all already present from earlier `2025/10`/`2025/12`
+  uploads, now marked "Yes" above). The page's originally-flagged 3
+  missing files (`2-1024x1024.jpg`, `3-Circles-Sticker-Multiplying-
+  Disciples.webp`, `3.jpg`, tracked in `MEDIA_IMPORT_PLAN.md`'s
+  Priority C list) are confirmed **not needed** — they only appeared
+  inside a GenerateBlocks container hidden on every breakpoint
+  (`hideOnDesktop`+`hideOnTablet`+`hideOnMobile` all `true`) in the
+  WordPress export, i.e. dead chrome never rendered on the live site,
+  and were dropped along with the rest of that section during
+  migration. Not added to this checklist since they're not used by the
+  migrated page. **This closes out the last open media question from
+  Phase 4.**
 
 ## Rule
 
@@ -118,7 +131,7 @@ planned and documented in `REDIRECTS.md`. No 301s are planned for any
 media file below — every one is expected to be preserved at its exact
 original path.
 
-## Full list — 103 distinct files
+## Full list — 109 distinct files
 
 Sorted by Search Console impressions (real data), then by page.
 
@@ -253,6 +266,12 @@ no new uploads were needed for this batch.
 | `/wp-content/uploads/2023/05/4-Fields-1-e1685451774487.jpg` | `public/wp-content/uploads/2023/05/4-Fields-1-e1685451774487.jpg` | Yes | `/how-to-get-started-in-four-fields-training/` (tier-2, migrated) | 495 |
 | `/wp-content/uploads/2023/05/Screenshot-2023-05-06-at-10.05.09-AM.jpg` | `public/wp-content/uploads/2023/05/Screenshot-2023-05-06-at-10.05.09-AM.jpg` | Yes | `/how-to-get-started-in-four-fields-training/` (tier-2, migrated — featured) | 495 |
 | `/wp-content/uploads/2023/04/pexels-photo-2258251.jpeg` | `public/wp-content/uploads/2023/04/pexels-photo-2258251.jpeg` | Yes | `/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/` (tier-2, migrated — featured) | 403 |
+| `/wp-content/uploads/2025/10/3-circles-sticker-cheap-1024x792.webp` | `public/wp-content/uploads/2025/10/3-circles-sticker-cheap-1024x792.webp` | Yes | `/stickers/` (tier-2, migrated) | 359 |
+| `/wp-content/uploads/2025/10/3-circles-sticker-dark-mode-1024x788.webp` | `public/wp-content/uploads/2025/10/3-circles-sticker-dark-mode-1024x788.webp` | Yes | `/stickers/` (tier-2, migrated) | 359 |
+| `/wp-content/uploads/2025/10/4-Fields-Sticker-4-Fields-of-Kingdom-Growth-1024x1024.webp` | `public/wp-content/uploads/2025/10/4-Fields-Sticker-4-Fields-of-Kingdom-Growth-1024x1024.webp` | Yes | `/stickers/` (tier-2, migrated) | 359 |
+| `/wp-content/uploads/2025/10/church-waffle-sticker-1024x1024.webp` | `public/wp-content/uploads/2025/10/church-waffle-sticker-1024x1024.webp` | Yes | `/stickers/` (tier-2, migrated) | 359 |
+| `/wp-content/uploads/2025/12/15-Second-Testimony-Sticker-Personal-Testimony-Evangelism-Tool-1024x458.webp` | `public/wp-content/uploads/2025/12/15-Second-Testimony-Sticker-Personal-Testimony-Evangelism-Tool-1024x458.webp` | Yes | `/stickers/` (tier-2, migrated) | 359 |
+| `/wp-content/uploads/2025/12/christian-prayer-wheel-sticker-1024x1024.webp` | `public/wp-content/uploads/2025/12/christian-prayer-wheel-sticker-1024x1024.webp` | Yes | `/stickers/` (tier-2, migrated) | 359 |
 | `/wp-content/uploads/2023/05/pexels-photo-977659.jpeg` | `public/wp-content/uploads/2023/05/pexels-photo-977659.jpeg` | Yes | `/seven-words-of-jesus-on-the-cross/` (tier-2, migrated — featured) | 339 |
 | `/wp-content/uploads/2023/05/books.jpeg` | `public/wp-content/uploads/2023/05/books.jpeg` | Yes | `/disciple-making-movement-books-top-25-must-reads/` (tier-2, migrated — featured) | 415 |
 | `/wp-content/uploads/2023/05/Includes-3-Circles-Video-1-1024x576.jpg` | `public/wp-content/uploads/2023/05/Includes-3-Circles-Video-1-1024x576.jpg` | Yes | `/disciple-making-movement-books-top-25-must-reads/` (tier-2, migrated) | 415 |

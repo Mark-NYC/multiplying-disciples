@@ -44,8 +44,8 @@ any page — all migrated pages have real content, not placeholders.)
 Phase 1/2 + 7 from Phase 3 — see `PHASE_3_TIER_1_BATCH.md`). 0 tier-1
 pages remain. Tier-2 (22 URLs) and below are Phase 4+ work.
 
-**Phase 4 status:** Batches 1, 2, and 3 of Tier 2 are migrated — 21 of
-22 tier-2 URLs (see `PHASE_4_TIER_2_BATCH_PLAN.md`). Batch 1: `/5-proven-
+**Phase 4 status:** Batches 1-4 of Tier 2 are migrated — 22 of 22
+tier-2 URLs, 100% complete (see `PHASE_4_TIER_2_BATCH_PLAN.md`). Batch 1: `/5-proven-
 strategies-unlock-the-secrets-of-effective-personal-evangelism/`,
 `/understanding-biblical-discipleship-a-complete-guide-to-following-
 jesus/`, `/four-fields-of-kingdom-growth-starting-and-releasing-
@@ -68,8 +68,11 @@ commission/`, `/what-is-a-simple-church-meeting-christ-in-a-spiritual-
 family/`, `/love-and-obedience-exploring-the-biblical-relationship-
 between-the-two/`, `/disciple-making-movement-dmm-key-characteristics-
 and-definition/`, `/10-qualities-present-in-every-church-planting-
-movement-keys-to-sustainable-growth-and-multiplication/`. Only
-`/stickers/` remains (Batch 4, pending a layout/media decision).
+movement-keys-to-sustainable-growth-and-multiplication/`. Batch 4:
+`/stickers/` (the final tier-2 URL — a Sticker Mule product showcase
+page, migrated into the existing articles collection with no new
+content type; see `PHASE_4_TIER_2_BATCH_PLAN.md` for the layout
+decision and media findings). 0 tier-2 URLs remain.
 
 ## Full inventory — all 122 published posts/pages
 
@@ -93,7 +96,7 @@ Sorted by impressions (real GSC data where available).
 | `/how-to-get-started-in-four-fields-training/` | article | migrated | 5 | 495 | tier-2 |
 | `/disciple-making-movement-books-top-25-must-reads/` | article | migrated | 3 | 415 | tier-2 |
 | `/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/` | article | migrated | 2 | 403 | tier-2 |
-| `/stickers/` | page | not-migrated | 7 | 359 | tier-2 |
+| `/stickers/` | page | migrated | 7 | 359 | tier-2 |
 | `/seven-words-of-jesus-on-the-cross/` | article | migrated | 1 | 339 | tier-2 |
 | `/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/` | article | migrated | 8 | 335 | tier-2 |
 | `/movement-resources/12-practice-church-circle/` | resource | migrated | 12 | 308 | tier-1 |

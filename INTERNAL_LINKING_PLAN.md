@@ -98,9 +98,14 @@ and breaking-down-barriers remain tier-3, out of this phase). It also
 adds 2 more slots to Disciple Making (breakthrough guide, love and
 obedience — added directly to that hub's key_articles alongside this
 migration, since neither had a pre-reserved slot from earlier phases).
-Only `/stickers/` remains not-migrated among the 22 real tier-2 URLs
-(Batch 4, pending a layout/media decision — see
-`PHASE_4_TIER_2_BATCH_PLAN.md`).
+As of Phase 4 Batch 4, `/stickers/` is migrated — the last of the 22
+real tier-2 URLs. It has no hub assignment (empty WordPress
+categories, no clean topical fit), so it isn't added to any hub's
+`key_articles` table above. It links out to 5 related articles (one
+per sticker theme: 3 Circles, 15 Second Testimony, Prayer Wheel, 4
+Fields, Church Waffle) and back-links already existed from the
+Christian Prayer Wheel article's `related_articles`. Tier 2 is now
+100% migrated (22 of 22) — see `PHASE_4_TIER_2_BATCH_PLAN.md`.
 
 Tool entries themselves (`src/content/tools/`) are not yet created —
 `ToolCTA` renders "(coming soon)" for tool names with no matching entry.

@@ -12,10 +12,10 @@ pages remain not-migrated. See `PHASE_3_TIER_1_BATCH.md` for what was
 migrated in this phase and `MEDIA_ACQUISITION_CHECKLIST.md` for their
 media dependencies (still no binary files supplied).
 
-**Phase 4 status:** Batches 1, 2, and 3 of tier-2 (21 of 22 URLs) are
-now migrated. Only `/stickers/` remains, held for Batch 4 pending a
-layout/media decision. See `PHASE_4_TIER_2_BATCH_PLAN.md` for the full
-batch plan.
+**Phase 4 status:** Batches 1-4 of tier-2 are migrated — 22 of 22
+URLs, 100% complete. `/stickers/` (Batch 4) migrated into the existing
+`articles` collection with no new content type. See
+`PHASE_4_TIER_2_BATCH_PLAN.md` for the full batch plan.
 
 Tiers (per the rule in `URL_INVENTORY.md`):
 - **Tier 1** — more than 1,000 impressions or more than 10 clicks.
