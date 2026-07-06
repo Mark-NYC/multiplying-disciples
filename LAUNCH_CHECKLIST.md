@@ -47,8 +47,11 @@ until every item below is checked and a human has signed off.
 - [x] `/blog/` built as a real Astro index page (Phase 7A —
       `src/pages/blog/index.astro`). Dynamically lists every migrated
       article (40 as of Phase 7B Batch 1, 47 as of Phase 7B Batch 2,
-      54 as of Phase 7B Batch 3, 60 as of Phase 7B Batch 4 — excludes
-      `/privacy-policy/` via `exclude_from_blog`, was 33), links all
+      54 as of Phase 7B Batch 3, 60 as of Phase 7B Batch 4, 65 as of
+      Phase 7B Batch 5 — excludes `/privacy-policy/`,
+      `/kingdom-ministry-training/`, and
+      `/the-four-fields-sticker-simple-2x2/` via `exclude_from_blog`,
+      was 33), links all
       11 hubs,
       correct canonical/title/description, no noindex, sitemap
       includes it. Nav's `/blog/` links now resolve.
@@ -71,6 +74,29 @@ until every item below is checked and a human has signed off.
 - Do not delete or replace the WordPress site.
 - Do not rewrite the whole site.
 - Do not change existing URL paths.
+
+## Status snapshot (Phase 7B Batch 5)
+
+Fifth Tier 3 batch migrated — 7 pages, see
+`PHASE_7B_TIER_3_BATCH_5.md`. `/kingdom-ministry-training/` and
+`/the-four-fields-sticker-simple-2x2/` both received the special/
+page-type inspection this batch called for:
+`/kingdom-ministry-training/` is a genuine 5-module training/
+curriculum landing page, its GenerateBlocks accordion converted to
+plain H3 sections, migrated with no hub assignment and
+`exclude_from_blog: true` per explicit instruction;
+`/the-four-fields-sticker-simple-2x2/` is a single sticker-product
+page in the same family as `/stickers/`'s children, also given
+`exclude_from_blog: true` as a documented judgment-call extension of
+the Batch 4 `/privacy-policy/` reasoning. 3 hubs each gained a new
+`key_articles` entry (Church Planting Movements now 16 slots). 81
+pages now build clean (was 74). 13 tier-3 URLs remain of the original
+48. 8 more media files found missing, plus 1 resolved as present under
+a dedup `-1` suffix (all deferred, non-blocking — see
+`MEDIA_ACQUISITION_CHECKLIST.md`). Fixed a duplicate-H1 bug on
+`/kingdom-ministry-training/` before final verification. No slug
+issues or hub collisions found. Still no redirects implemented,
+nothing launched.
 
 ## Status snapshot (Phase 7B Batch 4)
 

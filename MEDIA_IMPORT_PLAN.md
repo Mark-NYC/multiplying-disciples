@@ -361,3 +361,15 @@ every table above on purpose; they need no local preservation.
   with no actual link in the export, all deferred and non-blocking,
   none above-the-fold, legal content, or a direct-access PDF. No new
   PDF or tier-1/tier-2-scope files referenced by this batch.
+- **Phase 7B Batch 5:** same tier-3 scope note as Batch 1 above —
+  tracked in `MEDIA_ACQUISITION_CHECKLIST.md`, updated with this
+  batch's findings: 8 newly missing files (5 featured/og_image-only,
+  1 inline supporting image, 1 product photo, and 1 decorative badge
+  image on `/the-four-fields-sticker-simple-2x2/` whose entire month
+  folder was never supplied), plus 1 file resolved as present under a
+  WordPress dedup `-1` suffix (not counted as missing), all deferred
+  and non-blocking, none above-the-fold or a direct-access PDF. The
+  already-tracked `Church-Waffle-English-04-2023.pdf` linked from
+  `/kingdom-ministry-training/` was already confirmed present in an
+  earlier phase — no new PDF or tier-1/tier-2-scope files referenced
+  by this batch.

@@ -544,6 +544,86 @@ and `/blog/` now lists 60 articles (54 + 6 blog-eligible —
 `/privacy-policy/` correctly excluded via `exclude_from_blog`). No
 redirects implemented. 20 tier-3 URLs remain.
 
+### Phase 7B Batch 5 — Fifth Tier 3 batch (done)
+
+Migrated the fifth 7 Tier 3 pages, per `PHASE_7B_TIER_3_BATCH_5.md`.
+Two pages received special/page-type inspection per this batch's
+instructions:
+
+- `/kingdom-ministry-training/` — a structured, multi-session
+  training/curriculum landing page (5 modules: Hearing God For Self,
+  Practicing Prophecy, Building a Community of Practice, Simple 5-Step
+  Healing Prayer Model, Power Evangelism), not blog-style prose.
+  Converted the GenerateBlocks accordion into plain H3 sections (Astro
+  has no accordion component and fancy JS/embeds are excluded, same
+  reasoning as `/movement-resources/` in Phase 6/7B Batch 1). Converted
+  5 embedded YouTube videos to plain links; kept the Google Slides,
+  Rumble, and PDF links as real external links. Migrated into the
+  existing `articles` collection + `ArticleLayout`, no hub assignment
+  (spans prophecy, healing, evangelism, and community practice — no
+  single topic fit). **Excluded from `/blog/`** via `exclude_from_blog:
+  true`, per explicit instruction — a training syllabus with
+  video/slide links doesn't read as a blog article, same reasoning as
+  `/privacy-policy/` in Batch 4.
+- `/the-four-fields-sticker-simple-2x2/` — a single sticker-product
+  page in the same family as `/stickers/`'s children (Phase 4 Batch 4
+  precedent). Migrated into `articles` + `ArticleLayout`, no hub
+  assignment, `related_articles: ["/stickers/"]`. **Excluded from
+  `/blog/`** via `exclude_from_blog: true` — a judgment-call extension
+  of the Batch 4 `/privacy-policy/` reasoning (not explicitly named by
+  the user for this page, but documented in its own frontmatter notes):
+  a bare storefront product listing is even less blog-like than
+  `/stickers/` itself. Preserved the source's mismatched Printify URL
+  slug ("3-circles-stickers-2x2" on a Four Fields sticker page)
+  verbatim rather than "fixing" it, per "do not rewrite heavily."
+
+Plus 5 articles:
+`/spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication/`,
+`/unleashing-the-movement-how-paul-catalyzed-a-disciple-making-movement-in-ephesus-lessons-for-todays-church/`,
+and `/content-vs-systems-the-game-changer-for-leadership-development/`
+all added to **Church Planting Movements** (now 16 slots);
+`/unlock-the-power-of-friendly-accountability/` and
+`/discover-the-game-changing-secrets-starfish-and-the-spirit-review/`
+both added to **Disciple Making**.
+
+Same cleanup discipline as every prior phase: removed the reusable
+"Are you in? / Start Here. / Get Started" promotional CTA block, stray
+Elementor `<style>` blocks, duplicate pull-quote headings, and 1 junk
+embedded `<html><head><title>...FAQ</title>...</html>` placeholder
+shell. Converted a Brevo/Sendinblue subscription form embed and a
+`[sibwp_form id=2]` shortcode section into plain CTAs linking to real
+pages (`/free-training/` and
+`/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/`
+respectively — same reasoning as Batch 4's Forminator-to-CTA
+conversion). Converted an Apple Podcasts embed to a plain link.
+Represented `has-base-2-background-color` highlighted callout
+paragraphs as blockquotes. Converted a raw-HTML "Key Takeaways" table
+to a Markdown table. Removed a duplicate "Perplexity Article Summary"
+block (an AI-generated full-article restatement appended after the
+Conclusion — the same duplicate-content chrome pattern seen at
+sentence scale in every prior batch, here at paragraph scale) and
+removed hyperlinks on 4 `/podcast/...` links with no confirmed tracked
+destination in `URL_INVENTORY.md` (kept their surrounding text,
+same dead-link pattern as Phase 7B Batch 2).
+
+8 media files across 5 of these pages are missing from supplied
+uploads (5 featured/`og_image`-only, 1 inline supporting image, 1
+product photo, and 1 decorative badge image whose entire month folder
+was never supplied), plus 1 file resolved as present under a WordPress
+dedup `-1` suffix (not counted as missing, same pattern as Batch 4's
+personal-evangelism-main-header) — all deferred, non-blocking, none
+above-the-fold, a training download, or a direct-access PDF; see
+`PHASE_7B_TIER_3_BATCH_5.md` and `MEDIA_ACQUISITION_CHECKLIST.md` for
+the full breakdown. `astro check`/`astro build` clean, 81 pages (was
+74). Verified in `dist/`: all 7 canonicals correct, no noindex, exactly
+1 H1 each (fixed a duplicate-H1 bug on `/kingdom-ministry-training/`
+where the body repeated the frontmatter title as its own `#` heading),
+no broken images introduced by this batch, no hub collisions, no
+guessed slugs, and `/blog/` now lists 65 articles (60 + 5 blog-eligible
+— `/kingdom-ministry-training/` and `/the-four-fields-sticker-simple-2x2/`
+correctly excluded via `exclude_from_blog`). No redirects implemented.
+13 tier-3 URLs remain.
+
 ## Repo structure
 
 ```

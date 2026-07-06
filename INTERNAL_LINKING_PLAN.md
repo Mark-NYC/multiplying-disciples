@@ -182,6 +182,23 @@ gets no hub assignment (a general leadership-diligence principle, no
 clean fit among the existing hubs). See `PHASE_7B_TIER_3_BATCH_4.md`
 for the full batch plan.
 
+As of Phase 7B Batch 5, 7 more pages are migrated:
+`/kingdom-ministry-training/` (no hub assignment, no tool CTA — a
+5-module training/curriculum landing page, not blog prose; the second
+page after `/privacy-policy/` to use `exclude_from_blog: true`) and
+`/the-four-fields-sticker-simple-2x2/` (no hub assignment, related to
+`/stickers/` — a single sticker-product page, judged even less
+blog-like than `/stickers/` itself and also given
+`exclude_from_blog: true`), plus 5 articles:
+spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication,
+unleashing-the-movement-how-paul-catalyzed-a-disciple-making-movement-in-ephesus-lessons-for-todays-church,
+and content-vs-systems-the-game-changer-for-leadership-development all
+add to **Church Planting Movements** (now 16 slots); and
+unlock-the-power-of-friendly-accountability and
+discover-the-game-changing-secrets-starfish-and-the-spirit-review both
+add to **Disciple Making**. See `PHASE_7B_TIER_3_BATCH_5.md` for the
+full batch plan.
+
 Tool entries themselves (`src/content/tools/`) are not yet created —
 `ToolCTA` renders "(coming soon)" for tool names with no matching entry.
 Creating real tool pages (3 Circles, Stories of Hope, etc.) is future
@@ -192,8 +209,10 @@ work, not part of the Phase 1 batch.
 Built in Phase 7A (`src/pages/blog/index.astro`) as a new site-wide
 directory, not a per-hub mechanism: it dynamically lists every
 migrated article (33 at launch, 40 after Phase 7B Batch 1, 47 after
-Phase 7B Batch 2, 54 after Phase 7B Batch 3, 60 after Phase 7B Batch 4
-— excluding `/privacy-policy/` via its `exclude_from_blog` flag,
+Phase 7B Batch 2, 54 after Phase 7B Batch 3, 60 after Phase 7B Batch 4,
+65 after Phase 7B Batch 5 — excluding `/privacy-policy/`,
+`/kingdom-ministry-training/`, and `/the-four-fields-sticker-simple-2x2/`
+via their `exclude_from_blog` flags,
 growing automatically as more are migrated — sorted
 by tier, then by best-available date) and links out to all 11
 hubs for topic browsing. It's linked from header and footer nav on

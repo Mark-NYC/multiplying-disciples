@@ -210,6 +210,34 @@ the full breakdown. 74 pages now build clean (was 67). `/blog/` lists
 60 articles (54 + 6 blog-eligible — `/privacy-policy/` correctly
 excluded). 20 tier-3 URLs remain (27 − 7).
 
+**Phase 7B Batch 5 status:** fifth Tier 3 batch migrated — 7 pages,
+see `PHASE_7B_TIER_3_BATCH_5.md`. Batch list re-derived directly from
+this file (not assumed from the prior batch's forward-looking note),
+confirming all 7 recommended URLs were indeed the top 7 remaining
+tier-3 rows by impressions. `/kingdom-ministry-training/` (a
+5-module training/curriculum landing page, not blog prose — migrated
+into the existing `articles` collection + `ArticleLayout`, no hub
+assignment, `exclude_from_blog: true`) and `/the-four-fields-sticker-simple-2x2/`
+(a single sticker-product page, same family as `/stickers/`'s child
+products — no hub assignment, `exclude_from_blog: true`, since a bare
+storefront listing doesn't read as blog content) both received the
+page-type inspection this batch called for. Plus 5 articles:
+`/spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication/`,
+`/unleashing-the-movement-how-paul-catalyzed-a-disciple-making-movement-in-ephesus-lessons-for-todays-church/`,
+and `/content-vs-systems-the-game-changer-for-leadership-development/`
+(all → Church Planting Movements hub, now 16 slots), and
+`/unlock-the-power-of-friendly-accountability/` and
+`/discover-the-game-changing-secrets-starfish-and-the-spirit-review/`
+(both → Disciple Making hub). 8 files across 5 of these pages are
+missing from supplied uploads (5 featured/og_images, 1 decorative
+badge image, 1 checklist infographic, 1 product photo) — all
+deferred, non-blocking; see `PHASE_7B_TIER_3_BATCH_5.md` and
+`MEDIA_ACQUISITION_CHECKLIST.md` for the full breakdown. 81 pages now
+build clean (was 74). `/blog/` lists 65 articles (60 + 5 blog-eligible
+— `/kingdom-ministry-training/` and `/the-four-fields-sticker-simple-2x2/`
+correctly excluded via `exclude_from_blog`). 13 tier-3 URLs remain
+(20 − 7).
+
 ## Full inventory — all 122 published posts/pages
 
 Sorted by impressions (real GSC data where available).
@@ -279,13 +307,13 @@ Sorted by impressions (real GSC data where available).
 | `/the-leadership-phase-everyone-skips-why-investment-matters/` | article | migrated | 2 | 21 | tier-3 |
 | `/discovering-the-disciple-meaning-a-life-changing-journey/` | article | migrated | 0 | 20 | tier-3 |
 | `/5-surprising-ways-to-attract-multiplying-leaders/` | article | migrated | 2 | 20 | tier-3 |
-| `/spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication/` | article | not-migrated | 0 | 20 | tier-3 |
-| `/kingdom-ministry-training/` | page | not-migrated | 0 | 19 | tier-3 |
-| `/unleashing-the-movement-how-paul-catalyzed-a-disciple-making-movement-in-ephesus-lessons-for-todays-church/` | article | not-migrated | 0 | 19 | tier-3 |
-| `/content-vs-systems-the-game-changer-for-leadership-development/` | article | not-migrated | 0 | 18 | tier-3 |
-| `/unlock-the-power-of-friendly-accountability/` | article | not-migrated | 0 | 17 | tier-3 |
-| `/discover-the-game-changing-secrets-starfish-and-the-spirit-review/` | article | not-migrated | 1 | 17 | tier-3 |
-| `/the-four-fields-sticker-simple-2x2/` | page | not-migrated | 3 | 14 | tier-3 |
+| `/spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication/` | article | migrated | 0 | 20 | tier-3 |
+| `/kingdom-ministry-training/` | page | migrated | 0 | 19 | tier-3 |
+| `/unleashing-the-movement-how-paul-catalyzed-a-disciple-making-movement-in-ephesus-lessons-for-todays-church/` | article | migrated | 0 | 19 | tier-3 |
+| `/content-vs-systems-the-game-changer-for-leadership-development/` | article | migrated | 0 | 18 | tier-3 |
+| `/unlock-the-power-of-friendly-accountability/` | article | migrated | 0 | 17 | tier-3 |
+| `/discover-the-game-changing-secrets-starfish-and-the-spirit-review/` | article | migrated | 1 | 17 | tier-3 |
+| `/the-four-fields-sticker-simple-2x2/` | page | migrated | 3 | 14 | tier-3 |
 | `/filtering-unlock-this-essential-for-disciple-making-movements/` | article | not-migrated | 0 | 10 | tier-3 |
 | `/the-3-core-habits-of-a-disciple/` | article | not-migrated | 0 | 10 | tier-3 |
 | `/contact-us/` | page | not-migrated | 0 | 7 | tier-3 |

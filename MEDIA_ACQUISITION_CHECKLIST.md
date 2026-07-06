@@ -145,6 +145,32 @@ has zero missing media — its featured image confirmed present
 `/the-leadership-phase-everyone-skips-why-investment-matters/`
 (beyond its missing featured image) reference no inline images at all.
 
+**Phase 7B Batch 5 gap — deferred, not blocking:** migrating the
+fifth Tier 3 batch surfaced 8 more genuinely missing files across 5
+of the 7 pages. 5 are featured/`og_image`-only (omitted, same pattern
+as every prior phase): `2023/04/group.jpeg`
+(unleashing-the-movement), `2023/05/pexels-photo-2962229.jpeg`
+(unlock-the-power-of-friendly-accountability), the Amazon book-cover
+hash filename (discover-the-game-changing-secrets-starfish-and-the-
+spirit-review — never supplied under any filename), and 2 files on
+`/the-four-fields-sticker-simple-2x2/`:
+`2023/09/Screenshot-2023-09-02-at-8.02.39-PM.png` (product photo) and
+`2024/04/Printify_Logo-1024x320.png` (decorative badge — the entire
+`2024` month folder has never been supplied). 1 is an inline
+supporting image, dropped with its caption kept as plain italic text:
+`2023/05/Friendly-Accountability-Checklist-for-Disciple-Making-Movements.png`
+(unlock-the-power-of-friendly-accountability). Separately,
+`Includes-3-Circles-Video` (also referenced on
+unlock-the-power-of-friendly-accountability) is present but under a
+dedup `-1` suffix (`2025/01/Includes-3-Circles-Video-1-1024x576.webp`)
+— same pattern as Batch 4's personal-evangelism-main-header, kept as-is,
+not counted as missing. None of the missing files block the batch —
+see `PHASE_7B_TIER_3_BATCH_5.md` for the full breakdown.
+`/spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication/`,
+`/content-vs-systems-the-game-changer-for-leadership-development/`, and
+`/kingdom-ministry-training/` reference no missing media (the latter's
+featured image and linked screenshot/PDF are all confirmed present).
+
 **Received-uploads log:**
 
 - 2026-07-06 — `2023/02` month folder (559 files) supplied and extracted

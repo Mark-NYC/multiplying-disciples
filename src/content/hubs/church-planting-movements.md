@@ -21,6 +21,9 @@ key_articles:
   - "/breaking-the-mold-a-guide-to-shifting-your-church-to-movement-strategy/"
   - "/the-multiplier-mandate-revealed-from-genesis-to-revelation/"
   - "/the-leadership-phase-everyone-skips-why-investment-matters/"
+  - "/spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication/"
+  - "/unleashing-the-movement-how-paul-catalyzed-a-disciple-making-movement-in-ephesus-lessons-for-todays-church/"
+  - "/content-vs-systems-the-game-changer-for-leadership-development/"
 related_tools: []
 next_step:
   label: "See the 4 stages of movement"

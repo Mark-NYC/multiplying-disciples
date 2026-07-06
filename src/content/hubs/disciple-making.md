@@ -19,6 +19,8 @@ key_articles:
   - "/unlock-biblical-principles-for-multiplying-disciples/"
   - "/the-hidden-power-of-bonhoeffers-discipleship-model-and-why-its-more-relevant-than-ever/"
   - "/discovering-the-disciple-meaning-a-life-changing-journey/"
+  - "/unlock-the-power-of-friendly-accountability/"
+  - "/discover-the-game-changing-secrets-starfish-and-the-spirit-review/"
 related_tools:
   - "3 Circles"
   - "Stories of Hope"
