@@ -8,67 +8,139 @@ folder, since they came through chat rather than the repo):
 - **Google Search Console Pages export (CSV)** — 179 rows, last 3 months.
   Used to compute real tiers in `URL_INVENTORY.md` / `PROTECTED_URLS.md`.
 - **Google Search Console Queries export (CSV)** — 1,000 rows of
-  query-level data. Not yet mined beyond the 15-second-testimony
-  article's target-query list; available for future keyword mapping.
+  query-level data. Not yet mined beyond a couple of articles' target-query
+  lists; available for future keyword mapping.
 - **Google Search Console Search Appearance export (CSV)** — 2 rows
   (Translated results, Product snippets). The "Product snippets" row
   (107 impressions) suggests at least one page carries Product schema,
   likely a sticker/merch page under WooCommerce.
 - **WordPress export XML** (`Tools → Export → All Content`) — 122
   published posts/pages, 1,124 media attachments (metadata/URLs only, no
-  binary files), reusable blocks, nav menus. This is what let the 5
-  Phase 1 batch pages get real content.
+  binary files), reusable blocks, nav menus. This is what let all 12
+  real tier-1 pages get real content (Phases 2–3).
 - **Sitemap index XML** — confirms the live sitemap structure
   (`post-sitemap.xml`, `page-sitemap.xml`, `category-sitemap.xml`,
   `post_tag-sitemap.xml`, `gblocks_pattern_collections-sitemap.xml`) but
-  not the individual sub-sitemaps themselves.
+  not the individual sub-sitemaps themselves. See
+  `SLUG_VERIFICATION_AUDIT.md` for why this gap turned out not to matter
+  for the slug questions it was originally meant to resolve.
 
 This closed the network-access gap described in `MIGRATION_PLAN.md` for
 everything except binary media files.
 
-## Still needed
+## Still needed: media binary files (this is the one blocking thing)
 
-### 1. Media binary files
+The WordPress export gives media *paths and metadata* only — never the
+actual image/PDF bytes. `MEDIA_IMPORT_PLAN.md` has the full breakdown:
+**171 distinct files**, split into:
 
-The WordPress export gives media *paths and metadata* (via attachment
-records) but not the actual image/PDF bytes. See
-`MEDIA_URLS_TO_PRESERVE.md` for the full list — 24 files with confirmed
-Search Console impressions, ~39 more referenced by the 5 migrated pages.
-Highest priority:
+- **Priority A (24 files)** — have real Search Console impressions
+  right now on the live site. Most valuable to get first.
+- **Priority B (79 files)** — embedded in the 12 pages already migrated
+  and live in this repo. Missing these = broken images on real,
+  published pages today.
+- **Priority C (68 files)** — will be needed by the 22 real tier-2
+  pages once those get migrated (not urgent yet, but nice to have ready).
+- **Priority D (0 files)** — nothing here yet.
 
-- `2023/04/Church-Waffle-English-04-2023.pdf` (58 clicks, 16.71% CTR)
-- `2025/01/12-Disciples-of-Jesus-in-Order-Called.webp` (featured image, #1 page)
-- `2025/01/12-Disciples-of-Jesus-in-Order-Called-with-Bible-References.webp` (266 impressions)
-- `2023/05/3-Circles-Gospel-Presentation-1.webp` (featured image)
-- `2025/11/short-christian-testimony-examples.webp` (featured image)
-- `2025/11/7-Stories-of-Hope-in-the-Bible-1.webp` (featured image)
+### How to package this for upload
 
-Drop these into `imports/media/`, preserving the `<year>/<month>/`
-subfolder structure, e.g. `imports/media/2023/04/Church-Waffle-English-04-2023.pdf`.
-From there they get moved (not re-encoded) into
-`public/wp-content/uploads/...` so the URL is preserved exactly.
+**Best option: one zip of your WordPress `wp-content/uploads/` folder,
+preserving its internal structure.** With 171 files spread across ~15
+different year/month subfolders, uploading one archive is much less
+error-prone than 171 individual file uploads, and it lets you just grab
+the whole folder from your WordPress host (via SFTP, your hosting
+control panel's file manager, or a hosting backup) without having to
+hunt down each file individually from `MEDIA_IMPORT_PLAN.md` one at a
+time.
 
-### 2. Individual sitemap sub-files (optional — the WordPress export already substitutes for this)
+- **If you can get the whole `wp-content/uploads/` directory:** zip it
+  exactly as-is (don't flatten it, don't rename folders) and upload the
+  zip. This covers Priority A/B/C/D in one shot and future-proofs Phase
+  4+ migrations too, since you won't need to repeat this exercise for
+  every future page.
+- **If a full export isn't practical** (e.g. you only have dashboard
+  access, not file/FTP access): download just the Priority A and
+  Priority B files individually from the WordPress Media Library (search
+  by filename — every filename is listed in `MEDIA_IMPORT_PLAN.md`) and
+  zip those ~103 files instead, preserving their `<year>/<month>/`
+  subfolder in the zip (create folders named e.g. `2023/04/`, put the
+  matching files inside). Priority C/D can follow later, ahead of Phase
+  4.
+- **Do not** rename files, re-encode/re-compress images, or convert
+  formats (e.g. don't convert `.png` to `.webp`) — the exact filename is
+  part of the exact URL that must be preserved.
+
+### Where to place it
+
+Drop the zip (or the extracted folder) at `imports/media-upload/` in
+this repo, e.g.:
+
+```
+imports/media-upload/wp-content-uploads.zip
+```
+
+or, if already extracted:
+
+```
+imports/media-upload/wp-content/uploads/2023/04/Church-Waffle-English-04-2023.pdf
+imports/media-upload/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called.webp
+...
+```
+
+Once it's there, the next session will:
+
+1. Extract (if zipped) and verify the folder structure matches
+   `wp-content/uploads/<year>/<month>/<filename>`.
+2. Cross-check every file present against `MEDIA_IMPORT_PLAN.md`'s
+   path list — confirm the filenames match exactly (case-sensitive,
+   since URLs are case-sensitive).
+3. Move (not copy-and-leave, not re-encode) each matched file into
+   `public/wp-content/uploads/<year>/<month>/<filename>` — the exact
+   path Astro serves at the exact original URL.
+4. Update `MEDIA_IMPORT_PLAN.md` and `MEDIA_ACQUISITION_CHECKLIST.md`,
+   flipping "Present?" from "No" to "Yes" for every file actually found,
+   and flagging anything listed but still missing.
+5. Run `astro build` and spot-check that images actually render on a
+   handful of pages (at minimum: the homepage hero image and the
+   12-disciples featured image, since that's the highest-traffic page
+   on the site).
+6. Report back exactly which of the 171 files arrived and which are
+   still missing — don't assume the whole zip matched.
+
+### What if some files genuinely don't exist anymore
+
+If a file was deleted from the WordPress media library and truly can't
+be recovered, say so explicitly rather than leaving it silently missing
+— it needs either a substitute image or a documented decision in
+`REDIRECTS.md`/`MEDIA_IMPORT_PLAN.md` that the reference will be removed
+from the page instead.
+
+## Other still-open items (not blocking)
+
+### Individual sitemap sub-files (optional)
 
 `post-sitemap.xml`, `page-sitemap.xml`, `category-sitemap.xml`,
 `post_tag-sitemap.xml` would give an independent cross-check against the
 WordPress export's 122-page list, and would include the individual
 category/tag archive URLs already documented in `URL_INVENTORY.md` from
-the GSC export instead. Not blocking — nice to have for verification.
+the GSC export instead. Not blocking — `SLUG_VERIFICATION_AUDIT.md`
+found no case where this gap actually mattered for slug correctness.
 
-### 3. Real content for the remaining ~117 published pages
+### Real content for the remaining ~110 published pages (tier-2/tier-3)
 
 The WordPress export already contains this — it just hasn't been
-processed into Astro content files yet. This is Phase 3 work
+processed into Astro content files yet. This is Phase 4+ work
 (`MIGRATION_PLAN.md`), not blocked on anything further from the user.
 
 ## What happens next
 
-1. Supply media binaries (item 1 above) → move into `public/wp-content/uploads/...`.
-2. Phase 3: process the remaining ~117 pages from the WordPress export
-   into `src/content/articles/` following the same pattern as the 5
-   Phase 1 batch pages (real content, light cleanup, no rewrite).
+1. Supply media (see packaging instructions above) → moved into
+   `public/wp-content/uploads/...` at their exact original paths.
+2. Phase 4: migrate the 22 real tier-2 pages, following the same
+   pattern as every page so far (real content, light cleanup, no
+   rewrite, no merges, no slug changes).
 3. Any URL that genuinely can't be preserved gets a documented 301 in
-   `REDIRECTS.md`.
-4. Once 100% of real URLs exist in Astro or are redirected, work through
-   `LAUNCH_CHECKLIST.md`.
+   `REDIRECTS.md` — none exist yet.
+4. Once 100% of real URLs exist in Astro or are redirected, and all
+   media is in place, work through `LAUNCH_CHECKLIST.md`.
