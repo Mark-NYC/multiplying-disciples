@@ -5,9 +5,9 @@ Tier 1 page (the 7 in `PHASE_3_TIER_1_BATCH.md`), cross-referenced
 against Search Console impressions. Source: WordPress export XML +
 Google Search Console Pages CSV (supplied 2026-07-06).
 
-**Binary status: 39 of 103 files have now been supplied.** These are
-every row that lives in `2023/04`, which has been received in full. All
-other rows below still read "No — not supplied" because this
+**Binary status: 58 of 103 files have now been supplied.** These are
+every row that lives in `2023/04` or `2023/05`, both received in full.
+All other rows below still read "No — not supplied" because this
 environment has never received their actual image/PDF bytes, only their
 paths and metadata (via WordPress attachment records and the GSC
 export). See `/imports/README.md`.
@@ -24,7 +24,12 @@ export). See `/imports/README.md`.
   tracked files that live in `2023/04` matched exactly and are now
   marked "Yes" below (the other 8 tracked `2023/04` files are Priority C
   in `MEDIA_IMPORT_PLAN.md`, out of this doc's migrated/tier-1 scope).
-  Next recommended folder: `2023/05` (see `MEDIA_IMPORT_PLAN.md`).
+- 2026-07-06 — `2023/05` month folder (39 files) supplied and extracted
+  into `public/wp-content/uploads/2023/05/`. All 19 of this checklist's
+  tracked files that live in `2023/05` matched exactly and are now
+  marked "Yes" below (the other 20 tracked `2023/05` files are Priority
+  C in `MEDIA_IMPORT_PLAN.md`, out of this doc's migrated/tier-1 scope).
+  Next recommended folder: `2025/11` (see `MEDIA_IMPORT_PLAN.md`).
 
 ## Rule
 
@@ -54,25 +59,25 @@ they're legitimate external links, consistent with this site's
 | `/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called-with-Bible-References.webp` | `public/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called-with-Bible-References.webp` | No — not supplied | `/discover-the-12-disciples-of-jesus-christ/` | 266 |
 | `/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called.webp` | `public/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called.webp` | No — not supplied | `/discover-the-12-disciples-of-jesus-christ/` (featured) | 89 |
 | `/wp-content/uploads/2023/06/Virtual-Training-Packet.pdf` | `public/wp-content/uploads/2023/06/Virtual-Training-Packet.pdf` | No — not supplied | not on a migrated/tier-1 page yet | 41 |
-| `/wp-content/uploads/2023/05/Church-Waffle-English-112222-1.pdf` | `public/wp-content/uploads/2023/05/Church-Waffle-English-112222-1.pdf` | No — not supplied | not on a migrated/tier-1 page yet | 36 |
+| `/wp-content/uploads/2023/05/Church-Waffle-English-112222-1.pdf` | `public/wp-content/uploads/2023/05/Church-Waffle-English-112222-1.pdf` | Yes | not on a migrated/tier-1 page yet | 36 |
 | `/wp-content/uploads/2023/04/4-Fields-Toolbox-Updated-03.31.23.pdf` | `public/wp-content/uploads/2023/04/4-Fields-Toolbox-Updated-03.31.23.pdf` | Yes | not on a migrated/tier-1 page yet | 36 |
-| `/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1.webp` | `public/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1.webp` | No — not supplied | `/the-three-circles-gospel-presentation-step-by-step/` (featured) | 10 |
-| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-5.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-5.jpg` | No — not supplied | `/the-three-circles-gospel-presentation-step-by-step/` | 5 |
+| `/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1.webp` | `public/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1.webp` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` (featured) | 10 |
+| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-5.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-5.jpg` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` | 5 |
 | `/wp-content/uploads/2023/09/3-Circles-Sticker-QR-Code.pdf` | `public/wp-content/uploads/2023/09/3-Circles-Sticker-QR-Code.pdf` | No — not supplied | not on a migrated/tier-1 page yet | 5 |
 | `/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible.webp` | `public/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible.webp` | No — not supplied | `/movement-resources/7-stories-of-hope-complete-facilitation-guide/` | 4 |
 | `/wp-content/uploads/2025/11/Bible-Verse-About-Spreading-the-Gospel-Matthew-28.18-20-Great-Commission-Infographic.webp` | `public/wp-content/uploads/2025/11/Bible-Verse-About-Spreading-the-Gospel-Matthew-28.18-20-Great-Commission-Infographic.webp` | No — not supplied | `/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/` (tier-1, pending) | 4 |
 | `/wp-content/uploads/2025/11/Bible-Verses-About-Spreading-the-Gospel-Complete-Scripture-Guide.webp` | `public/wp-content/uploads/2025/11/Bible-Verses-About-Spreading-the-Gospel-Complete-Scripture-Guide.webp` | No — not supplied | `/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/` (tier-1, pending — featured) | 4 |
-| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-3.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-3.jpg` | No — not supplied | `/the-three-circles-gospel-presentation-step-by-step/` | 3 |
+| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-3.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-3.jpg` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` | 3 |
 | `/wp-content/uploads/2025/11/7-Scripture-Based-Reasons-Your-Testimony-Is-a-Spiritual-Weapon.webp` | `public/wp-content/uploads/2025/11/7-Scripture-Based-Reasons-Your-Testimony-Is-a-Spiritual-Weapon.webp` | No — not supplied | not on a migrated/tier-1 page yet | 3 |
 | `/wp-content/uploads/2023/04/12044-small-group-bible-study-gettyimages-rawpixel.jpeg` | `public/wp-content/uploads/2023/04/12044-small-group-bible-study-gettyimages-rawpixel.jpeg` | Yes | not on a migrated/tier-1 page yet | 3 |
-| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1.jpg` | No — not supplied | `/the-three-circles-gospel-presentation-step-by-step/` | 2 |
-| `/wp-content/uploads/2023/05/Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.webp` | `public/wp-content/uploads/2023/05/Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.webp` | No — not supplied | `/the-three-circles-gospel-presentation-step-by-step/` | 2 |
+| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1.jpg` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` | 2 |
+| `/wp-content/uploads/2023/05/Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.webp` | `public/wp-content/uploads/2023/05/Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.webp` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` | 2 |
 | `/wp-content/uploads/2025/11/Testimony-in-the-bible.webp` | `public/wp-content/uploads/2025/11/Testimony-in-the-bible.webp` | No — not supplied | `/testimony-in-the-bible-20-verses-to-ignite-your-faith/` (tier-1, pending) | 2 |
 | `/wp-content/uploads/2023/04/3-5.jpg` | `public/wp-content/uploads/2023/04/3-5.jpg` | Yes | `/discover-the-12-disciples-of-jesus-christ/` | 1 |
-| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-2.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-2.jpg` | No — not supplied | `/the-three-circles-gospel-presentation-step-by-step/` | 1 |
-| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-4.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-4.jpg` | No — not supplied | `/the-three-circles-gospel-presentation-step-by-step/` | 1 |
-| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-1.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-1.jpg` | No — not supplied | `/the-three-circles-gospel-presentation-step-by-step/` | 1 |
-| `/wp-content/uploads/2023/05/Screen-Shot-2023-08-16-at-8.47.48-AM-1024x499.png` | `public/wp-content/uploads/2023/05/Screen-Shot-2023-08-16-at-8.47.48-AM-1024x499.png` | No — not supplied | not on a migrated/tier-1 page yet | 1 |
+| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-2.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-2.jpg` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` | 1 |
+| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-4.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-4.jpg` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` | 1 |
+| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-1.jpg` | `public/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-1.jpg` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` | 1 |
+| `/wp-content/uploads/2023/05/Screen-Shot-2023-08-16-at-8.47.48-AM-1024x499.png` | `public/wp-content/uploads/2023/05/Screen-Shot-2023-08-16-at-8.47.48-AM-1024x499.png` | Yes | not on a migrated/tier-1 page yet | 1 |
 | `/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-4.svg` | `public/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-4.svg` | No — not supplied | not on a migrated/tier-1 page yet | 1 |
 | `/wp-content/uploads/2025/01/e3adfe1623cfb8a49a60f903b1515adb.Screen-Shot-2023-08-05-at-8.26.31-AM-1.webp` | `public/wp-content/uploads/2025/01/e3adfe1623cfb8a49a60f903b1515adb.Screen-Shot-2023-08-05-at-8.26.31-AM-1.webp` | No — not supplied | `/movement-resources/7-stories-of-hope-complete-facilitation-guide/` | 0 |
 | `/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible-3.webp` | `public/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible-3.webp` | No — not supplied | `/movement-resources/7-stories-of-hope-complete-facilitation-guide/` | 0 |
@@ -101,20 +106,20 @@ they're legitimate external links, consistent with this site's
 | `/wp-content/uploads/2023/04/9-1024x1024.jpg` | `public/wp-content/uploads/2023/04/9-1024x1024.jpg` | Yes | `/discover-the-12-disciples-of-jesus-christ/` | 0 |
 | `/wp-content/uploads/2023/04/1-4-1024x1024.jpg` | `public/wp-content/uploads/2023/04/1-4-1024x1024.jpg` | Yes | `/discover-the-12-disciples-of-jesus-christ/` | 0 |
 | `/wp-content/uploads/2023/04/11-1024x1024.jpg` | `public/wp-content/uploads/2023/04/11-1024x1024.jpg` | Yes | `/discover-the-12-disciples-of-jesus-christ/` | 0 |
-| `/wp-content/uploads/2023/05/Untitled-design-2025-01-13T131631.873-1024x1024.png` | `public/wp-content/uploads/2023/05/Untitled-design-2025-01-13T131631.873-1024x1024.png` | No — not supplied | `/the-three-circles-gospel-presentation-step-by-step/` | 0 |
-| `/wp-content/uploads/2023/05/4-1-1-YFC-5-e1684599818569.png` | `public/wp-content/uploads/2023/05/4-1-1-YFC-5-e1684599818569.png` | No — not supplied | `/15-second-testimony-examples-ignite-your-faith/` | 0 |
-| `/wp-content/uploads/2023/05/4-1-1-YFC-1-e1684600816203.jpg` | `public/wp-content/uploads/2023/05/4-1-1-YFC-1-e1684600816203.jpg` | No — not supplied | `/15-second-testimony-examples-ignite-your-faith/` | 0 |
-| `/wp-content/uploads/2023/05/4-1-1-YFC-e1684600391124-768x430.jpg` | `public/wp-content/uploads/2023/05/4-1-1-YFC-e1684600391124-768x430.jpg` | No — not supplied | `/15-second-testimony-examples-ignite-your-faith/` | 0 |
+| `/wp-content/uploads/2023/05/Untitled-design-2025-01-13T131631.873-1024x1024.png` | `public/wp-content/uploads/2023/05/Untitled-design-2025-01-13T131631.873-1024x1024.png` | Yes | `/the-three-circles-gospel-presentation-step-by-step/` | 0 |
+| `/wp-content/uploads/2023/05/4-1-1-YFC-5-e1684599818569.png` | `public/wp-content/uploads/2023/05/4-1-1-YFC-5-e1684599818569.png` | Yes | `/15-second-testimony-examples-ignite-your-faith/` | 0 |
+| `/wp-content/uploads/2023/05/4-1-1-YFC-1-e1684600816203.jpg` | `public/wp-content/uploads/2023/05/4-1-1-YFC-1-e1684600816203.jpg` | Yes | `/15-second-testimony-examples-ignite-your-faith/` | 0 |
+| `/wp-content/uploads/2023/05/4-1-1-YFC-e1684600391124-768x430.jpg` | `public/wp-content/uploads/2023/05/4-1-1-YFC-e1684600391124-768x430.jpg` | Yes | `/15-second-testimony-examples-ignite-your-faith/` | 0 |
 | `/wp-content/uploads/2025/11/short-christian-testimony-examples.webp` | `public/wp-content/uploads/2025/11/short-christian-testimony-examples.webp` | No — not supplied | `/15-second-testimony-examples-ignite-your-faith/` (featured), `/testimony-in-the-bible-20-verses-to-ignite-your-faith/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2026/02/Multiply-disciples-in-real-life.webp` | `public/wp-content/uploads/2026/02/Multiply-disciples-in-real-life.webp` | No — not supplied | `/` (homepage, not currently used) | 0 |
 | `/wp-content/uploads/2023/06/1-2-1-1-1.png` | `public/wp-content/uploads/2023/06/1-2-1-1-1.png` | No — not supplied | `/` (homepage, not currently used) | 0 |
 | `/wp-content/uploads/2025/01/Untitled-design-52.webp` | `public/wp-content/uploads/2025/01/Untitled-design-52.webp` | No — not supplied | `/` (homepage, not currently used) | 0 |
 | `/wp-content/uploads/2025/03/maxresdefault-7-1024x576.jpg` | `public/wp-content/uploads/2025/03/maxresdefault-7-1024x576.jpg` | No — not supplied | `/` (homepage, not currently used) | 0 |
 | `/wp-content/uploads/2025/01/Copy-of-Untitled-48-1024x1024.webp` | `public/wp-content/uploads/2025/01/Copy-of-Untitled-48-1024x1024.webp` | No — not supplied | `/` (homepage, not currently used) | 0 |
-| `/wp-content/uploads/2023/05/1-1.webp` | `public/wp-content/uploads/2023/05/1-1.webp` | No — not supplied | `/` (homepage, not currently used) | 0 |
+| `/wp-content/uploads/2023/05/1-1.webp` | `public/wp-content/uploads/2023/05/1-1.webp` | Yes | `/` (homepage, not currently used) | 0 |
 | `/wp-content/uploads/2025/01/Copy-of-Untitled-47-1024x1024.webp` | `public/wp-content/uploads/2025/01/Copy-of-Untitled-47-1024x1024.webp` | No — not supplied | `/` (homepage, not currently used) | 0 |
 | `/wp-content/uploads/2023/06/1-2-1-1.png` | `public/wp-content/uploads/2023/06/1-2-1-1.png` | No — not supplied | `/` (homepage, not currently used) | 0 |
-| `/wp-content/uploads/2023/05/Copy-of-Experience-confidence-in-your-disciple-making-1.png` | `public/wp-content/uploads/2023/05/Copy-of-Experience-confidence-in-your-disciple-making-1.png` | No — not supplied | `/` (homepage, hero image, in use) | 0 |
+| `/wp-content/uploads/2023/05/Copy-of-Experience-confidence-in-your-disciple-making-1.png` | `public/wp-content/uploads/2023/05/Copy-of-Experience-confidence-in-your-disciple-making-1.png` | Yes | `/` (homepage, hero image, in use) | 0 |
 | `/wp-content/uploads/2025/01/4-1-1-12-Stories-Packet-1024x576.webp` | `public/wp-content/uploads/2025/01/4-1-1-12-Stories-Packet-1024x576.webp` | No — not supplied | `/movement-resources/12-practice-church-circle/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2025/01/4-1-1-12-Stories-Packet.webp` | `public/wp-content/uploads/2025/01/4-1-1-12-Stories-Packet.webp` | No — not supplied | `/movement-resources/12-practice-church-circle/` (tier-1, pending — featured) | 0 |
 | `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.08-AM-1024x804.jpg` | `public/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.08-AM-1024x804.jpg` | Yes | `/three-thirds/` (tier-1, pending) | 0 |
@@ -123,17 +128,17 @@ they're legitimate external links, consistent with this site's
 | `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM.png` | `public/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM.png` | Yes | `/three-thirds/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM-300x224.png` | `public/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM-300x224.png` | Yes | `/three-thirds/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM-1024x766.png` | `public/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM-1024x766.png` | Yes | `/three-thirds/` (tier-1, pending) | 0 |
-| `/wp-content/uploads/2023/05/Three-Thirds-Meeting-Format.webp` | `public/wp-content/uploads/2023/05/Three-Thirds-Meeting-Format.webp` | No — not supplied | `/three-thirds/` (tier-1, pending — featured) | 0 |
+| `/wp-content/uploads/2023/05/Three-Thirds-Meeting-Format.webp` | `public/wp-content/uploads/2023/05/Three-Thirds-Meeting-Format.webp` | Yes | `/three-thirds/` (tier-1, pending — featured) | 0 |
 | `/wp-content/uploads/2023/04/1-1-1024x1024.png` | `public/wp-content/uploads/2023/04/1-1-1024x1024.png` | Yes | `/unlocking-the-power-of-apest-the-ultimate-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/04/2-1-1024x1024.png` | `public/wp-content/uploads/2023/04/2-1-1024x1024.png` | Yes | `/unlocking-the-power-of-apest-the-ultimate-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/04/3-2-1024x1024.png` | `public/wp-content/uploads/2023/04/3-2-1024x1024.png` | Yes | `/unlocking-the-power-of-apest-the-ultimate-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/04/4-2-1024x1024.png` | `public/wp-content/uploads/2023/04/4-2-1024x1024.png` | Yes | `/unlocking-the-power-of-apest-the-ultimate-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/04/5-1024x1024.png` | `public/wp-content/uploads/2023/04/5-1024x1024.png` | Yes | `/unlocking-the-power-of-apest-the-ultimate-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/04/Untitled-design-14.png` | `public/wp-content/uploads/2023/04/Untitled-design-14.png` | Yes | `/unlocking-the-power-of-apest-the-ultimate-guide/` (tier-1, pending — featured) | 0 |
-| `/wp-content/uploads/2023/05/pexels-charlotte-may-5965923-1024x683.jpg` | `public/wp-content/uploads/2023/05/pexels-charlotte-may-5965923-1024x683.jpg` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
+| `/wp-content/uploads/2023/05/pexels-charlotte-may-5965923-1024x683.jpg` | `public/wp-content/uploads/2023/05/pexels-charlotte-may-5965923-1024x683.jpg` | Yes | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.26.03-PM-1024x575.png` | `public/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.26.03-PM-1024x575.png` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2025/11/short-christian-testimony-examples-1024x576.webp` | `public/wp-content/uploads/2025/11/short-christian-testimony-examples-1024x576.webp` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
-| `/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1-1024x576.webp` | `public/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1-1024x576.webp` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
+| `/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1-1024x576.webp` | `public/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1-1024x576.webp` | Yes | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.29.37-PM-1024x577.png` | `public/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.29.37-PM-1024x577.png` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/07/personal-evangelism-main-header-1024x576.png` | `public/wp-content/uploads/2023/07/personal-evangelism-main-header-1024x576.png` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |
 | `/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.28.45-PM-1024x573.png` | `public/wp-content/uploads/2023/08/Screen-Shot-2023-08-07-at-8.28.45-PM-1024x573.png` | No — not supplied | `/how-to-evangelize-ultimate-step-by-step-guide/` (tier-1, pending) | 0 |

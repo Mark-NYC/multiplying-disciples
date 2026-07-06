@@ -61,9 +61,29 @@ three-thirds) was spot-checked — every referenced image path resolves
 to a file that now exists on disk. This fixes every previously-broken
 image on those three pages sourced from `2023/04`.
 
-**Next recommended month folder: `2023/05`** — the largest remaining
-folder, with 39 tracked files (10 Priority A, 9 Priority B, 20 Priority
-C).
+## Received (2026-07-06, fourth upload): third media month folder
+
+The `2023/05` month folder (39 files) was supplied as a zip
+(`4ec8866e-media202305priority.zip`), extracted, and moved into
+`public/wp-content/uploads/2023/05/` — exact original filenames, no
+re-encoding, no flattening. The zip itself was not committed.
+
+**All 39 tracked files in this folder matched exactly** (10 Priority A,
+9 Priority B, 20 Priority C) — every row flipped to "Yes" in
+`MEDIA_IMPORT_PLAN.md` and the 19 of them also tracked in
+`MEDIA_ACQUISITION_CHECKLIST.md` flipped there too. `astro build` was
+re-run clean (23 pages, no new errors) and the `dist/` output for the
+five live pages using `2023/05` assets (homepage, three-circles guide,
+how-to-evangelize, 15-second-testimony, three-thirds) was spot-checked
+— every referenced image path resolves to a file that now exists on
+disk. This fixes every previously-broken image on those five pages
+sourced from `2023/05`.
+
+**Next recommended month folder: `2025/11`** — not the largest
+remaining folder by file count (`2025/01` has 23 vs. `2025/11`'s 19),
+but the higher-value pick: 5 Priority A + 13 Priority B vs. `2025/01`'s
+2 Priority A + 6 Priority B, so it fixes more currently-broken images on
+already-live pages.
 
 ## Still needed: media binary files (this is the one blocking thing)
 

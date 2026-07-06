@@ -5,13 +5,14 @@ page (all 12 — done), or a real Tier 2 page (22 — not yet migrated, but
 cataloged ahead of time so we know what to collect). Source: WordPress
 export XML + Google Search Console Pages CSV (supplied 2026-07-06).
 
-**Most of these files have not been supplied yet.** Two month folders
+**Most of these files have not been supplied yet.** Three month folders
 have now been received and extracted: `2023/02` (559 files, only 1
-tracked here and still not an exact match) and `2023/04` (47 files, all
-47 tracked rows now matched exactly) — see "Received uploads log" below.
-Every other row still reads "No" under Present — this environment has
-only ever received paths and metadata (via WordPress attachment records
-and the GSC export) for the rest, never the actual image/PDF bytes.
+tracked here and still not an exact match), `2023/04` (47 files, all 47
+tracked rows matched exactly), and `2023/05` (39 files, all 39 tracked
+rows matched exactly) — see "Received uploads log" below. Every other
+row still reads "No" under Present — this environment has only ever
+received paths and metadata (via WordPress attachment records and the
+GSC export) for the rest, never the actual image/PDF bytes.
 
 ## Rule — do not violate this during import
 
@@ -53,24 +54,24 @@ and the GSC export) for the rest, never the actual image/PDF bytes.
 | `/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called.webp` | webp | `/discover-the-12-disciples-of-jesus-christ/` | No | 89 |
 | `/wp-content/uploads/2023/06/Virtual-Training-Packet.pdf` | pdf | (GSC only, no known page) | No | 41 |
 | `/wp-content/uploads/2023/04/4-Fields-Toolbox-Updated-03.31.23.pdf` | pdf | (GSC only, no known page) | Yes | 36 |
-| `/wp-content/uploads/2023/05/Church-Waffle-English-112222-1.pdf` | pdf | (GSC only, no known page) | No | 36 |
-| `/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1.webp` | webp | `/the-three-circles-gospel-presentation-step-by-step/` | No | 10 |
-| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-5.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | No | 5 |
+| `/wp-content/uploads/2023/05/Church-Waffle-English-112222-1.pdf` | pdf | (GSC only, no known page) | Yes | 36 |
+| `/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1.webp` | webp | `/the-three-circles-gospel-presentation-step-by-step/` | Yes | 10 |
+| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-5.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | Yes | 5 |
 | `/wp-content/uploads/2023/09/3-Circles-Sticker-QR-Code.pdf` | pdf | (GSC only, no known page) | No | 5 |
 | `/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible.webp` | webp | `/movement-resources/7-stories-of-hope-complete-facilitation-guide/` | No | 4 |
 | `/wp-content/uploads/2025/11/Bible-Verse-About-Spreading-the-Gospel-Matthew-28.18-20-Great-Commission-Infographic.webp` | webp | `/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/` | No | 4 |
 | `/wp-content/uploads/2025/11/Bible-Verses-About-Spreading-the-Gospel-Complete-Scripture-Guide.webp` | webp | `/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/` | No | 4 |
 | `/wp-content/uploads/2023/04/12044-small-group-bible-study-gettyimages-rawpixel.jpeg` | jpeg | `/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/` | Yes | 3 |
-| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-3.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | No | 3 |
+| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-3.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | Yes | 3 |
 | `/wp-content/uploads/2025/11/7-Scripture-Based-Reasons-Your-Testimony-Is-a-Spiritual-Weapon.webp` | webp | `/the-power-of-sharing-your-testimony-scripture-7-biblical-reasons-you-cant-stay-silent/` | No | 3 |
-| `/wp-content/uploads/2023/05/Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.webp` | webp | `/the-three-circles-gospel-presentation-step-by-step/` | No | 2 |
-| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | No | 2 |
+| `/wp-content/uploads/2023/05/Screenshot-2023-09-02-at-7.30.01-PM-1-1024x1024.webp` | webp | `/the-three-circles-gospel-presentation-step-by-step/` | Yes | 2 |
+| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | Yes | 2 |
 | `/wp-content/uploads/2025/11/Testimony-in-the-bible.webp` | webp | `/testimony-in-the-bible-20-verses-to-ignite-your-faith/` | No | 2 |
 | `/wp-content/uploads/2023/04/3-5.jpg` | jpg | `/discover-the-12-disciples-of-jesus-christ/` | Yes | 1 |
-| `/wp-content/uploads/2023/05/Screen-Shot-2023-08-16-at-8.47.48-AM-1024x499.png` | png | (GSC only, no known page) | No | 1 |
-| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-1.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | No | 1 |
-| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-2.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | No | 1 |
-| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-4.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | No | 1 |
+| `/wp-content/uploads/2023/05/Screen-Shot-2023-08-16-at-8.47.48-AM-1024x499.png` | png | (GSC only, no known page) | Yes | 1 |
+| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-1.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | Yes | 1 |
+| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-2.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | Yes | 1 |
+| `/wp-content/uploads/2023/05/screen-shot-2018-03-19-at-5-23-09-pm-1-4.jpg` | jpg | `/the-three-circles-gospel-presentation-step-by-step/` | Yes | 1 |
 | `/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-4.svg` | svg | `/4-stages-of-movement-unlock-your-next-steps/` | No | 1 |
 ### Priority B (79 files)
 
@@ -111,15 +112,15 @@ and the GSC export) for the rest, never the actual image/PDF bytes.
 | `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM-768x574.png` | png | `/three-thirds/` | Yes | 0 |
 | `/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM.png` | png | `/three-thirds/` | Yes | 0 |
 | `/wp-content/uploads/2023/04/Untitled-design-14.png` | png | `/unlocking-the-power-of-apest-the-ultimate-guide/` | Yes | 0 |
-| `/wp-content/uploads/2023/05/1-1.webp` | webp | `/` | No | 0 |
-| `/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1-1024x576.webp` | webp | `/how-to-evangelize-ultimate-step-by-step-guide/` | No | 0 |
-| `/wp-content/uploads/2023/05/4-1-1-YFC-1-e1684600816203.jpg` | jpg | `/15-second-testimony-examples-ignite-your-faith/` | No | 0 |
-| `/wp-content/uploads/2023/05/4-1-1-YFC-5-e1684599818569.png` | png | `/15-second-testimony-examples-ignite-your-faith/` | No | 0 |
-| `/wp-content/uploads/2023/05/4-1-1-YFC-e1684600391124-768x430.jpg` | jpg | `/15-second-testimony-examples-ignite-your-faith/` | No | 0 |
-| `/wp-content/uploads/2023/05/Copy-of-Experience-confidence-in-your-disciple-making-1.png` | png | `/` | No | 0 |
-| `/wp-content/uploads/2023/05/Three-Thirds-Meeting-Format.webp` | webp | `/three-thirds/` | No | 0 |
-| `/wp-content/uploads/2023/05/Untitled-design-2025-01-13T131631.873-1024x1024.png` | png | `/the-three-circles-gospel-presentation-step-by-step/` | No | 0 |
-| `/wp-content/uploads/2023/05/pexels-charlotte-may-5965923-1024x683.jpg` | jpg | `/how-to-evangelize-ultimate-step-by-step-guide/` | No | 0 |
+| `/wp-content/uploads/2023/05/1-1.webp` | webp | `/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1-1024x576.webp` | webp | `/how-to-evangelize-ultimate-step-by-step-guide/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/4-1-1-YFC-1-e1684600816203.jpg` | jpg | `/15-second-testimony-examples-ignite-your-faith/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/4-1-1-YFC-5-e1684599818569.png` | png | `/15-second-testimony-examples-ignite-your-faith/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/4-1-1-YFC-e1684600391124-768x430.jpg` | jpg | `/15-second-testimony-examples-ignite-your-faith/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/Copy-of-Experience-confidence-in-your-disciple-making-1.png` | png | `/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/Three-Thirds-Meeting-Format.webp` | webp | `/three-thirds/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/Untitled-design-2025-01-13T131631.873-1024x1024.png` | png | `/the-three-circles-gospel-presentation-step-by-step/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/pexels-charlotte-may-5965923-1024x683.jpg` | jpg | `/how-to-evangelize-ultimate-step-by-step-guide/` | Yes | 0 |
 | `/wp-content/uploads/2023/06/1-2-1-1-1.png` | png | `/` | No | 0 |
 | `/wp-content/uploads/2023/06/1-2-1-1.png` | png | `/` | No | 0 |
 | `/wp-content/uploads/2023/07/personal-evangelism-main-header-1024x576.png` | png | `/how-to-evangelize-ultimate-step-by-step-guide/` | No | 0 |
@@ -169,26 +170,26 @@ and the GSC export) for the rest, never the actual image/PDF bytes.
 | `/wp-content/uploads/2023/04/pexels-photo-2258251.jpeg` | jpeg | `/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/` | Yes | 0 |
 | `/wp-content/uploads/2023/04/pexels-photo-5543374.jpeg` | jpeg | `/radical-discipleship-understanding-what-it-means-and-how-to-live-it/` | Yes | 0 |
 | `/wp-content/uploads/2023/04/pexels-photo-6860404.jpeg` | jpeg | `/the-high-price-of-discipleship-what-it-really-costs-to-follow-jesus/` | Yes | 0 |
-| `/wp-content/uploads/2023/05/4-Fields-1-e1685451774487.jpg` | jpg | `/how-to-get-started-in-four-fields-training/` | No | 0 |
-| `/wp-content/uploads/2023/05/4-Fields-Nathan-Shank-2014.pdf` | pdf | `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | No | 0 |
-| `/wp-content/uploads/2023/05/4-Fields-e1685451695430.jpg` | jpg | `/how-to-get-started-in-four-fields-training/` | No | 0 |
-| `/wp-content/uploads/2023/05/DBS_2-e1686219964976-1024x538.jpeg` | jpeg | `/disciple-making-movement-dmm-key-characteristics-and-definition/` | No | 0 |
-| `/wp-content/uploads/2023/05/DBS_2-e1686219964976-300x158.jpeg` | jpeg | `/disciple-making-movement-dmm-key-characteristics-and-definition/` | No | 0 |
-| `/wp-content/uploads/2023/05/DBS_2-e1686219964976-768x403.jpeg` | jpeg | `/disciple-making-movement-dmm-key-characteristics-and-definition/` | No | 0 |
-| `/wp-content/uploads/2023/05/DBS_2-e1686219964976.jpeg` | jpeg | `/disciple-making-movement-dmm-key-characteristics-and-definition/` | No | 0 |
-| `/wp-content/uploads/2023/05/Includes-3-Circles-Video-1-1024x576.jpg` | jpg | `/disciple-making-movement-books-top-25-must-reads/` | No | 0 |
-| `/wp-content/uploads/2023/05/Screen-Shot-2023-04-02-at-7.11.17-AM-copy-2-1024x766.jpg` | jpg | `/ridiculously-simple-3-ways-to-make-disciples/` | No | 0 |
-| `/wp-content/uploads/2023/05/Screen-Shot-2023-05-20-at-12.10.25-PM-scaled.jpg` | jpg | `/5-proven-strategies-unlock-the-secrets-of-effective-personal-evangelism/` | No | 0 |
-| `/wp-content/uploads/2023/05/Screenshot-2023-05-06-at-10.05.09-AM.jpg` | jpg | `/how-to-get-started-in-four-fields-training/` | No | 0 |
-| `/wp-content/uploads/2023/05/Untitled-design-5-1024x576.jpg` | jpg | `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | No | 0 |
-| `/wp-content/uploads/2023/05/Untitled-design-5-1536x864.jpg` | jpg | `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | No | 0 |
-| `/wp-content/uploads/2023/05/Untitled-design-5-300x169.jpg` | jpg | `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | No | 0 |
-| `/wp-content/uploads/2023/05/Untitled-design-5-768x432.jpg` | jpg | `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | No | 0 |
-| `/wp-content/uploads/2023/05/Untitled-design-5.jpg` | jpg | `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | No | 0 |
-| `/wp-content/uploads/2023/05/books.jpeg` | jpeg | `/disciple-making-movement-books-top-25-must-reads/` | No | 0 |
-| `/wp-content/uploads/2023/05/pexels-photo-4051134.jpeg` | jpeg | `/ridiculously-simple-3-ways-to-make-disciples/` | No | 0 |
-| `/wp-content/uploads/2023/05/pexels-photo-5543191.jpeg` | jpeg | `/disciple-making-movement-dmm-key-characteristics-and-definition/` | No | 0 |
-| `/wp-content/uploads/2023/05/pexels-photo-977659.jpeg` | jpeg | `/seven-words-of-jesus-on-the-cross/` | No | 0 |
+| `/wp-content/uploads/2023/05/4-Fields-1-e1685451774487.jpg` | jpg | `/how-to-get-started-in-four-fields-training/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/4-Fields-Nathan-Shank-2014.pdf` | pdf | `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/4-Fields-e1685451695430.jpg` | jpg | `/how-to-get-started-in-four-fields-training/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/DBS_2-e1686219964976-1024x538.jpeg` | jpeg | `/disciple-making-movement-dmm-key-characteristics-and-definition/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/DBS_2-e1686219964976-300x158.jpeg` | jpeg | `/disciple-making-movement-dmm-key-characteristics-and-definition/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/DBS_2-e1686219964976-768x403.jpeg` | jpeg | `/disciple-making-movement-dmm-key-characteristics-and-definition/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/DBS_2-e1686219964976.jpeg` | jpeg | `/disciple-making-movement-dmm-key-characteristics-and-definition/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/Includes-3-Circles-Video-1-1024x576.jpg` | jpg | `/disciple-making-movement-books-top-25-must-reads/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/Screen-Shot-2023-04-02-at-7.11.17-AM-copy-2-1024x766.jpg` | jpg | `/ridiculously-simple-3-ways-to-make-disciples/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/Screen-Shot-2023-05-20-at-12.10.25-PM-scaled.jpg` | jpg | `/5-proven-strategies-unlock-the-secrets-of-effective-personal-evangelism/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/Screenshot-2023-05-06-at-10.05.09-AM.jpg` | jpg | `/how-to-get-started-in-four-fields-training/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/Untitled-design-5-1024x576.jpg` | jpg | `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/Untitled-design-5-1536x864.jpg` | jpg | `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/Untitled-design-5-300x169.jpg` | jpg | `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/Untitled-design-5-768x432.jpg` | jpg | `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/Untitled-design-5.jpg` | jpg | `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/books.jpeg` | jpeg | `/disciple-making-movement-books-top-25-must-reads/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/pexels-photo-4051134.jpeg` | jpeg | `/ridiculously-simple-3-ways-to-make-disciples/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/pexels-photo-5543191.jpeg` | jpeg | `/disciple-making-movement-dmm-key-characteristics-and-definition/` | Yes | 0 |
+| `/wp-content/uploads/2023/05/pexels-photo-977659.jpeg` | jpeg | `/seven-words-of-jesus-on-the-cross/` | Yes | 0 |
 | `/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-2.svg` | svg | `/4-stages-of-movement-unlock-your-next-steps/` | No | 0 |
 | `/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-3.svg` | svg | `/4-stages-of-movement-unlock-your-next-steps/` | No | 0 |
 | `/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement.svg` | svg | `/4-stages-of-movement-unlock-your-next-steps/` | No | 0 |
@@ -243,7 +244,8 @@ folder structure untouched (no renames, no re-encoding, no move to
 | Date | Month folder | Files | Notes |
 |---|---|---|---|
 | 2026-07-06 | `2023/02` | 559 | Only 1 file in this folder is tracked in this doc (`nonresident-JTW6AUbCLC4-unsplash-3-1.jpg`, Priority C) and it is **still missing** — the upload contains 23 differently-suffixed size variants (e.g. `nonresident-JTW6AUbCLC4-unsplash-3-1-1024x452.jpg`, `nonresident-JTW6AUbCLC4-unsplash-3-e1675705283323-*.jpg`) but not the exact filename referenced by the two tier-2 pages that need it. No Priority A or B files exist in `2023/02` at all, so this upload has zero effect on any currently-migrated page. |
-| 2026-07-06 | `2023/04` | 47 | **All 47 tracked rows in this folder matched exactly** (4 Priority A, 35 Priority B, 8 Priority C) — every one flipped to "Yes" above. This fixes every currently-broken image on the 3 already-live migrated pages that reference `2023/04` assets (12-disciples, unlocking-APEST, three-thirds). The 1 Priority A row tagged to `what-is-a-simple-church-...` and the 8 Priority C rows are for tier-2 pages not yet migrated, so they're collected ahead of need rather than fixing anything live today. Recommend `2023/05` next (39 tracked files — the largest remaining folder: 10 A + 9 B + 20 C). |
+| 2026-07-06 | `2023/04` | 47 | **All 47 tracked rows in this folder matched exactly** (4 Priority A, 35 Priority B, 8 Priority C) — every one flipped to "Yes" above. This fixes every currently-broken image on the 3 already-live migrated pages that reference `2023/04` assets (12-disciples, unlocking-APEST, three-thirds). The 1 Priority A row tagged to `what-is-a-simple-church-...` and the 8 Priority C rows are for tier-2 pages not yet migrated, so they're collected ahead of need rather than fixing anything live today. |
+| 2026-07-06 | `2023/05` | 39 | **All 39 tracked rows in this folder matched exactly** (10 Priority A, 9 Priority B, 20 Priority C) — every one flipped to "Yes" above. This fixes every currently-broken image on the 5 already-live migrated pages that reference `2023/05` assets (homepage, three-circles-step-by-step, how-to-evangelize, 15-second-testimony, three-thirds). The remaining Priority C rows (four-fields, DBS, disciple-making-movement, and other tier-2 pages) are collected ahead of need, not fixing anything live today. Recommend `2025/11` next — smaller in total files (19) than `2025/01` (23), but higher-value: 5 Priority A + 13 Priority B vs. `2025/01`'s 2 A + 6 B, so it fixes more currently-broken live images. |
 
 ## Note on `/movement-resources/12-practice-church-circle/`
 
@@ -259,7 +261,7 @@ every table above on purpose; they need no local preservation.
 - Priority C: 68 files
 - Priority D: 0 files
 - **Total distinct files tracked: 171**
-- **Present so far: 47 of 171 tracked rows** (all 47 `2023/04` rows —
-  4 A, 35 B, 8 C. The `2023/02` upload landed on disk but didn't match
-  this doc's one tracked row for that folder — see "Received uploads
-  log" above)
+- **Present so far: 86 of 171 tracked rows** (all 47 `2023/04` rows —
+  4 A, 35 B, 8 C — plus all 39 `2023/05` rows — 10 A, 9 B, 20 C. The
+  `2023/02` upload landed on disk but didn't match this doc's one
+  tracked row for that folder — see "Received uploads log" above)
