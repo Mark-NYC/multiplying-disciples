@@ -275,10 +275,29 @@ possible (via WordPress Media Library search, or a fresh export of
 `2025/02` from the actual `wp-content/uploads/` directory rather than a
 thumbnail cache).
 
-**Next recommended month folder: `2025/03`** — but resolving the
-`2025/02` gap above (the 5 apostles-meaning files) takes priority over
-any other folder, since it's the only known broken image on a live page
-right now.
+## Received (2026-07-06, thirteenth and fourteenth uploads): 2025/10 and 2025/12 folders
+
+Both supplied same-day as separate zips (`d6b2abf8-wpcontent.zip` for
+`2025/10`, `13d11966-wpcontent.zip` for `2025/12`), same macOS junk
+pattern excluded, extracted into `public/wp-content/uploads/2025/10/`
+(35 files) and `public/wp-content/uploads/2025/12/` (61 files).
+
+**All tracked files matched exactly in both folders** — 4 of 4 in
+`2025/10`, 5 of 5 in `2025/12`, all Priority C (tagged to `/stickers/`
+and `/christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/`,
+both tier-2 pages not yet migrated). No Priority A or B files exist in
+either folder, so neither upload affects any currently-live page.
+`astro build` re-ran clean (23 pages, no new errors). The remaining
+files in each folder are untracked size variants.
+
+## Still open: `2025/02` gap remains the one live-page issue
+
+Resolving the 5 missing `apostles-meaning` files documented above still
+takes priority over any other folder, since it's the only known broken
+image on a live page right now.
+
+**Next recommended month folder (after that): `2025/03`** — 2 tracked
+files remaining (0 Priority A, 2 Priority B, 0 Priority C).
 
 ## Still needed: media binary files (this is the one blocking thing)
 
