@@ -13,7 +13,7 @@ every row that lives in `2023/04`, `2023/05`, `2023/06`, `2023/07`,
 actual image/PDF bytes, only their paths and metadata (via WordPress
 attachment records and the GSC export). See `/imports/README.md`.
 
-**Known gap — most urgent one right now:** 3 of the 5 rows tagged to
+**Known gap — deferred, not blocking:** 3 of the 5 rows tagged to
 `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/`
 were resupplied at full size and now marked "Yes" below. **2 rows are
 still not supplied** — `5520c44066fbc694ac1c2e207151fe125162f59d.jpeg`
@@ -21,7 +21,9 @@ and `760px-Ghirlandaio_Domenico_-_Calling_of_the_Apostles_-_1481.jpg` —
 the follow-up upload still only contained `-100x100` thumbnail crops of
 these two exact filenames. **This already-live page currently has 2
 broken images (down from 5)**, confirmed via a fresh `astro build` +
-`dist/` check.
+`dist/` check. **By explicit decision (2026-07-06), this is deferred**
+— will be examined and resolved later once the site is live, not
+chased further in this phase.
 
 **Received-uploads log:**
 

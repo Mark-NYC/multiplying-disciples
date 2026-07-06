@@ -347,6 +347,18 @@ project: these 2 Priority B files plus 3 Priority C files for
 `/stickers/` (`2-1024x1024.jpg`, `3-Circles-Sticker-Multiplying-Disciples.webp`,
 `3.jpg`), also still needed in `2025/02`.
 
+## Decision (2026-07-06): media import phase paused here — moving forward
+
+The user has confirmed the current state is sufficient to move forward:
+"what I gave you works for now. lets move forward and I will work on
+the site and examine these once live." The remaining 5-file gap above
+(2 `apostles-meaning` images + 3 `/stickers/` files) is **deferred, not
+blocking** — it will be examined and resolved later once the site is
+live, not chased further in this phase. Media acquisition is otherwise
+essentially complete: 165 of 171 tracked files present (96%), covering
+every already-migrated page in full except the 2 apostles-meaning
+images noted above.
+
 ## Still needed: media binary files (this is the one blocking thing)
 
 The WordPress export gives media *paths and metadata* only — never the
