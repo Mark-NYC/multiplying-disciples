@@ -16,3 +16,6 @@ npm-debug.log*
 
 # macOS
 .DS_Store
+
+# uploaded media zips (extract contents into public/wp-content/uploads/, never commit the archive)
+imports/*.zip

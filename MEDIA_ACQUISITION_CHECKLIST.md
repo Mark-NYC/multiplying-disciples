@@ -10,6 +10,14 @@ row below reads "No — not supplied" because this environment has never
 received the actual image/PDF bytes, only their paths and metadata (via
 WordPress attachment records and the GSC export). See `/imports/README.md`.
 
+**Received-uploads log:** on 2026-07-06, the `2023/02` month folder (559
+files) was supplied and extracted into
+`public/wp-content/uploads/2023/02/`. None of this checklist's 103
+tracked files live in that folder — see `MEDIA_IMPORT_PLAN.md`'s
+"Received uploads log" for the one broader-scope (Priority C) file this
+upload was checked against. No rows in this doc change status as a
+result. Next recommended folder: `2023/04` (see `MEDIA_IMPORT_PLAN.md`).
+
 ## Rule
 
 Old URLs like `/wp-content/uploads/...` must keep working. Media files

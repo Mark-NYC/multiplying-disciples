@@ -5,10 +5,12 @@ page (all 12 — done), or a real Tier 2 page (22 — not yet migrated, but
 cataloged ahead of time so we know what to collect). Source: WordPress
 export XML + Google Search Console Pages CSV (supplied 2026-07-06).
 
-**None of these files have been supplied yet.** Every row reads
-"No" under Present — this environment has only ever received paths and
-metadata (via WordPress attachment records and the GSC export), never
-the actual image/PDF bytes.
+**Most of these files have not been supplied yet.** One month folder
+(`2023/02`, 559 files) has now been received and extracted into
+`public/wp-content/uploads/2023/02/` — see "Received uploads log" below.
+Every other row still reads "No" under Present — this environment has
+only ever received paths and metadata (via WordPress attachment records
+and the GSC export) for the rest, never the actual image/PDF bytes.
 
 ## Rule — do not violate this during import
 
@@ -157,7 +159,7 @@ the actual image/PDF bytes.
 | WordPress path | Type | Source page(s) | Present? | Impressions |
 |---|---|---|---|---:|
 | `/wp-content/uploads/2020/12/Screenshot-2023-09-02-at-4.18.46-PM.png` | png | `/stickers/` | No | 0 |
-| `/wp-content/uploads/2023/02/nonresident-JTW6AUbCLC4-unsplash-3-1.jpg` | jpg | `/4-stages-of-movement-unlock-your-next-steps/`, `/breakthrough-guide-for-a-modern-day-disciple/` | No | 0 |
+| `/wp-content/uploads/2023/02/nonresident-JTW6AUbCLC4-unsplash-3-1.jpg` | jpg | `/4-stages-of-movement-unlock-your-next-steps/`, `/breakthrough-guide-for-a-modern-day-disciple/` | No — near miss, see note | 0 |
 | `/wp-content/uploads/2023/04/75598-scaled.webp` | webp | `/love-and-obedience-exploring-the-biblical-relationship-between-the-two/` | No | 0 |
 | `/wp-content/uploads/2023/04/eliott-reyna-jCEpN62oWL4-unsplash.jpg` | jpg | `/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/` | No | 0 |
 | `/wp-content/uploads/2023/04/image-1024x576.jpg` | jpg | `/the-high-price-of-discipleship-what-it-really-costs-to-follow-jesus/` | No | 0 |
@@ -230,6 +232,17 @@ the actual image/PDF bytes.
 None identified yet. Will populate as tier-3 pages and category/tag
 archives get cataloged in later phases.
 
+## Received uploads log
+
+Tracks each media zip supplied so far, extracted straight into
+`public/wp-content/uploads/<year>/<month>/` with original filenames and
+folder structure untouched (no renames, no re-encoding, no move to
+`/images/`).
+
+| Date | Month folder | Files | Notes |
+|---|---|---|---|
+| 2026-07-06 | `2023/02` | 559 | Only 1 file in this folder is tracked in this doc (`nonresident-JTW6AUbCLC4-unsplash-3-1.jpg`, Priority C) and it is **still missing** — the upload contains 23 differently-suffixed size variants (e.g. `nonresident-JTW6AUbCLC4-unsplash-3-1-1024x452.jpg`, `nonresident-JTW6AUbCLC4-unsplash-3-e1675705283323-*.jpg`) but not the exact filename referenced by the two tier-2 pages that need it. No Priority A or B files exist in `2023/02` at all, so this upload has zero effect on any currently-migrated page. Recommend `2023/04` next (47 tracked files: 4 A + 35 B + 8 C — highest-value remaining folder). |
+
 ## Note on `/movement-resources/12-practice-church-circle/`
 
 That page's body also embeds 12 images, but they're hosted on
@@ -244,3 +257,6 @@ every table above on purpose; they need no local preservation.
 - Priority C: 68 files
 - Priority D: 0 files
 - **Total distinct files tracked: 171**
+- **Present so far: 0 of 171 tracked rows** (the `2023/02` upload landed
+  on disk but didn't match this doc's one tracked row for that folder —
+  see "Received uploads log" above)

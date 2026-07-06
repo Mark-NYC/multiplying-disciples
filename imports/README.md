@@ -28,6 +28,28 @@ folder, since they came through chat rather than the repo):
 This closed the network-access gap described in `MIGRATION_PLAN.md` for
 everything except binary media files.
 
+## Received (2026-07-06, later same day): first media month folder
+
+The `2023/02` month folder (559 files) was supplied as a zip
+(`f8b393f4-02.zip`), extracted, and moved into
+`public/wp-content/uploads/2023/02/` — exact original filenames, no
+re-encoding, no flattening. The zip itself was not committed (only its
+extracted contents; the zip is also now covered by a `.gitignore` rule
+for `imports/*.zip`).
+
+Only one file tracked in `MEDIA_IMPORT_PLAN.md` falls in this folder
+(`nonresident-JTW6AUbCLC4-unsplash-3-1.jpg`, Priority C, needed by two
+not-yet-migrated tier-2 pages), and it's still missing — the upload has
+23 differently-suffixed size variants of that image but not the exact
+tracked filename. No Priority A or B files exist in `2023/02`, so this
+upload doesn't affect any currently-migrated page.
+
+**Next recommended month folder: `2023/04`** — highest remaining value,
+with 47 tracked files (4 Priority A, 35 Priority B, 8 Priority C). The 35
+Priority B files matter most: they're embedded in already-live migrated
+pages, so missing them means broken images on real published pages
+today.
+
 ## Still needed: media binary files (this is the one blocking thing)
 
 The WordPress export gives media *paths and metadata* only — never the
