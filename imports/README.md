@@ -200,14 +200,49 @@ as a proper file attachment (`647c63eb-wpcontent.zip`, same macOS junk
 pattern excluded) after an earlier attempt to paste it inline in chat
 couldn't be read as a file. Moved into
 `public/wp-content/uploads/2023/09/` at its exact original filename —
-**`2023/09` is now fully complete, 5 of 5 tracked rows present.** No
-Priority B files exist in this folder, so `/stickers/` (still
-unmigrated) is the only page affected, and `astro build` re-ran clean
-(23 pages, no new errors).
+**`2023/09` is now fully complete, 6 of 6 tracked rows present** (a
+prior count of "5 tracked" for this folder was off by one; corrected in
+`MEDIA_IMPORT_PLAN.md`). No Priority B files exist in this folder, so
+`/stickers/` (still unmigrated) is the only page affected, and `astro
+build` re-ran clean (23 pages, no new errors).
 
-**Next recommended month folder: `2025/01`** — now the clear
-highest-value remaining folder, with 23 tracked files (2 Priority A, 6
-Priority B, 15 Priority C).
+## Decision: `2023/02` near-miss file — won't fix
+
+The one remaining `2023/02` file
+(`nonresident-JTW6AUbCLC4-unsplash-3-1.jpg`) will not be chased further
+per explicit instruction — marked "Won't fix" in `MEDIA_IMPORT_PLAN.md`
+and `MEDIA_ACQUISITION_CHECKLIST.md`. Left blank pending a redesign of
+the two tier-2 pages that reference it
+(`4-stages-of-movement-unlock-your-next-steps`,
+`breakthrough-guide-for-a-modern-day-disciple`) — not re-requested in
+any future upload batch.
+
+## Received (2026-07-06, eleventh upload): ninth media month folder
+
+The `2025/01` month folder (375 files landed, same macOS junk pattern
+excluded) was supplied as a zip (`e347baa4-wpcontent.zip`) and extracted
+into `public/wp-content/uploads/2025/01/` — exact original filenames,
+no re-encoding, no flattening. The zip itself was not committed.
+
+**All 23 tracked files in this folder matched exactly** (2 Priority A,
+6 Priority B, 15 Priority C) — every row flipped to "Yes" in
+`MEDIA_IMPORT_PLAN.md`, and the 8 also tracked in
+`MEDIA_ACQUISITION_CHECKLIST.md` flipped there too (that pass also
+caught one stale row — `3-Circles-Sticker-QR-Code.pdf`, imported back
+in the `2023/09` batch but never flipped in this doc — now corrected).
+`astro build` was re-run clean (23 pages, no new errors), and the
+`dist/` output was checked precisely: **5 of the 23 tracked files are
+genuinely embedded**, fixing real broken images on 3 already-live pages
+(discover-the-12-disciples, 12-practice-church-circle,
+7-stories-of-hope). 3 more Priority B rows are tagged to the homepage
+but confirmed **not** embedded in its rendered output (matches this
+folder's existing "not currently used" annotation). The remaining 15
+Priority C rows are for 2 tier-2 pages not yet migrated. The other 352
+files that landed are untracked size variants and unrelated media in
+the same month, preserved at their exact original paths.
+
+**Next recommended month folder: `2025/02`** — highest-value remaining
+folder, with 9 tracked files (0 Priority A, 5 Priority B, 4 Priority C).
 
 ## Still needed: media binary files (this is the one blocking thing)
 
