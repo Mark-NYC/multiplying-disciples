@@ -85,6 +85,18 @@ import {
       </p>
     </section>
 
+    <section class="explore">
+      <h2>Explore the library</h2>
+      <p class="explore__links">
+        <a href="/disciple-making/">Disciple Making</a>
+        <a href="/share-the-gospel/">Share the Gospel</a>
+        <a href="/testimony/">Testimony</a>
+        <a href="/church-planting-movements/">Church Planting Movements</a>
+        <a href="/starter-tools/">Starter Tools</a>
+        <a href="/vision/">Our Vision</a>
+      </p>
+    </section>
+
     <section class="faq">
       <div class="faq__item">
         <h3>What is the purpose of the disciple making training?</h3>
@@ -121,23 +133,27 @@ import {
       </div>
     </section>
 
-    <section class="explore">
-      <h2>Explore the library</h2>
-      <p class="explore__links">
-        <a href="/disciple-making/">Disciple Making</a>
-        <a href="/share-the-gospel/">Share the Gospel</a>
-        <a href="/testimony/">Testimony</a>
-        <a href="/church-planting-movements/">Church Planting Movements</a>
-        <a href="/starter-tools/">Starter Tools</a>
-        <a href="/vision/">Our Vision</a>
-      </p>
-    </section>
-
     <section class="labs-cta">
       <p class="labs-cta__eyebrow">Ready to practice this?</p>
       <h2>Join a live Multiplying Lab</h2>
-      <p class="labs-cta__intro">
-        Learn the tool. Practice it. Leave with a next step for real people in your life.
+
+      <div class="labs-cta__copy">
+        <p>
+          Most people don't need another article. They need a simple tool, real practice, and
+          a clear next step with actual people in their life.
+        </p>
+        <p>
+          Without practice, everything keeps running: church, content, meetings, good
+          intentions. But nothing multiplies.
+        </p>
+        <p>
+          In a lab, you'll learn the tool, practice it live, and leave with one concrete step
+          of obedience.
+        </p>
+      </div>
+
+      <p class="labs-cta__primary-action">
+        <a class="button" href={COVO_LABS_URL}>Join a Live Lab</a>
       </p>
 
       <div class="labs-cta__grid" id="labs-cta-grid" aria-live="polite">
@@ -145,16 +161,16 @@ import {
       </div>
 
       <p class="labs-cta__actions">
-        <a class="button button--secondary" href={COVO_LABS_URL}>View all labs</a>
+        <a class="button button--secondary" href={COVO_LABS_URL}>View All Labs</a>
       </p>
 
       <p class="labs-cta__bridge">
-        Labs are hosted live through <a href={COVO_HOME_URL}>Covo Multipliers</a>, our training
-        partner for practical, tool-based coaching.
+        Labs are hosted through <a href={COVO_HOME_URL}>Covo Multipliers</a>, where we practice
+        simple tools for making disciples in real life.
       </p>
 
       <noscript>
-        <p class="labs-cta__intro">
+        <p class="labs-cta__copy">
           See the current lab schedule and save your seat on Covo Multipliers.
         </p>
       </noscript>
@@ -203,22 +219,22 @@ import {
   function renderLabs(labs) {
     grid.innerHTML = labs
       .map((lab) => {
-        const seatsLabel = lab.has_availability
-          ? `${lab.seats_remaining} seat${lab.seats_remaining === 1 ? '' : 's'} left`
-          : 'Full';
-        const seatsClass = lab.has_availability ? 'lab-card__seats' : 'lab-card__seats is-full';
-        const ctaLabel = lab.has_availability ? 'Reserve Your Seat' : 'Join the Waitlist';
+        // A plain, factual status rather than a scarcity countdown —
+        // "Full" is the one case worth flagging so a click isn't wasted.
+        const badgeLabel = lab.has_availability ? 'Live Lab' : 'Full';
         const description = lab.description
           ? `<p class="lab-card__description">${escapeHtml(lab.description)}</p>`
           : '';
         const href = LAB_LANDING_PAGES[lab.slug] || LABS_URL;
         return `
           <div class="lab-card">
-            <span class="${seatsClass}">${escapeHtml(seatsLabel)}</span>
-            <p class="lab-card__meta">${formatDate(lab.event_date)}</p>
+            <p class="lab-card__meta">
+              <span class="lab-card__date">${formatDate(lab.event_date)}</span>
+              <span class="lab-card__badge">${escapeHtml(badgeLabel)}</span>
+            </p>
             <h3 class="lab-card__title">${escapeHtml(lab.title)}</h3>
             ${description}
-            <a class="button lab-card__cta" href="${href}">${ctaLabel}</a>
+            <a class="button lab-card__cta" href="${href}">Join This Lab</a>
           </div>
         `;
       })
