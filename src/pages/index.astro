@@ -248,9 +248,9 @@ import {
   function renderLabs(labs) {
     grid.innerHTML = labs
       .map((lab) => {
-        // A plain, factual status rather than a scarcity countdown —
-        // "Full" is the one case worth flagging so a click isn't wasted.
-        const badgeLabel = lab.has_availability ? 'Live Lab' : 'Full';
+        const seatsLabel = lab.has_availability
+          ? `${lab.seats_remaining} seat${lab.seats_remaining === 1 ? '' : 's'} left`
+          : 'Full';
         const description = lab.description
           ? `<p class="lab-card__description">${escapeHtml(lab.description)}</p>`
           : '';
@@ -259,7 +259,11 @@ import {
           <div class="lab-card">
             <p class="lab-card__meta">
               <span class="lab-card__date">${formatDate(lab.event_date)}</span>
-              <span class="lab-card__badge">${escapeHtml(badgeLabel)}</span>
+              <span class="lab-card__badge lab-card__badge--live">
+                <span class="lab-card__badge-dot" aria-hidden="true"></span>
+                Live Lab
+              </span>
+              <span class="lab-card__badge">${escapeHtml(seatsLabel)}</span>
             </p>
             <h3 class="lab-card__title">${escapeHtml(lab.title)}</h3>
             ${description}
