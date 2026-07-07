@@ -12,6 +12,10 @@
   --color-footer-text-muted: #a8a8b3;
   --content-max-width: 42rem;
   --site-max-width: 60rem;
+  /* Wider than --site-max-width so the header's logo, nav, dropdown,
+     CTA, and social icons can all sit on one line at typical desktop
+     widths without wrapping. Scoped to the header only. */
+  --header-max-width: 78rem;
   /* Buttons and images: slightly rounded, not a full pill. */
   --radius-button: 8px;
   --radius-image: 8px;

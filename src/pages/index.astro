@@ -27,6 +27,7 @@ import { COVO_LABS_URL } from '../data/site';
         Get field-tested tools and ongoing coaching <strong>that push you to act.</strong>
       </p>
       <img
+        class="hero__badge-img"
         src="/wp-content/uploads/2023/05/Copy-of-Experience-confidence-in-your-disciple-making-1.png"
         alt=""
         width="1000"
@@ -143,20 +144,21 @@ import { COVO_LABS_URL } from '../data/site';
     background-image: linear-gradient(
         to bottom,
         rgba(255, 255, 255, 0.97) 0%,
-        rgba(255, 255, 255, 0.94) 45%,
-        rgba(255, 255, 255, 0.75) 65%,
-        rgba(255, 255, 255, 0.15) 85%
+        rgba(255, 255, 255, 0.94) 40%,
+        rgba(255, 255, 255, 0.7) 60%,
+        rgba(255, 255, 255, 0.15) 80%
       ),
       url('/wp-content/uploads/home/Untitled-design-52.webp');
     background-size: cover;
-    background-position: center top;
+    background-position: center 32%;
     background-repeat: no-repeat;
-    padding: 2.5rem 1.25rem 12rem;
+    padding: 1.25rem 1.25rem 15rem;
   }
 
   @media (max-width: 640px) {
     .hero {
-      padding-bottom: 9rem;
+      padding-bottom: 11rem;
+      background-position: center 22%;
     }
   }
 
@@ -168,6 +170,12 @@ import { COVO_LABS_URL } from '../data/site';
   .hero__subhead {
     font-size: 1.1rem;
     color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero__badge-img {
+    max-width: 22rem;
+    margin: 0.25rem auto 1rem;
   }
 
   .hero__ctas {
@@ -175,6 +183,7 @@ import { COVO_LABS_URL } from '../data/site';
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
+    margin-top: 0;
   }
 
   .hero__secondary {
