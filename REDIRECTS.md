@@ -5,6 +5,23 @@ a planned 301 documented here before launch. This file is the single
 source of truth for redirects — do not launch with an entry still marked
 `pending`.
 
+## Status as of Phase 8
+
+**Re-reviewed after Tier 3 completion — all 20 rows below remain
+valid and unchanged.** With Tier 1, Tier 2, and Tier 3 all fully
+migrated (93 pages total), re-checked every proposed redirect in this
+file against the final site: all 9 distinct destination hubs still
+exist and generate correctly; none of the 20 old archive source paths
+(`/category/...`, `/tag/...`) collide with any of the 93 real
+generated pages; `URL_INVENTORY.md`'s "Category and tag archive URLs"
+section still lists exactly 20 rows, matching this file exactly — no
+new archive URLs were discovered during Tier 3. Also reconfirmed: 0
+of the 91 migrated content files have a slug that differs from its
+own `original_url` path, so no *new* redirects are needed for any
+migrated page (Tier 1, 2, or 3) — every exact original WordPress path
+was preserved throughout. See `PHASE_8_FULL_SITE_AUDIT.md` §8 for the
+full breakdown. Still `pending` — not implemented anywhere.
+
 ## Status as of Phase 6
 
 **20 redirects proposed (not yet implemented anywhere)** — all 7

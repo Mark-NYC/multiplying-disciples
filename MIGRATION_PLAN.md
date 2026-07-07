@@ -747,6 +747,59 @@ all correctly excluded via `exclude_from_blog`). No redirects
 implemented. **Zero Tier 3 URLs remain not-migrated — Tier 3 is now
 100% migrated.**
 
+## Phase 8 — Full post-migration site audit (done)
+
+With Tier 1, Tier 2, and Tier 3 all complete, ran a comprehensive
+scripted audit of all 93 generated pages against `URL_INVENTORY.md`,
+`PROTECTED_URLS.md`, `REDIRECTS.md`, `PHASE_5_PROTECTED_URL_AUDIT.md`,
+`PHASE_6_ARCHIVE_URL_DECISION.md`, and all 7 Phase 7B batch docs — see
+`PHASE_8_FULL_SITE_AUDIT.md` for the full breakdown across 8 audit
+areas.
+
+Every migrated URL in the inventory generates; every generated page is
+accounted for (81 migrated content pages + 11 hub pages + `/blog/`);
+zero duplicate slugs, zero hub/article collisions, zero slug-vs-
+`original_url` mismatches across all 91 content files. Zero SEO
+defects (title, description, canonical, exactly one H1, no noindex)
+across all 93 pages; sitemap contains exactly 93 URLs, matching the
+build. `/blog/` correctly includes all 73 eligible articles and
+excludes all 7 utility/product/legacy pages; all 11 hub pages'
+67 `key_articles` links and 11 `next_step` links resolve; the
+"(coming soon)" tool CTA placeholders are the one documented exception
+(no real tool pages exist yet, unchanged since Phase 1).
+
+Crawled every internal link across all 93 pages: 33 links point to 6
+distinct real, confirmed-but-not-yet-migrated URLs
+(`/3-circles/`, `/free-training/`, `/4-1-1/`, `/4-fields/`,
+`/movement-resources/strategy-coordinator/`,
+`/movement-resources/4-fields-toolbox/`) — reviewed and confirmed
+intentional per the established internal-linking policy, not guessed
+slugs. Zero empty `href=""`, zero broken `#` anchors, zero
+`javascript:` links. Catalogued all external domains referenced (48
+distinct); zero WordPress admin/junk links; one intentional
+self-reference in `/privacy-policy/`'s own legal text, not a defect.
+
+**Found and fixed 1 genuine bug**: `/kingdom-ministry-training/`'s
+screenshot image link used a regular URL-encoded space (`%20`), but
+the actual supplied file has a Unicode narrow no-break space (U+202F)
+in that position in its filename — a WordPress/macOS screenshot-naming
+artifact. The image would have silently 404'd in production. Fixed by
+correcting the percent-encoding to `%E2%80%AF` in
+`src/content/articles/kingdom-ministry-training.md`; rebuilt and
+confirmed resolution. This was the only fix made during Phase 8 — no
+other defects were found across all 93 pages.
+
+Reconfirmed all 20 proposed archive redirects in `REDIRECTS.md`
+remain valid and unimplemented (unaffected by Tier 3 completion); no
+new redirects needed anywhere (0 slug renames across all of Tier 1-3);
+no child content URL is swallowed by an archive redirect;
+`/movement-resources/` and its 2 real children remain correctly
+classified as real content, not an archive.
+
+`astro check`/`astro build` clean, 93 pages (unchanged — Phase 8 found
+only a content-file encoding fix, not a new page). No pages launched,
+no DNS changed, WordPress untouched, no redirects implemented.
+
 ## Repo structure
 
 ```

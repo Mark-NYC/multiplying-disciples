@@ -230,6 +230,22 @@ adds to **Church Planting Movements** (now 22 slots); and
 Tier 3 migration completely — all 48 original Tier 3 URLs are now
 migrated.
 
+**Phase 8 full-site audit** crawled every internal link across all 93
+generated pages — see `PHASE_8_FULL_SITE_AUDIT.md` §5 for the full
+breakdown. 0 empty `href=""`, 0 broken `#` anchors, 0 `javascript:`
+links, all header/footer nav links resolve. 33 links across several
+articles point to 6 distinct URLs that are real, confirmed, and
+tracked in `URL_INVENTORY.md` but not yet migrated —
+`/3-circles/` (the real Google Slides tool, deliberately distinct from
+this site's `/3-circles-guide/` hub, per `PROTECTED_URLS.md`),
+`/free-training/`, `/4-1-1/`, `/4-fields/` (distinct from the
+`/four-fields/` hub), `/movement-resources/strategy-coordinator/`, and
+`/movement-resources/4-fields-toolbox/`. These are documented,
+intentional links per the established "confirmed but not yet migrated
+URLs may be linked" policy — not guessed slugs — and will resolve
+automatically once those 4 pages (2 of which are `/movement-resources/`
+children) are migrated in a future batch.
+
 Tool entries themselves (`src/content/tools/`) are not yet created —
 `ToolCTA` renders "(coming soon)" for tool names with no matching entry.
 Creating real tool pages (3 Circles, Stories of Hope, etc.) is future

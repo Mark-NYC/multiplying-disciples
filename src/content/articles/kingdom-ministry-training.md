@@ -64,7 +64,7 @@ In this module, we will experience and learn to create a community of practice t
 
 [View training slides](https://bit.ly/1COR14)
 
-[![Screenshot of a 1 Corinthians 14 meeting](/wp-content/uploads/2025/01/Screenshot-2025-01-22-at-9.10.54%20AM.webp)](https://rumble.com/v31o6gg-1cor14-meeting-how-to-lead-and-start-one.html)
+[![Screenshot of a 1 Corinthians 14 meeting](/wp-content/uploads/2025/01/Screenshot-2025-01-22-at-9.10.54%E2%80%AFAM.webp)](https://rumble.com/v31o6gg-1cor14-meeting-how-to-lead-and-start-one.html)
 
 ### 4. Simple 5 Step Healing Prayer Model (GAPAP)
 

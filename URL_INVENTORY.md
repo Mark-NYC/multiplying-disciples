@@ -304,6 +304,23 @@ excluded via `exclude_from_blog`). **Zero Tier 3 URLs remain
 not-migrated — Tier 3 is now 100% migrated (48 of 48 original Tier 3
 URLs accounted for).**
 
+**Phase 8 full-site audit status:** ran a comprehensive audit of all
+93 generated pages against this inventory, `PROTECTED_URLS.md`, and
+every prior phase doc — see `PHASE_8_FULL_SITE_AUDIT.md` for the full
+breakdown. Confirmed: all 81 `migrated` rows in the table below
+generate correctly; the other 12 generated pages (11 hubs + `/blog/`)
+are accounted for as documented new IA; 0 duplicate slugs, 0 hub/
+article collisions, 0 slug-vs-`original_url` mismatches across all 91
+content files; 0 SEO issues (title/description/canonical/H1/noindex)
+across all 93 pages; `/blog/` and all 11 hub pages fully verified
+(67 `key_articles` links, 11 `next_step` links, 0 broken). Found and
+fixed 1 genuine bug: a broken image link on `/kingdom-ministry-training/`
+caused by a Unicode space mismatch between the markdown reference and
+the actual filename (see `PHASE_8_FULL_SITE_AUDIT.md` §7). All 20
+proposed archive redirects in `REDIRECTS.md` reconfirmed valid and
+still unimplemented. No missed/undiscovered URLs were found requiring
+migration.
+
 ## Full inventory — all 122 published posts/pages
 
 Sorted by impressions (real GSC data where available).

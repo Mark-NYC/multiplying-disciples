@@ -228,6 +228,28 @@ missing files block the batch — see `PHASE_7B_TIER_3_BATCH_7.md` for
 the full breakdown. This closes out Tier 3 media tracking; all 48
 original Tier 3 URLs have now been migrated.
 
+**Phase 8 full-site audit finding — fixed:** a scripted audit of every
+`/wp-content/...` reference across all 93 generated pages (123 unique
+references) found 1 genuine bug: on `/kingdom-ministry-training/`, the
+linked screenshot image
+(`2025/01/Screenshot-2025-01-22-at-9.10.54%20AM.webp`) used a regular
+URL-encoded space (`%20`), but the actual supplied file has a Unicode
+**narrow no-break space (U+202F)** in that exact position in its
+filename — a WordPress/macOS screenshot-naming artifact, confirmed via
+byte-level inspection. The `%20` encoding pointed at a filename that
+doesn't exist, so the image would have silently 404'd in production
+despite the underlying file being present. **Fixed**: corrected the
+percent-encoding to `%E2%80%AF` (the correct UTF-8 encoding of U+202F)
+in `src/content/articles/kingdom-ministry-training.md`; rebuilt and
+confirmed the corrected path resolves. This is not a missing-media
+gap — the file was always present; only the reference was wrong. The
+other 121 of 123 `/wp-content/` references resolved correctly on
+first pass; the remaining 2 (`5520c44066fbc694ac1c2e207151fe125162f59d.jpeg`
+and `760px-Ghirlandaio_Domenico_-_Calling_of_the_Apostles_-_1481.jpg`,
+both on `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/`)
+are the same already-documented Tier 1 gap above — not new. See
+`PHASE_8_FULL_SITE_AUDIT.md` §7 for the full breakdown.
+
 **Received-uploads log:**
 
 - 2026-07-06 — `2023/02` month folder (559 files) supplied and extracted

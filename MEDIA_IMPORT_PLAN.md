@@ -396,3 +396,13 @@ every table above on purpose; they need no local preservation.
   batch — no new PDF or tier-1/tier-2-scope files referenced, and Tier
   3 media tracking is now complete (all 48 original Tier 3 URLs
   migrated).
+- **Phase 8 full-site audit:** scripted every `/wp-content/...`
+  reference across all 93 generated pages (123 unique references) —
+  no new missing files found beyond what's already tracked above (2
+  already-documented Tier 1 gaps on the apostles-meaning article, plus
+  1 already-documented Batch 7 og_image gap). Found and fixed 1 broken
+  *reference* (not a missing file): a Unicode space-encoding mismatch
+  on `/kingdom-ministry-training/`'s screenshot link — see
+  `MEDIA_ACQUISITION_CHECKLIST.md` and `PHASE_8_FULL_SITE_AUDIT.md`
+  §7 for the full breakdown. No new files need to be requested or
+  imported as a result of this audit.
