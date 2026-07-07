@@ -50,6 +50,14 @@ notes: >
   cards keep their label and link, just without an image; the
   background was purely decorative). See
   PHASE_7B_TIER_3_BATCH_2.md for the full media breakdown.
+  Phase 10B: restructured the body into a real resource-grid (raw HTML
+  <div class="resource-grid">/<div class="resource-card"> wrappers
+  around the existing content, per PHASE_10B_VISUAL_POLISH.md) so the
+  8 tools render as a card grid with pill buttons, matching the
+  reference WordPress design. Every label, link, and image is
+  unchanged — only the wrapper markup and button styling changed. The
+  closing "Get Training" section was similarly wrapped in the shared
+  .cta-band component style.
 ---
 
 Learn to make disciples using simple tools.
@@ -58,50 +66,126 @@ Learn to make disciples using simple tools.
 
 These starter simple tools have emerged as best practices from the field in North America for short term discipleship. We suggest you start with training your disciples using these tools and utilize the movement resources only when you begin to see the fruit of a new generation of disciples emerging.
 
-### Full Packet
+<div class="resource-grid">
 
-[View the full 12-lesson packet](https://www.churchwaffle.com/)
+<div class="resource-card">
 
-### Three Circles
+**Full Packet**
 
-[![3 Circles icon](/wp-content/uploads/2023/02/3circles-300x300.png)](/3-circles/)
+<div class="resource-card__cta">
+
+[View](https://www.churchwaffle.com/)
+
+</div>
+
+</div>
+
+<div class="resource-card">
+
+![3 Circles icon](/wp-content/uploads/2023/02/3circles-300x300.png)
+
+**Three Circles**
+
+<div class="resource-card__cta">
 
 [View](/3-circles/)
 
-### 4-1-1
+</div>
 
-[![4-1-1 icon](/wp-content/uploads/2023/02/411-300x300.png)](/4-1-1/)
+</div>
+
+<div class="resource-card">
+
+![4-1-1 icon](/wp-content/uploads/2023/02/411-300x300.png)
+
+**4-1-1**
+
+<div class="resource-card__cta">
 
 [View](/4-1-1/)
 
-### 4 Responses
+</div>
 
-[![4 Responses icon](/wp-content/uploads/2023/02/4responses-300x300.jpg)](/4-responses-to-the-gospel/)
+</div>
+
+<div class="resource-card">
+
+![4 Responses icon](/wp-content/uploads/2023/02/4responses-300x300.jpg)
+
+**4 Responses**
+
+<div class="resource-card__cta">
 
 [View](/4-responses-to-the-gospel/)
 
-### Stories of Hope
+</div>
 
-[![Stories of Hope icon](/wp-content/uploads/2023/02/Untitled-design-2023-02-04T194046.359-300x300.png)](/movement-resources/7-stories-of-hope-complete-facilitation-guide/)
+</div>
+
+<div class="resource-card">
+
+![Stories of Hope icon](/wp-content/uploads/2023/02/Untitled-design-2023-02-04T194046.359-300x300.png)
+
+**Stories of Hope**
+
+<div class="resource-card__cta">
 
 [View](/movement-resources/7-stories-of-hope-complete-facilitation-guide/)
 
-### Three Thirds
+</div>
+
+</div>
+
+<div class="resource-card">
+
+**Three Thirds**
+
+<div class="resource-card__cta">
 
 [View](/three-thirds/)
 
-### 4 Fields
+</div>
+
+</div>
+
+<div class="resource-card">
+
+**4 Fields**
+
+<div class="resource-card__cta">
 
 [View](/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/)
 
-### Church Waffle
+</div>
 
-[![Church Waffle icon](/wp-content/uploads/2023/02/Untitled-design-34-300x300.png)](/movement-resources/12-practice-church-circle/)
+</div>
+
+<div class="resource-card">
+
+![Church Waffle icon](/wp-content/uploads/2023/02/Untitled-design-34-300x300.png)
+
+**Church Waffle**
+
+<div class="resource-card__cta">
 
 [View](/movement-resources/12-practice-church-circle/)
+
+</div>
+
+</div>
+
+</div>
+
+<div class="cta-band">
 
 ## Get Training
 
 Tools with coaching in a community of practice is the key to seeing new disciples made among your lost friends and family. Sign up for our next training.
 
+<div class="cta-band__actions">
+
 [Training Details - Free](/free-training/)
+
+</div>
+
+</div>

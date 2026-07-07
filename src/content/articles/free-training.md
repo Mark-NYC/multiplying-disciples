@@ -35,13 +35,21 @@ notes: >
   (U+202F) rather than a regular space — same encoding pattern found
   and fixed in Phase 8's /kingdom-ministry-training/ bug — referenced
   here with the correct %E2%80%AF encoding from the start.
+  Phase 10B: wrapped both "Save My FREE Seat" links in a .button-row
+  div so they render as pill buttons, matching the reference
+  WordPress design, per PHASE_10B_VISUAL_POLISH.md. No link/label
+  changes.
 ---
 
 Do you have a passion to reach & disciple people for JESUS in New York City?
 
 *Join our live Zoom webinar to learn proven steps to reach and disciple people for Jesus in your neighborhood.*
 
+<div class="button-row">
+
 [Save My FREE Seat](https://us06web.zoom.us/meeting/register/5rgyTZTMSU-zP6ud0BTe0Q)
+
+</div>
 
 ### What You'll Gain in Just 1 Hour
 
@@ -61,7 +69,11 @@ Heal the sick who are there and tell them, 'The kingdom of God has come near to 
 
 We keep the training small, so **spots are limited** – reserve yours!
 
+<div class="button-row">
+
 [Save My FREE Seat](https://us06web.zoom.us/meeting/register/5rgyTZTMSU-zP6ud0BTe0Q)
+
+</div>
 
 ### Is this training really free?
 

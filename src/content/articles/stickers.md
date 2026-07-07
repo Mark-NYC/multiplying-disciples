@@ -59,59 +59,117 @@ notes: >
   plus the "3 Circles" related tool (renders "coming soon" until a real
   tools/ entry exists, same as every other article's tool link so far).
   This completes 22 of 22 real tier-2 URLs.
+  Phase 10B: restructured the body into a real resource-grid (raw HTML
+  <div class="resource-grid">/<div class="resource-card"> wrappers,
+  per PHASE_10B_VISUAL_POLISH.md) so the 6 stickers render as a card
+  grid with pill "Buy Now" buttons, matching the reference WordPress
+  design. Every image, price, and Sticker Mule link is unchanged —
+  only the wrapper markup and button styling changed.
 ---
 
 We created this page as a service to you. Order inexpensive, quality stickers to help you share the gospel and advance the Kingdom — no profit is made from these links.
 
 ## Movement Stickers
 
-### 3 Circles Sticker
+<div class="resource-grid">
 
-*Starting at $.14*
+<div class="resource-card">
 
-[![3 Circles Sticker](/wp-content/uploads/2025/10/3-circles-sticker-cheap-1024x792.webp)](https://www.stickermule.com/multiplyingdisciples/item/17375956)
+![3 Circles Sticker](/wp-content/uploads/2025/10/3-circles-sticker-cheap-1024x792.webp)
+
+**3 Circles Sticker**
+
+<p class="resource-card__price">Starting at $.14</p>
+
+<div class="resource-card__cta">
 
 [Buy Now](https://www.stickermule.com/multiplyingdisciples/item/17375956)
 
-### 15 Second Testimony Sticker
+</div>
 
-*Starting at $.12*
+</div>
 
-[![15 Second Testimony Sticker](/wp-content/uploads/2025/12/15-Second-Testimony-Sticker-Personal-Testimony-Evangelism-Tool-1024x458.webp)](https://www.stickermule.com/multiplyingdisciples/item/19431674)
+<div class="resource-card">
+
+![15 Second Testimony Sticker](/wp-content/uploads/2025/12/15-Second-Testimony-Sticker-Personal-Testimony-Evangelism-Tool-1024x458.webp)
+
+**15 Second Testimony Sticker**
+
+<p class="resource-card__price">Starting at $.12</p>
+
+<div class="resource-card__cta">
 
 [Buy Now](https://www.stickermule.com/multiplyingdisciples/item/19431674)
 
-### Prayer Wheel Sticker
+</div>
 
-*Starting at $.14*
+</div>
+
+<div class="resource-card">
 
 ![Prayer Wheel Sticker](/wp-content/uploads/2025/12/christian-prayer-wheel-sticker-1024x1024.webp)
 
+**Prayer Wheel Sticker**
+
+<p class="resource-card__price">Starting at $.14</p>
+
+<div class="resource-card__cta">
+
 [Buy Now](https://www.stickermule.com/multiplyingdisciples/item/19440094)
 
-### 3 Circles Sticker Black
+</div>
 
-*Starting at $.14*
+</div>
 
-[![3 Circles Sticker Black](/wp-content/uploads/2025/10/3-circles-sticker-dark-mode-1024x788.webp)](https://www.stickermule.com/multiplyingdisciples/item/17450852)
+<div class="resource-card">
+
+![3 Circles Sticker Black](/wp-content/uploads/2025/10/3-circles-sticker-dark-mode-1024x788.webp)
+
+**3 Circles Sticker Black**
+
+<p class="resource-card__price">Starting at $.14</p>
+
+<div class="resource-card__cta">
 
 [Buy Now](https://www.stickermule.com/multiplyingdisciples/item/17450852)
 
-### 4 Fields Sticker
+</div>
 
-*Starting at $.14*
+</div>
 
-[![4 Fields Sticker](/wp-content/uploads/2025/10/4-Fields-Sticker-4-Fields-of-Kingdom-Growth-1024x1024.webp)](https://www.stickermule.com/multiplyingdisciples/item/17396712)
+<div class="resource-card">
+
+![4 Fields Sticker](/wp-content/uploads/2025/10/4-Fields-Sticker-4-Fields-of-Kingdom-Growth-1024x1024.webp)
+
+**4 Fields Sticker**
+
+<p class="resource-card__price">Starting at $.14</p>
+
+<div class="resource-card__cta">
 
 [Buy Now](https://www.stickermule.com/multiplyingdisciples/item/17396712)
 
-### Church Waffle Sticker
+</div>
 
-*Starting at $.22*
+</div>
 
-[![Church Waffle Sticker](/wp-content/uploads/2025/10/church-waffle-sticker-1024x1024.webp)](https://www.stickermule.com/multiplyingdisciples/item/17399820)
+<div class="resource-card">
+
+![Church Waffle Sticker](/wp-content/uploads/2025/10/church-waffle-sticker-1024x1024.webp)
+
+**Church Waffle Sticker**
+
+<p class="resource-card__price">Starting at $.22</p>
+
+<div class="resource-card__cta">
 
 [Buy Now](https://www.stickermule.com/multiplyingdisciples/item/17399820)
+
+</div>
+
+</div>
+
+</div>
 
 **How it Works:** We created this page as a service to you. The way it works is simple: we upload quality "sticker ready" images to Sticker Mule and create shared cart links with very affordable pricing. Our goal is to help you share the gospel and advance the Kingdom. Blessings.
 

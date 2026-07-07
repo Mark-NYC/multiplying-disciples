@@ -33,12 +33,20 @@ notes: >
   Batch-era pages handle a single missing non-critical download
   variant when a stronger alternate (here, the PDF) is present and
   confirmed.
+  Phase 10B: fixed a duplicate-H1 bug (the body opened with a second
+  "## 4 Fields Toolbox" heading directly duplicating the frontmatter
+  title already rendered as the page's H1 — same bug class caught
+  repeatedly in earlier phases, missed here) and restyled the 2
+  download links as pill buttons via a shared .button-row wrapper, per
+  PHASE_10B_VISUAL_POLISH.md. No link/label changes.
 ---
 
-## 4 Fields Toolbox
-
 After using the [starter tools](/starter-tools/) and gathering disciples as church, introduce the 4 Fields Toolbox to emerging leaders.
+
+<div class="button-row">
 
 [Download PDF - FREE](/wp-content/uploads/2023/04/4-Fields-Toolbox-Updated-03.31.23.pdf)
 
 [Download PNG - FREE](/wp-content/uploads/2023/04/IMG_4574-1.jpg)
+
+</div>

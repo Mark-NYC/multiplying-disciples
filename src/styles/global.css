@@ -4,10 +4,16 @@
   --color-text-muted: #5f5f5f;
   --color-border: #dcdcdc;
   --color-surface: #f7f6f3;
-  --color-accent: #1a1a1a;
+  --color-accent: #4a63e8;
+  --color-accent-hover: #3a52d4;
   --color-accent-text: #ffffff;
+  --color-footer-bg: #16161d;
+  --color-footer-text: #f2f2f4;
+  --color-footer-text-muted: #a8a8b3;
   --content-max-width: 42rem;
   --site-max-width: 60rem;
+  --radius-pill: 999px;
+  --radius-card: 10px;
 }
 
 * {
@@ -127,4 +133,204 @@ article th {
   color: #92400e;
   font-size: 0.9rem;
   border-radius: 4px;
+}
+
+/* Shared button styles — pill-shaped, blue accent, used sitewide for
+   primary calls to action (hero CTAs, hub next_step, resource-grid
+   VIEW/BUY buttons, CTA bands). */
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.button:hover {
+  background: var(--color-accent-hover);
+  color: var(--color-accent-text);
+}
+
+.button--secondary {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.button--secondary:hover {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+/* Secondary button variant for use on dark backgrounds (.cta-band). */
+.button--secondary-dark {
+  background: transparent;
+  color: var(--color-footer-text);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.button--secondary-dark:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-footer-text);
+}
+
+.button--small {
+  padding: 0.45rem 1.1rem;
+  font-size: 0.85rem;
+}
+
+/* Feature callout badge — checkmark icon + rounded pill bubble, used
+   on the homepage's alternating image/text feature sections. */
+.feature-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-pill);
+  padding: 0.9rem 1.5rem;
+}
+
+.feature-badge__icon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.feature-badge__text {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+/* CTA band — a full-width, visually distinct closing block used at the
+   bottom of the homepage, resource pages, and (via ToolCTA) hub/article
+   next-step CTAs. */
+.cta-band {
+  margin: 2.5rem 0;
+  padding: 2rem 1.5rem;
+  background: var(--color-footer-bg);
+  color: var(--color-footer-text);
+  border-radius: var(--radius-card);
+  text-align: center;
+}
+
+.cta-band h2,
+.cta-band h3 {
+  margin: 0 0 0.5rem;
+  color: var(--color-footer-text);
+}
+
+.cta-band p {
+  margin: 0 0 1.25rem;
+  color: var(--color-footer-text-muted);
+}
+
+.cta-band__actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Resource grid — card layout for tool/resource listing pages
+   (Starter Tools, Stickers, 4 Fields Toolbox). Content authors wrap
+   each item in <div class="resource-grid">/<div class="resource-card">
+   markup directly in the markdown body (raw HTML passthrough). */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.75rem;
+  margin: 2rem 0;
+}
+
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.85rem;
+  padding: 1.5rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+.resource-card img {
+  max-height: 160px;
+  width: auto;
+  object-fit: contain;
+}
+
+.resource-card__label {
+  font-weight: 700;
+  margin: 0;
+}
+
+.resource-card__price {
+  margin: -0.5rem 0 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* Wraps a plain markdown link so it renders as a pill button. Used
+   instead of a raw <a class="button"> HTML tag in markdown bodies,
+   since remark's bare-URL autolinking can collide with raw HTML
+   anchors whose href is an absolute http(s) URL. */
+.resource-card__cta a,
+.cta-band__actions a {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.resource-card__cta a {
+  padding: 0.45rem 1.1rem;
+  font-size: 0.85rem;
+}
+
+.resource-card__cta a:hover,
+.cta-band__actions a:hover {
+  background: var(--color-accent-hover);
+}
+
+/* Generic row of pill-button links (e.g. stacked download buttons on a
+   plain article), independent of the resource-grid/CTA-band patterns. */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.button-row a {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+}
+
+.button-row a:hover {
+  background: var(--color-accent-hover);
 }

@@ -17,9 +17,3 @@ export const PRIMARY_NAV: NavLink[] = [
   { label: 'Starter Tools', href: '/starter-tools/' },
   { label: 'Blog', href: '/blog/' },
 ];
-
-export const FOOTER_NAV: NavLink[] = [
-  { label: 'Home', href: '/' },
-  { label: 'Starter Tools', href: '/starter-tools/' },
-  { label: 'Blog', href: '/blog/' },
-];

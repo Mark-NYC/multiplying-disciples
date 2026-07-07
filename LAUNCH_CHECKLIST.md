@@ -101,6 +101,26 @@ until every item below is checked and a human has signed off.
 - Do not rewrite the whole site.
 - Do not change existing URL paths.
 
+## Status snapshot (Phase 10B — visual polish against WordPress reference screenshots)
+
+Compared 14 real WordPress screenshots against the current Astro build
+on the 8 named priority pages — see `PHASE_10B_VISUAL_POLISH.md` for
+the full gap list. Added a blue accent color, pill buttons, a dark
+3-column footer with real contact info, active nav-state highlighting,
+real card grids for the 3 resource/tool pages (previously plain text
+lists), and a closing CTA band on every real article. Fixed 2 bugs
+found during the pass: a duplicate H1 on
+`/movement-resources/4-fields-toolbox/`, and a markdown-parsing
+collision between raw HTML anchor tags and remark-gfm's bare-URL
+autolinker. Did not add social icons — no real profile URL exists
+anywhere in this repo for the organization's own accounts; documented
+as a follow-up pending real URLs from the user. Re-ran the full Phase 8
+audit suite plus a sitewide mobile/desktop horizontal-overflow sweep
+(98 pages × 2 viewports): 0 regressions. `astro check`/`astro build`
+clean, still 98 pages, sitemap still 98 entries. No redirects
+implemented. **Site is structurally ready for launch prep** — same
+standing gates as before this phase.
+
 ## Status snapshot (Phase 10 — launch-ready design polish)
 
 Polished the existing Astro design system for launch readiness — see

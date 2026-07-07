@@ -54,42 +54,64 @@ const COVO_LABS_URL = 'https://www.covomultipliers.com/#upcoming-labs';
         the tools&hellip;
       </p>
       <p><em>You need effective coaching.</em></p>
+    </section>
+
+    <section class="feature-row">
+      <div class="feature-badge">
+        <span class="feature-badge__icon" aria-hidden="true">&check;</span>
+        <p class="feature-badge__text">Learn what is working in North America.</p>
+      </div>
       <p>
         Get methods that have been field tested by practitioners in North America. Know that
         the tools and process we share are <strong>not only Biblical, but fruitful.</strong>
       </p>
+    </section>
+
+    <section class="feature-row">
+      <div class="feature-badge">
+        <span class="feature-badge__icon" aria-hidden="true">&check;</span>
+        <p class="feature-badge__text">The momentum of a community of practice.</p>
+      </div>
       <p>
         We bring together like-minded practitioners into training cohorts that are committed
         to action. <strong>Everyone benefits from that momentum.</strong>
       </p>
+    </section>
 
-      <h3>What is the purpose of the disciple making training?</h3>
-      <p>
-        The purpose of our disciple making training and coaching is to equip and empower
-        individuals to become effective disciple makers who can multiply disciples and reach
-        the lost. The reality is, the process of training matters and equips disciple makers
-        to equip others in both confidence and competence. We believe in cultivating a
-        movement of disciple makers who are passionate about sharing the Gospel and making
-        disciples.
-      </p>
+    <section class="faq">
+      <div class="faq__item">
+        <h3>What is the purpose of the disciple making training?</h3>
+        <p>
+          The purpose of our disciple making training and coaching is to equip and empower
+          individuals to become effective disciple makers who can multiply disciples and reach
+          the lost. The reality is, the process of training matters and equips disciple makers
+          to equip others in both confidence and competence. We believe in cultivating a
+          movement of disciple makers who are passionate about sharing the Gospel and making
+          disciples.
+        </p>
+      </div>
 
-      <h3>Why is coaching important in the process of disciple making?</h3>
-      <p>
-        Coaching within a community of practice plays a crucial role in disciple making as it
-        provides personalized guidance, support, and accountability. Growth happens through
-        both challenge and support. Our training includes coaching from experienced
-        practitioners who have seen fruitful results in their own disciple making efforts.
-        They will walk alongside you, offering insights, answering questions, and helping you
-        navigate challenges along the way.
-      </p>
+      <div class="faq__item">
+        <h3>Why is coaching important in the process of disciple making?</h3>
+        <p>
+          Coaching within a community of practice plays a crucial role in disciple making as it
+          provides personalized guidance, support, and accountability. Growth happens through
+          both challenge and support. Our training includes coaching from experienced
+          practitioners who have seen fruitful results in their own disciple making efforts.
+          They will walk alongside you, offering insights, answering questions, and helping you
+          navigate challenges along the way.
+        </p>
+      </div>
 
-      <h3>Is the training completely free, or are there any hidden costs involved?</h3>
-      <p>
-        Yes, the training we offer is completely free of charge. Always. There are no hidden
-        costs or fees associated with participating in the training. Our goal is to make
-        high-quality disciple making resources and coaching accessible to all who have a
-        passion for reaching and discipling people for Jesus.
-      </p>
+      <div class="faq__item">
+        <h3>Is the training completely free, or are there any hidden costs involved?</h3>
+        <p>
+          Yes, the training we offer is completely free of charge. Always. There are no hidden
+          costs or fees associated with participating in the training. Our goal is to make
+          high-quality disciple making resources and coaching accessible to all who have a
+          passion for reaching and discipling people for Jesus.
+        </p>
+      </div>
     </section>
 
     <section class="explore">
@@ -104,11 +126,12 @@ const COVO_LABS_URL = 'https://www.covomultipliers.com/#upcoming-labs';
       </p>
     </section>
 
-    <section class="next-lab">
+    <section class="cta-band">
       <h2>Get Hands-on Training on Zoom</h2>
-      <p>Join our next 45-minute Multipliers Lab.</p>
-      <p>New free labs are announced regularly. See the current schedule and save your seat for the next live session.</p>
-      <a class="button" href={COVO_LABS_URL}>See Upcoming Labs</a>
+      <p>Join our next 45-minute Multipliers Lab. New free labs are announced regularly — see the current schedule and save your seat for the next live session.</p>
+      <div class="cta-band__actions">
+        <a class="button" href={COVO_LABS_URL}>See Upcoming Labs</a>
+      </div>
     </section>
   </div>
 </BaseLayout>
@@ -137,29 +160,37 @@ const COVO_LABS_URL = 'https://www.covomultipliers.com/#upcoming-labs';
     color: var(--color-text-muted);
   }
 
-  .button {
-    display: inline-block;
-    padding: 0.65rem 1.25rem;
-    background: var(--color-accent);
-    color: var(--color-accent-text);
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: 600;
-  }
-
-  .button--secondary {
-    background: transparent;
-    color: var(--color-text);
-    border: 1px solid var(--color-border);
-  }
-
-  .next-lab {
+  .feature-row {
     margin-top: 2.5rem;
-    padding: 1.5rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .feature-row p {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+
+  .faq {
+    margin-top: 2.5rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq__item {
+    padding: 1.25rem 1.5rem;
     background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    text-align: center;
+    border-radius: var(--radius-card);
+  }
+
+  .faq__item h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+  }
+
+  .faq__item p {
+    margin: 0;
+    color: var(--color-text-muted);
   }
 
   .explore {

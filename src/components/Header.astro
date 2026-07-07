@@ -1,6 +1,9 @@
 ---
 import { PRIMARY_NAV } from '../data/navigation';
 import { SITE } from '../data/site';
+
+const currentPath = Astro.url.pathname;
+const isActive = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(href);
 ---
 
 <header class="site-header">
@@ -11,7 +14,9 @@ import { SITE } from '../data/site';
         {
           PRIMARY_NAV.map((link) => (
             <li>
-              <a href={link.href}>{link.label}</a>
+              <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
+                {link.label}
+              </a>
             </li>
           ))
         }
@@ -26,7 +31,7 @@ import { SITE } from '../data/site';
   }
 
   .site-header__inner {
-    max-width: var(--content-max-width);
+    max-width: var(--site-max-width);
     margin: 0 auto;
     padding: 1rem 1.25rem;
     display: flex;
@@ -56,9 +61,15 @@ import { SITE } from '../data/site';
     text-decoration: none;
     color: var(--color-text);
     font-size: 0.95rem;
+    font-weight: 500;
   }
 
   .site-header__nav a:hover {
-    text-decoration: underline;
+    color: var(--color-accent);
+  }
+
+  .site-header__nav a[aria-current='page'] {
+    color: var(--color-accent);
+    font-weight: 700;
   }
 </style>

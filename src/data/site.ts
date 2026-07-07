@@ -6,20 +6,12 @@ export const SITE = {
   url: 'https://multiplyingdisciples.us',
   description:
     'A practical disciple-making library: tools, articles, and next steps for evangelism, discipleship, and church planting movements.',
+  // Real footer tagline and contact details as published on the live
+  // WordPress site (multiplyingdisciples.us) — not fabricated for the
+  // Astro migration.
+  tagline: 'Multiplying disciples, leaders, and churches in every people and place.',
+  contactEmail: 'contact@multiplyingdisciples.us',
+  address: 'Flushing, NY 11367 United States',
   locale: 'en_US',
   twitter: '',
-} as const;
-
-// Sister sites we link out to for training/tribe (CoVo Multipliers)
-// and practical tools (Obey.Tools). We link to these, we do not
-// duplicate their content here.
-export const SISTER_SITES = {
-  covoMultipliers: {
-    name: 'CoVo Multipliers',
-    url: 'https://covomultipliers.com',
-  },
-  obeyTools: {
-    name: 'Obey.Tools',
-    url: 'https://obey.tools',
-  },
 } as const;

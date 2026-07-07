@@ -60,10 +60,10 @@ const items = tools.map((name) => {
 <style>
   .tool-cta {
     margin: 2.5rem 0;
-    padding: 1.25rem;
+    padding: 1.5rem;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: 4px;
+    border-radius: var(--radius-card);
   }
 
   .tool-cta h2 {
@@ -83,15 +83,15 @@ const items = tools.map((name) => {
 
   .tool-cta__button {
     display: inline-block;
-    padding: 0.6rem 1.1rem;
+    padding: 0.7rem 1.5rem;
     background: var(--color-accent);
     color: var(--color-accent-text);
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: var(--radius-pill);
     font-weight: 600;
   }
 
   .tool-cta__button:hover {
-    opacity: 0.9;
+    background: var(--color-accent-hover);
   }
 </style>

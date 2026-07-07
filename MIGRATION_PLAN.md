@@ -926,6 +926,43 @@ blocked by this environment's network policy (documented in
 `PHASE_10_DESIGN_POLISH.md`) — proceeded without them per this phase's
 own fallback instruction.
 
+## Phase 10B — Visual polish against WordPress reference screenshots (done)
+
+Compared 14 real WordPress screenshots the user supplied against the
+current Astro build and closed the gap on the 8 named priority pages
+(homepage, `/free-training/`, `/starter-tools/`, `/blog/`, hub pages,
+article layout, `/stickers/`, `/movement-resources/4-fields-toolbox/`).
+See `PHASE_10B_VISUAL_POLISH.md` for the full gap list and writeup.
+
+Added a blue accent color and pill-button styling sitewide (previously
+black/gray only, rectangular buttons); rebuilt the footer as a dark
+3-column layout with real contact info and a "Built by Frontier
+Creative" line, both copied verbatim from the reference screenshots;
+added active-nav-state highlighting; restructured `/starter-tools/`,
+`/stickers/`, and `/movement-resources/4-fields-toolbox/` from plain
+vertical text lists into real card grids with pill buttons; added a
+closing "Be a movement multiplier" CTA band to every real article
+(utility/tool/legal pages excluded, to avoid a second redundant CTA);
+gave the homepage pill-badge feature callouts and boxed FAQ rows.
+
+Found and fixed 2 bugs: a duplicate H1 on
+`/movement-resources/4-fields-toolbox/` (same bug class caught
+repeatedly in earlier phases), and a markdown-parsing collision where
+raw `<a class="button" href="https://...">` HTML tags in markdown
+content broke against remark-gfm's bare-URL autolinker — fixed by
+wrapping plain markdown links in styled container divs instead of
+using raw anchor tags with absolute URLs.
+
+Did not add social icons (no real profile URL exists anywhere in this
+repo for the organization's own Facebook/Instagram/YouTube accounts —
+left out per the standing "never fabricate a URL" rule, documented as
+a follow-up pending real URLs from the user).
+
+Re-ran the full Phase 8 audit suite plus a sitewide Playwright
+horizontal-overflow sweep (98 pages × 2 viewports): 0 regressions.
+`astro check`/`astro build` clean, still 98 pages, sitemap still 98
+entries. No redirects implemented; `REDIRECTS.md` unchanged.
+
 ## Repo structure
 
 ```

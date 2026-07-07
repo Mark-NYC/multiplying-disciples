@@ -21,6 +21,11 @@ const breadcrumbItems = [
   ...(parentHub ? [{ label: parentHub.data.title, href: parentHub.data.slug }] : []),
   { label: data.title, href: data.slug },
 ];
+
+// Closing "next step" CTA shown on real editorial articles only —
+// utility/tool/legal pages (exclude_from_blog: true) already have
+// their own specific CTA and shouldn't get a second, generic one.
+const COVO_LABS_URL = 'https://www.covomultipliers.com/#upcoming-labs';
 ---
 
 <BaseLayout
@@ -59,6 +64,19 @@ const breadcrumbItems = [
 
     {data.related_articles.length > 0 && <RelatedArticles paths={data.related_articles} />}
     {data.related_tools.length > 0 && <ToolCTA tools={data.related_tools} />}
+
+    {
+      !data.exclude_from_blog && (
+        <section class="cta-band">
+          <h2>Be a movement multiplier.</h2>
+          <p>Get starter tools and coaching to multiply disciples, leaders, and churches in your city.</p>
+          <div class="cta-band__actions">
+            <a class="button" href={COVO_LABS_URL}>Start Training</a>
+            <a class="button button--secondary-dark" href="/contact-us/">Connect</a>
+          </div>
+        </section>
+      )
+    }
   </div>
 </BaseLayout>
 
