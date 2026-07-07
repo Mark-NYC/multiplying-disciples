@@ -445,6 +445,12 @@ article tbody tr:nth-child(even) td {
   margin: 0 0 0.5rem;
 }
 
+.labs-cta__descriptor {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin: 0 0 1.5rem;
+}
+
 .labs-cta__copy {
   max-width: 34rem;
   margin: 0 auto 1.75rem;
@@ -474,6 +480,40 @@ article tbody tr:nth-child(even) td {
 .labs-cta__loading {
   grid-column: 1 / -1;
   text-align: center;
+  color: var(--color-text-muted);
+}
+
+/* Social proof — one small headshot strip + one testimonial, kept
+   deliberately quiet (small image, small type) so it reassures without
+   competing with the primary "Join a Live Lab" CTA above it. */
+.labs-cta__proof {
+  max-width: 26rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.labs-cta__proof-img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 0.75rem;
+  border-radius: var(--radius-image);
+}
+
+.labs-cta__proof-quote {
+  margin: 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.labs-cta__proof-attribution {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 600;
   color: var(--color-text-muted);
 }
 
