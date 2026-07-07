@@ -5,7 +5,6 @@ import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import RelatedArticles from '../components/RelatedArticles.astro';
 import ToolCTA from '../components/ToolCTA.astro';
-import { COVO_LABS_URL } from '../data/site';
 
 interface Props {
   article: CollectionEntry<'articles'>;
@@ -73,8 +72,10 @@ const breadcrumbItems = [
         <section class="cta-band">
           <h2>Be a movement multiplier.</h2>
           <p>Get starter tools and coaching to multiply disciples, leaders, and churches in your city.</p>
+          <div class="cta-band__lab" id="article-next-lab" aria-live="polite">
+            <p class="labs-cta__loading">Loading the next lab&hellip;</p>
+          </div>
           <div class="cta-band__actions">
-            <a class="button" href={COVO_LABS_URL}>Start Training</a>
             <a class="button button--secondary-dark" href="/contact-us/">Connect</a>
           </div>
         </section>
@@ -82,6 +83,15 @@ const breadcrumbItems = [
     }
   </div>
 </BaseLayout>
+
+<script>
+  import { renderLabsInto } from '../lib/labs-feed.js';
+
+  const container = document.getElementById('article-next-lab');
+  if (container) {
+    renderLabsInto(container, 1, 'Join This Lab');
+  }
+</script>
 
 <style>
   .article-thumbnail {

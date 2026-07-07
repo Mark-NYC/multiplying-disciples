@@ -23,20 +23,19 @@ export const SITE = {
   },
 } as const;
 
-// CoVo Multipliers live training-lab schedule. Used by the header CTA,
-// homepage, and article closing CTA band — kept here as the single
-// source of truth so it can't drift between call sites.
+// CoVo Multipliers live training-lab schedule. Used by the header CTA
+// and as the fallback destination when a lab has no landing page yet —
+// kept here as the single source of truth so it can't drift between
+// call sites.
 export const COVO_LABS_URL = 'https://www.covomultipliers.com/#upcoming-labs';
 export const COVO_HOME_URL = 'https://www.covomultipliers.com/';
 
-// Public Supabase project CoVo Multipliers uses for its live lab
-// schedule. This is the same project ref and anon key CoVo already
-// ships client-side in its own cross-origin "next lab" embed widget
-// (covo-multipliers/embeds/next-lab-widget.html) — Row Level Security
-// restricts the anon role to published, public-safe columns only, so
-// it's safe to call from here too.
-export const COVO_SUPABASE_URL = 'https://mryjrvinzbxebzvxtggi.supabase.co';
-export const COVO_SUPABASE_ANON_KEY =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1yeWpydmluemJ4ZWJ6dnh0Z2dpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYyNzQ3MzksImV4cCI6MjA5MTg1MDczOX0.U1JJQTBVKePsVFXr2oFRCdUZasWaZiTQg6g8QrFdRyw';
+// Actual lab data (titles, dates, descriptions, seat counts, landing
+// page URLs) is never hardcoded here — it's fetched live from CoVo's
+// public-labs Edge Function, the single source of truth shared by CoVo's
+// own homepage and every MD lab CTA. src/lib/labs-feed.js is the only
+// place that should import these two.
+export const COVO_LABS_FEED_URL =
+  'https://mryjrvinzbxebzvxtggi.supabase.co/functions/v1/public-labs';
 export const COVO_SUBSCRIBE_FUNCTION_URL =
   'https://mryjrvinzbxebzvxtggi.supabase.co/functions/v1/subscribe-updates';
