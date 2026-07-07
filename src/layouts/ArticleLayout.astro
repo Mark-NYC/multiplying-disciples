@@ -5,6 +5,7 @@ import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import RelatedArticles from '../components/RelatedArticles.astro';
 import ToolCTA from '../components/ToolCTA.astro';
+import { COVO_LABS_URL } from '../data/site';
 
 interface Props {
   article: CollectionEntry<'articles'>;
@@ -25,7 +26,6 @@ const breadcrumbItems = [
 // Closing "next step" CTA shown on real editorial articles only —
 // utility/tool/legal pages (exclude_from_blog: true) already have
 // their own specific CTA and shouldn't get a second, generic one.
-const COVO_LABS_URL = 'https://www.covomultipliers.com/#upcoming-labs';
 ---
 
 <BaseLayout

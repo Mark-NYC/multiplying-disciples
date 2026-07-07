@@ -1,19 +1,28 @@
 export interface NavLink {
   label: string;
   href: string;
+  children?: NavLink[];
 }
 
-// Primary header navigation. Intentionally short and plain per the
-// design direction: this is a library, not a marketing site.
-// Points at hub pages (not single articles) now that all 11 hubs are
-// published — a hub is a better first landing spot for a topic since it
-// scans several key articles plus a clear next step, rather than
-// dropping a visitor straight into one article.
+// Primary header navigation. Structured to match the live WordPress
+// site's shape (Home / Start Here / Starter Tools / Resources dropdown
+// / Articles) rather than surfacing every hub as a top-level item —
+// the nav should guide a first-time visitor, not expose the full site
+// taxonomy. Hub pages that used to be flat top-level links now live
+// under the Resources dropdown instead.
 export const PRIMARY_NAV: NavLink[] = [
   { label: 'Home', href: '/' },
-  { label: 'Disciple Making', href: '/disciple-making/' },
-  { label: 'Share the Gospel', href: '/share-the-gospel/' },
-  { label: 'Testimony', href: '/testimony/' },
+  { label: 'Start Here', href: '/start-here/' },
   { label: 'Starter Tools', href: '/starter-tools/' },
-  { label: 'Blog', href: '/blog/' },
+  {
+    label: 'Resources',
+    href: '',
+    children: [
+      { label: 'Disciple Making', href: '/disciple-making/' },
+      { label: 'Share the Gospel', href: '/share-the-gospel/' },
+      { label: 'Testimonies', href: '/testimony/' },
+      { label: 'Stories of Hope', href: '/stories-of-hope/' },
+    ],
+  },
+  { label: 'Articles', href: '/blog/' },
 ];

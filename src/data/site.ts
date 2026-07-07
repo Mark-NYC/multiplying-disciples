@@ -14,4 +14,16 @@ export const SITE = {
   address: 'Flushing, NY 11367 United States',
   locale: 'en_US',
   twitter: '',
+  // Real social profile URLs, provided directly by the site owner.
+  social: {
+    facebook: 'https://www.facebook.com/multiplyingdisciplesokc',
+    instagram: 'https://instagram.com/multiplyingdisciples',
+    youtube: 'https://www.youtube.com/channel/UC5-Mmcp5NHhmyVB0seaE4RQ',
+    substack: 'https://multiplyingdisciples.substack.com/',
+  },
 } as const;
+
+// CoVo Multipliers live training-lab schedule. Used by the header CTA,
+// homepage, and article closing CTA band — kept here as the single
+// source of truth so it can't drift between call sites.
+export const COVO_LABS_URL = 'https://www.covomultipliers.com/#upcoming-labs';

@@ -1,9 +1,10 @@
 ---
 import { PRIMARY_NAV } from '../data/navigation';
-import { SITE } from '../data/site';
+import { SITE, COVO_LABS_URL } from '../data/site';
 
 const currentPath = Astro.url.pathname;
-const isActive = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+const isActive = (href: string) =>
+  href === '/' ? currentPath === '/' : href !== '' && currentPath.startsWith(href);
 ---
 
 <header class="site-header">
@@ -11,18 +12,71 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     <a class="site-header__logo" href="/">
       <img src="/images/logo.png" alt={SITE.name} width="290" height="44" />
     </a>
-    <nav aria-label="Primary">
+
+    <input type="checkbox" id="nav-toggle" class="site-header__toggle-input" />
+    <label for="nav-toggle" class="site-header__toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <nav aria-label="Primary" class="site-header__nav-wrap">
       <ul class="site-header__nav">
         {
-          PRIMARY_NAV.map((link) => (
-            <li>
-              <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
-                {link.label}
-              </a>
-            </li>
-          ))
+          PRIMARY_NAV.map((link) =>
+            link.children ? (
+              <li class="site-header__dropdown">
+                <details>
+                  <summary aria-haspopup="true">{link.label}</summary>
+                  <ul class="site-header__dropdown-menu">
+                    {link.children.map((child) => (
+                      <li>
+                        <a href={child.href} aria-current={isActive(child.href) ? 'page' : undefined}>
+                          {child.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              </li>
+            ) : (
+              <li>
+                <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
+                  {link.label}
+                </a>
+              </li>
+            )
+          )
         }
       </ul>
+      <div class="site-header__actions">
+        <a class="button button--small" href={COVO_LABS_URL}>Start Training</a>
+        <ul class="site-header__socials">
+          <li>
+            <a href={SITE.social.facebook} aria-label="Multiplying Disciples on Facebook">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M13.5 21v-7.5h2.5l.5-3h-3V8.5c0-.9.25-1.5 1.55-1.5H16.5V4.3C16.2 4.26 15.2 4.17 14 4.17c-2.4 0-4 1.46-4 4.15V10.5H7.5v3H10V21h3.5z" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href={SITE.social.instagram} aria-label="Multiplying Disciples on Instagram">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href={SITE.social.youtube} aria-label="Multiplying Disciples on YouTube">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M21.6 7.5c-.25-1-1-1.75-2-2C17.9 5 12 5 12 5s-5.9 0-7.6.5c-1 .25-1.75 1-2 2C2 9.2 2 12 2 12s0 2.8.4 4.5c.25 1 1 1.75 2 2C6.1 19 12 19 12 19s5.9 0 7.6-.5c1-.25 1.75-1 2-2 .4-1.7.4-4.5.4-4.5s0-2.8-.4-4.5zM10 15V9l5.2 3-5.2 3z" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
   </div>
 </header>
@@ -40,24 +94,70 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 1.5rem;
   }
 
   .site-header__logo {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
   }
 
   .site-header__logo img {
-    height: 1.75rem;
+    height: 1.3rem;
     width: auto;
     border-radius: 0;
   }
 
+  .site-header__toggle-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .site-header__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .site-header__toggle span {
+    display: block;
+    height: 2px;
+    background: var(--color-text);
+    border-radius: 1px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .site-header__toggle-input:focus-visible ~ .site-header__toggle {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .site-header__nav-wrap {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2rem;
+  }
+
   .site-header__nav {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 1.25rem;
+    gap: 2rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -66,7 +166,7 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
   .site-header__nav a {
     text-decoration: none;
     color: var(--color-text);
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     font-weight: 500;
   }
 
@@ -77,5 +177,182 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
   .site-header__nav a[aria-current='page'] {
     color: var(--color-accent);
     font-weight: 700;
+  }
+
+  /* Resources dropdown — <details>/<summary> so it works with zero JS
+     and is tap-friendly on mobile, not just hover-friendly on desktop. */
+  .site-header__dropdown details {
+    position: relative;
+  }
+
+  .site-header__dropdown summary {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    cursor: pointer;
+    color: var(--color-text);
+    font-size: 1.05rem;
+    font-weight: 500;
+    list-style: none;
+  }
+
+  .site-header__dropdown summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .site-header__dropdown summary:hover {
+    color: var(--color-accent);
+  }
+
+  .site-header__dropdown summary::after {
+    content: '';
+    width: 0.5em;
+    height: 0.5em;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform 0.15s ease;
+  }
+
+  .site-header__dropdown details[open] summary::after {
+    transform: rotate(-135deg) translateY(2px);
+  }
+
+  .site-header__dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem;
+    min-width: 12rem;
+    z-index: 20;
+  }
+
+  .site-header__dropdown-menu li {
+    white-space: nowrap;
+  }
+
+  .site-header__dropdown-menu a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: calc(var(--radius-card) - 4px);
+    font-size: 0.95rem;
+  }
+
+  .site-header__dropdown-menu a:hover {
+    background: var(--color-surface);
+  }
+
+  .site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .site-header__socials {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-header__socials a {
+    display: flex;
+    color: var(--color-text);
+  }
+
+  .site-header__socials a:hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 900px) {
+    .site-header__toggle {
+      display: flex;
+    }
+
+    /* Hamburger -> X, driven purely by the checkbox state (no JS). */
+    .site-header__toggle-input:checked ~ .site-header__toggle span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .site-header__toggle-input:checked ~ .site-header__toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .site-header__toggle-input:checked ~ .site-header__toggle span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .site-header__nav-wrap {
+      display: none;
+      order: 3;
+      flex-basis: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .site-header__toggle-input:checked ~ .site-header__nav-wrap {
+      display: flex;
+    }
+
+    .site-header__nav {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding: 1rem 0 0;
+    }
+
+    .site-header__nav li {
+      width: 100%;
+    }
+
+    .site-header__nav > li > a {
+      display: block;
+      padding: 0.6rem 0;
+    }
+
+    .site-header__dropdown details {
+      width: 100%;
+    }
+
+    .site-header__dropdown summary {
+      padding: 0.6rem 0;
+    }
+
+    .site-header__dropdown-menu {
+      position: static;
+      transform: none;
+      box-shadow: none;
+      border: none;
+      background: var(--color-surface);
+      margin: 0.25rem 0 0.5rem;
+      min-width: 0;
+    }
+
+    /* CTA + socials, pinned to the bottom of the open mobile menu. */
+    .site-header__actions {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      width: 100%;
+      margin-top: 1rem;
+      padding: 1.25rem 0 1.5rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .site-header__actions .button {
+      width: 100%;
+      text-align: center;
+    }
   }
 </style>
