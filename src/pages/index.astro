@@ -21,8 +21,8 @@ const COVO_LABS_URL = 'https://www.covomultipliers.com/#upcoming-labs';
   canonical="https://multiplyingdisciples.us/"
   type="website"
 >
-  <div class="page-container page-container--wide">
-    <section class="hero">
+  <section class="hero">
+    <div class="hero__inner">
       <h1>Multiply disciples in real life.</h1>
       <p class="hero__subhead">
         Get field-tested tools and ongoing coaching <strong>that push you to act.</strong>
@@ -40,8 +40,10 @@ const COVO_LABS_URL = 'https://www.covomultipliers.com/#upcoming-labs';
       <p class="hero__secondary">
         New here? <a href="/start-here/">Start Here</a> to see the simple tools first.
       </p>
-    </section>
+    </div>
+  </section>
 
+  <div class="page-container page-container--wide">
     <section>
       <h2>
         Disciple making resources and tools can be found everywhere. Resources without
@@ -139,7 +141,29 @@ const COVO_LABS_URL = 'https://www.covomultipliers.com/#upcoming-labs';
 <style>
   .hero {
     text-align: center;
-    padding-bottom: 1rem;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.97) 0%,
+        rgba(255, 255, 255, 0.94) 45%,
+        rgba(255, 255, 255, 0.75) 65%,
+        rgba(255, 255, 255, 0.15) 85%
+      ),
+      url('/wp-content/uploads/home/Untitled-design-52.webp');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    padding: 2.5rem 1.25rem 12rem;
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding-bottom: 9rem;
+    }
+  }
+
+  .hero__inner {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
   }
 
   .hero__subhead {
