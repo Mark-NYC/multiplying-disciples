@@ -14,8 +14,7 @@ related_articles:
   - "/ridiculously-simple-3-ways-to-make-disciples/"
   - "/three-thirds/"
   - "/movement-resources/7-stories-of-hope-complete-facilitation-guide/"
-related_tools:
-  - "Stories of Hope"
+related_tools: []
 external_links:
   - label: "Church Waffle (churchwaffle.com)"
     url: "https://www.churchwaffle.com/"

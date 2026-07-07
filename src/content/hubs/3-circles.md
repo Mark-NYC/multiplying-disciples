@@ -11,8 +11,7 @@ key_articles:
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/how-to-evangelize-ultimate-step-by-step-guide/"
   - "/3-circles/"
-related_tools:
-  - "3 Circles"
+related_tools: []
 next_step:
   label: "See the step-by-step guide"
   href: "/the-three-circles-gospel-presentation-step-by-step/"

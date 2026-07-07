@@ -37,8 +37,6 @@ notes: >
   here with the correct %E2%80%AF encoding from the start.
 ---
 
-## FREE 1-HOUR Live Disciple Making Training
-
 Do you have a passion to reach & disciple people for JESUS in New York City?
 
 *Join our live Zoom webinar to learn proven steps to reach and disciple people for Jesus in your neighborhood.*

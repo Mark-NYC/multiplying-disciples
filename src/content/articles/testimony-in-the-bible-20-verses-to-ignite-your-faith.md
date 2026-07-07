@@ -15,8 +15,7 @@ related_articles:
   - "/15-second-testimony-examples-ignite-your-faith/"
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/the-power-of-sharing-your-testimony-scripture-7-biblical-reasons-you-cant-stay-silent/"
-related_tools:
-  - "3 Circles"
+related_tools: []
 external_links:
   - label: "CoVo Multipliers — How to Share the Gospel"
     url: "https://www.covomultipliers.com/blog/how-to-share-the-gospel/"

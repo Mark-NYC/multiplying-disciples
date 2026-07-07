@@ -101,6 +101,42 @@ until every item below is checked and a human has signed off.
 - Do not rewrite the whole site.
 - Do not change existing URL paths.
 
+## Status snapshot (Phase 10 — launch-ready design polish)
+
+Polished the existing Astro design system for launch readiness — see
+`PHASE_10_DESIGN_POLISH.md` for the full writeup. No new pages migrated,
+no slugs changed, no article body content rewritten, no redirects
+implemented. Found and fixed a sitewide bug: the `tools` collection has
+been empty since the project began, so every `related_tools` reference
+anywhere on the site (27 files) rendered a permanent, false
+`(coming soon)` label; stripped the bogus entries everywhere and folded
+the real corresponding article URLs into affected hubs' `key_articles`.
+Confirmed via `dist/` grep: 0 occurrences of "coming soon" remain
+anywhere. Also fixed a duplicate heading on `/free-training/`, added
+`width`/`height` to the homepage hero image (layout-shift risk), fixed a
+text-extraction bug (dropped spaces) on the Four Fields article that was
+causing real mobile horizontal-scroll overflow, and added
+`overflow-wrap: break-word` sitewide as a general safety net. Added
+article-body typography and a responsive-table pattern to `global.css`
+(11 articles have real markdown tables, previously completely
+unstyled). Homepage gained a one-line secondary path and a compact
+"Explore the library" links section, since it previously had zero path
+into the site's own content library outside header/footer nav; header
+nav's 3 topic links were repointed from single articles to their
+now-`published` hub pages. Ran a sitewide Playwright check (all 98
+pages, 375px and 1440px): 0 pages with horizontal overflow in the final
+state. Re-ran the full Phase 8 audit-script suite: 0 SEO issues, 0
+broken internal/blog/hub links, media gaps unchanged from Phase 9 (no
+new regressions). `astro check`/`astro build` clean, still 98 pages,
+sitemap still 98 entries. Live-WordPress-site comparison screenshots
+were attempted but blocked by this environment's network policy
+(documented in `PHASE_10_DESIGN_POLISH.md`) — proceeded without them per
+this phase's own fallback instruction. No redirects implemented;
+`REDIRECTS.md` unchanged. **Site is structurally ready for launch prep**
+— the same standing gates as before this phase remain (redirects not
+yet implemented, hosting/DNS/human sign-off items below still
+unchecked).
+
 ## Status snapshot (Phase 9 — remaining link targets + hub status)
 
 Resolved the 2 risks flagged at the end of Phase 8 — see

@@ -10,8 +10,7 @@ related_articles:
   - "/movement-resources/12-practice-church-circle/"
   - "/unlock-biblical-principles-for-multiplying-disciples/"
   - "/starter-tools/"
-related_tools:
-  - "3 Circles"
+related_tools: []
 og_image: "/wp-content/uploads/2023/05/pexels-photo-4051134.jpeg"
 status: "migrated"
 migration_priority: "tier-2"

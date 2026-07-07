@@ -8,8 +8,7 @@ related_articles:
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/royal-priest-strategy-explodes-disciple-making-movement-worldwide/"
   - "/the-3-core-habits-of-a-disciple/"
-related_tools:
-  - "3 Circles"
+related_tools: []
 og_image: "/wp-content/uploads/2025/11/Bible-Passages-About-Love-–-Blog-Post-Thumbnail.webp"
 status: "migrated"
 migration_priority: "tier-3"

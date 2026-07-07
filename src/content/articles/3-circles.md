@@ -7,8 +7,7 @@ hub: "3-circles"
 related_articles:
   - "/ridiculously-simple-3-ways-to-make-disciples/"
   - "/the-three-circles-gospel-presentation-step-by-step/"
-related_tools:
-  - "3 Circles"
+related_tools: []
 exclude_from_blog: true
 status: "migrated"
 migration_priority: "unknown"

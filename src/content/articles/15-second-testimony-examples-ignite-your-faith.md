@@ -21,9 +21,7 @@ related_articles:
   - "/testimony-in-the-bible-20-verses-to-ignite-your-faith/"
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/the-power-of-sharing-your-testimony-scripture-7-biblical-reasons-you-cant-stay-silent/"
-related_tools:
-  - "3 Circles"
-  - "Stories of Hope"
+related_tools: []
 external_links:
   - label: "No Place Left"
     url: "https://noplaceleft.net/"

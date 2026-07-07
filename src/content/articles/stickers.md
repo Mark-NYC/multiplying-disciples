@@ -9,8 +9,7 @@ related_articles:
   - "/christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/"
   - "/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/"
   - "/movement-resources/12-practice-church-circle/"
-related_tools:
-  - "3 Circles"
+related_tools: []
 status: "migrated"
 migration_priority: "tier-2"
 original_url: "https://multiplyingdisciples.us/stickers/"

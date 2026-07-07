@@ -30,10 +30,15 @@ const COVO_LABS_URL = 'https://www.covomultipliers.com/#upcoming-labs';
       <img
         src="/wp-content/uploads/2023/05/Copy-of-Experience-confidence-in-your-disciple-making-1.png"
         alt=""
+        width="1000"
+        height="100"
       />
       <p class="hero__ctas">
         <a class="button" href={COVO_LABS_URL}>Start Training</a>
         <a class="button button--secondary" href="/contact-us/">Connect</a>
+      </p>
+      <p class="hero__secondary">
+        New here? <a href="/start-here/">Start Here</a> to see the simple tools first.
       </p>
     </section>
 
@@ -87,6 +92,18 @@ const COVO_LABS_URL = 'https://www.covomultipliers.com/#upcoming-labs';
       </p>
     </section>
 
+    <section class="explore">
+      <h2>Explore the library</h2>
+      <p class="explore__links">
+        <a href="/disciple-making/">Disciple Making</a>
+        <a href="/share-the-gospel/">Share the Gospel</a>
+        <a href="/testimony/">Testimony</a>
+        <a href="/church-planting-movements/">Church Planting Movements</a>
+        <a href="/starter-tools/">Starter Tools</a>
+        <a href="/vision/">Our Vision</a>
+      </p>
+    </section>
+
     <section class="next-lab">
       <h2>Get Hands-on Training on Zoom</h2>
       <p>Join our next 45-minute Multipliers Lab.</p>
@@ -114,6 +131,12 @@ const COVO_LABS_URL = 'https://www.covomultipliers.com/#upcoming-labs';
     flex-wrap: wrap;
   }
 
+  .hero__secondary {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+  }
+
   .button {
     display: inline-block;
     padding: 0.65rem 1.25rem;
@@ -137,5 +160,21 @@ const COVO_LABS_URL = 'https://www.covomultipliers.com/#upcoming-labs';
     border: 1px solid var(--color-border);
     border-radius: 4px;
     text-align: center;
+  }
+
+  .explore {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .explore h2 {
+    font-size: 1.1rem;
+  }
+
+  .explore__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
   }
 </style>

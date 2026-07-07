@@ -8,8 +8,7 @@ related_articles:
   - "/how-to-evangelize-ultimate-step-by-step-guide/"
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/"
-related_tools:
-  - "3 Circles"
+related_tools: []
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/"

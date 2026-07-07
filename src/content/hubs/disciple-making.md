@@ -22,9 +22,9 @@ key_articles:
   - "/unlock-the-power-of-friendly-accountability/"
   - "/discover-the-game-changing-secrets-starfish-and-the-spirit-review/"
   - "/the-3-core-habits-of-a-disciple/"
-related_tools:
-  - "3 Circles"
-  - "Stories of Hope"
+  - "/3-circles/"
+  - "/movement-resources/7-stories-of-hope-complete-facilitation-guide/"
+related_tools: []
 next_step:
   label: "See disciple-making resources for churches"
   href: "/disciple-making-resources-for-churches-that-will-multiply/"

@@ -11,9 +11,9 @@ key_articles:
   - "/15-second-testimony-examples-ignite-your-faith/"
   - "/testimony-in-the-bible-20-verses-to-ignite-your-faith/"
   - "/the-power-of-sharing-your-testimony-scripture-7-biblical-reasons-you-cant-stay-silent/"
-related_tools:
-  - "3 Circles"
-  - "Stories of Hope"
+  - "/3-circles/"
+  - "/movement-resources/7-stories-of-hope-complete-facilitation-guide/"
+related_tools: []
 next_step:
   label: "Practice the 15-second testimony"
   href: "/15-second-testimony-examples-ignite-your-faith/"

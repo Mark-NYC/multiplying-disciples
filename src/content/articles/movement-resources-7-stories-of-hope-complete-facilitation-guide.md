@@ -14,8 +14,7 @@ related_articles:
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/movement-resources/12-practice-church-circle/"
   - "/15-second-testimony-examples-ignite-your-faith/"
-related_tools:
-  - "Stories of Hope"
+related_tools: []
 external_links:
   - label: "Obey.Tools facilitation guides (per-story)"
     url: "https://obey.tools/"

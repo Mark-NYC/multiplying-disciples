@@ -9,8 +9,7 @@ related_articles:
   - "/missionary-verses-in-the-bible-reveal-gods-heart/"
   - "/the-clear-pathway-of-jesus-a-biblical-model-for-disciple-making/"
   - "/under-the-hood-of-disciple-making-movements/"
-related_tools:
-  - "4 Fields"
+related_tools: []
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/the-multiplier-mandate-revealed-from-genesis-to-revelation/"

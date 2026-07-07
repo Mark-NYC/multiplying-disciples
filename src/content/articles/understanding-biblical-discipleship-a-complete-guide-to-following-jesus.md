@@ -15,8 +15,7 @@ related_articles:
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/three-thirds/"
   - "/how-to-evangelize-ultimate-step-by-step-guide/"
-related_tools:
-  - "3 Circles"
+related_tools: []
 external_links:
   - label: "CoVo Multipliers — How to Make Disciples"
     url: "https://www.covomultipliers.com/blog/how-to-make-disciples/"

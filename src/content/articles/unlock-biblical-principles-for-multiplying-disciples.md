@@ -9,8 +9,7 @@ related_articles:
   - "/equipping-your-church-for-disciple-making-movements-a-pastors-guide-to-effective-training/"
   - "/three-thirds/"
   - "/the-three-circles-gospel-presentation-step-by-step/"
-related_tools:
-  - "3 Circles"
+related_tools: []
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/unlock-biblical-principles-for-multiplying-disciples/"

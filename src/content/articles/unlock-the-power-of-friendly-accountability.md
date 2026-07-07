@@ -9,8 +9,7 @@ related_articles:
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/"
   - "/starter-tools/"
-related_tools:
-  - "Three Thirds"
+related_tools: []
 og_image: "/wp-content/uploads/2023/05/Three-Thirds-Meeting-Format.webp"
 status: "migrated"
 migration_priority: "tier-3"

@@ -15,8 +15,7 @@ related_articles:
   - "/ridiculously-simple-3-ways-to-make-disciples/"
   - "/movement-resources/12-practice-church-circle/"
   - "/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/"
-related_tools:
-  - "Stories of Hope"
+related_tools: []
 external_links:
   - label: "T4T Global — Three Thirds Process"
     url: "https://www.t4tglobal.org/three-thirds-process"

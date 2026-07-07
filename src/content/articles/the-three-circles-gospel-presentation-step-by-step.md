@@ -15,8 +15,7 @@ related_articles:
   - "/how-to-evangelize-ultimate-step-by-step-guide/"
   - "/15-second-testimony-examples-ignite-your-faith/"
   - "/movement-resources/7-stories-of-hope-complete-facilitation-guide/"
-related_tools:
-  - "3 Circles"
+related_tools: []
 external_links: []
 og_image: "/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1.webp"
 status: "migrated"

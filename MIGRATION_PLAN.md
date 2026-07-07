@@ -872,6 +872,60 @@ on the site.** No redirects implemented; no change to `REDIRECTS.md`'s
 20 pending archive rows. No pages launched, no DNS changed, WordPress
 untouched.
 
+## Phase 10 — Launch-ready design polish (done)
+
+Polished the existing Astro design system for launch readiness — no
+brand rebuild, no new pages migrated, no slugs changed, no article body
+content rewritten, no redirects implemented. See
+`PHASE_10_DESIGN_POLISH.md` for the full writeup; summary:
+
+Found and fixed a sitewide bug: the `tools` content collection has been
+empty (0 files) since the project began, so every `related_tools`
+reference anywhere on the site (27 files: 22 articles + 5 hubs,
+referencing "3 Circles", "Stories of Hope", "4 Fields", "Three Thirds")
+rendered a permanent, false `(coming soon)` label — even though all 4
+names correspond to real, already-migrated articles. Stripped the bogus
+`related_tools` entries everywhere; for the 5 affected hubs, folded the
+real corresponding article URL into `key_articles` where it wasn't
+already there. Confirmed via `dist/` grep: 0 occurrences of "coming soon"
+remain anywhere on the site.
+
+Also fixed: a duplicate heading directly under the H1 on
+`/free-training/`; missing `width`/`height` on the homepage hero image
+(layout-shift risk); a text-extraction bug on the Four Fields article
+where spaces had been dropped from one list item, causing real mobile
+horizontal-scroll overflow (`2)Immediatelydiscipletheconvertsto...` →
+corrected to real words); added `overflow-wrap: break-word` sitewide as a
+general safety net for long unbroken tokens (legitimate slash-joined
+place-name lists on that same article were also overflowing, but are
+real content, not a bug).
+
+Added article-body typography (`global.css`): heading/paragraph/list/
+blockquote spacing and a responsive-table pattern
+(`display: block; overflow-x: auto`) for the 11 articles with real
+markdown tables — previously completely unstyled.
+
+Homepage: added a one-line secondary path ("New here? Start Here...")
+under the hero CTAs and a compact "Explore the library" section (6 plain
+links: 4 hub topics + `/starter-tools/` + `/vision/`) before the final
+CTA, since the homepage previously had zero path into the site's own
+content library outside header/footer nav. Header nav's "Disciple
+Making"/"Share the Gospel"/"Testimony" links were repointed from single
+articles to their now-`published` hub pages (better topic-scannable
+landing spots), same 6 links as before, no new nav items.
+
+Ran a sitewide Playwright check (all 98 pages, 375px and 1440px) for
+horizontal-scroll regressions after every change: **0 offending pages**
+in the final state. Re-ran the full Phase 8 audit-script suite: 0 SEO
+issues, 0 broken internal/blog/hub links, 75 `key_articles` entries (up
+from 69) all resolving, media gaps unchanged from Phase 9 (no new
+regressions). `astro check`/`astro build` clean, still 98 pages, sitemap
+still 98 `<loc>` entries. No redirects implemented; `REDIRECTS.md`
+unchanged. Live-WordPress-site comparison screenshots were attempted but
+blocked by this environment's network policy (documented in
+`PHASE_10_DESIGN_POLISH.md`) — proceeded without them per this phase's
+own fallback instruction.
+
 ## Repo structure
 
 ```

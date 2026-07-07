@@ -46,6 +46,69 @@ h4 {
   font-weight: 700;
 }
 
+article h1,
+article h2,
+article h3,
+article h4 {
+  margin: 2rem 0 0.75rem;
+}
+
+article h1:first-child,
+article h2:first-child,
+article h3:first-child,
+article h4:first-child {
+  margin-top: 0;
+}
+
+article p,
+article ul,
+article ol,
+article table,
+article blockquote {
+  margin: 0 0 1.25rem;
+  overflow-wrap: break-word;
+}
+
+article ul,
+article ol {
+  padding-left: 1.5rem;
+}
+
+article li {
+  margin: 0.35rem 0;
+}
+
+article li > p {
+  margin: 0 0 0.5rem;
+}
+
+article blockquote {
+  padding: 0.25rem 0 0.25rem 1rem;
+  border-left: 3px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+article table {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+article th,
+article td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+article th {
+  background: var(--color-surface);
+  font-weight: 700;
+}
+
 .page-container {
   max-width: var(--content-max-width);
   margin: 0 auto;

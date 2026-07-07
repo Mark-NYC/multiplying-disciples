@@ -9,8 +9,7 @@ related_articles:
   - "/radical-discipleship-understanding-what-it-means-and-how-to-live-it/"
   - "/disciple-making-resources-for-churches-that-will-multiply/"
   - "/starter-tools/"
-related_tools:
-  - "3 Circles"
+related_tools: []
 status: "migrated"
 migration_priority: "tier-2"
 original_url: "https://multiplyingdisciples.us/breakthrough-guide-for-a-modern-day-disciple/"

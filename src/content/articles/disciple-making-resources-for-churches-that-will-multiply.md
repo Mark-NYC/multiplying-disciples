@@ -9,8 +9,7 @@ related_articles:
   - "/disciple-making-movement-books-top-25-must-reads/"
   - "/three-thirds/"
   - "/the-three-circles-gospel-presentation-step-by-step/"
-related_tools:
-  - "3 Circles"
+related_tools: []
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/disciple-making-resources-for-churches-that-will-multiply/"

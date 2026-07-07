@@ -14,8 +14,7 @@ related_articles:
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/15-second-testimony-examples-ignite-your-faith/"
   - "/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/"
-related_tools:
-  - "3 Circles"
+related_tools: []
 external_links: []
 og_image: "/wp-content/uploads/2023/07/personal-evangelism-main-header.png"
 status: "migrated"

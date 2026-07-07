@@ -10,8 +10,7 @@ intro: >
 key_articles:
   - "/movement-resources/7-stories-of-hope-complete-facilitation-guide/"
   - "/movement-resources/12-practice-church-circle/"
-related_tools:
-  - "Stories of Hope"
+related_tools: []
 next_step:
   label: "Read the facilitation guide"
   href: "/movement-resources/7-stories-of-hope-complete-facilitation-guide/"

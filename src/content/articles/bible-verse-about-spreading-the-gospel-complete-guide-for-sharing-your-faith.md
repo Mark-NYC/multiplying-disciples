@@ -15,8 +15,7 @@ related_articles:
   - "/how-to-evangelize-ultimate-step-by-step-guide/"
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/"
-related_tools:
-  - "3 Circles"
+related_tools: []
 external_links: []
 og_image: "/wp-content/uploads/2025/11/Bible-Verses-About-Spreading-the-Gospel-Complete-Scripture-Guide.webp"
 status: "migrated"

@@ -2978,7 +2978,7 @@ We are working around clear priorities:
 
 1. Seek and win the lost through Holy Spirit direction,
 
-2)Immediatelydiscipletheconvertstoreachouttofamily,
+2. Immediately disciple the converts to reach out to family,
 
 1. Baptism is immediate as a foundation of obedience,
 

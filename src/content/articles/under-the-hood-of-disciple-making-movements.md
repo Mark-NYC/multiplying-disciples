@@ -9,8 +9,7 @@ related_articles:
   - "/three-thirds/"
   - "/disciple-making-movement-dmm-key-characteristics-and-definition/"
   - "/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/"
-related_tools:
-  - "3 Circles"
+related_tools: []
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/under-the-hood-of-disciple-making-movements/"

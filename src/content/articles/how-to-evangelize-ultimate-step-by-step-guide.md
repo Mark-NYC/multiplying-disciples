@@ -14,8 +14,7 @@ related_articles:
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/15-second-testimony-examples-ignite-your-faith/"
   - "/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/"
-related_tools:
-  - "3 Circles"
+related_tools: []
 external_links:
   - label: "CoVo Multipliers — How to Share the Gospel"
     url: "https://www.covomultipliers.com/blog/how-to-share-the-gospel/"
