@@ -29,6 +29,13 @@ notes: >
   etc.) but preserved close to verbatim per no-heavy-rewrite directive.
   No inline images in body; featured image confirmed present at
   /wp-content/uploads/2025/11/Missionary-Verses-in-the-Bible.webp.
+  Phase 10C: pilot article for the article formatting system (see
+  PHASE_10C_ARTICLE_FORMATTING_SYSTEM.md). Wrapped all 12 "Key Action
+  Points" bullet lists (one per numbered section) in callout--practice
+  boxes — the highest-impact change for this article's wall-of-text
+  problem. Left all 12 tables as tables (genuinely tabular data); they
+  now pick up the new sitewide zebra-striping automatically. No
+  wording changed.
 ---
 
 God designed humanity to **multiply and fill the earth** (Genesis 1:27-28), yet humanity repeatedly retreated from this plan—gathering instead of scattering, hoarding instead of multiplying. The **missionary verses in the bible** tell the story of God's relentless pursuit to restore His original design through Abraham, Israel, and ultimately Jesus Christ who commissions disciples to reach every tribe, tongue, and nation.
@@ -62,11 +69,15 @@ The word "fill" (מָלֵא - male) means to fill completely, to occupy fully. G
 
 The multiplication design required movement, scattering, and geographic expansion. Five times in Genesis God repeats this command, showing it's central to His purposes.
 
+<div class="callout callout--practice">
+
 **Key Action Points:**
 
 - Recognize that missions started in Genesis 1, not Matthew 28
 - Connect "multiply and fill" to modern church multiplication movements
 - Understand that gathering contradicts God's scattering design
+
+</div>
 
 | Reference | Command | Extent | Recipients |
 | --- | --- | --- | --- |
@@ -87,11 +98,15 @@ The Tower of Babel story isn't about architecture—it's about rejection of God'
 
 This pattern repeats throughout Scripture: people resist multiplication and expansion, preferring concentration and control.
 
+<div class="callout callout--practice">
+
 **Key Action Points:**
 
 - Identify how modern churches gather rather than scatter
 - Recognize that building bigger (Babel) opposes God's multiplication design
 - Study how sin distorts multiplication into self-centered accumulation
+
+</div>
 
 | Event | God's Design | Humanity's Retreat |
 | --- | --- | --- |
@@ -110,11 +125,15 @@ Acts 8:1 repeats this pattern. The Jerusalem church gathered and grew comfortabl
 
 Acts 8:4 records the result: "those who were scattered went about preaching the word." God uses scattering—sometimes through judgment, sometimes through persecution—to advance His multiplication agenda.
 
+<div class="callout callout--practice">
+
 **Key Action Points:**
 
 - Expect God to scatter comfortable, gathering churches
 - View persecution and trials as missionary catalysts, not obstacles
 - Build multiplication into church DNA before God forces scattering
+
+</div>
 
 | Scattering Event | Reference | Result |
 | --- | --- | --- |
@@ -133,11 +152,15 @@ The Hebrew word for "families" (מִשְׁפָּחָה - mishpachah) means clans
 
 Missions didn't start with the Great Commission—it started when God promised Abraham that all peoples on earth would be blessed through him.
 
+<div class="callout callout--practice">
+
 **Key Action Points:**
 
 - Memorize Genesis 12:3 as the foundational missionary promise
 - Recognize that God's strategy uses multiplication through lineage (spiritual children)
 - Connect Abraham's blessing to your role in blessing all peoples
+
+</div>
 
 | Promise Element | Genesis 12:1-3 | Missionary Application |
 | --- | --- | --- |
@@ -156,11 +179,15 @@ The pattern shows up repeatedly. Exodus 20:18-20 records nations seeing God's po
 
 God's strategy remains consistent: use a redeemed people to reach unreached peoples through multiplication and witness.
 
+<div class="callout callout--practice">
+
 **Key Action Points:**
 
 - Study Israel's missionary failures and successes for church application
 - Understand your priestly role in mediating God's blessing to nations
 - Reject both isolationism (Jonah) and syncretism (compromise)
+
+</div>
 
 | Israel's Role | OT Reference | Church Application |
 | --- | --- | --- |
@@ -179,11 +206,15 @@ They rejected God's priesthood design, demanding professional mediators instead 
 
 When God finally got Jonah there, the Ninevites repented, but Jonah remained angry that God showed mercy to pagans. Israel's missionary failure set the stage for Jesus's breakthrough.
 
+<div class="callout callout--practice">
+
 **Key Action Points:**
 
 - Identify how churches create clergy-laity divisions that mirror Israel's retreat
 - Recognize professional ministry as potentially hindering multiplication
 - Study Jonah as a case study in missionary resistance
+
+</div>
 
 | God's Design | Israel's Retreat | Result |
 | --- | --- | --- |
@@ -200,11 +231,15 @@ Jesus restores God's original design. His mission wasn't to gather people to Jer
 
 Jesus multiplies disciples who multiply disciples who reach every people group—exactly what God intended from Genesis 1:28.
 
+<div class="callout callout--practice">
+
 **Key Action Points:**
 
 - Study all four Great Commission accounts (Matthew, Mark, Luke, John) for full picture
 - Recognize "make disciples" as multiplication language, not just conversion
 - Map your ministry against Acts 1:8's geographic progression
+
+</div>
 
 | Jesus's Commission | Key Emphasis | Connection to Gen 1:28 |
 | --- | --- | --- |
@@ -223,11 +258,15 @@ Not apostles—regular believers. This pattern matches God's original design: al
 
 The church succeeds when multiplication spreads through all members, not just leaders. Professional ministry concentrates; multiplication movements scatter.
 
+<div class="callout callout--practice">
+
 **Key Action Points:**
 
 - Audit whether your church trains all members for witness or just leaders
 - Build witness and disciple-making into new believer expectations from day one
 - Study how Acts church multiplied through scattered believers, not professional missionaries
+
+</div>
 
 | Identity | Reference | Missionary Function |
 | --- | --- | --- |
@@ -246,11 +285,15 @@ The phrase "every tribe, tongue, nation" appears five times in Revelation. This 
 
 Revelation doesn't show one homogeneous crowd but a multicultural, multilingual assembly. God's multiplication design succeeds when disciples from every people group worship together, each maintaining their distinct identity while united in Christ.
 
+<div class="callout callout--practice">
+
 **Key Action Points:**
 
 - Use Revelation 7:9 as the vision driving missionary strategy
 - Count people groups reached, not just individual converts
 - Recognize that success means disciples multiplying in every ethnolinguistic group
+
+</div>
 
 | Revelation Theme | Reference | Fulfillment of Genesis Design |
 | --- | --- | --- |
@@ -273,11 +316,15 @@ This pattern appears in Genesis (multiply/sin/scatter), Exodus (priesthood/rejec
 
 Recognizing this pattern changes how you read **missionary references in the bible**. Every text becomes a data point showing either God's multiplication push or humanity's gathering resistance.
 
+<div class="callout callout--practice">
+
 **Key Action Points:**
 
 - Identify which phase your church occupies: obeying, retreating, or being scattered
 - Build multiplication into church structure before God forces scattering
 - Study how God uses both blessing (Abraham) and judgment (Babel) to advance missions
+
+</div>
 
 | Biblical Example | God's Design | Human Retreat | God's Intervention |
 | --- | --- | --- | --- |
@@ -296,11 +343,15 @@ Jesus's strategy was multiplication through all disciples. Modern church strateg
 
 The **missionary call in the bible** applies to every believer, yet churches structure around the assumption that missions is for specialists.
 
+<div class="callout callout--practice">
+
 **Key Action Points:**
 
 - Measure disciple-making generations, not just first-generation converts
 - Structure ministry around scattering disciples, not gathering audiences
 - Train every believer for multiplication from day one of their Christian life
+
+</div>
 
 | Biblical Pattern | Modern Gathering Model | Modern Multiplication Model |
 | --- | --- | --- |
@@ -321,11 +372,15 @@ You can align with humanity's gathering instinct—building, accumulating, conce
 
 The biblical pattern is clear: God blesses what multiplies and scatters what gathers. Your church either obeys Genesis 1:28 through Matthew 28:19, or you wait for God to force scattering through persecution or judgment like He did at Babel and Acts 8.
 
+<div class="callout callout--practice">
+
 **Key Action Points:**
 
 - Audit every ministry decision against the multiplication-or-gathering question
 - Restructure church systems to enable scattering rather than perpetual gathering
 - Pursue people group saturation, not just local church growth
+
+</div>
 
 | God's Character | Biblical Evidence | Your Response |
 | --- | --- | --- |

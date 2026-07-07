@@ -963,6 +963,30 @@ horizontal-overflow sweep (98 pages × 2 viewports): 0 regressions.
 `astro check`/`astro build` clean, still 98 pages, sitemap still 98
 entries. No redirects implemented; `REDIRECTS.md` unchanged.
 
+## Phase 10C — Article formatting system + page-by-page polish plan (done)
+
+Built a reusable article-formatting system (5 `callout` variants —
+key-idea, scripture, tool, warning, practice — plus a `.steps` numbered
+list treatment and an enhanced blockquote style) and proved it on 5
+named pilot articles: `/the-three-circles-gospel-presentation-step-by-step/`,
+`/15-second-testimony-examples-ignite-your-faith/`,
+`/missionary-verses-in-the-bible-reveal-gods-heart/`,
+`/the-multiplier-mandate-revealed-from-genesis-to-revelation/`,
+`/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/`.
+See `PHASE_10C_ARTICLE_FORMATTING_SYSTEM.md` for the full pattern
+catalog, per-article changelog, and a page-by-page polish plan for a
+future phase (not implemented this phase).
+
+No wording changed in any pilot article beyond removing 2 leftover
+hand-written CTA blocks now redundant with Phase 10B's automatic
+closing CTA band. Re-ran the full Phase 8 audit suite plus the
+sitewide Playwright horizontal-overflow sweep (98 pages × 2 viewports):
+0 regressions. `astro check`/`astro build` clean, still 98 pages,
+sitemap still 98 entries. No redirects implemented; `REDIRECTS.md`
+unchanged. Per this phase's explicit instruction, stopped after the
+5-article pilot for user review before scaling to the remaining 68
+blog posts.
+
 ## Repo structure
 
 ```

@@ -101,6 +101,26 @@ until every item below is checked and a human has signed off.
 - Do not rewrite the whole site.
 - Do not change existing URL paths.
 
+## Status snapshot (Phase 10C — article formatting system + page-by-page polish plan)
+
+Built a reusable article-formatting system (`.callout` boxes — key
+idea, scripture, tool, warning, practice — plus `.steps` numbered lists
+and an enhanced blockquote style) and proved it on 5 named pilot
+articles, stopping there for user review before scaling to the
+remaining 68 blog posts — see `PHASE_10C_ARTICLE_FORMATTING_SYSTEM.md`
+for the full pattern catalog, per-article changelog, and a
+page-by-page polish plan (not implemented this phase) for the
+homepage, `/start-here/`, `/vision/`, `/free-training/`,
+`/starter-tools/`, `/stickers/`, `/blog/`, all 11 hub pages, and key
+resource pages. No wording changed beyond removing 2 leftover
+hand-written CTA blocks now redundant with Phase 10B's automatic
+closing CTA band. Re-ran the full Phase 8 audit suite plus the
+sitewide horizontal-overflow sweep (98 pages × 2 viewports): 0
+regressions. `astro check`/`astro build` clean, still 98 pages,
+sitemap still 98 entries. No redirects implemented. **Site is
+structurally ready for launch prep** — same standing gates as before
+this phase.
+
 ## Status snapshot (Phase 10B — visual polish against WordPress reference screenshots)
 
 Compared 14 real WordPress screenshots against the current Astro build

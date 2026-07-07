@@ -94,12 +94,36 @@ article li > p {
   margin: 0 0 0.5rem;
 }
 
+/* Quote / pullquote — every markdown `> quote` gets this treatment
+   automatically, no markup needed. A thicker accent-colored rule and
+   larger italic text distinguish it from the neutral-gray .callout
+   boxes below (quotes are words someone said; callouts are the
+   site's own commentary). */
 article blockquote {
-  padding: 0.25rem 0 0.25rem 1rem;
-  border-left: 3px solid var(--color-border);
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  margin: 1.75rem 0;
+  border-left: 3px solid var(--color-accent);
+  color: var(--color-text);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+article blockquote p {
+  margin: 0 0 0.5rem;
+}
+
+article blockquote cite {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  font-style: normal;
+  font-weight: 600;
   color: var(--color-text-muted);
 }
 
+/* Responsive table — unstyled by default, zebra-striped for
+   readability on long/dense tables (verse-reference tables, etc). */
 article table {
   display: block;
   overflow-x: auto;
@@ -110,7 +134,7 @@ article table {
 
 article th,
 article td {
-  padding: 0.5rem 0.75rem;
+  padding: 0.6rem 0.85rem;
   border: 1px solid var(--color-border);
   text-align: left;
   vertical-align: top;
@@ -119,6 +143,146 @@ article td {
 article th {
   background: var(--color-surface);
   font-weight: 700;
+}
+
+article tbody tr:nth-child(even) td {
+  background: #fafafa;
+}
+
+/* Callout box system — a small, consistent family of highlighted
+   boxes for breaking up long-form article text. Content authors wrap
+   markdown directly inside <div class="callout callout--variant">
+   (raw HTML passthrough), with an optional <p class="callout__label">
+   for the small heading. Keep nesting shallow: a label + a paragraph
+   or two, or a short list — these are for scanability, not more prose. */
+.callout {
+  margin: 1.75rem 0;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  border-left: 4px solid var(--color-border);
+}
+
+.callout > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.callout > *:first-child {
+  margin-top: 0 !important;
+}
+
+.callout__label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.6rem;
+  color: var(--color-text-muted);
+}
+
+/* 1. Key idea — a short, important takeaway worth pulling out of the
+   surrounding paragraph. */
+.callout--key-idea {
+  border-left-color: var(--color-accent);
+}
+
+.callout--key-idea .callout__label {
+  color: var(--color-accent);
+}
+
+/* 2. Scripture — a direct Bible quotation, set apart from the
+   surrounding prose with a light accent tint. */
+.callout--scripture {
+  background: #eef3ff;
+  border-left-color: var(--color-accent);
+  font-style: italic;
+}
+
+.callout--scripture .callout__label {
+  color: var(--color-accent);
+  font-style: normal;
+}
+
+.callout--scripture cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* 3. Tool — introduces or spotlights a named tool/resource (3 Circles,
+   the 15-Second Testimony, Four Fields, etc). White background with a
+   full border, so it reads as a distinct "card" rather than a tint. */
+.callout--tool {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-accent);
+}
+
+/* 4. Warning / correction — a caution or common-misconception note.
+   Reuses the amber already established for .source-pending-banner
+   elsewhere in this codebase, so it's not a new brand color. */
+.callout--warning {
+  background: #fffbeb;
+  border-left-color: #b45309;
+}
+
+.callout--warning .callout__label {
+  color: #92400e;
+}
+
+/* 5. Practice / try-this — an actionable next step for the reader.
+   Dashed border differentiates it from the solid-border key-idea box
+   without introducing a new color. */
+.callout--practice {
+  border-left-style: dashed;
+  border-left-color: var(--color-accent);
+}
+
+.callout--practice .callout__label {
+  color: var(--color-accent);
+}
+
+/* Step/process list — wrap a plain markdown ordered list in
+   <div class="steps"> to render numbered-circle steps instead of
+   default browser numerals. Markdown-friendly: the list itself is
+   still a normal `1. 2. 3.` ordered list. */
+.steps ol {
+  list-style: none;
+  margin: 1.75rem 0;
+  padding: 0;
+  counter-reset: step;
+}
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 3rem;
+  margin: 0 0 1.25rem;
+}
+
+.steps li:last-child {
+  margin-bottom: 0;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .page-container {

@@ -37,6 +37,13 @@ notes: >
   real, not-yet-migrated WordPress page /3-circles/ (the actual Google
   Slides tool) — do not confuse that with this site's new /3-circles-guide/
   hub, which was deliberately named to avoid colliding with it.
+  Phase 10C: pilot article for the article formatting system (see
+  PHASE_10C_ARTICLE_FORMATTING_SYSTEM.md). Wrapped the "Next Steps in 3
+  Questions" list in .steps; converted the 2 spoken opening lines into
+  blockquotes (they're words to say aloud, not narration); removed the
+  hand-written "Be a movement multiplier" CTA block at the end, now
+  redundant with ArticleLayout's automatic closing CTA band (Phase
+  10B). No wording changed.
 ---
 
 The 3 Circles Gospel Presentation is a simple method or tool that has been used by tens of thousands of people and is both engaging and effective. In this guide, we'll walk you through how to use the Three Circles to introduce the gospel to others.
@@ -47,11 +54,11 @@ The 3 Circles Gospel Presentation is a simple method or tool that has been used 
 
 Begin by approaching someone and asking:
 
-Have you heard of the Three Circles?
+> Have you heard of the Three Circles?
 
 If the person says no, say something like:
 
-I'd really like to show it to you. It only takes a minute or two. Would that be OK?
+> I'd really like to show it to you. It only takes a minute or two. Would that be OK?
 
 You can also try bridging the conversation with something from your own life to set the tone before asking the introducing question.
 
@@ -123,9 +130,13 @@ That will depend on their response to the gospel.
 
 Ask them 3 main questions:
 
+<div class="steps">
+
 1. Between the brokenness and the God's design circle, what circle are you in?
 2. What circle do you want to be in?
 3. (If they said they want to be in God's design): what is keeping you from following Jesus?
+
+</div>
 
 From there, trust the Holy Spirit to guide the conversation. Some people may not be ready to turn and believe, but that's okay. We can invite them to pray and be open to talking again in the future.
 
@@ -222,9 +233,3 @@ In the context of the 3 Circles gospel sharing method, hindrances to turning and
 Recognizing these different types of "soil" can help us understand how to highlight and exhort the listener to turn from the barriers in their life.
 
 [Listen to the related episode on Spotify](https://open.spotify.com/episode/60UpURTbj6LkX2m901WEAJ)
-
-### Be a movement multiplier.
-
-Get starter tools and coaching to multiply disciples, leaders, and churches in your city.
-
-[Start Training](/free-training/) &middot; [Connect](/contact-us/)

@@ -28,6 +28,12 @@ notes: >
   image (Untitled-design-2023-03-12T170248.450.webp) is missing from
   supplied uploads — omitted (og_image left blank); the article has no
   inline images, so this is the only media gap.
+  Phase 10C: pilot article for the article formatting system (see
+  PHASE_10C_ARTICLE_FORMATTING_SYSTEM.md). Converted the Luke 10:5-6
+  quotation into a callout--scripture box with a <cite> reference;
+  wrapped the 4-step "How to find Persons of Peace" list in .steps;
+  boxed the Messenger/Message/Mission 3-part framework in
+  callout--key-idea. No wording changed.
 ---
 
 A clear strategy of Jesus for evangelism and disciple-making is to find "Persons of Peace."
@@ -40,7 +46,15 @@ A Person of Peace is someone who is receptive to the message of the gospel and h
 
 In the Bible, Jesus instructed his disciples to look for Persons of Peace when he sent them out on their missionary journeys.
 
-In Luke 10:5-6, Jesus says, "Whatever house you enter, first say, 'Peace be to this house!' And if a son of peace is there, your peace will rest upon him. But if not, it will return to you." This indicates that Jesus expected his disciples to find Persons of Peace and that these individuals would be instrumental in spreading the gospel message.
+<div class="callout callout--scripture">
+
+"Whatever house you enter, first say, 'Peace be to this house!' And if a son of peace is there, your peace will rest upon him. But if not, it will return to you."
+
+<cite>Luke 10:5-6</cite>
+
+</div>
+
+This indicates that Jesus expected his disciples to find Persons of Peace and that these individuals would be instrumental in spreading the gospel message.
 
 ### Why are Persons of Peace important?
 
@@ -54,14 +68,20 @@ Additionally, Persons of Peace can help to bridge cultural and language barriers
 
 Finding Persons of Peace in the North American context can be challenging, but it is not impossible. Here are some strategies that have been effective as a best practice:
 
+<div class="steps">
+
 1. **Pray for guidance:** Ask God to guide you to Persons of Peace in your community. He may reveal individuals to you through dreams, visions, or through other people.
 2. **Build relationships:** Spend time building relationships with people in your community. Attend local events, volunteer at a food bank or shelter, and get to know your neighbors. As you build relationships, look for individuals who are open to spiritual conversations and who have a positive influence on those around them.
 3. **Look for people with social influence:** Persons of Peace often have social influence within their community. They may be community leaders, business owners, or well-respected individuals. Look for people who have a positive reputation and who are well-connected within their community.
 4. **Listen to the Holy Spirit:** The Holy Spirit may prompt you to reach out to specific individuals or to go to certain places. Be open to his leading and follow his guidance.
 
+</div>
+
 ## How to Identify a Person of Peace
 
 Persons of peace are identifiable as receiving three primary things: the messenger, the message, and the mission. Let's look at each briefly.
+
+<div class="callout callout--key-idea">
 
 ### Messenger
 
@@ -74,6 +94,8 @@ The person of peace receives the message of the gospel and is open to either hea
 ### Mission
 
 It is not enough to simply be receptive and open to the messenger and message, a true person of peace is also a door or connector to a relational network. A great example of this would be the woman at the well found in John 4 who runs back her village and invites the whole town to come and see Jesus.
+
+</div>
 
 ## Conclusion
 

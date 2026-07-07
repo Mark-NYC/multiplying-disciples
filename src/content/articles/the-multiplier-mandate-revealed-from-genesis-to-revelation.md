@@ -23,6 +23,13 @@ notes: >
   in Phase 7B Batch 2. Featured image (unsplash-image-Hzi7U2SZ2GE.jpg)
   not found under supplied uploads (2024/08 folder was never supplied)
   — og_image omitted.
+  Phase 10C: pilot article for the article formatting system (see
+  PHASE_10C_ARTICLE_FORMATTING_SYSTEM.md). No markup changes needed to
+  the ~15 existing blockquotes — the enhanced quote style applies
+  automatically. Wrapped all 19 bullet lists (the recap after each
+  quote, plus the closing "What have we discovered" summary) in
+  callout--key-idea boxes, the highest-impact change for this
+  article's long quote-then-bullets rhythm. No wording changed.
 ---
 
 What if the story of multiplication began before the church was even formed? What if God's grand design from **Genesis to Revelation** has always been about multiplication?
@@ -45,10 +52,15 @@ The story begins in the garden, where we discover God's original blueprint for h
 
 This wasn't merely a suggestion—it was the core of human identity and purpose:
 
+<div class="callout callout--key-idea">
+
 - To be **fruitful** and **multiply** God's image
 - To **fill the earth** with image-bearers
 - To have **dominion** as representatives of God's family
 - To work with our hands doing "the work of God's family"
+
+</div>
+
 
 What might our world look like today if humanity had perfectly fulfilled this original commission? How different would history be if this pattern of multiplication had continued uninterrupted?
 
@@ -60,10 +72,15 @@ But as the podcast hosts explain, this divine mission quickly experienced "**set
 
 This represented a complete inversion of God's plan:
 
+<div class="callout callout--key-idea">
+
 - **Centralization** instead of dispersion
 - **Self-glorification** instead of reflecting God's glory
 - **Man's image** being exalted rather than God's
 - People **congregating** rather than **filling the earth**
+
+</div>
+
 
 What's particularly striking is God's response:
 
@@ -85,9 +102,14 @@ This comes to fruition in **Genesis 12** with the call of Abraham:
 
 Notice the progression of God's plan:
 
+<div class="callout callout--key-idea">
+
 - From focusing on **all humanity** to **one man**
 - From that man to a **great nation**
 - From that nation to "**all families of the earth**"
+
+</div>
+
 
 What appears at first to be a narrowing of focus is actually God's strategy for ultimate expansion. As the podcast hosts emphasize:
 
@@ -107,10 +129,15 @@ After the dramatic **deliverance** from Egypt, God's people were at risk of forg
 
 This moment represents a critical restoration of vision:
 
+<div class="callout callout--key-idea">
+
 - God reaffirms His commitment to use Israel to **impact all peoples**
 - He establishes them as a **kingdom of priests** to represent Him to the nations
 - He demonstrates His **faithfulness** to the promises made to Abraham
 - The small family has now grown into **millions** of descendants
+
+</div>
+
 
 As the podcast hosts emphasize:
 
@@ -126,10 +153,15 @@ Despite Israel's repeated failures, God continually called His people back to th
 
 This Psalm reveals several crucial aspects of God's unchanging vision:
 
+<div class="callout callout--key-idea">
+
 - The blessing of Israel has a **greater purpose** beyond themselves
 - God desires His **ways** and **salvation** to be known throughout the earth
 - His ultimate goal is that **all peoples** would praise Him
 - His rule should extend to **every nation** on earth
+
+</div>
+
 
 The prophets continued to expand this vision. In **Isaiah 49**, we learn that the coming Messiah's mission would be far greater than just restoring Israel:
 
@@ -137,9 +169,14 @@ The prophets continued to expand this vision. In **Isaiah 49**, we learn that th
 
 This prophecy reveals that:
 
+<div class="callout callout--key-idea">
+
 - The Messiah's work is "**too big**" to be limited to Israel
 - God's intention has "**always been**" for a global impact
 - The servant would be a "**light to the nations**" and to the Gentiles
+
+</div>
+
 
 Finally, **Malachi 1:11** provides perhaps the most vivid picture of God's comprehensive vision:
 
@@ -147,10 +184,15 @@ Finally, **Malachi 1:11** provides perhaps the most vivid picture of God's compr
 
 This powerful imagery conveys that:
 
+<div class="callout callout--key-idea">
+
 - God's passion extends to **every place** on earth
 - His name will be "**great among the nations**"
 - **Worship** of God will eventually fill the whole earth
 - He will use "**his people**" to accomplish this global mission
+
+</div>
+
 
 Could it be that God's persistent calls to Israel throughout the Old Testament are also His call to us today? What if we are also at risk of "losing the plot" of God's multiplication mission?
 
@@ -166,10 +208,15 @@ When humanity continually failed to fulfill God's original mandate, God initiate
 
 This reveals an astonishing truth about Jesus's mission:
 
+<div class="callout callout--key-idea">
+
 - Jesus came as the "**perfect Adam**" to restore what was lost in Genesis
 - He modeled what it means to be "**truly human**"
 - He demonstrated the "**perfect image of the father**"
 - He created a pattern of **multiplication** through discipleship
+
+</div>
+
 
 As the podcast emphasizes, Jesus's work creates a **new creation** that parallels the original creation:
 
@@ -185,11 +232,16 @@ After completing His redemptive work, Jesus gave His disciples their marching or
 
 Notice these critical elements:
 
+<div class="callout callout--key-idea">
+
 - Jesus begins by claiming "**all authority**" — the mission is backed by His power
 - The command is to "**make disciples**" — not just converts
 - The scope is "**all nations**" — echoing God's original vision
 - The process involves "**baptizing**" and "**teaching**"
 - His promise of presence — "**I will be with you**" — guarantees success
+
+</div>
+
 
 The podcast hosts highlight an often-overlooked aspect of this commission:
 
@@ -205,10 +257,15 @@ Before ascending, Jesus provided a strategic framework for how this worldwide mu
 
 This passage reveals the essential elements for multiplication:
 
+<div class="callout callout--key-idea">
+
 - **Divine power** — "the Holy Spirit's going to come on them"
 - **Personal testimony** — "be his witnesses"
 - **Geographic progression** — "Jerusalem, Judea, Samaria, ends of the earth"
 - **Clear purpose** — leaving behind "**disciples, leaders, and churches**"
+
+</div>
+
 
 The hosts emphasize that this strategy directly connects to God's original design:
 
@@ -228,10 +285,15 @@ Despite the clear command to spread out from Jerusalem to the ends of the earth,
 
 This pivotal moment reveals several important principles:
 
+<div class="callout callout--key-idea">
+
 - Even the early church experienced **mission drift**
 - God uses **persecution** as a catalyst for expansion
 - The scattering of believers fulfilled the **geographic progression** Jesus outlined
 - God remains **faithful** to His mission even when His people falter
+
+</div>
+
 
 The podcast hosts capture this principle with a memorable phrase:
 
@@ -251,10 +313,15 @@ As the gospel spread beyond Jerusalem, something remarkable happened. The apostl
 
 This revelation shows a profound continuity in God's plan:
 
+<div class="callout callout--key-idea">
+
 - The church has become the "**kingdom of priests**" promised in Exodus 19
 - Believers are now a "**chosen people**" and "**royal group**"
 - The church is "**still fulfilling the same mission**" and "**same purpose**"
 - God's patterns remain consistent "**throughout all of scripture**"
+
+</div>
+
 
 The implication is clear:
 
@@ -276,10 +343,15 @@ The apostle John's vision in Revelation reveals the culmination of God's plan th
 
 This passage reveals several critical insights about the outcome of God's mission:
 
+<div class="callout callout--key-idea">
+
 - Jesus' sacrifice secured people from "**every tribe, language, people, and nation**"
 - These diverse believers have become a unified "**kingdom and priests**"
 - The original promise to Israel in Exodus 19 finds ultimate fulfillment
 - The redeemed will "**reign on the earth**"—fulfilling the dominion mandate of Genesis 1:28
+
+</div>
+
 
 The podcast hosts emphasize that "**we have seen that kingdom of priests happen now**"—the process is already underway, though not yet complete.
 
@@ -293,10 +365,15 @@ John's vision continues with an even more expansive picture:
 
 This spectacular scene reveals:
 
+<div class="callout callout--key-idea">
+
 - A crowd so vast it's beyond counting—a truly successful multiplication
 - Representatives from literally every ethnolinguistic group on earth
 - The complete fulfillment of God's promise to bless "all families of the earth" through Abraham
 - The ultimate expression of worship from a globally diverse yet unified body
+
+</div>
+
 
 This vision is not just a beautiful conclusion—it's a compelling motivation for our mission today. It assures us that despite all setbacks and challenges, God's multiplication plan will ultimately succeed.
 
@@ -314,10 +391,15 @@ The podcast hosts introduce a practical framework called the "**Four Fields**" p
 
 This process helps believers move from big-picture vision to practical implementation:
 
+<div class="callout callout--key-idea">
+
 - It provides a clear pathway for participation in God's mission
 - It focuses on what happens "**on the ground on a daily basis**"
 - It connects our activity to God's overarching plan "**from beginning to end**"
 - It answers the question: "This is what I do, and this is why I do it"
+
+</div>
+
 
 The hosts use a helpful metaphor to explain why both vision and process are essential:
 
@@ -325,9 +407,14 @@ The hosts use a helpful metaphor to explain why both vision and process are esse
 
 This framework ensures:
 
+<div class="callout callout--key-idea">
+
 - You have the right "**endpoint**" (the Father's heart)
 - You know the "**clear steps along the way**"
 - You possess the "**skills to be able to drive the car**"
+
+</div>
+
 
 Could this "Four Fields" process be the practical roadmap you've been missing in your disciple-making journey?
 
@@ -339,10 +426,15 @@ At the heart of any multiplication movement is the development of leaders who ca
 
 The podcast emphasizes several critical aspects of leadership development:
 
+<div class="callout callout--key-idea">
+
 - Leaders need certain "**minimums**" to be effective multipliers
 - Development must happen at "**every level**"—from individual churches to networks
 - The goal is leaders who have "in their hands what they need to multiply"
 - These essentials are part of the movement's "**original DNA tools**"
+
+</div>
+
 
 As the hosts explain:
 
@@ -360,10 +452,15 @@ The podcast repeatedly highlights a pattern that offers encouragement:
 
 This pattern reveals several principles for overcoming setbacks:
 
+<div class="callout callout--key-idea">
+
 - God remains "**faithful**" even when His people falter
 - His "**hand is on the wheel**" guiding the process
 - He consistently gets the mission "**back on track**" when it drifts
 - He often uses challenges to advance His purposes (like persecution in Acts 8:1)
+
+</div>
+
 
 The hosts emphasize this encouraging truth:
 
@@ -379,6 +476,8 @@ The **Father's heart** has always been for "**no place left**" without witness t
 
 What have we discovered along the way?
 
+<div class="callout callout--key-idea">
+
 - God's original design for humanity included **multiplication** from the very beginning
 - Despite repeated **setbacks** and human failure, God faithfully keeps His mission on track
 - Jesus came as the "**perfect Adam**" to model and empower true multiplication
@@ -386,6 +485,9 @@ What have we discovered along the way?
 - Practical frameworks like the "**Four Fields**" process help us participate effectively
 - Leadership development with the right "**minimums**" is essential for sustainable movements
 - God's ultimate success is guaranteed—there will be worshippers from "**every nation, tribe, people and language**"
+
+</div>
+
 
 As Mark and Dave emphasize throughout their podcast, understanding both the destination (the Father's heart) and the pathway (the Four Fields process) is crucial for effective multiplication. Without clear vision, we lose direction; without practical process, we lack implementation.
 
