@@ -214,6 +214,22 @@ and next-gen-local-owners-building-beachheads-of-the-kingdom all add
 to **Church Planting Movements** (now 21 slots). See
 `PHASE_7B_TIER_3_BATCH_6.md` for the full batch plan.
 
+As of Phase 7B Batch 7 (the seventh and final Tier 3 batch), the
+remaining 5 pages are migrated: `/action-plan/` (no hub, no tool CTA
+— a stale cohort coaching-plan landing page, `exclude_from_blog:
+true`), `/the-church-waffle-sticker/` (no hub, related to
+`/stickers/` — a single sticker-product page, `exclude_from_blog:
+true`, same treatment as `/the-four-fields-sticker-simple-2x2/`), and
+`/elementor-10714/` (no hub — an orphaned past-event confirmation
+page, migrated minimally as a documented legacy-preservation page,
+`exclude_from_blog: true`), plus 2 articles:
+get-ready-to-be-empowered-evangelists-revolutionize-disciple-making
+adds to **Church Planting Movements** (now 22 slots); and
+4-responses-to-the-gospel adds to **Simple Church**. See
+`PHASE_7B_TIER_3_BATCH_7.md` for the full batch plan. This closes out
+Tier 3 migration completely — all 48 original Tier 3 URLs are now
+migrated.
+
 Tool entries themselves (`src/content/tools/`) are not yet created —
 `ToolCTA` renders "(coming soon)" for tool names with no matching entry.
 Creating real tool pages (3 Circles, Stories of Hope, etc.) is future
@@ -225,9 +241,10 @@ Built in Phase 7A (`src/pages/blog/index.astro`) as a new site-wide
 directory, not a per-hub mechanism: it dynamically lists every
 migrated article (33 at launch, 40 after Phase 7B Batch 1, 47 after
 Phase 7B Batch 2, 54 after Phase 7B Batch 3, 60 after Phase 7B Batch 4,
-65 after Phase 7B Batch 5, 71 after Phase 7B Batch 6 — excluding
-`/privacy-policy/`, `/kingdom-ministry-training/`,
-`/the-four-fields-sticker-simple-2x2/`, and `/contact-us/`
+65 after Phase 7B Batch 5, 71 after Phase 7B Batch 6, 73 after Phase
+7B Batch 7 — excluding `/privacy-policy/`, `/kingdom-ministry-training/`,
+`/the-four-fields-sticker-simple-2x2/`, `/contact-us/`,
+`/action-plan/`, `/the-church-waffle-sticker/`, and `/elementor-10714/`
 via their `exclude_from_blog` flags,
 growing automatically as more are migrated — sorted
 by tier, then by best-available date) and links out to all 11

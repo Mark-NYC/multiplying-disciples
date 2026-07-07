@@ -266,6 +266,44 @@ for the full breakdown. 88 pages now build clean (was 81). `/blog/`
 lists 71 articles (65 + 6 blog-eligible — `/contact-us/` correctly
 excluded via `exclude_from_blog`). 5 tier-3 URLs remain (12 − 7).
 
+**Phase 7B Batch 7 status (final Tier 3 batch):** the seventh and
+final Tier 3 batch migrated — the remaining 5 pages, see
+`PHASE_7B_TIER_3_BATCH_7.md`. `/action-plan/`, `/the-church-waffle-sticker/`,
+and `/elementor-10714/` all received the special inspection this batch
+called for: `/action-plan/` is a stale July-August 2023 cohort
+coaching-plan landing page (4-week checkpoint structure preserved as
+plain text since its `/week-1/`-`/week-4/` links are not in this
+inventory; genuine working links — the training PDF and 4 real
+JotForm checkpoint URLs — were kept; empty `href=""`/`href="#"`
+placeholder buttons already broken in the export were dropped, not
+replaced with invented destinations); no hub,
+`exclude_from_blog: true`. `/the-church-waffle-sticker/` is a single
+sticker-product page in the `/stickers/` family (same treatment as
+`/the-four-fields-sticker-simple-2x2/` in Batch 5); no hub,
+`exclude_from_blog: true`. `/elementor-10714/` is an orphaned
+"Your seat is saved!" confirmation page for a specific, already-past
+Zoom training — migrated minimally as a documented
+legacy-preservation page (URL preserved, not redirected or 404'd, per
+instruction), no hub, `exclude_from_blog: true`. `/4-responses-to-the-gospel/`
+is genuine resource content (a "12 Practice Church Circle" Google
+Slides deck, same Acts 2:36-47 diagnostic family as the already-migrated
+`/movement-resources/12-practice-church-circle/`) — assigned to the
+**Simple Church** hub and included in `/blog/`.
+`/get-ready-to-be-empowered-evangelists-revolutionize-disciple-making/`
+(a real article on the evangelist's role in disciple making movements)
+was added to the **Church Planting Movements** hub (now 22 slots) and
+included in `/blog/`. 9 files across 4 of these 5 pages are missing
+from supplied uploads (2 featured/og_images, 1 decorative brandmark on
+the legacy page, 4 decorative images on the cohort page, 2 screenshot
+previews on the resource page) — all deferred, non-blocking; see
+`PHASE_7B_TIER_3_BATCH_7.md` and `MEDIA_ACQUISITION_CHECKLIST.md` for
+the full breakdown. 93 pages now build clean (was 88). `/blog/` lists
+73 articles (71 + 2 blog-eligible — `/action-plan/`,
+`/the-church-waffle-sticker/`, and `/elementor-10714/` all correctly
+excluded via `exclude_from_blog`). **Zero Tier 3 URLs remain
+not-migrated — Tier 3 is now 100% migrated (48 of 48 original Tier 3
+URLs accounted for).**
+
 ## Full inventory — all 122 published posts/pages
 
 Sorted by impressions (real GSC data where available).
@@ -349,11 +387,11 @@ Sorted by impressions (real GSC data where available).
 | `/go-slow-to-go-fast-could-transform-your-leadership-pipeline/` | article | migrated | 0 | 7 | tier-3 |
 | `/start-strengthen-sustain-core-insights-on-building-lasting-ministry/` | article | migrated | 0 | 5 | tier-3 |
 | `/next-gen-local-owners-building-beachheads-of-the-kingdom/` | article | migrated | 0 | 4 | tier-3 |
-| `/action-plan/` | page | not-migrated | 0 | 2 | tier-3 |
-| `/get-ready-to-be-empowered-evangelists-revolutionize-disciple-making/` | article | not-migrated | 0 | 2 | tier-3 |
-| `/4-responses-to-the-gospel/` | page | not-migrated | 0 | 1 | tier-3 |
-| `/elementor-10714/` | page | not-migrated | 0 | 1 | tier-3 |
-| `/the-church-waffle-sticker/` | page | not-migrated | 0 | 1 | tier-3 |
+| `/action-plan/` | page | migrated | 0 | 2 | tier-3 |
+| `/get-ready-to-be-empowered-evangelists-revolutionize-disciple-making/` | article | migrated | 0 | 2 | tier-3 |
+| `/4-responses-to-the-gospel/` | page | migrated | 0 | 1 | tier-3 |
+| `/elementor-10714/` | page | migrated | 0 | 1 | tier-3 |
+| `/the-church-waffle-sticker/` | page | migrated | 0 | 1 | tier-3 |
 | `/free-training/` | page | not-migrated | 0 | 0 | unknown |
 | `/about-us/` | page | not-migrated | 0 | 0 | unknown |
 | `/get-coaching/` | page | not-migrated | 0 | 0 | unknown |

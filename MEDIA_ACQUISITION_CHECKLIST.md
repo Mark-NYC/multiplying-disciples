@@ -202,6 +202,32 @@ and `/next-gen-local-owners-building-beachheads-of-the-kingdom/`
 reference no missing media — all featured and inline images confirmed
 present.
 
+**Phase 7B Batch 7 gap — deferred, not blocking (final Tier 3 batch):**
+migrating the seventh and final Tier 3 batch surfaced 9 more genuinely
+missing files across 4 of the 5 pages. 2 are featured/`og_image`-only
+(omitted, same pattern as every prior phase):
+`2023/05/pexels-photo-6150581.jpeg`
+(get-ready-to-be-empowered-evangelists-revolutionize-disciple-making)
+and `2024/04/Printify_Logo-1024x320.png` (the-church-waffle-sticker —
+the entire `2024/04` month folder has never been supplied, same file
+already missing on `/the-four-fields-sticker-simple-2x2/` in Batch 5).
+1 is a decorative brandmark image on the legacy-preservation page
+`/elementor-10714/`: `2025/02/Biglife_Brandmark_cyan-1024x324-1.png`
+(only `-100x100`/`-150x150` crops exist, not the referenced size) —
+dropped, non-blocking since this page is a minimal legacy-preservation
+migration by design. 4 are on `/action-plan/`: 1 button image
+(`2023/06/FUL.png`) and 3 week-illustration photos
+(`2023/04/2-2.jpg`, `2023/04/3-2.jpg`, `2023/04/4.jpg`) — all dropped,
+non-blocking (decorative photos, not the checkpoint links or PDF
+download itself, which are both intact). 2 are screenshot preview
+images on `/4-responses-to-the-gospel/`:
+`2023/04/Screen-Shot-2023-04-02-at-6.40.51-AM-1024x701.jpg` and
+`2023/04/Screen-Shot-2023-04-02-at-6.40.40-AM-1024x802.jpg` — dropped,
+kept the real Google Slides links each screenshot wrapped. None of the
+missing files block the batch — see `PHASE_7B_TIER_3_BATCH_7.md` for
+the full breakdown. This closes out Tier 3 media tracking; all 48
+original Tier 3 URLs have now been migrated.
+
 **Received-uploads log:**
 
 - 2026-07-06 — `2023/02` month folder (559 files) supplied and extracted

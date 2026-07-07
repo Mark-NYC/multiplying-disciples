@@ -11,6 +11,7 @@ key_articles:
   - "/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/"
   - "/movement-resources/12-practice-church-circle/"
   - "/three-thirds/"
+  - "/4-responses-to-the-gospel/"
 related_tools: []
 next_step:
   label: "Learn the Three-Thirds process"

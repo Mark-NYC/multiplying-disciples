@@ -29,6 +29,7 @@ key_articles:
   - "/go-slow-to-go-fast-could-transform-your-leadership-pipeline/"
   - "/start-strengthen-sustain-core-insights-on-building-lasting-ministry/"
   - "/next-gen-local-owners-building-beachheads-of-the-kingdom/"
+  - "/get-ready-to-be-empowered-evangelists-revolutionize-disciple-making/"
 related_tools: []
 next_step:
   label: "See the 4 stages of movement"

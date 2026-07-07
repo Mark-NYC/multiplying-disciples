@@ -48,10 +48,12 @@ until every item below is checked and a human has signed off.
       `src/pages/blog/index.astro`). Dynamically lists every migrated
       article (40 as of Phase 7B Batch 1, 47 as of Phase 7B Batch 2,
       54 as of Phase 7B Batch 3, 60 as of Phase 7B Batch 4, 65 as of
-      Phase 7B Batch 5, 71 as of Phase 7B Batch 6 — excludes
-      `/privacy-policy/`, `/kingdom-ministry-training/`,
-      `/the-four-fields-sticker-simple-2x2/`, and `/contact-us/` via
-      `exclude_from_blog`,
+      Phase 7B Batch 5, 71 as of Phase 7B Batch 6, 73 as of Phase 7B
+      Batch 7 (final Tier 3 batch) — excludes `/privacy-policy/`,
+      `/kingdom-ministry-training/`,
+      `/the-four-fields-sticker-simple-2x2/`, `/contact-us/`,
+      `/action-plan/`, `/the-church-waffle-sticker/`, and
+      `/elementor-10714/` via `exclude_from_blog`,
       was 33), links all
       11 hubs,
       correct canonical/title/description, no noindex, sitemap
@@ -75,6 +77,27 @@ until every item below is checked and a human has signed off.
 - Do not delete or replace the WordPress site.
 - Do not rewrite the whole site.
 - Do not change existing URL paths.
+
+## Status snapshot (Phase 7B Batch 7 — Tier 3 complete)
+
+Seventh and final Tier 3 batch migrated — the remaining 5 pages, see
+`PHASE_7B_TIER_3_BATCH_7.md`. `/action-plan/`, `/the-church-waffle-sticker/`,
+and `/elementor-10714/` all received the special inspection this batch
+called for: a stale cohort landing page, a sticker-product page (same
+`/stickers/` family treatment as Batch 5), and an orphaned past-event
+confirmation page migrated minimally as a documented
+legacy-preservation page (URL preserved, not redirected or 404'd) —
+all 3 given no hub and `exclude_from_blog: true`. 2 articles were
+added: 1 to Church Planting Movements (now 22 slots) and 1 to Simple
+Church. 93 pages now build clean (was 88). **Zero Tier 3 URLs remain
+not-migrated — Tier 3 is 100% migrated (48 of 48 original Tier 3
+URLs).** 9 more media files found missing, all deferred, non-blocking
+(none above-the-fold, product-critical, action-critical, or a
+direct-access PDF — see `MEDIA_ACQUISITION_CHECKLIST.md`). No slug
+issues or hub collisions found; confirmed no guessed
+`/week-1/`-`/week-4/` links were created. Still no redirects
+implemented, nothing launched. **Recommended next phase: a full
+post-migration audit (all 93 pages) before any launch prep begins.**
 
 ## Status snapshot (Phase 7B Batch 6)
 

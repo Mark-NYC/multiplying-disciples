@@ -682,6 +682,71 @@ collisions, no guessed slugs, and `/blog/` now lists 71 articles (65 +
 6 blog-eligible — `/contact-us/` correctly excluded via
 `exclude_from_blog`). No redirects implemented. 5 tier-3 URLs remain.
 
+### Phase 7B Batch 7 — Seventh and final Tier 3 batch (done)
+
+Migrated the final 5 Tier 3 pages, per `PHASE_7B_TIER_3_BATCH_7.md`.
+This closes out Tier 3 migration completely. Three pages received the
+special inspection this batch called for:
+
+- `/action-plan/` — a stale, cohort-specific "Harvest Group Resources
+  & Coaching Plan" landing page tied to a July-August 2023 4-week
+  training cohort. Much of the interactive chrome was already
+  broken/empty in the WordPress export itself: `href=""`/`href="#"`
+  placeholder buttons and a JS countdown-timer widget rendering as
+  literal `00 00 00 00` text. The 4 week-checkpoint links pointed to
+  `/week-1/` through `/week-4/`, none of which appear in
+  `URL_INVENTORY.md` — per "no guessed slugs," preserved as plain text
+  instead of links. Kept the real, working, non-invented destinations:
+  the `Virtual-Training-Packet.pdf` download and 4 real JotForm
+  checkpoint URLs. No hub (spans multiple unrelated weekly topics, no
+  clean fit), `related_articles: ["/starter-tools/"]`,
+  `exclude_from_blog: true`.
+- `/the-church-waffle-sticker/` — a single sticker-product page in the
+  `/stickers/` family, same treatment as
+  `/the-four-fields-sticker-simple-2x2/` (Batch 5): no hub,
+  `related_articles: ["/stickers/"]`, `exclude_from_blog: true`. Real
+  Printify product link and price preserved verbatim.
+- `/elementor-10714/` — confirmed the slug's suspicion: an orphaned
+  "Your seat is saved!" confirmation page for a specific, already-past
+  Zoom training. Not redirected or 404'd per instruction — migrated
+  minimally as a documented legacy-preservation page: real
+  confirmation text kept, the non-standard `add-to-calendar-button`
+  web component dropped (no JS support in this project), the Zoom
+  link kept as a plain documented external link noting the training
+  date has passed. No hub, `exclude_from_blog: true`.
+
+Plus 2 articles:
+`/get-ready-to-be-empowered-evangelists-revolutionize-disciple-making/`
+(added to **Church Planting Movements**, now 22 slots) and
+`/4-responses-to-the-gospel/` (a genuine "12 Practice Church Circle"
+Google Slides resource, same Acts 2:36-47 diagnostic family as the
+already-migrated `/movement-resources/12-practice-church-circle/` —
+added to **Simple Church**, included in `/blog/`).
+
+Same cleanup discipline as every prior phase: converted a Spotify
+podcast embed to a plain link, removed 2 duplicate pull-quote `<h4>`
+blocks, removed 3 stray Elementor `<style>` blocks, and removed a
+trailing "Are you in?/Start Here./Get Started" CTA block (kept the
+real inline link to `/starter-tools/`).
+
+9 media files across 4 of these 5 pages are missing from supplied
+uploads (2 featured/`og_image`-only, 1 decorative brandmark on the
+legacy-preservation page, 4 decorative images on the cohort page — 1
+button image and 3 week photos — and 2 screenshot previews on the
+resource page) — all deferred, non-blocking, none above-the-fold,
+product-critical, action-critical, or a direct-access PDF (the one
+referenced PDF is present); see `PHASE_7B_TIER_3_BATCH_7.md` and
+`MEDIA_ACQUISITION_CHECKLIST.md` for the full breakdown. `astro
+check`/`astro build` clean, 93 pages (was 88). Verified in `dist/`:
+all 5 canonicals correct, no noindex, exactly 1 H1 each, no broken
+internal links introduced by this batch (confirmed no guessed
+`/week-1/`-`/week-4/` links were created), no hub collisions, and
+`/blog/` now lists 73 articles (71 + 2 blog-eligible —
+`/action-plan/`, `/the-church-waffle-sticker/`, and `/elementor-10714/`
+all correctly excluded via `exclude_from_blog`). No redirects
+implemented. **Zero Tier 3 URLs remain not-migrated — Tier 3 is now
+100% migrated.**
+
 ## Repo structure
 
 ```

@@ -384,3 +384,15 @@ every table above on purpose; they need no local preservation.
   its Brevo subscription form was replaced with a `mailto:` fallback,
   documented in `PHASE_7B_TIER_3_BATCH_6.md`. No new PDF or
   tier-1/tier-2-scope files referenced by this batch.
+- **Phase 7B Batch 7 (final):** same tier-3 scope note as Batch 1
+  above — tracked in `MEDIA_ACQUISITION_CHECKLIST.md`, updated with
+  this batch's findings: 9 newly missing files (2 featured/og_image-
+  only, 1 decorative brandmark on a legacy-preservation page, 4 on one
+  cohort landing page — 1 button image and 3 decorative week photos —
+  and 2 screenshot previews on one resource page), all deferred and
+  non-blocking, none above-the-fold, product-critical, action-critical,
+  or a direct-access PDF (the one referenced PDF,
+  `Virtual-Training-Packet.pdf`, is present). This is the final Tier 3
+  batch — no new PDF or tier-1/tier-2-scope files referenced, and Tier
+  3 media tracking is now complete (all 48 original Tier 3 URLs
+  migrated).
