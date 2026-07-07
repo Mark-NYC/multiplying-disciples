@@ -81,9 +81,9 @@ Ready to learn how to "do the stuff" of multiplying disciples, leaders, and chur
 
 ### 4 Fields
 
-[![4 Fields icon](/wp-content/uploads/2023/02/4fields.png)](/4-fields/)
+[![4 Fields icon](/wp-content/uploads/2023/02/4fields.png)](/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/)
 
-[View](/4-fields/)
+[View](/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/)
 
 ### Church Circle
 

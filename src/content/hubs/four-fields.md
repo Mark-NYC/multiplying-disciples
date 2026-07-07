@@ -16,10 +16,16 @@ related_tools: []
 next_step:
   label: "Get started in Four Fields training"
   href: "/how-to-get-started-in-four-fields-training/"
-status: "migrated-draft"
+status: "published"
 migration_priority: "tier-1"
 notes: >
   New hub page (no WordPress original). Verify before launch that
   /four-fields/ does not collide with an existing WordPress category/tag
-  archive URL.
+  archive URL. Promoted to status: published in Phase 9 (structurally
+  verified: generates correctly, all 4 key_articles and next_step link
+  resolve) — see PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md. Note: the
+  distinct real WordPress page /4-fields/ was investigated in the same
+  phase and judged not worth migrating (stale, superseded duplicate
+  content under a mismatched slug) — see that doc for the full
+  reasoning; it does not collide with this hub's own /four-fields/ slug.
 ---

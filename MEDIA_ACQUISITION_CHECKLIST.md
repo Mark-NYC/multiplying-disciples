@@ -250,6 +250,39 @@ both on `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-missio
 are the same already-documented Tier 1 gap above — not new. See
 `PHASE_8_FULL_SITE_AUDIT.md` §7 for the full breakdown.
 
+**Phase 9 media findings:** migrating the 4 real content pages
+resolved from the 6 remaining link targets surfaced 7 more genuinely
+missing files, all decorative preview/screenshot images (not the core
+Google Slides/Zoom/PDF destinations each page exists to link to):
+`2025/03/SELECT-DATE-1.jpg` (free-training, part of a dropped stale
+dated-sessions section, no longer referenced at all),
+`2023/04/Screen-Shot-2023-04-02-at-6.25.14-AM-1024x731.jpg` and
+`2023/04/Screen-Shot-2023-04-02-at-6.32.15-AM-1024x810.jpg` (3-circles
+screenshot previews),
+`2023/04/Screen-Shot-2023-04-02-at-6.12.23-AM-1024x350.jpg` and
+`2023/04/Screen-Shot-2023-04-02-at-6.04.54-AM-1024x812.jpg` (4-1-1
+screenshot previews), `2023/04/pexels-omar-lopez-1182825-1.jpg`
+(movement-resources-strategy-coordinator, a decorative header
+background), and `2023/04/4-Fields-Toolbox-03.26.23-copy.jpg`
+(movement-resources-4-fields-toolbox, a product preview image — the
+page's actual PDF download, `4-Fields-Toolbox-Updated-03.31.23.pdf`,
+is confirmed present and is the primary CTA). 1 additional file,
+`2023/04/IMG_4574-1.jpg` (the toolbox's PNG download button target),
+is also not found under supplied uploads but was kept as a documented
+button link per the same convention used elsewhere when a stronger
+alternate download is present and confirmed. Separately, 2 files
+initially expected to be missing turned out to be present under the
+same U+202F narrow-no-break-space filename pattern found in the Phase
+8 `/kingdom-ministry-training/` fix —
+`2025/01/Screenshot-2025-01-20-at-1.13.20 PM.webp` (free-training) and
+`2025/01/Screenshot-2025-01-20-at-9.14.43 PM-1024x574.webp`
+(movement-resources-strategy-coordinator) — both referenced correctly
+with `%E2%80%AF` encoding from the start this time. None of the 7
+genuinely missing files block their pages: none are above-the-fold-
+critical, none are the primary CTA/destination link, and none are a
+missing direct-access PDF. See
+`PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md` for the full breakdown.
+
 **Received-uploads log:**
 
 - 2026-07-06 — `2023/02` month folder (559 files) supplied and extracted

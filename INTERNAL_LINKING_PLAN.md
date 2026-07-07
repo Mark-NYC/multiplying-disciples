@@ -246,6 +246,28 @@ URLs may be linked" policy — not guessed slugs — and will resolve
 automatically once those 4 pages (2 of which are `/movement-resources/`
 children) are migrated in a future batch.
 
+**Phase 9** resolved all 6 of those targets — see
+`PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md`. Migrated `/free-training/`,
+`/3-circles/`, `/4-1-1/`, `/movement-resources/strategy-coordinator/`,
+and `/movement-resources/4-fields-toolbox/` as real content (5 pages).
+`/4-fields/` was investigated and found to be stale, superseded
+duplicate content ("12 Practice Church Circle," already better
+represented at `/movement-resources/12-practice-church-circle/`)
+mislabeled under a Four-Fields-named slug — rather than migrate
+confusing duplicate content or leave the links broken, the 3 links
+that pointed to it (in `start-here.md` and `starter-tools.md`) were
+updated to point to the real, substantive
+`/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/`
+article instead. `/3-circles/` was added to the `/3-circles-guide/`
+hub's `key_articles` (per that hub's own notes) and
+`/movement-resources/strategy-coordinator/` was added to the
+`/strategy-coordinator/` hub's `key_articles`. All 33 previously
+undocumented-target links now resolve; 0 broken internal links remain
+sitewide. All 11 hubs were also promoted from `status: migrated-draft`
+to `status: published` in this phase (structurally verified: every
+hub generates correctly and every `key_articles`/`next_step` link
+resolves).
+
 Tool entries themselves (`src/content/tools/`) are not yet created —
 `ToolCTA` renders "(coming soon)" for tool names with no matching entry.
 Creating real tool pages (3 Circles, Stories of Hope, etc.) is future
@@ -258,10 +280,12 @@ directory, not a per-hub mechanism: it dynamically lists every
 migrated article (33 at launch, 40 after Phase 7B Batch 1, 47 after
 Phase 7B Batch 2, 54 after Phase 7B Batch 3, 60 after Phase 7B Batch 4,
 65 after Phase 7B Batch 5, 71 after Phase 7B Batch 6, 73 after Phase
-7B Batch 7 — excluding `/privacy-policy/`, `/kingdom-ministry-training/`,
-`/the-four-fields-sticker-simple-2x2/`, `/contact-us/`,
-`/action-plan/`, `/the-church-waffle-sticker/`, and `/elementor-10714/`
-via their `exclude_from_blog` flags,
+7B Batch 7, 74 after Phase 9 — excluding `/privacy-policy/`,
+`/kingdom-ministry-training/`, `/the-four-fields-sticker-simple-2x2/`,
+`/contact-us/`, `/action-plan/`, `/the-church-waffle-sticker/`,
+`/elementor-10714/`, `/free-training/`, `/3-circles/`, and
+`/movement-resources/4-fields-toolbox/` via their `exclude_from_blog`
+flags,
 growing automatically as more are migrated — sorted
 by tier, then by best-available date) and links out to all 11
 hubs for topic browsing. It's linked from header and footer nav on

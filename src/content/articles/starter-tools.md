@@ -31,9 +31,19 @@ notes: >
   /movement-resources/. Fixed 1 absolute internal link (/three-thirds,
   missing its trailing slash) to /three-thirds/. All internal links
   confirmed against URL_INVENTORY.md before use (/3-circles/, /4-1-1/,
-  /4-responses-to-the-gospel/, /4-fields/, /free-training/ are all
-  real, tracked, not-yet-migrated URLs — /4-fields/ confirmed distinct
-  from this site's own /four-fields/ hub, no collision).
+  /4-responses-to-the-gospel/, /4-fields/, /free-training/ were all
+  real, tracked URLs at the time — /3-circles/, /4-1-1/, and
+  /free-training/ have since been migrated in Phase 9, see
+  PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md; the "4 Fields" card's link
+  was updated in that same phase to point to the real
+  /four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/
+  article instead of /4-fields/ itself, since that page's actual
+  WordPress content turned out to be stale, superseded "12 Practice
+  Church Circle" content mislabeled under a Four-Fields-named slug,
+  not real Four Fields material — see Phase 9 doc for the full
+  reasoning; /4-fields/ was confirmed distinct from this site's own
+  /four-fields/ hub, no collision, but was judged not worth migrating
+  as its own page).
   churchwaffle.com is a legitimate external site, untouched. 2 inline
   card thumbnails (Three Thirds, 4 Fields) and 1 decorative CTA-section
   background image are missing from supplied uploads — omitted (the 2
@@ -82,7 +92,7 @@ These starter simple tools have emerged as best practices from the field in Nort
 
 ### 4 Fields
 
-[View](/4-fields/)
+[View](/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/)
 
 ### Church Waffle
 

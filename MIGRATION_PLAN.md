@@ -800,6 +800,78 @@ classified as real content, not an archive.
 only a content-file encoding fix, not a new page). No pages launched,
 no DNS changed, WordPress untouched, no redirects implemented.
 
+## Phase 9 — Remaining link targets + hub status decision (done)
+
+Resolved the 2 risks flagged at the end of Phase 8 — see
+`PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md` for the full breakdown.
+
+For each of the 6 real, confirmed-but-unmigrated URLs previously
+linked from existing content, extracted its actual WordPress export
+content, classified its page type, and decided an action — no slugs
+guessed, no pages fabricated:
+
+- `/free-training/` — real evergreen lead-magnet landing page (the
+  most-linked of the 6, referenced from 9 pages). **Migrated.**
+  Converted the JS accordion FAQ to plain headings; kept the real
+  ongoing Zoom registration link as the primary CTA; dropped 3 stale
+  dated-session rows (now long past) and 2 links to unconfirmed
+  `/trainings/...` URLs, same "no guessed slugs" discipline as every
+  prior batch.
+- `/3-circles/` and `/4-1-1/` — real, clean, evergreen Google Slides
+  tool pages. **Both migrated**, preserving their exact URLs.
+  `/3-circles/` added to the `/3-circles-guide/` hub's `key_articles`
+  per that hub's own notes ("if `/3-circles/` itself ever gets
+  migrated, link to it from here").
+- `/4-fields/` — investigated and found to be **stale, superseded
+  duplicate content**: its actual body is an older "12 Practice
+  Church Circle" Google Slides deck mislabeled under a
+  Four-Fields-named slug, not real Four Fields material — the same
+  topic already has a richer, current version at
+  `/movement-resources/12-practice-church-circle/`. **Not migrated**
+  (would have created confusing duplicate content under a mismatched
+  slug). Instead, the 3 links that pointed to it (a "4 Fields"
+  resource-grid card in `start-here.md` and `starter-tools.md`) were
+  updated to point to the real, substantive
+  `/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/`
+  article — a stronger, topically-correct match than either the stale
+  original or an invented stub.
+- `/movement-resources/strategy-coordinator/` and
+  `/movement-resources/4-fields-toolbox/` — both confirmed genuine
+  children of `/movement-resources/` (`post_parent` match), real
+  substantial content. **Both migrated**, preserving their exact
+  nested URLs. The strategy-coordinator article added to the
+  `/strategy-coordinator/` hub's `key_articles` (now 2, was 1),
+  meaningfully strengthening a previously thin hub.
+
+7 media files across the 5 newly migrated pages are missing from
+supplied uploads (all decorative preview/screenshot images, not the
+core Google Slides/Zoom/PDF destinations) — deferred, non-blocking;
+see `PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md` and
+`MEDIA_ACQUISITION_CHECKLIST.md`. 2 more files initially flagged
+missing turned out to be present under the same **U+202F narrow
+no-break space** filename-encoding pattern first found in Phase 8's
+`/kingdom-ministry-training/` fix — referenced correctly this time
+from the start.
+
+Reviewed all 11 hub pages against the full structural checklist
+(generates, canonical/title/meta/H1, `key_articles` resolve,
+`next_step` resolves, no broken hub links) — all 11 passed every
+check. **Promoted all 11 from `status: migrated-draft` to `status:
+published`.** This is a content-readiness status within the schema,
+not a launch signal — DNS, hosting, and the human go/no-go sign-off in
+`LAUNCH_CHECKLIST.md` remain entirely separate, unaffected gates.
+
+`astro check`/`astro build` clean, 98 pages (was 93). `/blog/` now
+lists 74 articles (73 + 1 — only the strategy-coordinator article is
+real blog-eligible content; `/free-training/`, `/3-circles/`, and
+`/movement-resources/4-fields-toolbox/` are all `exclude_from_blog:
+true` utility/tool pages; `/4-1-1/` also excluded). Re-crawled all 98
+pages: the 33 links that previously pointed to the 6 unmigrated
+targets now all resolve — **0 broken internal links remain anywhere
+on the site.** No redirects implemented; no change to `REDIRECTS.md`'s
+20 pending archive rows. No pages launched, no DNS changed, WordPress
+untouched.
+
 ## Repo structure
 
 ```

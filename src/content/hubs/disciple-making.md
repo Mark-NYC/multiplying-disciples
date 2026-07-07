@@ -28,11 +28,13 @@ related_tools:
 next_step:
   label: "See disciple-making resources for churches"
   href: "/disciple-making-resources-for-churches-that-will-multiply/"
-status: "migrated-draft"
+status: "published"
 migration_priority: "tier-1"
 notes: >
   New hub page (no WordPress original). This is the primary top-level
   hub tying the whole library together. Verify before launch that
   /disciple-making/ does not collide with an existing WordPress
-  category/tag archive URL.
+  category/tag archive URL. Promoted to status: published in Phase 9
+  (structurally verified: generates correctly, all 14 key_articles and
+  next_step link resolve) — see PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md.
 ---

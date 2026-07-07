@@ -40,13 +40,12 @@ source** — no rows, no sitemap entries, no content. Recommended
 default is allow 404/410 once live, not a redirect; no rows added
 here since there's no confirmed URL to redirect *from*.
 
-`/movement-resources/` and its 2 real not-yet-migrated children
+`/movement-resources/` and its 2 real children
 (`/movement-resources/strategy-coordinator/`,
-`/movement-resources/4-fields-toolbox/`) are **not archives** — real
+`/movement-resources/4-fields-toolbox/`) were **not archives** — real
 WordPress content pages (confirmed via the export: real
-`post_parent`/`post_type`/body content) that will be migrated
-normally in a future Tier 3 batch, at their exact existing URLs. No
-redirect involved.
+`post_parent`/`post_type`/body content), both migrated in Phase 9 at
+their exact existing URLs. No redirect involved.
 
 `/blog/` is recommended to become a real Astro index page (not a
 redirect target) — see `PHASE_6_ARCHIVE_URL_DECISION.md` section 5.

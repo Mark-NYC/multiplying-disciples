@@ -42,15 +42,16 @@ until every item below is checked and a human has signed off.
       crawling and correctly points to
       `https://multiplyingdisciples.us/sitemap-index.xml` — matches
       the real sitemap.
-- [ ] Internal link crawl (Phase 8 — see `PHASE_8_FULL_SITE_AUDIT.md`
-      §5): crawled all 93 pages. 0 empty `href=""`, 0 broken `#`
-      anchors, 0 `javascript:` links, all header/footer nav links
-      resolve. 33 links point to 6 real, confirmed, not-yet-migrated
-      URLs (documented, intentional — not guessed slugs) that will
-      404 until those pages are migrated. Leaving this box unchecked
-      until those 6 target URLs are either migrated or the links are
-      converted to plain text — see "Remaining risks" in
-      `PHASE_8_FULL_SITE_AUDIT.md`.
+- [x] Internal link crawl (Phase 8, resolved Phase 9 — see
+      `PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md`): crawled all 98 pages.
+      0 empty `href=""`, 0 broken `#` anchors, 0 `javascript:` links,
+      all header/footer nav links resolve. The 33 links that
+      previously pointed to 6 real, confirmed, not-yet-migrated URLs
+      now all resolve — 5 of those 6 URLs were migrated as real
+      content in Phase 9, and the 1 that wasn't (`/4-fields/`, stale
+      duplicate content) had its 3 referring links redirected in the
+      source content to a stronger existing real article instead. **0
+      broken internal links remain anywhere on the site.**
 - [ ] Lighthouse / basic speed check run on key templates (homepage,
       article, hub, tool).
 - [ ] `ROLLBACK_PLAN.md` reviewed and confirmed workable by whoever
@@ -69,21 +70,23 @@ until every item below is checked and a human has signed off.
       article (40 as of Phase 7B Batch 1, 47 as of Phase 7B Batch 2,
       54 as of Phase 7B Batch 3, 60 as of Phase 7B Batch 4, 65 as of
       Phase 7B Batch 5, 71 as of Phase 7B Batch 6, 73 as of Phase 7B
-      Batch 7 (final Tier 3 batch) — excludes `/privacy-policy/`,
-      `/kingdom-ministry-training/`,
+      Batch 7 (final Tier 3 batch), 74 as of Phase 9 — excludes
+      `/privacy-policy/`, `/kingdom-ministry-training/`,
       `/the-four-fields-sticker-simple-2x2/`, `/contact-us/`,
-      `/action-plan/`, `/the-church-waffle-sticker/`, and
-      `/elementor-10714/` via `exclude_from_blog`,
+      `/action-plan/`, `/the-church-waffle-sticker/`,
+      `/elementor-10714/`, `/free-training/`, `/3-circles/`, `/4-1-1/`,
+      and `/movement-resources/4-fields-toolbox/` via
+      `exclude_from_blog`,
       was 33), links all
       11 hubs,
       correct canonical/title/description, no noindex, sitemap
       includes it. Nav's `/blog/` links now resolve.
 - [x] `/movement-resources/` migrated normally as real Tier 3 content
       (Phase 7B Batch 1) — confirmed real content, not an archive.
-      **Still pending:** its 2 real not-yet-migrated children
-      (`/movement-resources/strategy-coordinator/`,
-      `/movement-resources/4-fields-toolbox/`), unknown-tier content,
-      must not be dropped or merged when migrated.
+      Its 2 real children, `/movement-resources/strategy-coordinator/`
+      and `/movement-resources/4-fields-toolbox/`, were migrated in
+      Phase 9 (unknown-tier content, preserved at their exact original
+      nested URLs, not dropped or merged).
 - [ ] Live spot-check for any `/author/...` or date-archive URLs
       (`/20XX/...`) actually resolving on the current WordPress site —
       none were found in any exported data source (GSC, sitemap index,
@@ -97,6 +100,33 @@ until every item below is checked and a human has signed off.
 - Do not delete or replace the WordPress site.
 - Do not rewrite the whole site.
 - Do not change existing URL paths.
+
+## Status snapshot (Phase 9 — remaining link targets + hub status)
+
+Resolved the 2 risks flagged at the end of Phase 8 — see
+`PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md`. Investigated all 6 real,
+confirmed-but-unmigrated URLs previously linked from existing content:
+migrated 5 as real content (`/free-training/`, `/3-circles/`,
+`/4-1-1/`, `/movement-resources/strategy-coordinator/`,
+`/movement-resources/4-fields-toolbox/`), preserving their exact
+original URLs; left `/4-fields/` intentionally un-migrated after
+finding its actual content was stale, superseded duplicate material
+mislabeled under a Four-Fields-named slug — its 3 referring links were
+pointed to a stronger, real, already-migrated article instead of being
+left broken or given fabricated replacement content. All 33
+previously-flagged links now resolve; 0 broken internal links remain
+sitewide. Reviewed all 11 hub pages against the full structural
+checklist (generation, canonical/title/meta/H1, `key_articles`,
+`next_step`, no broken hub links) — all 11 passed every check and were
+promoted from `status: migrated-draft` to `status: published`. 98
+pages now build clean (was 93). 7 new media gaps found, all
+decorative/non-blocking (deferred, documented). No redirects
+implemented; `REDIRECTS.md`'s 20 pending archive rows unchanged.
+**Recommended next phase: launch prep** — choosing a hosting provider,
+implementing the 20 archive redirects, and working through the
+remaining "Required before any launch" checklist items above that
+require a live/preview deployment (404 spot-check, Lighthouse,
+`ROLLBACK_PLAN.md` review, human go/no-go sign-off).
 
 ## Status snapshot (Phase 8 — full post-migration site audit)
 

@@ -16,10 +16,12 @@ related_tools: []
 next_step:
   label: "Learn the Three-Thirds process"
   href: "/three-thirds/"
-status: "migrated-draft"
+status: "published"
 migration_priority: "tier-1"
 notes: >
   New hub page (no WordPress original). Verify before launch that
   /simple-church/ does not collide with an existing WordPress
-  category/tag archive URL.
+  category/tag archive URL. Promoted to status: published in Phase 9
+  (structurally verified: generates correctly, all 4 key_articles and
+  next_step link resolve) — see PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md.
 ---

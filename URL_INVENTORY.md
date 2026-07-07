@@ -321,6 +321,29 @@ proposed archive redirects in `REDIRECTS.md` reconfirmed valid and
 still unimplemented. No missed/undiscovered URLs were found requiring
 migration.
 
+**Phase 9 status:** resolved the 6 real, confirmed-but-unmigrated URLs
+flagged as a Phase 8 risk — see
+`PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md`. Migrated 4 as real content:
+`/free-training/` (an evergreen lead-magnet landing page, the
+most-linked of the 6), `/3-circles/` and `/4-1-1/` (real Google
+Slides tool pages), and both real `/movement-resources/` children
+(`/movement-resources/strategy-coordinator/`,
+`/movement-resources/4-fields-toolbox/`). Left `/4-fields/`
+intentionally not migrated — its actual WordPress content is a stale,
+superseded "12 Practice Church Circle" duplicate mislabeled under a
+Four-Fields-named slug, not real Four Fields content; the 3 internal
+links that pointed to it (in `/start-here/` and `/starter-tools/`)
+were redirected in the source content itself to the real
+`/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/`
+article instead, not left broken and not fabricated as a new page. All
+33 internal links that pointed to the 6 targets now resolve (30 to the
+5 newly migrated pages, 3 to the replacement Four Fields article) — 0
+broken internal links remain sitewide. Also reviewed all 11 hub pages
+and promoted every one from `status: migrated-draft` to `status:
+published` (all structurally verified: generate correctly, every
+`key_articles`/`next_step` link resolves). 98 pages now build clean
+(was 93).
+
 ## Full inventory — all 122 published posts/pages
 
 Sorted by impressions (real GSC data where available).
@@ -409,14 +432,14 @@ Sorted by impressions (real GSC data where available).
 | `/4-responses-to-the-gospel/` | page | migrated | 0 | 1 | tier-3 |
 | `/elementor-10714/` | page | migrated | 0 | 1 | tier-3 |
 | `/the-church-waffle-sticker/` | page | migrated | 0 | 1 | tier-3 |
-| `/free-training/` | page | not-migrated | 0 | 0 | unknown |
+| `/free-training/` | page | migrated | 0 | 0 | unknown |
 | `/about-us/` | page | not-migrated | 0 | 0 | unknown |
 | `/get-coaching/` | page | not-migrated | 0 | 0 | unknown |
-| `/4-1-1/` | page | not-migrated | 0 | 0 | unknown |
-| `/3-circles/` | page (real tool, see PROTECTED_URLS.md hub collision note) | not-migrated | 0 | 0 | unknown |
-| `/4-fields/` | page | not-migrated | 0 | 0 | unknown |
-| `/movement-resources/strategy-coordinator/` | page | not-migrated | 0 | 0 | unknown |
-| `/movement-resources/4-fields-toolbox/` | page | not-migrated | 0 | 0 | unknown |
+| `/4-1-1/` | page | migrated | 0 | 0 | unknown |
+| `/3-circles/` | page (real tool, see PROTECTED_URLS.md hub collision note) | migrated | 0 | 0 | unknown |
+| `/4-fields/` | page (stale/superseded duplicate content — see PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md, intentionally not migrated) | not-migrated | 0 | 0 | unknown |
+| `/movement-resources/strategy-coordinator/` | page | migrated | 0 | 0 | unknown |
+| `/movement-resources/4-fields-toolbox/` | page | migrated | 0 | 0 | unknown |
 | `/start/` | page | not-migrated | 0 | 0 | unknown |
 | `/training/` | page | not-migrated | 0 | 0 | unknown |
 | `/links/` | page | not-migrated | 0 | 0 | unknown |

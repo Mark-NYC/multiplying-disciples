@@ -406,3 +406,13 @@ every table above on purpose; they need no local preservation.
   `MEDIA_ACQUISITION_CHECKLIST.md` and `PHASE_8_FULL_SITE_AUDIT.md`
   §7 for the full breakdown. No new files need to be requested or
   imported as a result of this audit.
+- **Phase 9 (remaining link targets):** migrating 4 real content pages
+  resolved from the 6 remaining link targets surfaced 7 newly missing
+  files (all decorative preview/screenshot images, none the primary
+  CTA/destination of their page), plus 2 files resolved as present
+  under the same U+202F narrow-no-break-space filename pattern found
+  in Phase 8 — see `MEDIA_ACQUISITION_CHECKLIST.md` and
+  `PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md` for the full breakdown. No
+  new PDF or tier-1/tier-2-scope files referenced by this phase (the
+  one PDF referenced, `4-Fields-Toolbox-Updated-03.31.23.pdf`, is
+  confirmed present).
