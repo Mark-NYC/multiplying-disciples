@@ -8,7 +8,9 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
 
 <header class="site-header">
   <div class="site-header__inner">
-    <a class="site-header__logo" href="/">{SITE.name}</a>
+    <a class="site-header__logo" href="/">
+      <img src="/images/logo.png" alt={SITE.name} width="290" height="44" />
+    </a>
     <nav aria-label="Primary">
       <ul class="site-header__nav">
         {
@@ -42,10 +44,14 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
   }
 
   .site-header__logo {
-    font-weight: 700;
-    font-size: 1.1rem;
-    text-decoration: none;
-    color: var(--color-text);
+    display: flex;
+    align-items: center;
+  }
+
+  .site-header__logo img {
+    height: 1.75rem;
+    width: auto;
+    border-radius: 0;
   }
 
   .site-header__nav {
