@@ -479,10 +479,6 @@ article tbody tr:nth-child(even) td {
   margin-bottom: 0;
 }
 
-.labs-cta__primary-action {
-  margin: 0 0 2.25rem;
-}
-
 .labs-cta__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -529,10 +525,6 @@ article tbody tr:nth-child(even) td {
   font-style: normal;
   font-weight: 600;
   color: var(--color-text-muted);
-}
-
-.labs-cta__actions {
-  margin: 0 0 1.5rem;
 }
 
 .labs-cta__bridge {

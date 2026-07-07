@@ -85,21 +85,9 @@ import {
       </p>
     </section>
 
-    <section class="explore">
-      <h2>Explore the library</h2>
-      <p class="explore__links">
-        <a href="/disciple-making/">Disciple Making</a>
-        <a href="/share-the-gospel/">Share the Gospel</a>
-        <a href="/testimony/">Testimony</a>
-        <a href="/church-planting-movements/">Church Planting Movements</a>
-        <a href="/starter-tools/">Starter Tools</a>
-        <a href="/vision/">Our Vision</a>
-      </p>
-    </section>
-
     <section class="faq">
-      <div class="faq__item">
-        <h3>What is the purpose of the disciple making training?</h3>
+      <details class="faq__item">
+        <summary>What is the purpose of the disciple making training?</summary>
         <p>
           The purpose of our disciple making training and coaching is to equip and empower
           individuals to become effective disciple makers who can multiply disciples and reach
@@ -108,10 +96,10 @@ import {
           movement of disciple makers who are passionate about sharing the Gospel and making
           disciples.
         </p>
-      </div>
+      </details>
 
-      <div class="faq__item">
-        <h3>Why is coaching important in the process of disciple making?</h3>
+      <details class="faq__item">
+        <summary>Why is coaching important in the process of disciple making?</summary>
         <p>
           Coaching within a community of practice plays a crucial role in disciple making as it
           provides personalized guidance, support, and accountability. Growth happens through
@@ -120,17 +108,17 @@ import {
           They will walk alongside you, offering insights, answering questions, and helping you
           navigate challenges along the way.
         </p>
-      </div>
+      </details>
 
-      <div class="faq__item">
-        <h3>Is the training completely free, or are there any hidden costs involved?</h3>
+      <details class="faq__item">
+        <summary>Is the training completely free, or are there any hidden costs involved?</summary>
         <p>
           Yes, the training we offer is completely free of charge. Always. There are no hidden
           costs or fees associated with participating in the training. Our goal is to make
           high-quality disciple making resources and coaching accessible to all who have a
           passion for reaching and discipling people for Jesus.
         </p>
-      </div>
+      </details>
     </section>
   </div>
 
@@ -155,10 +143,6 @@ import {
         </p>
       </div>
 
-      <p class="labs-cta__primary-action">
-        <a class="button" href={COVO_LABS_URL}>Join a Live Lab</a>
-      </p>
-
       <div class="labs-cta__grid" id="labs-cta-grid" aria-live="polite">
         <p class="labs-cta__loading">Loading upcoming labs&hellip;</p>
       </div>
@@ -178,10 +162,6 @@ import {
           <span class="labs-cta__proof-attribution">&mdash; Marcus T</span>
         </figcaption>
       </figure>
-
-      <p class="labs-cta__actions">
-        <a class="button button--secondary" href={COVO_LABS_URL}>View All Labs</a>
-      </p>
 
       <p class="labs-cta__bridge">
         Labs are hosted through <a href={COVO_HOME_URL}>Covo Multipliers</a>, where we practice
@@ -413,29 +393,41 @@ import {
     border-radius: var(--radius-card);
   }
 
-  .faq__item h3 {
-    margin: 0 0 0.5rem;
+  /* Closed-by-default accordion — reuses the same <details>/<summary>
+     chevron convention as the header's Resources dropdown
+     (Header.astro) so the affordance is consistent site-wide. */
+  .faq__item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
     font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .faq__item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq__item summary::after {
+    content: '';
+    flex-shrink: 0;
+    width: 0.5em;
+    height: 0.5em;
+    border-right: 2px solid var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform 0.15s ease;
+  }
+
+  .faq__item[open] summary::after {
+    transform: rotate(-135deg) translateY(2px);
   }
 
   .faq__item p {
-    margin: 0;
+    margin: 0.75rem 0 0;
     color: var(--color-text-muted);
-  }
-
-  .explore {
-    margin-top: 2.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .explore h2 {
-    font-size: 1.1rem;
-  }
-
-  .explore__links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.25rem;
   }
 </style>
