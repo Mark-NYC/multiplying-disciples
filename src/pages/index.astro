@@ -172,6 +172,24 @@ import {
 >
   const grid = document.getElementById('labs-cta-grid');
 
+  // Landing page for each lab slug. CoVo's API doesn't expose a page URL
+  // (only an internal `slug`), so this has to be kept in sync by hand —
+  // same maintenance pattern already used in covo-multipliers' own
+  // cross-site embed (embeds/next-lab-widget.html's LAB_CONTENT map).
+  // Add every new lab's slug + landing page here when CoVo publishes one;
+  // unmapped slugs fall back to the general labs page rather than break.
+  const LAB_LANDING_PAGES = {
+    'from-lost-to-leader-may-2026': 'https://www.covomultipliers.com/from-lost-to-leader.html',
+    'rhythms-of-a-covo-multiplier-jun-2026':
+      'https://www.covomultipliers.com/rhythms-of-a-covo-multiplier.html',
+    'aquila-and-priscilla-pattern-jul-2026':
+      'https://www.covomultipliers.com/aquila-and-priscilla-pattern.html',
+    '4-questions-to-get-started-august-2026': 'https://www.covomultipliers.com/4-questions.html',
+    'church-circle-september-2026': 'https://www.covomultipliers.com/church-circle-lab.html',
+    'disciple-making-rhythm-october-2026':
+      'https://www.covomultipliers.com/disciple-making-rhythm.html',
+  };
+
   function formatDate(iso) {
     return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   }
@@ -185,19 +203,22 @@ import {
   function renderLabs(labs) {
     grid.innerHTML = labs
       .map((lab) => {
-        const status = lab.has_availability
+        const seatsLabel = lab.has_availability
           ? `${lab.seats_remaining} seat${lab.seats_remaining === 1 ? '' : 's'} left`
           : 'Full';
+        const seatsClass = lab.has_availability ? 'lab-card__seats' : 'lab-card__seats is-full';
         const ctaLabel = lab.has_availability ? 'Reserve Your Seat' : 'Join the Waitlist';
         const description = lab.description
           ? `<p class="lab-card__description">${escapeHtml(lab.description)}</p>`
           : '';
+        const href = LAB_LANDING_PAGES[lab.slug] || LABS_URL;
         return `
           <div class="lab-card">
-            <p class="lab-card__meta">${formatDate(lab.event_date)} &middot; ${status}</p>
+            <span class="${seatsClass}">${escapeHtml(seatsLabel)}</span>
+            <p class="lab-card__meta">${formatDate(lab.event_date)}</p>
             <h3 class="lab-card__title">${escapeHtml(lab.title)}</h3>
             ${description}
-            <a class="button lab-card__cta" href="${LABS_URL}">${ctaLabel}</a>
+            <a class="button lab-card__cta" href="${href}">${ctaLabel}</a>
           </div>
         `;
       })

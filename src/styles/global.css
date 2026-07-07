@@ -476,6 +476,7 @@ article tbody tr:nth-child(even) td {
 }
 
 .lab-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
@@ -495,6 +496,44 @@ article tbody tr:nth-child(even) td {
 .lab-card__title {
   font-size: 1.05rem;
   margin: 0 0 0.5rem;
+  padding-right: 5rem;
+}
+
+/* Seat-countdown pill — same amber glow treatment as the countdown
+   pill on covo-multipliers' own lab cards (styles.css, .lab-seats),
+   reused as-is so the urgency cue reads the same on both sites. */
+@keyframes seat-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 6px rgba(220, 181, 90, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(220, 181, 90, 0.65);
+  }
+}
+
+.lab-card__seats {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.8rem;
+  border-radius: var(--radius-pill);
+  background: rgba(159, 122, 47, 0.1);
+  color: #7a5515;
+  border: 1px solid rgba(159, 122, 47, 0.35);
+  animation: seat-glow 2.4s ease-in-out infinite;
+}
+
+.lab-card__seats.is-full {
+  background: #f3f4f6;
+  color: #9ca3af;
+  border-color: #e5e7eb;
+  animation: none;
+  box-shadow: none;
 }
 
 .lab-card__description {
