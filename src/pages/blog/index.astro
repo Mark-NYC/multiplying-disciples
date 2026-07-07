@@ -97,19 +97,26 @@ const sortedHubs = [...hubs].sort((a, b) => a.data.title.localeCompare(b.data.ti
         const date = bestDate(entry);
         return (
           <li class="blog-list__item">
-            <h2>
-              <a href={entry.data.slug}>{entry.data.title}</a>
-            </h2>
-            <p class="blog-list__description">{entry.data.description}</p>
-            <p class="blog-list__meta">
-              {hub && (
-                <>
-                  <a href={hub.data.slug}>{hub.data.title}</a>
-                  {date && <span aria-hidden="true"> &middot; </span>}
-                </>
-              )}
-              {date && <time datetime={date.toISOString()}>{dateFormatter.format(date)}</time>}
-            </p>
+            {entry.data.og_image && (
+              <a href={entry.data.slug} class="blog-list__thumbnail" aria-hidden="true" tabindex="-1">
+                <img src={entry.data.og_image} alt="" loading="lazy" width="150" height="100" />
+              </a>
+            )}
+            <div class="blog-list__content">
+              <h2>
+                <a href={entry.data.slug}>{entry.data.title}</a>
+              </h2>
+              <p class="blog-list__description">{entry.data.description}</p>
+              <p class="blog-list__meta">
+                {hub && (
+                  <>
+                    <a href={hub.data.slug}>{hub.data.title}</a>
+                    {date && <span aria-hidden="true"> &middot; </span>}
+                  </>
+                )}
+                {date && <time datetime={date.toISOString()}>{dateFormatter.format(date)}</time>}
+              </p>
+            </div>
           </li>
         );
       })}
@@ -162,8 +169,44 @@ const sortedHubs = [...hubs].sort((a, b) => a.data.title.localeCompare(b.data.ti
   }
 
   .blog-list__item {
+    display: flex;
+    gap: 1.25rem;
     padding: 1.75rem 0;
     border-bottom: 1px solid var(--color-border);
+  }
+
+  .blog-list__thumbnail {
+    flex-shrink: 0;
+    display: block;
+    width: 150px;
+    height: 100px;
+  }
+
+  .blog-list__thumbnail img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  .blog-list__content {
+    min-width: 0;
+    flex: 1;
+  }
+
+  @media (max-width: 540px) {
+    .blog-list__item {
+      gap: 1rem;
+    }
+
+    .blog-list__thumbnail {
+      width: 88px;
+      height: 88px;
+    }
+
+    .blog-list__thumbnail img {
+      width: 88px;
+      height: 88px;
+    }
   }
 
   .blog-list__item h2 {
