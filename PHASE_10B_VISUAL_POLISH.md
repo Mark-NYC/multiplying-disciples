@@ -235,3 +235,35 @@ none implemented.
 Yes, structurally — same standing gates as before (redirects not yet
 implemented, hosting/DNS/human sign-off still outstanding in
 `LAUNCH_CHECKLIST.md`). Nothing in this phase blocks moving forward.
+
+## Addendum — accent color and corner-radius follow-up
+
+Per direct user follow-up feedback:
+
+- Corrected the accent blue from an approximated `#4a63e8` to the
+  user-specified exact `#477ff7` (with a matching darker hover shade).
+- Changed buttons and images from a full pill/fully-rounded shape to a
+  small, slightly-rounded corner radius (8px) instead — added
+  `--radius-button` and `--radius-image` tokens, used everywhere the
+  old `--radius-pill` token was applied to a button (`.button`,
+  `.resource-card__cta a`, `.cta-band__actions a`, `.button-row a`,
+  `ToolCTA.astro`'s `.tool-cta__button`) and added `border-radius` to
+  the global `img` rule. `--radius-pill` (999px) is kept only for the
+  homepage's non-button feature-badge bubble, which is a full pill by
+  design in the reference screenshots.
+- **Found and fixed a real bug while verifying this**: `.cta-band__actions a`'s
+  background-color rule had higher CSS specificity than
+  `.button--secondary-dark`'s, so the "Connect" secondary button on
+  every article's closing CTA band was silently rendering with a solid
+  blue fill identical to the primary "Start Training" button instead
+  of its intended transparent/outlined look. Confirmed via computed
+  styles before and after. Fixed by scoping the generic markdown-link
+  button rules to `:not(.button)`, so they only style plain
+  markdown-syntax links and never override an explicit `.button`/
+  `.button--secondary-dark` class already applied by an Astro
+  component.
+
+Re-ran the full sitewide QA after this change: `astro check`/`astro
+build` clean (98 pages, sitemap 98 entries), Phase 8 audit suite 0
+regressions, and the 98-page × 2-viewport horizontal-overflow sweep
+0 offenders.

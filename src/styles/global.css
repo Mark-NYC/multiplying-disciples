@@ -4,14 +4,19 @@
   --color-text-muted: #5f5f5f;
   --color-border: #dcdcdc;
   --color-surface: #f7f6f3;
-  --color-accent: #4a63e8;
-  --color-accent-hover: #3a52d4;
+  --color-accent: #477ff7;
+  --color-accent-hover: #3468e0;
   --color-accent-text: #ffffff;
   --color-footer-bg: #16161d;
   --color-footer-text: #f2f2f4;
   --color-footer-text-muted: #a8a8b3;
   --content-max-width: 42rem;
   --site-max-width: 60rem;
+  /* Buttons and images: slightly rounded, not a full pill. */
+  --radius-button: 8px;
+  --radius-image: 8px;
+  /* Reserved for non-button rounded shapes (e.g. the homepage's
+     feature-badge bubble), which is a full pill by design. */
   --radius-pill: 999px;
   --radius-card: 10px;
 }
@@ -38,6 +43,7 @@ main {
 img {
   max-width: 100%;
   height: auto;
+  border-radius: var(--radius-image);
 }
 
 a {
@@ -135,16 +141,16 @@ article th {
   border-radius: 4px;
 }
 
-/* Shared button styles — pill-shaped, blue accent, used sitewide for
-   primary calls to action (hero CTAs, hub next_step, resource-grid
-   VIEW/BUY buttons, CTA bands). */
+/* Shared button styles — slightly rounded corners, blue accent, used
+   sitewide for primary calls to action (hero CTAs, hub next_step,
+   resource-grid VIEW/BUY buttons, CTA bands). */
 .button {
   display: inline-block;
   padding: 0.7rem 1.5rem;
   background: var(--color-accent);
   color: var(--color-accent-text);
   text-decoration: none;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-button);
   font-weight: 600;
   font-size: 0.95rem;
   border: none;
@@ -286,33 +292,36 @@ article th {
   font-style: italic;
 }
 
-/* Wraps a plain markdown link so it renders as a pill button. Used
-   instead of a raw <a class="button"> HTML tag in markdown bodies,
-   since remark's bare-URL autolinking can collide with raw HTML
-   anchors whose href is an absolute http(s) URL. */
-.resource-card__cta a,
-.cta-band__actions a {
+/* Wraps a plain markdown link so it renders as a button. Used instead
+   of a raw <a class="button"> HTML tag in markdown bodies, since
+   remark's bare-URL autolinking can collide with raw HTML anchors
+   whose href is an absolute http(s) URL. `:not(.button)` keeps this
+   from overriding a real .button/.button--secondary-dark element that
+   an Astro component (not markdown) already placed in the same
+   container — e.g. ArticleLayout's "Connect" button in .cta-band__actions. */
+.resource-card__cta a:not(.button),
+.cta-band__actions a:not(.button) {
   display: inline-block;
   padding: 0.7rem 1.5rem;
   background: var(--color-accent);
   color: var(--color-accent-text);
   text-decoration: none;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-button);
   font-weight: 600;
   font-size: 0.95rem;
 }
 
-.resource-card__cta a {
+.resource-card__cta a:not(.button) {
   padding: 0.45rem 1.1rem;
   font-size: 0.85rem;
 }
 
-.resource-card__cta a:hover,
-.cta-band__actions a:hover {
+.resource-card__cta a:not(.button):hover,
+.cta-band__actions a:not(.button):hover {
   background: var(--color-accent-hover);
 }
 
-/* Generic row of pill-button links (e.g. stacked download buttons on a
+/* Generic row of button links (e.g. stacked download buttons on a
    plain article), independent of the resource-grid/CTA-band patterns. */
 .button-row {
   display: flex;
@@ -327,7 +336,7 @@ article th {
   background: var(--color-accent);
   color: var(--color-accent-text);
   text-decoration: none;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-button);
   font-weight: 600;
 }
 
