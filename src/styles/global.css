@@ -413,6 +413,33 @@ article tbody tr:nth-child(even) td {
   color: var(--color-footer-text-muted);
 }
 
+/* A single live lab card (article "Next Live Lab" CTA) embedded inside
+   the dark .cta-band. Needs local color resets — .lab-card is a white
+   card, but .cta-band h2/h3 and .cta-band p above would otherwise paint
+   its title/text in the band's light-on-dark colors. Two-class selectors
+   here outrank those single-class-plus-element rules. */
+.cta-band__lab {
+  max-width: 26rem;
+  margin: 1.5rem auto 0;
+  text-align: left;
+}
+
+.cta-band__lab .labs-cta__loading {
+  text-align: center;
+  color: var(--color-footer-text-muted);
+  margin: 0;
+}
+
+.cta-band__lab .lab-card__title {
+  color: var(--color-text);
+}
+
+.cta-band__lab .lab-card__meta,
+.cta-band__lab .lab-card__description,
+.cta-band__lab .lab-card__status {
+  color: var(--color-text-muted);
+}
+
 .cta-band__actions {
   display: flex;
   justify-content: center;
