@@ -4,14 +4,19 @@
 // lightly cleaned up. See MIGRATION_PLAN.md for what "lightly cleaned
 // up" means here.
 //
-// One deliberate simplification: the live page embeds a third-party
-// Supabase-backed "next lab" widget (live JS pulling the next open
-// CoVo Multipliers training slot). That's out of scope for a static
-// Astro migration in Phase 1 — instead this uses the widget's own
-// documented fallback copy/link (verbatim from its source), which
-// points to the same destination it would show when no lab data loads.
+// The closing CTA fetches CoVo Multipliers' next 3 upcoming labs
+// client-side straight from their public Supabase REST API (the same
+// anon-key pattern CoVo's own cross-site embed widget uses), so it
+// stays in sync as labs are added/removed on their end without a
+// rebuild here. See the <script> below for the fetch/render logic.
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { COVO_LABS_URL } from '../data/site';
+import {
+  COVO_LABS_URL,
+  COVO_HOME_URL,
+  COVO_SUPABASE_URL,
+  COVO_SUPABASE_ANON_KEY,
+  COVO_SUBSCRIBE_FUNCTION_URL,
+} from '../data/site';
 ---
 
 <BaseLayout
@@ -128,15 +133,159 @@ import { COVO_LABS_URL } from '../data/site';
       </p>
     </section>
 
-    <section class="cta-band">
-      <h2>Get Hands-on Training on Zoom</h2>
-      <p>Join our next 45-minute Multipliers Lab. New free labs are announced regularly — see the current schedule and save your seat for the next live session.</p>
-      <div class="cta-band__actions">
-        <a class="button" href={COVO_LABS_URL}>See Upcoming Labs</a>
+    <section class="labs-cta">
+      <p class="labs-cta__eyebrow">Ready to practice this?</p>
+      <h2>Join a live Multiplying Lab</h2>
+      <p class="labs-cta__intro">
+        Learn the tool. Practice it. Leave with a next step for real people in your life.
+      </p>
+
+      <div class="labs-cta__grid" id="labs-cta-grid" aria-live="polite">
+        <p class="labs-cta__loading">Loading upcoming labs&hellip;</p>
       </div>
+
+      <p class="labs-cta__actions">
+        <a class="button button--secondary" href={COVO_LABS_URL}>View all labs</a>
+      </p>
+
+      <p class="labs-cta__bridge">
+        Labs are hosted live through <a href={COVO_HOME_URL}>Covo Multipliers</a>, our training
+        partner for practical, tool-based coaching.
+      </p>
+
+      <noscript>
+        <p class="labs-cta__intro">
+          See the current lab schedule and save your seat on Covo Multipliers.
+        </p>
+      </noscript>
     </section>
   </div>
 </BaseLayout>
+
+<script
+  define:vars={{
+    SUPABASE_URL: COVO_SUPABASE_URL,
+    SUPABASE_ANON_KEY: COVO_SUPABASE_ANON_KEY,
+    LABS_URL: COVO_LABS_URL,
+    SUBSCRIBE_URL: COVO_SUBSCRIBE_FUNCTION_URL,
+  }}
+>
+  const grid = document.getElementById('labs-cta-grid');
+
+  function formatDate(iso) {
+    return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function renderLabs(labs) {
+    grid.innerHTML = labs
+      .map((lab) => {
+        const status = lab.has_availability
+          ? `${lab.seats_remaining} seat${lab.seats_remaining === 1 ? '' : 's'} left`
+          : 'Full';
+        const ctaLabel = lab.has_availability ? 'Reserve Your Seat' : 'Join the Waitlist';
+        const description = lab.description
+          ? `<p class="lab-card__description">${escapeHtml(lab.description)}</p>`
+          : '';
+        return `
+          <div class="lab-card">
+            <p class="lab-card__meta">${formatDate(lab.event_date)} &middot; ${status}</p>
+            <h3 class="lab-card__title">${escapeHtml(lab.title)}</h3>
+            ${description}
+            <a class="button lab-card__cta" href="${LABS_URL}">${ctaLabel}</a>
+          </div>
+        `;
+      })
+      .join('');
+  }
+
+  function renderNotifyForm() {
+    grid.innerHTML = `
+      <div class="lab-card lab-card--signup">
+        <h3 class="lab-card__title">New labs are on the way</h3>
+        <p class="lab-card__description">Get notified when the next lab opens.</p>
+        <form id="labs-notify-form" class="lab-card__form">
+          <input
+            id="labs-notify-email"
+            type="email"
+            name="email"
+            aria-label="Email address"
+            placeholder="you@example.com"
+            required
+          />
+          <button type="submit" class="button">Get notified</button>
+        </form>
+        <p id="labs-notify-status" class="lab-card__status" role="status"></p>
+      </div>
+    `;
+
+    const form = document.getElementById('labs-notify-form');
+    const status = document.getElementById('labs-notify-status');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = document.getElementById('labs-notify-email').value.trim();
+      const button = form.querySelector('button');
+      button.disabled = true;
+      status.textContent = '';
+
+      try {
+        const res = await fetch(SUBSCRIBE_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            landing_page: window.location.href,
+            referrer: document.referrer || null,
+            utm_source: 'multiplyingdisciples',
+            utm_medium: 'homepage_cta',
+            utm_campaign: 'labs_notify',
+          }),
+        });
+        if (!res.ok) throw new Error('request failed');
+        form.hidden = true;
+        status.textContent = "You're on the list — we'll email you when the next lab opens.";
+      } catch (err) {
+        status.textContent = 'Something went wrong. Please try again.';
+        button.disabled = false;
+      }
+    });
+  }
+
+  async function loadLabs() {
+    try {
+      const url = new URL(`${SUPABASE_URL}/rest/v1/events_with_availability`);
+      url.searchParams.set(
+        'select',
+        'slug,title,description,event_date,seats_remaining,has_availability'
+      );
+      url.searchParams.set('event_date', `gte.${new Date().toISOString()}`);
+      url.searchParams.set('order', 'event_date.asc');
+      url.searchParams.set('limit', '3');
+
+      const res = await fetch(url, {
+        headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` },
+      });
+      if (!res.ok) throw new Error('request failed');
+
+      const labs = await res.json();
+      if (Array.isArray(labs) && labs.length > 0) {
+        renderLabs(labs);
+      } else {
+        renderNotifyForm();
+      }
+    } catch (err) {
+      renderNotifyForm();
+    }
+  }
+
+  loadLabs();
+</script>
 
 <style>
   .hero {
