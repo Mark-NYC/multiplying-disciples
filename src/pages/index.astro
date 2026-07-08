@@ -42,49 +42,48 @@ function buildDustHairBg(seed: number) {
 
   let marks = '';
 
-  // Long faint scratches first, so specks/hairs sit visually "above" them.
-  for (let i = 0; i < 2; i++) {
+  // Long scratches first, so specks/hairs sit visually "above" them.
+  for (let i = 0; i < 5; i++) {
     const x1 = rand() * w;
-    const y1 = rand() * h * 0.3;
-    const len = 60 + rand() * 90;
-    const angle = Math.PI / 2 + (rand() - 0.5) * 0.4;
+    const y1 = rand() * h * 0.4;
+    const len = 70 + rand() * 130;
+    const angle = Math.PI / 2 + (rand() - 0.5) * 0.5;
     const x2 = x1 + Math.cos(angle) * len;
     const y2 = y1 + Math.sin(angle) * len;
-    const o = (0.08 + rand() * 0.1).toFixed(2);
-    marks += `<line x1='${x1.toFixed(1)}' y1='${y1.toFixed(1)}' x2='${x2.toFixed(1)}' y2='${y2.toFixed(1)}' stroke='%23000' stroke-opacity='${o}' stroke-width='0.4'/>`;
+    const o = (0.14 + rand() * 0.16).toFixed(2);
+    marks += `<line x1='${x1.toFixed(1)}' y1='${y1.toFixed(1)}' x2='${x2.toFixed(1)}' y2='${y2.toFixed(1)}' stroke='%23000' stroke-opacity='${o}' stroke-width='${(0.4 + rand() * 0.4).toFixed(2)}'/>`;
   }
 
-  // Stray curled hairs.
-  for (let i = 0; i < 7; i++) {
+  // Stray curled hairs — noticeably more and darker than the first pass.
+  for (let i = 0; i < 16; i++) {
     const x1 = rand() * w;
     const y1 = rand() * h;
-    const len = 16 + rand() * 42;
+    const len = 18 + rand() * 55;
     const angle = rand() * Math.PI * 2;
-    const kink = 5 + rand() * 12;
+    const kink = 6 + rand() * 16;
     const x2 = x1 + Math.cos(angle) * len * 0.5 + (rand() - 0.5) * kink;
     const y2 = y1 + Math.sin(angle) * len * 0.5 + (rand() - 0.5) * kink;
     const x3 = x1 + Math.cos(angle) * len;
     const y3 = y1 + Math.sin(angle) * len;
-    const o = (0.2 + rand() * 0.3).toFixed(2);
-    const sw = (0.35 + rand() * 0.35).toFixed(2);
+    const o = (0.3 + rand() * 0.35).toFixed(2);
+    const sw = (0.45 + rand() * 0.45).toFixed(2);
     marks += `<path d='M${x1.toFixed(1)},${y1.toFixed(1)} Q${x2.toFixed(1)},${y2.toFixed(1)} ${x3.toFixed(1)},${y3.toFixed(1)}' stroke='%23000' stroke-opacity='${o}' stroke-width='${sw}' fill='none' stroke-linecap='round'/>`;
   }
 
-  // Dust specks — a mix of a few loose clusters (like the reference
-  // images' corner clumps) plus scattered singles across the frame.
-  for (let i = 0; i < 55; i++) {
+  // Dust specks — denser clusters plus a heavier scattered field.
+  for (let i = 0; i < 110; i++) {
     let cx: number;
     let cy: number;
-    if (i < 26) {
+    if (i < 55) {
       const c = clusters[i % clusters.length];
-      cx = c.x + (rand() - 0.5) * 90;
-      cy = c.y + (rand() - 0.5) * 70;
+      cx = c.x + (rand() - 0.5) * 110;
+      cy = c.y + (rand() - 0.5) * 85;
     } else {
       cx = rand() * w;
       cy = rand() * h;
     }
-    const r = 0.4 + rand() * 1.1;
-    const o = (0.15 + rand() * 0.45).toFixed(2);
+    const r = 0.4 + rand() * 1.4;
+    const o = (0.22 + rand() * 0.5).toFixed(2);
     marks += `<circle cx='${cx.toFixed(1)}' cy='${cy.toFixed(1)}' r='${r.toFixed(2)}' fill='%23000' fill-opacity='${o}'/>`;
   }
 
@@ -93,6 +92,23 @@ function buildDustHairBg(seed: number) {
 }
 
 const dustHairBg = buildDustHairBg(11);
+
+// Torn-paper bottom edge for the hero — a jagged strip painted in the
+// page background color, overlapping the photo like a torn snapshot
+// glued into a field notebook. Deterministic (fixed seed), not random
+// per build.
+function buildTornEdgeClip(seed: number, teeth = 34) {
+  const rand = mulberry32(seed);
+  const points = ['0% 100%', '100% 100%'];
+  for (let i = teeth; i >= 0; i--) {
+    const x = (i / teeth) * 100;
+    const y = rand() * 62;
+    points.push(`${x.toFixed(2)}% ${y.toFixed(2)}%`);
+  }
+  return `polygon(${points.join(', ')})`;
+}
+
+const tornEdgeClip = buildTornEdgeClip(23);
 ---
 
 <BaseLayout
@@ -103,7 +119,7 @@ const dustHairBg = buildDustHairBg(11);
 >
   <section class="hero">
     <div class="hero__inner">
-      <p class="hero__eyebrow">Field-Tested Disciple Making</p>
+      <p class="hero__eyebrow"><span>&mdash;</span> Field-Tested Disciple Making <span>&mdash;</span></p>
       <h1>Multiply disciples in real life.</h1>
       <p class="hero__subhead">
         Get field-tested tools and ongoing coaching <strong>that push you to act.</strong>
@@ -135,6 +151,7 @@ const dustHairBg = buildDustHairBg(11);
     <div class="hero__stamp">
       <FieldStampBadge />
     </div>
+    <div class="hero__torn-edge" aria-hidden="true"></div>
   </section>
 
   <div class="page-container page-container--wide">
@@ -318,7 +335,7 @@ const dustHairBg = buildDustHairBg(11);
   }
 </script>
 
-<style define:vars={{ dustHairBg }}>
+<style define:vars={{ dustHairBg, tornEdgeClip }}>
   .hero {
     position: relative;
     text-align: center;
@@ -327,6 +344,7 @@ const dustHairBg = buildDustHairBg(11);
     background-position: center 38%;
     background-repeat: no-repeat;
     padding: 1.25rem 1.25rem 24rem;
+    overflow: hidden;
   }
 
   @media (max-width: 640px) {
@@ -346,7 +364,7 @@ const dustHairBg = buildDustHairBg(11);
     z-index: 1;
     pointer-events: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.4;
+    opacity: 0.55;
     mix-blend-mode: overlay;
   }
 
@@ -363,6 +381,27 @@ const dustHairBg = buildDustHairBg(11);
     mix-blend-mode: overlay;
   }
 
+  /* Torn-paper bottom edge — a jagged strip in the page background
+     color, laid over the photo like a snapshot glued into a field
+     notebook (see buildTornEdgeClip above). Sits below the stamp
+     (z-index 2) so the stamp always renders on top of it intact. */
+  .hero__torn-edge {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3rem;
+    z-index: 1;
+    background: var(--color-bg);
+    clip-path: var(--tornEdgeClip);
+  }
+
+  @media (max-width: 640px) {
+    .hero__torn-edge {
+      height: 2.25rem;
+    }
+  }
+
   .hero__inner {
     position: relative;
     z-index: 2;
@@ -371,16 +410,29 @@ const dustHairBg = buildDustHairBg(11);
   }
 
   .hero__eyebrow {
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--color-gold-text);
-    margin: 0 0 0.6rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .hero__eyebrow span {
+    color: var(--color-clay);
+    font-weight: 400;
+  }
+
+  .hero__inner h1 {
+    font-size: clamp(2.5rem, 6vw, 3.75rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+    margin: 0 0 0.75rem;
   }
 
   .hero__subhead {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--color-text-muted);
     margin-bottom: 0.5rem;
   }
