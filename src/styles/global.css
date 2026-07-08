@@ -28,9 +28,9 @@
   --color-text-muted: #57635c;
   --color-border: #dcd2bb;
 
-  --color-footer-bg: #1f2523; /* Deep Ink */
+  --color-footer-bg: #174c3c; /* Primary Green — deep, grounded footer */
   --color-footer-text: #f7f3ea; /* Warm Paper */
-  --color-footer-text-muted: #a9afa5;
+  --color-footer-text-muted: #b8c5b6;
   --content-max-width: 42rem;
   --site-max-width: 60rem;
   /* Wider than --site-max-width so the header's logo, nav, dropdown,
@@ -379,37 +379,6 @@ article tbody tr:nth-child(even) td {
   font-size: 0.85rem;
 }
 
-/* Feature callout badge — checkmark icon + rounded pill bubble, used
-   on the homepage's alternating image/text feature sections. */
-.feature-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.85rem;
-  background: var(--color-surface);
-  border-radius: var(--radius-pill);
-  padding: 0.9rem 1.5rem;
-}
-
-.feature-badge__icon {
-  flex-shrink: 0;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background: var(--color-accent);
-  color: var(--color-accent-text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-.feature-badge__text {
-  font-weight: 700;
-  font-size: 1.05rem;
-  margin: 0;
-}
-
 /* CTA band — a full-width, visually distinct closing block used at the
    bottom of the homepage, resource pages, and (via ToolCTA) hub/article
    next-step CTAs. */
@@ -484,14 +453,16 @@ article tbody tr:nth-child(even) td {
    unscoped/global — Astro's per-component style scoping only reaches
    markup present at build time, not JS-injected innerHTML. */
 .labs-cta {
-  padding: 4.5rem 1.5rem 5rem;
-  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-surface) 100%);
+  /* Warm Paper -> pale gold -> Soft Sage: warm and inviting, with
+     generous breathing room above and below the lab cards. */
+  padding: 6.5rem 1.5rem 7rem;
+  background: linear-gradient(180deg, var(--color-bg) 0%, #f3e9d2 55%, var(--color-surface) 100%);
   text-align: center;
 }
 
 @media (max-width: 640px) {
   .labs-cta {
-    padding: 3.5rem 1.25rem 4rem;
+    padding: 4.5rem 1.25rem 5rem;
   }
 }
 
@@ -519,20 +490,6 @@ article tbody tr:nth-child(even) td {
   margin: 0 0 1.5rem;
 }
 
-.labs-cta__copy {
-  max-width: 34rem;
-  margin: 0 auto 1.75rem;
-}
-
-.labs-cta__copy p {
-  margin: 0 0 0.85rem;
-  color: var(--color-text-muted);
-}
-
-.labs-cta__copy p:last-child {
-  margin-bottom: 0;
-}
-
 .labs-cta__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -547,53 +504,13 @@ article tbody tr:nth-child(even) td {
   color: var(--color-text-muted);
 }
 
-/* Social proof — anchored as a small, credible dark-green moment (not
-   a big flashy testimonial wall) so it reassures without competing
-   with the primary "Join a Live Lab" CTA above it. */
-.labs-cta__proof {
-  max-width: 28rem;
-  margin: 0 auto 2rem;
-  padding: 2rem 1.75rem 1.75rem;
-  text-align: center;
-  background: var(--color-primary);
-  border-radius: var(--radius-card);
-}
-
-.labs-cta__proof::before {
-  content: '\201C';
-  display: block;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 3rem;
-  line-height: 1;
-  color: var(--color-gold);
-  margin: 0 0 -0.35rem;
-}
-
-.labs-cta__proof-img {
-  max-width: 200px;
-  width: 100%;
-  height: auto;
-  margin: 0 auto 0.75rem;
-  padding: 0.35rem;
-  background: var(--color-bg);
-  border-radius: var(--radius-image);
-}
-
-.labs-cta__proof-quote {
-  margin: 0;
-  font-size: 0.9rem;
-  font-style: italic;
-  line-height: 1.5;
-  color: var(--color-primary-text);
-}
-
-.labs-cta__proof-attribution {
-  display: block;
-  margin-top: 0.35rem;
-  font-size: 0.8rem;
-  font-style: normal;
+.labs-cta__view-all {
+  margin: 0 0 1.5rem;
   font-weight: 600;
-  color: var(--color-gold);
+}
+
+.labs-cta__view-all a {
+  color: var(--color-clay-text);
 }
 
 .labs-cta__bridge {
@@ -608,7 +525,6 @@ article tbody tr:nth-child(even) td {
   padding: 1.5rem;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-top: 3px solid var(--color-clay);
   border-radius: var(--radius-card);
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
 }

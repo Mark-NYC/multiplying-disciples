@@ -4,111 +4,20 @@
 // lightly cleaned up. See MIGRATION_PLAN.md for what "lightly cleaned
 // up" means here.
 //
-// The closing CTA fetches CoVo Multipliers' next 3 upcoming labs
+// Layout follows the approved block-grid mockup: hero (unchanged),
+// edge-to-edge 2-column grid of true 1:1 square cards, labs CTA on a
+// warm gradient, full-width "From the Field" quote band, two-column
+// FAQ, footer. No distressed textures anywhere — clean surfaces only,
+// per the mockup direction.
+//
+// The labs CTA fetches CoVo Multipliers' next 3 upcoming labs
 // client-side from their public-labs Edge Function (see
 // src/lib/labs-feed.js) — the single source of truth for lab data, also
 // used by CoVo's own homepage — so it stays in sync as labs are
 // added/removed on their end without a rebuild here.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CovoMark from '../components/CovoMark.astro';
-import FieldStampBadge from '../components/FieldStampBadge.astro';
 import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
-
-// Deterministic "dust + hair" texture, generated once at build time from
-// a fixed seed — not re-randomized on every build/request, so the mark
-// pattern is stable and can be art-directed like the reference images,
-// not a random speckle field. Same no-image-asset technique as the
-// grain overlay below (inline SVG as a data-URI background).
-function mulberry32(seed: number) {
-  let a = seed;
-  return function () {
-    a |= 0;
-    a = (a + 0x6d2b79f5) | 0;
-    let t = Math.imul(a ^ (a >>> 15), 1 | a);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-function buildDustHairBg(seed: number) {
-  const rand = mulberry32(seed);
-  const w = 400;
-  const h = 260;
-  const clusters = [
-    { x: 40, y: 30 },
-    { x: 340, y: 220 },
-    { x: 300, y: 35 },
-  ];
-
-  let marks = '';
-
-  // Long scratches first, so specks/hairs sit visually "above" them.
-  for (let i = 0; i < 5; i++) {
-    const x1 = rand() * w;
-    const y1 = rand() * h * 0.4;
-    const len = 70 + rand() * 130;
-    const angle = Math.PI / 2 + (rand() - 0.5) * 0.5;
-    const x2 = x1 + Math.cos(angle) * len;
-    const y2 = y1 + Math.sin(angle) * len;
-    const o = (0.14 + rand() * 0.16).toFixed(2);
-    marks += `<line x1='${x1.toFixed(1)}' y1='${y1.toFixed(1)}' x2='${x2.toFixed(1)}' y2='${y2.toFixed(1)}' stroke='%23000' stroke-opacity='${o}' stroke-width='${(0.4 + rand() * 0.4).toFixed(2)}'/>`;
-  }
-
-  // Stray curled hairs — noticeably more and darker than the first pass.
-  for (let i = 0; i < 16; i++) {
-    const x1 = rand() * w;
-    const y1 = rand() * h;
-    const len = 18 + rand() * 55;
-    const angle = rand() * Math.PI * 2;
-    const kink = 6 + rand() * 16;
-    const x2 = x1 + Math.cos(angle) * len * 0.5 + (rand() - 0.5) * kink;
-    const y2 = y1 + Math.sin(angle) * len * 0.5 + (rand() - 0.5) * kink;
-    const x3 = x1 + Math.cos(angle) * len;
-    const y3 = y1 + Math.sin(angle) * len;
-    const o = (0.3 + rand() * 0.35).toFixed(2);
-    const sw = (0.45 + rand() * 0.45).toFixed(2);
-    marks += `<path d='M${x1.toFixed(1)},${y1.toFixed(1)} Q${x2.toFixed(1)},${y2.toFixed(1)} ${x3.toFixed(1)},${y3.toFixed(1)}' stroke='%23000' stroke-opacity='${o}' stroke-width='${sw}' fill='none' stroke-linecap='round'/>`;
-  }
-
-  // Dust specks — denser clusters plus a heavier scattered field.
-  for (let i = 0; i < 110; i++) {
-    let cx: number;
-    let cy: number;
-    if (i < 55) {
-      const c = clusters[i % clusters.length];
-      cx = c.x + (rand() - 0.5) * 110;
-      cy = c.y + (rand() - 0.5) * 85;
-    } else {
-      cx = rand() * w;
-      cy = rand() * h;
-    }
-    const r = 0.4 + rand() * 1.4;
-    const o = (0.22 + rand() * 0.5).toFixed(2);
-    marks += `<circle cx='${cx.toFixed(1)}' cy='${cy.toFixed(1)}' r='${r.toFixed(2)}' fill='%23000' fill-opacity='${o}'/>`;
-  }
-
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${w} ${h}'>${marks}</svg>`;
-  return `url("data:image/svg+xml,${svg}")`;
-}
-
-const dustHairBg = buildDustHairBg(11);
-
-// Torn-paper bottom edge for the hero — a jagged strip painted in the
-// page background color, overlapping the photo like a torn snapshot
-// glued into a field notebook. Deterministic (fixed seed), not random
-// per build.
-function buildTornEdgeClip(seed: number, teeth = 34) {
-  const rand = mulberry32(seed);
-  const points = ['0% 100%', '100% 100%'];
-  for (let i = teeth; i >= 0; i--) {
-    const x = (i / teeth) * 100;
-    const y = rand() * 62;
-    points.push(`${x.toFixed(2)}% ${y.toFixed(2)}%`);
-  }
-  return `polygon(${points.join(', ')})`;
-}
-
-const tornEdgeClip = buildTornEdgeClip(23);
 ---
 
 <BaseLayout
@@ -119,7 +28,6 @@ const tornEdgeClip = buildTornEdgeClip(23);
 >
   <section class="hero">
     <div class="hero__inner">
-      <p class="hero__eyebrow"><span>&mdash;</span> Field-Tested Disciple Making <span>&mdash;</span></p>
       <h1>Multiply disciples in real life.</h1>
       <p class="hero__subhead">
         Get field-tested tools and ongoing coaching <strong>that push you to act.</strong>
@@ -148,139 +56,96 @@ const tornEdgeClip = buildTornEdgeClip(23);
         New here? <a href="/start-here/">Start Here</a> to see the simple tools first.
       </p>
     </div>
-    <div class="hero__stamp">
-      <FieldStampBadge />
-    </div>
-    <div class="hero__torn-edge" aria-hidden="true"></div>
   </section>
 
-  <div class="page-container page-container--wide">
-    <section class="intro-row">
-      <div class="grain-frame intro-row__media">
-        <img
-          src="/wp-content/uploads/2025/03/maxresdefault-7-1024x576.jpg"
-          alt="A man recording a disciple-making teaching video"
-          width="1024"
-          height="576"
-          loading="lazy"
-        />
-      </div>
-      <div class="intro-row__content">
-        <h2>
-          Disciple making resources and tools can be found everywhere. Resources without
-          coaching will never get you to multiplication.
-        </h2>
-        <p>
-          Let's be honest: we've all Googled disciple-making resources or looked up YouTube
-          videos and found them helpful. But you either don't know how to start or the tools
-          you tried "haven't worked" to multiply disciples, leaders, and churches. It's not
-          the tools&hellip;
-        </p>
-        <p><em>You need effective coaching.</em></p>
-      </div>
-    </section>
+  <!-- Edge-to-edge block grid: 2 columns of true 1:1 square cards on
+       desktop, stacked on mobile. DOM order pairs each text card with
+       its image (text left, image right per row) and reads correctly
+       when stacked: coaching copy, video, NA methods, women talking,
+       community momentum, group praying. -->
+  <section class="block-grid" aria-label="Why coaching">
+    <!-- Card 1: main coaching copy -->
+    <div class="block-grid__cell block-grid__cell--text block-grid__cell--green">
+      <h2>
+        Disciple making resources and tools can be found everywhere. Resources without
+        coaching will never get you to multiplication.
+      </h2>
+      <p>
+        Let's be honest: we've all Googled disciple-making resources or looked up YouTube
+        videos and found them helpful. But you either don't know how to start or the tools
+        you tried "haven't worked" to multiply disciples, leaders, and churches. It's not
+        the tools&hellip;
+      </p>
+      <p class="block-grid__punch">You need effective coaching.</p>
+    </div>
 
-    <section class="feature-row">
-      <div class="grain-frame feature-row__media">
-        <img
-          src="/wp-content/uploads/2025/01/Copy-of-Untitled-47-768x768.webp"
-          alt="Two women talking and laughing together outdoors"
-          width="768"
-          height="768"
-          loading="lazy"
-        />
-      </div>
-      <div class="feature-row__content">
-        <div class="feature-badge">
-          <span class="feature-badge__icon" aria-hidden="true">&check;</span>
-          <p class="feature-badge__text">Learn what is working in North America.</p>
-        </div>
-        <p>
-          Get methods that have been field tested by practitioners in North America. Know that
-          the tools and process we share are <strong>not only Biblical, but fruitful.</strong>
-        </p>
-      </div>
-    </section>
+    <!-- Card 2: video thumbnail -->
+    <div class="block-grid__cell block-grid__cell--image">
+      <img
+        src="/wp-content/uploads/2025/03/maxresdefault-7-1024x576.jpg"
+        alt="A man recording a disciple-making teaching video"
+        width="1024"
+        height="576"
+        loading="lazy"
+      />
+    </div>
 
-    <section class="feature-row">
-      <div class="feature-row__content">
-        <div class="feature-badge">
-          <span class="feature-badge__icon" aria-hidden="true">&check;</span>
-          <p class="feature-badge__text">The momentum of a community of practice.</p>
-        </div>
-        <p>
-          We bring together like-minded practitioners into training cohorts that are committed
-          to action. <strong>Everyone benefits from that momentum.</strong>
-        </p>
-      </div>
-      <div class="grain-frame feature-row__media">
-        <img
-          src="/wp-content/uploads/2025/01/Copy-of-Untitled-48-768x768.webp"
-          alt="A group gathered in a home, praying over someone"
-          width="768"
-          height="768"
-          loading="lazy"
-        />
-      </div>
-    </section>
+    <!-- Card 4: field-tested methods -->
+    <div class="block-grid__cell block-grid__cell--text block-grid__cell--sage">
+      <span class="block-grid__check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12.5l4.5 4.5L19 7.5" />
+        </svg>
+      </span>
+      <h3>Learn what is working in North America.</h3>
+      <p>
+        Get methods that have been field tested by practitioners in North America. Know that
+        the tools and process we share are <strong>not only Biblical, but fruitful.</strong>
+      </p>
+    </div>
 
-    <section class="faq">
-      <details class="faq__item">
-        <summary>What is the purpose of the disciple making training?</summary>
-        <p>
-          The purpose of our disciple making training and coaching is to equip and empower
-          individuals to become effective disciple makers who can multiply disciples and reach
-          the lost. The reality is, the process of training matters and equips disciple makers
-          to equip others in both confidence and competence. We believe in cultivating a
-          movement of disciple makers who are passionate about sharing the Gospel and making
-          disciples.
-        </p>
-      </details>
+    <!-- Card 3: two women talking -->
+    <div class="block-grid__cell block-grid__cell--image">
+      <img
+        src="/wp-content/uploads/2025/01/Copy-of-Untitled-47-768x768.webp"
+        alt="Two women talking and laughing together outdoors"
+        width="768"
+        height="768"
+        loading="lazy"
+      />
+    </div>
 
-      <details class="faq__item">
-        <summary>Why is coaching important in the process of disciple making?</summary>
-        <p>
-          Coaching within a community of practice plays a crucial role in disciple making as it
-          provides personalized guidance, support, and accountability. Growth happens through
-          both challenge and support. Our training includes coaching from experienced
-          practitioners who have seen fruitful results in their own disciple making efforts.
-          They will walk alongside you, offering insights, answering questions, and helping you
-          navigate challenges along the way.
-        </p>
-      </details>
+    <!-- Card 5: community of practice -->
+    <div class="block-grid__cell block-grid__cell--text block-grid__cell--paper">
+      <span class="block-grid__check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12.5l4.5 4.5L19 7.5" />
+        </svg>
+      </span>
+      <h3>The momentum of a community of practice.</h3>
+      <p>
+        We bring together like-minded practitioners into training cohorts that are committed
+        to action. <strong>Everyone benefits from that momentum.</strong>
+      </p>
+    </div>
 
-      <details class="faq__item">
-        <summary>Is the training completely free, or are there any hidden costs involved?</summary>
-        <p>
-          Yes, the training we offer is completely free of charge. Always. There are no hidden
-          costs or fees associated with participating in the training. Our goal is to make
-          high-quality disciple making resources and coaching accessible to all who have a
-          passion for reaching and discipling people for Jesus.
-        </p>
-      </details>
-    </section>
-  </div>
+    <!-- Card 6: small group praying -->
+    <div class="block-grid__cell block-grid__cell--image">
+      <img
+        src="/wp-content/uploads/2025/01/Copy-of-Untitled-48-768x768.webp"
+        alt="A group gathered in a home, praying over someone"
+        width="768"
+        height="768"
+        loading="lazy"
+      />
+    </div>
+  </section>
 
   <section class="labs-cta">
     <div class="labs-cta__inner">
       <p class="labs-cta__eyebrow">Ready to practice this?</p>
       <h2><CovoMark /> Join a live Multiplying Lab</h2>
       <p class="labs-cta__descriptor">Practical disciple-making labs for everyday leaders.</p>
-
-      <div class="labs-cta__copy">
-        <p>
-          Most people don't need another article. They need a simple tool, real practice, and
-          a clear next step with actual people in their life.
-        </p>
-        <p>
-          Without practice, everything keeps running: church, content, meetings, good
-          intentions. But nothing multiplies.
-        </p>
-        <p>
-          In a lab, you'll learn the tool, practice it live, and leave with one concrete step
-          of obedience.
-        </p>
-      </div>
 
       <div
         class="labs-cta__grid"
@@ -291,21 +156,15 @@ const tornEdgeClip = buildTornEdgeClip(23);
         <p class="labs-cta__loading">Loading upcoming labs&hellip;</p>
       </div>
 
-      <figure class="labs-cta__proof">
-        <img
-          class="labs-cta__proof-img"
-          src="/images/labs-social-proof.webp"
-          alt="Practitioners who have gone through a Multiplying Lab"
-          width="695"
-          height="150"
-          loading="lazy"
-        />
-        <figcaption class="labs-cta__proof-quote">
-          &ldquo;Going through this with other practitioners made it feel real, not theory.
-          Something is actually happening now.&rdquo;
-          <span class="labs-cta__proof-attribution">&mdash; Marcus T</span>
-        </figcaption>
-      </figure>
+      <p class="labs-cta__view-all">
+        <a
+          href={COVO_LABS_URL}
+          data-ecosystem-cta
+          data-cta-level="level_3"
+          data-cta-type="covo_training"
+          data-destination-site="covo"
+        >View all upcoming labs &rarr;</a>
+      </p>
 
       <p class="labs-cta__bridge">
         Labs are hosted through <a
@@ -318,10 +177,77 @@ const tornEdgeClip = buildTornEdgeClip(23);
       </p>
 
       <noscript>
-        <p class="labs-cta__copy">
+        <p class="labs-cta__descriptor">
           See the current lab schedule and save your seat on Covo Multipliers.
         </p>
       </noscript>
+    </div>
+  </section>
+
+  <section class="field-quote">
+    <div class="field-quote__inner">
+      <p class="field-quote__eyebrow">From the Field</p>
+      <span class="field-quote__mark" aria-hidden="true">&ldquo;</span>
+      <blockquote class="field-quote__quote">
+        <p>
+          &ldquo;Going through this with other practitioners made it feel real, not theory.
+          Something is actually happening now.&rdquo;
+        </p>
+        <footer>&mdash; Marcus T</footer>
+      </blockquote>
+      <img
+        class="field-quote__faces"
+        src="/images/labs-social-proof.webp"
+        alt="Practitioners who have gone through a Multiplying Lab"
+        width="695"
+        height="150"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="faq-section__inner">
+      <div class="faq-section__label">
+        <p class="faq-section__eyebrow">Common Questions</p>
+        <h2>FAQ</h2>
+      </div>
+
+      <div class="faq-section__items">
+        <details class="faq__item">
+          <summary>What is the purpose of the disciple making training?</summary>
+          <p>
+            The purpose of our disciple making training and coaching is to equip and empower
+            individuals to become effective disciple makers who can multiply disciples and reach
+            the lost. The reality is, the process of training matters and equips disciple makers
+            to equip others in both confidence and competence. We believe in cultivating a
+            movement of disciple makers who are passionate about sharing the Gospel and making
+            disciples.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary>Why is coaching important in the process of disciple making?</summary>
+          <p>
+            Coaching within a community of practice plays a crucial role in disciple making as it
+            provides personalized guidance, support, and accountability. Growth happens through
+            both challenge and support. Our training includes coaching from experienced
+            practitioners who have seen fruitful results in their own disciple making efforts.
+            They will walk alongside you, offering insights, answering questions, and helping you
+            navigate challenges along the way.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary>Is the training completely free, or are there any hidden costs involved?</summary>
+          <p>
+            Yes, the training we offer is completely free of charge. Always. There are no hidden
+            costs or fees associated with participating in the training. Our goal is to make
+            high-quality disciple making resources and coaching accessible to all who have a
+            passion for reaching and discipling people for Jesus.
+          </p>
+        </details>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -335,16 +261,14 @@ const tornEdgeClip = buildTornEdgeClip(23);
   }
 </script>
 
-<style define:vars={{ dustHairBg, tornEdgeClip }}>
+<style>
   .hero {
-    position: relative;
     text-align: center;
     background-image: url('/wp-content/uploads/home/Untitled-design-52.webp');
     background-size: cover;
     background-position: center 38%;
     background-repeat: no-repeat;
     padding: 1.25rem 1.25rem 24rem;
-    overflow: hidden;
   }
 
   @media (max-width: 640px) {
@@ -354,85 +278,13 @@ const tornEdgeClip = buildTornEdgeClip(23);
     }
   }
 
-  /* Film-grain texture, prototype: a tiled SVG noise filter over the
-     photo only (mix-blend-mode: overlay), sitting below the text/CTA
-     layer so legibility is untouched. Pure CSS — no new image asset. */
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.55;
-    mix-blend-mode: overlay;
-  }
-
-  /* Dust + hair, layered above the grain — a fixed, hand-art-directed
-     pattern (see buildDustHairBg above), not random per build. */
-  .hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background-image: var(--dustHairBg);
-    background-size: cover;
-    mix-blend-mode: overlay;
-  }
-
-  /* Torn-paper bottom edge — a jagged strip in the page background
-     color, laid over the photo like a snapshot glued into a field
-     notebook (see buildTornEdgeClip above). Sits below the stamp
-     (z-index 2) so the stamp always renders on top of it intact. */
-  .hero__torn-edge {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 3rem;
-    z-index: 1;
-    background: var(--color-bg);
-    clip-path: var(--tornEdgeClip);
-  }
-
-  @media (max-width: 640px) {
-    .hero__torn-edge {
-      height: 2.25rem;
-    }
-  }
-
   .hero__inner {
-    position: relative;
-    z-index: 2;
     max-width: var(--content-max-width);
     margin: 0 auto;
   }
 
-  .hero__eyebrow {
-    font-size: 0.85rem;
-    font-weight: 800;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--color-gold-text);
-    margin: 0 0 0.75rem;
-  }
-
-  .hero__eyebrow span {
-    color: var(--color-clay);
-    font-weight: 400;
-  }
-
-  .hero__inner h1 {
-    font-size: clamp(2.5rem, 6vw, 3.75rem);
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    line-height: 1.08;
-    margin: 0 0 0.75rem;
-  }
-
   .hero__subhead {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: var(--color-text-muted);
     margin-bottom: 0.5rem;
   }
@@ -456,45 +308,26 @@ const tornEdgeClip = buildTornEdgeClip(23);
     color: var(--color-text-muted);
   }
 
-  .hero__secondary a {
-    color: var(--color-clay-text);
-    font-weight: 600;
+  /* --- Edge-to-edge 1:1 block grid ------------------------------- */
+
+  .block-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
-  /* Stamped "field-tested" seal, overlapping the hero photo like a
-     chop mark on a field notebook — part of the grain/texture
-     experiment on this page. */
-  .hero__stamp {
-    position: absolute;
-    left: 1.5rem;
-    bottom: 1.5rem;
-    z-index: 2;
-    color: var(--color-bg);
-    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+  /* Every cell is a true square; if a text cell's content ever
+     outgrows the square, the cell (and its row) grows and the paired
+     image simply covers the taller cell — no clipped copy. */
+  .block-grid__cell {
+    aspect-ratio: 1 / 1;
   }
 
-  @media (max-width: 640px) {
-    .hero__stamp {
-      left: 1rem;
-      bottom: 1rem;
-    }
-
-    .hero__stamp :global(.field-stamp) {
-      width: 5.5rem;
-      height: 5.5rem;
-    }
-  }
-
-  /* Grain texture, reused from the hero: a tiled SVG noise filter over
-     photos only (mix-blend-mode: overlay), so it doesn't touch text
-     legibility anywhere it's used. */
-  .grain-frame {
+  .block-grid__cell--image {
     position: relative;
     overflow: hidden;
-    border-radius: var(--radius-image);
   }
 
-  .grain-frame img {
+  .block-grid__cell--image img {
     display: block;
     width: 100%;
     height: 100%;
@@ -502,88 +335,206 @@ const tornEdgeClip = buildTornEdgeClip(23);
     border-radius: 0;
   }
 
-  .grain-frame::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.4;
-    mix-blend-mode: overlay;
-  }
-
-  .intro-row {
+  .block-grid__cell--text {
     display: flex;
-    align-items: center;
-    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: clamp(1.75rem, 5vw, 4.5rem);
   }
 
-  .intro-row__media {
-    flex: 0 0 40%;
-    max-width: 40%;
+  .block-grid__cell--green {
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+  }
+
+  .block-grid__cell--sage {
+    background: var(--color-surface);
+  }
+
+  .block-grid__cell--paper {
+    background: var(--color-bg);
+  }
+
+  .block-grid__cell--text h2 {
+    font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+    line-height: 1.35;
+    margin: 0 0 1rem;
+  }
+
+  .block-grid__cell--text h3 {
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    line-height: 1.25;
+    margin: 0 0 0.85rem;
+  }
+
+  .block-grid__cell--text p {
+    font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+    line-height: 1.6;
     margin: 0;
   }
 
-  .intro-row__content {
-    flex: 1;
-    min-width: 0;
+  .block-grid__cell--green p {
+    color: rgba(247, 243, 234, 0.88);
   }
 
-  .feature-row {
-    margin-top: 2.5rem;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .feature-row__media {
-    flex: 0 0 35%;
-    max-width: 35%;
-    margin: 0;
-  }
-
-  .feature-row__content {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .feature-row p {
-    margin: 0;
+  .block-grid__cell--sage p,
+  .block-grid__cell--paper p {
     color: var(--color-text-muted);
   }
 
-  @media (max-width: 700px) {
-    .intro-row,
-    .feature-row {
-      flex-direction: column;
-      align-items: stretch;
+  /* Brightened clay for small emphasis text on the dark green card —
+     the brand #bd5a22 only hits 2.2:1 there; this passes WCAG AA. */
+  .block-grid__punch {
+    margin-top: 1rem !important;
+    font-weight: 700;
+    font-style: italic;
+    color: #f09e63 !important;
+  }
+
+  .block-grid__check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1.1rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #ffffff;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 800px) {
+    .block-grid {
+      grid-template-columns: 1fr;
     }
 
-    .intro-row__media,
-    .feature-row__media {
-      max-width: 100%;
+    /* Stacked: images stay square, text cards take their natural
+       height so long copy never gets cramped into a forced square. */
+    .block-grid__cell--text {
+      aspect-ratio: auto;
+      padding: 2.5rem 1.5rem;
     }
   }
 
-  .faq {
-    margin-top: 3rem;
+  /* --- "From the Field" quote band ------------------------------- */
+
+  .field-quote {
+    background: var(--color-primary);
+    padding: 3.5rem 1.5rem;
+  }
+
+  .field-quote__inner {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .field-quote__eyebrow {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    /* Brightened gold: #d8a642 is 4.43:1 on this green, just under AA;
+       this variant passes for small caps text. */
+    color: #ddae50;
+  }
+
+  .field-quote__mark {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 4.5rem;
+    line-height: 0.5;
+    color: #ddae50;
+    flex-shrink: 0;
+    transform: translateY(0.35rem);
+  }
+
+  .field-quote__quote {
+    margin: 0;
+    flex: 1;
+  }
+
+  .field-quote__quote p {
+    margin: 0;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--color-primary-text);
+  }
+
+  .field-quote__quote footer {
+    margin-top: 0.45rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ddae50;
+  }
+
+  .field-quote__faces {
+    width: clamp(220px, 24vw, 300px);
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 800px) {
+    .field-quote__inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+
+    .field-quote__mark {
+      display: none;
+    }
+
+    .field-quote__faces {
+      align-self: center;
+    }
+  }
+
+  /* --- FAQ ---------------------------------------------------------- */
+
+  .faq-section {
+    padding: 4rem 1.5rem 4.5rem;
+  }
+
+  .faq-section__inner {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 14rem 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .faq-section__eyebrow {
+    margin: 0 0 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-clay-text);
+  }
+
+  .faq-section__label h2 {
+    margin: 0;
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .faq-section__items {
     display: grid;
     gap: 1rem;
-    background: var(--color-surface);
-    padding: 2rem 1.75rem;
-    border-radius: var(--radius-card);
-    border-top: 3px solid var(--color-gold);
-  }
-
-  @media (max-width: 640px) {
-    .faq {
-      padding: 1.5rem 1.25rem;
-    }
   }
 
   .faq__item {
-    padding: 1.25rem 1.5rem;
-    background: var(--color-bg);
+    padding: 1.1rem 1.4rem;
+    background: rgba(255, 255, 255, 0.6);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
   }
@@ -596,7 +547,7 @@ const tornEdgeClip = buildTornEdgeClip(23);
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
     list-style: none;
@@ -624,5 +575,12 @@ const tornEdgeClip = buildTornEdgeClip(23);
   .faq__item p {
     margin: 0.75rem 0 0;
     color: var(--color-text-muted);
+  }
+
+  @media (max-width: 760px) {
+    .faq-section__inner {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
   }
 </style>
