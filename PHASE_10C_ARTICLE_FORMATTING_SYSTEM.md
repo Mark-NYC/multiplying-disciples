@@ -378,16 +378,31 @@ article system or starting the page-by-page plan.
 
 ## Addendum: gradient backgrounds, no border-left accents
 
-Follow-up user feedback: the `callout--practice` dashed left border
-read as an unwanted "dotted line." Removed border-left accents from
-every callout variant (key-idea, scripture, warning, practice) and
-replaced each variant's flat/tinted background with a soft two-tone
-gradient in the same hue, so each still reads as visually distinct
-without relying on a border. `callout--tool` keeps its full 1px border
-since that's a card outline, not an accent edge, and wasn't part of
-the complaint. `callout--practice` also picked up a new hue (soft
-teal) since removing its border meant it needed its own color
-identity, not just key-idea's blue with a different border style.
-Applied via `src/styles/global.css`, so it takes effect on all 5
-pilot articles automatically — no per-article markdown changes
-needed.
+Follow-up user feedback (round 1): the `callout--practice` dashed left
+border read as an unwanted "dotted line." Removed border-left accents
+from every callout variant and replaced each flat/tinted background
+with a two-tone gradient in the same hue instead.
+
+Follow-up user feedback (round 2): the round-1 gradients faded to
+white and lost definition against the page background, and the
+per-variant hues (blue, blue, amber, teal) didn't read as a coordinated
+family. Revised to a standard 4-color semantic set, each a two-tone
+gradient that stays within its own hue (never fading to white) plus a
+matching 1px solid border for edge definition:
+
+- key-idea: blue (`#dce9ff` → `#eef4ff`, border `#b3ccf7`)
+- scripture: indigo/violet (`#e6e2ff` → `#f2effe`, border `#c7bff2`) —
+  intentionally cooler than key-idea's blue so the two don't read as
+  "both just blue"
+- warning: amber (`#fdecb8` → `#fff6da`, border `#edc660`) — same
+  amber family as `.source-pending-banner` elsewhere in the codebase
+- practice: green (`#cdf0dc` → `#e8faef`, border `#8fd6ac`) — reads as
+  "go do this," distinct from key-idea's blue
+- base `.callout` (untyped): neutral warm gray (`#f2f1ec` → `#f9f8f4`,
+  border `#e2e0d6`)
+
+`callout--tool` is unchanged (white background, full 1px neutral
+border) since it was always a card outline, not an accent edge, and
+was never part of either round of feedback. Applied via
+`src/styles/global.css`, so it takes effect on all 5 pilot articles
+automatically — no per-article markdown changes needed.

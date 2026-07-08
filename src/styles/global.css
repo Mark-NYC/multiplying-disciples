@@ -1,15 +1,36 @@
 :root {
-  --color-bg: #ffffff;
-  --color-text: #1a1a1a;
-  --color-text-muted: #5f5f5f;
-  --color-border: #dcdcdc;
-  --color-surface: #f7f6f3;
-  --color-accent: #477ff7;
-  --color-accent-hover: #3468e0;
+  /* "Rooted Harvest" palette — grounded, biblical, field-tested, not a
+     trendy church-startup site. Two greens carry most of the weight:
+     Primary Green for buttons/emphasis/dark blocks, Growth Green for
+     links/icons/hover/small highlights. Gold and Clay are deliberately
+     minor accents (borders, labels, quote/callout edges) — never a
+     main fill. Warm Paper replaces white as the page background;
+     Soft Sage is the standard card/callout/section tint. */
+  --color-primary: #174c3c; /* Primary Green */
+  --color-primary-hover: #1f2523; /* Deep Ink, per brand spec's hover guidance */
+  --color-primary-text: #f7f3ea; /* Warm Paper text on Primary Green */
+
+  --color-accent: #4f9d69; /* Growth Green — links, icons, secondary buttons, hover */
+  --color-accent-hover: #3d7a52; /* darker Growth Green */
   --color-accent-text: #ffffff;
-  --color-footer-bg: #16161d;
-  --color-footer-text: #f2f2f4;
-  --color-footer-text-muted: #a8a8b3;
+
+  --color-gold: #d8a642; /* Harvest Gold — sparing accent: borders, badges, emphasis */
+  --color-gold-text: #8a6416; /* readable dark-gold for text on light backgrounds */
+
+  --color-clay: #b86b4b; /* Clay / Mission Earth — secondary accent, quote/callout borders */
+  --color-clay-text: #8b4e34; /* readable dark-clay for text on light backgrounds */
+
+  --color-bg: #f7f3ea; /* Warm Paper — primary page background */
+  --color-surface: #dde8d6; /* Soft Sage — cards, callouts, section tints */
+  --color-ink: #1f2523; /* Deep Ink */
+
+  --color-text: #1f2523;
+  --color-text-muted: #57635c;
+  --color-border: #dcd2bb;
+
+  --color-footer-bg: #1f2523; /* Deep Ink */
+  --color-footer-text: #f7f3ea; /* Warm Paper */
+  --color-footer-text-muted: #a9afa5;
   --content-max-width: 42rem;
   --site-max-width: 60rem;
   /* Wider than --site-max-width so the header's logo, nav, dropdown,
@@ -106,7 +127,7 @@ article li > p {
 article blockquote {
   padding: 0.25rem 0 0.25rem 1.25rem;
   margin: 1.75rem 0;
-  border-left: 3px solid var(--color-accent);
+  border-left: 3px solid var(--color-clay);
   color: var(--color-text);
   font-size: 1.05rem;
   font-style: italic;
@@ -150,7 +171,7 @@ article th {
 }
 
 article tbody tr:nth-child(even) td {
-  background: #fafafa;
+  background: #f1ecdf;
 }
 
 /* Callout box system — a small, consistent family of highlighted
@@ -163,7 +184,8 @@ article tbody tr:nth-child(even) td {
   margin: 1.75rem 0;
   padding: 1.25rem 1.5rem;
   border-radius: var(--radius-card);
-  background: linear-gradient(135deg, var(--color-surface), #ffffff);
+  background: linear-gradient(135deg, var(--color-bg), var(--color-surface));
+  border: 1px solid var(--color-border);
 }
 
 .callout > *:last-child {
@@ -185,24 +207,26 @@ article tbody tr:nth-child(even) td {
 }
 
 /* 1. Key idea — a short, important takeaway worth pulling out of the
-   surrounding paragraph. Blue gradient tint signals importance. */
+   surrounding paragraph. Primary Green border on the shared warm
+   paper-to-sage wash — the "strong accent" color per the brand spec. */
 .callout--key-idea {
-  background: linear-gradient(135deg, #eaf1ff, #ffffff);
+  border-color: var(--color-primary);
 }
 
 .callout--key-idea .callout__label {
-  color: var(--color-accent);
+  color: var(--color-primary);
 }
 
-/* 2. Scripture — a direct Bible quotation, set apart from the
-   surrounding prose with a light accent gradient. */
+/* 2. Scripture — a direct Bible quotation. Clay border (the palette's
+   designated "quote/callout border" color) sets it apart from the
+   site's own commentary without introducing a new hue. */
 .callout--scripture {
-  background: linear-gradient(135deg, #eef3ff, #dce7ff);
+  border-color: var(--color-clay);
   font-style: italic;
 }
 
 .callout--scripture .callout__label {
-  color: var(--color-accent);
+  color: var(--color-clay-text);
   font-style: normal;
 }
 
@@ -212,36 +236,38 @@ article tbody tr:nth-child(even) td {
   font-style: normal;
   font-weight: 600;
   font-size: 0.85rem;
-  color: var(--color-text-muted);
+  color: var(--color-clay-text);
 }
 
 /* 3. Tool — introduces or spotlights a named tool/resource (3 Circles,
-   the 15-Second Testimony, Four Fields, etc). White background with a
-   full border, so it reads as a distinct "card" rather than a tint. */
+   the 15-Second Testimony, Four Fields, etc). Flat Warm Paper (no
+   gradient wash) with a plain border, so it reads as a distinct card
+   rather than a tinted callout. */
 .callout--tool {
   background: var(--color-bg);
   border: 1px solid var(--color-border);
 }
 
 /* 4. Warning / correction — a caution or common-misconception note.
-   Reuses the amber already established for .source-pending-banner
-   elsewhere in this codebase, so it's not a new brand color. */
+   Harvest Gold border — used sparingly, exactly the "important
+   callout" case the brand spec calls out for gold. */
 .callout--warning {
-  background: linear-gradient(135deg, #fffbeb, #fdedc8);
+  border-color: var(--color-gold);
 }
 
 .callout--warning .callout__label {
-  color: #92400e;
+  color: var(--color-gold-text);
 }
 
 /* 5. Practice / try-this — an actionable next step for the reader.
-   Soft teal gradient differentiates it from the blue key-idea box. */
+   Growth Green border reads as "go do this," distinct from key-idea's
+   darker Primary Green. */
 .callout--practice {
-  background: linear-gradient(135deg, #eafbf6, #ffffff);
+  border-color: var(--color-accent);
 }
 
 .callout--practice .callout__label {
-  color: #0f766e;
+  color: var(--color-accent-hover);
 }
 
 /* Step/process list — wrap a plain markdown ordered list in
@@ -296,21 +322,21 @@ article tbody tr:nth-child(even) td {
 .source-pending-banner {
   margin: 0 0 2rem;
   padding: 0.85rem 1rem;
-  border: 1px dashed #b45309;
-  background: #fffbeb;
-  color: #92400e;
+  border: 1px solid var(--color-gold);
+  background: #fbf0dc;
+  color: var(--color-gold-text);
   font-size: 0.9rem;
   border-radius: 4px;
 }
 
-/* Shared button styles — slightly rounded corners, blue accent, used
-   sitewide for primary calls to action (hero CTAs, hub next_step,
+/* Shared button styles — slightly rounded corners, Primary Green fill,
+   used sitewide for primary calls to action (hero CTAs, hub next_step,
    resource-grid VIEW/BUY buttons, CTA bands). */
 .button {
   display: inline-block;
   padding: 0.7rem 1.5rem;
-  background: var(--color-accent);
-  color: var(--color-accent-text);
+  background: var(--color-primary);
+  color: var(--color-primary-text);
   text-decoration: none;
   border-radius: var(--radius-button);
   font-weight: 600;
@@ -321,30 +347,30 @@ article tbody tr:nth-child(even) td {
 }
 
 .button:hover {
-  background: var(--color-accent-hover);
-  color: var(--color-accent-text);
+  background: var(--color-primary-hover);
+  color: var(--color-primary-text);
 }
 
 .button--secondary {
   background: transparent;
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
 }
 
 .button--secondary:hover {
   background: var(--color-surface);
-  color: var(--color-text);
+  color: var(--color-primary);
 }
 
 /* Secondary button variant for use on dark backgrounds (.cta-band). */
 .button--secondary-dark {
   background: transparent;
   color: var(--color-footer-text);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(247, 243, 234, 0.4);
 }
 
 .button--secondary-dark:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(247, 243, 234, 0.12);
   color: var(--color-footer-text);
 }
 
@@ -451,15 +477,15 @@ article tbody tr:nth-child(even) td {
 /* Labs CTA — homepage closing section promoting upcoming CoVo
    Multipliers Labs. Deliberately full-bleed (a sibling of
    .page-container, not nested inside it — see index.astro) with its
-   own soft blue-to-neutral wash, so it reads as the page's final,
-   anchored next step rather than one more section in the list. The
-   lab cards inside #labs-cta-grid are rendered client-side, so these
-   classes are kept unscoped/global — Astro's per-component style
-   scoping only reaches markup present at build time, not JS-injected
-   innerHTML. */
+   own soft Warm-Paper-to-Soft-Sage wash (the palette's named subtle
+   gradient), so it reads as the page's final, anchored next step
+   rather than one more section in the list. The lab cards inside
+   #labs-cta-grid are rendered client-side, so these classes are kept
+   unscoped/global — Astro's per-component style scoping only reaches
+   markup present at build time, not JS-injected innerHTML. */
 .labs-cta {
   padding: 4.5rem 1.5rem 5rem;
-  background: linear-gradient(180deg, #eef3ff 0%, var(--color-surface) 100%);
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-surface) 100%);
   text-align: center;
 }
 
@@ -479,7 +505,7 @@ article tbody tr:nth-child(even) td {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--color-accent);
+  color: var(--color-gold-text);
   margin: 0 0 0.5rem;
 }
 
@@ -584,7 +610,7 @@ article tbody tr:nth-child(even) td {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  color: var(--color-accent);
+  color: var(--color-accent-hover);
 }
 
 /* Status badges — "Live Lab" (constant, pulsing dot) plus a second,
@@ -729,8 +755,8 @@ article tbody tr:nth-child(even) td {
 .cta-band__actions a:not(.button) {
   display: inline-block;
   padding: 0.7rem 1.5rem;
-  background: var(--color-accent);
-  color: var(--color-accent-text);
+  background: var(--color-primary);
+  color: var(--color-primary-text);
   text-decoration: none;
   border-radius: var(--radius-button);
   font-weight: 600;
@@ -744,7 +770,7 @@ article tbody tr:nth-child(even) td {
 
 .resource-card__cta a:not(.button):hover,
 .cta-band__actions a:not(.button):hover {
-  background: var(--color-accent-hover);
+  background: var(--color-primary-hover);
 }
 
 /* Generic row of button links (e.g. stacked download buttons on a
@@ -759,13 +785,13 @@ article tbody tr:nth-child(even) td {
 .button-row a {
   display: inline-block;
   padding: 0.7rem 1.5rem;
-  background: var(--color-accent);
-  color: var(--color-accent-text);
+  background: var(--color-primary);
+  color: var(--color-primary-text);
   text-decoration: none;
   border-radius: var(--radius-button);
   font-weight: 600;
 }
 
 .button-row a:hover {
-  background: var(--color-accent-hover);
+  background: var(--color-primary-hover);
 }

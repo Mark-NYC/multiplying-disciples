@@ -11,6 +11,7 @@
 // added/removed on their end without a rebuild here.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CovoMark from '../components/CovoMark.astro';
+import FieldStampBadge from '../components/FieldStampBadge.astro';
 import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
 ---
 
@@ -50,18 +51,22 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
         New here? <a href="/start-here/">Start Here</a> to see the simple tools first.
       </p>
     </div>
+    <div class="hero__stamp">
+      <FieldStampBadge />
+    </div>
   </section>
 
   <div class="page-container page-container--wide">
     <section class="intro-row">
-      <img
-        class="intro-row__media"
-        src="/wp-content/uploads/2025/03/maxresdefault-7-1024x576.jpg"
-        alt="A man recording a disciple-making teaching video"
-        width="1024"
-        height="576"
-        loading="lazy"
-      />
+      <div class="grain-frame intro-row__media">
+        <img
+          src="/wp-content/uploads/2025/03/maxresdefault-7-1024x576.jpg"
+          alt="A man recording a disciple-making teaching video"
+          width="1024"
+          height="576"
+          loading="lazy"
+        />
+      </div>
       <div class="intro-row__content">
         <h2>
           Disciple making resources and tools can be found everywhere. Resources without
@@ -78,14 +83,15 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     </section>
 
     <section class="feature-row">
-      <img
-        class="feature-row__media"
-        src="/wp-content/uploads/2025/01/Copy-of-Untitled-47-768x768.webp"
-        alt="Two women talking and laughing together outdoors"
-        width="768"
-        height="768"
-        loading="lazy"
-      />
+      <div class="grain-frame feature-row__media">
+        <img
+          src="/wp-content/uploads/2025/01/Copy-of-Untitled-47-768x768.webp"
+          alt="Two women talking and laughing together outdoors"
+          width="768"
+          height="768"
+          loading="lazy"
+        />
+      </div>
       <div class="feature-row__content">
         <div class="feature-badge">
           <span class="feature-badge__icon" aria-hidden="true">&check;</span>
@@ -109,14 +115,15 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
           to action. <strong>Everyone benefits from that momentum.</strong>
         </p>
       </div>
-      <img
-        class="feature-row__media"
-        src="/wp-content/uploads/2025/01/Copy-of-Untitled-48-768x768.webp"
-        alt="A group gathered in a home, praying over someone"
-        width="768"
-        height="768"
-        loading="lazy"
-      />
+      <div class="grain-frame feature-row__media">
+        <img
+          src="/wp-content/uploads/2025/01/Copy-of-Untitled-48-768x768.webp"
+          alt="A group gathered in a home, praying over someone"
+          width="768"
+          height="768"
+          loading="lazy"
+        />
+      </div>
     </section>
 
     <section class="faq">
@@ -232,6 +239,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
 
 <style>
   .hero {
+    position: relative;
     text-align: center;
     background-image: url('/wp-content/uploads/home/Untitled-design-52.webp');
     background-size: cover;
@@ -247,7 +255,23 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     }
   }
 
+  /* Film-grain texture, prototype: a tiled SVG noise filter over the
+     photo only (mix-blend-mode: overlay), sitting below the text/CTA
+     layer so legibility is untouched. Pure CSS — no new image asset. */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+  }
+
   .hero__inner {
+    position: relative;
+    z-index: 2;
     max-width: var(--content-max-width);
     margin: 0 auto;
   }
@@ -275,6 +299,57 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     margin-top: 1rem;
     font-size: 0.95rem;
     color: var(--color-text-muted);
+  }
+
+  /* Stamped "field-tested" seal, overlapping the hero photo like a
+     chop mark on a field notebook — part of the grain/texture
+     experiment on this page. */
+  .hero__stamp {
+    position: absolute;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 2;
+    color: var(--color-bg);
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+  }
+
+  @media (max-width: 640px) {
+    .hero__stamp {
+      left: 1rem;
+      bottom: 1rem;
+    }
+
+    .hero__stamp :global(.field-stamp) {
+      width: 5.5rem;
+      height: 5.5rem;
+    }
+  }
+
+  /* Grain texture, reused from the hero: a tiled SVG noise filter over
+     photos only (mix-blend-mode: overlay), so it doesn't touch text
+     legibility anywhere it's used. */
+  .grain-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-image);
+  }
+
+  .grain-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+  }
+
+  .grain-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    mix-blend-mode: overlay;
   }
 
   .intro-row {

@@ -11,6 +11,7 @@ related_articles:
   - "/under-the-hood-of-disciple-making-movements/"
 related_tools: []
 status: "migrated"
+theme: "field-manual"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/the-multiplier-mandate-revealed-from-genesis-to-revelation/"
 notes: >
@@ -30,6 +31,9 @@ notes: >
   quote, plus the closing "What have we discovered" summary) in
   callout--key-idea boxes, the highest-impact change for this
   article's long quote-then-bullets rhythm. No wording changed.
+  Pilot article for the "field manual" grain/stamp-badge visual
+  experiment (theme: field-manual, see ArticleLayout.astro) —
+  isolated here and on the homepage; roll back by removing this flag.
 ---
 
 What if the story of multiplication began before the church was even formed? What if God's grand design from **Genesis to Revelation** has always been about multiplication?

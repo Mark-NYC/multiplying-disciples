@@ -194,7 +194,7 @@ In just 15 seconds, John shares how his life was transformed from darkness to li
 
 This is how it looks:
 
-![15 Second Testimony Examples: from darkness to light](/wp-content/uploads/2023/05/4-1-1-YFC-5-e1684599818569.png)
+![15 Second Testimony Examples: from darkness to light](public/wp-content/uploads/From-darkness-to-light-15-second-testimony-example.webp)
 
 #### The Great Exchange
 
