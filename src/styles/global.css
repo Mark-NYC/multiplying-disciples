@@ -163,8 +163,7 @@ article tbody tr:nth-child(even) td {
   margin: 1.75rem 0;
   padding: 1.25rem 1.5rem;
   border-radius: var(--radius-card);
-  background: var(--color-surface);
-  border-left: 4px solid var(--color-border);
+  background: linear-gradient(135deg, var(--color-surface), #ffffff);
 }
 
 .callout > *:last-child {
@@ -186,9 +185,9 @@ article tbody tr:nth-child(even) td {
 }
 
 /* 1. Key idea — a short, important takeaway worth pulling out of the
-   surrounding paragraph. */
+   surrounding paragraph. Blue gradient tint signals importance. */
 .callout--key-idea {
-  border-left-color: var(--color-accent);
+  background: linear-gradient(135deg, #eaf1ff, #ffffff);
 }
 
 .callout--key-idea .callout__label {
@@ -196,10 +195,9 @@ article tbody tr:nth-child(even) td {
 }
 
 /* 2. Scripture — a direct Bible quotation, set apart from the
-   surrounding prose with a light accent tint. */
+   surrounding prose with a light accent gradient. */
 .callout--scripture {
-  background: #eef3ff;
-  border-left-color: var(--color-accent);
+  background: linear-gradient(135deg, #eef3ff, #dce7ff);
   font-style: italic;
 }
 
@@ -223,15 +221,13 @@ article tbody tr:nth-child(even) td {
 .callout--tool {
   background: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-left: 4px solid var(--color-accent);
 }
 
 /* 4. Warning / correction — a caution or common-misconception note.
    Reuses the amber already established for .source-pending-banner
    elsewhere in this codebase, so it's not a new brand color. */
 .callout--warning {
-  background: #fffbeb;
-  border-left-color: #b45309;
+  background: linear-gradient(135deg, #fffbeb, #fdedc8);
 }
 
 .callout--warning .callout__label {
@@ -239,15 +235,13 @@ article tbody tr:nth-child(even) td {
 }
 
 /* 5. Practice / try-this — an actionable next step for the reader.
-   Dashed border differentiates it from the solid-border key-idea box
-   without introducing a new color. */
+   Soft teal gradient differentiates it from the blue key-idea box. */
 .callout--practice {
-  border-left-style: dashed;
-  border-left-color: var(--color-accent);
+  background: linear-gradient(135deg, #eafbf6, #ffffff);
 }
 
 .callout--practice .callout__label {
-  color: var(--color-accent);
+  color: #0f766e;
 }
 
 /* Step/process list — wrap a plain markdown ordered list in

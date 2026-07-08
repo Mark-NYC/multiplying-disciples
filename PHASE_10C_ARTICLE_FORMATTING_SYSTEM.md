@@ -40,7 +40,7 @@ prose than the surrounding article.
 ### 1. Key idea box — `callout callout--key-idea`
 
 A short, important takeaway pulled out of the surrounding paragraph.
-Solid blue left border, light gray background.
+Soft blue gradient background, no border.
 
 ```html
 <div class="callout callout--key-idea">
@@ -52,9 +52,9 @@ Solid blue left border, light gray background.
 
 ### 2. Scripture box — `callout callout--scripture`
 
-A direct Bible quotation. Light blue-tinted background (not just a
-plain blockquote) so Scripture reads as visually distinct from the
-article's own commentary or from someone else's quoted words.
+A direct Bible quotation. Light blue-to-lavender gradient background
+(not just a plain blockquote) so Scripture reads as visually distinct
+from the article's own commentary or from someone else's quoted words.
 
 ```html
 <div class="callout callout--scripture">
@@ -70,7 +70,8 @@ article's own commentary or from someone else's quoted words.
 
 Introduces or spotlights a named tool/resource (3 Circles, the
 15-Second Testimony, Four Fields, etc). White background with a full
-border plus the accent left-border, so it reads as a small card.
+border, so it reads as a small card — the only variant that keeps a
+border, since it's a card outline rather than an accent edge.
 
 ```html
 <div class="callout callout--tool">
@@ -102,7 +103,7 @@ change to the list itself, so it's still plain, portable markdown.
 
 A caution or common-misconception note. Reuses the amber already
 established for `.source-pending-banner` elsewhere in this codebase —
-not a new brand color.
+not a new brand color, now as a soft amber gradient background.
 
 ```html
 <div class="callout callout--warning">
@@ -115,9 +116,9 @@ a believer — they just have to be open.
 
 ### 6. Practice / try-this box — `callout callout--practice`
 
-An actionable next step for the reader. Same accent color as key-idea,
-but a dashed left border (not a new color) to differentiate "here's an
-idea" from "go do this."
+An actionable next step for the reader. Soft teal gradient background
+(distinct from key-idea's blue) to differentiate "here's an idea" from
+"go do this" without relying on a border treatment.
 
 ```html
 <div class="callout callout--practice">
@@ -374,3 +375,19 @@ This plan is intentionally not executed in this phase — per the
 instructions, Phase 10C proves the article system on its 5-article
 pilot and stops there for user review before either scaling the
 article system or starting the page-by-page plan.
+
+## Addendum: gradient backgrounds, no border-left accents
+
+Follow-up user feedback: the `callout--practice` dashed left border
+read as an unwanted "dotted line." Removed border-left accents from
+every callout variant (key-idea, scripture, warning, practice) and
+replaced each variant's flat/tinted background with a soft two-tone
+gradient in the same hue, so each still reads as visually distinct
+without relying on a border. `callout--tool` keeps its full 1px border
+since that's a card outline, not an accent edge, and wasn't part of
+the complaint. `callout--practice` also picked up a new hue (soft
+teal) since removing its border meant it needed its own color
+identity, not just key-idea's blue with a different border style.
+Applied via `src/styles/global.css`, so it takes effect on all 5
+pilot articles automatically — no per-article markdown changes
+needed.
