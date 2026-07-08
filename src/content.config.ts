@@ -43,6 +43,11 @@ const articles = defineCollection({
     // True for utility/legal pages (e.g. /privacy-policy/) that should
     // exist as a real page but not appear in the /blog/ article index.
     exclude_from_blog: z.boolean().default(false),
+    // Opt-in visual experiment (grain texture, stamp badge, rougher
+    // callout borders) — see ArticleLayout.astro. Isolated to whichever
+    // articles set this explicitly so it can be rolled back by removing
+    // the flag, without touching the rest of the site.
+    theme: z.enum(['field-manual']).optional(),
     ...migrationFields,
   }),
 });

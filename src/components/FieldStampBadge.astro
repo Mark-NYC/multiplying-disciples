@@ -1,0 +1,51 @@
+---
+// A hand-stamped "field-tested" seal — pure inline SVG (circular text +
+// a rough, hand-inked ring via feDisplacementMap), no image asset.
+// Part of the "field manual" visual experiment; used on the 1-2 pages
+// that opt into it via `theme: field-manual` / direct placement.
+interface Props {
+  text?: string;
+  class?: string;
+}
+
+const { text = 'FIELD-TESTED  ·  MULTIPLYING DISCIPLES  ·  ', class: className } = Astro.props;
+const repeated = text + text;
+const uid = Math.random().toString(36).slice(2, 9);
+---
+
+<div class:list={['field-stamp', className]} aria-hidden="true">
+  <svg viewBox="0 0 200 200" class="field-stamp__svg">
+    <defs>
+      <path id={`field-stamp-circle-${uid}`} d="M 100,100 m -80,0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" />
+      <filter id={`field-stamp-rough-${uid}`} x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.03 0.09" numOctaves="2" seed="7" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+    <g filter={`url(#field-stamp-rough-${uid})`} fill="none" stroke="currentColor">
+      <circle cx="100" cy="100" r="92" stroke-width="2.5" />
+      <circle cx="100" cy="100" r="68" stroke-width="1.5" />
+      <path d="M100,48 v18 M100,134 v18 M48,100 h18 M134,100 h18" stroke-width="2.5" stroke-linecap="round" />
+      <circle cx="100" cy="100" r="5" fill="currentColor" stroke="none" />
+    </g>
+    <text font-size="10.5" letter-spacing="2.5" fill="currentColor" font-weight="700">
+      <textPath href={`#field-stamp-circle-${uid}`} startOffset="0%">{repeated}</textPath>
+    </text>
+  </svg>
+</div>
+
+<style>
+  .field-stamp {
+    display: inline-block;
+    width: 7.5rem;
+    height: 7.5rem;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .field-stamp__svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+</style>
