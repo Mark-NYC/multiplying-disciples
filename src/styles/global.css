@@ -163,7 +163,8 @@ article tbody tr:nth-child(even) td {
   margin: 1.75rem 0;
   padding: 1.25rem 1.5rem;
   border-radius: var(--radius-card);
-  background: linear-gradient(135deg, var(--color-surface), #ffffff);
+  background: linear-gradient(135deg, #f2f1ec, #f9f8f4);
+  border: 1px solid #e2e0d6;
 }
 
 .callout > *:last-child {
@@ -185,24 +186,28 @@ article tbody tr:nth-child(even) td {
 }
 
 /* 1. Key idea — a short, important takeaway worth pulling out of the
-   surrounding paragraph. Blue gradient tint signals importance. */
+   surrounding paragraph. Blue gradient + matching border for clear
+   definition against the page background. */
 .callout--key-idea {
-  background: linear-gradient(135deg, #eaf1ff, #ffffff);
+  background: linear-gradient(135deg, #dce9ff, #eef4ff);
+  border: 1px solid #b3ccf7;
 }
 
 .callout--key-idea .callout__label {
   color: var(--color-accent);
 }
 
-/* 2. Scripture — a direct Bible quotation, set apart from the
-   surrounding prose with a light accent gradient. */
+/* 2. Scripture — a direct Bible quotation. Indigo/violet gradient, one
+   step cooler than key-idea's blue so the two read as distinct at a
+   glance rather than "both just blue." */
 .callout--scripture {
-  background: linear-gradient(135deg, #eef3ff, #dce7ff);
+  background: linear-gradient(135deg, #e6e2ff, #f2effe);
+  border: 1px solid #c7bff2;
   font-style: italic;
 }
 
 .callout--scripture .callout__label {
-  color: var(--color-accent);
+  color: #6d5fd6;
   font-style: normal;
 }
 
@@ -227,7 +232,8 @@ article tbody tr:nth-child(even) td {
    Reuses the amber already established for .source-pending-banner
    elsewhere in this codebase, so it's not a new brand color. */
 .callout--warning {
-  background: linear-gradient(135deg, #fffbeb, #fdedc8);
+  background: linear-gradient(135deg, #fdecb8, #fff6da);
+  border: 1px solid #edc660;
 }
 
 .callout--warning .callout__label {
@@ -235,13 +241,16 @@ article tbody tr:nth-child(even) td {
 }
 
 /* 5. Practice / try-this — an actionable next step for the reader.
-   Soft teal gradient differentiates it from the blue key-idea box. */
+   Green gradient reads as "go do this," coordinated with the rest of
+   the family (blue/indigo/amber/green — a standard semantic set) at
+   the same tint depth so no variant looks out of place. */
 .callout--practice {
-  background: linear-gradient(135deg, #eafbf6, #ffffff);
+  background: linear-gradient(135deg, #cdf0dc, #e8faef);
+  border: 1px solid #8fd6ac;
 }
 
 .callout--practice .callout__label {
-  color: #0f766e;
+  color: #157a4a;
 }
 
 /* Step/process list — wrap a plain markdown ordered list in
