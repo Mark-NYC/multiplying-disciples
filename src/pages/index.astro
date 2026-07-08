@@ -10,6 +10,7 @@
 // used by CoVo's own homepage — so it stays in sync as labs are
 // added/removed on their end without a rebuild here.
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CovoMark from '../components/CovoMark.astro';
 import FieldStampBadge from '../components/FieldStampBadge.astro';
 import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
 ---
@@ -34,7 +35,16 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
         height="100"
       />
       <p class="hero__ctas">
-        <a class="button" href={COVO_LABS_URL}>Start Training</a>
+        <a
+          class="button"
+          href={COVO_LABS_URL}
+          data-ecosystem-cta
+          data-cta-level="level_3"
+          data-cta-type="covo_training"
+          data-destination-site="covo"
+        >
+          Start Training
+        </a>
         <a class="button button--secondary" href="/contact-us/">Connect</a>
       </p>
       <p class="hero__secondary">
@@ -156,7 +166,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   <section class="labs-cta">
     <div class="labs-cta__inner">
       <p class="labs-cta__eyebrow">Ready to practice this?</p>
-      <h2>Join a live Multiplying Lab</h2>
+      <h2><CovoMark /> Join a live Multiplying Lab</h2>
       <p class="labs-cta__descriptor">Practical disciple-making labs for everyday leaders.</p>
 
       <div class="labs-cta__copy">
@@ -174,7 +184,12 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
         </p>
       </div>
 
-      <div class="labs-cta__grid" id="labs-cta-grid" aria-live="polite">
+      <div
+        class="labs-cta__grid"
+        id="labs-cta-grid"
+        aria-live="polite"
+        data-labs-content-tag="home__training__labs-grid"
+      >
         <p class="labs-cta__loading">Loading upcoming labs&hellip;</p>
       </div>
 
@@ -195,8 +210,13 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
       </figure>
 
       <p class="labs-cta__bridge">
-        Labs are hosted through <a href={COVO_HOME_URL}>Covo Multipliers</a>, where we practice
-        simple tools for making disciples in real life.
+        Labs are hosted through <a
+          href={COVO_HOME_URL}
+          data-ecosystem-cta
+          data-cta-level="level_3"
+          data-cta-type="covo_home"
+          data-destination-site="covo"
+        >Covo Multipliers</a>, where we practice simple tools for making disciples in real life.
       </p>
 
       <noscript>
@@ -212,7 +232,9 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   import { renderLabsInto } from '../lib/labs-feed.js';
 
   const grid = document.getElementById('labs-cta-grid');
-  renderLabsInto(grid, 3, 'Join This Lab');
+  if (grid) {
+    renderLabsInto(grid, 3, 'Join This Lab', grid.dataset.labsContentTag);
+  }
 </script>
 
 <style>

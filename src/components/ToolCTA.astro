@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import CovoMark from './CovoMark.astro';
 
 interface NextStep {
   label: string;
@@ -14,6 +15,11 @@ interface Props {
 }
 
 const { tools = [], nextStep } = Astro.props;
+
+// Recognize CoVo Multipliers as the destination so the next-step button
+// carries the same "man" mark and ecosystem tracking used elsewhere on
+// the site, without every hub author having to remember to add it.
+const nextStepIsCovo = nextStep?.href.includes('covomultipliers.com') ?? false;
 
 const allTools = tools.length ? await getCollection('tools') : [];
 
@@ -49,7 +55,15 @@ const items = tools.map((name) => {
         </>
       )}
       {nextStep && (
-        <a class="tool-cta__button" href={nextStep.href}>
+        <a
+          class="tool-cta__button"
+          href={nextStep.href}
+          data-ecosystem-cta={nextStepIsCovo ? true : undefined}
+          data-cta-level={nextStepIsCovo ? 'level_3' : undefined}
+          data-cta-type={nextStepIsCovo ? 'covo_next_step' : undefined}
+          data-destination-site={nextStepIsCovo ? 'covo' : undefined}
+        >
+          {nextStepIsCovo && <CovoMark />}
           {nextStep.label}
         </a>
       )}
@@ -93,5 +107,16 @@ const items = tools.map((name) => {
 
   .tool-cta__button:hover {
     background: var(--color-primary-hover);
+  }
+
+  /* CovoMark is a dark-line-on-transparent icon; invert it to stay
+     visible against the button's solid accent-color background, and
+     shrink it to fit a single-line button rather than the heading-sized
+     default. */
+  .tool-cta__button :global(.covo-mark) {
+    width: 1.15rem;
+    height: 1.15rem;
+    margin-right: 0.35rem;
+    filter: brightness(0) invert(1);
   }
 </style>

@@ -1,0 +1,34 @@
+---
+// Small recognition badge for moments where this site hands the reader
+// off to CoVo Multipliers (the "man" figure from CoVo's disciple-maker
+// icon set — see covo-multipliers/image/discipleicons/rooted-multiplier.webp).
+// Purely decorative: it always sits next to text that already names
+// "Covo Multipliers", so it's marked aria-hidden rather than carrying
+// its own alt text.
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<img
+  class={`covo-mark ${className ?? ''}`.trim()}
+  src="/images/covo-multiplier-mark.webp"
+  alt=""
+  aria-hidden="true"
+  width="64"
+  height="64"
+  loading="lazy"
+/>
+
+<style>
+  .covo-mark {
+    display: inline-block;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+</style>
