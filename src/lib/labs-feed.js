@@ -12,13 +12,17 @@
 
 import { COVO_LABS_FEED_URL, COVO_SUBSCRIBE_FUNCTION_URL } from '../data/site';
 
-// Fixed tracking triple for every outbound link to a Covo lab page.
-function withLabUtm(rawUrl) {
+// Tracking params for every outbound link to a Covo lab page. `contentTag`
+// follows the utm_content convention in ECOSYSTEM_GROWTH_STRATEGY.md
+// ("page-slug__cta-level__placement") so lab clicks are attributable back
+// to the page/placement that produced them.
+function withLabUtm(rawUrl, contentTag) {
   try {
     const url = new URL(rawUrl);
     url.searchParams.set('utm_source', 'multiplyingdisciples');
     url.searchParams.set('utm_medium', 'site_cta');
     url.searchParams.set('utm_campaign', 'labs');
+    if (contentTag) url.searchParams.set('utm_content', contentTag);
     return url.toString();
   } catch {
     return rawUrl;
@@ -44,7 +48,7 @@ function formatLabDate(iso) {
   return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
-function labCardHtml(lab, ctaLabel) {
+function labCardHtml(lab, ctaLabel, contentTag) {
   const seatsLabel = lab.has_availability
     ? `${lab.seats_remaining} seat${lab.seats_remaining === 1 ? '' : 's'} left`
     : 'Full';
@@ -54,7 +58,7 @@ function labCardHtml(lab, ctaLabel) {
   const description = summary
     ? `<p class="lab-card__description">${escapeHtml(summary)}</p>`
     : '';
-  const href = withLabUtm(lab.url);
+  const href = withLabUtm(lab.url, contentTag);
   return `
     <div class="lab-card">
       <p class="lab-card__meta">
@@ -67,7 +71,14 @@ function labCardHtml(lab, ctaLabel) {
       </p>
       <h3 class="lab-card__title">${escapeHtml(lab.title)}</h3>
       ${description}
-      <a class="button lab-card__cta" href="${href}">${escapeHtml(ctaLabel)}</a>
+      <a
+        class="button lab-card__cta"
+        href="${href}"
+        data-ecosystem-cta
+        data-cta-level="level_3"
+        data-cta-type="covo_lab"
+        data-destination-site="covo"
+      >${escapeHtml(ctaLabel)}</a>
     </div>
   `;
 }
@@ -130,12 +141,13 @@ function wireNotifyForm(container) {
 // Fetches up to `limit` upcoming labs and renders them into `container`
 // as `.lab-card` markup, or falls back to a "notify me" card (wired to
 // the subscribe-updates function) when none are upcoming or the feed is
-// unreachable. `ctaLabel` defaults to "Join This Lab".
-export async function renderLabsInto(container, limit, ctaLabel = 'Join This Lab') {
+// unreachable. `ctaLabel` defaults to "Join This Lab". `contentTag`, if
+// given, is stamped onto each lab link as `utm_content` (see withLabUtm).
+export async function renderLabsInto(container, limit, ctaLabel = 'Join This Lab', contentTag) {
   try {
     const labs = await fetchUpcomingLabs(limit);
     if (labs.length > 0) {
-      container.innerHTML = labs.map((lab) => labCardHtml(lab, ctaLabel)).join('');
+      container.innerHTML = labs.map((lab) => labCardHtml(lab, ctaLabel, contentTag)).join('');
       return;
     }
   } catch {

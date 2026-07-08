@@ -402,6 +402,13 @@ article tbody tr:nth-child(even) td {
   color: var(--color-footer-text);
 }
 
+/* CovoMark is a dark-line-on-transparent icon; invert it to stay visible
+   against the dark .cta-band background (it reads fine as-is against the
+   light .labs-cta background on the homepage). */
+.cta-band .covo-mark {
+  filter: brightness(0) invert(1);
+}
+
 .cta-band p {
   margin: 0 0 1.25rem;
   color: var(--color-footer-text-muted);

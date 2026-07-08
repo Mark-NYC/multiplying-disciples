@@ -5,6 +5,7 @@ import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import RelatedArticles from '../components/RelatedArticles.astro';
 import ToolCTA from '../components/ToolCTA.astro';
+import CovoMark from '../components/CovoMark.astro';
 
 interface Props {
   article: CollectionEntry<'articles'>;
@@ -25,6 +26,11 @@ const breadcrumbItems = [
 // Closing "next step" CTA shown on real editorial articles only —
 // utility/tool/legal pages (exclude_from_blog: true) already have
 // their own specific CTA and shouldn't get a second, generic one.
+
+// utm_content tag for the lab links in this CTA band, following the
+// "page-slug__cta-level__placement" convention in
+// ECOSYSTEM_GROWTH_STRATEGY.md.
+const labsContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__cta-band`;
 ---
 
 <BaseLayout
@@ -70,9 +76,14 @@ const breadcrumbItems = [
     {
       !data.exclude_from_blog && (
         <section class="cta-band">
-          <h2>Be a movement multiplier.</h2>
+          <h2><CovoMark /> Be a movement multiplier.</h2>
           <p>Get starter tools and coaching to multiply disciples, leaders, and churches in your city.</p>
-          <div class="cta-band__lab" id="article-next-lab" aria-live="polite">
+          <div
+            class="cta-band__lab"
+            id="article-next-lab"
+            aria-live="polite"
+            data-labs-content-tag={labsContentTag}
+          >
             <p class="labs-cta__loading">Loading the next lab&hellip;</p>
           </div>
           <div class="cta-band__actions">
@@ -89,7 +100,7 @@ const breadcrumbItems = [
 
   const container = document.getElementById('article-next-lab');
   if (container) {
-    renderLabsInto(container, 1, 'Join This Lab');
+    renderLabsInto(container, 1, 'Join This Lab', container.dataset.labsContentTag);
   }
 </script>
 
