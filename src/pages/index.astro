@@ -210,6 +210,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
 
 <style>
   .hero {
+    position: relative;
     text-align: center;
     background-image: url('/wp-content/uploads/home/Untitled-design-52.webp');
     background-size: cover;
@@ -225,7 +226,23 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     }
   }
 
+  /* Film-grain texture, prototype: a tiled SVG noise filter over the
+     photo only (mix-blend-mode: overlay), sitting below the text/CTA
+     layer so legibility is untouched. Pure CSS — no new image asset. */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+  }
+
   .hero__inner {
+    position: relative;
+    z-index: 2;
     max-width: var(--content-max-width);
     margin: 0 auto;
   }
