@@ -17,8 +17,8 @@
   --color-gold: #d8a642; /* Harvest Gold — sparing accent: borders, badges, emphasis */
   --color-gold-text: #8a6416; /* readable dark-gold for text on light backgrounds */
 
-  --color-clay: #b86b4b; /* Clay / Mission Earth — secondary accent, quote/callout borders */
-  --color-clay-text: #8b4e34; /* readable dark-clay for text on light backgrounds */
+  --color-clay: #bd5a22; /* Contrast Orange / Burnt Clay — CTAs, live-lab indicators, quote accents */
+  --color-clay-text: #934819; /* readable dark-clay for text on light backgrounds */
 
   --color-bg: #f7f3ea; /* Warm Paper — primary page background */
   --color-surface: #dde8d6; /* Soft Sage — cards, callouts, section tints */
@@ -547,13 +547,26 @@ article tbody tr:nth-child(even) td {
   color: var(--color-text-muted);
 }
 
-/* Social proof — one small headshot strip + one testimonial, kept
-   deliberately quiet (small image, small type) so it reassures without
-   competing with the primary "Join a Live Lab" CTA above it. */
+/* Social proof — anchored as a small, credible dark-green moment (not
+   a big flashy testimonial wall) so it reassures without competing
+   with the primary "Join a Live Lab" CTA above it. */
 .labs-cta__proof {
-  max-width: 26rem;
+  max-width: 28rem;
   margin: 0 auto 2rem;
+  padding: 2rem 1.75rem 1.75rem;
   text-align: center;
+  background: var(--color-primary);
+  border-radius: var(--radius-card);
+}
+
+.labs-cta__proof::before {
+  content: '\201C';
+  display: block;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--color-gold);
+  margin: 0 0 -0.35rem;
 }
 
 .labs-cta__proof-img {
@@ -561,15 +574,17 @@ article tbody tr:nth-child(even) td {
   width: 100%;
   height: auto;
   margin: 0 auto 0.75rem;
+  padding: 0.35rem;
+  background: var(--color-bg);
   border-radius: var(--radius-image);
 }
 
 .labs-cta__proof-quote {
   margin: 0;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-style: italic;
   line-height: 1.5;
-  color: var(--color-text-muted);
+  color: var(--color-primary-text);
 }
 
 .labs-cta__proof-attribution {
@@ -578,7 +593,7 @@ article tbody tr:nth-child(even) td {
   font-size: 0.8rem;
   font-style: normal;
   font-weight: 600;
-  color: var(--color-text-muted);
+  color: var(--color-gold);
 }
 
 .labs-cta__bridge {
@@ -593,6 +608,7 @@ article tbody tr:nth-child(even) td {
   padding: 1.5rem;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-clay);
   border-radius: var(--radius-card);
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
 }
@@ -638,7 +654,7 @@ article tbody tr:nth-child(even) td {
   height: 0.4rem;
   flex-shrink: 0;
   border-radius: 50%;
-  background: #dc2626;
+  background: var(--color-clay);
   animation: lab-live-pulse 1.8s ease-in-out infinite;
 }
 
@@ -646,11 +662,11 @@ article tbody tr:nth-child(even) td {
   0%,
   100% {
     opacity: 1;
-    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.45);
+    box-shadow: 0 0 0 0 rgba(189, 90, 34, 0.45);
   }
   50% {
     opacity: 0.7;
-    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0);
+    box-shadow: 0 0 0 4px rgba(189, 90, 34, 0);
   }
 }
 

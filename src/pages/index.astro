@@ -13,6 +13,86 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CovoMark from '../components/CovoMark.astro';
 import FieldStampBadge from '../components/FieldStampBadge.astro';
 import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
+
+// Deterministic "dust + hair" texture, generated once at build time from
+// a fixed seed — not re-randomized on every build/request, so the mark
+// pattern is stable and can be art-directed like the reference images,
+// not a random speckle field. Same no-image-asset technique as the
+// grain overlay below (inline SVG as a data-URI background).
+function mulberry32(seed: number) {
+  let a = seed;
+  return function () {
+    a |= 0;
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function buildDustHairBg(seed: number) {
+  const rand = mulberry32(seed);
+  const w = 400;
+  const h = 260;
+  const clusters = [
+    { x: 40, y: 30 },
+    { x: 340, y: 220 },
+    { x: 300, y: 35 },
+  ];
+
+  let marks = '';
+
+  // Long faint scratches first, so specks/hairs sit visually "above" them.
+  for (let i = 0; i < 2; i++) {
+    const x1 = rand() * w;
+    const y1 = rand() * h * 0.3;
+    const len = 60 + rand() * 90;
+    const angle = Math.PI / 2 + (rand() - 0.5) * 0.4;
+    const x2 = x1 + Math.cos(angle) * len;
+    const y2 = y1 + Math.sin(angle) * len;
+    const o = (0.08 + rand() * 0.1).toFixed(2);
+    marks += `<line x1='${x1.toFixed(1)}' y1='${y1.toFixed(1)}' x2='${x2.toFixed(1)}' y2='${y2.toFixed(1)}' stroke='%23000' stroke-opacity='${o}' stroke-width='0.4'/>`;
+  }
+
+  // Stray curled hairs.
+  for (let i = 0; i < 7; i++) {
+    const x1 = rand() * w;
+    const y1 = rand() * h;
+    const len = 16 + rand() * 42;
+    const angle = rand() * Math.PI * 2;
+    const kink = 5 + rand() * 12;
+    const x2 = x1 + Math.cos(angle) * len * 0.5 + (rand() - 0.5) * kink;
+    const y2 = y1 + Math.sin(angle) * len * 0.5 + (rand() - 0.5) * kink;
+    const x3 = x1 + Math.cos(angle) * len;
+    const y3 = y1 + Math.sin(angle) * len;
+    const o = (0.2 + rand() * 0.3).toFixed(2);
+    const sw = (0.35 + rand() * 0.35).toFixed(2);
+    marks += `<path d='M${x1.toFixed(1)},${y1.toFixed(1)} Q${x2.toFixed(1)},${y2.toFixed(1)} ${x3.toFixed(1)},${y3.toFixed(1)}' stroke='%23000' stroke-opacity='${o}' stroke-width='${sw}' fill='none' stroke-linecap='round'/>`;
+  }
+
+  // Dust specks — a mix of a few loose clusters (like the reference
+  // images' corner clumps) plus scattered singles across the frame.
+  for (let i = 0; i < 55; i++) {
+    let cx: number;
+    let cy: number;
+    if (i < 26) {
+      const c = clusters[i % clusters.length];
+      cx = c.x + (rand() - 0.5) * 90;
+      cy = c.y + (rand() - 0.5) * 70;
+    } else {
+      cx = rand() * w;
+      cy = rand() * h;
+    }
+    const r = 0.4 + rand() * 1.1;
+    const o = (0.15 + rand() * 0.45).toFixed(2);
+    marks += `<circle cx='${cx.toFixed(1)}' cy='${cy.toFixed(1)}' r='${r.toFixed(2)}' fill='%23000' fill-opacity='${o}'/>`;
+  }
+
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${w} ${h}'>${marks}</svg>`;
+  return `url("data:image/svg+xml,${svg}")`;
+}
+
+const dustHairBg = buildDustHairBg(11);
 ---
 
 <BaseLayout
@@ -23,6 +103,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
 >
   <section class="hero">
     <div class="hero__inner">
+      <p class="hero__eyebrow">Field-Tested Disciple Making</p>
       <h1>Multiply disciples in real life.</h1>
       <p class="hero__subhead">
         Get field-tested tools and ongoing coaching <strong>that push you to act.</strong>
@@ -237,7 +318,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   }
 </script>
 
-<style>
+<style define:vars={{ dustHairBg }}>
   .hero {
     position: relative;
     text-align: center;
@@ -269,11 +350,33 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     mix-blend-mode: overlay;
   }
 
+  /* Dust + hair, layered above the grain — a fixed, hand-art-directed
+     pattern (see buildDustHairBg above), not random per build. */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image: var(--dustHairBg);
+    background-size: cover;
+    mix-blend-mode: overlay;
+  }
+
   .hero__inner {
     position: relative;
     z-index: 2;
     max-width: var(--content-max-width);
     margin: 0 auto;
+  }
+
+  .hero__eyebrow {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-gold-text);
+    margin: 0 0 0.6rem;
   }
 
   .hero__subhead {
@@ -299,6 +402,11 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     margin-top: 1rem;
     font-size: 0.95rem;
     color: var(--color-text-muted);
+  }
+
+  .hero__secondary a {
+    color: var(--color-clay-text);
+    font-weight: 600;
   }
 
   /* Stamped "field-tested" seal, overlapping the hero photo like a
@@ -406,14 +514,25 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   }
 
   .faq {
-    margin-top: 2.5rem;
+    margin-top: 3rem;
     display: grid;
     gap: 1rem;
+    background: var(--color-surface);
+    padding: 2rem 1.75rem;
+    border-radius: var(--radius-card);
+    border-top: 3px solid var(--color-gold);
+  }
+
+  @media (max-width: 640px) {
+    .faq {
+      padding: 1.5rem 1.25rem;
+    }
   }
 
   .faq__item {
     padding: 1.25rem 1.5rem;
-    background: var(--color-surface);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
   }
 
@@ -440,8 +559,8 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     flex-shrink: 0;
     width: 0.5em;
     height: 0.5em;
-    border-right: 2px solid var(--color-accent);
-    border-bottom: 2px solid var(--color-accent);
+    border-right: 2px solid var(--color-gold-text);
+    border-bottom: 2px solid var(--color-gold-text);
     transform: rotate(45deg) translateY(-2px);
     transition: transform 0.15s ease;
   }
