@@ -9,6 +9,7 @@
 // elsewhere. Every pill carries equal visual weight by design — no
 // per-pill emphasis — so a visitor reads several rather than fixating
 // on one.
+import CovoMark from './CovoMark.astro';
 
 interface Props {
   eyebrow?: string;
@@ -59,6 +60,7 @@ const {
 
 <section class="for-you" id="ch-for-you" aria-labelledby="for-you-heading">
   <div class="for-you__inner">
+    <CovoMark />
     {eyebrow && <p class="eyebrow eyebrow--gold-text">{eyebrow}</p>}
     <h2 id="for-you-heading">{headingLine1}<br class="for-you__break" /> {headingLine2}</h2>
     <p class="for-you__subhead">{subheading}</p>
@@ -93,6 +95,17 @@ const {
     max-width: var(--site-max-width);
     margin: 0 auto 3.5rem;
     padding: 0 1.5rem;
+  }
+
+  /* CovoMark renders its own scoped size/inline-alignment styles, so
+     they're overridden here rather than via a class passed into the
+     component (see the same pattern in ToolCTA.astro). Centered above
+     the heading, larger than its usual inline-badge size. */
+  .for-you__inner :global(.covo-mark) {
+    display: block;
+    width: clamp(3.25rem, 6vw, 4.25rem);
+    height: clamp(3.25rem, 6vw, 4.25rem);
+    margin: 0 auto 1.5rem;
   }
 
   .for-you__inner h2 {
