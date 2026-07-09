@@ -24,7 +24,11 @@ const { article, headings } = Astro.props;
 const { data } = article;
 
 const hubs = data.hub ? await getCollection('hubs') : [];
-const parentHub = hubs.find((hub) => hub.id === data.hub);
+// Hub entry ids are their frontmatter `slug` (e.g. "/church-planting-movements/"),
+// not the bare filename — the content layer's default id generation picks up
+// the `slug` field automatically. Compare against that shape, not the raw
+// article `hub:` value.
+const parentHub = hubs.find((hub) => hub.id === `/${data.hub}/`);
 
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
@@ -79,7 +83,7 @@ const labsContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__cta-band
         </div>
       )}
       <p class="eyebrow eyebrow--gold-text">
-        {parentHub ? parentHub.data.title : 'Field Manual'} &middot; Field Note
+        {parentHub ? parentHub.data.title : 'Field Manual'}
         {fieldDate && (
           <span class="article-dateline"> &middot; {dateFormatter.format(fieldDate)}</span>
         )}

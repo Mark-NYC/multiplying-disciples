@@ -50,7 +50,9 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
 
 function hubFor(entry: CollectionEntry<'articles'>) {
   if (!entry.data.hub) return undefined;
-  return hubs.find((hub) => hub.id === entry.data.hub);
+  // Hub entry ids are their frontmatter `slug` (e.g. "/church-planting-movements/"),
+  // not the bare filename — see the matching comment in ArticleLayout.astro.
+  return hubs.find((hub) => hub.id === `/${entry.data.hub}/`);
 }
 
 const breadcrumbItems = [
