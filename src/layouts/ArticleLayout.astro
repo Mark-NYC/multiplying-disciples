@@ -8,6 +8,7 @@ import ToolCTA from '../components/ToolCTA.astro';
 import CovoMark from '../components/CovoMark.astro';
 import BrandSeal from '../components/BrandSeal.astro';
 import TableOfContents from '../components/TableOfContents.astro';
+import ShareButtons from '../components/ShareButtons.astro';
 
 interface Heading {
   depth: number;
@@ -89,6 +90,7 @@ const labsContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__cta-band
         )}
       </p>
       <h1>{data.title}</h1>
+      <ShareButtons url={data.canonical} title={data.title} />
       <TableOfContents headings={headings} />
       <slot />
     </article>

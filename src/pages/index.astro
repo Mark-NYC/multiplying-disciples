@@ -91,6 +91,13 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
         the tools&hellip;
       </p>
       <p class="block-grid__punch">You need effective coaching.</p>
+      <div class="block-grid__definition">
+        <p class="eyebrow eyebrow--gold-bright">Coaching, Defined</p>
+        <p>
+          Coaching means you do not just learn tools. You practice them, get feedback, and take
+          real next steps with people you know.
+        </p>
+      </div>
     </div>
 
     <!-- Card 2: video thumbnail -->
@@ -164,8 +171,8 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
       <div class="conviction__copy">
         <p class="eyebrow eyebrow--ink">Our Conviction</p>
         <h2>
-          Every believer &mdash; equipped to share the gospel, disciple others, and <em
-          >start churches.</em>
+          Every believer, equipped to share the gospel, disciple others, and <em
+          >gather new disciples into simple churches.</em>
         </h2>
       </div>
       <div class="conviction__seal">
@@ -626,6 +633,20 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     font-weight: 700;
     font-style: italic;
     color: #f09e63 !important;
+  }
+
+  /* Dictionary-style definition entry — a plain-language answer to
+     "what does coaching actually mean here," set apart from the
+     surrounding copy by a thin rule, matching the field-manual
+     glossary-entry feel. */
+  .block-grid__definition {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(247, 243, 234, 0.25);
+  }
+
+  .block-grid__definition .eyebrow {
+    margin-bottom: 0.5rem;
   }
 
   .block-grid__check {
