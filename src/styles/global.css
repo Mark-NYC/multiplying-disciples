@@ -57,6 +57,8 @@ html {
 
 body {
   margin: 0;
+  /* Base body/reading text — nudged up a touch from the 16px default. */
+  font-size: 1.0625rem;
   background: var(--color-bg);
   color: var(--color-text);
 }
@@ -81,6 +83,22 @@ h3,
 h4 {
   line-height: 1.25;
   font-weight: 700;
+}
+
+/* Default heading sizes — bumped up a medium amount. Section-specific
+   headings that set their own size (homepage block grid, conviction,
+   FAQ, etc.) override these; this governs the generic headings: the
+   hero title, article/hub/tool page titles, and in-article headings. */
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.7rem;
+}
+
+h3 {
+  font-size: 1.35rem;
 }
 
 article h1,
