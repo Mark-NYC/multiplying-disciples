@@ -12,7 +12,8 @@
 
 interface Props {
   eyebrow?: string;
-  heading?: string;
+  headingLine1?: string;
+  headingLine2?: string;
   subheading?: string;
   rowA?: string[];
   rowB?: string[];
@@ -20,36 +21,37 @@ interface Props {
 
 const {
   eyebrow,
-  heading = 'This is for you if you are&hellip;',
-  subheading = 'Ordinary believers. Practical tools. Real obedience.',
+  // Split in two so mobile can break the line between them; desktop
+  // joins them back with a plain space (see .for-you__break below).
+  // A literal <br> is used in the template rather than injected via
+  // set:html, so Astro's scoped CSS can actually target it.
+  headingLine1 = 'This is for you',
+  headingLine2 = 'if you are…',
+  subheading = 'Simple tools. Live practice. A community that helps you obey Jesus.',
   rowA = [
-    'ready to share your faith',
-    'wanting simple disciple-making tools',
-    'tired of only learning theory',
-    'looking for live practice',
-    'discipling one person',
-    'helping your church make disciples',
-    'a pastor',
+    'an everyday believer',
+    'a pastor equipping others',
     'a church planter',
     'a marketplace disciple',
-    'starting from zero',
-    'wanting coaching, not just content',
-    'new to sharing your faith',
-    'leading a small group',
+    'discipling one person',
+    'leading a Discovery Bible Study',
+    'sharing your faith at work',
+    'praying for your oikos',
+    'investing in a neighbor',
+    'gathering people around Scripture',
+    'starting where you are',
   ],
   rowB = [
-    'gathering people around Scripture',
-    'taking one faithful next step',
-    'helping others obey Jesus',
+    'wanting simple disciple-making tools',
+    'looking for live practice',
+    'wanting coaching, not just content',
+    'helping your church make disciples',
     'practicing with others',
+    'helping others obey Jesus',
+    'taking one faithful next step',
+    'ready to share your faith',
+    'tired of only learning theory',
     'looking for community',
-    'sharing your faith at work',
-    'leading a Discovery Bible Study',
-    'investing in one person',
-    'praying for your oikos',
-    'an everyday believer',
-    'hosting a Bible study',
-    'coaching other disciple makers',
     'wanting accountability',
   ],
 } = Astro.props;
@@ -58,7 +60,7 @@ const {
 <section class="for-you" id="ch-for-you" aria-labelledby="for-you-heading">
   <div class="for-you__inner">
     {eyebrow && <p class="eyebrow eyebrow--gold-text">{eyebrow}</p>}
-    <h2 id="for-you-heading" set:html={heading} />
+    <h2 id="for-you-heading">{headingLine1}<br class="for-you__break" /> {headingLine2}</h2>
     <p class="for-you__subhead">{subheading}</p>
   </div>
 
@@ -100,6 +102,12 @@ const {
     letter-spacing: -0.01em;
     line-height: 1.2;
     color: var(--color-ink);
+  }
+
+  /* Desktop reads as one line; the break only activates on mobile
+     (see the max-width: 700px block below). */
+  .for-you__break {
+    display: none;
   }
 
   .for-you__subhead {
@@ -213,11 +221,17 @@ const {
 
   @media (max-width: 700px) {
     .for-you {
-      padding: 5rem 0 5.5rem;
+      /* Extra top room so the section doesn't feel crowded by the hero
+         photo above it; bottom padding is unchanged. */
+      padding: 6.5rem 0 5.5rem;
     }
 
     .for-you__inner {
       margin-bottom: 2.5rem;
+    }
+
+    .for-you__break {
+      display: inline;
     }
 
     .for-you__rows {
