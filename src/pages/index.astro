@@ -61,27 +61,9 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     </div>
   </section>
 
-  <!-- Front matter: a manual-style running header + a dotted-leader
-       table of contents that jump-links to each numbered section. -->
-  <section class="frontmatter" aria-label="Contents">
+  <!-- Front matter: a manual-style running header under the hero. -->
+  <section class="frontmatter" aria-label="Document header">
     <p class="frontmatter__meta">Multiplying Disciples &middot; Field Manual &middot; North America</p>
-    <ol class="frontmatter__index">
-      <li>
-        <a href="#ch-why"><span class="frontmatter__label">Why coaching</span><span class="frontmatter__leader" aria-hidden="true"></span><span class="frontmatter__num">01</span></a>
-      </li>
-      <li>
-        <a href="#ch-pathway"><span class="frontmatter__label">The pathway</span><span class="frontmatter__leader" aria-hidden="true"></span><span class="frontmatter__num">02</span></a>
-      </li>
-      <li>
-        <a href="#ch-practice"><span class="frontmatter__label">Practice &mdash; live labs</span><span class="frontmatter__leader" aria-hidden="true"></span><span class="frontmatter__num">03</span></a>
-      </li>
-      <li>
-        <a href="#ch-field-notes"><span class="frontmatter__label">Field notes</span><span class="frontmatter__leader" aria-hidden="true"></span><span class="frontmatter__num">04</span></a>
-      </li>
-      <li>
-        <a href="#ch-questions"><span class="frontmatter__label">Questions</span><span class="frontmatter__leader" aria-hidden="true"></span><span class="frontmatter__num">05</span></a>
-      </li>
-    </ol>
   </section>
 
   <!-- Edge-to-edge block grid: 2 columns of true 1:1 square cards on
@@ -185,19 +167,6 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
         <BrandSeal />
       </div>
     </div>
-  </section>
-
-  <!-- Scripture reference: the biblical charter for multiplication,
-       grounding the conviction above and the method below. -->
-  <section class="scripture-ref">
-    <p class="eyebrow eyebrow--clay">Scripture</p>
-    <blockquote class="scripture-ref__quote">
-      <p>
-        &ldquo;And what you have heard from me in the presence of many witnesses entrust to
-        faithful people, who will be able to teach others also.&rdquo;
-      </p>
-      <cite>2 Timothy 2:2</cite>
-    </blockquote>
   </section>
 
   <!-- Pathway strip: names the journey in three simple steps and
@@ -511,16 +480,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     color: var(--color-clay-text);
   }
 
-  /* Jump-link targets get breathing room above when scrolled to. */
-  #ch-why,
-  #ch-pathway,
-  #ch-practice,
-  #ch-field-notes,
-  #ch-questions {
-    scroll-margin-top: 1.5rem;
-  }
-
-  /* --- Front matter: running header + dotted-leader contents ------ */
+  /* --- Front matter: manual-style running header under the hero --- */
 
   .frontmatter {
     max-width: var(--site-max-width);
@@ -529,7 +489,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   }
 
   .frontmatter__meta {
-    margin: 0 0 1.25rem;
+    margin: 0;
     text-align: center;
     font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
     font-size: 0.72rem;
@@ -537,87 +497,6 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-text-muted);
-  }
-
-  .frontmatter__index {
-    list-style: none;
-    margin: 0;
-    padding: 1.25rem 0 0;
-    border-top: 1px solid var(--color-border);
-    display: grid;
-    gap: 0.55rem;
-    max-width: 34rem;
-    margin: 0 auto;
-  }
-
-  .frontmatter__index a {
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
-    text-decoration: none;
-    color: var(--color-text);
-  }
-
-  .frontmatter__index a:hover .frontmatter__label {
-    color: var(--color-clay-text);
-  }
-
-  .frontmatter__label {
-    flex-shrink: 0;
-    font-size: 1rem;
-  }
-
-  /* Dotted leader — a dotted rule filling the space to the number. */
-  .frontmatter__leader {
-    flex: 1;
-    border-bottom: 1px dotted var(--color-border);
-    transform: translateY(-0.2em);
-  }
-
-  .frontmatter__num {
-    flex-shrink: 0;
-    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--color-clay-text);
-  }
-
-  /* --- Scripture reference block ---------------------------------- */
-
-  .scripture-ref {
-    background: var(--color-surface);
-    border-top: 3px solid var(--color-clay);
-    padding: 3rem 1.5rem;
-    text-align: center;
-  }
-
-  .scripture-ref .eyebrow {
-    margin-bottom: 1rem;
-  }
-
-  .scripture-ref__quote {
-    max-width: 44rem;
-    margin: 0 auto;
-  }
-
-  .scripture-ref__quote p {
-    margin: 0;
-    font-size: clamp(1.15rem, 2.2vw, 1.5rem);
-    line-height: 1.5;
-    font-style: italic;
-    color: var(--color-ink);
-  }
-
-  .scripture-ref__quote cite {
-    display: block;
-    margin-top: 1rem;
-    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-style: normal;
-    color: var(--color-clay-text);
   }
 
   /* --- Edge-to-edge 1:1 block grid ------------------------------- */
