@@ -13,7 +13,7 @@ export interface NavLink {
 export const PRIMARY_NAV: NavLink[] = [
   { label: 'Home', href: '/' },
   { label: 'Start Here', href: '/start-here/' },
-  { label: 'Starter Tools', href: '/starter-tools/' },
+  { label: 'Simple Tools', href: '/starter-tools/' },
   {
     label: 'Resources',
     href: '',

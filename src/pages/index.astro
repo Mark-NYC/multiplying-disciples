@@ -4,13 +4,21 @@
 // lightly cleaned up. See MIGRATION_PLAN.md for what "lightly cleaned
 // up" means here.
 //
-// Layout follows the approved "field guide" mockup: hero (unchanged),
-// edge-to-edge 2-column grid of true 1:1 square cards, a gold
-// conviction band, a 3-step pathway strip, labs CTA on a warm
-// gradient, full-width "From the Field" quote band, numbered FAQ,
-// footer. Section eyebrows use a monospace label; a clean circular
-// brand seal appears on the conviction band and in the footer. No
-// distressed textures anywhere — clean surfaces only.
+// Layout follows the approved "field guide" mockup: hero, a short
+// conviction strip, the 3-step pathway, the labs CTA, an edge-to-edge
+// 2-column grid of true 1:1 square cards (why coaching / field-tested
+// methods / community of practice), the "who this is for" pill
+// section, a gold conviction band, a full-width "From the Field" quote
+// band, numbered FAQ, footer. Section eyebrows use a monospace label; a
+// clean circular brand seal appears on the conviction band and in the
+// footer. No distressed textures anywhere — clean surfaces only.
+//
+// Homepage order (per the field-manual strategy pass): hero -> short
+// conviction strip -> pathway -> upcoming labs -> why coaching / NA
+// methods / community of practice grid -> who this is for -> gold
+// conviction band -> field notes -> FAQ. Live practice (the labs) is
+// pulled up right after the pathway so it's the first real CTA a
+// visitor sees, not something buried after several read-only sections.
 //
 // The labs CTA fetches CoVo Multipliers' next 3 upcoming labs
 // client-side from their public-labs Edge Function (see
@@ -34,7 +42,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     <div class="hero__inner">
       <h1>Multiply disciples in real life.</h1>
       <p class="hero__subhead">
-        Get field-tested tools and ongoing coaching <strong>that push you to act.</strong>
+        Simple tools, live practice, and coaching that helps you obey Jesus with real people.
       </p>
       <img
         class="hero__badge-img"
@@ -52,140 +60,40 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
           data-cta-type="covo_training"
           data-destination-site="covo"
         >
-          Start Training
+          Join a Live Lab
         </a>
-        <a class="button button--secondary" href="/contact-us/">Connect</a>
+        <a class="button button--secondary" href="/starter-tools/">Start with the Tools</a>
       </p>
       <p class="hero__secondary">
-        New here? <a href="/start-here/">Start Here</a> to see the simple tools first.
+        New here? Start with the <a href="/starter-tools/">Conversation Box</a>.
       </p>
     </div>
   </section>
 
-  <!-- Front matter: a manual-style running header under the hero. Kept
-       right against the hero so it doesn't interrupt the flow from the
-       audience section into Why Coaching further down the page. -->
+  <!-- Front matter: a manual-style running header under the hero. -->
   <section class="frontmatter" aria-label="Document header">
     <p class="frontmatter__meta">Multiplying Disciples &middot; Field Manual &middot; North America</p>
   </section>
 
-  <ForYouIfSection />
-
-  <!-- Edge-to-edge block grid: 2 columns of true 1:1 square cards on
-       desktop, stacked on mobile. DOM order pairs each text card with
-       its image (text left, image right per row) and reads correctly
-       when stacked: coaching copy, video, NA methods, women talking,
-       community momentum, group praying. -->
-  <section class="block-grid" id="ch-why" aria-label="Why coaching">
-    <!-- Card 1: main coaching copy -->
-    <div class="block-grid__cell block-grid__cell--text block-grid__cell--green">
-      <p class="eyebrow eyebrow--gold">&sect;01 &mdash; Why Coaching</p>
-      <h2>
-        Disciple making resources and tools can be found everywhere. Resources without
-        coaching will never get you to multiplication.
-      </h2>
-      <p>
-        Let's be honest: we've all Googled disciple-making resources or looked up YouTube
-        videos and found them helpful. But you either don't know how to start or the tools
-        you tried "haven't worked" to multiply disciples, leaders, and churches. It's not
-        the tools&hellip;
-      </p>
-      <p class="block-grid__punch">You need effective coaching.</p>
-      <div class="block-grid__definition">
-        <p class="eyebrow eyebrow--gold-bright">Coaching, Defined</p>
-        <p>
-          Coaching means you do not just learn tools. You practice them, get feedback, and take
-          real next steps with people you know.
-        </p>
-      </div>
-    </div>
-
-    <!-- Card 2: video thumbnail -->
-    <div class="block-grid__cell block-grid__cell--image">
-      <img
-        src="/wp-content/uploads/2025/03/maxresdefault-7-1024x576.jpg"
-        alt="A man recording a disciple-making teaching video"
-        width="1024"
-        height="576"
-        loading="lazy"
-      />
-    </div>
-
-    <!-- Card 4: field-tested methods -->
-    <div class="block-grid__cell block-grid__cell--text block-grid__cell--sage">
-      <span class="field-stamp-mark" aria-hidden="true">Field-Tested</span>
-      <span class="block-grid__check" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12.5l4.5 4.5L19 7.5" />
-        </svg>
-      </span>
-      <h3>Learn what is working in North America.</h3>
-      <p>
-        Get methods that have been field tested by practitioners in North America. Know that
-        the tools and process we share are <strong>not only Biblical, but fruitful.</strong>
-      </p>
-    </div>
-
-    <!-- Card 3: two women talking -->
-    <div class="block-grid__cell block-grid__cell--image">
-      <img
-        src="/wp-content/uploads/2025/01/Copy-of-Untitled-47-768x768.webp"
-        alt="Two women talking and laughing together outdoors"
-        width="768"
-        height="768"
-        loading="lazy"
-      />
-    </div>
-
-    <!-- Card 5: community of practice -->
-    <div class="block-grid__cell block-grid__cell--text block-grid__cell--paper">
-      <span class="block-grid__check" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12.5l4.5 4.5L19 7.5" />
-        </svg>
-      </span>
-      <h3>The momentum of a community of practice.</h3>
-      <p>
-        We bring together like-minded practitioners into training cohorts that are committed
-        to action. <strong>Everyone benefits from that momentum.</strong>
-      </p>
-    </div>
-
-    <!-- Card 6: small group praying -->
-    <div class="block-grid__cell block-grid__cell--image">
-      <img
-        src="/wp-content/uploads/2025/01/Copy-of-Untitled-48-768x768.webp"
-        alt="A group gathered in a home, praying over someone"
-        width="768"
-        height="768"
-        loading="lazy"
-      />
-    </div>
+  <!-- Conviction strip: short, direct, and deliberately placed before
+       any long-form content. This is the line that separates the site
+       from a content library — it names the actual product (reps, not
+       more reading) right up top. -->
+  <section class="conviction-strip">
+    <p class="conviction-strip__text">
+      You do not need more disciple-making content.{' '}
+      <span class="conviction-strip__emphasis">You need reps.</span>
+    </p>
   </section>
 
-  <!-- Conviction band: one full-width statement of why this matters,
-       drawn from the site's own vision language. Gold field, clean
-       brand seal — the page's single "weighty" moment. -->
-  <section class="conviction">
-    <div class="conviction__inner">
-      <div class="conviction__copy">
-        <p class="eyebrow eyebrow--ink">Our Conviction</p>
-        <h2>
-          Every believer, equipped to share the gospel, disciple others, and <em
-          >gather new disciples into simple churches.</em>
-        </h2>
-      </div>
-      <div class="conviction__seal">
-        <BrandSeal />
-      </div>
-    </div>
-  </section>
-
-  <!-- Pathway strip: names the journey in three simple steps and
-       funnels straight into the labs CTA below. -->
+  <!-- Pathway strip: names the journey in three simple steps, right
+       after the hero and conviction strip so a visitor sees the path
+       before reading anything else. Funnels straight into the labs
+       CTA below. -->
   <section class="pathway" id="ch-pathway">
-    <p class="eyebrow eyebrow--gold-text">&sect;02 &middot; The Pathway</p>
-    <h2>Simple enough to pass on.</h2>
+    <p class="eyebrow eyebrow--gold-text">502 &middot; The Pathway</p>
+    <h2>How multiplication becomes practice</h2>
+    <p class="pathway__subtitle">Simple enough to learn. Practical enough to use this week.</p>
     <ol class="pathway__steps">
       <li class="pathway__step">
         <span class="pathway__num">Step 01</span>
@@ -196,7 +104,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
           </svg>
         </span>
         <h3>Learn the tool</h3>
-        <p>Pick one simple, biblical tool from the starter kit.</p>
+        <p>Pick one simple, biblical tool you can use this week.</p>
       </li>
       <li class="pathway__step">
         <span class="pathway__num">Step 02</span>
@@ -208,7 +116,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
           </svg>
         </span>
         <h3>Practice it live</h3>
-        <p>Join a lab and practice with real practitioners, not just theory.</p>
+        <p>Join a lab and get reps with real practitioners.</p>
       </li>
       <li class="pathway__step">
         <span class="pathway__num">Step 03</span>
@@ -217,17 +125,17 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
             <path d="M12 3v18M5 10l7-7 7 7" />
           </svg>
         </span>
-        <h3>Multiply in real life</h3>
-        <p>Leave with one concrete step of obedience with people you know.</p>
+        <h3>Obey in real life</h3>
+        <p>Use it with someone you know, then come back with the story.</p>
       </li>
     </ol>
   </section>
 
   <section class="labs-cta" id="ch-practice">
     <div class="labs-cta__inner">
-      <p class="eyebrow eyebrow--gold-text">&sect;03 &middot; Practice</p>
-      <h2><CovoMark /> Join a live Multiplying Lab</h2>
-      <p class="labs-cta__descriptor">Practical disciple-making labs for everyday leaders.</p>
+      <p class="eyebrow eyebrow--gold-text">503 &middot; Practice</p>
+      <h2><CovoMark /> Join a Live Multiplying Lab</h2>
+      <p class="labs-cta__descriptor">Practice one simple tool. Leave with one next step.</p>
 
       <div
         class="labs-cta__grid"
@@ -237,6 +145,17 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
       >
         <p class="labs-cta__loading">Loading upcoming labs&hellip;</p>
       </div>
+
+      <p class="labs-cta__not-sure">
+        Not sure where to start?{' '}
+        <a
+          href={COVO_LABS_URL}
+          data-ecosystem-cta
+          data-cta-level="level_3"
+          data-cta-type="covo_training"
+          data-destination-site="covo"
+        >Join the next available lab.</a>
+      </p>
 
       <p class="labs-cta__view-all">
         <a
@@ -266,17 +185,129 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     </div>
   </section>
 
+  <!-- Edge-to-edge block grid: 2 columns of true 1:1 square cards on
+       desktop, stacked on mobile. DOM order pairs each text card with
+       its image (text left, image right per row) and reads correctly
+       when stacked: coaching copy, video, NA methods, women talking,
+       community momentum, group praying. -->
+  <section class="block-grid" id="ch-why" aria-label="Why coaching">
+    <!-- Card 1: main coaching copy -->
+    <div class="block-grid__cell block-grid__cell--text block-grid__cell--green">
+      <p class="eyebrow eyebrow--gold">501 &mdash; Why Coaching</p>
+      <h2>
+        Resources can teach you a tool. Coaching helps you obey with it.
+      </h2>
+      <p>
+        Most people do not need another disciple-making framework. They need help taking the
+        next step with someone they actually know. That is what coaching does. It turns tools
+        into practice, practice into confidence, and confidence into multiplication.
+      </p>
+      <p class="block-grid__punch">Tools explain it. Coaching helps you live it.</p>
+    </div>
+
+    <!-- Card 2: video thumbnail -->
+    <div class="block-grid__cell block-grid__cell--image">
+      <img
+        src="/wp-content/uploads/2025/03/maxresdefault-7-1024x576.jpg"
+        alt="A man recording a disciple-making teaching video"
+        width="1024"
+        height="576"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Card 4: field-tested methods -->
+    <div class="block-grid__cell block-grid__cell--text block-grid__cell--sage">
+      <span class="field-stamp-mark" aria-hidden="true">Field-Tested</span>
+      <span class="block-grid__check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12.5l4.5 4.5L19 7.5" />
+        </svg>
+      </span>
+      <h3>Learn what is working in North America.</h3>
+      <p>
+        Get methods that have been field-tested by practitioners in North America. Know that
+        the tools and process are <strong>not only biblical, but fruitful.</strong>
+      </p>
+    </div>
+
+    <!-- Card 3: two women talking -->
+    <div class="block-grid__cell block-grid__cell--image">
+      <img
+        src="/wp-content/uploads/2025/01/Copy-of-Untitled-47-768x768.webp"
+        alt="Two women talking and laughing together outdoors"
+        width="768"
+        height="768"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Card 5: community of practice -->
+    <div class="block-grid__cell block-grid__cell--text block-grid__cell--paper">
+      <span class="block-grid__check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12.5l4.5 4.5L19 7.5" />
+        </svg>
+      </span>
+      <h3>The momentum of a community of practice.</h3>
+      <p>
+        You were not meant to practice alone. Join others who are learning the same tools,{' '}
+        <strong>taking real steps, and bringing back stories from the field.</strong>
+      </p>
+    </div>
+
+    <!-- Card 6: small group praying -->
+    <div class="block-grid__cell block-grid__cell--image">
+      <img
+        src="/wp-content/uploads/2025/01/Copy-of-Untitled-48-768x768.webp"
+        alt="A group gathered in a home, praying over someone"
+        width="768"
+        height="768"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <ForYouIfSection />
+
+  <!-- Conviction band: one full-width statement of why this matters,
+       drawn from the site's own vision language. Gold field, clean
+       brand seal — the page's single "weighty" moment. -->
+  <section class="conviction">
+    <div class="conviction__inner">
+      <div class="conviction__copy">
+        <p class="eyebrow eyebrow--ink">Our Conviction</p>
+        <h2>
+          Every disciple can share the gospel, disciple others, and <em
+          >gather people around Jesus.</em>
+        </h2>
+      </div>
+      <div class="conviction__seal">
+        <BrandSeal />
+      </div>
+    </div>
+  </section>
+
   <section class="field-quote" id="ch-field-notes">
     <div class="field-quote__inner">
-      <p class="eyebrow eyebrow--gold-bright">&sect;04 &middot; Field Notes</p>
+      <p class="eyebrow eyebrow--gold-bright">504 &middot; Field Notes</p>
       <span class="field-quote__mark" aria-hidden="true">&ldquo;</span>
-      <blockquote class="field-quote__quote">
-        <p>
-          &ldquo;Going through this with other practitioners made it feel real, not theory.
-          Something is actually happening now.&rdquo;
-        </p>
-        <footer>&mdash; Marcus T <span class="field-quote__log">&middot; Field note &middot; OKC &middot; 2025</span></footer>
-      </blockquote>
+      <div class="field-quote__quotes">
+        <blockquote class="field-quote__quote">
+          <p>
+            &ldquo;I stopped just learning disciple-making tools and actually used one with
+            someone that week.&rdquo;
+          </p>
+          <footer>&mdash; Lab participant</footer>
+        </blockquote>
+        <blockquote class="field-quote__quote">
+          <p>
+            &ldquo;Going through this with other practitioners made it feel real, not theory.
+            Something is actually happening now.&rdquo;
+          </p>
+          <footer>&mdash; Marcus T <span class="field-quote__log">&middot; Field note &middot; OKC &middot; 2025</span></footer>
+        </blockquote>
+      </div>
       <img
         class="field-quote__faces"
         src="/images/labs-social-proof.webp"
@@ -291,7 +322,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   <section class="faq-section" id="ch-questions">
     <div class="faq-section__inner">
       <div class="faq-section__label">
-        <p class="eyebrow eyebrow--clay">&sect;05 &middot; Questions</p>
+        <p class="eyebrow eyebrow--clay">505 &middot; Questions</p>
         <h2>FAQ</h2>
       </div>
 
@@ -511,6 +542,43 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     color: var(--color-text-muted);
   }
 
+  /* --- Conviction strip: short, bold, sits right under the hero --- */
+
+  .conviction-strip {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 1.75rem 1.5rem 2.5rem;
+    text-align: center;
+  }
+
+  .conviction-strip__text {
+    display: inline-block;
+    margin: 0;
+    padding-bottom: 0.65rem;
+    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--color-ink);
+    /* Small Harvest Gold underline accent, per the palette's "sparing
+       accent" rule — not a full rule across the section. */
+    border-bottom: 3px solid var(--color-gold);
+  }
+
+  .conviction-strip__emphasis {
+    display: inline-block;
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 640px) {
+    .conviction-strip {
+      padding: 1.25rem 1.25rem 2rem;
+    }
+
+    .conviction-strip__text {
+      line-height: 1.45;
+    }
+  }
+
   /* --- Edge-to-edge 1:1 block grid ------------------------------- */
 
   .block-grid {
@@ -635,20 +703,6 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     color: #f09e63 !important;
   }
 
-  /* Dictionary-style definition entry — a plain-language answer to
-     "what does coaching actually mean here," set apart from the
-     surrounding copy by a thin rule, matching the field-manual
-     glossary-entry feel. */
-  .block-grid__definition {
-    margin-top: 1.25rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid rgba(247, 243, 234, 0.25);
-  }
-
-  .block-grid__definition .eyebrow {
-    margin-bottom: 0.5rem;
-  }
-
   .block-grid__check {
     display: flex;
     align-items: center;
@@ -763,8 +817,14 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   }
 
   .pathway > h2 {
-    margin: 0 0 2.5rem;
+    margin: 0 0 0.6rem;
     font-size: 1.75rem;
+  }
+
+  .pathway__subtitle {
+    margin: 0 0 2.5rem;
+    font-size: 1rem;
+    color: var(--color-text-muted);
   }
 
   .pathway__steps {
@@ -846,6 +906,19 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     }
   }
 
+  /* --- Labs CTA: "not sure where to start" nudge under the grid --- */
+
+  .labs-cta__not-sure {
+    margin: 0 0 1rem;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+  }
+
+  .labs-cta__not-sure a {
+    color: var(--color-clay-text);
+    font-weight: 600;
+  }
+
   /* --- "From the Field" quote band ------------------------------- */
 
   .field-quote {
@@ -861,18 +934,6 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     gap: 2.25rem;
   }
 
-  .field-quote__eyebrow {
-    margin: 0;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    white-space: nowrap;
-    /* Brightened gold: #d8a642 is 4.43:1 on this green, just under AA;
-       this variant passes for small caps text. */
-    color: #ddae50;
-  }
-
   .field-quote__mark {
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 4.5rem;
@@ -882,9 +943,20 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     transform: translateY(0.35rem);
   }
 
+  .field-quote__quotes {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
   .field-quote__quote {
     margin: 0;
-    flex: 1;
+  }
+
+  .field-quote__quote + .field-quote__quote {
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(247, 243, 234, 0.2);
   }
 
   .field-quote__quote p {
