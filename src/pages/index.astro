@@ -4,11 +4,13 @@
 // lightly cleaned up. See MIGRATION_PLAN.md for what "lightly cleaned
 // up" means here.
 //
-// Layout follows the approved block-grid mockup: hero (unchanged),
-// edge-to-edge 2-column grid of true 1:1 square cards, labs CTA on a
-// warm gradient, full-width "From the Field" quote band, two-column
-// FAQ, footer. No distressed textures anywhere — clean surfaces only,
-// per the mockup direction.
+// Layout follows the approved "field guide" mockup: hero (unchanged),
+// edge-to-edge 2-column grid of true 1:1 square cards, a gold
+// conviction band, a 3-step pathway strip, labs CTA on a warm
+// gradient, full-width "From the Field" quote band, numbered FAQ,
+// footer. Section eyebrows use a monospace label; a clean circular
+// brand seal appears on the conviction band and in the footer. No
+// distressed textures anywhere — clean surfaces only.
 //
 // The labs CTA fetches CoVo Multipliers' next 3 upcoming labs
 // client-side from their public-labs Edge Function (see
@@ -17,6 +19,7 @@
 // added/removed on their end without a rebuild here.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CovoMark from '../components/CovoMark.astro';
+import BrandSeal from '../components/BrandSeal.astro';
 import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
 ---
 
@@ -66,6 +69,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   <section class="block-grid" aria-label="Why coaching">
     <!-- Card 1: main coaching copy -->
     <div class="block-grid__cell block-grid__cell--text block-grid__cell--green">
+      <p class="eyebrow eyebrow--gold">01 &mdash; Why Coaching</p>
       <h2>
         Disciple making resources and tools can be found everywhere. Resources without
         coaching will never get you to multiplication.
@@ -141,9 +145,69 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     </div>
   </section>
 
+  <!-- Conviction band: one full-width statement of why this matters,
+       drawn from the site's own vision language. Gold field, clean
+       brand seal — the page's single "weighty" moment. -->
+  <section class="conviction">
+    <div class="conviction__inner">
+      <div class="conviction__copy">
+        <p class="eyebrow eyebrow--ink">Our Conviction</p>
+        <h2>
+          Every believer &mdash; equipped to share the gospel, disciple others, and <em
+          >start churches.</em>
+        </h2>
+      </div>
+      <div class="conviction__seal">
+        <BrandSeal />
+      </div>
+    </div>
+  </section>
+
+  <!-- Pathway strip: names the journey in three simple steps and
+       funnels straight into the labs CTA below. -->
+  <section class="pathway">
+    <p class="eyebrow eyebrow--gold-text">The Pathway</p>
+    <h2>Simple enough to pass on.</h2>
+    <ol class="pathway__steps">
+      <li class="pathway__step">
+        <span class="pathway__num">Step 01</span>
+        <span class="pathway__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+          </svg>
+        </span>
+        <h3>Learn the tool</h3>
+        <p>Pick one simple, biblical tool from the starter kit.</p>
+      </li>
+      <li class="pathway__step">
+        <span class="pathway__num">Step 02</span>
+        <span class="pathway__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="7" r="4" />
+            <path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2" />
+            <path d="M19 8v6M22 11h-6" />
+          </svg>
+        </span>
+        <h3>Practice it live</h3>
+        <p>Join a lab and practice with real practitioners, not just theory.</p>
+      </li>
+      <li class="pathway__step">
+        <span class="pathway__num">Step 03</span>
+        <span class="pathway__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18M5 10l7-7 7 7" />
+          </svg>
+        </span>
+        <h3>Multiply in real life</h3>
+        <p>Leave with one concrete step of obedience with people you know.</p>
+      </li>
+    </ol>
+  </section>
+
   <section class="labs-cta">
     <div class="labs-cta__inner">
-      <p class="labs-cta__eyebrow">Ready to practice this?</p>
+      <p class="eyebrow eyebrow--gold-text">Ready to practice this?</p>
       <h2><CovoMark /> Join a live Multiplying Lab</h2>
       <p class="labs-cta__descriptor">Practical disciple-making labs for everyday leaders.</p>
 
@@ -186,7 +250,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
 
   <section class="field-quote">
     <div class="field-quote__inner">
-      <p class="field-quote__eyebrow">From the Field</p>
+      <p class="eyebrow eyebrow--gold-bright">From the Field</p>
       <span class="field-quote__mark" aria-hidden="true">&ldquo;</span>
       <blockquote class="field-quote__quote">
         <p>
@@ -209,13 +273,17 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   <section class="faq-section">
     <div class="faq-section__inner">
       <div class="faq-section__label">
-        <p class="faq-section__eyebrow">Common Questions</p>
+        <p class="eyebrow eyebrow--clay">Common Questions</p>
         <h2>FAQ</h2>
       </div>
 
       <div class="faq-section__items">
         <details class="faq__item">
-          <summary>What is the purpose of the disciple making training?</summary>
+          <summary>
+            <span class="faq__num">(01)</span>
+            <span class="faq__q">What is the purpose of the disciple making training?</span>
+            <span class="faq__arrow" aria-hidden="true">&#8599;</span>
+          </summary>
           <p>
             The purpose of our disciple making training and coaching is to equip and empower
             individuals to become effective disciple makers who can multiply disciples and reach
@@ -227,7 +295,11 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
         </details>
 
         <details class="faq__item">
-          <summary>Why is coaching important in the process of disciple making?</summary>
+          <summary>
+            <span class="faq__num">(02)</span>
+            <span class="faq__q">Why is coaching important in the process of disciple making?</span>
+            <span class="faq__arrow" aria-hidden="true">&#8599;</span>
+          </summary>
           <p>
             Coaching within a community of practice plays a crucial role in disciple making as it
             provides personalized guidance, support, and accountability. Growth happens through
@@ -239,7 +311,11 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
         </details>
 
         <details class="faq__item">
-          <summary>Is the training completely free, or are there any hidden costs involved?</summary>
+          <summary>
+            <span class="faq__num">(03)</span>
+            <span class="faq__q">Is the training completely free, or are there any hidden costs involved?</span>
+            <span class="faq__arrow" aria-hidden="true">&#8599;</span>
+          </summary>
           <p>
             Yes, the training we offer is completely free of charge. Always. There are no hidden
             costs or fees associated with participating in the training. Our goal is to make
@@ -306,6 +382,36 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     margin-top: 1rem;
     font-size: 0.95rem;
     color: var(--color-text-muted);
+  }
+
+  /* --- Shared section eyebrow (monospace label) ------------------ */
+
+  .eyebrow {
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin: 0 0 0.6rem;
+  }
+
+  /* Contrast-checked variants: gold-text (#8a6416) on light; gold
+     (#d8a642) and gold-bright (#ddae50) on Primary Green; ink at 65%
+     on the gold conviction band; clay-text on light. */
+  .eyebrow--gold-text {
+    color: var(--color-gold-text);
+  }
+  .eyebrow--gold {
+    color: var(--color-gold);
+  }
+  .eyebrow--gold-bright {
+    color: #ddae50;
+  }
+  .eyebrow--ink {
+    color: rgba(31, 37, 35, 0.65);
+  }
+  .eyebrow--clay {
+    color: var(--color-clay-text);
   }
 
   /* --- Edge-to-edge 1:1 block grid ------------------------------- */
@@ -418,6 +524,151 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     }
   }
 
+  /* --- Conviction band ------------------------------------------- */
+
+  .conviction {
+    background: var(--color-gold);
+    padding: 4.5rem 1.5rem;
+  }
+
+  .conviction__inner {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .conviction__copy {
+    flex: 1;
+  }
+
+  .conviction h2 {
+    margin: 0;
+    font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+  }
+
+  .conviction h2 em {
+    font-style: normal;
+    color: var(--color-primary);
+  }
+
+  .conviction__seal {
+    flex-shrink: 0;
+    width: 9rem;
+    height: 9rem;
+    color: var(--color-ink);
+    opacity: 0.85;
+  }
+
+  @media (max-width: 700px) {
+    .conviction__inner {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 1.75rem;
+    }
+
+    .conviction__seal {
+      width: 6.5rem;
+      height: 6.5rem;
+    }
+  }
+
+  /* --- Pathway strip --------------------------------------------- */
+
+  .pathway {
+    padding: 4.5rem 1.5rem 4rem;
+    text-align: center;
+  }
+
+  .pathway > h2 {
+    margin: 0 0 2.5rem;
+    font-size: 1.75rem;
+  }
+
+  .pathway__steps {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .pathway__step {
+    text-align: center;
+    padding: 0 0.75rem;
+    position: relative;
+  }
+
+  /* Arrow between steps on desktop — an em-dash-ish connector drawn
+     with an ::after on the first two steps. */
+  .pathway__step:not(:last-child)::after {
+    content: '\2192';
+    position: absolute;
+    top: 3.1rem;
+    right: -1.25rem;
+    color: var(--color-gold-text);
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+
+  .pathway__num {
+    display: block;
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-clay-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .pathway__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: 0 auto 0.9rem;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .pathway__step h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.1rem;
+  }
+
+  .pathway__step p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 700px) {
+    .pathway__steps {
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+      max-width: 22rem;
+    }
+
+    .pathway__step:not(:last-child)::after {
+      content: '\2193';
+      top: auto;
+      bottom: -1.6rem;
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
   /* --- "From the Field" quote band ------------------------------- */
 
   .field-quote {
@@ -496,10 +747,11 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     }
   }
 
-  /* --- FAQ ---------------------------------------------------------- */
+  /* --- FAQ — numbered, ruled rows on a Soft Sage band ------------- */
 
   .faq-section {
     padding: 4rem 1.5rem 4.5rem;
+    background: var(--color-surface);
   }
 
   .faq-section__inner {
@@ -511,15 +763,6 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     align-items: start;
   }
 
-  .faq-section__eyebrow {
-    margin: 0 0 0.4rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-clay-text);
-  }
-
   .faq-section__label h2 {
     margin: 0;
     font-size: 2.75rem;
@@ -528,25 +771,20 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   }
 
   .faq-section__items {
-    display: grid;
-    gap: 1rem;
+    border-top: 1px solid rgba(31, 37, 35, 0.2);
   }
 
   .faq__item {
-    padding: 1.1rem 1.4rem;
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
+    border-bottom: 1px solid rgba(31, 37, 35, 0.2);
   }
 
-  /* Closed-by-default accordion — reuses the same <details>/<summary>
-     chevron convention as the header's Resources dropdown
-     (Header.astro) so the affordance is consistent site-wide. */
+  /* Closed-by-default accordion — numbered index row with a corner
+     arrow that rotates open, à la a field-guide contents page. */
   .faq__item summary {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+    gap: 1.25rem;
+    padding: 1.15rem 0.25rem;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
@@ -557,30 +795,44 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     display: none;
   }
 
-  .faq__item summary::after {
-    content: '';
+  .faq__num {
     flex-shrink: 0;
-    width: 0.5em;
-    height: 0.5em;
-    border-right: 2px solid var(--color-gold-text);
-    border-bottom: 2px solid var(--color-gold-text);
-    transform: rotate(45deg) translateY(-2px);
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--color-clay-text);
+  }
+
+  .faq__q {
+    flex: 1;
+  }
+
+  .faq__arrow {
+    flex-shrink: 0;
+    color: var(--color-gold-text);
+    font-size: 1.1rem;
     transition: transform 0.15s ease;
   }
 
-  .faq__item[open] summary::after {
-    transform: rotate(-135deg) translateY(2px);
+  .faq__item[open] .faq__arrow {
+    transform: rotate(45deg);
   }
 
   .faq__item p {
-    margin: 0.75rem 0 0;
+    margin: 0 0 1.15rem;
+    padding-left: 2.9rem;
     color: var(--color-text-muted);
+    font-size: 0.95rem;
   }
 
   @media (max-width: 760px) {
     .faq-section__inner {
       grid-template-columns: 1fr;
       gap: 1.5rem;
+    }
+
+    .faq__item p {
+      padding-left: 0;
     }
   }
 </style>

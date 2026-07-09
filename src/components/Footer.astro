@@ -1,5 +1,6 @@
 ---
 import { SITE } from '../data/site';
+import BrandSeal from './BrandSeal.astro';
 
 const year = new Date().getFullYear();
 
@@ -34,6 +35,9 @@ const quickLinks = [
         </ul>
       </nav>
     </div>
+    <div class="site-footer__seal">
+      <BrandSeal />
+    </div>
   </div>
   <div class="site-footer__bottom">
     <p>&copy; {year} {SITE.name} &middot; Built by Frontier Creative</p>
@@ -52,8 +56,23 @@ const quickLinks = [
     margin: 0 auto;
     padding: 2.5rem 1.25rem 1.5rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1.5rem;
+    align-items: start;
+  }
+
+  .site-footer__seal {
+    width: 6.5rem;
+    height: 6.5rem;
+    justify-self: end;
+    color: #ddae50;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 640px) {
+    .site-footer__seal {
+      justify-self: start;
+    }
   }
 
   .site-footer__col p {
