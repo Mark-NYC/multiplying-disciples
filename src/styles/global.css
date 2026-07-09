@@ -31,6 +31,17 @@
   --color-footer-bg: #174c3c; /* Primary Green — deep, grounded footer */
   --color-footer-text: #f7f3ea; /* Warm Paper */
   --color-footer-text-muted: #b8c5b6;
+
+  /* Brightened variants for small text on dark backgrounds — the plain
+     brand colors above dip under WCAG AA at small sizes on Primary
+     Green (clay 2.2:1, gold 4.43:1); these pass. */
+  --color-clay-bright: #f09e63;
+  --color-gold-bright: #ddae50;
+
+  /* Field-manual monospace label system: eyebrows, section numbers,
+     stamps, datelines, callout labels. Never used for body copy. */
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
   --content-max-width: 42rem;
   --site-max-width: 60rem;
   /* Wider than --site-max-width so the header's logo, nav, dropdown,
@@ -216,10 +227,11 @@ article tbody tr:nth-child(even) td {
 
 .callout__label {
   display: block;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   margin: 0 0 0.6rem;
   color: var(--color-text-muted);
 }
@@ -325,6 +337,37 @@ article tbody tr:nth-child(even) td {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Shared section eyebrow (monospace label) — homepage keeps its own
+   scoped copy of these rules; this sitewide version lets article/hub/
+   blog pages use the same `.eyebrow` classes. */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.6rem;
+}
+
+.eyebrow--gold-text {
+  color: var(--color-gold-text);
+}
+.eyebrow--gold {
+  color: var(--color-gold);
+}
+.eyebrow--gold-bright {
+  color: var(--color-gold-bright);
+}
+.eyebrow--ink {
+  color: rgba(31, 37, 35, 0.65);
+}
+.eyebrow--clay {
+  color: var(--color-clay-text);
+}
+.eyebrow--muted {
+  color: var(--color-text-muted);
 }
 
 .page-container {

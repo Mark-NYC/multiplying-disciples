@@ -70,6 +70,7 @@ const sortedHubs = [...hubs].sort((a, b) => a.data.title.localeCompare(b.data.ti
   <div class="page-container">
     <Breadcrumbs items={breadcrumbItems} />
 
+    <p class="eyebrow eyebrow--gold-text">Field Manual &middot; Full Index</p>
     <h1>Blog</h1>
     <p class="blog-intro">
       Every article we've published on evangelism, discipleship, prayer, and church planting
@@ -225,7 +226,9 @@ const sortedHubs = [...hubs].sort((a, b) => a.data.title.localeCompare(b.data.ti
 
   .blog-list__meta {
     margin: 0;
-    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
     color: var(--color-text-muted);
   }
 

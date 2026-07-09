@@ -6,23 +6,32 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import RelatedArticles from '../components/RelatedArticles.astro';
 import ToolCTA from '../components/ToolCTA.astro';
 import CovoMark from '../components/CovoMark.astro';
-import FieldStampBadge from '../components/FieldStampBadge.astro';
+import BrandSeal from '../components/BrandSeal.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
 
 interface Props {
   article: CollectionEntry<'articles'>;
+  headings: Heading[];
 }
 
-const { article } = Astro.props;
+const { article, headings } = Astro.props;
 const { data } = article;
 
 const hubs = data.hub ? await getCollection('hubs') : [];
 const parentHub = hubs.find((hub) => hub.id === data.hub);
 
-// Isolated visual experiment (grain texture, stamp badge, rougher
-// callout borders) — see content.config.ts. Only articles with
-// `theme: field-manual` in frontmatter get it; everything else is
-// unaffected.
-const isFieldManual = data.theme === 'field-manual';
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+const fieldDate = data.date ?? data.updated;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -50,7 +59,7 @@ const labsContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__cta-band
   updatedDate={data.updated}
   noindex={data.status === 'source-pending'}
 >
-  <div class:list={['page-container', isFieldManual && 'page-container--field-manual']}>
+  <div class="page-container">
     <Breadcrumbs items={breadcrumbItems} />
 
     {
@@ -65,20 +74,18 @@ const labsContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__cta-band
 
     <article>
       {data.og_image && (
-        <img class="article-thumbnail" src={data.og_image} alt={data.title} width="800" height="450" />
+        <div class="article-thumbnail-wrap">
+          <img class="article-thumbnail" src={data.og_image} alt={data.title} width="800" height="450" />
+        </div>
       )}
-      {
-        isFieldManual ? (
-          <div class="article-heading">
-            <h1>{data.title}</h1>
-            <div class="article-heading__stamp">
-              <FieldStampBadge text="FIELD-TESTED  ·  READ IN THE FIELD  ·  " />
-            </div>
-          </div>
-        ) : (
-          <h1>{data.title}</h1>
-        )
-      }
+      <p class="eyebrow eyebrow--gold-text">
+        {parentHub ? parentHub.data.title : 'Field Manual'} &middot; Field Note
+        {fieldDate && (
+          <span class="article-dateline"> &middot; {dateFormatter.format(fieldDate)}</span>
+        )}
+      </p>
+      <h1>{data.title}</h1>
+      <TableOfContents headings={headings} />
       <slot />
     </article>
 
@@ -94,6 +101,9 @@ const labsContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__cta-band
     {
       !data.exclude_from_blog && (
         <section class="cta-band">
+          <div class="cta-band__seal" aria-hidden="true">
+            <BrandSeal />
+          </div>
           <h2><CovoMark /> Be a movement multiplier.</h2>
           <p>Get starter tools and coaching to multiply disciples, leaders, and churches in your city.</p>
           <div
@@ -123,12 +133,72 @@ const labsContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__cta-band
 </script>
 
 <style>
+  .article-thumbnail-wrap {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
   .article-thumbnail {
     display: block;
     width: 100%;
     max-height: 420px;
     object-fit: cover;
-    margin-bottom: 1.5rem;
+    margin: 0;
+  }
+
+  /* Same animated film grain used on homepage photos (see
+     index.astro's .hero::before) — ties every article's lead image
+     back to the same field-tested texture. */
+  .article-thumbnail-wrap::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='2.6' intercept='-0.8'/%3E%3CfeFuncG type='linear' slope='2.6' intercept='-0.8'/%3E%3CfeFuncB type='linear' slope='2.6' intercept='-0.8'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+    will-change: transform;
+    animation: article-grain-drift 0.8s steps(5) infinite;
+  }
+
+  @keyframes article-grain-drift {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    10% {
+      transform: translate(-6%, -9%);
+    }
+    25% {
+      transform: translate(-13%, 6%);
+    }
+    40% {
+      transform: translate(8%, -18%);
+    }
+    55% {
+      transform: translate(-4%, 14%);
+    }
+    70% {
+      transform: translate(11%, 3%);
+    }
+    85% {
+      transform: translate(-9%, -5%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .article-thumbnail-wrap::after {
+      animation: none;
+    }
+  }
+
+  .article-dateline {
+    color: var(--color-text-muted);
+    font-weight: 500;
   }
 
   .article-hub-link {
@@ -136,63 +206,28 @@ const labsContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__cta-band
     color: var(--color-text-muted);
   }
 
-  /* "Field manual" visual experiment — isolated to whichever articles
-     set theme: field-manual in frontmatter (see content.config.ts).
-     Rolling this back means removing the flag; nothing here runs on
-     any other page. */
-  .page-container--field-manual {
+  /* Low-opacity brand seal watermark on the closing CTA band — same
+     mark used on the homepage conviction band and sitewide footer. */
+  .cta-band {
     position: relative;
+    overflow: hidden;
   }
 
-  .page-container--field-manual::before {
-    content: '';
+  .cta-band__seal {
     position: absolute;
-    inset: 0;
-    z-index: -1;
+    top: 50%;
+    right: -1.5rem;
+    transform: translateY(-50%);
+    width: 9rem;
+    height: 9rem;
+    color: var(--color-footer-text);
+    opacity: 0.08;
     pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.12;
-    mix-blend-mode: multiply;
-  }
-
-  .page-container--field-manual .article-heading {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1.5rem;
-  }
-
-  .page-container--field-manual .article-heading h1 {
-    margin: 0;
-    flex: 1;
-  }
-
-  .page-container--field-manual .article-heading__stamp {
-    margin-top: 0.25rem;
   }
 
   @media (max-width: 640px) {
-    .page-container--field-manual .article-heading {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+    .cta-band__seal {
+      display: none;
     }
-
-    .page-container--field-manual .article-heading__stamp :global(.field-stamp) {
-      width: 6rem;
-      height: 6rem;
-    }
-  }
-
-  /* Rougher, more tactile callout boxes: heavier border + a second
-     offset "stamped" outline instead of the site-wide soft card look. */
-  .page-container--field-manual :global(.callout) {
-    border-width: 2px;
-    box-shadow: 3px 3px 0 var(--color-border);
-  }
-
-  .page-container--field-manual :global(.callout__label) {
-    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
-    letter-spacing: 0.06em;
   }
 </style>

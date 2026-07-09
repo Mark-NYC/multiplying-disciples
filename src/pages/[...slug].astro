@@ -45,12 +45,12 @@ interface Props {
 }
 
 const { kind, entry } = Astro.props as Props;
-const { Content } = await render(entry as any);
+const { Content, headings } = await render(entry as any);
 ---
 
 {
   kind === 'article' && (
-    <ArticleLayout article={entry as CollectionEntry<'articles'>}>
+    <ArticleLayout article={entry as CollectionEntry<'articles'>} headings={headings}>
       <Content />
     </ArticleLayout>
   )

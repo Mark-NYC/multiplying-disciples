@@ -1,0 +1,90 @@
+---
+// Field-journal style contents box for article pages — numbered links
+// to each H2 in the body, generated from Astro's own heading extraction
+// (so it always matches the actual rendered `id` attributes, no manual
+// upkeep). Renders nothing for short articles with fewer than 2 H2s.
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+}
+
+const { headings } = Astro.props;
+const items = headings.filter((heading) => heading.depth === 2);
+---
+
+{
+  items.length >= 2 && (
+    <nav class="field-toc" aria-label="Table of contents">
+      <p class="field-toc__label">In This Article</p>
+      <ol class="field-toc__list">
+        {items.map((item, index) => (
+          <li>
+            <a href={`#${item.slug}`}>
+              <span class="field-toc__num">{String(index + 1).padStart(2, '0')}</span>
+              <span class="field-toc__text">{item.text}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )
+}
+
+<style>
+  .field-toc {
+    margin: 1.75rem 0 2.25rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-primary);
+    border-radius: var(--radius-card);
+  }
+
+  .field-toc__label {
+    margin: 0 0 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .field-toc__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .field-toc__list a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .field-toc__list a:hover .field-toc__text {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+  }
+
+  .field-toc__num {
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: var(--color-clay-text);
+  }
+</style>
