@@ -61,15 +61,38 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     </div>
   </section>
 
+  <!-- Front matter: a manual-style running header + a dotted-leader
+       table of contents that jump-links to each numbered section. -->
+  <section class="frontmatter" aria-label="Contents">
+    <p class="frontmatter__meta">Multiplying Disciples &middot; Field Manual &middot; North America</p>
+    <ol class="frontmatter__index">
+      <li>
+        <a href="#ch-why"><span class="frontmatter__label">Why coaching</span><span class="frontmatter__leader" aria-hidden="true"></span><span class="frontmatter__num">01</span></a>
+      </li>
+      <li>
+        <a href="#ch-pathway"><span class="frontmatter__label">The pathway</span><span class="frontmatter__leader" aria-hidden="true"></span><span class="frontmatter__num">02</span></a>
+      </li>
+      <li>
+        <a href="#ch-practice"><span class="frontmatter__label">Practice &mdash; live labs</span><span class="frontmatter__leader" aria-hidden="true"></span><span class="frontmatter__num">03</span></a>
+      </li>
+      <li>
+        <a href="#ch-field-notes"><span class="frontmatter__label">Field notes</span><span class="frontmatter__leader" aria-hidden="true"></span><span class="frontmatter__num">04</span></a>
+      </li>
+      <li>
+        <a href="#ch-questions"><span class="frontmatter__label">Questions</span><span class="frontmatter__leader" aria-hidden="true"></span><span class="frontmatter__num">05</span></a>
+      </li>
+    </ol>
+  </section>
+
   <!-- Edge-to-edge block grid: 2 columns of true 1:1 square cards on
        desktop, stacked on mobile. DOM order pairs each text card with
        its image (text left, image right per row) and reads correctly
        when stacked: coaching copy, video, NA methods, women talking,
        community momentum, group praying. -->
-  <section class="block-grid" aria-label="Why coaching">
+  <section class="block-grid" id="ch-why" aria-label="Why coaching">
     <!-- Card 1: main coaching copy -->
     <div class="block-grid__cell block-grid__cell--text block-grid__cell--green">
-      <p class="eyebrow eyebrow--gold">01 &mdash; Why Coaching</p>
+      <p class="eyebrow eyebrow--gold">&sect;01 &mdash; Why Coaching</p>
       <h2>
         Disciple making resources and tools can be found everywhere. Resources without
         coaching will never get you to multiplication.
@@ -96,6 +119,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
 
     <!-- Card 4: field-tested methods -->
     <div class="block-grid__cell block-grid__cell--text block-grid__cell--sage">
+      <span class="field-stamp-mark" aria-hidden="true">Field-Tested</span>
       <span class="block-grid__check" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
           <path d="M5 12.5l4.5 4.5L19 7.5" />
@@ -163,10 +187,23 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     </div>
   </section>
 
+  <!-- Scripture reference: the biblical charter for multiplication,
+       grounding the conviction above and the method below. -->
+  <section class="scripture-ref">
+    <p class="eyebrow eyebrow--clay">Scripture</p>
+    <blockquote class="scripture-ref__quote">
+      <p>
+        &ldquo;And what you have heard from me in the presence of many witnesses entrust to
+        faithful people, who will be able to teach others also.&rdquo;
+      </p>
+      <cite>2 Timothy 2:2</cite>
+    </blockquote>
+  </section>
+
   <!-- Pathway strip: names the journey in three simple steps and
        funnels straight into the labs CTA below. -->
-  <section class="pathway">
-    <p class="eyebrow eyebrow--gold-text">The Pathway</p>
+  <section class="pathway" id="ch-pathway">
+    <p class="eyebrow eyebrow--gold-text">&sect;02 &middot; The Pathway</p>
     <h2>Simple enough to pass on.</h2>
     <ol class="pathway__steps">
       <li class="pathway__step">
@@ -205,9 +242,9 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     </ol>
   </section>
 
-  <section class="labs-cta">
+  <section class="labs-cta" id="ch-practice">
     <div class="labs-cta__inner">
-      <p class="eyebrow eyebrow--gold-text">Ready to practice this?</p>
+      <p class="eyebrow eyebrow--gold-text">&sect;03 &middot; Practice</p>
       <h2><CovoMark /> Join a live Multiplying Lab</h2>
       <p class="labs-cta__descriptor">Practical disciple-making labs for everyday leaders.</p>
 
@@ -248,16 +285,16 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     </div>
   </section>
 
-  <section class="field-quote">
+  <section class="field-quote" id="ch-field-notes">
     <div class="field-quote__inner">
-      <p class="eyebrow eyebrow--gold-bright">From the Field</p>
+      <p class="eyebrow eyebrow--gold-bright">&sect;04 &middot; Field Notes</p>
       <span class="field-quote__mark" aria-hidden="true">&ldquo;</span>
       <blockquote class="field-quote__quote">
         <p>
           &ldquo;Going through this with other practitioners made it feel real, not theory.
           Something is actually happening now.&rdquo;
         </p>
-        <footer>&mdash; Marcus T</footer>
+        <footer>&mdash; Marcus T <span class="field-quote__log">&middot; Field note &middot; OKC &middot; 2025</span></footer>
       </blockquote>
       <img
         class="field-quote__faces"
@@ -270,10 +307,10 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     </div>
   </section>
 
-  <section class="faq-section">
+  <section class="faq-section" id="ch-questions">
     <div class="faq-section__inner">
       <div class="faq-section__label">
-        <p class="eyebrow eyebrow--clay">Common Questions</p>
+        <p class="eyebrow eyebrow--clay">&sect;05 &middot; Questions</p>
         <h2>FAQ</h2>
       </div>
 
@@ -474,6 +511,115 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     color: var(--color-clay-text);
   }
 
+  /* Jump-link targets get breathing room above when scrolled to. */
+  #ch-why,
+  #ch-pathway,
+  #ch-practice,
+  #ch-field-notes,
+  #ch-questions {
+    scroll-margin-top: 1.5rem;
+  }
+
+  /* --- Front matter: running header + dotted-leader contents ------ */
+
+  .frontmatter {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 2rem 1.25rem 0.5rem;
+  }
+
+  .frontmatter__meta {
+    margin: 0 0 1.25rem;
+    text-align: center;
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .frontmatter__index {
+    list-style: none;
+    margin: 0;
+    padding: 1.25rem 0 0;
+    border-top: 1px solid var(--color-border);
+    display: grid;
+    gap: 0.55rem;
+    max-width: 34rem;
+    margin: 0 auto;
+  }
+
+  .frontmatter__index a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .frontmatter__index a:hover .frontmatter__label {
+    color: var(--color-clay-text);
+  }
+
+  .frontmatter__label {
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+  /* Dotted leader — a dotted rule filling the space to the number. */
+  .frontmatter__leader {
+    flex: 1;
+    border-bottom: 1px dotted var(--color-border);
+    transform: translateY(-0.2em);
+  }
+
+  .frontmatter__num {
+    flex-shrink: 0;
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-clay-text);
+  }
+
+  /* --- Scripture reference block ---------------------------------- */
+
+  .scripture-ref {
+    background: var(--color-surface);
+    border-top: 3px solid var(--color-clay);
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+
+  .scripture-ref .eyebrow {
+    margin-bottom: 1rem;
+  }
+
+  .scripture-ref__quote {
+    max-width: 44rem;
+    margin: 0 auto;
+  }
+
+  .scripture-ref__quote p {
+    margin: 0;
+    font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--color-ink);
+  }
+
+  .scripture-ref__quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-style: normal;
+    color: var(--color-clay-text);
+  }
+
   /* --- Edge-to-edge 1:1 block grid ------------------------------- */
 
   .block-grid {
@@ -519,6 +665,8 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   }
 
   .block-grid__cell--text {
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -533,6 +681,27 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
 
   .block-grid__cell--sage {
     background: var(--color-surface);
+  }
+
+  /* Rubber-stamp accent — used once, on the field-tested card. An
+     angled, double-ruled "FIELD-TESTED" chop in the corner. */
+  .field-stamp-mark {
+    position: absolute;
+    top: 1.5rem;
+    right: -0.75rem;
+    transform: rotate(-9deg);
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-clay);
+    padding: 0.3rem 0.7rem;
+    border: 2px solid var(--color-clay);
+    border-radius: 4px;
+    box-shadow: 0 0 0 2px var(--color-surface), inset 0 0 0 2px var(--color-surface);
+    opacity: 0.55;
+    pointer-events: none;
   }
 
   .block-grid__cell--paper {
@@ -660,6 +829,32 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   .pathway {
     padding: 4.5rem 1.5rem 4rem;
     text-align: center;
+    /* Faint engineering-notebook grid behind the steps. Barely there. */
+    background-color: var(--color-bg);
+    background-image: linear-gradient(var(--color-border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-position: center;
+  }
+
+  /* Soften the grid so it reads as a whisper, not a table. */
+  .pathway {
+    position: relative;
+  }
+
+  .pathway > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .pathway::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-bg);
+    opacity: 0.72;
+    z-index: 0;
+    pointer-events: none;
   }
 
   .pathway > h2 {
@@ -800,6 +995,16 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     font-size: 0.85rem;
     font-weight: 600;
     color: #ddae50;
+  }
+
+  /* Log-entry dateline appended to the attribution. */
+  .field-quote__log {
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(247, 243, 234, 0.65);
   }
 
   .field-quote__faces {
