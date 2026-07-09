@@ -15,7 +15,6 @@ interface Props {
   eyebrow?: string;
   headingLine1?: string;
   headingLine2?: string;
-  subheading?: string;
   rowA?: string[];
   rowB?: string[];
 }
@@ -28,7 +27,6 @@ const {
   // set:html, so Astro's scoped CSS can actually target it.
   headingLine1 = 'This is for you',
   headingLine2 = 'if you are…',
-  subheading = 'Simple tools. Live practice. A community that helps you obey Jesus.',
   rowA = [
     'an everyday believer',
     'a pastor equipping others',
@@ -63,7 +61,6 @@ const {
     <CovoMark />
     {eyebrow && <p class="eyebrow eyebrow--gold-text">{eyebrow}</p>}
     <h2 id="for-you-heading">{headingLine1}<br class="for-you__break" /> {headingLine2}</h2>
-    <p class="for-you__subhead">{subheading}</p>
   </div>
 
   <div class="for-you__rows">
@@ -109,7 +106,7 @@ const {
   }
 
   .for-you__inner h2 {
-    margin: 0 0 0.75rem;
+    margin: 0;
     font-size: clamp(1.75rem, 3.2vw, 2.35rem);
     font-weight: 800;
     letter-spacing: -0.01em;
@@ -121,12 +118,6 @@ const {
      (see the max-width: 700px block below). */
   .for-you__break {
     display: none;
-  }
-
-  .for-you__subhead {
-    margin: 0;
-    font-size: 1.05rem;
-    color: var(--color-text-muted);
   }
 
   .for-you__rows {
