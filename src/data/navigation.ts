@@ -4,25 +4,16 @@ export interface NavLink {
   children?: NavLink[];
 }
 
-// Primary header navigation. Structured to match the live WordPress
-// site's shape (Home / Start Here / Starter Tools / Resources dropdown
-// / Articles) rather than surfacing every hub as a top-level item —
-// the nav should guide a first-time visitor, not expose the full site
-// taxonomy. Hub pages that used to be flat top-level links now live
-// under the Resources dropdown instead.
+// Primary header navigation, kept deliberately short: Labs / Tools /
+// Articles / About. The nav's job is to move a visitor toward a Live
+// Multiplying Lab, not expose the full site taxonomy — every other hub
+// and resource page is reachable from Tools, Articles, or in-page links,
+// not from the top-level menu.
+import { COVO_LABS_URL } from './site';
+
 export const PRIMARY_NAV: NavLink[] = [
-  { label: 'Home', href: '/' },
-  { label: 'Start Here', href: '/start-here/' },
-  { label: 'Simple Tools', href: '/starter-tools/' },
-  {
-    label: 'Resources',
-    href: '',
-    children: [
-      { label: 'Disciple Making', href: '/disciple-making/' },
-      { label: 'Share the Gospel', href: '/share-the-gospel/' },
-      { label: 'Testimonies', href: '/testimony/' },
-      { label: 'Stories of Hope', href: '/stories-of-hope/' },
-    ],
-  },
+  { label: 'Labs', href: COVO_LABS_URL },
+  { label: 'Tools', href: '/starter-tools/' },
   { label: 'Articles', href: '/blog/' },
+  { label: 'About', href: '/vision/' },
 ];

@@ -1,13 +1,18 @@
 ---
-import { SITE } from '../data/site';
+import { SITE, COVO_LABS_URL } from '../data/site';
 import BrandSeal from './BrandSeal.astro';
 
 const year = new Date().getFullYear();
 
+// Mirrors the simplified header nav (Labs / Tools / Articles / About)
+// plus the two utility links every footer needs.
 const quickLinks = [
-  { label: 'Vision', href: '/vision/' },
-  { label: 'Beliefs & Values', href: '/beliefs-values/' },
-  { label: 'Contact Us', href: '/contact-us/' },
+  { label: 'Labs', href: COVO_LABS_URL },
+  { label: 'Tools', href: '/starter-tools/' },
+  { label: 'Articles', href: '/blog/' },
+  { label: 'About', href: '/vision/' },
+  { label: 'Contact', href: '/contact-us/' },
+  { label: 'Privacy Policy', href: '/privacy-policy/' },
 ];
 ---
 
@@ -16,11 +21,6 @@ const quickLinks = [
     <div class="site-footer__col">
       <p class="site-footer__logo">{SITE.name}</p>
       <p class="site-footer__tagline">{SITE.tagline}</p>
-    </div>
-    <div class="site-footer__col">
-      <p><a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a></p>
-      <p><a href="/privacy-policy/">Privacy Policy</a></p>
-      <p>Find us in {SITE.address}</p>
     </div>
     <div class="site-footer__col">
       <nav aria-label="Footer">
