@@ -957,6 +957,19 @@ import { COVO_LABS_URL, COVO_HOME_URL, SITE } from '../data/site';
     flex-shrink: 0;
   }
 
+  /* Desktop only: flip the community-of-practice row so the image
+     sits on the left and the text on the right, without touching DOM
+     order (mobile keeps reading text-then-image). */
+  @media (min-width: 801px) {
+    .block-grid__cell--community-text {
+      order: 1;
+    }
+
+    .block-grid__cell--community-image {
+      order: 0;
+    }
+  }
+
   @media (max-width: 800px) {
     .block-grid {
       grid-template-columns: 1fr;
