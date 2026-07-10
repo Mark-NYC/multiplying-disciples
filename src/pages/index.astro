@@ -11,12 +11,15 @@
 // square block-grid cards, brand seal, numbered FAQ. This pass is copy,
 // hierarchy, and section-order only.
 //
-// The labs CTA (both the featured single-lab card in section 6 and the
+// The labs CTA (the on-page registration section in section 6 and the
 // "Join a Lab" nav button) fetches CoVo Multipliers' live lab data
 // client-side from their public-labs Edge Function (see
 // src/lib/labs-feed.js) — the single source of truth for lab data — so
 // it stays in sync as labs are added/removed on their end without a
 // rebuild here. No lab title, date, or seat count is ever hardcoded.
+// Section 6's registration form itself is CoVo's own reusable signup
+// widget (covo-multipliers/embeds/lab-registration-widget.js), embedded
+// directly — not a duplicated copy of the form.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CovoMark from '../components/CovoMark.astro';
 import BrandSeal from '../components/BrandSeal.astro';
@@ -179,8 +182,10 @@ import { COVO_LABS_URL, COVO_HOME_URL, SITE } from '../data/site';
   </section>
   <p class="coaching-caption">Why live practice changes everything.</p>
 
-  <!-- 6. FEATURED LIVE LAB — the primary conversion. One featured card
-       from live CoVo data, not a wall of three equal options. -->
+  <!-- 6. FEATURED LIVE LAB — the primary conversion. Registration
+       happens directly in this section (the real CoVo signup form,
+       embedded — see src/lib/labs-feed.js#initFeaturedLabSection),
+       not a card that links out. -->
   <section class="labs-cta" id="ch-practice">
     <div class="labs-cta__inner">
       <p class="eyebrow eyebrow--gold-text">503 &middot; Practice</p>
@@ -189,25 +194,16 @@ import { COVO_LABS_URL, COVO_HOME_URL, SITE } from '../data/site';
         Practice one simple tool. Leave knowing exactly what to do this week.
       </p>
 
-      <p class="labs-cta__badge">Next Live Session</p>
-
       <div
-        class="labs-cta__grid labs-cta__grid--featured"
-        id="labs-cta-grid"
+        id="featured-lab-section"
         aria-live="polite"
-        data-labs-content-tag="home__training__labs-grid"
-      >
-        <p class="labs-cta__loading">Loading the next lab&hellip;</p>
-      </div>
-
-      <p class="labs-cta__not-sure">
-        Not sure where to start?{' '}
-        <a href="/#ch-practice">Join the next available lab.</a>
-      </p>
+        data-labs-content-tag="home__featured-lab__form"
+      ></div>
 
       <p class="labs-cta__view-all">
         <a
           href={COVO_LABS_URL}
+          id="labs-cta-view-all"
           data-ecosystem-cta
           data-cta-level="level_3"
           data-cta-type="covo_training"
@@ -469,11 +465,18 @@ import { COVO_LABS_URL, COVO_HOME_URL, SITE } from '../data/site';
 </BaseLayout>
 
 <script>
-  import { renderFeaturedLabInto } from '../lib/labs-feed.js';
+  import { initFeaturedLabSection, trackViewAllLabsClicked } from '../lib/labs-feed.js';
 
-  const grid = document.getElementById('labs-cta-grid');
-  if (grid) {
-    renderFeaturedLabInto(grid, grid.dataset.labsContentTag);
+  const featuredSection = document.getElementById('featured-lab-section');
+  if (featuredSection) {
+    initFeaturedLabSection(featuredSection, featuredSection.dataset.labsContentTag).then((lab) => {
+      const viewAllLink = document.getElementById('labs-cta-view-all');
+      if (viewAllLink) {
+        viewAllLink.addEventListener('click', () => {
+          trackViewAllLabsClicked(lab ? lab.slug : null);
+        });
+      }
+    });
   }
 </script>
 
@@ -1159,22 +1162,11 @@ import { COVO_LABS_URL, COVO_HOME_URL, SITE } from '../data/site';
     }
   }
 
-  /* --- Labs CTA: featured single-lab card -------------------------- */
-  /* .labs-cta__not-sure, .labs-cta__view-all, .labs-cta__bridge, and
-     .labs-cta__badge are defined in global.css alongside the rest of
-     the (client-injected) .featured-lab-card rules — see the note
-     there on why those stay unscoped. */
-
-  /* One featured card, centered, rather than the multi-card grid used
-     elsewhere (labs-cta__grid's base rules still apply — this just
-     narrows, centers, and enlarges it since there's only ever one
-     child now). ~20-25% wider than the previous 26rem so the card
-     itself reads as the section's dominant element. */
-  .labs-cta__grid--featured {
-    max-width: 32rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  /* --- Labs CTA: featured lab registration section ------------------ */
+  /* .labs-cta__view-all, .labs-cta__bridge, and the .featured-lab* /
+     .skeleton-line rules are defined in global.css alongside the rest
+     of the (client-injected) featured-lab markup — see the note there
+     on why those stay unscoped. */
 
   /* --- "From the Field" quote band ------------------------------- */
 

@@ -546,50 +546,14 @@ article tbody tr:nth-child(even) td {
   color: var(--color-text-muted);
 }
 
-/* Small "Next Live Session" flag above the featured card — muted gold,
-   deliberately quiet (a label, not a badge shouting for attention). */
-.labs-cta__badge {
-  display: inline-block;
-  margin: 0 0 1.25rem;
-  padding: 0.35rem 0.9rem;
-  border: 1px solid var(--color-gold);
-  border-radius: var(--radius-pill);
-  background: rgba(216, 166, 66, 0.08);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-gold-text);
-}
-
-.labs-cta__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.25rem;
-  text-align: left;
-  margin-bottom: 2rem;
-}
-
 .labs-cta__loading {
   grid-column: 1 / -1;
   text-align: center;
   color: var(--color-text-muted);
 }
 
-.labs-cta__not-sure {
-  margin: 0 0 0.85rem;
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
-}
-
-.labs-cta__not-sure a {
-  color: var(--color-clay-text);
-  font-weight: 600;
-}
-
 /* Deliberately plain — a simple text link, not a second button, so
-   the featured card's CTA stays the only unmissable action. */
+   the featured section's form stays the only unmissable action. */
 .labs-cta__view-all {
   margin: 0 0 2rem;
   font-size: 0.9rem;
@@ -604,6 +568,293 @@ article tbody tr:nth-child(even) td {
   font-size: 0.82rem;
   color: var(--color-text-muted);
   margin: 0;
+}
+
+/* --- Featured lab section: on-page registration ------------------
+   The homepage's #ch-practice section closes registration directly on
+   the page instead of linking out — left column is the real lab's
+   details (from public-labs), right column is CoVo Multipliers' own
+   reusable signup form, embedded via
+   embeds/lab-registration-widget.js and mounted client-side. Rendered
+   by initFeaturedLabSection() in labs-feed.js, so — like .lab-card and
+   .featured-lab-card above — these rules stay unscoped/global since
+   Astro's build-time style scoping can't reach JS-injected innerHTML. */
+.featured-lab {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+  text-align: left;
+  margin: 2.5rem 0 2rem;
+}
+
+@media (max-width: 860px) {
+  .featured-lab {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+}
+
+.featured-lab__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.85rem;
+}
+
+.featured-lab__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold-text);
+}
+
+.featured-lab__date {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-accent-hover);
+}
+
+.featured-lab__title {
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  line-height: 1.25;
+}
+
+.featured-lab__description {
+  margin: 0 0 1rem;
+  font-size: 1.02rem;
+  color: var(--color-text);
+}
+
+.featured-lab__practice {
+  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.featured-lab__facts {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.featured-lab__facts li {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.featured-lab__facts li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.featured-lab__facts-seats {
+  font-weight: 700;
+  color: var(--color-clay-text);
+}
+
+.featured-lab__facts-seats--full {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.featured-lab__details-link {
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+.featured-lab__details-link a {
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.featured-lab__form-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius-card) + 4px);
+  padding: clamp(1.75rem, 3vw, 2.25rem);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.featured-lab__form-heading {
+  margin: 0 0 0.4rem;
+  font-size: 1.3rem;
+}
+
+.featured-lab__form-note {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.featured-lab__form-badge {
+  display: inline-block;
+  margin: 0 0 1.5rem;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-pill);
+  background: rgba(216, 166, 66, 0.08);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-gold-text);
+}
+
+.featured-lab__widget-error {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+}
+
+/* --- Featured lab: CoVo widget presentation-layer restyle ---------
+   The widget (embeds/lab-registration-widget.js, loaded from
+   covomultipliers.com) ships its own default `.covo-reg-*` styling so
+   it's usable standalone. These overrides only touch appearance —
+   color, spacing, radius, focus rings — to match this site's visual
+   system; the widget's markup, fields, and behavior are untouched. */
+.featured-lab__widget .covo-reg__field input[type='text'],
+.featured-lab__widget .covo-reg__field input[type='email'] {
+  border-color: var(--color-border);
+  border-radius: var(--radius-button);
+  background: #ffffff;
+  font-size: 1rem;
+}
+
+.featured-lab__widget .covo-reg__field input:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+  border-color: var(--color-primary);
+}
+
+.featured-lab__widget .covo-reg__submit {
+  background: var(--color-primary);
+  border-radius: var(--radius-button);
+  font-weight: 800;
+}
+
+.featured-lab__widget .covo-reg__submit:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.featured-lab__widget .covo-reg__message.is-error {
+  color: var(--color-clay-text);
+}
+
+.featured-lab__widget .covo-reg__cta-btn {
+  background: var(--color-primary);
+  border-radius: var(--radius-button);
+}
+
+.featured-lab__widget .covo-reg__whatsapp {
+  border-radius: var(--radius-card);
+}
+
+/* --- Featured lab: coming-soon fallback --------------------------- */
+.featured-lab--empty {
+  display: block;
+  text-align: center;
+  max-width: 28rem;
+  margin: 2.5rem auto 2rem;
+}
+
+.featured-lab__empty-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+}
+
+.featured-lab__empty-copy {
+  margin: 0 0 1.25rem;
+  color: var(--color-text-muted);
+}
+
+.featured-lab__notify-form {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.featured-lab__notify-form input {
+  flex: 1 1 14rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  font-size: 1rem;
+}
+
+.featured-lab__notify-status {
+  margin: 0.85rem 0 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* --- Featured lab: loading skeleton --------------------------------
+   Reserves the same two-column height as the real content so the page
+   never jumps once the lab loads. */
+.featured-lab--loading {
+  min-height: 22rem;
+}
+
+.skeleton-line {
+  background: linear-gradient(90deg, var(--color-surface) 25%, #eef3e9 37%, var(--color-surface) 63%);
+  background-size: 400% 100%;
+  animation: skeleton-shimmer 1.4s ease infinite;
+  border-radius: var(--radius-button);
+  margin-bottom: 1rem;
+}
+
+.skeleton-line--eyebrow {
+  width: 40%;
+  height: 0.8rem;
+}
+
+.skeleton-line--title {
+  width: 80%;
+  height: 1.75rem;
+}
+
+.skeleton-line--text {
+  width: 100%;
+  height: 1rem;
+}
+
+.skeleton-line--field {
+  width: 100%;
+  height: 3rem;
+}
+
+.skeleton-line--button {
+  width: 100%;
+  height: 3.25rem;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-line {
+    animation: none;
+  }
 }
 
 .lab-card {
