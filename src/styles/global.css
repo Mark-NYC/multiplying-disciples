@@ -539,7 +539,7 @@ article tbody tr:nth-child(even) td {
   /* 50% bigger than the original 4.5rem base size. */
   width: 6.75rem;
   height: auto;
-  margin: 0 auto 1.25rem;
+  margin: 0 auto 0.5rem;
 }
 
 @media (max-width: 640px) {
