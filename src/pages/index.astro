@@ -462,10 +462,15 @@ import { SITE } from '../data/site';
     padding: 1.25rem 1.25rem 24rem;
   }
 
+  /* Mobile: the tall, narrow hero forces a heavy horizontal crop on a
+     wide photo, so the full-height background-image treatment used on
+     desktop only ever shows the middle subject. Shrinking the reserved
+     photo space and biasing the crop toward the bottom keeps the whole
+     scene (all three guys) in frame, above the fold. */
   @media (max-width: 640px) {
     .hero {
-      padding-bottom: 22rem;
-      background-position: center 28%;
+      padding-bottom: 13rem;
+      background-position: center 100%;
     }
   }
 
@@ -538,6 +543,17 @@ import { SITE } from '../data/site';
     margin-bottom: 1.1rem;
   }
 
+  @media (max-width: 640px) {
+    .hero h1 {
+      font-size: 1.7rem;
+      margin: 0 0 0.75rem;
+    }
+
+    .hero__subhead {
+      font-size: 1rem;
+    }
+  }
+
   /* Three short proof points — replaces the old single long pill badge.
      Compact inline items on desktop; still comfortably tappable/legible
      stacked on mobile. Deliberately plain text, no card/pill chrome, so
@@ -571,12 +587,36 @@ import { SITE } from '../data/site';
     background: var(--color-accent);
   }
 
+  /* Mobile: bullets crowd a hero that already needs to fit a two-line
+     headline and both CTAs above the fold, so they're dropped rather
+     than shrunk further. */
+  @media (max-width: 640px) {
+    .hero__proof {
+      display: none;
+    }
+  }
+
   .hero__ctas {
     display: flex;
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
     margin-top: 0;
+  }
+
+  @media (max-width: 640px) {
+    .hero__ctas {
+      flex-wrap: nowrap;
+      gap: 0.6rem;
+    }
+
+    .hero__ctas .button {
+      flex: 1 1 0;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
   }
 
   .hero__secondary {
