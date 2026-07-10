@@ -9,10 +9,13 @@ export interface NavLink {
 // Multiplying Lab, not expose the full site taxonomy — every other hub
 // and resource page is reachable from Tools, Articles, or in-page links,
 // not from the top-level menu.
-import { COVO_LABS_URL } from './site';
-
+//
+// "Labs" points at the homepage's own lab section (#ch-practice) rather
+// than straight to Covo, so every lab-related link on the site funnels
+// through that one section — the section's own "View all upcoming labs"
+// link is the sole exception that still goes to Covo directly.
 export const PRIMARY_NAV: NavLink[] = [
-  { label: 'Labs', href: COVO_LABS_URL },
+  { label: 'Labs', href: '/#ch-practice' },
   { label: 'Tools', href: '/starter-tools/' },
   { label: 'Articles', href: '/blog/' },
   { label: 'About', href: '/vision/' },

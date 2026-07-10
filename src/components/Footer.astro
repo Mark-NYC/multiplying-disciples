@@ -1,13 +1,15 @@
 ---
-import { SITE, COVO_LABS_URL } from '../data/site';
+import { SITE } from '../data/site';
 import BrandSeal from './BrandSeal.astro';
 
 const year = new Date().getFullYear();
 
 // Mirrors the simplified header nav (Labs / Tools / Articles / About)
-// plus the two utility links every footer needs.
+// plus the two utility links every footer needs. "Labs" points at the
+// homepage's lab section (#ch-practice), not straight to Covo — see the
+// matching note in navigation.ts.
 const quickLinks = [
-  { label: 'Labs', href: COVO_LABS_URL },
+  { label: 'Labs', href: '/#ch-practice' },
   { label: 'Tools', href: '/starter-tools/' },
   { label: 'Articles', href: '/blog/' },
   { label: 'About', href: '/vision/' },

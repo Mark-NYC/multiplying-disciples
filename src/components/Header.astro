@@ -1,6 +1,6 @@
 ---
 import { PRIMARY_NAV } from '../data/navigation';
-import { SITE, COVO_LABS_URL } from '../data/site';
+import { SITE } from '../data/site';
 
 const currentPath = Astro.url.pathname;
 const isActive = (href: string) =>
@@ -50,7 +50,7 @@ const isActive = (href: string) =>
         }
       </ul>
       <div class="site-header__actions">
-        <a class="button button--small" href={COVO_LABS_URL}>Join a Lab</a>
+        <a class="button button--small" href="/#ch-practice">Join a Lab</a>
         <ul class="site-header__socials">
           <li>
             <a href={SITE.social.facebook} aria-label="Multiplying Disciples on Facebook">
