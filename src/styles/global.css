@@ -554,6 +554,35 @@ article tbody tr:nth-child(even) td {
   font-size: clamp(1.75rem, 3.2vw, 2.35rem);
 }
 
+/* "Live" pill inside the heading — sized in em so it scales with the
+   heading's responsive clamp(); reuses the same clay dot + pulse
+   animation as .lab-card__badge-dot elsewhere on the page. */
+.labs-cta__live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32em;
+  vertical-align: middle;
+  margin: 0 0.05em;
+  padding: 0.18em 0.5em;
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-pill);
+  background: rgba(216, 166, 66, 0.08);
+  font-size: 0.5em;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-clay-text);
+}
+
+.labs-cta__live-dot {
+  width: 0.55em;
+  height: 0.55em;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-clay);
+  animation: lab-live-pulse 1.8s ease-in-out infinite;
+}
+
 .labs-cta__descriptor {
   max-width: 30rem;
   margin: 0 auto 3.5rem;
@@ -907,7 +936,8 @@ article tbody tr:nth-child(even) td {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lab-card__badge-dot {
+  .lab-card__badge-dot,
+  .labs-cta__live-dot {
     animation: none;
   }
 }
