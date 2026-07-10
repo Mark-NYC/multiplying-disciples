@@ -610,6 +610,7 @@ import { SITE } from '../data/site';
     .hero__ctas {
       flex-wrap: nowrap;
       gap: 0.6rem;
+      margin-bottom: 1rem;
     }
 
     .hero__ctas .button {
@@ -618,6 +619,15 @@ import { SITE } from '../data/site';
       padding-right: 0.75rem;
       font-size: 0.85rem;
       white-space: nowrap;
+    }
+
+    /* With the "Conversation Box" pill hidden on mobile, the outlined
+       button now sits right against the photo. Its transparent
+       background reads fine over the fade at the top of the image but
+       loses contrast lower down, so give it the same solid backdrop as
+       the chip used to provide. */
+    .hero__ctas .button--secondary {
+      background: rgba(247, 243, 234, 0.92);
     }
   }
 
@@ -645,7 +655,7 @@ import { SITE } from '../data/site';
 
   @media (max-width: 640px) {
     .hero__secondary {
-      margin-top: 1.75rem;
+      display: none;
     }
   }
 
