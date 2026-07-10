@@ -234,3 +234,258 @@ export async function renderFeaturedLabInto(container, contentTag) {
   container.innerHTML = featuredNotifyFormHtml();
   wireNotifyForm(container);
 }
+
+// --- Full on-page registration section (homepage #ch-practice) -------
+//
+// Unlike renderFeaturedLabInto() above (a card that links out to CoVo),
+// this renders the lab's real details plus CoVo's own reusable signup
+// form embedded directly on the page — see
+// embeds/lab-registration-widget.js in the covo-multipliers repo, the
+// single implementation shared with every CoVo lab landing page. This
+// function never re-implements the form, its validation, or the
+// registration request; it only fetches which lab to feature and tells
+// the widget which event to mount.
+
+const COVO_WIDGET_SCRIPT_URL = 'https://www.covomultipliers.com/embeds/lab-registration-widget.js';
+const LAB_TIMEZONE = 'America/New_York';
+
+// Every currently published lab is a free 45-minute session (see
+// LAB_PAGE_CLAUDE_TEMPLATE.md's FORMAT field) and the events table has
+// no per-lab duration/price columns yet. If those are ever added to the
+// public-labs feed, prefer them here instead of the fallback so nothing
+// has to change on this end.
+function labDurationLabel(lab) {
+  return lab.duration_label || '45 minutes';
+}
+function labPriceLabel(lab) {
+  return lab.price_label || 'Free';
+}
+
+function formatFullDate(iso) {
+  try {
+    return new Intl.DateTimeFormat('en-US', {
+      timeZone: LAB_TIMEZONE,
+      weekday: 'long',
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    }).format(new Date(iso));
+  } catch {
+    return iso;
+  }
+}
+
+function formatTimeWithZone(iso) {
+  try {
+    const d = new Date(iso);
+    const time = new Intl.DateTimeFormat('en-US', {
+      timeZone: LAB_TIMEZONE,
+      hour: 'numeric',
+      minute: '2-digit',
+    }).format(d);
+    const zonePart = new Intl.DateTimeFormat('en-US', {
+      timeZone: LAB_TIMEZONE,
+      timeZoneName: 'short',
+    })
+      .formatToParts(d)
+      .find((p) => p.type === 'timeZoneName');
+    return zonePart ? `${time} ${zonePart.value}` : time;
+  } catch {
+    return iso;
+  }
+}
+
+function seatsLabel(lab) {
+  if (!lab.has_availability) return 'Full';
+  return `${lab.seats_remaining} seat${lab.seats_remaining === 1 ? '' : 's'} remaining`;
+}
+
+function pushDataLayer(event, detail) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(Object.assign({ event }, detail));
+}
+
+// Exported so index.astro can report the "View all upcoming labs" click
+// without needing its own `window.dataLayer` reference (TS in .astro
+// <script> blocks doesn't know about that global).
+export function trackViewAllLabsClicked(labSlug) {
+  pushDataLayer('view_all_labs_clicked', { lab_slug: labSlug });
+}
+
+function featuredSectionSkeletonHtml() {
+  return `
+    <div class="featured-lab featured-lab--loading" aria-hidden="true">
+      <div class="featured-lab__col featured-lab__col--details">
+        <div class="skeleton-line skeleton-line--eyebrow"></div>
+        <div class="skeleton-line skeleton-line--title"></div>
+        <div class="skeleton-line skeleton-line--text"></div>
+        <div class="skeleton-line skeleton-line--text"></div>
+      </div>
+      <div class="featured-lab__col featured-lab__col--form">
+        <div class="skeleton-line skeleton-line--title"></div>
+        <div class="skeleton-line skeleton-line--field"></div>
+        <div class="skeleton-line skeleton-line--field"></div>
+        <div class="skeleton-line skeleton-line--button"></div>
+      </div>
+    </div>
+  `;
+}
+
+function comingSoonHtml() {
+  return `
+    <div class="featured-lab featured-lab--empty">
+      <h3 class="featured-lab__empty-title">New Live Labs Are Coming Soon</h3>
+      <p class="featured-lab__empty-copy">Join the list and we&rsquo;ll let you know when registration opens.</p>
+      <form class="featured-lab__notify-form js-labs-notify-form">
+        <input
+          type="email"
+          name="email"
+          aria-label="Email address"
+          placeholder="you@example.com"
+          required
+        />
+        <button type="submit" class="button">Get notified</button>
+      </form>
+      <p class="featured-lab__notify-status js-labs-notify-status" role="status"></p>
+    </div>
+  `;
+}
+
+function featuredDetailsHtml(lab) {
+  const summary = lab.hook || lab.description || '';
+  return `
+    <div class="featured-lab__col featured-lab__col--details">
+      <p class="featured-lab__meta">
+        <span class="featured-lab__eyebrow">Next Live Lab</span>
+        <span class="lab-card__badge lab-card__badge--live">
+          <span class="lab-card__badge-dot" aria-hidden="true"></span>
+          Live Lab
+        </span>
+      </p>
+      <p class="featured-lab__date">${escapeHtml(formatFullDate(lab.event_date))}</p>
+      <h3 class="featured-lab__title">${escapeHtml(lab.title)}</h3>
+      ${summary ? `<p class="featured-lab__description">${escapeHtml(summary)}</p>` : ''}
+      <p class="featured-lab__practice">
+        In this live session, you will practice the tool with others and leave with one
+        clear person or situation to use it with this week.
+      </p>
+      <ul class="featured-lab__facts">
+        <li>${escapeHtml(formatTimeWithZone(lab.event_date))}</li>
+        <li>${escapeHtml(labDurationLabel(lab))}</li>
+        <li>${escapeHtml(labPriceLabel(lab))}</li>
+        <li class="featured-lab__facts-seats${lab.has_availability ? '' : ' featured-lab__facts-seats--full'}">${escapeHtml(seatsLabel(lab))}</li>
+      </ul>
+      <p class="featured-lab__details-link">
+        <a
+          href="${escapeHtml(lab.url)}"
+          data-featured-lab-details-link
+          data-ecosystem-cta
+          data-cta-level="level_3"
+          data-cta-type="covo_lab_details"
+          data-destination-site="covo"
+        >View full lab details &rarr;</a>
+      </p>
+    </div>
+  `;
+}
+
+function featuredFormHtml(lab) {
+  const freeNote = labPriceLabel(lab).toLowerCase() === 'free' ? 'Free registration' : labPriceLabel(lab);
+  return `
+    <div class="featured-lab__col featured-lab__col--form">
+      <div class="featured-lab__form-card">
+        <h3 class="featured-lab__form-heading">Reserve Your Seat</h3>
+        <p class="featured-lab__form-note">Complete the form below and your spot will be saved.</p>
+        <p class="featured-lab__form-badge">
+          ${escapeHtml(freeNote)} &middot; ${escapeHtml(seatsLabel(lab))}
+        </p>
+        <div class="featured-lab__widget" id="featured-lab-widget" aria-live="polite"></div>
+      </div>
+    </div>
+  `;
+}
+
+// Loads the CoVo registration widget script once and reuses it for
+// subsequent mounts (there is only ever one featured lab per page load,
+// but this guards against double-invocation).
+let widgetScriptPromise = null;
+function loadWidgetScript() {
+  if (window.CovoLabRegistration) return Promise.resolve();
+  if (widgetScriptPromise) return widgetScriptPromise;
+  widgetScriptPromise = new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = COVO_WIDGET_SCRIPT_URL;
+    script.async = true;
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error('Failed to load CoVo registration widget'));
+    document.head.appendChild(script);
+  });
+  return widgetScriptPromise;
+}
+
+// Fetches the next upcoming lab that still has open seats and renders
+// the full on-page registration section (lab details + the real CoVo
+// signup form) into `container`. Falls back to a "coming soon" email
+// signup when no eligible lab is found. `contentTag`, if given, is
+// stamped onto the registration as `utm_content` and onto the "full lab
+// details" link.
+export async function initFeaturedLabSection(container, contentTag) {
+  container.innerHTML = featuredSectionSkeletonHtml();
+
+  let lab = null;
+  try {
+    // public-labs returns upcoming labs soonest-first but does not
+    // filter by availability, so a full or closed lab can be first —
+    // fetch a handful and pick the first one that's actually open.
+    const labs = await fetchUpcomingLabs(10);
+    lab = labs.find((l) => l.has_availability) || null;
+  } catch {
+    lab = null;
+  }
+
+  if (!lab) {
+    container.innerHTML = comingSoonHtml();
+    wireNotifyForm(container);
+    return null;
+  }
+
+  container.innerHTML = `<div class="featured-lab">${featuredDetailsHtml(lab)}${featuredFormHtml(lab)}</div>`;
+  pushDataLayer('homepage_featured_lab_viewed', { lab_slug: lab.slug });
+
+  const detailsLink = container.querySelector('[data-featured-lab-details-link]');
+  if (detailsLink) {
+    detailsLink.addEventListener('click', () => {
+      pushDataLayer('full_lab_details_clicked', { lab_slug: lab.slug });
+    });
+  }
+
+  const widgetContainer = container.querySelector('#featured-lab-widget');
+  try {
+    await loadWidgetScript();
+    window.CovoLabRegistration.mount(widgetContainer, {
+      eventSlug: lab.slug,
+      submitLabel: 'Reserve My Seat',
+      contentTag: contentTag || 'home__featured-lab__form',
+      onEvent(name, detail) {
+        if (name === 'registration_started') {
+          pushDataLayer('homepage_registration_started', { lab_slug: lab.slug });
+        } else if (name === 'registration_completed') {
+          pushDataLayer('homepage_registration_completed', { lab_slug: lab.slug });
+        } else if (name === 'registration_failed') {
+          pushDataLayer('homepage_registration_failed', {
+            lab_slug: lab.slug,
+            error_message: detail && detail.error,
+          });
+        }
+      },
+    });
+  } catch {
+    widgetContainer.innerHTML = `
+      <p class="featured-lab__widget-error">
+        The registration form couldn&rsquo;t load. <a href="${escapeHtml(lab.url)}">Register on the lab page instead &rarr;</a>
+      </p>
+    `;
+  }
+
+  return lab;
+}
