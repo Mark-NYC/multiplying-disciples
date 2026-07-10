@@ -1,56 +1,53 @@
 ---
-// Homepage. Real content ported from the live WordPress "Home" page
-// (post_id 4788, post_name "main-home") via the WordPress export XML,
-// lightly cleaned up. See MIGRATION_PLAN.md for what "lightly cleaned
-// up" means here.
+// Homepage. Restructured as a conversion path toward the single primary
+// action on this site: JOIN A LIVE MULTIPLYING LAB. Every section answers
+// one question a curious-but-skeptical visitor is silently asking, in
+// order: what will this help me do -> why have I been stuck -> is this
+// for me -> how does it work -> what makes it different -> can I trust
+// it -> what do I do next. See the section-by-section comments below.
 //
-// Layout follows the approved "field guide" mockup: hero, a short
-// conviction strip, the 3-step pathway, the labs CTA, an edge-to-edge
-// 2-column grid of true 1:1 square cards (why coaching / field-tested
-// methods / community of practice), the "who this is for" pill
-// section, a gold conviction band, a full-width "From the Field" quote
-// band, numbered FAQ, footer. Section eyebrows use a monospace label; a
-// clean circular brand seal appears on the conviction band and in the
-// footer. No distressed textures anywhere — clean surfaces only.
+// Visual system is unchanged from the earlier "field guide" pass: same
+// palette, monospace eyebrows/section numbers, film grain, edge-to-edge
+// square block-grid cards, brand seal, numbered FAQ. This pass is copy,
+// hierarchy, and section-order only.
 //
-// Homepage order (per the field-manual strategy pass): hero -> short
-// conviction strip -> pathway -> upcoming labs -> why coaching / NA
-// methods / community of practice grid -> who this is for -> gold
-// conviction band -> field notes -> FAQ. Live practice (the labs) is
-// pulled up right after the pathway so it's the first real CTA a
-// visitor sees, not something buried after several read-only sections.
-//
-// The labs CTA fetches CoVo Multipliers' next 3 upcoming labs
+// The labs CTA (both the featured single-lab card in section 6 and the
+// "Join a Lab" nav button) fetches CoVo Multipliers' live lab data
 // client-side from their public-labs Edge Function (see
-// src/lib/labs-feed.js) — the single source of truth for lab data, also
-// used by CoVo's own homepage — so it stays in sync as labs are
-// added/removed on their end without a rebuild here.
+// src/lib/labs-feed.js) — the single source of truth for lab data — so
+// it stays in sync as labs are added/removed on their end without a
+// rebuild here. No lab title, date, or seat count is ever hardcoded.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CovoMark from '../components/CovoMark.astro';
 import BrandSeal from '../components/BrandSeal.astro';
 import ForYouIfSection from '../components/ForYouIfSection.astro';
-import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
+import { COVO_LABS_URL, COVO_HOME_URL, SITE } from '../data/site';
 ---
 
 <BaseLayout
-  title="Multiplying Disciples"
-  description="Every believer needs to be equipped to share the gospel, disciple others and start churches. Get tools and training to multiply disciples and reach the lost."
+  title="Multiplying Disciples | Simple Tools, Live Practice, Real Multiplication"
+  description="Learn simple biblical tools, practice them in live disciple-making labs, and take real steps with people you know."
   canonical="https://multiplyingdisciples.us/"
   type="website"
 >
+  <!-- 1. HERO — names the outcome (make disciples who multiply) and gets
+       a visitor to one of two actions immediately: join a lab, or start
+       lighter with a tool. Three short proof points replace the old
+       single-pill badge so each claim can actually be read at a glance. -->
   <section class="hero">
     <div class="hero__inner">
-      <h1>Multiply disciples in real life.</h1>
+      <h1>Learn to make disciples who multiply.</h1>
       <p class="hero__subhead">
-        Simple tools, live practice, and coaching that helps you obey Jesus with real people.
+        Simple biblical tools, live practice, and coaching that help ordinary believers obey
+        Jesus with real people.
       </p>
-      <img
-        class="hero__badge-img"
-        src="/wp-content/uploads/2023/05/Copy-of-Experience-confidence-in-your-disciple-making-1.png"
-        alt=""
-        width="1000"
-        height="100"
-      />
+
+      <ul class="hero__proof">
+        <li>Practice with real people.</li>
+        <li>Use it this week.</li>
+        <li>No experience required.</li>
+      </ul>
+
       <p class="hero__ctas">
         <a
           class="button"
@@ -65,7 +62,9 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
         <a class="button button--secondary" href="/starter-tools/">Start with the Tools</a>
       </p>
       <p class="hero__secondary">
-        New here? Start with the <a href="/starter-tools/">Conversation Box</a>.
+        <span class="hero__secondary-chip">
+          Not sure where to begin? Start with the <a href="/starter-tools/">Conversation Box</a>.
+        </span>
       </p>
     </div>
   </section>
@@ -75,21 +74,33 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     <p class="frontmatter__meta">Multiplying Disciples &middot; Field Manual &middot; North America</p>
   </section>
 
-  <!-- Conviction strip: short, direct, and deliberately placed before
-       any long-form content. This is the line that separates the site
-       from a content library — it names the actual product (reps, not
-       more reading) right up top. -->
-  <section class="conviction-strip">
-    <p class="conviction-strip__text">
-      You do not need more disciple-making content.{' '}
-      <span class="conviction-strip__emphasis">You need reps.</span>
-    </p>
+  <!-- 2. PROBLEM / REPS — the line that separates this site from a
+       content library. Names the actual product (reps, not more
+       reading) before anything else. Kept short on purpose. -->
+  <section class="conviction-strip" id="ch-reps">
+    <div class="conviction-strip__inner">
+      <p class="conviction-strip__text">
+        You do not need more disciple-making content.{' '}
+        <span class="conviction-strip__emphasis">You need reps.</span>
+      </p>
+      <p class="conviction-strip__body">
+        Most Christians do not need another sermon, podcast, or framework.
+      </p>
+      <p class="conviction-strip__body">They need someone to practice with.</p>
+      <p class="conviction-strip__body">
+        Our labs help you take one simple tool, use it with someone you know, and come back ready
+        for the next step.
+      </p>
+    </div>
   </section>
 
-  <!-- Pathway strip: names the journey in three simple steps, right
-       after the hero and conviction strip so a visitor sees the path
-       before reading anything else. Funnels straight into the labs
-       CTA below. -->
+  <!-- 3. THIS IS FOR YOU IF — moved right after the reps section so a
+       visitor can find themselves in the list before reading anything
+       else. -->
+  <ForYouIfSection />
+
+  <!-- 4. THREE-STEP PATHWAY — names the journey in three simple steps
+       and funnels straight into the labs CTA below. -->
   <section class="pathway" id="ch-pathway">
     <p class="eyebrow eyebrow--gold-text">502 &middot; The Pathway</p>
     <h2>How multiplication becomes practice</h2>
@@ -103,8 +114,8 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
           </svg>
         </span>
-        <h3>Learn the tool</h3>
-        <p>Pick one simple, biblical tool you can use this week.</p>
+        <h3>Learn one tool</h3>
+        <p>Pick one simple biblical tool you can understand today and use this week.</p>
       </li>
       <li class="pathway__step">
         <span class="pathway__num">Step 02</span>
@@ -115,8 +126,8 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
             <path d="M19 8v6M22 11h-6" />
           </svg>
         </span>
-        <h3>Practice it live</h3>
-        <p>Join a lab and get reps with real practitioners.</p>
+        <h3>Practice with others</h3>
+        <p>Join a live lab and get reps with real practitioners.</p>
       </li>
       <li class="pathway__step">
         <span class="pathway__num">Step 03</span>
@@ -125,25 +136,78 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
             <path d="M12 3v18M5 10l7-7 7 7" />
           </svg>
         </span>
-        <h3>Obey in real life</h3>
-        <p>Use it with someone you know, then come back with the story.</p>
+        <h3>Multiply in real life</h3>
+        <p>Use it with someone you know. Come back with the story. Repeat.</p>
       </li>
     </ol>
+    <p class="pathway__cta">
+      <a
+        class="button"
+        href={COVO_LABS_URL}
+        data-ecosystem-cta
+        data-cta-level="level_3"
+        data-cta-type="covo_training"
+        data-destination-site="covo"
+      >See Upcoming Labs</a>
+    </p>
   </section>
 
+  <!-- 5. COACHING DIFFERENTIATION — the "what makes this different"
+       answer, right after the pathway names the steps. Paired with a
+       short video so the case for live practice is heard, not just
+       read. -->
+  <section class="block-grid" id="ch-why" aria-label="Why coaching">
+    <div class="block-grid__cell block-grid__cell--text block-grid__cell--green">
+      <p class="eyebrow eyebrow--gold">501 &middot; Why Coaching</p>
+      <h2>Resources can teach you a tool. Coaching helps you obey with it.</h2>
+      <p>Most disciple-makers do not need more information.</p>
+      <p>They need someone asking:</p>
+      <p class="block-grid__quote">&ldquo;Who are you going to use this with this week?&rdquo;</p>
+      <p>
+        That is what coaching does. It turns learning into action, action into confidence, and
+        confidence into multiplication.
+      </p>
+      <p class="block-grid__punch">Tools explain it. Coaching helps you live it.</p>
+    </div>
+
+    <a
+      class="block-grid__cell block-grid__cell--image block-grid__cell--video"
+      href={SITE.social.youtube}
+      target="_blank"
+      rel="noopener"
+      aria-label="Watch why live practice changes everything on YouTube"
+    >
+      <img
+        src="/wp-content/uploads/2025/03/maxresdefault-7-1024x576.jpg"
+        alt="A Multiplying Disciples coach recording a short teaching video"
+        width="1024"
+        height="576"
+        loading="lazy"
+      />
+      <span class="block-grid__play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </span>
+    </a>
+  </section>
+  <p class="coaching-caption">Why live practice changes everything.</p>
+
+  <!-- 6. FEATURED LIVE LAB — the primary conversion. One featured card
+       from live CoVo data, not a wall of three equal options. -->
   <section class="labs-cta" id="ch-practice">
     <div class="labs-cta__inner">
       <p class="eyebrow eyebrow--gold-text">503 &middot; Practice</p>
-      <h2><CovoMark /> Join a Live Multiplying Lab</h2>
-      <p class="labs-cta__descriptor">Practice one simple tool. Leave with one next step.</p>
+      <h2><CovoMark /> Join the next Live Multiplying Lab</h2>
+      <p class="labs-cta__descriptor">Practice one simple tool. Leave with one clear next step.</p>
 
       <div
-        class="labs-cta__grid"
+        class="labs-cta__grid labs-cta__grid--featured"
         id="labs-cta-grid"
         aria-live="polite"
         data-labs-content-tag="home__training__labs-grid"
       >
-        <p class="labs-cta__loading">Loading upcoming labs&hellip;</p>
+        <p class="labs-cta__loading">Loading the next lab&hellip;</p>
       </div>
 
       <p class="labs-cta__not-sure">
@@ -185,38 +249,11 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     </div>
   </section>
 
-  <!-- Edge-to-edge block grid: 2 columns of true 1:1 square cards on
-       desktop, stacked on mobile. DOM order pairs each text card with
-       its image (text left, image right per row) and reads correctly
-       when stacked: coaching copy, video, NA methods, women talking,
-       community momentum, group praying. -->
-  <section class="block-grid" id="ch-why" aria-label="Why coaching">
-    <!-- Card 1: main coaching copy -->
-    <div class="block-grid__cell block-grid__cell--text block-grid__cell--green">
-      <p class="eyebrow eyebrow--gold">501 &mdash; Why Coaching</p>
-      <h2>
-        Resources can teach you a tool. Coaching helps you obey with it.
-      </h2>
-      <p>
-        Most people do not need another disciple-making framework. They need help taking the
-        next step with someone they actually know. That is what coaching does. It turns tools
-        into practice, practice into confidence, and confidence into multiplication.
-      </p>
-      <p class="block-grid__punch">Tools explain it. Coaching helps you live it.</p>
-    </div>
-
-    <!-- Card 2: video thumbnail -->
-    <div class="block-grid__cell block-grid__cell--image">
-      <img
-        src="/wp-content/uploads/2025/03/maxresdefault-7-1024x576.jpg"
-        alt="A man recording a disciple-making teaching video"
-        width="1024"
-        height="576"
-        loading="lazy"
-      />
-    </div>
-
-    <!-- Card 4: field-tested methods -->
+  <!-- 7. FIELD-TESTED PROOF — "can I trust it," part one: this is
+       practiced by ordinary believers in real places, not theory.
+       NOTE: the paired image below is a placeholder — swap for the
+       baptism photo once supplied (see final delivery notes). -->
+  <section class="block-grid" id="ch-field-tested" aria-label="Field-tested proof">
     <div class="block-grid__cell block-grid__cell--text block-grid__cell--sage">
       <span class="field-stamp-mark" aria-hidden="true">Field-Tested</span>
       <span class="block-grid__check" aria-hidden="true">
@@ -224,14 +261,15 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
           <path d="M5 12.5l4.5 4.5L19 7.5" />
         </svg>
       </span>
-      <h3>Learn what is working in North America.</h3>
+      <h3>Learn what is actually working in North America.</h3>
       <p>
-        Get methods that have been field-tested by practitioners in North America. Know that
-        the tools and process are <strong>not only biblical, but fruitful.</strong>
+        Everything we teach has been practiced by ordinary believers making disciples in real
+        neighborhoods, workplaces, campuses, and homes.
       </p>
+      <p>No theory. No hype.</p>
+      <p>Just simple tools people are actually using.</p>
     </div>
 
-    <!-- Card 3: two women talking -->
     <div class="block-grid__cell block-grid__cell--image">
       <img
         src="/wp-content/uploads/2025/01/Copy-of-Untitled-47-768x768.webp"
@@ -241,22 +279,28 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
         loading="lazy"
       />
     </div>
+  </section>
 
-    <!-- Card 5: community of practice -->
+  <!-- 8. COMMUNITY OF PRACTICE — "can I trust it," part two: you would
+       not be doing this alone. -->
+  <section class="block-grid" id="ch-community" aria-label="Community of practice">
     <div class="block-grid__cell block-grid__cell--text block-grid__cell--paper">
       <span class="block-grid__check" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
           <path d="M5 12.5l4.5 4.5L19 7.5" />
         </svg>
       </span>
-      <h3>The momentum of a community of practice.</h3>
+      <h3>Do not practice alone.</h3>
+      <p>Multiplication rarely happens in isolation.</p>
       <p>
-        You were not meant to practice alone. Join others who are learning the same tools,{' '}
-        <strong>taking real steps, and bringing back stories from the field.</strong>
+        Practice alongside others who are taking real steps, asking honest questions, and
+        bringing back stories from the field.
+      </p>
+      <p class="block-grid__punch block-grid__punch--dark">
+        You were not meant to figure this out alone.
       </p>
     </div>
 
-    <!-- Card 6: small group praying -->
     <div class="block-grid__cell block-grid__cell--image">
       <img
         src="/wp-content/uploads/2025/01/Copy-of-Untitled-48-768x768.webp"
@@ -268,11 +312,9 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     </div>
   </section>
 
-  <ForYouIfSection />
-
-  <!-- Conviction band: one full-width statement of why this matters,
-       drawn from the site's own vision language. Gold field, clean
-       brand seal — the page's single "weighty" moment. -->
+  <!-- 9. CONVICTION — one weighty, short statement of why this exists.
+       Deliberately brief so it doesn't compete with the conversion
+       path around it. -->
   <section class="conviction">
     <div class="conviction__inner">
       <div class="conviction__copy">
@@ -281,6 +323,11 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
           Every disciple can share the gospel, disciple others, and <em
           >gather people around Jesus.</em>
         </h2>
+        <p class="conviction__support">
+          You do not need a title, a seminary degree, or permission.
+        </p>
+        <p class="conviction__support">Jesus calls ordinary believers to obey and help others obey.</p>
+        <p class="conviction__support">That is who this exists for.</p>
       </div>
       <div class="conviction__seal">
         <BrandSeal />
@@ -288,6 +335,9 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     </div>
   </section>
 
+  <!-- 10. FIELD NOTES — specific, small stories rather than generic
+       praise. Structured so any placeholder quote can be swapped for a
+       real, approved one without touching markup. -->
   <section class="field-quote" id="ch-field-notes">
     <div class="field-quote__inner">
       <p class="eyebrow eyebrow--gold-bright">504 &middot; Field Notes</p>
@@ -295,15 +345,22 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
       <div class="field-quote__quotes">
         <blockquote class="field-quote__quote">
           <p>
-            &ldquo;I stopped just learning disciple-making tools and actually used one with
+            &ldquo;I used the Conversation Box with my coworker two days after the lab. It was
+            the first spiritual conversation I had ever started.&rdquo;
+          </p>
+          <footer>&mdash; Lab participant</footer>
+        </blockquote>
+        <blockquote class="field-quote__quote">
+          <p>
+            &ldquo;I stopped collecting disciple-making resources and finally used one with
             someone that week.&rdquo;
           </p>
           <footer>&mdash; Lab participant</footer>
         </blockquote>
         <blockquote class="field-quote__quote">
           <p>
-            &ldquo;Going through this with other practitioners made it feel real, not theory.
-            Something is actually happening now.&rdquo;
+            &ldquo;Going through this with other practitioners made it feel real, not
+            theoretical. Something is actually happening now.&rdquo;
           </p>
           <footer>&mdash; Marcus T <span class="field-quote__log">&middot; Field note &middot; OKC &middot; 2025</span></footer>
         </blockquote>
@@ -319,6 +376,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     </div>
   </section>
 
+  <!-- 11. FAQ — the last practical questions before the final CTA. -->
   <section class="faq-section" id="ch-questions">
     <div class="faq-section__inner">
       <div class="faq-section__label">
@@ -330,49 +388,102 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
         <details class="faq__item">
           <summary>
             <span class="faq__num">(01)</span>
-            <span class="faq__q">What is the purpose of the disciple making training?</span>
+            <span class="faq__q">What happens in a Live Multiplying Lab?</span>
             <span class="faq__arrow" aria-hidden="true">&#8599;</span>
           </summary>
           <p>
-            The purpose of our disciple making training and coaching is to equip and empower
-            individuals to become effective disciple makers who can multiply disciples and reach
-            the lost. The reality is, the process of training matters and equips disciple makers
-            to equip others in both confidence and competence. We believe in cultivating a
-            movement of disciple makers who are passionate about sharing the Gospel and making
-            disciples.
+            You will learn one simple biblical tool, practice it with others, and leave with one
+            clear next step to use it in real life.
           </p>
         </details>
 
         <details class="faq__item">
           <summary>
             <span class="faq__num">(02)</span>
-            <span class="faq__q">Why is coaching important in the process of disciple making?</span>
+            <span class="faq__q">Who are the labs for?</span>
             <span class="faq__arrow" aria-hidden="true">&#8599;</span>
           </summary>
           <p>
-            Coaching within a community of practice plays a crucial role in disciple making as it
-            provides personalized guidance, support, and accountability. Growth happens through
-            both challenge and support. Our training includes coaching from experienced
-            practitioners who have seen fruitful results in their own disciple making efforts.
-            They will walk alongside you, offering insights, answering questions, and helping you
-            navigate challenges along the way.
+            The labs are for ordinary believers, pastors, church planters, missionaries,
+            students, and marketplace leaders who want to make disciples in real life.
           </p>
         </details>
 
         <details class="faq__item">
           <summary>
             <span class="faq__num">(03)</span>
-            <span class="faq__q">Is the training completely free, or are there any hidden costs involved?</span>
+            <span class="faq__q">Do I need previous disciple-making experience?</span>
             <span class="faq__arrow" aria-hidden="true">&#8599;</span>
           </summary>
           <p>
-            Yes, the training we offer is completely free of charge. Always. There are no hidden
-            costs or fees associated with participating in the training. Our goal is to make
-            high-quality disciple making resources and coaching accessible to all who have a
-            passion for reaching and discipling people for Jesus.
+            No. You can come with experience or start from scratch. The tools are simple,
+            practical, and designed to be used with real people.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            <span class="faq__num">(04)</span>
+            <span class="faq__q">Are the labs free?</span>
+            <span class="faq__arrow" aria-hidden="true">&#8599;</span>
+          </summary>
+          <p>
+            Yes, the labs are completely free of charge. Always. There are no hidden costs or
+            fees to participate. Our goal is to make high-quality disciple-making coaching and
+            practice accessible to everyone who wants to make disciples for Jesus.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            <span class="faq__num">(05)</span>
+            <span class="faq__q">What is the difference between the tools and the labs?</span>
+            <span class="faq__arrow" aria-hidden="true">&#8599;</span>
+          </summary>
+          <p>
+            The tools show you what to do. The labs help you practice, ask questions, and take a
+            real next step.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            <span class="faq__num">(06)</span>
+            <span class="faq__q">What happens after the lab?</span>
+            <span class="faq__arrow" aria-hidden="true">&#8599;</span>
+          </summary>
+          <p>
+            You use the tool with someone you know and come back with the story. You can then
+            join future labs and continue practicing with the community.
           </p>
         </details>
       </div>
+    </div>
+  </section>
+
+  <!-- 12. FINAL CTA — one last, unambiguous push toward the primary
+       action before the footer. Light band + gold rule keeps it
+       visually distinct from the dark footer immediately below. -->
+  <section class="final-cta" id="ch-final-cta">
+    <div class="final-cta__inner">
+      <h2>Ready to stop learning and start practicing?</h2>
+      <p class="final-cta__body">
+        Join a live Multiplying Lab. Practice one simple tool. Use it this week. Come back with a
+        story.
+      </p>
+      <p class="final-cta__ctas">
+        <a
+          class="button"
+          href={COVO_LABS_URL}
+          data-ecosystem-cta
+          data-cta-level="level_3"
+          data-cta-type="covo_training"
+          data-destination-site="covo"
+        >Join the Next Lab</a>
+      </p>
+      <p class="final-cta__secondary">
+        <a href="/starter-tools/">Start with the Tools</a>
+      </p>
     </div>
   </section>
 </BaseLayout>
@@ -382,7 +493,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
 
   const grid = document.getElementById('labs-cta-grid');
   if (grid) {
-    renderLabsInto(grid, 3, 'Join This Lab', grid.dataset.labsContentTag);
+    renderLabsInto(grid, 1, 'Join This Lab', grid.dataset.labsContentTag);
   }
 </script>
 
@@ -400,7 +511,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
 
   @media (max-width: 640px) {
     .hero {
-      padding-bottom: 20rem;
+      padding-bottom: 22rem;
       background-position: center 28%;
     }
   }
@@ -471,12 +582,40 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   .hero__subhead {
     font-size: 1.1rem;
     color: var(--color-text-muted);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.1rem;
   }
 
-  .hero__badge-img {
-    max-width: 22rem;
-    margin: 0.25rem auto 1rem;
+  /* Three short proof points — replaces the old single long pill badge.
+     Compact inline items on desktop; still comfortably tappable/legible
+     stacked on mobile. Deliberately plain text, no card/pill chrome, so
+     three short claims read at a glance instead of one busy shape. */
+  .hero__proof {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.1rem;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .hero__proof li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .hero__proof li::before {
+    content: '';
+    width: 0.4rem;
+    height: 0.4rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--color-accent);
   }
 
   .hero__ctas {
@@ -488,9 +627,31 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   }
 
   .hero__secondary {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     font-size: 0.95rem;
     color: var(--color-text-muted);
+  }
+
+  /* Guaranteed-legible chip: the hero photo has its own baked-in
+     white-to-photo fade, and how much of that fade shows above this
+     line varies by viewport. A solid, near-opaque Warm Paper backdrop
+     means this link stays readable regardless of what's behind it. */
+  .hero__secondary-chip {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-pill);
+    background: rgba(247, 243, 234, 0.92);
+  }
+
+  .hero__secondary a {
+    color: var(--color-clay-text);
+    font-weight: 600;
+  }
+
+  @media (max-width: 640px) {
+    .hero__secondary {
+      margin-top: 1.75rem;
+    }
   }
 
   /* --- Shared section eyebrow (monospace label) ------------------ */
@@ -547,13 +708,18 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   .conviction-strip {
     max-width: var(--site-max-width);
     margin: 0 auto;
-    padding: 1.75rem 1.5rem 2.5rem;
+    padding: 1.75rem 1.5rem 3rem;
     text-align: center;
+  }
+
+  .conviction-strip__inner {
+    max-width: 34rem;
+    margin: 0 auto;
   }
 
   .conviction-strip__text {
     display: inline-block;
-    margin: 0;
+    margin: 0 0 1.1rem;
     padding-bottom: 0.65rem;
     font-size: clamp(1.05rem, 2.2vw, 1.35rem);
     font-weight: 700;
@@ -569,9 +735,22 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     color: var(--color-primary);
   }
 
+  .conviction-strip__body {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--color-text-muted);
+  }
+
+  .conviction-strip__body:last-child {
+    margin-bottom: 0;
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
   @media (max-width: 640px) {
     .conviction-strip {
-      padding: 1.25rem 1.25rem 2rem;
+      padding: 1.25rem 1.25rem 2.25rem;
     }
 
     .conviction-strip__text {
@@ -621,6 +800,52 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     mix-blend-mode: overlay;
     will-change: transform;
     animation: grain-drift 0.8s steps(5) infinite;
+  }
+
+  /* Video cell: a plain anchor rather than a div, so the whole square
+     is clickable through to the video. */
+  .block-grid__cell--video {
+    display: block;
+    cursor: pointer;
+  }
+
+  .block-grid__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.25rem;
+    height: 4.25rem;
+    border-radius: 50%;
+    background: rgba(31, 37, 35, 0.55);
+    color: #ffffff;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .block-grid__play svg {
+    transform: translateX(2px);
+  }
+
+  .block-grid__cell--video:hover .block-grid__play,
+  .block-grid__cell--video:focus-visible .block-grid__play {
+    background: rgba(23, 76, 60, 0.85);
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+
+  .coaching-caption {
+    margin: 0;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    /* Light muted tone tuned for the dark green background this bar
+       shares with the coaching card above it — var(--color-text-muted)
+       is tuned for light backgrounds and would fail contrast here. */
+    color: var(--color-footer-text-muted);
+    background: var(--color-primary);
   }
 
   .block-grid__cell--text {
@@ -682,11 +907,21 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   .block-grid__cell--text p {
     font-size: clamp(0.9rem, 1.2vw, 1.05rem);
     line-height: 1.6;
-    margin: 0;
+    margin: 0 0 0.65rem;
+  }
+
+  .block-grid__cell--text p:last-child {
+    margin-bottom: 0;
   }
 
   .block-grid__cell--green p {
     color: rgba(247, 243, 234, 0.88);
+  }
+
+  .block-grid__quote {
+    font-style: italic;
+    font-weight: 600 !important;
+    color: var(--color-primary-text) !important;
   }
 
   .block-grid__cell--sage p,
@@ -701,6 +936,12 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     font-weight: 700;
     font-style: italic;
     color: #f09e63 !important;
+  }
+
+  /* Same emphasis treatment, tuned for light-background cards — the
+     brightened clay above fails contrast on Warm Paper/Soft Sage. */
+  .block-grid__punch--dark {
+    color: var(--color-clay-text) !important;
   }
 
   .block-grid__check {
@@ -733,7 +974,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
 
   .conviction {
     background: var(--color-gold);
-    padding: 4.5rem 1.5rem;
+    padding: 3.25rem 1.5rem;
   }
 
   .conviction__inner {
@@ -762,6 +1003,13 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     color: var(--color-primary);
   }
 
+  .conviction__support {
+    margin: 0.6rem 0 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgba(31, 37, 35, 0.78);
+  }
+
   .conviction__seal {
     flex-shrink: 0;
     width: 9rem;
@@ -771,6 +1019,10 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   }
 
   @media (max-width: 700px) {
+    .conviction {
+      padding: 2.5rem 1.5rem;
+    }
+
     .conviction__inner {
       flex-direction: column-reverse;
       align-items: flex-start;
@@ -889,6 +1141,10 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     color: var(--color-text-muted);
   }
 
+  .pathway__cta {
+    margin: 3rem 0 0;
+  }
+
   @media (max-width: 700px) {
     .pathway__steps {
       grid-template-columns: 1fr;
@@ -904,9 +1160,13 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
       left: 50%;
       transform: translateX(-50%);
     }
+
+    .pathway__cta {
+      margin-top: 2.5rem;
+    }
   }
 
-  /* --- Labs CTA: "not sure where to start" nudge under the grid --- */
+  /* --- Labs CTA: featured single-lab card -------------------------- */
 
   .labs-cta__not-sure {
     margin: 0 0 1rem;
@@ -917,6 +1177,15 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
   .labs-cta__not-sure a {
     color: var(--color-clay-text);
     font-weight: 600;
+  }
+
+  /* One featured card, centered, rather than the multi-card grid used
+     elsewhere (labs-cta__grid's base rules still apply — this just
+     narrows and centers it since there's only ever one child now). */
+  .labs-cta__grid--featured {
+    max-width: 26rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* --- "From the Field" quote band ------------------------------- */
@@ -1092,6 +1361,65 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
 
     .faq__item p {
       padding-left: 0;
+    }
+
+    /* Larger tap target on mobile per the accessibility requirement
+       that accordion rows stay easy to hit with a thumb. */
+    .faq__item summary {
+      padding: 1.3rem 0.25rem;
+    }
+  }
+
+  /* --- Final CTA — light band + gold rule, distinct from the dark
+       footer that follows it immediately. -------------------------- */
+
+  .final-cta {
+    padding: 5rem 1.5rem;
+    text-align: center;
+    background: var(--color-bg);
+    border-top: 3px solid var(--color-gold);
+  }
+
+  .final-cta__inner {
+    max-width: 34rem;
+    margin: 0 auto;
+  }
+
+  .final-cta h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    line-height: 1.25;
+  }
+
+  .final-cta__body {
+    margin: 0 0 2rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  .final-cta__ctas {
+    margin: 0 0 1rem;
+  }
+
+  .final-cta__ctas .button {
+    padding: 0.9rem 2.25rem;
+    font-size: 1rem;
+  }
+
+  .final-cta__secondary {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .final-cta__secondary a {
+    color: var(--color-clay-text);
+    font-weight: 600;
+  }
+
+  @media (max-width: 640px) {
+    .final-cta {
+      padding: 3.5rem 1.5rem;
     }
   }
 </style>
