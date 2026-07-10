@@ -534,6 +534,13 @@ article tbody tr:nth-child(even) td {
   margin: 0 auto;
 }
 
+.labs-cta__icon {
+  display: block;
+  width: 4.5rem;
+  height: auto;
+  margin: 0 auto 1.25rem;
+}
+
 .labs-cta h2 {
   margin: 0 0 1rem;
   font-size: clamp(1.75rem, 3.2vw, 2.35rem);
