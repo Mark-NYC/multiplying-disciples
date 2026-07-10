@@ -1130,6 +1130,23 @@ import { SITE } from '../data/site';
     .pathway__cta {
       margin-top: 2.5rem;
     }
+
+    /* Mobile-only background treatment: the graph-paper grid is at its
+       clearest at the very top and fades out by roughly the middle of
+       Step 01, leaving a plain paper-colored band through the middle
+       of the section, then a light green (Soft Sage) gradient grows in
+       from the bottom edge. Desktop keeps the original flat, uniform
+       overlay untouched (see the unscoped .pathway::before rule). */
+    .pathway::before {
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        var(--color-bg) 34%,
+        var(--color-bg) 62%,
+        var(--color-surface) 100%
+      );
+      opacity: 1;
+    }
   }
 
   /* --- Labs CTA: featured lab registration section ------------------ */
