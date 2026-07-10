@@ -305,13 +305,6 @@ function pushDataLayer(event, detail) {
   window.dataLayer.push(Object.assign({ event }, detail));
 }
 
-// Exported so index.astro can report the "View all upcoming labs" click
-// without needing its own `window.dataLayer` reference (TS in .astro
-// <script> blocks doesn't know about that global).
-export function trackViewAllLabsClicked(labSlug) {
-  pushDataLayer('view_all_labs_clicked', { lab_slug: labSlug });
-}
-
 function featuredSectionSkeletonHtml() {
   return `
     <div class="featured-lab featured-lab--loading" aria-hidden="true">
@@ -319,7 +312,7 @@ function featuredSectionSkeletonHtml() {
         <div class="skeleton-line skeleton-line--eyebrow"></div>
         <div class="skeleton-line skeleton-line--title"></div>
         <div class="skeleton-line skeleton-line--text"></div>
-        <div class="skeleton-line skeleton-line--text"></div>
+        <div class="skeleton-line skeleton-line--eyebrow"></div>
       </div>
       <div class="featured-lab__col featured-lab__col--form">
         <div class="skeleton-line skeleton-line--title"></div>
@@ -353,52 +346,31 @@ function comingSoonHtml() {
 
 function featuredDetailsHtml(lab) {
   const summary = lab.hook || lab.description || '';
+  const seatsSpanClass = lab.has_availability ? 'featured-lab__seats' : 'featured-lab__seats featured-lab__seats--full';
+  const metaLine = [
+    escapeHtml(formatTimeWithZone(lab.event_date)),
+    escapeHtml(labDurationLabel(lab)),
+    escapeHtml(labPriceLabel(lab)),
+    `<span class="${seatsSpanClass}">${escapeHtml(seatsLabel(lab))}</span>`,
+  ].join(' &middot; ');
+
   return `
     <div class="featured-lab__col featured-lab__col--details">
-      <p class="featured-lab__meta">
-        <span class="featured-lab__eyebrow">Next Live Lab</span>
-        <span class="lab-card__badge lab-card__badge--live">
-          <span class="lab-card__badge-dot" aria-hidden="true"></span>
-          Live Lab
-        </span>
-      </p>
       <p class="featured-lab__date">${escapeHtml(formatFullDate(lab.event_date))}</p>
       <h3 class="featured-lab__title">${escapeHtml(lab.title)}</h3>
       ${summary ? `<p class="featured-lab__description">${escapeHtml(summary)}</p>` : ''}
-      <p class="featured-lab__practice">
-        In this live session, you will practice the tool with others and leave with one
-        clear person or situation to use it with this week.
-      </p>
-      <ul class="featured-lab__facts">
-        <li>${escapeHtml(formatTimeWithZone(lab.event_date))}</li>
-        <li>${escapeHtml(labDurationLabel(lab))}</li>
-        <li>${escapeHtml(labPriceLabel(lab))}</li>
-        <li class="featured-lab__facts-seats${lab.has_availability ? '' : ' featured-lab__facts-seats--full'}">${escapeHtml(seatsLabel(lab))}</li>
-      </ul>
-      <p class="featured-lab__details-link">
-        <a
-          href="${escapeHtml(lab.url)}"
-          data-featured-lab-details-link
-          data-ecosystem-cta
-          data-cta-level="level_3"
-          data-cta-type="covo_lab_details"
-          data-destination-site="covo"
-        >View full lab details &rarr;</a>
-      </p>
+      <p class="featured-lab__metadata">${metaLine}</p>
     </div>
   `;
 }
 
 function featuredFormHtml(lab) {
-  const freeNote = labPriceLabel(lab).toLowerCase() === 'free' ? 'Free registration' : labPriceLabel(lab);
+  const freeNote = labPriceLabel(lab).toLowerCase() === 'free' ? 'Free' : labPriceLabel(lab);
   return `
     <div class="featured-lab__col featured-lab__col--form">
       <div class="featured-lab__form-card">
         <h3 class="featured-lab__form-heading">Reserve Your Seat</h3>
-        <p class="featured-lab__form-note">Complete the form below and your spot will be saved.</p>
-        <p class="featured-lab__form-badge">
-          ${escapeHtml(freeNote)} &middot; ${escapeHtml(seatsLabel(lab))}
-        </p>
+        <p class="featured-lab__form-meta">${escapeHtml(freeNote)} &middot; ${escapeHtml(seatsLabel(lab))}</p>
         <div class="featured-lab__widget" id="featured-lab-widget" aria-live="polite"></div>
       </div>
     </div>
@@ -452,19 +424,13 @@ export async function initFeaturedLabSection(container, contentTag) {
   container.innerHTML = `<div class="featured-lab">${featuredDetailsHtml(lab)}${featuredFormHtml(lab)}</div>`;
   pushDataLayer('homepage_featured_lab_viewed', { lab_slug: lab.slug });
 
-  const detailsLink = container.querySelector('[data-featured-lab-details-link]');
-  if (detailsLink) {
-    detailsLink.addEventListener('click', () => {
-      pushDataLayer('full_lab_details_clicked', { lab_slug: lab.slug });
-    });
-  }
-
   const widgetContainer = container.querySelector('#featured-lab-widget');
   try {
     await loadWidgetScript();
     window.CovoLabRegistration.mount(widgetContainer, {
       eventSlug: lab.slug,
       submitLabel: 'Reserve My Seat',
+      consentLabel: 'Yes, email me about future labs, resources, and training. Unsubscribe anytime.',
       contentTag: contentTag || 'home__featured-lab__form',
       onEvent(name, detail) {
         if (name === 'registration_started') {

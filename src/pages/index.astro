@@ -21,10 +21,9 @@
 // widget (covo-multipliers/embeds/lab-registration-widget.js), embedded
 // directly — not a duplicated copy of the form.
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CovoMark from '../components/CovoMark.astro';
 import BrandSeal from '../components/BrandSeal.astro';
 import ForYouIfSection from '../components/ForYouIfSection.astro';
-import { COVO_LABS_URL, COVO_HOME_URL, SITE } from '../data/site';
+import { SITE } from '../data/site';
 ---
 
 <BaseLayout
@@ -188,8 +187,7 @@ import { COVO_LABS_URL, COVO_HOME_URL, SITE } from '../data/site';
        not a card that links out. -->
   <section class="labs-cta" id="ch-practice">
     <div class="labs-cta__inner">
-      <p class="eyebrow eyebrow--gold-text">503 &middot; Practice</p>
-      <h2><CovoMark /> Join the Next Live Multiplying Lab</h2>
+      <h2>Join the Next Live Multiplying Lab</h2>
       <p class="labs-cta__descriptor">
         Practice one simple tool. Leave knowing exactly what to do this week.
       </p>
@@ -199,27 +197,6 @@ import { COVO_LABS_URL, COVO_HOME_URL, SITE } from '../data/site';
         aria-live="polite"
         data-labs-content-tag="home__featured-lab__form"
       ></div>
-
-      <p class="labs-cta__view-all">
-        <a
-          href={COVO_LABS_URL}
-          id="labs-cta-view-all"
-          data-ecosystem-cta
-          data-cta-level="level_3"
-          data-cta-type="covo_training"
-          data-destination-site="covo"
-        >View all upcoming labs &rarr;</a>
-      </p>
-
-      <p class="labs-cta__bridge">
-        Live labs are hosted through <a
-          href={COVO_HOME_URL}
-          data-ecosystem-cta
-          data-cta-level="level_3"
-          data-cta-type="covo_home"
-          data-destination-site="covo"
-        >Covo Multipliers</a>, where we practice simple disciple-making tools together.
-      </p>
 
       <noscript>
         <p class="labs-cta__descriptor">
@@ -465,18 +442,11 @@ import { COVO_LABS_URL, COVO_HOME_URL, SITE } from '../data/site';
 </BaseLayout>
 
 <script>
-  import { initFeaturedLabSection, trackViewAllLabsClicked } from '../lib/labs-feed.js';
+  import { initFeaturedLabSection } from '../lib/labs-feed.js';
 
   const featuredSection = document.getElementById('featured-lab-section');
   if (featuredSection) {
-    initFeaturedLabSection(featuredSection, featuredSection.dataset.labsContentTag).then((lab) => {
-      const viewAllLink = document.getElementById('labs-cta-view-all');
-      if (viewAllLink) {
-        viewAllLink.addEventListener('click', () => {
-          trackViewAllLabsClicked(lab ? lab.slug : null);
-        });
-      }
-    });
+    initFeaturedLabSection(featuredSection, featuredSection.dataset.labsContentTag);
   }
 </script>
 
