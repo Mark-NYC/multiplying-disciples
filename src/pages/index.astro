@@ -1024,12 +1024,22 @@ import { SITE } from '../data/site';
     z-index: 1;
   }
 
+  /* Desktop: grid reads strongest at the top, fades to a plain paper
+     band by roughly the middle of the icon/step row, then a light
+     green (Soft Sage) gradient grows in from the bottom edge. Tuned
+     for the shorter, single-row desktop layout — see the 700px
+     breakpoint below for the taller, stacked-steps mobile version. */
   .pathway::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--color-bg);
-    opacity: 0.72;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      var(--color-bg) 42%,
+      var(--color-bg) 68%,
+      var(--color-surface) 100%
+    );
     z-index: 0;
     pointer-events: none;
   }
@@ -1129,6 +1139,22 @@ import { SITE } from '../data/site';
 
     .pathway__cta {
       margin-top: 2.5rem;
+    }
+
+    /* Mobile version of the same three-zone fade (see the unscoped
+       .pathway::before rule above for the desktop stops): the taller,
+       stacked-steps layout means the grid needs to fade out sooner —
+       by roughly the middle of Step 01 — to leave the same plain
+       paper band through the middle before the green grows in from
+       the bottom. */
+    .pathway::before {
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        var(--color-bg) 34%,
+        var(--color-bg) 62%,
+        var(--color-surface) 100%
+      );
     }
   }
 
