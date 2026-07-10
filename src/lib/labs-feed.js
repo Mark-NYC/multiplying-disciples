@@ -347,11 +347,10 @@ function comingSoonHtml() {
 function featuredDetailsHtml(lab) {
   const summary = lab.hook || lab.description || '';
   const seatsSpanClass = lab.has_availability ? 'featured-lab__seats' : 'featured-lab__seats featured-lab__seats--full';
-  const metaLine = [
+  const line1 = [
     escapeHtml(formatTimeWithZone(lab.event_date)),
     escapeHtml(labDurationLabel(lab)),
     escapeHtml(labPriceLabel(lab)),
-    `<span class="${seatsSpanClass}">${escapeHtml(seatsLabel(lab))}</span>`,
   ].join(' &middot; ');
 
   return `
@@ -359,7 +358,14 @@ function featuredDetailsHtml(lab) {
       <p class="featured-lab__date">${escapeHtml(formatFullDate(lab.event_date))}</p>
       <h3 class="featured-lab__title">${escapeHtml(lab.title)}</h3>
       ${summary ? `<p class="featured-lab__description">${escapeHtml(summary)}</p>` : ''}
-      <p class="featured-lab__metadata">${metaLine}</p>
+      <p class="featured-lab__metadata">${line1}</p>
+      <p class="featured-lab__live-line">
+        <span class="featured-lab__live-badge">
+          <span class="featured-lab__live-dot" aria-hidden="true"></span>
+          Live
+        </span>
+        <span class="${seatsSpanClass}">${escapeHtml(seatsLabel(lab))}</span>
+      </p>
     </div>
   `;
 }
@@ -370,6 +376,7 @@ function featuredFormHtml(lab) {
     <div class="featured-lab__col featured-lab__col--form">
       <div class="featured-lab__form-card">
         <h3 class="featured-lab__form-heading">Reserve Your Seat</h3>
+        <p class="featured-lab__form-invite">Join practitioners from across North America taking real disciple-making steps.</p>
         <p class="featured-lab__form-meta">${escapeHtml(freeNote)} &middot; ${escapeHtml(seatsLabel(lab))}</p>
         <div class="featured-lab__widget" id="featured-lab-widget" aria-live="polite"></div>
       </div>
