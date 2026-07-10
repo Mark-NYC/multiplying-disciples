@@ -284,7 +284,12 @@ import { COVO_LABS_URL, COVO_HOME_URL, SITE } from '../data/site';
   <!-- 8. COMMUNITY OF PRACTICE — "can I trust it," part two: you would
        not be doing this alone. -->
   <section class="block-grid" id="ch-community" aria-label="Community of practice">
-    <div class="block-grid__cell block-grid__cell--text block-grid__cell--paper">
+    <!-- Desktop-only: visually swapped with the paired image below via
+         `order` (see .block-grid__cell--community-text/--community-image
+         in the media query further down) so the image sits on the left
+         and text on the right — DOM order is unchanged, so mobile keeps
+         stacking text before image as before. -->
+    <div class="block-grid__cell block-grid__cell--text block-grid__cell--paper block-grid__cell--community-text">
       <span class="block-grid__check" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
           <path d="M5 12.5l4.5 4.5L19 7.5" />
@@ -301,7 +306,7 @@ import { COVO_LABS_URL, COVO_HOME_URL, SITE } from '../data/site';
       </p>
     </div>
 
-    <div class="block-grid__cell block-grid__cell--image">
+    <div class="block-grid__cell block-grid__cell--image block-grid__cell--community-image">
       <img
         src="/wp-content/uploads/2025/01/Copy-of-Untitled-48-768x768.webp"
         alt="A group gathered in a home, praying over someone"
