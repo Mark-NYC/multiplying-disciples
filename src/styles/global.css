@@ -515,15 +515,17 @@ article tbody tr:nth-child(even) td {
    markup present at build time, not JS-injected innerHTML. */
 .labs-cta {
   /* Warm Paper -> pale gold -> Soft Sage: warm and inviting, with
-     generous breathing room above and below the lab cards. */
-  padding: 6.5rem 1.5rem 7rem;
+     generous breathing room above and below the featured lab card —
+     this is the site's single strongest conversion point after the
+     hero, so it gets the most vertical room of any section. */
+  padding: 8.5rem 1.5rem 8rem;
   background: linear-gradient(180deg, var(--color-bg) 0%, #f3e9d2 55%, var(--color-surface) 100%);
   text-align: center;
 }
 
 @media (max-width: 640px) {
   .labs-cta {
-    padding: 4.5rem 1.25rem 5rem;
+    padding: 5.5rem 1.25rem 6rem;
   }
 }
 
@@ -533,13 +535,32 @@ article tbody tr:nth-child(even) td {
 }
 
 .labs-cta h2 {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
 }
 
 .labs-cta__descriptor {
-  font-size: 0.95rem;
+  max-width: 30rem;
+  margin: 0 auto 2.75rem;
+  font-size: 1.05rem;
   color: var(--color-text-muted);
-  margin: 0 0 1.5rem;
+}
+
+/* Small "Next Live Session" flag above the featured card — muted gold,
+   deliberately quiet (a label, not a badge shouting for attention). */
+.labs-cta__badge {
+  display: inline-block;
+  margin: 0 0 1.25rem;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-pill);
+  background: rgba(216, 166, 66, 0.08);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold-text);
 }
 
 .labs-cta__grid {
@@ -547,7 +568,7 @@ article tbody tr:nth-child(even) td {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.25rem;
   text-align: left;
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
 }
 
 .labs-cta__loading {
@@ -556,9 +577,23 @@ article tbody tr:nth-child(even) td {
   color: var(--color-text-muted);
 }
 
-.labs-cta__view-all {
-  margin: 0 0 1.5rem;
+.labs-cta__not-sure {
+  margin: 0 0 0.85rem;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.labs-cta__not-sure a {
+  color: var(--color-clay-text);
   font-weight: 600;
+}
+
+/* Deliberately plain — a simple text link, not a second button, so
+   the featured card's CTA stays the only unmissable action. */
+.labs-cta__view-all {
+  margin: 0 0 2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .labs-cta__view-all a {
@@ -566,7 +601,7 @@ article tbody tr:nth-child(even) td {
 }
 
 .labs-cta__bridge {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--color-text-muted);
   margin: 0;
 }
@@ -685,6 +720,107 @@ article tbody tr:nth-child(even) td {
 .lab-card__status {
   margin: 0.75rem 0 0;
   font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* Featured lab card — the homepage's single-lab spotlight in the
+   #ch-practice section (src/pages/index.astro). Deliberately a
+   separate class from .lab-card above rather than a variant of it:
+   this card is injected by its own renderFeaturedLabInto() function in
+   labs-feed.js, so the article "Next Live Lab" card (.lab-card, in
+   ArticleLayout's .cta-band) is completely unaffected by anything
+   here. Unscoped/global for the same reason as .lab-card — it's
+   rendered client-side, so Astro's build-time style scoping can't
+   reach it. ~20-25% larger than .lab-card, with heavier padding, a
+   touch more corner radius, and a site-consistent soft shadow. */
+.featured-lab-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(2.25rem, 4vw, 3.25rem) clamp(1.75rem, 4vw, 2.75rem);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius-card) + 4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.featured-lab-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 0.85rem;
+}
+
+/* Seats remaining reads as its own line — a clear but not shouty
+   signal of urgency, sitting between the meta row and the title. */
+.featured-lab-card__seats {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-clay-text);
+}
+
+.featured-lab-card__seats--full {
+  color: var(--color-text-muted);
+}
+
+.featured-lab-card__title {
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  line-height: 1.2;
+}
+
+.featured-lab-card__description {
+  max-width: 26rem;
+  margin: 0 0 1.75rem;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+/* The one button on this card is the answer to "what do I do next" —
+   full width, generous padding, impossible to miss. */
+.featured-lab-card__cta {
+  width: 100%;
+  padding: 1rem 1.75rem;
+  font-size: 1.05rem;
+}
+
+.featured-lab-card--signup {
+  align-items: center;
+}
+
+.featured-lab-card--signup .featured-lab-card__title {
+  margin-bottom: 0.5rem;
+}
+
+.featured-lab-card__form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+.featured-lab-card__form input {
+  flex: 1 1 14rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  font-size: 1rem;
+}
+
+.featured-lab-card__form button {
+  flex-shrink: 0;
+}
+
+.featured-lab-card__status {
+  margin: 0.85rem 0 0;
+  font-size: 0.9rem;
   color: var(--color-text-muted);
 }
 

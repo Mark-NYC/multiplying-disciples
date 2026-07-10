@@ -184,8 +184,12 @@ import { COVO_LABS_URL, COVO_HOME_URL, SITE } from '../data/site';
   <section class="labs-cta" id="ch-practice">
     <div class="labs-cta__inner">
       <p class="eyebrow eyebrow--gold-text">503 &middot; Practice</p>
-      <h2><CovoMark /> Join the next Live Multiplying Lab</h2>
-      <p class="labs-cta__descriptor">Practice one simple tool. Leave with one clear next step.</p>
+      <h2><CovoMark /> Join the Next Live Multiplying Lab</h2>
+      <p class="labs-cta__descriptor">
+        Practice one simple tool. Leave knowing exactly what to do this week.
+      </p>
+
+      <p class="labs-cta__badge">Next Live Session</p>
 
       <div
         class="labs-cta__grid labs-cta__grid--featured"
@@ -212,13 +216,13 @@ import { COVO_LABS_URL, COVO_HOME_URL, SITE } from '../data/site';
       </p>
 
       <p class="labs-cta__bridge">
-        Labs are hosted through <a
+        Live labs are hosted through <a
           href={COVO_HOME_URL}
           data-ecosystem-cta
           data-cta-level="level_3"
           data-cta-type="covo_home"
           data-destination-site="covo"
-        >Covo Multipliers</a>, where we practice simple tools for making disciples in real life.
+        >Covo Multipliers</a>, where we practice simple disciple-making tools together.
       </p>
 
       <noscript>
@@ -465,11 +469,11 @@ import { COVO_LABS_URL, COVO_HOME_URL, SITE } from '../data/site';
 </BaseLayout>
 
 <script>
-  import { renderLabsInto } from '../lib/labs-feed.js';
+  import { renderFeaturedLabInto } from '../lib/labs-feed.js';
 
   const grid = document.getElementById('labs-cta-grid');
   if (grid) {
-    renderLabsInto(grid, 1, 'Join This Lab', grid.dataset.labsContentTag);
+    renderFeaturedLabInto(grid, grid.dataset.labsContentTag);
   }
 </script>
 
@@ -1156,23 +1160,18 @@ import { COVO_LABS_URL, COVO_HOME_URL, SITE } from '../data/site';
   }
 
   /* --- Labs CTA: featured single-lab card -------------------------- */
-
-  .labs-cta__not-sure {
-    margin: 0 0 1rem;
-    font-size: 0.95rem;
-    color: var(--color-text-muted);
-  }
-
-  .labs-cta__not-sure a {
-    color: var(--color-clay-text);
-    font-weight: 600;
-  }
+  /* .labs-cta__not-sure, .labs-cta__view-all, .labs-cta__bridge, and
+     .labs-cta__badge are defined in global.css alongside the rest of
+     the (client-injected) .featured-lab-card rules — see the note
+     there on why those stay unscoped. */
 
   /* One featured card, centered, rather than the multi-card grid used
      elsewhere (labs-cta__grid's base rules still apply — this just
-     narrows and centers it since there's only ever one child now). */
+     narrows, centers, and enlarges it since there's only ever one
+     child now). ~20-25% wider than the previous 26rem so the card
+     itself reads as the section's dominant element. */
   .labs-cta__grid--featured {
-    max-width: 26rem;
+    max-width: 32rem;
     margin-left: auto;
     margin-right: auto;
   }

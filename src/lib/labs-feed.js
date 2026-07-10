@@ -156,3 +156,81 @@ export async function renderLabsInto(container, limit, ctaLabel = 'Join This Lab
   container.innerHTML = notifyFormHtml();
   wireNotifyForm(container);
 }
+
+// --- Featured single-lab card (homepage #ch-practice section) --------
+//
+// A distinct, larger card for the homepage's one primary conversion
+// point — separate markup/classes (.featured-lab-card*) from .lab-card
+// above so this section can be redesigned without touching the
+// article "Next Live Lab" card, which keeps using labCardHtml().
+
+function featuredLabCardHtml(lab, ctaLabel, contentTag) {
+  const isFull = !lab.has_availability;
+  const seatsLabel = isFull
+    ? 'Full'
+    : `${lab.seats_remaining} seat${lab.seats_remaining === 1 ? '' : 's'} left`;
+  const summary = lab.hook || lab.description;
+  const description = summary
+    ? `<p class="featured-lab-card__description">${escapeHtml(summary)}</p>`
+    : '';
+  const href = withLabUtm(lab.url, contentTag);
+  return `
+    <div class="featured-lab-card">
+      <p class="featured-lab-card__meta">
+        <span class="lab-card__date">${formatLabDate(lab.event_date)}</span>
+        <span class="lab-card__badge lab-card__badge--live">
+          <span class="lab-card__badge-dot" aria-hidden="true"></span>
+          Live Lab
+        </span>
+      </p>
+      <p class="featured-lab-card__seats${isFull ? ' featured-lab-card__seats--full' : ''}">${escapeHtml(seatsLabel)}</p>
+      <h3 class="featured-lab-card__title">${escapeHtml(lab.title)}</h3>
+      ${description}
+      <a
+        class="button featured-lab-card__cta"
+        href="${href}"
+        data-ecosystem-cta
+        data-cta-level="level_3"
+        data-cta-type="covo_lab"
+        data-destination-site="covo"
+      >${escapeHtml(ctaLabel)}</a>
+    </div>
+  `;
+}
+
+function featuredNotifyFormHtml() {
+  return `
+    <div class="featured-lab-card featured-lab-card--signup">
+      <h3 class="featured-lab-card__title">New labs are on the way</h3>
+      <p class="featured-lab-card__description">Get notified when the next lab opens.</p>
+      <form class="featured-lab-card__form js-labs-notify-form">
+        <input
+          type="email"
+          name="email"
+          aria-label="Email address"
+          placeholder="you@example.com"
+          required
+        />
+        <button type="submit" class="button">Get notified</button>
+      </form>
+      <p class="featured-lab-card__status js-labs-notify-status" role="status"></p>
+    </div>
+  `;
+}
+
+// Fetches the single next upcoming lab and renders it into `container`
+// as the large featured card, or falls back to the "notify me" card.
+// `contentTag`, if given, is stamped onto the lab link as `utm_content`.
+export async function renderFeaturedLabInto(container, contentTag) {
+  try {
+    const labs = await fetchUpcomingLabs(1);
+    if (labs.length > 0) {
+      container.innerHTML = featuredLabCardHtml(labs[0], 'Join This Lab', contentTag);
+      return;
+    }
+  } catch {
+    // fall through to the notify-me fallback below
+  }
+  container.innerHTML = featuredNotifyFormHtml();
+  wireNotifyForm(container);
+}
