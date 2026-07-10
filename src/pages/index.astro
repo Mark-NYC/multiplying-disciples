@@ -462,14 +462,16 @@ import { SITE } from '../data/site';
     padding: 1.25rem 1.25rem 24rem;
   }
 
-  /* Mobile: the tall, narrow hero forces a heavy horizontal crop on a
-     wide photo, so the full-height background-image treatment used on
-     desktop only ever shows the middle subject. Shrinking the reserved
-     photo space and biasing the crop toward the bottom keeps the whole
-     scene (all three guys) in frame, above the fold. */
+  /* Mobile: the tall, narrow hero forces a heavier horizontal crop on a
+     wide photo than desktop gets, so the reserved photo space is sized
+     to keep the whole scene (all three guys) in frame rather than
+     matching desktop's padding. padding-top adds breathing room above
+     the headline; padding-bottom both pushes the photo down and lets
+     the section run down close to the bottom of the screen. */
   @media (max-width: 640px) {
     .hero {
-      padding-bottom: 13rem;
+      padding-top: 3rem;
+      padding-bottom: 21rem;
       background-position: center 100%;
     }
   }
