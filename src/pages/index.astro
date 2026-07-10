@@ -242,8 +242,11 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
       />
     </div>
 
-    <!-- Card 5: community of practice -->
-    <div class="block-grid__cell block-grid__cell--text block-grid__cell--paper">
+    <!-- Card 5: community of practice. Desktop-only: visually swapped
+         with its paired image (Card 6) via `order` below so the image
+         sits on the left, text on the right — DOM order is unchanged,
+         so mobile stacking (text, then image) is unaffected. -->
+    <div class="block-grid__cell block-grid__cell--text block-grid__cell--paper block-grid__cell--community-text">
       <span class="block-grid__check" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
           <path d="M5 12.5l4.5 4.5L19 7.5" />
@@ -257,7 +260,7 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     </div>
 
     <!-- Card 6: small group praying -->
-    <div class="block-grid__cell block-grid__cell--image">
+    <div class="block-grid__cell block-grid__cell--image block-grid__cell--community-image">
       <img
         src="/wp-content/uploads/2025/01/Copy-of-Untitled-48-768x768.webp"
         alt="A group gathered in a home, praying over someone"
@@ -714,6 +717,19 @@ import { COVO_LABS_URL, COVO_HOME_URL } from '../data/site';
     background: var(--color-accent);
     color: #ffffff;
     flex-shrink: 0;
+  }
+
+  /* Desktop only: flip the community-of-practice row so the image
+     sits on the left and the text on the right, without touching DOM
+     order (mobile keeps reading text-then-image). */
+  @media (min-width: 801px) {
+    .block-grid__cell--community-text {
+      order: 1;
+    }
+
+    .block-grid__cell--community-image {
+      order: 0;
+    }
   }
 
   @media (max-width: 800px) {
