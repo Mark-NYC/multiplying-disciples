@@ -10,11 +10,35 @@
 // in the footer/article CTA band): that one is a wordless page
 // ornament, this one is a real logo plus a specific "back to top"
 // action.
+interface Props {
+  // Set false for a purely decorative, non-animated instance (e.g. the
+  // footer) — same artwork, same markup, zero movement.
+  spin?: boolean;
+  // Fixed diameter (e.g. "6.5rem") that overrides the default
+  // responsive sizing at every breakpoint. Leave unset to use the
+  // built-in 96px/112px/132px mobile/tablet/desktop scale.
+  size?: string;
+  // Backing plate color (any valid CSS color). Defaults to the brand's
+  // Primary Green.
+  plate?: string;
+  class?: string;
+}
+
+const { spin = true, size, plate, class: className } = Astro.props;
 const uid = Math.random().toString(36).slice(2, 9);
 const ringId = `rotating-seal-ring-${uid}`;
+const styleParts = [
+  size && `--rotating-seal-size: ${size}`,
+  plate && `--rotating-seal-plate: ${plate}`,
+].filter(Boolean);
+const style = styleParts.length ? styleParts.join('; ') : undefined;
 ---
 
-<button type="button" class="rotating-seal" aria-label="Back to top">
+<button
+  type="button"
+  class:list={['rotating-seal', { 'rotating-seal--static': !spin }, className]}
+  style={style}
+  aria-label="Back to top">
   <span class="rotating-seal__plate" aria-hidden="true"></span>
   <svg class="rotating-seal__ring" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
     <defs>
@@ -56,8 +80,11 @@ const ringId = `rotating-seal-ring-${uid}`;
   .rotating-seal {
     position: relative;
     display: block;
-    width: 6rem;
-    height: 6rem;
+    /* --rotating-seal-size (set via the `size` prop) wins at every
+       breakpoint when present; otherwise falls back to the responsive
+       scale below. */
+    width: var(--rotating-seal-size, 6rem);
+    height: var(--rotating-seal-size, 6rem);
     padding: 0;
     margin: 0;
     background: none;
@@ -70,15 +97,15 @@ const ringId = `rotating-seal-ring-${uid}`;
 
   @media (min-width: 641px) {
     .rotating-seal {
-      width: 7rem;
-      height: 7rem;
+      width: var(--rotating-seal-size, 7rem);
+      height: var(--rotating-seal-size, 7rem);
     }
   }
 
   @media (min-width: 1024px) {
     .rotating-seal {
-      width: 8.25rem;
-      height: 8.25rem;
+      width: var(--rotating-seal-size, 8.25rem);
+      height: var(--rotating-seal-size, 8.25rem);
     }
   }
 
@@ -96,7 +123,7 @@ const ringId = `rotating-seal-ring-${uid}`;
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: var(--color-primary);
+    background: var(--rotating-seal-plate, var(--color-primary));
   }
 
   .rotating-seal__ring {
@@ -111,11 +138,16 @@ const ringId = `rotating-seal-ring-${uid}`;
 
   /* Fixed-center logo — used exactly as provided, no shadows/glow/
      borders. It turns the opposite direction from the ring, a little
-     slower, so the two layers never feel like one spinning graphic. */
+     slower, so the two layers never feel like one spinning graphic.
+     The static translate is the resting position whenever the
+     animation is off (reduced motion, or the non-spinning variant) —
+     without it the image would sit corner-anchored instead of
+     centered when `animation` drops to `none`. */
   .rotating-seal__logo {
     position: absolute;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
     width: 46%;
     height: 46%;
     border-radius: 0;
@@ -150,5 +182,13 @@ const ringId = `rotating-seal-ring-${uid}`;
     .rotating-seal__logo {
       animation: none;
     }
+  }
+
+  /* Non-spinning variant (spin={false}) — identical artwork, position,
+     and size; no movement, ever, regardless of hover or motion
+     preference. */
+  .rotating-seal--static .rotating-seal__ring,
+  .rotating-seal--static .rotating-seal__logo {
+    animation: none;
   }
 </style>
