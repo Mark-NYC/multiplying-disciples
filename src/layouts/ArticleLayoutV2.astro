@@ -1,0 +1,98 @@
+---
+// Field Manual article layout — Phase 2 field test. Used only by
+// articles with `article_system: field-manual-v2` in frontmatter (see
+// src/pages/[...slug].astro). Every other article keeps using the
+// unmodified ArticleLayout. Reuses Breadcrumbs/TableOfContents/
+// ShareButtons/RelatedArticles/ToolCTA as-is (already homepage-token
+// styled, nothing to redesign there) and swaps in the new hero, reading
+// column, and single closing CTA. See PHASE_11_ARTICLE_FIELD_TEST.md.
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
+import ToolCTA from '../components/ToolCTA.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import ArticleHero from '../components/ArticleHero.astro';
+import ArticleEndCTA from '../components/ArticleEndCTA.astro';
+import '../styles/field-manual-article.css';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+  headings: Heading[];
+}
+
+const { article, headings } = Astro.props;
+const { data } = article;
+
+const hubs = data.hub ? await getCollection('hubs') : [];
+const parentHub = hubs.find((hub) => hub.id === `/${data.hub}/`);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  ...(parentHub ? [{ label: parentHub.data.title, href: parentHub.data.slug }] : []),
+  { label: data.title, href: data.slug },
+];
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  canonical={data.canonical}
+  ogImage={data.og_image ?? data.hero_image}
+  type="article"
+  publishedDate={data.date}
+  updatedDate={data.updated}
+  noindex={data.status === 'source-pending'}
+>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+  </Fragment>
+
+  <div class="page-container">
+    <Breadcrumbs items={breadcrumbItems} />
+
+    <article>
+      <ArticleHero
+        category={data.hero_category ?? parentHub?.data.title ?? 'Field Manual'}
+        title={data.title}
+        subheading={data.hero_subheading}
+        date={data.date ?? data.updated}
+        image={data.hero_image}
+        imageAlt={data.hero_image_alt}
+        imageCaption={data.hero_image_caption}
+      />
+
+      <div class="fm-article">
+        <ShareButtons url={data.canonical} title={data.title} />
+        <TableOfContents headings={headings} />
+        <slot />
+      </div>
+    </article>
+
+    <div class="fm-article">
+      {parentHub && (
+        <p class="article-hub-link">
+          Part of the <a href={parentHub.data.slug}>{parentHub.data.title}</a> hub.
+        </p>
+      )}
+
+      {data.related_articles.length > 0 && <RelatedArticles paths={data.related_articles} />}
+      {data.related_tools.length > 0 && <ToolCTA tools={data.related_tools} />}
+    </div>
+
+    <ArticleEndCTA />
+  </div>
+</BaseLayout>

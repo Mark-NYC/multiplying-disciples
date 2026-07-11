@@ -13,6 +13,12 @@ og_image: "/wp-content/uploads/2023/04/eliott-reyna-jCEpN62oWL4-unsplash.jpg"
 status: "migrated"
 migration_priority: "tier-2"
 original_url: "https://multiplyingdisciples.us/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/"
+article_system: "field-manual-v2"
+hero_category: "Prayer"
+hero_subheading: "A practical guide to praying through your neighborhood, one street and one Scripture at a time."
+hero_image: "/wp-content/uploads/2023/04/eliott-reyna-jCEpN62oWL4-unsplash.jpg"
+hero_image_alt: "Five friends walking and laughing together down a city sidewalk"
+hero_image_caption: "Prayer walking starts the same way any walk with friends does — moving through a real neighborhood, together."
 notes: >
   Migrated from WordPress post_id 7142. Removed an opening duplicate
   pull-quote blockquote that repeated the "Section 1" body paragraphs
@@ -43,13 +49,26 @@ notes: >
   starter-tools into a relative path. Featured image
   eliott-reyna-jCEpN62oWL4-unsplash.jpg confirmed present, used as
   og_image only (page has no inline images, matching the original).
+  Phase 2 field test (article design system v2, see
+  PHASE_11_ARTICLE_FIELD_TEST.md): one of 3 pilot articles for the new
+  homepage-language component system, chosen as the "practical how-to"
+  category. No wording changed. Removed the 2 now-redundant "JUMP TO"
+  anchor lines — TableOfContents already covers the same 3 destinations.
+  Removed the closing "Learn how you can multiply disciples by getting
+  started with these starter tools" line — ArticleLayoutV2 already
+  renders one closing CTA (ArticleEndCTA) and this was a second,
+  competing action. Wrapped the opening paragraph in the new large
+  intro-paragraph style. Converted the 4 already-verbatim Scripture
+  quotations in Section 2 into Scripture Block components with <cite>
+  references (previously plain quoted text, not blockquotes). Wrapped
+  the 7-step "lead a prayer walk" list in a Practice Card. Wrapped the
+  Don'ts list in a Warning Card. Wrapped the "power of walking prayer"
+  4-point list in an Insight Card. Added one Pull Quote and one
+  Image + Caption (a genuine Discovery-Bible-Study-style photo of
+  hands over open Bibles) — no other images added.
 ---
 
-One unique way of praying that many are finding effective at connecting prayer and missions and many have found to be particularly powerful is prayer walking. See prayer walking scriptures below.
-
-[JUMP TO 5H PRAYER WALKING SCRIPTURES](#5h-prayer-walking-scriptures)
-
-[JUMP TO STEP-BY-STEP GUIDE](#section-5-how-do-you-lead-a-prayer-walk)
+<p class="fm-intro">One unique way of praying that many are finding effective at connecting prayer and missions and many have found to be particularly powerful is prayer walking. See prayer walking scriptures below.</p>
 
 In this post, we will explore the meaning of prayer walking, where it comes from, how to lead a prayer walk, and the power of this practice. We will also dive into some of the scriptures on prayer walking and provide guidance on what to pray during a prayer walk.
 
@@ -67,7 +86,13 @@ Here are a few Scriptures that connect prayer to our mission to be the light of 
 
 #### 1. Matthew 5:14-16
 
+<div class="fm-scripture">
+
 "You are the light of the world. A city set on a hill cannot be hidden. Nor do people light a lamp and put it under a basket, but on a stand, and it gives light to all in the house. In the same way, let your light shine before others, so that they may see your good works and give glory to your Father who is in heaven."
+
+<cite>Matthew 5:14-16</cite>
+
+</div>
 
 This passage reminds us of our calling to be a light to the world and to let our good deeds shine before others.
 
@@ -75,7 +100,13 @@ Through prayer walking, we can lift up our communities in prayer and bring the l
 
 #### 2. Ephesians 5:8-10
 
+<div class="fm-scripture">
+
 "For at one time you were darkness, but now you are light in the Lord. Walk as children of light (for the fruit of light is found in all that is good and right and true), and try to discern what is pleasing to the Lord."
+
+<cite>Ephesians 5:8-10</cite>
+
+</div>
 
 This verse encourages us to walk as children of light, seeking to discern what is pleasing to the Lord.
 
@@ -83,7 +114,13 @@ Prayer walking can help us discern the needs of our communities and pray for God
 
 #### 3. Philippians 2:14-15
 
+<div class="fm-scripture">
+
 "Do all things without grumbling or disputing, that you may be blameless and innocent, children of God without blemish in the midst of a crooked and twisted generation, among whom you shine as lights in the world."
+
+<cite>Philippians 2:14-15</cite>
+
+</div>
 
 This passage reminds us that we are called to shine as lights in the world, even in the midst of a crooked and twisted generation.
 
@@ -91,15 +128,27 @@ Through prayer walking, we can bring hope and light to those around us and be a 
 
 #### 4. Colossians 4:2-6
 
-"Continue steadfastly in prayer, being watchful in it with thanksgiving. At the same time, pray also for us, that God may open to us a door for the word, to declare the mystery of Christ, on account of which I am in prison— that I may make it clear, which is how I ought to speak.
+<div class="fm-scripture">
 
-Walk in wisdom toward outsiders, making the best use of the time. Let your speech always be gracious, seasoned with salt, so that you may know how you ought to answer each person."
+"Continue steadfastly in prayer, being watchful in it with thanksgiving. At the same time, pray also for us, that God may open to us a door for the word, to declare the mystery of Christ, on account of which I am in prison— that I may make it clear, which is how I ought to speak. Walk in wisdom toward outsiders, making the best use of the time. Let your speech always be gracious, seasoned with salt, so that you may know how you ought to answer each person."
+
+<cite>Colossians 4:2-6</cite>
+
+</div>
 
 This passage encourages us to continue steadfastly in prayer and to walk in wisdom toward outsiders, making the best use of the time.
 
 Through prayer walking, we can pray for open doors for the Gospel and for opportunities to share the love of Christ with those around us.
 
 As we can see, the Scriptures are filled with reminders of our mission to be the light of the world and the importance of prayer in fulfilling that mission.
+
+<div class="fm-image">
+
+![Two hands open in prayer over open Bibles on a wooden table, with two other people's hands resting on open Bibles beside them](/wp-content/uploads/2023/05/DBS_2-e1686219964976.jpeg)
+
+<figcaption>Praying over open Scripture — the same posture prayer walking carries outdoors, verse by verse through a neighborhood.</figcaption>
+
+</div>
 
 ### 5H Prayer Walking Scriptures
 
@@ -217,6 +266,10 @@ Leading a prayer walk can be a wonderful way to gather a group of believers and 
 - Brief your prayer partner on the framework you'll be using
 - Be aware of gospel conversation opportunities as you go to share the gospel
 
+<div class="fm-practice-card">
+
+<p class="fm-practice-card__label">Practice This Week</p>
+
 Here are some practical steps to lead a prayer walk:
 
 1. **Plan your route:** Decide on the route you will take and identify specific areas that you want to pray for. You can also split up into smaller groups and cover different areas simultaneously.
@@ -226,6 +279,8 @@ Here are some practical steps to lead a prayer walk:
 5. **Listen to the Holy Spirit:** As you pray, listen to the Holy Spirit's promptings. He may lead you to pray for specific people or situations.
 6. **Encourage others:** As you walk and pray, encourage others to join in prayer and share any insights or prayers that God lays on their hearts.
 7. **End with thanksgiving:** At the end of the walk, thank God for the opportunity to pray and ask Him to continue to work in the area you covered.
+
+</div>
 
 #### Do's:
 
@@ -237,12 +292,16 @@ Here are some practical steps to lead a prayer walk:
 - Stay alert to your surroundings
 - Keep a prayer journal to track answers
 
-#### Don'ts:
+<div class="fm-warning-card">
+
+<p class="fm-warning-card__label">Common Mistakes</p>
 
 - Don't draw unnecessary attention to yourself
 - Don't trespass on private property
 - Don't get discouraged if you don't see immediate results
 - Don't feel pressured to pray for everything at once
+
+</div>
 
 #### Sample Prayer Walking Schedule
 
@@ -264,10 +323,16 @@ Here are some practical steps to lead a prayer walk:
 
 Prayer walking is a powerful way to seek God's guidance and presence in a specific area. Here are some reasons why prayer walking can be powerful:
 
+<div class="fm-insight-card">
+
+<p class="fm-insight-card__label">Insight</p>
+
 - **It is a physical act of faith:** Prayer walking is an act of faith that demonstrates a belief in God's presence and power. As you walk and pray, you are physically demonstrating your trust in God.
 - **It engages all of your senses:** As you walk and pray, you are engaging all of your senses in the act of prayer. You are seeing the sights, hearing the sounds, and feeling the atmosphere of the area you are praying for. This can make your prayers more real and tangible.
 - **It allows you to pray with others:** Prayer walking is a great way to gather believers together to pray. As you pray with others, you can encourage and strengthen one another in your faith.
 - **It can bring about change:** Prayer walking can bring about change in the area you are praying for. As you pray for God's presence and guidance, you are inviting Him to work in that area and bring about transformation.
+
+</div>
 
 ### Section 7: How long is a prayer walk?
 
@@ -275,7 +340,7 @@ The length of a prayer walk can vary depending on the area you are covering and 
 
 [See sample prayer walking formats.](#sample-prayer-walking-schedule)
 
-The most important thing is to listen to the Holy Spirit's guidance and pray as long as He leads you to pray.
+<p class="fm-pull-quote">The most important thing is to listen to the Holy Spirit's guidance and pray as long as He leads you to pray.</p>
 
 ### Section 8: What do you say when you lead a prayer?
 
@@ -365,5 +430,3 @@ Whether you're a seasoned missionary or a new believer, anyone can participate i
 So, why not take a step of faith and try prayer walking in your neighborhood or other areas today?
 
 You never know how God might use this practice to change lives and bring hope to those around you.
-
-Learn how you can multiply disciples by [getting started with these starter tools](/starter-tools/).

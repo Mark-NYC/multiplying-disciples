@@ -13,15 +13,38 @@ related_tools: []
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/unleashing-the-movement-how-paul-catalyzed-a-disciple-making-movement-in-ephesus-lessons-for-todays-church/"
+article_system: "field-manual-v2"
+hero_category: "Church Planting Movements"
+hero_subheading: "Acts 19: how one bold, adaptable disciple-maker turned a handful of half-taught believers into a movement that shook a city."
+hero_image: "/wp-content/uploads/2025/01/Copy-of-Untitled-48-768x768.webp"
+hero_image_alt: "A small group in a living room lays hands on a young man kneeling in prayer"
+hero_image_caption: "Believers gather to pray and lay hands on one another — the same posture of empowering and sending that marked Paul's ministry among the believers in Ephesus."
 notes: >
   Migrated from WordPress post_id 6966. Removed 1 junk embedded
   <html><head><title>FAQ...</title>...<body></body></html> placeholder
   shell, the reusable "Are you in? / Start Here. / Get Started" CTA
   block, and a stray Elementor <style> block. Featured image
   (group.jpeg) not found under supplied uploads — og_image omitted.
+  Phase 2 field test (article design system v2, see
+  PHASE_11_ARTICLE_FIELD_TEST.md): one of 3 pilot articles for the new
+  homepage-language component system, chosen as the "narrative/story"
+  category — this article is a sustained retelling of one biblical
+  story (Acts 19) rather than a topical teaching piece, which is the
+  clearest narrative fit among the site's church-planting-movement
+  articles. No wording changed. Sourced hero_image from the same photo
+  already used on the homepage's "Community of Practice" section
+  (alt: "A group gathered in a home, praying over someone") — chosen
+  because it depicts the same laying-on-of-hands posture central to
+  Acts 19:6, not because it is a photo of Ephesus. Wrapped the opening
+  paragraph in the large intro-paragraph style. Added one Pull Quote
+  and one Insight Card (the "what changed the city" recap, newly
+  extracted as a bulleted summary of the article's own closing
+  paragraph — no new claims, same 4 points already stated in prose).
+  No Field Note added — this field test intentionally ships without
+  real-world testimony content; see PHASE_11_ARTICLE_FIELD_TEST.md.
 ---
 
-In Acts 19, we see Paul arriving in the city of Ephesus and encountering a group of disciples who were baptized with John's baptism but did not yet know about the Holy Spirit. Paul shared the gospel with them, baptized them in the name of Jesus, and laid hands on them to receive the Holy Spirit.
+<p class="fm-intro">In Acts 19, we see Paul arriving in the city of Ephesus and encountering a group of disciples who were baptized with John's baptism but did not yet know about the Holy Spirit. Paul shared the gospel with them, baptized them in the name of Jesus, and laid hands on them to receive the Holy Spirit.</p>
 
 This event was a catalyst for a movement that would spread throughout the city and beyond.
 
@@ -34,6 +57,8 @@ When Paul arrived in Ephesus, he found a group of disciples who were already int
 They had been baptized by John the Baptist but did not yet know about Jesus or the Holy Spirit. Rather than dismissing them as irrelevant to his mission, Paul saw an opportunity to connect with them and share the gospel. He met them where they were at.
 
 Paul built a bridge between what they already knew and what they needed to know to become followers of Jesus.
+
+<p class="fm-pull-quote">He met them where they were at.</p>
 
 As disciple-makers today, we can learn from Paul's example by looking for opportunities to connect with people where they are at.
 
@@ -70,6 +95,14 @@ He trained them in the ways of the gospel and empowered them to continue the wor
 As disciple-makers today, we can learn from Paul's example by equipping and empowering others for ministry.
 
 Rather than trying to do everything ourselves, we should seek to train and empower others to continue the work of disciple-making.
+
+<div class="fm-practice-card">
+
+<p class="fm-practice-card__label">Practice This Week</p>
+
+Name one person you are currently discipling — or want to start discipling. Instead of doing the next ministry task yourself, hand it to them this week, and coach them through it rather than doing it for them.
+
+</div>
 
 ### The Results
 
@@ -113,10 +146,19 @@ In conclusion, Paul's catalyzation of the movement in Ephesus is a powerful exam
 
 We see the gospel spreading effectively through a community when the message is adapted to the cultural context, miracles and signs follow, and local leaders are empowered to carry on the work.
 
+<div class="fm-insight-card">
+
+<p class="fm-insight-card__label">Insight</p>
+
+- Paul connected with people where they were, then built a bridge to Jesus
+- He proclaimed the gospel with boldness and clarity, never watering it down
+- He depended on the Holy Spirit's power rather than his own persuasion
+- He equipped and empowered local leaders instead of doing all the ministry himself
+
+</div>
+
 By following Paul's example, we can learn to effectively share the gospel and see it spread throughout our own communities.
 
 The events in Ephesus serve as a powerful example of how the gospel can spread rapidly and transform entire communities.
 
 By connecting with people where they are at, boldly proclaiming the gospel, demonstrating the power of the Holy Spirit, and equipping and empowering others for ministry, Paul catalyzed a movement that would impact the world for centuries to come.
-
-Learn how you can multiply disciples by [getting started with these starter tools](/starter-tools/).
