@@ -6,8 +6,7 @@ canonical: "https://multiplyingdisciples.us/the-secret-ingredient-of-trustworthy
 related_articles:
   - "/the-leadership-phase-everyone-skips-why-investment-matters/"
   - "/5-surprising-ways-to-attract-multiplying-leaders/"
-  - "/breakthrough-guide-for-a-modern-day-disciple/"
-  - "/the-high-price-of-discipleship-what-it-really-costs-to-follow-jesus/"
+  - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
 related_tools: []
 status: "migrated"
 migration_priority: "tier-3"

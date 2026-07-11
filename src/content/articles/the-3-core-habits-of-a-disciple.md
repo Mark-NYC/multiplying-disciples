@@ -7,7 +7,6 @@ hub: "disciple-making"
 related_articles:
   - "/15-second-testimony-examples-ignite-your-faith/"
   - "/the-three-circles-gospel-presentation-step-by-step/"
-  - "/ridiculously-simple-3-ways-to-make-disciples/"
   - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
 related_tools: []
 og_image: "/wp-content/uploads/2025/01/3-5.jpg"

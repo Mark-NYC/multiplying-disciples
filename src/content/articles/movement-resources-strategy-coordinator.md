@@ -3,9 +3,7 @@ title: "5 T's Strategy Coordinator Overview"
 description: "What a strategy coordinator does, the 5 T's stewardship framework, and the URLPEG framework for defining mission targets in urban contexts."
 slug: "/movement-resources/strategy-coordinator/"
 canonical: "https://multiplyingdisciples.us/movement-resources/strategy-coordinator/"
-hub: "strategy-coordinator"
 related_articles:
-  - "/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/"
   - "/movement-resources/"
 related_tools: []
 og_image: "/wp-content/uploads/2023/04/pexels-omar-lopez-1182825-1.jpg"

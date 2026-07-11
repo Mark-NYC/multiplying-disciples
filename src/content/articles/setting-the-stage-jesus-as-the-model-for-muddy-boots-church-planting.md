@@ -7,7 +7,6 @@ hub: "church-planting-movements"
 related_articles:
   - "/jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark/"
   - "/the-leadership-phase-everyone-skips-why-investment-matters/"
-  - "/spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication/"
 related_tools: []
 status: "migrated"
 migration_priority: "tier-3"

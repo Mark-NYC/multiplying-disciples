@@ -8,7 +8,6 @@ related_articles:
   - "/how-to-get-started-in-four-fields-training/"
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/three-thirds/"
-  - "/disciple-making-movement-books-top-25-must-reads/"
 related_tools: []
 og_image: "/wp-content/uploads/2023/05/Untitled-design-5-1024x576.jpg"
 status: "migrated"
@@ -2374,7 +2373,7 @@ Church Planting Multiplier
 
 Level Three Leader
 
-Description - A Church Planting Multiplier (CPM’er) is a [church planter who has successfully multiplied](/disciple-making-resources-for-churches-that-will-multiply/) through the birth of new generations of churches (2<sup>nd</sup>, 3<sup>rd</sup>, 4<sup>th</sup> generations). This has likely happened in
+Description - A Church Planting Multiplier (CPM’er) is a [church planter who has successfully multiplied](/disciple-making/) through the birth of new generations of churches (2<sup>nd</sup>, 3<sup>rd</sup>, 4<sup>th</sup> generations). This has likely happened in
 
 <sup>55</sup> Consider his stay in Thessalonica – possibly as little as three weeks (Acts 17:2). This is also the issue that caused his rebuke of Titus in Crete. (see Titus 1:5)
 

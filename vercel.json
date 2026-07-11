@@ -1,0 +1,154 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/missionary-verses-in-the-bible-reveal-gods-heart/",
+      "destination": "/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/",
+      "statusCode": 301
+    },
+    {
+      "source": "/discovering-the-disciple-meaning-a-life-changing-journey/",
+      "destination": "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/",
+      "statusCode": 301
+    },
+    {
+      "source": "/radical-discipleship-understanding-what-it-means-and-how-to-live-it/",
+      "destination": "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/",
+      "statusCode": 301
+    },
+    {
+      "source": "/love-and-obedience-exploring-the-biblical-relationship-between-the-two/",
+      "destination": "/the-3-core-habits-of-a-disciple/",
+      "statusCode": 301
+    },
+    {
+      "source": "/the-high-price-of-discipleship-what-it-really-costs-to-follow-jesus/",
+      "destination": "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/",
+      "statusCode": 301
+    },
+    {
+      "source": "/5-proven-strategies-unlock-the-secrets-of-effective-personal-evangelism/",
+      "destination": "/how-to-evangelize-ultimate-step-by-step-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ridiculously-simple-3-ways-to-make-disciples/",
+      "destination": "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/",
+      "statusCode": 301
+    },
+    {
+      "source": "/get-ready-to-be-empowered-evangelists-revolutionize-disciple-making/",
+      "destination": "/how-to-evangelize-ultimate-step-by-step-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/breakthrough-guide-for-a-modern-day-disciple/",
+      "destination": "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/",
+      "statusCode": 301
+    },
+    {
+      "source": "/unlock-biblical-principles-for-multiplying-disciples/",
+      "destination": "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/",
+      "statusCode": 301
+    },
+    {
+      "source": "/under-the-hood-of-disciple-making-movements/",
+      "destination": "/disciple-making-movement-dmm-key-characteristics-and-definition/",
+      "statusCode": 301
+    },
+    {
+      "source": "/7-surprising-disciple-making-movement-examples/",
+      "destination": "/disciple-making-movement-dmm-key-characteristics-and-definition/",
+      "statusCode": 301
+    },
+    {
+      "source": "/what-are-disciple-making-movements-5-examples-from-around-the-world/",
+      "destination": "/disciple-making-movement-dmm-key-characteristics-and-definition/",
+      "statusCode": 301
+    },
+    {
+      "source": "/disciple-making-resources-for-churches-that-will-multiply/",
+      "destination": "/disciple-making/",
+      "statusCode": 301
+    },
+    {
+      "source": "/equipping-your-church-for-disciple-making-movements-a-pastors-guide-to-effective-training/",
+      "destination": "/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/",
+      "statusCode": 301
+    },
+    {
+      "source": "/breaking-the-mold-a-guide-to-shifting-your-church-to-movement-strategy/",
+      "destination": "/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/",
+      "statusCode": 301
+    },
+    {
+      "source": "/discover-the-game-changing-secrets-starfish-and-the-spirit-review/",
+      "destination": "/church-planting-movements/",
+      "statusCode": 301
+    },
+    {
+      "source": "/disciple-making-movement-books-top-25-must-reads/",
+      "destination": "/church-planting-movements/",
+      "statusCode": 301
+    },
+    {
+      "source": "/royal-priest-strategy-explodes-disciple-making-movement-worldwide/",
+      "destination": "/church-planting-movements/",
+      "statusCode": 301
+    },
+    {
+      "source": "/spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication/",
+      "destination": "/the-leadership-phase-everyone-skips-why-investment-matters/",
+      "statusCode": 301
+    },
+    {
+      "source": "/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/",
+      "destination": "/movement-resources/strategy-coordinator/",
+      "statusCode": 301
+    },
+    {
+      "source": "/the-hidden-power-of-bonhoeffers-discipleship-model-and-why-its-more-relevant-than-ever/",
+      "destination": "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/",
+      "statusCode": 301
+    },
+    {
+      "source": "/start-strengthen-sustain-core-insights-on-building-lasting-ministry/",
+      "destination": "/content-vs-systems-the-game-changer-for-leadership-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/next-gen-local-owners-building-beachheads-of-the-kingdom/",
+      "destination": "/church-planting-movements/",
+      "statusCode": 301
+    },
+    {
+      "source": "/go-slow-to-go-fast-could-transform-your-leadership-pipeline/",
+      "destination": "/the-leadership-phase-everyone-skips-why-investment-matters/",
+      "statusCode": 301
+    },
+    {
+      "source": "/filtering-unlock-this-essential-for-disciple-making-movements/",
+      "destination": "/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/",
+      "statusCode": 301
+    },
+    {
+      "source": "/strategy-coordinator/",
+      "destination": "/movement-resources/strategy-coordinator/",
+      "statusCode": 301
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/seven-words-of-jesus-on-the-cross/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/bible-passages-about-love-what-scripture-really-says/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/5-insightful-keys-into-the-biblical-jesus/",
+      "destination": "/api/gone"
+    }
+  ]
+}

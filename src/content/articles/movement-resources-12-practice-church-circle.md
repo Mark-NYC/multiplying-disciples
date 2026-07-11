@@ -11,9 +11,9 @@ secondary_keywords:
   - "church waffle disciple making"
 hub: "simple-church"
 related_articles:
-  - "/ridiculously-simple-3-ways-to-make-disciples/"
   - "/three-thirds/"
   - "/movement-resources/7-stories-of-hope-complete-facilitation-guide/"
+  - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
 related_tools: []
 external_links:
   - label: "Church Waffle (churchwaffle.com)"
@@ -50,7 +50,7 @@ notes: >
 
 The church waffle is an effective model for short-term discipleship stories that can be used to train disciples to obey Jesus and identify as a church around the practice of those stories that correspond to the passage in Acts 2:36-47.
 
-Read this article, [Ridiculously Simple: 3 Ways to Make Disciples](/ridiculously-simple-3-ways-to-make-disciples/), to learn more.
+Read this article, [Understanding Biblical Discipleship](/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/), to learn more.
 
 [![](https://obey.tools/wp-content/uploads/2024/11/3-1-1024x435.jpg)](https://obey.tools/repent-believe/)
 

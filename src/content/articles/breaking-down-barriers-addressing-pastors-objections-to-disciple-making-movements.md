@@ -5,10 +5,8 @@ slug: "/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-
 canonical: "https://multiplyingdisciples.us/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/"
 hub: "church-planting-movements"
 related_articles:
-  - "/under-the-hood-of-disciple-making-movements/"
-  - "/what-are-disciple-making-movements-5-examples-from-around-the-world/"
-  - "/equipping-your-church-for-disciple-making-movements-a-pastors-guide-to-effective-training/"
   - "/disciple-making-movement-dmm-key-characteristics-and-definition/"
+  - "/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/"
 related_tools: []
 og_image: "/wp-content/uploads/2023/04/multiplication.jpeg"
 status: "migrated"

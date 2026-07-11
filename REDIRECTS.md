@@ -5,6 +5,59 @@ a planned 301 documented here before launch. This file is the single
 source of truth for redirects — do not launch with an entry still marked
 `pending`.
 
+## Content simplification (2026-07-11) — 26 article redirects, 3 retirements, 1 hub retirement
+
+Positioning shift from "disciple-making encyclopedia" to a practice-first
+field manual. 29 thin/generic articles removed; full rationale, search-intent
+confidence rating, and GSC clicks/impressions for every row are in
+`CONTENT_SIMPLIFICATION_REMOVAL_MANIFEST.md`. Unlike every row below this
+section, these are **implemented now**, not just documented: real rules live
+in `vercel.json` (`redirects` array, `statusCode: 301` explicit — not
+`permanent: true`, which Vercel defaults to a 308) and in `api/gone.js` (a
+Vercel serverless function returning a true HTTP 410, wired via `vercel.json`
+`rewrites`, for the 3 URLs with no relevant surviving destination).
+
+| Old URL | New URL / destination | Type | Status |
+|---|---|---|---|
+| `/missionary-verses-in-the-bible-reveal-gods-heart/` | `/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/` | 301 | implemented |
+| `/discovering-the-disciple-meaning-a-life-changing-journey/` | `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` | 301 | implemented |
+| `/radical-discipleship-understanding-what-it-means-and-how-to-live-it/` | `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` | 301 | implemented |
+| `/love-and-obedience-exploring-the-biblical-relationship-between-the-two/` | `/the-3-core-habits-of-a-disciple/` | 301 | implemented |
+| `/the-high-price-of-discipleship-what-it-really-costs-to-follow-jesus/` | `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` | 301 | implemented |
+| `/5-proven-strategies-unlock-the-secrets-of-effective-personal-evangelism/` | `/how-to-evangelize-ultimate-step-by-step-guide/` | 301 | implemented |
+| `/ridiculously-simple-3-ways-to-make-disciples/` | `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` | 301 | implemented |
+| `/get-ready-to-be-empowered-evangelists-revolutionize-disciple-making/` | `/how-to-evangelize-ultimate-step-by-step-guide/` | 301 | implemented |
+| `/breakthrough-guide-for-a-modern-day-disciple/` | `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` | 301 | implemented |
+| `/unlock-biblical-principles-for-multiplying-disciples/` | `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` | 301 | implemented |
+| `/under-the-hood-of-disciple-making-movements/` | `/disciple-making-movement-dmm-key-characteristics-and-definition/` | 301 | implemented |
+| `/7-surprising-disciple-making-movement-examples/` | `/disciple-making-movement-dmm-key-characteristics-and-definition/` | 301 | implemented |
+| `/what-are-disciple-making-movements-5-examples-from-around-the-world/` | `/disciple-making-movement-dmm-key-characteristics-and-definition/` | 301 | implemented |
+| `/disciple-making-resources-for-churches-that-will-multiply/` | `/disciple-making/` | 301 | implemented |
+| `/equipping-your-church-for-disciple-making-movements-a-pastors-guide-to-effective-training/` | `/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/` | 301 | implemented |
+| `/breaking-the-mold-a-guide-to-shifting-your-church-to-movement-strategy/` | `/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/` | 301 | implemented |
+| `/discover-the-game-changing-secrets-starfish-and-the-spirit-review/` | `/church-planting-movements/` | 301 | implemented |
+| `/disciple-making-movement-books-top-25-must-reads/` | `/church-planting-movements/` | 301 | implemented |
+| `/royal-priest-strategy-explodes-disciple-making-movement-worldwide/` | `/church-planting-movements/` | 301 | implemented |
+| `/spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication/` | `/the-leadership-phase-everyone-skips-why-investment-matters/` | 301 | implemented |
+| `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` | `/movement-resources/strategy-coordinator/` | 301 | implemented |
+| `/the-hidden-power-of-bonhoeffers-discipleship-model-and-why-its-more-relevant-than-ever/` | `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` | 301 | implemented |
+| `/start-strengthen-sustain-core-insights-on-building-lasting-ministry/` | `/content-vs-systems-the-game-changer-for-leadership-development/` | 301 | implemented |
+| `/next-gen-local-owners-building-beachheads-of-the-kingdom/` | `/church-planting-movements/` | 301 | implemented |
+| `/go-slow-to-go-fast-could-transform-your-leadership-pipeline/` | `/the-leadership-phase-everyone-skips-why-investment-matters/` | 301 | implemented |
+| `/filtering-unlock-this-essential-for-disciple-making-movements/` | `/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/` | 301 | implemented |
+| `/strategy-coordinator/` (hub retired) | `/movement-resources/strategy-coordinator/` | 301 | implemented |
+| `/seven-words-of-jesus-on-the-cross/` | — (true 410 via `api/gone.js`) | 410 | implemented |
+| `/bible-passages-about-love-what-scripture-really-says/` | — (true 410 via `api/gone.js`) | 410 | implemented |
+| `/5-insightful-keys-into-the-biblical-jesus/` | — (true 410 via `api/gone.js`) | 410 | implemented |
+
+Not yet `verified` in the sense this file otherwise uses that word: confirmed
+the destinations exist as real generated pages and confirmed the JSON is
+valid, but a live Vercel deploy is needed to confirm each old URL actually
+returns the right status code in production (`vercel.json` rules are applied
+by Vercel's edge routing, not by `astro build`/`astro preview`, so this can't
+be fully exercised from a local build). Recommend a post-deploy smoke test of
+all 29 URLs before promoting these rows to `verified`.
+
 ## Status as of Phase 8
 
 **Re-reviewed after Tier 3 completion — all 20 rows below remain

@@ -6,8 +6,8 @@ canonical: "https://multiplyingdisciples.us/vision/"
 related_articles:
   - "/beliefs-values/"
   - "/movement-resources/"
-  - "/under-the-hood-of-disciple-making-movements/"
-  - "/royal-priest-strategy-explodes-disciple-making-movement-worldwide/"
+  - "/disciple-making-movement-dmm-key-characteristics-and-definition/"
+  - "/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/"
 related_tools: []
 status: "migrated"
 migration_priority: "tier-3"
