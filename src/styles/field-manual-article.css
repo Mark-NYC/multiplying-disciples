@@ -1,0 +1,350 @@
+/* Field Manual article design system — Phase 2 field test.
+   Loaded only by ArticleLayoutV2 (the 3 field-test articles), never
+   sitewide. Every class here is prefixed `fm-` so nothing collides
+   with the existing global `.callout`/`.article-*` system that every
+   other article still uses. Reuses the homepage's tokens (colors,
+   radii, eyebrow, .button) from global.css rather than inventing new
+   ones — see PHASE_11_ARTICLE_FIELD_TEST.md. */
+
+:root {
+  /* Editorial serif, used sparingly: Scripture Block + Pull Quote
+     only. Loaded via the Google Fonts <link> in ArticleLayoutV2 (head
+     slot), not sitewide. */
+  --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+  --fm-content-width: 44rem; /* 704px — inside the requested 680-740px range */
+}
+
+/* --- Reading column -------------------------------------------- */
+
+.fm-article {
+  max-width: var(--fm-content-width);
+  margin: 0 auto;
+}
+
+.fm-article p,
+.fm-article ul,
+.fm-article ol {
+  line-height: 1.75;
+}
+
+/* Green headings, carried over from the homepage — scoped to this
+   layout only, never the sitewide `article h2/h3` rule other articles
+   still use. */
+.fm-article :is(h2, h3, h4) {
+  color: var(--color-primary);
+}
+
+/* --- Article Hero ------------------------------------------------
+   Clean white layout, never text-over-photo: copy first, image
+   second, caption third. Copy sits in the reading column; the image
+   is allowed to run a little wider for presence. */
+
+.fm-hero {
+  max-width: var(--fm-content-width);
+  margin: 0 auto;
+  padding: 0.5rem 0 0;
+  text-align: left;
+}
+
+.fm-hero__category {
+  margin: 0 0 0.85rem;
+}
+
+.fm-hero__headline {
+  margin: 0 0 1rem;
+  font-size: var(--fs-h1);
+  line-height: 1.1;
+  color: var(--color-primary);
+}
+
+.fm-hero__subhead {
+  margin: 0 0 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.fm-hero__meta {
+  margin: 0 0 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.fm-hero__image-wrap {
+  max-width: 56rem;
+  margin: 0 auto 2.5rem;
+  padding: 0 1.25rem;
+}
+
+.fm-hero__image {
+  display: block;
+  width: 100%;
+  border-radius: calc(var(--radius-image) + 2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  margin: 0;
+}
+
+.fm-hero__caption {
+  margin: 0.85rem 0 0;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .fm-hero__headline {
+    line-height: 1.15;
+  }
+
+  .fm-hero__image-wrap {
+    padding: 0 1rem;
+  }
+}
+
+/* --- Large intro paragraph (Wes McDowell technique) ---------------
+   Only the first paragraph of the body gets this treatment — content
+   authors add `fm-intro` to that one <p> directly in the markdown,
+   then the article returns to standard reading typography. */
+
+.fm-intro {
+  font-size: clamp(1.2rem, 1.1rem + 0.4vw, 1.4rem);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-ink);
+  margin: 0 0 1.75rem;
+}
+
+/* --- Insight Card ---------------------------------------------
+   White card, soft shadow, green eyebrow. Major ideas. */
+
+.fm-insight-card {
+  margin: 2rem 0;
+  padding: 1.5rem 1.75rem;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.fm-insight-card__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.75rem;
+  color: var(--color-primary);
+}
+
+.fm-insight-card > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.fm-insight-card > *:first-child:not(.fm-insight-card__label) {
+  margin-top: 0 !important;
+}
+
+.fm-insight-card ul,
+.fm-insight-card ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.fm-insight-card li {
+  margin: 0.4rem 0;
+}
+
+/* --- Practice Card -----------------------------------------------
+   Soft sage background, action-oriented. "What to do this week." */
+
+.fm-practice-card {
+  margin: 2rem 0;
+  padding: 1.5rem 1.75rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+}
+
+.fm-practice-card__label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.75rem;
+  color: var(--color-accent-hover);
+}
+
+.fm-practice-card > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.fm-practice-card ul,
+.fm-practice-card ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.fm-practice-card li {
+  margin: 0.4rem 0;
+}
+
+/* --- Warning Card --------------------------------------------
+   Clay accent. Common mistakes. */
+
+.fm-warning-card {
+  margin: 2rem 0;
+  padding: 1.5rem 1.75rem;
+  background: #ffffff;
+  border-left: 3px solid var(--color-clay);
+  border-radius: 0 var(--radius-card) var(--radius-card) 0;
+}
+
+.fm-warning-card__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.75rem;
+  color: var(--color-clay-text);
+}
+
+.fm-warning-card > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* --- Scripture Block -----------------------------------------
+   Editorial styling. Large serif. No card chrome — a quiet, gold-
+   ruled column so it reads as Scripture, not the site's commentary. */
+
+.fm-scripture {
+  margin: 2.25rem 0;
+  padding: 0.25rem 0 0.25rem 1.5rem;
+  border-left: 3px solid var(--color-gold);
+}
+
+.fm-scripture p {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 1.1rem + 0.4vw, 1.4rem);
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--color-ink);
+  margin: 0 0 0.6rem;
+}
+
+.fm-scripture cite {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-gold-text);
+}
+
+/* --- Pull Quote --------------------------------------------------
+   Large serif. No box. No decorative quotation marks. Use sparingly —
+   authors wrap one sentence in <p class="fm-pull-quote">. */
+
+.fm-pull-quote {
+  margin: 2.5rem auto;
+  max-width: 34rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-primary);
+}
+
+/* --- Image + Caption -----------------------------------------
+   Every image supports the argument and gets a specific caption —
+   never decorative, never generic. */
+
+.fm-image {
+  margin: 2.25rem 0;
+}
+
+.fm-image img {
+  display: block;
+  width: 100%;
+  margin: 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.fm-image figcaption {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* --- End CTA -------------------------------------------------
+   One CTA per article, homepage dark-band language. No competing
+   actions — one button, one quiet secondary link. */
+
+.fm-end-cta {
+  margin: 3rem 0 2rem;
+  padding: 2.5rem 2rem;
+  background: var(--color-footer-bg);
+  color: var(--color-footer-text);
+  border-radius: var(--radius-card);
+  text-align: center;
+}
+
+.fm-end-cta h2 {
+  margin: 0 0 1.5rem;
+  color: var(--color-footer-text);
+  font-size: var(--fs-h3);
+}
+
+.fm-end-cta__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+/* The default .button is Primary Green — invisible on this band's own
+   Primary Green background. Clay is the palette's designated CTA
+   color (see the --color-clay comment in global.css), so it's the one
+   accent that actually stands out here. */
+.fm-end-cta .button {
+  padding: 0.9rem 2.1rem;
+  font-size: 1.05rem;
+  background: var(--color-clay);
+  color: #ffffff;
+}
+
+.fm-end-cta .button:hover {
+  background: var(--color-clay-text);
+}
+
+.fm-end-cta__secondary {
+  color: var(--color-footer-text-muted);
+  font-size: 0.95rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fm-end-cta__secondary:hover {
+  color: var(--color-footer-text);
+}
+
+@media (max-width: 640px) {
+  .fm-end-cta {
+    padding: 2rem 1.25rem;
+  }
+}

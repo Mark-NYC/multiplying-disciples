@@ -43,6 +43,18 @@ const articles = defineCollection({
     // True for utility/legal pages (e.g. /privacy-policy/) that should
     // exist as a real page but not appear in the /blog/ article index.
     exclude_from_blog: z.boolean().default(false),
+    // Phase 2 field test — opts a single article into ArticleLayoutV2
+    // (the homepage-language article design system) instead of the
+    // sitewide ArticleLayout. Only set on the 3 field-test articles;
+    // every other article is untouched. See
+    // PHASE_11_ARTICLE_FIELD_TEST.md.
+    article_system: z.enum(['field-manual-v2']).optional(),
+    // Article Hero fields, used only when article_system is set.
+    hero_category: z.string().optional(),
+    hero_subheading: z.string().optional(),
+    hero_image: z.string().optional(),
+    hero_image_alt: z.string().optional(),
+    hero_image_caption: z.string().optional(),
     ...migrationFields,
   }),
 });
