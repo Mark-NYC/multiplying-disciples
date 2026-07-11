@@ -1,0 +1,23 @@
+---
+// PracticeCard — one concrete action for the reader. Soft sage
+// background, dark green text, no heavy shadow. Must make sense on
+// its own, with no field story attached.
+//
+// Use: 0-1 per article. Reserve for content with 2+ real, concrete
+// steps or a single unmistakable next action — not every article
+// earns one.
+//
+// Usage: <PracticeCard label="Try This This Week">...markdown...</PracticeCard>
+interface Props {
+  label?: string;
+}
+
+const { label = 'Practice This Week' } = Astro.props;
+---
+
+<div class="fm-practice-card">
+  <p class="fm-practice-card__label">{label}</p>
+  <div class="fm-practice-card__body">
+    <slot />
+  </div>
+</div>

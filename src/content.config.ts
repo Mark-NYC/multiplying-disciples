@@ -20,7 +20,7 @@ const externalLink = z.object({
 });
 
 const articles = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/articles' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/articles' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -43,11 +43,10 @@ const articles = defineCollection({
     // True for utility/legal pages (e.g. /privacy-policy/) that should
     // exist as a real page but not appear in the /blog/ article index.
     exclude_from_blog: z.boolean().default(false),
-    // Phase 2 field test — opts a single article into ArticleLayoutV2
-    // (the homepage-language article design system) instead of the
-    // sitewide ArticleLayout. Only set on the 3 field-test articles;
-    // every other article is untouched. See
-    // PHASE_11_ARTICLE_FIELD_TEST.md.
+    // Opts a single article into ArticleLayoutV2 (the homepage-language
+    // article design system) instead of the sitewide ArticleLayout.
+    // Only set on the field-test articles; every other article is
+    // untouched. See ARTICLE_DESIGN_SYSTEM.md.
     article_system: z.enum(['field-manual-v2']).optional(),
     // Article Hero fields, used only when article_system is set.
     hero_category: z.string().optional(),
@@ -55,7 +54,43 @@ const articles = defineCollection({
     hero_image: z.string().optional(),
     hero_image_alt: z.string().optional(),
     hero_image_caption: z.string().optional(),
+    // Closing ArticleCTA, used only when article_system is set. Omit
+    // entirely for the default "Ready to practice this?" copy; set
+    // cta_variant: "tool-first" to swap which action is primary.
+    cta_variant: z.enum(['default', 'tool-first']).optional(),
+    cta_heading: z.string().optional(),
+    cta_body: z.string().optional(),
+    cta_primary_label: z.string().optional(),
+    cta_primary_url: z.string().optional(),
+    cta_secondary_label: z.string().optional(),
+    cta_secondary_url: z.string().optional(),
     ...migrationFields,
+  }),
+});
+
+// Field Notes are short, real, approved proof-of-practice stories —
+// deliberately a separate collection from articles so a note can be
+// authored, held back, or reused without touching any article's own
+// content. An article references one by id (see the FieldNote
+// component); an unapproved or missing id renders nothing. See
+// FIELD_NOTE_TEMPLATE.md for the copy-paste authoring template and
+// ARTICLE_DESIGN_SYSTEM.md for how this wires into an article.
+const fieldNotes = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/field-notes' }),
+  schema: z.object({
+    number: z.string().optional(),
+    location: z.string().optional(),
+    date: z.string().optional(),
+    headline: z.string().optional(),
+    image: z.string().optional(),
+    image_alt: z.string().optional(),
+    image_caption: z.string().optional(),
+    attribution: z.string().optional(),
+    related_tool: z.string().optional(),
+    related_article: z.string().optional(),
+    // Must be explicitly true to render publicly. Defaults to false so
+    // a note being drafted can never accidentally go live.
+    approved: z.boolean().default(false),
   }),
 });
 
@@ -94,4 +129,4 @@ const hubs = defineCollection({
   }),
 });
 
-export const collections = { articles, tools, hubs };
+export const collections = { articles, tools, hubs, fieldNotes };

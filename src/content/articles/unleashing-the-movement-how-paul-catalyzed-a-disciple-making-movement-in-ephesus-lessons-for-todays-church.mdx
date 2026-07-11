@@ -25,32 +25,36 @@ notes: >
   shell, the reusable "Are you in? / Start Here. / Get Started" CTA
   block, and a stray Elementor <style> block. Featured image
   (group.jpeg) not found under supplied uploads — og_image omitted.
-  Phase 2 field test (article design system v2, see
-  PHASE_11_ARTICLE_FIELD_TEST.md): one of 3 pilot articles for the new
-  homepage-language component system, chosen as the "narrative/story"
-  category — this article is a sustained retelling of one biblical
-  story (Acts 19) rather than a topical teaching piece, which is the
-  clearest narrative fit among the site's church-planting-movement
-  articles. No wording changed. Sourced hero_image from the same photo
-  already used on the homepage's "Community of Practice" section
-  (alt: "A group gathered in a home, praying over someone") — chosen
-  because it depicts the same laying-on-of-hands posture central to
-  Acts 19:6, not because it is a photo of Ephesus. Wrapped the opening
-  paragraph in the large intro-paragraph style. Added one Pull Quote
-  and one Insight Card (the "what changed the city" recap, newly
-  extracted as a bulleted summary of the article's own closing
-  paragraph — no new claims, same 4 points already stated in prose).
-  No Field Note added — this field test intentionally ships without
-  real-world testimony content; see PHASE_11_ARTICLE_FIELD_TEST.md.
+  Phase 11 (article design system v1 field test): first pass at this
+  system. Superseded below.
+  Phase 12 (article design system refinement): kept as the field
+  test's narrative/story article per explicit direction to update all
+  three rather than swap this one out. Converted to .mdx. Promoted the
+  9 story-beat subheadings from H3 to H2 (they were flat H3s with no
+  H2 at all, so the Table of Contents previously had nothing to show)
+  — a heading-hierarchy fix, not a content change. Kept the same
+  component mix as the v1 pass (1 Pull Quote on the article's most
+  memorable line, 1 Insight Card summarizing the 4 takeaways, 1
+  Practice Card), which already sat comfortably inside the refined
+  system's limits. Sourced hero_image from the same photo used on the
+  homepage's "Community of Practice" section — chosen because it
+  depicts the same laying-on-of-hands posture central to Acts 19:6,
+  not because it is a literal photo of Ephesus. No Field Note — no
+  real, approved story exists yet for this article.
 ---
 
-<p class="fm-intro">In Acts 19, we see Paul arriving in the city of Ephesus and encountering a group of disciples who were baptized with John's baptism but did not yet know about the Holy Spirit. Paul shared the gospel with them, baptized them in the name of Jesus, and laid hands on them to receive the Holy Spirit.</p>
+import ArticleIntro from '../../components/article/ArticleIntro.astro';
+import PullQuote from '../../components/article/PullQuote.astro';
+import PracticeCard from '../../components/article/PracticeCard.astro';
+import InsightCard from '../../components/article/InsightCard.astro';
+
+<ArticleIntro>In Acts 19, we see Paul arriving in the city of Ephesus and encountering a group of disciples who were baptized with John's baptism but did not yet know about the Holy Spirit. Paul shared the gospel with them, baptized them in the name of Jesus, and laid hands on them to receive the Holy Spirit.</ArticleIntro>
 
 This event was a catalyst for a movement that would spread throughout the city and beyond.
 
 *__In this blog post, we will explore how Paul catalyzed the movement in Ephesus and what we can learn from his methods.__*
 
-### Paul Connected with People Where They Were At
+## Paul Connected with People Where They Were At
 
 When Paul arrived in Ephesus, he found a group of disciples who were already interested in spiritual matters.
 
@@ -58,13 +62,13 @@ They had been baptized by John the Baptist but did not yet know about Jesus or t
 
 Paul built a bridge between what they already knew and what they needed to know to become followers of Jesus.
 
-<p class="fm-pull-quote">He met them where they were at.</p>
+<PullQuote>He met them where they were at.</PullQuote>
 
 As disciple-makers today, we can learn from Paul's example by looking for opportunities to connect with people where they are at.
 
 Whether it's through shared interests or common struggles, we can build relationships that provide a platform for sharing the gospel.
 
-### Paul Proclaimed the Gospel with Boldness and Clarity
+## Paul Proclaimed the Gospel with Boldness and Clarity
 
 When Paul spoke to the disciples in Ephesus, he did not mince words.
 
@@ -76,7 +80,7 @@ As disciple-makers today, we can follow Paul's example by boldly and clearly pro
 
 We must trust that the Holy Spirit will work through our message to transform hearts and minds.
 
-### Paul Demonstrated the Power of the Holy Spirit
+## Paul Demonstrated the Power of the Holy Spirit
 
 When Paul baptized the disciples in Ephesus and laid hands on them to receive the Holy Spirit, he demonstrated the power of God in a tangible way.
 
@@ -86,7 +90,7 @@ And they began to speak in tongues and prophesy. This miraculous event served as
 
 As disciple-makers today, we can seek to demonstrate the power of the Holy Spirit in our own lives and ministries. Through prayer and dependence on God, we can see miraculous things happen that serve as a witness to the truth of the gospel and the reality of God's power.
 
-### Paul Equipped and Empowered Others for Ministry
+## Paul Equipped and Empowered Others for Ministry
 
 After the events in Ephesus, Paul spent two years teaching and equipping the believers there.
 
@@ -96,15 +100,11 @@ As disciple-makers today, we can learn from Paul's example by equipping and empo
 
 Rather than trying to do everything ourselves, we should seek to train and empower others to continue the work of disciple-making.
 
-<div class="fm-practice-card">
-
-<p class="fm-practice-card__label">Practice This Week</p>
-
+<PracticeCard label="Your Next Step">
 Name one person you are currently discipling — or want to start discipling. Instead of doing the next ministry task yourself, hand it to them this week, and coach them through it rather than doing it for them.
+</PracticeCard>
 
-</div>
-
-### The Results
+## The Results
 
 After Paul's initial interaction with the believers in Ephesus, he continued to teach and lecture in the lecture hall of Tyrannus for two years.
 
@@ -116,7 +116,7 @@ People began to fear and respect the name of Jesus.
 
 This fear and respect for Jesus led to a turning point in the city when some Jewish exorcists tried to use Jesus' name to cast out demons, but were unsuccessful. The demon-possessed man they were trying to help overpowered them, causing them to flee naked and wounded.
 
-### A City Turns to God
+## A City Turns to God
 
 This event caused many people in the city to realize the power of Jesus' name and the futility of trying to manipulate it for their own purposes.
 
@@ -126,7 +126,7 @@ They publicly confessed their sins and burned their magic books, which were wort
 
 Ultimately it helped to further spread the movement of Jesus.
 
-### Paul's Creative Contextualization
+## Paul's Creative Contextualization
 
 One of the keys to Paul's success in catalyzing the movement in Ephesus was his ability to adapt his message and methods to the cultural context. He recognized the importance of the city's cultural and religious influence and context.
 
@@ -134,28 +134,24 @@ He used them to create opportunities to share the gospel.
 
 For example, he used the lecture hall of Tyrannus, which was a popular gathering place for students and teachers, to teach about Jesus.
 
-### Local Leaders
+## Local Leaders
 
 Another key to Paul's success was his willingness to work alongside and empower local leaders.
 
 He recognized the importance of building relationships and equipping others to carry on the work of spreading the gospel. He appointed elders in the churches and encouraged them to take on leadership roles.
 
-### Conclusion
+## Conclusion
 
 In conclusion, Paul's catalyzation of the movement in Ephesus is a powerful example of how the gospel can spread rapidly.
 
 We see the gospel spreading effectively through a community when the message is adapted to the cultural context, miracles and signs follow, and local leaders are empowered to carry on the work.
 
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
+<InsightCard label="Summary">
 - Paul connected with people where they were, then built a bridge to Jesus
 - He proclaimed the gospel with boldness and clarity, never watering it down
 - He depended on the Holy Spirit's power rather than his own persuasion
 - He equipped and empowered local leaders instead of doing all the ministry himself
-
-</div>
+</InsightCard>
 
 By following Paul's example, we can learn to effectively share the gospel and see it spread throughout our own communities.
 

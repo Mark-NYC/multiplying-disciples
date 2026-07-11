@@ -1,5 +1,12 @@
 # Phase 11 — Article Design System Field Test
 
+> **Superseded by Phase 12** (`PHASE_12_ARTICLE_SYSTEM_REFINEMENT.md`
+> and `ARTICLE_DESIGN_SYSTEM.md`). Kept for history — the raw-HTML-div
+> component approach and card-heavy density described below were
+> refined into real `.astro` components, MDX articles, and a much more
+> restrained card frequency. Don't build on the approach described in
+> this file; use the current docs instead.
+
 Goal: validate a reusable article component system that makes articles
 feel like pages inside the homepage's "field manual," on exactly 3
 articles, before touching the other ~120. Not a site-wide rollout, not
