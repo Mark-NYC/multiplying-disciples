@@ -23,6 +23,12 @@ og_image: "/wp-content/uploads/2023/05/Three-Thirds-Meeting-Format.webp"
 status: "migrated"
 migration_priority: "tier-1"
 original_url: "https://multiplyingdisciples.us/three-thirds/"
+article_system: "field-manual-v2"
+hero_category: "Simple Church"
+hero_subheading: "A 90-minute meeting format built to remove every excuse between hearing the Word and obeying it."
+hero_image: "/wp-content/uploads/2023/05/Three-Thirds-Meeting-Format.webp"
+hero_image_alt: "The Three Thirds meeting format diagram: Look Back, Look Up, and Look Forward, with eight numbered elements split across the three columns"
+hero_image_caption: "The eight elements of a Three Thirds meeting, split across Looking Back, Looking Up, and Looking Ahead."
 notes: >
   Real content ported from the WordPress export (post_id 5959). One of
   the 6 "especially important" pages named in the original migration
@@ -34,11 +40,51 @@ notes: >
   actually needs preserved locally (5 other size variants referenced in
   the source are WordPress responsive-image srcset candidates, not
   separate content images — no action needed for those).
+
+  2026-07-11 (field-manual-v2 pilot, pick 3 of 3): converted to .mdx.
+  Headings were already clean H2s throughout — no promotion needed,
+  Table of Contents works unchanged. Wrapped the opening hook sentence
+  in ArticleIntro; left the next 2 sentences as normal body text right
+  after, per the "exactly once" rule. This article already had a
+  distinct voice with ~9 real "Common mistake:" call-outs baked into
+  its prose — per the system's own restraint rule (0-1 WarningCard per
+  article), only the single strongest one (skipping accountability
+  because it's awkward) was promoted to an actual WarningCard; the
+  other ~8 were deliberately left as the existing bolded inline text,
+  already scannable, not boxed. One InsightCard for the "why it
+  works" 4-bullet list, one PracticeCard for the Week 1 starting
+  action (left Weeks 2-12 as prose — a full 12-week roadmap isn't "one
+  concrete action"), one PullQuote using the article's own existing
+  "Bottom Line" sentence verbatim, and one ArticleImage for the
+  Breaking-Down-Each-Third screenshot (caption written after visually
+  confirming its content: an 8-item Look Back/Look Up/Look Forward
+  grid). The lead Google-Slides-linked image was left exactly as a
+  plain Markdown image-link — ArticleImage has no href prop, so
+  wrapping it would have dropped the external link. No real Field Note
+  exists for this article yet (only the unapproved dev example exists
+  in src/content/field-notes/) — left an invisible MDX comment marking
+  where one would go; did not invent one.
 ---
+
+import ArticleIntro from '../../components/article/ArticleIntro.astro';
+import ArticleImage from '../../components/article/ArticleImage.astro';
+import WarningCard from '../../components/article/WarningCard.astro';
+import InsightCard from '../../components/article/InsightCard.astro';
+import PracticeCard from '../../components/article/PracticeCard.astro';
+import PullQuote from '../../components/article/PullQuote.astro';
+
+{/*
+  TODO (Field Note): once a real, approved story of a group actually
+  running Three Thirds exists in src/content/field-notes/, add:
+    import FieldNote from '../../components/article/FieldNote.astro';
+  and place <FieldNote id="your-id" /> after "How to Start Your First
+  Three Thirds Group" below — that's the natural "someone tried this"
+  moment. Do not invent one in the meantime; see FIELD_NOTE_TEMPLATE.md.
+*/}
 
 [![Three Thirds meeting format slide deck](/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.17-AM-1024x766.png)](https://docs.google.com/presentation/d/1sjg3nIHY_pWX02XojDXt8tFpmukY_xS2sfaDjOEL7AA/edit?usp=sharing)
 
-Most discipleship groups die the same death: they meet for months, study Scripture, maybe pray together, then disband without producing a single disciple-maker.
+<ArticleIntro>Most discipleship groups die the same death: they meet for months, study Scripture, maybe pray together, then disband without producing a single disciple-maker.</ArticleIntro>
 
 The **Three Thirds Bible Study process** fixes this. Not because it's complicated—because it's brutally simple. It forces the one behavior most Bible studies avoid: *actually doing something with what you learn.*
 
@@ -62,16 +108,22 @@ Three Thirds reverses the equation. It assumes the point isn't *knowing more*—
 
 **The thought process:**
 
+<InsightCard label="What Makes It Work">
 - **Accountability before content** - You report on last week's obedience before getting new teaching. This trains your brain: the goal isn't learning, it's doing. Miss this and you're back to Bible study mode.
 - **Practice beats theory** - You don't leave until you've engaged in interactive practice of a tool or the story. This is uncomfortable. It's also why it works. Most people won't share the gospel because they've never practiced. You're removing the friction.
 - **Public goals create pressure** - Writing down measurable goals in front of others activates loss aversion. You don't want to come back next week empty-handed.
 - **Worship first centers the mission** - Starting with God instead of your week reframes everything as spiritual warfare, not religious activity.
+</InsightCard>
 
 The system creates a feedback loop: obey → report → learn → practice → set goals → obey. Each week builds momentum.
 
 ## Breaking Down Each Third
 
-![Three Thirds process overview](/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.08-AM-1024x804.jpg)
+<ArticleImage
+  src="/wp-content/uploads/2023/04/Screen-Shot-2023-04-02-at-7.11.08-AM-1024x804.jpg"
+  alt="Three-column diagram labeled Look Back, Look Up, Look Forward, listing 8 numbered elements: Care, Worship, Loving Accountability, Vision under Look Back; New Lesson, Practice under Look Up; Set Goals, Commission (Pray) under Look Forward"
+  caption="The 8 elements of a Three Thirds meeting, grouped under Look Back, Look Up, and Look Forward."
+/>
 
 ### First Third: Looking Back (30-40 minutes)
 
@@ -88,7 +140,9 @@ The system creates a feedback loop: obey → report → learn → practice → s
 - Follow: "How did you obey last week's lesson?"
 - Fish: "Who did you share with in your relational network this week?"
 
-**Common mistake:** Skipping this because it's awkward. The awkwardness is the point. If no one's obeying, you need to know now, not six months from now.
+<WarningCard label="Common Mistake">
+Skipping this because it's awkward. The awkwardness is the point. If no one's obeying, you need to know now, not six months from now.
+</WarningCard>
 
 **4. Vision-Casting (5 min)** Short story or Scripture that points to the Great Commission. Remind them why this matters. The Book of Acts works well here.
 
@@ -152,7 +206,9 @@ Write it down. Say it out loud.
 
 ## How to Start Your First Three Thirds Group
 
+<PracticeCard label="Start This Week">
 **Week 1:** Model the format. Let everyone experience it as you go. Set small goals. Don't expect perfection.
+</PracticeCard>
 
 **Weeks 2-4:** Run the full format. Report on goals. Adjust. People will resist accountability. Push through. By week 4 you'll see who's serious.
 
@@ -183,7 +239,7 @@ Simple church focuses on organic relationships and participatory gatherings. Thr
 
 ## The Bottom Line
 
-Three Thirds isn't a Bible study method. It's a disciple-making factory.
+<PullQuote>Three Thirds isn't a Bible study method. It's a disciple-making factory.</PullQuote>
 
 It works because it removes every variable between hearing and doing. You can't show up, consume, and leave unchanged. The structure won't let you.
 
