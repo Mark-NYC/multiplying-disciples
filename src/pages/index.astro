@@ -21,7 +21,7 @@
 // widget (covo-multipliers/embeds/lab-registration-widget.js), embedded
 // directly — not a duplicated copy of the form.
 import BaseLayout from '../layouts/BaseLayout.astro';
-import BrandSeal from '../components/BrandSeal.astro';
+import RotatingSeal from '../components/RotatingSeal.astro';
 import ForYouIfSection from '../components/ForYouIfSection.astro';
 import { SITE, COVO_LABS_URL } from '../data/site';
 ---
@@ -272,7 +272,7 @@ import { SITE, COVO_LABS_URL } from '../data/site';
         </p>
       </div>
       <div class="conviction__seal">
-        <BrandSeal />
+        <RotatingSeal />
       </div>
     </div>
   </section>
@@ -1078,12 +1078,10 @@ import { SITE, COVO_LABS_URL } from '../data/site';
     color: rgba(31, 37, 35, 0.78);
   }
 
+  /* RotatingSeal sizes itself (see its own responsive width/height) —
+     this wrapper just keeps it from being squeezed by the flex row. */
   .conviction__seal {
     flex-shrink: 0;
-    width: 9rem;
-    height: 9rem;
-    color: var(--color-ink);
-    opacity: 0.85;
   }
 
   @media (max-width: 700px) {
@@ -1098,11 +1096,6 @@ import { SITE, COVO_LABS_URL } from '../data/site';
       flex-direction: column;
       align-items: flex-start;
       gap: 1.75rem;
-    }
-
-    .conviction__seal {
-      width: 6.5rem;
-      height: 6.5rem;
     }
   }
 
