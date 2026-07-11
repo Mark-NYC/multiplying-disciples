@@ -29,6 +29,12 @@ og_image: "/wp-content/uploads/2025/11/short-christian-testimony-examples.webp"
 status: "migrated"
 migration_priority: "tier-1"
 original_url: "https://multiplyingdisciples.us/15-second-testimony-examples-ignite-your-faith/"
+article_system: "field-manual-v2"
+hero_category: "Testimony"
+hero_subheading: "Real, copyable examples you can adapt today, plus the simple structure behind every one of them."
+hero_image: "/wp-content/uploads/2025/11/short-christian-testimony-examples.webp"
+hero_image_alt: "Short Christian testimony examples graphic used to introduce the 15-second testimony format"
+hero_image_caption: "The 15-second testimony format — a before, an exchange, and an after, short enough to say in one breath."
 notes: >
   Real content ported from the WordPress export (post_id 8357). This page
   previously ranked well (13 clicks / 7,669 impressions in the known GSC
@@ -54,69 +60,81 @@ notes: >
   now redundant with ArticleLayout's automatic closing CTA band (Phase
   10B). No wording changed beyond dropping redundant literal quote
   marks now that the blockquote container conveys quoted speech.
+
+  2026-07-11 (field-manual-v2 pilot, pick 2 of 3): converted to .mdx.
+  Promoted the true major sections to H2 for the Table of Contents
+  (Quick List, The #NoPlaceLeft Tool, Real-Life Examples, The SBR
+  Filter, Conclusion) — Frequently Asked Questions was already H2, its
+  5 sub-questions stay H3, unchanged. The 7 "Quick List" callout divs
+  are now plain blockquotes, matching the format the article's own
+  later "Example: From ___" sections already use for testimony
+  text — not a new component, just made consistent with itself.
+  Converted the 3 example screenshots to ArticleImage; captions
+  written after visually confirming each one — all 3 use the same
+  Intro/two-words-before/cross/two-words-after/Ask layout, just with
+  different words. Converted the 5-step "how to write one" list to a
+  PracticeCard, and the Simplicity/Biblical/Reproducibility box to an
+  InsightCard. One PullQuote, using the article's own existing closing
+  sentence verbatim. No real Field Note exists for this article yet
+  (only the unapproved dev example exists in src/content/field-notes/)
+  — despite this being the single best Field-Note fit on the site (a
+  real testimony is exactly this component's purpose), none is added;
+  left an invisible MDX comment marking where one would go. The
+  fictional "John," "Mark," and "Jane" examples already in this
+  article's source are pre-existing illustrative content, not Field
+  Notes, and were left exactly as they were — not reclassified as, or
+  confused with, real approved stories.
 ---
 
-In this article, we will explore inspiring **15 second testimony examples that showcase a way to share your faith that is simple, [Biblical](/testimony-in-the-bible-20-verses-to-ignite-your-faith/), and reproducible.**
+import ArticleIntro from '../../components/article/ArticleIntro.astro';
+import ArticleImage from '../../components/article/ArticleImage.astro';
+import PracticeCard from '../../components/article/PracticeCard.astro';
+import InsightCard from '../../components/article/InsightCard.astro';
+import PullQuote from '../../components/article/PullQuote.astro';
 
-### Quick List of 15 Second Testimony Examples
+{/*
+  TODO (Field Note): once a real, approved testimony story exists in
+  src/content/field-notes/, add:
+    import FieldNote from '../../components/article/FieldNote.astro';
+  and place <FieldNote id="your-id" /> after the "Quick List" section
+  below, before the FAQ — this is the best Field-Note fit on the whole
+  site (a real testimony, on the testimony article). Do not invent one
+  in the meantime; see FIELD_NOTE_TEMPLATE.md.
+*/}
+
+<ArticleIntro>In this article, we will explore inspiring 15 second testimony examples that showcase a way to share your faith that is simple, [Biblical](/testimony-in-the-bible-20-verses-to-ignite-your-faith/), and reproducible.</ArticleIntro>
+
+## Quick List of 15 Second Testimony Examples
 
 Here are some examples of a short 15 second testimony format that model **communicating the exchange** that happened through the gospel.
 
 ### From darkness to light.
 
-<div class="callout callout--practice">
-
-I was lost and hopeless, drowning in my mistakes. But then I found God's love, and He pulled me out of the darkness. Now, I live in the light, forgiven and renewed.
-
-</div>
+> I was lost and hopeless, drowning in my mistakes. But then I found God's love, and He pulled me out of the darkness. Now, I live in the light, forgiven and renewed.
 
 ### Healing through faith.
 
-<div class="callout callout--practice">
-
-I was broken, carrying wounds that seemed impossible to heal. But when I turned to God through Jesus, His love embraced me, bringing healing to my heart and body. Today, I stand restored, a testament to His faithfulness.
-
-</div>
+> I was broken, carrying wounds that seemed impossible to heal. But when I turned to God through Jesus, His love embraced me, bringing healing to my heart and body. Today, I stand restored, a testament to His faithfulness.
 
 ### Overcoming addiction.
 
-<div class="callout callout--practice">
-
-Addiction held me captive, tearing my life apart. But when I surrendered to Jesus, He broke the chains that bound me. Now, I walk in freedom, a living testimony of His power to overcome.
-
-</div>
+> Addiction held me captive, tearing my life apart. But when I surrendered to Jesus, He broke the chains that bound me. Now, I walk in freedom, a living testimony of His power to overcome.
 
 ### From doubt to faith.
 
-<div class="callout callout--practice">
-
-I questioned everything, unsure if God was real. But in my search for truth, He revealed Himself to me in Jesus. Now, I believe with all my heart and find peace in His presence.
-
-</div>
+> I questioned everything, unsure if God was real. But in my search for truth, He revealed Himself to me in Jesus. Now, I believe with all my heart and find peace in His presence.
 
 ### Finding purpose.
 
-<div class="callout callout--practice">
-
-Life felt empty, like I was drifting without purpose. But then I discovered God's plan for me in what Jesus did for me, and everything changed. Now, I live with passion and clarity, knowing I have a divine purpose.
-
-</div>
+> Life felt empty, like I was drifting without purpose. But then I discovered God's plan for me in what Jesus did for me, and everything changed. Now, I live with passion and clarity, knowing I have a divine purpose.
 
 ### Forgiveness and redemption.
 
-<div class="callout callout--practice">
-
-I carried guilt and shame, burdened by my past mistakes. But through God's forgiveness and redemption in Jesus, I am set free. Today, I walk in His grace and share His love with others.
-
-</div>
+> I carried guilt and shame, burdened by my past mistakes. But through God's forgiveness and redemption in Jesus, I am set free. Today, I walk in His grace and share His love with others.
 
 ### Strength in difficult times.
 
-<div class="callout callout--practice">
-
-When life crumbled around me, I felt helpless and alone. But God's presence became my refuge, giving me strength to face every trial. I surrendered my life to Jesus. Now, I walk with unwavering faith, knowing He is with me.
-
-</div>
+> When life crumbled around me, I felt helpless and alone. But God's presence became my refuge, giving me strength to face every trial. I surrendered my life to Jesus. Now, I walk with unwavering faith, knowing He is with me.
 
 [Watch this testimony example on YouTube](https://www.youtube.com/watch?v=TOjV3B8vEJo)
 
@@ -126,15 +144,13 @@ When life crumbled around me, I felt helpless and alone. But God's presence beca
 
 To write a 15-second testimony, follow these steps:
 
-<div class="steps">
-
+<PracticeCard label="Write Yours in 5 Steps">
 1. Start with a simple introduction, saying, "There was a time in my life when . . . ."
 2. Think of two words that describe your life before Christ.
 3. Think of two words that describe what Christ did for you.
 4. Think of two words to describe your life after Christ.
 5. End with a question: "Do you have a story like that?"
-
-</div>
+</PracticeCard>
 
 By following this structure, you can effectively convey your personal experience and invite others to share their stories as well.
 
@@ -154,7 +170,7 @@ An example of a personal testimony could be: "Before I found my faith, I felt lo
 
 In your testimony, you can share about your life before your faith or belief, the moment of transformation or encounter, and the positive changes that have occurred in your life since then. It's also helpful to include a call to action or invitation for others to explore their own faith journeys.
 
-### The #NoPlaceLeft 15 Second Testimony Tool
+## The #NoPlaceLeft 15 Second Testimony Tool
 
 The 15-second testimony tool from [No Place Left](https://noplaceleft.net/) is a powerful and concise method of sharing one's faith in a brief yet impactful manner.
 
@@ -162,13 +178,13 @@ It is designed to equip individuals with a simple framework to communicate the t
 
 By condensing one's testimony into just 15 seconds, it becomes easily shareable and memorable.
 
-#### How it Works
+### How it Works
 
 The tool encourages individuals to focus on key elements such as their previous state of brokenness or struggle, the encounter with God or the gospel message, and the resulting transformation or change in their lives. Then you end with asking a provocative question.
 
 By highlighting these aspects within a tight timeframe, the 15-second testimony tool enables believers to [engage in meaningful conversations](/how-to-evangelize-ultimate-step-by-step-guide/), spark curiosity, and inspire others to explore their own faith.
 
-#### It Has Multiplied
+### It Has Multiplied
 
 Furthermore, this tool [fosters a culture of discipleship](/disciple-making/), where believers are encouraged to share their faith boldly and consistently.
 
@@ -178,7 +194,7 @@ Read on to see examples of how this works.
 
 In the course of sharing our testimony through the finished work of Jesus, a profound exchange takes place.
 
-### Real-Life Faith 15 Second Testimony Examples
+## Real-Life Faith 15 Second Testimony Examples
 
 Christians, particularly those within the Evangelical tradition, follow the example of [testimony in the Bible](/testimony-in-the-bible-20-verses-to-ignite-your-faith/). They commonly use the phrase "to testify" or "to give one's testimony" to describe the act of sharing the personal story of their journey to becoming a Christian.
 
@@ -194,7 +210,11 @@ In just 15 seconds, John shares how his life was transformed from darkness to li
 
 This is how it looks:
 
-![15 Second Testimony Examples: from darkness to light](/wp-content/uploads/From-darkness-to-light-15-second-testimony-example.webp)
+<ArticleImage
+  src="/wp-content/uploads/From-darkness-to-light-15-second-testimony-example.webp"
+  alt="Diagram of the 'From Darkness to Light' testimony: two words before (dark thoughts, no hope), the cross, two words after (light in my heart, a path forward), then the closing question"
+  caption="The 'From Darkness to Light' testimony, laid out in the intro / before / cross / after / ask structure."
+/>
 
 #### The Great Exchange
 
@@ -214,7 +234,11 @@ In just 15 seconds, Mark shares how his life was transformed from being trapped 
 
 Here's how it looks:
 
-![15 Second Testimony Examples: from addiction to freedom](/wp-content/uploads/2023/05/4-1-1-YFC-e1684600391124-768x430.jpg)
+<ArticleImage
+  src="/wp-content/uploads/2023/05/4-1-1-YFC-e1684600391124-768x430.jpg"
+  alt="Diagram of the 'From Addiction to Freedom' testimony: two words before (addicted, trapped), the cross, two words after (free, at peace), then the closing question"
+  caption="The 'From Addiction to Freedom' testimony, in the same before/cross/after structure."
+/>
 
 ### Example: From Doubt to Faith
 
@@ -224,29 +248,31 @@ In just 15 seconds, Jane shares how she went from questioning everything, unsure
 
 Here's how it looks:
 
-![15 Second Testimony Examples: from doubt to faith](/wp-content/uploads/2023/05/4-1-1-YFC-1-e1684600816203.jpg)
+<ArticleImage
+  src="/wp-content/uploads/2023/05/4-1-1-YFC-1-e1684600816203.jpg"
+  alt="Diagram of the 'From Doubt to Faith' testimony: two words before (I questioned everything, crippling anxiety), the cross, two words after (I found truth, and rest), then the closing question"
+  caption="The 'From Doubt to Faith' testimony, in the same before/cross/after structure."
+/>
 
-### The Simple, Biblical, Reproducing Tool Filter
+## The Simple, Biblical, Reproducing Tool Filter
 
 The 15 Second Testimony tool passes a key test for [discipleship tools](/disciple-making/).
 
 [The testimony in the Bible](/testimony-in-the-bible-20-verses-to-ignite-your-faith/) is God's plan for reaching the nations. And therefore using simple, biblical, and reproducible discipleship tools is of utmost importance.
 
-<div class="callout callout--key-idea">
-
+<InsightCard label="The SBR Filter">
 **Simplicity** ensures accessibility, making it easier for anyone to engage in the discipleship process.
 
 **Biblical** tools align with the timeless truths and teachings of Scripture, providing a solid foundation for spiritual growth.
 
 **Reproducibility** empowers disciples to pass on what they have learned, multiplying the impact and expanding the Kingdom of God.
-
-</div>
+</InsightCard>
 
 These tools enable believers to effectively communicate and teach others, fostering a culture of discipleship. By [equipping individuals with simple, biblical, and reproducible tools](/how-to-evangelize-ultimate-step-by-step-guide/), we empower them to make a lasting impact as they fulfill the Great Commission and disciple others in the way of Christ.
 
 [Watch this testimony filter explained on YouTube](https://www.youtube.com/watch?v=5VGML0V-GFk)
 
-### Conclusion
+## Conclusion
 
 These 15 second testimony examples demonstrate the profound impact of faith in people's lives.
 
@@ -256,4 +282,4 @@ Remember, your testimony is unique and personal.
 
 Share it in a way that reflects your own experience and highlights the work of God in your life. We hope these examples serve as a starting point to inspire you to share your faith in a concise yet impactful manner.
 
-Let your testimony be a beacon of hope and encouragement to those around you, even in a mere 15 seconds.
+<PullQuote>Let your testimony be a beacon of hope and encouragement to those around you, even in a mere 15 seconds.</PullQuote>
