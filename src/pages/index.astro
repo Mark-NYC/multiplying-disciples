@@ -970,10 +970,13 @@ import { SITE } from '../data/site';
      but medium weight so it reads as a question, not a second
      headline. */
   .block-grid__quote {
-    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    /* !important: this <p> also matches the higher-specificity
+       .block-grid__cell--text p rule below, which would otherwise win
+       the font-size/line-height cascade. */
+    font-size: clamp(1rem, 1.3vw, 1.15rem) !important;
     font-style: italic;
     font-weight: 500 !important;
-    line-height: 1.45;
+    line-height: 1.45 !important;
     margin-bottom: 0.5rem !important;
     color: var(--color-primary-text) !important;
   }
@@ -1049,6 +1052,46 @@ import { SITE } from '../data/site';
     .block-grid__cell--text {
       aspect-ratio: auto;
       padding: 2.5rem 1.5rem;
+    }
+  }
+
+  /* Mobile-only refinements for the Why Coaching card: larger type, a
+     narrower ~28-34-character measure, and more room between each
+     line so it reads easily on a phone. Scoped to this card's own
+     classes (plus the h2 selector, which only this card uses) so the
+     other two block-grid cards' mobile rules above are untouched. */
+  @media (max-width: 800px) {
+    .block-grid__cell--green {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    .block-grid__cell--text h2 {
+      margin-bottom: 1.6rem;
+    }
+
+    .why-coaching__lead-in {
+      max-width: 32ch;
+      font-size: 1.4375rem !important;
+      margin-bottom: 1.65rem !important;
+    }
+
+    .block-grid__quote {
+      max-width: 32ch;
+      font-size: 1.6875rem !important;
+      margin-bottom: 2rem !important;
+    }
+
+    .why-coaching__transform {
+      max-width: 32ch;
+      font-size: 1.4375rem !important;
+      line-height: 1.7 !important;
+      margin-bottom: 2.75rem !important;
+    }
+
+    .block-grid__punch--coaching {
+      max-width: 32ch;
+      font-size: 0.9rem !important;
     }
   }
 
