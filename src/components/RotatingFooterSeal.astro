@@ -1,0 +1,129 @@
+---
+// Small rotating brand detail for the bottom-right of the footer —
+// inspired by the rotating seal on YWAM's homepage, built from our own
+// artwork. Two independent layers: a fixed center logo (md-logo-square.webp,
+// used as-is, never rotates) and an SVG text ring that rotates around it.
+// Clicking/activating the whole seal scrolls back to top — see the inline
+// script below. Kept deliberately separate from BrandSeal.astro (the
+// static crosshair seal used elsewhere): that one is a wordless page
+// ornament, this one is a real logo + a specific "back to top" action.
+const uid = Math.random().toString(36).slice(2, 9);
+const ringId = `footer-seal-ring-${uid}`;
+---
+
+<button type="button" class="footer-seal" aria-label="Back to top">
+  <svg class="footer-seal__ring" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+    <defs>
+      <path id={ringId} d="M 100,100 m -80,0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" />
+    </defs>
+    <circle cx="100" cy="100" r="97" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35" />
+    <text font-size="11.5" letter-spacing="3.5" font-weight="700" fill="currentColor">
+      <textPath href={`#${ringId}`}
+        >MULTIPLYING DISCIPLES &#8226; FIELD-TESTED &#8226; MULTIPLYING DISCIPLES &#8226; FIELD-TESTED &#8226;</textPath
+      >
+    </text>
+  </svg>
+  <img
+    class="footer-seal__logo"
+    src="/md-logo-square.webp"
+    alt=""
+    width="200"
+    height="200"
+    loading="lazy"
+    decoding="async"
+  />
+</button>
+
+<script>
+  // One listener for every seal instance on the page (there's normally
+  // just one, in the footer). Scroll-to-top only — no navigation, no
+  // hash change, so it works identically on every page.
+  document.addEventListener('click', (event) => {
+    const seal = (event.target as Element).closest('.footer-seal');
+    if (!seal) return;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+</script>
+
+<style>
+  /* Plain, unstyled button reset — this must read as a small brand mark,
+     not a UI control. */
+  .footer-seal {
+    position: relative;
+    display: block;
+    width: 6rem;
+    height: 6rem;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--color-footer-text-muted);
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 641px) {
+    .footer-seal {
+      width: 7rem;
+      height: 7rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-seal {
+      width: 8.25rem;
+      height: 8.25rem;
+    }
+  }
+
+  /* Restrained focus ring — visible for keyboard users, not styled to
+     look like a button. */
+  .footer-seal:focus-visible {
+    outline: 2px solid var(--color-footer-text);
+    outline-offset: 4px;
+  }
+
+  .footer-seal__ring {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    animation: footer-seal-spin 50s linear infinite;
+  }
+
+  /* Fixed center logo — used exactly as provided, upright, no effects.
+     Sized well under the ring text so there's clear air between the
+     mark and the rotating type. */
+  .footer-seal__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 46%;
+    height: 46%;
+    border-radius: 0;
+  }
+
+  @keyframes footer-seal-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Desktop only — touch devices don't get a lingering "hover" state
+     that never releases. */
+  @media (hover: hover) and (pointer: fine) {
+    .footer-seal:hover .footer-seal__ring {
+      animation-duration: 30s;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .footer-seal__ring {
+      animation: none;
+    }
+  }
+</style>
