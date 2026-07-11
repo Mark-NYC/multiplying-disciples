@@ -1,6 +1,6 @@
 ---
 import { SITE } from '../data/site';
-import BrandSeal from './BrandSeal.astro';
+import RotatingSeal from './RotatingSeal.astro';
 
 const year = new Date().getFullYear();
 
@@ -38,7 +38,7 @@ const quickLinks = [
       </nav>
     </div>
     <div class="site-footer__seal">
-      <BrandSeal />
+      <RotatingSeal spin={false} size="6.5rem" />
     </div>
   </div>
   <div class="site-footer__bottom">
@@ -64,11 +64,7 @@ const quickLinks = [
   }
 
   .site-footer__seal {
-    width: 6.5rem;
-    height: 6.5rem;
     justify-self: end;
-    color: #ddae50;
-    opacity: 0.9;
   }
 
   @media (max-width: 640px) {
