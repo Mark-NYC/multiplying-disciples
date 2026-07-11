@@ -23,7 +23,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BrandSeal from '../components/BrandSeal.astro';
 import ForYouIfSection from '../components/ForYouIfSection.astro';
-import { SITE } from '../data/site';
+import { SITE, COVO_LABS_URL } from '../data/site';
 ---
 
 <BaseLayout
@@ -40,14 +40,13 @@ import { SITE } from '../data/site';
     <div class="hero__inner">
       <h1>Learn to make disciples who multiply.</h1>
       <p class="hero__subhead">
-        Simple biblical tools, live practice, and coaching that help ordinary believers obey
-        Jesus with real people.
+        Simple biblical tools, live practice, and coaching to help you obey Jesus with real
+        people.
       </p>
 
       <ul class="hero__proof">
-        <li>Practice with real people.</li>
-        <li>Use it this week.</li>
-        <li>No experience required.</li>
+        <li>Practice with real people</li>
+        <li>Use it this week</li>
       </ul>
 
       <p class="hero__ctas">
@@ -64,29 +63,21 @@ import { SITE } from '../data/site';
     </div>
   </section>
 
-  <!-- 2. PROBLEM / REPS — the line that separates this site from a
-       content library. Names the actual product (reps, not more
-       reading) before anything else. Kept short on purpose. -->
+  <!-- 2. PROBLEM / REPS — the homepage's central positioning statement,
+       the line that separates this site from a content library. Names
+       the actual product (reps, not more reading) before anything
+       else. Deliberately a single idea, understood in five seconds. -->
   <section class="conviction-strip" id="ch-reps">
     <div class="conviction-strip__inner">
-      <p class="conviction-strip__text">
-        You do not need more disciple-making content.{' '}
-        <span class="conviction-strip__emphasis">You need reps.</span>
+      <p class="eyebrow eyebrow--gold-text">You do not need more disciple-making content.</p>
+      <h2 class="conviction-strip__headline">You need reps.</h2>
+      <p class="conviction-strip__body">
+        Most Christians do not need another sermon, podcast, or framework. They need someone to
+        practice with.
       </p>
-      <p class="conviction-strip__lead">
-        Most Christians do not need another sermon, podcast, or framework.
-      </p>
-      <p class="conviction-strip__medium">
-        They need someone
-        <br />
-        to <span class="conviction-strip__medium-emphasis">practice with</span>.
-      </p>
-      <p class="conviction-strip__small">
-        Practice one simple tool.
-        <br />
-        Use it with someone you know.
-        <br />
-        Come back ready for the next step.
+      <p class="conviction-strip__body">
+        Our labs help you learn one simple tool, use it with someone you know, and come back
+        ready for the next step.
       </p>
     </div>
   </section>
@@ -99,46 +90,45 @@ import { SITE } from '../data/site';
   <!-- 4. THREE-STEP PATHWAY — names the journey in three simple steps
        and funnels straight into the labs CTA below. -->
   <section class="pathway" id="ch-pathway">
-    <p class="eyebrow eyebrow--gold-text">502 &middot; The Pathway</p>
-    <h2>The Practice to Multiply Pathway</h2>
-    <p class="pathway__subtitle">Simple enough to learn. Practical enough to use this week.</p>
+    <p class="eyebrow eyebrow--gold-text">502 &middot; How It Works</p>
+    <h2>How it works</h2>
     <ol class="pathway__steps">
       <li class="pathway__step">
         <span class="pathway__num">Step 01</span>
         <span class="pathway__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
           </svg>
         </span>
         <h3>Learn one tool</h3>
-        <p>Pick one simple biblical tool you can understand today and use this week.</p>
+        <p>Pick one simple biblical tool to use this week.</p>
       </li>
       <li class="pathway__step">
         <span class="pathway__num">Step 02</span>
         <span class="pathway__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="9" cy="7" r="4" />
             <path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2" />
             <path d="M19 8v6M22 11h-6" />
           </svg>
         </span>
         <h3>Practice with others</h3>
-        <p>Join a live lab and get reps with real practitioners.</p>
+        <p>Get reps with people who are doing it too.</p>
       </li>
       <li class="pathway__step">
         <span class="pathway__num">Step 03</span>
         <span class="pathway__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 3v18M5 10l7-7 7 7" />
           </svg>
         </span>
         <h3>Multiply in real life</h3>
-        <p>Use it with someone you know. Come back with the story. Repeat.</p>
+        <p>Use it with someone you know. Come back with the story.</p>
       </li>
     </ol>
     <p class="pathway__cta">
-      <a class="button" href="/#ch-practice">See Upcoming Labs</a>
+      <a class="button" href="/#ch-practice">Join the Next Lab</a>
     </p>
   </section>
 
@@ -149,8 +139,15 @@ import { SITE } from '../data/site';
   <section class="block-grid" id="ch-why" aria-label="Why coaching">
     <div class="block-grid__cell block-grid__cell--text block-grid__cell--green">
       <p class="eyebrow eyebrow--gold">501 &middot; Why Coaching</p>
-      <h2>Resources can teach you a tool. Coaching helps you obey with it.</h2>
-      <p class="block-grid__quote">&ldquo;Who are you going to use this with this week?&rdquo;</p>
+      <h2>Resources can teach you a tool. Coaching helps you use it.</h2>
+      <p class="block-grid__quote">
+        You have probably learned enough. Now you need someone asking, &ldquo;Who are you going
+        to practice this with this week?&rdquo;
+      </p>
+      <p class="block-grid__coaching-chain">
+        That is what coaching does. It turns learning into action. Action into confidence.
+        Confidence into multiplication.
+      </p>
       <p class="block-grid__punch block-grid__punch--coaching">Tools explain it. Coaching helps you live it.</p>
     </div>
 
@@ -175,7 +172,7 @@ import { SITE } from '../data/site';
       </span>
     </a>
   </section>
-  <p class="coaching-caption">Why live practice changes everything.</p>
+  <p class="coaching-caption">Why live practice changes everything</p>
 
   <!-- 6. FEATURED LIVE LAB — the primary conversion. Registration
        happens directly in this section (the real CoVo signup form,
@@ -183,6 +180,7 @@ import { SITE } from '../data/site';
        not a card that links out. -->
   <section class="labs-cta" id="ch-practice">
     <div class="labs-cta__inner">
+      <p class="eyebrow eyebrow--gold-text">Next Live Lab</p>
       <h2>Join the Next Live Multiplying Lab</h2>
       <p class="labs-cta__descriptor">
         Practice one simple tool. Walk away knowing your next disciple-making step.
@@ -193,6 +191,12 @@ import { SITE } from '../data/site';
         aria-live="polite"
         data-labs-content-tag="home__featured-lab__form"
       ></div>
+
+      <p class="labs-cta__note">Not sure which lab to choose? Start with the next one.</p>
+
+      <p class="labs-cta__view-all">
+        <a href={COVO_LABS_URL} target="_blank" rel="noopener">View all upcoming labs &rarr;</a>
+      </p>
 
       <noscript>
         <p class="labs-cta__descriptor">
@@ -212,13 +216,12 @@ import { SITE } from '../data/site';
           <path d="M5 12.5l4.5 4.5L19 7.5" />
         </svg>
       </span>
-      <h3>Learn what is actually working in North America.</h3>
+      <h3>Learn from people doing this every week.</h3>
       <p>
-        Everything we teach has been practiced by ordinary believers making disciples in real
-        neighborhoods, workplaces, campuses, and homes.
+        These are not theories. They are simple biblical tools being used by ordinary believers
+        in homes, workplaces, campuses, and neighborhoods every week.
       </p>
-      <p>No theory. No hype.</p>
-      <p>Just simple tools people are actually using.</p>
+      <p class="block-grid__punch block-grid__punch--dark">Simple. Biblical. Practiced in real life.</p>
     </div>
 
     <div class="block-grid__cell block-grid__cell--image">
@@ -247,13 +250,12 @@ import { SITE } from '../data/site';
         </svg>
       </span>
       <h3>Do not practice alone.</h3>
-      <p>Multiplication rarely happens in isolation.</p>
       <p>
-        Practice alongside others who are taking real steps, asking honest questions, and
-        bringing back stories from the field.
+        Practice with people who are taking real steps, asking honest questions, and bringing
+        back stories from the field.
       </p>
       <p class="block-grid__punch block-grid__punch--dark">
-        You were not meant to figure this out alone.
+        You were never meant to figure this out alone.
       </p>
     </div>
 
@@ -280,10 +282,9 @@ import { SITE } from '../data/site';
           >gather people around Jesus.</em>
         </h2>
         <p class="conviction__support">
-          You do not need a title, a seminary degree, or permission.
+          You do not need a title, a degree, or permission. Jesus calls ordinary believers to obey
+          and help others obey.
         </p>
-        <p class="conviction__support">Jesus calls ordinary believers to obey and help others obey.</p>
-        <p class="conviction__support">That is who this exists for.</p>
       </div>
       <div class="conviction__seal">
         <BrandSeal />
@@ -291,44 +292,42 @@ import { SITE } from '../data/site';
     </div>
   </section>
 
-  <!-- 10. FIELD NOTES — specific, small stories rather than generic
-       praise. Structured so any placeholder quote can be swapped for a
-       real, approved one without touching markup. -->
+  <!-- 10. STORIES FROM THE FIELD — specific, small stories rather than
+       generic praise. One dominant testimonial (a real, approved quote
+       naming a specific action), plus up to two smaller supporting
+       quotes. Any TODO placeholder below must only ever be swapped for
+       a real, approved testimonial — never invented copy. -->
   <section class="field-quote" id="ch-field-notes">
     <div class="field-quote__inner">
-      <p class="eyebrow eyebrow--gold-bright">504 &middot; Field Notes</p>
-      <span class="field-quote__mark" aria-hidden="true">&ldquo;</span>
-      <div class="field-quote__quotes">
+      <p class="eyebrow eyebrow--gold-bright">504 &middot; Stories From the Field</p>
+
+      <blockquote class="field-quote__primary">
+        <span class="field-quote__mark" aria-hidden="true">&ldquo;</span>
+        <div class="field-quote__primary-text">
+          <p>
+            I used the Conversation Box with my coworker two days after the lab. It was the first
+            spiritual conversation I had ever started.
+          </p>
+          <footer>&mdash; Lab participant</footer>
+        </div>
+      </blockquote>
+
+      <div class="field-quote__supporting">
         <blockquote class="field-quote__quote">
           <p>
-            &ldquo;I used the Conversation Box with my coworker two days after the lab. It was
-            the first spiritual conversation I had ever started.&rdquo;
+            I stopped collecting disciple-making resources and finally used one with someone that
+            week.
           </p>
           <footer>&mdash; Lab participant</footer>
         </blockquote>
-        <blockquote class="field-quote__quote">
+        <blockquote class="field-quote__quote field-quote__quote--todo">
           <p>
-            &ldquo;I stopped collecting disciple-making resources and finally used one with
-            someone that week.&rdquo;
+            TODO: real, approved testimonial naming one specific action (e.g. started a
+            Discovery Bible Study, shared the gospel for the first time, baptized someone).
           </p>
-          <footer>&mdash; Lab participant</footer>
-        </blockquote>
-        <blockquote class="field-quote__quote">
-          <p>
-            &ldquo;Going through this with other practitioners made it feel real, not
-            theoretical. Something is actually happening now.&rdquo;
-          </p>
-          <footer>&mdash; Marcus T <span class="field-quote__log">&middot; Field note &middot; OKC &middot; 2025</span></footer>
+          <footer>&mdash; TODO: name, role</footer>
         </blockquote>
       </div>
-      <img
-        class="field-quote__faces"
-        src="/images/labs-social-proof.webp"
-        alt="Practitioners who have gone through a Multiplying Lab"
-        width="695"
-        height="150"
-        loading="lazy"
-      />
     </div>
   </section>
 
@@ -344,7 +343,7 @@ import { SITE } from '../data/site';
         <details class="faq__item">
           <summary>
             <span class="faq__num">(01)</span>
-            <span class="faq__q">What happens in a Live Multiplying Lab?</span>
+            <span class="faq__q">What happens in a lab?</span>
             <span class="faq__arrow" aria-hidden="true">&#8599;</span>
           </summary>
           <p>
@@ -356,7 +355,7 @@ import { SITE } from '../data/site';
         <details class="faq__item">
           <summary>
             <span class="faq__num">(02)</span>
-            <span class="faq__q">Who are the labs for?</span>
+            <span class="faq__q">Who are labs for?</span>
             <span class="faq__arrow" aria-hidden="true">&#8599;</span>
           </summary>
           <p>
@@ -368,7 +367,7 @@ import { SITE } from '../data/site';
         <details class="faq__item">
           <summary>
             <span class="faq__num">(03)</span>
-            <span class="faq__q">Do I need previous disciple-making experience?</span>
+            <span class="faq__q">Do I need experience?</span>
             <span class="faq__arrow" aria-hidden="true">&#8599;</span>
           </summary>
           <p>
@@ -380,20 +379,19 @@ import { SITE } from '../data/site';
         <details class="faq__item">
           <summary>
             <span class="faq__num">(04)</span>
-            <span class="faq__q">Are the labs free?</span>
+            <span class="faq__q">Are labs free?</span>
             <span class="faq__arrow" aria-hidden="true">&#8599;</span>
           </summary>
           <p>
-            Yes, the labs are completely free of charge. Always. There are no hidden costs or
-            fees to participate. Our goal is to make high-quality disciple-making coaching and
-            practice accessible to everyone who wants to make disciples for Jesus.
+            Yes, always. There are no hidden costs or fees. Our goal is to make disciple-making
+            coaching and practice accessible to everyone.
           </p>
         </details>
 
         <details class="faq__item">
           <summary>
             <span class="faq__num">(05)</span>
-            <span class="faq__q">What is the difference between the tools and the labs?</span>
+            <span class="faq__q">What is the difference between tools and labs?</span>
             <span class="faq__arrow" aria-hidden="true">&#8599;</span>
           </summary>
           <p>
@@ -405,7 +403,7 @@ import { SITE } from '../data/site';
         <details class="faq__item">
           <summary>
             <span class="faq__num">(06)</span>
-            <span class="faq__q">What happens after the lab?</span>
+            <span class="faq__q">What happens after a lab?</span>
             <span class="faq__arrow" aria-hidden="true">&#8599;</span>
           </summary>
           <p>
@@ -422,10 +420,9 @@ import { SITE } from '../data/site';
        visually distinct from the dark footer immediately below. -->
   <section class="final-cta" id="ch-final-cta">
     <div class="final-cta__inner">
-      <h2>Ready to stop learning and start practicing?</h2>
+      <h2>Your next disciple-making conversation could happen this week.</h2>
       <p class="final-cta__body">
-        Join a live Multiplying Lab. Practice one simple tool. Use it this week. Come back with a
-        story.
+        Join a Live Multiplying Lab. Practice one simple tool. Use it with someone you know.
       </p>
       <p class="final-cta__ctas">
         <a class="button" href="/#ch-practice">Join the Next Lab</a>
@@ -455,7 +452,11 @@ import { SITE } from '../data/site';
     background-size: cover;
     background-position: center 38%;
     background-repeat: no-repeat;
-    padding: 1.25rem 1.25rem 24rem;
+    /* 24rem previously. Bumped up so the photo itself reads ~10%
+       taller on desktop, plus extra room so the Conversation Box link
+       above sits clearly apart from the photo rather than crowding
+       it. */
+    padding: 1.25rem 1.25rem 28.5rem;
   }
 
   /* Mobile: the tall, narrow hero forces a heavier horizontal crop on a
@@ -535,21 +536,19 @@ import { SITE } from '../data/site';
     }
   }
 
-  .hero__subhead {
-    font-size: 1.1rem;
-    color: var(--color-text-muted);
-    margin-bottom: 1.1rem;
+  /* Fluid across the whole viewport range (see --fs-h1 in global.css) —
+     46px at narrow widths up to 64px at desktop — so no separate
+     mobile override is needed. */
+  .hero h1 {
+    font-size: var(--fs-h1);
+    line-height: 1.08;
+    margin: 0 0 1.25rem;
   }
 
-  @media (max-width: 640px) {
-    .hero h1 {
-      font-size: 1.87rem;
-      margin: 0.5rem 0 0.75rem;
-    }
-
-    .hero__subhead {
-      font-size: 1rem;
-    }
+  .hero__subhead {
+    font-size: var(--fs-body);
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
   }
 
   /* Three short proof points — replaces the old single long pill badge.
@@ -565,7 +564,7 @@ import { SITE } from '../data/site';
     margin: 0 0 1.5rem;
     padding: 0;
     list-style: none;
-    font-size: 0.92rem;
+    font-size: var(--fs-support);
     font-weight: 600;
     color: var(--color-ink);
   }
@@ -597,9 +596,19 @@ import { SITE } from '../data/site';
   .hero__ctas {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
     margin-top: 0;
+  }
+
+  /* Primary CTA reads as the obvious next step — ~12% larger and a
+     touch heavier than the secondary button beside it, not just the
+     same shape in a different color. */
+  .hero__ctas .button:not(.button--secondary) {
+    padding: 0.85rem 1.85rem;
+    font-size: 1.05rem;
+    font-weight: 700;
   }
 
   @media (max-width: 640px) {
@@ -629,7 +638,9 @@ import { SITE } from '../data/site';
   }
 
   .hero__secondary {
-    margin-top: 1.5rem;
+    /* 1.5rem previously — tightened ~12px so this link reads as
+       belonging to the CTA pair above it, not floating on its own. */
+    margin-top: 0.75rem;
     font-size: 0.95rem;
     color: var(--color-text-muted);
   }
@@ -708,16 +719,15 @@ import { SITE } from '../data/site';
     color: var(--color-text-muted);
   }
 
-  /* --- Conviction strip: a calm manifesto / editorial pull quote.
-     Three body paragraphs step down in size (never relying on weight
-     alone) so the eye lands on "You need reps." first, then the large
-     opening line, then the supporting line, then the small closer. No
-     divider — generous whitespace carries the hierarchy instead. --- */
+  /* --- Conviction strip: the homepage's central positioning
+     statement, staged as a manifesto — eyebrow, one headline, one
+     short idea. Generous whitespace (not extra copy tiers) carries
+     the weight. --- */
 
   .conviction-strip {
     max-width: var(--site-max-width);
     margin: 0 auto;
-    padding: 6.5rem 1.5rem;
+    padding: 8.5rem 1.5rem;
     text-align: center;
   }
 
@@ -725,69 +735,38 @@ import { SITE } from '../data/site';
     margin: 0 auto;
   }
 
-  /* The primary statement — sized up so it reads as the clear lead of
-     the section and isn't overshadowed by the large paragraph below
-     it. */
-  .conviction-strip__text {
-    margin: 0 auto 3.5rem;
-    font-size: clamp(1.2rem, 2.5vw, 1.55rem);
-    font-weight: 700;
-    line-height: 1.35;
-    color: var(--color-ink);
+  .conviction-strip .eyebrow {
+    margin: 0 0 1rem;
   }
 
-  .conviction-strip__emphasis {
+  /* The one intentional exception to the shared H2 scale — ~12% larger
+     than --fs-h2 since this is the homepage's central positioning
+     statement, not just another section heading. */
+  .conviction-strip__headline {
+    margin: 0 auto 2.5rem;
+    font-size: var(--fs-h2-reps);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
     color: var(--color-primary);
   }
 
-  /* Large opening paragraph — 28px (mobile) to 44px (desktop). Tighter
-     max-width than a plain paragraph so it reads as an editorial pull
-     quote rather than a full-width line of body copy. */
-  .conviction-strip__lead {
-    max-width: 46.5rem;
-    margin: 0 auto 2.25rem;
-    font-size: clamp(1.75rem, 4.9vw, 2.75rem);
+  .conviction-strip__body {
+    max-width: 40rem;
+    margin: 0 auto 1.1rem;
+    font-size: var(--fs-body);
     font-weight: 500;
-    line-height: 1.3;
+    line-height: 1.6;
     color: var(--color-ink);
   }
 
-  /* Medium supporting paragraph — 22px (mobile) to 32px (desktop),
-     clearly smaller than the lead paragraph above it. Charcoal by
-     default; only "practice with" picks up the dark green. */
-  .conviction-strip__medium {
-    max-width: 53rem;
-    margin: 0 auto 2rem;
-    font-size: clamp(1.375rem, 3.6vw, 2rem);
-    font-weight: 600;
-    line-height: 1.35;
-    color: var(--color-ink);
-  }
-
-  .conviction-strip__medium-emphasis {
-    color: var(--color-primary);
-  }
-
-  /* Final explanatory copy — the practical next step, not another
-     headline: smaller than the medium statement, regular weight,
-     muted, and narrow enough to read as three short lines. */
-  .conviction-strip__small {
-    max-width: 24rem;
-    margin: 0 auto;
-    font-size: clamp(1rem, 2vw, 1.1875rem);
-    font-weight: 400;
-    line-height: 1.7;
-    color: var(--color-text-muted);
+  .conviction-strip__body:last-child {
+    margin-bottom: 0;
   }
 
   @media (max-width: 640px) {
     .conviction-strip {
-      padding: 5rem 1.25rem;
-    }
-
-    .conviction-strip__text {
-      margin-bottom: 3.25rem;
-      line-height: 1.4;
+      padding: 6.5rem 1.25rem;
     }
   }
 
@@ -796,6 +775,24 @@ import { SITE } from '../data/site';
   .block-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  /* Coaching section only: the video is one of the page's primary
+     trust builders, so its column (and, since cells are square, its
+     rendered size) is ~20% larger than the even 50/50 split every
+     other block-grid row uses — the text column gives up the
+     difference, which also makes the headline wrap more cleanly. */
+  @media (min-width: 801px) {
+    #ch-why.block-grid {
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+
+    /* The text cell is now narrower than the video cell, so its own
+       1:1 square would be shorter than the row — stretch it to match
+       the taller video cell instead of leaving empty space below it. */
+    #ch-why.block-grid .block-grid__cell--text {
+      aspect-ratio: auto;
+    }
   }
 
   /* Every cell is a true square; if a text cell's content ever
@@ -872,7 +869,7 @@ import { SITE } from '../data/site';
     margin: 0;
     padding: 1rem 1.5rem;
     text-align: center;
-    font-size: 0.85rem;
+    font-size: var(--fs-support);
     font-weight: 600;
     /* Light muted tone tuned for the dark green background this bar
        shares with the coaching card above it — var(--color-text-muted)
@@ -936,28 +933,34 @@ import { SITE } from '../data/site';
     background: var(--color-bg);
   }
 
-  .block-grid__cell--text h2 {
-    font-size: clamp(1.15rem, 1.8vw, 1.55rem);
-    line-height: 1.35;
+  /* Both the coaching card's h2 and the field-tested/community cards'
+     h3 share the one "secondary heading" size — see --fs-h3. */
+  .block-grid__cell--text h2,
+  .block-grid__cell--text h3 {
+    font-size: var(--fs-h3);
+    line-height: 1.2;
     margin: 0 0 0.85rem;
   }
 
   /* Why Coaching card only: generous headline -> quote handoff, since
      this h2 is the only one in a block-grid cell. */
   #ch-why .block-grid__cell--text h2 {
-    margin-bottom: 3rem;
+    margin-bottom: 1.75rem;
   }
 
-  .block-grid__cell--text h3 {
-    font-size: clamp(1.3rem, 2vw, 1.7rem);
-    line-height: 1.25;
-    margin: 0 0 0.85rem;
+  /* Community card only: this is the strongest of the three medium-
+     emphasis block-grid sections, so its headline steps up to the
+     primary H2 tier rather than the shared H3 size the other two
+     cards use. */
+  #ch-community .block-grid__cell--text h3 {
+    font-size: var(--fs-h2);
+    margin-bottom: 1rem;
   }
 
   .block-grid__cell--text p {
-    font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+    font-size: var(--fs-body);
     line-height: 1.6;
-    margin: 0 0 0.65rem;
+    margin: 0 0 0.75rem;
   }
 
   .block-grid__cell--text p:last-child {
@@ -968,18 +971,28 @@ import { SITE } from '../data/site';
     color: rgba(247, 243, 234, 0.88);
   }
 
-  /* The coaching prompt — the section's second beat. Medium size,
-     italic, not bold: larger than body copy and let it breathe, but
-     clearly smaller than the headline above it. */
+  /* The coaching prompt — the section's second beat: the frustration,
+     named. Italic, not bold, at the shared body size. */
   .block-grid__quote {
     /* !important: this <p> also matches the higher-specificity
-       .block-grid__cell--text p rule below, which would otherwise win
+       .block-grid__cell--text p rule above, which would otherwise win
        the font-size/line-height cascade. */
-    font-size: clamp(1rem, 1.6vw, 1.3rem) !important;
+    font-size: var(--fs-body) !important;
     font-style: italic;
     font-weight: 500 !important;
-    line-height: 1.55 !important;
-    margin-bottom: 2.5rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.25rem !important;
+    color: var(--color-primary-text) !important;
+  }
+
+  /* The third beat: what coaching actually does, as a short escalating
+     chain. Same body size as the quote above it, bolder so it reads as
+     the section's turn from problem to answer. */
+  .block-grid__coaching-chain {
+    font-size: var(--fs-body) !important;
+    font-weight: 600 !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.5rem !important;
     color: var(--color-primary-text) !important;
   }
 
@@ -1003,7 +1016,7 @@ import { SITE } from '../data/site';
      so the quote -> closing gap reads as generous, not cramped. */
   .block-grid__punch--coaching {
     margin-top: 0.5rem !important;
-    font-size: clamp(0.9rem, 1.1vw, 1.05rem) !important;
+    font-size: var(--fs-body) !important;
   }
 
   /* Same emphasis treatment, tuned for light-background cards — the
@@ -1070,9 +1083,12 @@ import { SITE } from '../data/site';
 
   /* --- Conviction band ------------------------------------------- */
 
+  /* Deliberately the quietest section on the page — ~38% less padding
+     than the previous pass, and a card-title-tier heading rather than
+     a full H2, so it doesn't compete with the sections around it. */
   .conviction {
     background: var(--color-gold);
-    padding: 3.25rem 1.5rem;
+    padding: 2rem 1.5rem;
   }
 
   .conviction__inner {
@@ -1080,7 +1096,7 @@ import { SITE } from '../data/site';
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 4rem;
   }
 
   .conviction__copy {
@@ -1089,8 +1105,8 @@ import { SITE } from '../data/site';
 
   .conviction h2 {
     margin: 0;
-    font-size: clamp(1.6rem, 3.4vw, 2.6rem);
-    line-height: 1.2;
+    font-size: var(--fs-card-title);
+    line-height: 1.3;
     font-weight: 800;
     letter-spacing: -0.01em;
     color: var(--color-ink);
@@ -1103,7 +1119,7 @@ import { SITE } from '../data/site';
 
   .conviction__support {
     margin: 0.6rem 0 0;
-    font-size: 1rem;
+    font-size: var(--fs-support);
     line-height: 1.5;
     color: rgba(31, 37, 35, 0.78);
   }
@@ -1118,11 +1134,14 @@ import { SITE } from '../data/site';
 
   @media (max-width: 700px) {
     .conviction {
-      padding: 2.5rem 1.5rem;
+      padding: 1.5rem 1.5rem;
     }
 
+    /* Plain column (not reversed) — the seal sits below the copy, as
+       far from the headline as this layout allows, instead of
+       crowding it directly above. */
     .conviction__inner {
-      flex-direction: column-reverse;
+      flex-direction: column;
       align-items: flex-start;
       gap: 1.75rem;
     }
@@ -1136,7 +1155,7 @@ import { SITE } from '../data/site';
   /* --- Pathway strip --------------------------------------------- */
 
   .pathway {
-    padding: 4.5rem 1.5rem 4rem;
+    padding: 6.5rem 1.5rem 5rem;
     text-align: center;
     /* Faint engineering-notebook grid behind the steps. Barely there. */
     background-color: var(--color-bg);
@@ -1177,14 +1196,8 @@ import { SITE } from '../data/site';
   }
 
   .pathway > h2 {
-    margin: 0 0 0.6rem;
-    font-size: 1.75rem;
-  }
-
-  .pathway__subtitle {
-    margin: 0 0 2.5rem;
-    font-size: 1rem;
-    color: var(--color-text-muted);
+    margin: 0 0 3rem;
+    font-size: var(--fs-h2);
   }
 
   .pathway__steps {
@@ -1204,14 +1217,16 @@ import { SITE } from '../data/site';
   }
 
   /* Arrow between steps on desktop — an em-dash-ish connector drawn
-     with an ::after on the first two steps. */
+     with an ::after on the first two steps. Heavier than the previous
+     pass so it reads as a deliberate connector, not a stray glyph. */
   .pathway__step:not(:last-child)::after {
     content: '\2192';
     position: absolute;
-    top: 3.1rem;
+    top: 3.6rem;
     right: -1.25rem;
     color: var(--color-gold-text);
-    font-size: 1.4rem;
+    font-size: 1.7rem;
+    font-weight: 700;
     line-height: 1;
   }
 
@@ -1219,19 +1234,20 @@ import { SITE } from '../data/site';
     display: block;
     font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
     font-weight: 700;
-    font-size: 0.72rem;
+    font-size: var(--fs-eyebrow);
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--color-clay-text);
     margin-bottom: 0.75rem;
   }
 
+  /* ~15% larger than the previous pass (3.5rem). */
   .pathway__icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 4rem;
+    height: 4rem;
     margin: 0 auto 0.9rem;
     border-radius: 50%;
     border: 2px solid var(--color-primary);
@@ -1239,18 +1255,26 @@ import { SITE } from '../data/site';
   }
 
   .pathway__step h3 {
-    margin: 0 0 0.4rem;
-    font-size: 1.1rem;
+    margin: 0 0 0.5rem;
+    font-size: var(--fs-card-title);
   }
 
   .pathway__step p {
     margin: 0;
-    font-size: 0.92rem;
+    font-size: var(--fs-support);
     color: var(--color-text-muted);
   }
 
   .pathway__cta {
-    margin: 3rem 0 0;
+    margin: 3.5rem 0 0;
+  }
+
+  /* Slightly larger and heavier than the shared .button default — the
+     pathway's own next step, not a quiet secondary link. */
+  .pathway__cta .button {
+    padding: 0.85rem 1.9rem;
+    font-size: 1.05rem;
+    font-weight: 700;
   }
 
   @media (max-width: 700px) {
@@ -1296,97 +1320,112 @@ import { SITE } from '../data/site';
      of the (client-injected) featured-lab markup — see the note there
      on why those stay unscoped. */
 
-  /* --- "From the Field" quote band ------------------------------- */
+  /* --- "Stories From the Field" quote band ------------------------
+     Left-aligned, medium emphasis: one dominant testimonial (a real
+     quote naming a specific action) leads, two smaller supporting
+     quotes follow below a rule. */
 
   .field-quote {
     background: var(--color-primary);
-    padding: 3.5rem 1.5rem;
+    padding: 4.5rem 1.5rem;
+    text-align: left;
   }
 
   .field-quote__inner {
     max-width: var(--site-max-width);
     margin: 0 auto;
+  }
+
+  .field-quote .eyebrow {
+    color: var(--color-gold-bright);
+  }
+
+  .field-quote__primary {
     display: flex;
-    align-items: center;
-    gap: 2.25rem;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin: 1.5rem 0 2.5rem;
   }
 
   .field-quote__mark {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     line-height: 0.5;
     color: #ddae50;
     flex-shrink: 0;
-    transform: translateY(0.35rem);
+    transform: translateY(0.5rem);
   }
 
-  .field-quote__quotes {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  .field-quote__primary p {
+    margin: 0;
+    font-size: var(--fs-card-title);
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--color-primary-text);
+  }
+
+  .field-quote__primary footer {
+    margin-top: 0.65rem;
+    font-size: var(--fs-support);
+    font-weight: 600;
+    color: #ddae50;
+  }
+
+  .field-quote__supporting {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(247, 243, 234, 0.2);
   }
 
   .field-quote__quote {
     margin: 0;
   }
 
-  .field-quote__quote + .field-quote__quote {
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(247, 243, 234, 0.2);
-  }
-
   .field-quote__quote p {
     margin: 0;
-    font-size: 1rem;
+    font-size: var(--fs-support);
     font-style: italic;
     line-height: 1.55;
     color: var(--color-primary-text);
   }
 
   .field-quote__quote footer {
-    margin-top: 0.45rem;
+    margin-top: 0.5rem;
     font-size: 0.85rem;
     font-weight: 600;
     color: #ddae50;
   }
 
-  /* Log-entry dateline appended to the attribution. */
-  .field-quote__log {
-    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: rgba(247, 243, 234, 0.65);
-  }
-
-  .field-quote__faces {
-    width: clamp(220px, 24vw, 300px);
-    height: auto;
-    flex-shrink: 0;
+  /* Marks the still-pending placeholder so it's obviously not a real
+     quote at a glance in the editor/preview, without changing size. */
+  .field-quote__quote--todo p {
+    opacity: 0.7;
   }
 
   @media (max-width: 800px) {
-    .field-quote__inner {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.25rem;
+    .field-quote__primary {
+      gap: 1rem;
     }
 
     .field-quote__mark {
-      display: none;
+      font-size: 2.75rem;
     }
 
-    .field-quote__faces {
-      align-self: center;
+    .field-quote__supporting {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
   }
 
   /* --- FAQ — numbered, ruled rows on a Soft Sage band ------------- */
 
+  /* Deliberately quiet — lower emphasis than every section around it,
+     including the "Stories From the Field" band right above it. */
   .faq-section {
-    padding: 4rem 1.5rem 4.5rem;
+    padding: 4.5rem 1.5rem 5rem;
     background: var(--color-surface);
   }
 
@@ -1401,9 +1440,9 @@ import { SITE } from '../data/site';
 
   .faq-section__label h2 {
     margin: 0;
-    font-size: 2.75rem;
+    font-size: var(--fs-h3);
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.1;
   }
 
   .faq-section__items {
@@ -1415,12 +1454,14 @@ import { SITE } from '../data/site';
   }
 
   /* Closed-by-default accordion — numbered index row with a corner
-     arrow that rotates open, à la a field-guide contents page. */
+     arrow that rotates open, à la a field-guide contents page. Extra
+     vertical padding vs. the previous pass, both for more breathing
+     room between rows and a larger tap target. */
   .faq__item summary {
     display: flex;
     align-items: center;
     gap: 1.25rem;
-    padding: 1.15rem 0.25rem;
+    padding: 1.4rem 0.25rem;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
@@ -1435,7 +1476,7 @@ import { SITE } from '../data/site';
     flex-shrink: 0;
     font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
     font-weight: 700;
-    font-size: 0.82rem;
+    font-size: var(--fs-eyebrow);
     color: var(--color-clay-text);
   }
 
@@ -1446,7 +1487,7 @@ import { SITE } from '../data/site';
   .faq__arrow {
     flex-shrink: 0;
     color: var(--color-gold-text);
-    font-size: 1.1rem;
+    font-size: 1.35rem;
     transition: transform 0.15s ease;
   }
 
@@ -1455,10 +1496,10 @@ import { SITE } from '../data/site';
   }
 
   .faq__item p {
-    margin: 0 0 1.15rem;
+    margin: 0 0 1.4rem;
     padding-left: 2.9rem;
     color: var(--color-text-muted);
-    font-size: 0.95rem;
+    font-size: var(--fs-support);
   }
 
   @media (max-width: 760px) {
@@ -1474,50 +1515,55 @@ import { SITE } from '../data/site';
     /* Larger tap target on mobile per the accessibility requirement
        that accordion rows stay easy to hit with a thumb. */
     .faq__item summary {
-      padding: 1.3rem 0.25rem;
+      padding: 1.6rem 0.25rem;
     }
   }
 
   /* --- Final CTA — light band + gold rule, distinct from the dark
        footer that follows it immediately. -------------------------- */
 
+  /* The homepage's closing push — very strong emphasis, same tier as
+     the hero/reps/featured-lab sections, and visually stronger than
+     the footer immediately below it. ~15% taller and with more
+     whitespace than the previous pass. */
   .final-cta {
-    padding: 5rem 1.5rem;
+    padding: 5.75rem 1.5rem;
     text-align: center;
     background: var(--color-bg);
     border-top: 3px solid var(--color-gold);
   }
 
   .final-cta__inner {
-    max-width: 34rem;
+    max-width: 38rem;
     margin: 0 auto;
   }
 
   .final-cta h2 {
-    margin: 0 0 1rem;
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    line-height: 1.25;
+    margin: 0 0 1.5rem;
+    font-size: var(--fs-h2);
+    line-height: 1.15;
   }
 
   .final-cta__body {
-    margin: 0 0 2rem;
-    font-size: 1.05rem;
+    margin: 0 0 2.25rem;
+    font-size: var(--fs-body);
     line-height: 1.6;
     color: var(--color-text-muted);
   }
 
   .final-cta__ctas {
-    margin: 0 0 1rem;
+    margin: 0 0 1.25rem;
   }
 
+  /* ~10% larger than the shared .button default. */
   .final-cta__ctas .button {
-    padding: 0.9rem 2.25rem;
-    font-size: 1rem;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
   }
 
   .final-cta__secondary {
     margin: 0;
-    font-size: 0.95rem;
+    font-size: var(--fs-support);
   }
 
   .final-cta__secondary a {
@@ -1527,7 +1573,7 @@ import { SITE } from '../data/site';
 
   @media (max-width: 640px) {
     .final-cta {
-      padding: 3.5rem 1.5rem;
+      padding: 4rem 1.5rem;
     }
   }
 </style>

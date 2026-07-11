@@ -55,6 +55,29 @@
      feature-badge bubble), which is a full pill by design. */
   --radius-pill: 999px;
   --radius-card: 10px;
+
+  /* --- Editorial type scale ---------------------------------------
+     One shared scale, reused across the whole homepage instead of a
+     one-off font-size per section. Fluid between the mobile and
+     desktop figures below via clamp(); do not add new sizes outside
+     this set without good reason.
+       H1 (hero only):        44-48px -> 60-64px
+       H2 (primary headings): 36-40px -> 46-50px
+       H2-reps ("You need
+         reps.", ~12% over H2): 42-44px -> 52-56px
+       H3 (secondary headings): 30-32px -> 34-38px
+       Card titles:            24-26px -> 26-30px
+       Body copy:               18px   -> 18-20px
+       Supporting text:         16px constant (floor for all copy)
+       Eyebrows/labels:         12px   -> 14px */
+  --fs-h1: clamp(2.875rem, 2.35rem + 2.2vw, 4rem);
+  --fs-h2: clamp(2.375rem, 1.95rem + 1.8vw, 3.125rem);
+  --fs-h2-reps: clamp(2.75rem, 2.2rem + 2.3vw, 3.5rem);
+  --fs-h3: clamp(1.9375rem, 1.6rem + 1.4vw, 2.375rem);
+  --fs-card-title: clamp(1.5625rem, 1.35rem + 0.9vw, 1.875rem);
+  --fs-body: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);
+  --fs-support: 1rem;
+  --fs-eyebrow: clamp(0.75rem, 0.72rem + 0.1vw, 0.875rem);
 }
 
 * {
@@ -344,7 +367,7 @@ article tbody tr:nth-child(even) td {
    blog pages use the same `.eyebrow` classes. */
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-eyebrow);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -518,25 +541,30 @@ article tbody tr:nth-child(even) td {
      generous breathing room above and below the featured lab card —
      this is the site's single strongest conversion point after the
      hero, so it gets the most vertical room of any section. */
-  padding: 8.5rem 1.5rem 6rem;
+  padding: 9rem 1.5rem 7rem;
   background: linear-gradient(180deg, var(--color-bg) 0%, #f3e9d2 55%, var(--color-surface) 100%);
   text-align: center;
 }
 
 @media (max-width: 640px) {
   .labs-cta {
-    padding: 5.5rem 1.25rem 4.5rem;
+    padding: 6rem 1.25rem 5rem;
   }
 }
 
 .labs-cta__inner {
-  max-width: var(--site-max-width);
+  /* ~23% wider than the site's standard content column — this is the
+     page's primary destination, so the featured lab card (which fills
+     this container) gets noticeably more room than every other card
+     on the homepage. */
+  max-width: 74rem;
   margin: 0 auto;
 }
 
 .labs-cta h2 {
-  margin: 0 0 1rem;
-  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+  max-width: 42rem;
+  margin: 0 auto 1rem;
+  font-size: var(--fs-h2);
 }
 
 .labs-cta__descriptor {
@@ -545,7 +573,7 @@ article tbody tr:nth-child(even) td {
      widths; still narrow enough to wrap naturally on mobile. */
   max-width: 38rem;
   margin: 0 auto 3.5rem;
-  font-size: 1.05rem;
+  font-size: var(--fs-body);
   color: var(--color-text-muted);
 }
 
@@ -555,11 +583,20 @@ article tbody tr:nth-child(even) td {
   color: var(--color-text-muted);
 }
 
+/* Quiet one-line reassurance directly under the card — lowers the
+   perceived cost of picking wrong without adding another decision
+   point. */
+.labs-cta__note {
+  margin: 1.5rem 0 0.75rem;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
 /* Deliberately plain — a simple text link, not a second button, so
    the featured section's form stays the only unmissable action. */
 .labs-cta__view-all {
   margin: 0 0 2rem;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 500;
 }
 
@@ -599,7 +636,10 @@ article tbody tr:nth-child(even) td {
   border: 1px solid var(--color-border);
   border-radius: calc(var(--radius-card) + 10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  padding: clamp(2rem, 4vw, 3.25rem);
+  /* ~20-25% more interior room than the previous pass — this is the
+     page's primary conversion card, so it should feel roomier than
+     any other card on the homepage. */
+  padding: clamp(2.5rem, 5vw, 4rem);
 }
 
 @media (max-width: 860px) {
@@ -619,13 +659,13 @@ article tbody tr:nth-child(even) td {
 
 .featured-lab__title {
   margin: 0 0 0.9rem;
-  font-size: clamp(1.4rem, 2.85vw, 1.8rem);
-  line-height: 1.25;
+  font-size: var(--fs-card-title);
+  line-height: 1.2;
 }
 
 .featured-lab__description {
   margin: 0 0 1.25rem;
-  font-size: 1.02rem;
+  font-size: 1.1rem;
   color: var(--color-text);
 }
 
@@ -697,18 +737,18 @@ article tbody tr:nth-child(even) td {
 
 .featured-lab__form-heading {
   margin: 0 0 0.5rem;
-  font-size: 1.3rem;
+  font-size: clamp(1.375rem, 1.1rem + 0.8vw, 1.625rem);
 }
 
 .featured-lab__form-invite {
   margin: 0 0 0.85rem;
-  font-size: 0.88rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
 }
 
 .featured-lab__form-meta {
   margin: 0 0 1.75rem;
-  font-size: 0.88rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
 }
 
@@ -741,6 +781,12 @@ article tbody tr:nth-child(even) td {
   background: var(--color-primary);
   border-radius: var(--radius-button);
   font-weight: 800;
+  /* The single most important click on the page — sized up so it
+     reads as unmissable, not just another form button. */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.05rem;
+  width: 100%;
 }
 
 .featured-lab__widget .covo-reg__submit:hover:not(:disabled) {
@@ -811,6 +857,12 @@ article tbody tr:nth-child(even) td {
   margin: 0.85rem 0 0;
   font-size: 0.9rem;
   color: var(--color-text-muted);
+}
+
+@media (max-width: 640px) {
+  .featured-lab__notify-form .button {
+    width: 100%;
+  }
 }
 
 /* --- Featured lab: loading skeleton --------------------------------
