@@ -150,14 +150,12 @@ import { SITE } from '../data/site';
     <div class="block-grid__cell block-grid__cell--text block-grid__cell--green">
       <p class="eyebrow eyebrow--gold">501 &middot; Why Coaching</p>
       <h2>Resources can teach you a tool. Coaching helps you obey with it.</h2>
-      <p>Most disciple-makers do not need more information.</p>
-      <p>They need someone asking:</p>
+      <p class="why-coaching__lead-in">They need someone asking:</p>
       <p class="block-grid__quote">&ldquo;Who are you going to use this with this week?&rdquo;</p>
-      <p>
-        That is what coaching does. It turns learning into action, action into confidence, and
-        confidence into multiplication.
+      <p class="why-coaching__transform">
+        Coaching turns learning into action, confidence, and multiplication.
       </p>
-      <p class="block-grid__punch">Tools explain it. Coaching helps you live it.</p>
+      <p class="block-grid__punch block-grid__punch--coaching">Tools explain it. Coaching helps you live it.</p>
     </div>
 
     <a
@@ -894,9 +892,15 @@ import { SITE } from '../data/site';
     padding: clamp(1.75rem, 5vw, 4.5rem);
   }
 
+  /* Trimmed vertical padding vs. the other block-grid cards — this
+     card's copy was tightened to one idea, said once, so it no longer
+     needs the full generous padding to avoid feeling like a wall of
+     text; padding still stays clearly generous top and bottom. */
   .block-grid__cell--green {
     background: var(--color-primary);
     color: var(--color-primary-text);
+    padding-top: clamp(1.5rem, 4vw, 3.5rem);
+    padding-bottom: clamp(1.5rem, 4vw, 3.5rem);
   }
 
   .block-grid__cell--sage {
@@ -931,7 +935,7 @@ import { SITE } from '../data/site';
   .block-grid__cell--text h2 {
     font-size: clamp(1.15rem, 1.8vw, 1.55rem);
     line-height: 1.35;
-    margin: 0 0 1rem;
+    margin: 0 0 0.85rem;
   }
 
   .block-grid__cell--text h3 {
@@ -954,10 +958,31 @@ import { SITE } from '../data/site';
     color: rgba(247, 243, 234, 0.88);
   }
 
+  /* Lead-in — small, muted, secondary emphasis; it exists only to hand
+     off to the quote below it, so it stays quiet. */
+  .why-coaching__lead-in {
+    font-size: clamp(0.8rem, 1vw, 0.9rem) !important;
+    margin-bottom: 0.4rem !important;
+    color: rgba(247, 243, 234, 0.62) !important;
+  }
+
+  /* The coaching prompt — slightly larger than body copy and italic,
+     but medium weight so it reads as a question, not a second
+     headline. */
   .block-grid__quote {
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
     font-style: italic;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
+    line-height: 1.45;
+    margin-bottom: 0.5rem !important;
     color: var(--color-primary-text) !important;
+  }
+
+  /* Transformation sentence — back to normal body size, just narrower
+     so it reads as one easy scan rather than a long line. */
+  .why-coaching__transform {
+    max-width: 37.5rem;
+    margin-bottom: 0.5rem !important;
   }
 
   .block-grid__cell--sage p,
@@ -972,6 +997,14 @@ import { SITE } from '../data/site';
     font-weight: 700;
     font-style: italic;
     color: #f09e63 !important;
+  }
+
+  /* ~10% smaller than the shared punch size — a closing line, not
+     another heading. Extra margin-top (on top of .block-grid__punch's
+     own) gives it room to read as the section's conclusion. */
+  .block-grid__punch--coaching {
+    margin-top: 1.5rem !important;
+    font-size: clamp(0.81rem, 1.05vw, 0.95rem) !important;
   }
 
   /* Same emphasis treatment, tuned for light-background cards — the
