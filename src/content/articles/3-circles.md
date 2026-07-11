@@ -5,8 +5,8 @@ slug: "/3-circles/"
 canonical: "https://multiplyingdisciples.us/3-circles/"
 hub: "3-circles"
 related_articles:
-  - "/ridiculously-simple-3-ways-to-make-disciples/"
   - "/the-three-circles-gospel-presentation-step-by-step/"
+  - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
 related_tools: []
 exclude_from_blog: true
 status: "migrated"
@@ -37,7 +37,7 @@ The Three Circles Gospel Tool is a simple way to share the Gospel and make disci
 
 The idea is to help the person you're sharing with understand that God created everything good, but sin has corrupted the world, and the only way to be saved is through the Gospel.
 
-Read this article, [Ridiculously Simple: 3 Ways to Make Disciples](/ridiculously-simple-3-ways-to-make-disciples/), to learn more.
+Read this article, [Understanding Biblical Discipleship](/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/), to learn more.
 
 ### 3 Circles Google Slides
 

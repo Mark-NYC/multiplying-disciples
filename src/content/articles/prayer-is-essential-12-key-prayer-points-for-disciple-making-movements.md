@@ -5,7 +5,6 @@ slug: "/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/"
 canonical: "https://multiplyingdisciples.us/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/"
 hub: "prayer"
 related_articles:
-  - "/disciple-making-movement-books-top-25-must-reads/"
   - "/starter-tools/"
   - "/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/"
   - "/christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/"
@@ -101,9 +100,9 @@ We can pray for God to give us discernment as we make decisions and work with ot
 
 ## 12. Pray for God's will to be done
 
-Ultimately, [disciple-making movements](/disciple-making-movement-books-top-25-must-reads/) are about God's Kingdom and His will being done on earth as it is in heaven (Matthew 6:10).
+Ultimately, [disciple-making movements](/church-planting-movements/) are about God's Kingdom and His will being done on earth as it is in heaven (Matthew 6:10).
 
-As we [pray for disciple-making movements](/disciple-making-movement-books-top-25-must-reads/), we should pray for God's will to be done in the lives of those we are discipling, in our communities, and in the world. We should seek to align our prayers with God's will, and trust that He will accomplish His purposes through us (1 John 5:14-15).
+As we [pray for disciple-making movements](/church-planting-movements/), we should pray for God's will to be done in the lives of those we are discipling, in our communities, and in the world. We should seek to align our prayers with God's will, and trust that He will accomplish His purposes through us (1 John 5:14-15).
 
 ## Conclusion
 

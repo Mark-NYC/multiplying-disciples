@@ -11,8 +11,6 @@ key_articles:
   - "/discover-the-12-disciples-of-jesus-christ/"
   - "/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/"
   - "/unlocking-the-power-of-apest-the-ultimate-guide/"
-  - "/seven-words-of-jesus-on-the-cross/"
-  - "/5-insightful-keys-into-the-biblical-jesus/"
   - "/jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark/"
 related_tools: []
 next_step:

@@ -14,7 +14,6 @@ hub: "jesus-and-the-twelve"
 related_articles:
   - "/discover-the-12-disciples-of-jesus-christ/"
   - "/unlocking-the-power-of-apest-the-ultimate-guide/"
-  - "/seven-words-of-jesus-on-the-cross/"
 related_tools: []
 external_links: []
 og_image: "/wp-content/uploads/2025/02/jesus_chooses_twelve_apostles.webp"

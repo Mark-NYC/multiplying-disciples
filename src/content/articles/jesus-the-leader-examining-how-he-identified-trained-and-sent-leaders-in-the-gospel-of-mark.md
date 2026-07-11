@@ -7,7 +7,6 @@ hub: "jesus-and-the-twelve"
 related_articles:
   - "/discover-the-12-disciples-of-jesus-christ/"
   - "/the-leadership-phase-everyone-skips-why-investment-matters/"
-  - "/5-insightful-keys-into-the-biblical-jesus/"
   - "/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/"
 related_tools: []
 status: "migrated"

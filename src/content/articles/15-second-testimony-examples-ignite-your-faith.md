@@ -170,9 +170,9 @@ By highlighting these aspects within a tight timeframe, the 15-second testimony 
 
 #### It Has Multiplied
 
-Furthermore, this tool [fosters a culture of discipleship](/disciple-making-resources-for-churches-that-will-multiply/), where believers are encouraged to share their faith boldly and consistently.
+Furthermore, this tool [fosters a culture of discipleship](/disciple-making/), where believers are encouraged to share their faith boldly and consistently.
 
-It equips individuals to be ready at all times to provide a concise yet impactful account of their personal encounter with God, ultimately contributing to the mission of spreading the gospel and [making disciples](/disciple-making-resources-for-churches-that-will-multiply/). The tool trains a believer to [be an effective evangelist in a practical tool](/how-to-evangelize-ultimate-step-by-step-guide/).
+It equips individuals to be ready at all times to provide a concise yet impactful account of their personal encounter with God, ultimately contributing to the mission of spreading the gospel and [making disciples](/disciple-making/). The tool trains a believer to [be an effective evangelist in a practical tool](/how-to-evangelize-ultimate-step-by-step-guide/).
 
 Read on to see examples of how this works.
 
@@ -228,7 +228,7 @@ Here's how it looks:
 
 ### The Simple, Biblical, Reproducing Tool Filter
 
-The 15 Second Testimony tool passes a key test for [discipleship tools](/disciple-making-resources-for-churches-that-will-multiply/).
+The 15 Second Testimony tool passes a key test for [discipleship tools](/disciple-making/).
 
 [The testimony in the Bible](/testimony-in-the-bible-20-verses-to-ignite-your-faith/) is God's plan for reaching the nations. And therefore using simple, biblical, and reproducible discipleship tools is of utmost importance.
 

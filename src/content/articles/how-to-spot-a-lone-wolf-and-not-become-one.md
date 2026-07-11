@@ -6,8 +6,6 @@ canonical: "https://multiplyingdisciples.us/how-to-spot-a-lone-wolf-and-not-beco
 related_articles:
   - "/starter-tools/"
   - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
-  - "/radical-discipleship-understanding-what-it-means-and-how-to-live-it/"
-  - "/breakthrough-guide-for-a-modern-day-disciple/"
 related_tools: []
 status: "migrated"
 migration_priority: "tier-3"

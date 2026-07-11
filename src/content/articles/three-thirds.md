@@ -12,9 +12,9 @@ secondary_keywords:
   - "disciple making bible study format"
 hub: "simple-church"
 related_articles:
-  - "/ridiculously-simple-3-ways-to-make-disciples/"
   - "/movement-resources/12-practice-church-circle/"
   - "/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/"
+  - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
 related_tools: []
 external_links:
   - label: "T4T Global — Three Thirds Process"
@@ -189,7 +189,7 @@ It works because it removes every variable between hearing and doing. You can't 
 
 Most churches won't do this. It's too uncomfortable. It exposes who's actually obeying and who's just attending.
 
-But if you want movements instead of meetings, this is the engine. Read this article, [Ridiculously Simple: 3 Ways to Make Disciples](/ridiculously-simple-3-ways-to-make-disciples/), to learn more.
+But if you want movements instead of meetings, this is the engine. Read this article, [Understanding Biblical Discipleship](/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/), to learn more.
 
 Start with one group. Run it for 12 weeks without compromising the structure. Then watch what happens when normal people actually obey what they learn and train others to do the same.
 

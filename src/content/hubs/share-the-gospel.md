@@ -11,9 +11,7 @@ key_articles:
   - "/how-to-evangelize-ultimate-step-by-step-guide/"
   - "/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/"
   - "/the-three-circles-gospel-presentation-step-by-step/"
-  - "/5-proven-strategies-unlock-the-secrets-of-effective-personal-evangelism/"
   - "/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/"
-  - "/missionary-verses-in-the-bible-reveal-gods-heart/"
   - "/3-circles/"
   - "/movement-resources/7-stories-of-hope-complete-facilitation-guide/"
 related_tools: []

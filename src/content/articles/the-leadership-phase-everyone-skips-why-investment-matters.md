@@ -7,7 +7,6 @@ hub: "church-planting-movements"
 related_articles:
   - "/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/"
   - "/jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark/"
-  - "/breaking-the-mold-a-guide-to-shifting-your-church-to-movement-strategy/"
   - "/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/"
 related_tools: []
 status: "migrated"
