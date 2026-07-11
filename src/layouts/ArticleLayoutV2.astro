@@ -1,21 +1,19 @@
 ---
-// Field Manual article layout — Phase 2 field test. Used only by
-// articles with `article_system: field-manual-v2` in frontmatter (see
+// Field Manual article layout — used only by articles with
+// `article_system: field-manual-v2` in frontmatter (see
 // src/pages/[...slug].astro). Every other article keeps using the
-// unmodified ArticleLayout. Reuses Breadcrumbs/TableOfContents/
-// ShareButtons/RelatedArticles/ToolCTA as-is (already homepage-token
-// styled, nothing to redesign there) and swaps in the new hero, reading
-// column, and single closing CTA. See PHASE_11_ARTICLE_FIELD_TEST.md.
+// unmodified ArticleLayout. See ARTICLE_DESIGN_SYSTEM.md for the full
+// component reference.
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import RelatedArticles from '../components/RelatedArticles.astro';
+import RelatedArticles from '../components/article/RelatedArticles.astro';
 import ToolCTA from '../components/ToolCTA.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import ShareButtons from '../components/ShareButtons.astro';
-import ArticleHero from '../components/ArticleHero.astro';
-import ArticleEndCTA from '../components/ArticleEndCTA.astro';
+import ArticleHero from '../components/article/ArticleHero.astro';
+import ArticleCTA from '../components/article/ArticleCTA.astro';
 import '../styles/field-manual-article.css';
 
 interface Heading {
@@ -40,6 +38,22 @@ const breadcrumbItems = [
   ...(parentHub ? [{ label: parentHub.data.title, href: parentHub.data.slug }] : []),
   { label: data.title, href: data.slug },
 ];
+
+// Rough estimate from the raw source body — strips MDX import lines
+// and tags rather than trying to be exact. 200wpm, rounded, 1 min floor.
+function estimateReadingTime(body: string | undefined): string | undefined {
+  if (!body) return undefined;
+  const text = body
+    .replace(/^import .+$/gm, '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/[#>*_`]/g, ' ');
+  const words = text.trim().split(/\s+/).filter(Boolean).length;
+  if (words < 50) return undefined;
+  const minutes = Math.max(1, Math.round(words / 200));
+  return `${minutes} min read`;
+}
+
+const readingTime = estimateReadingTime((article as unknown as { body?: string }).body);
 ---
 
 <BaseLayout
@@ -69,7 +83,9 @@ const breadcrumbItems = [
         category={data.hero_category ?? parentHub?.data.title ?? 'Field Manual'}
         title={data.title}
         subheading={data.hero_subheading}
-        date={data.date ?? data.updated}
+        date={data.date}
+        updatedDate={data.updated}
+        readingTime={readingTime}
         image={data.hero_image}
         imageAlt={data.hero_image_alt}
         imageCaption={data.hero_image_caption}
@@ -93,6 +109,14 @@ const breadcrumbItems = [
       {data.related_tools.length > 0 && <ToolCTA tools={data.related_tools} />}
     </div>
 
-    <ArticleEndCTA />
+    <ArticleCTA
+      variant={data.cta_variant}
+      heading={data.cta_heading}
+      body={data.cta_body}
+      primaryLabel={data.cta_primary_label}
+      primaryUrl={data.cta_primary_url}
+      secondaryLabel={data.cta_secondary_label}
+      secondaryUrl={data.cta_secondary_url}
+    />
   </div>
 </BaseLayout>

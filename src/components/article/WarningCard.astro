@@ -1,0 +1,22 @@
+---
+// WarningCard — a common mistake, false assumption, or correction.
+// White/very light background, clay left border, no alarm icon or
+// alarm-style language.
+//
+// Use: sparingly — 0-1 per article, only where the source content
+// already names a real misconception or mistake.
+//
+// Usage: <WarningCard label="Common Mistake">...markdown...</WarningCard>
+interface Props {
+  label?: string;
+}
+
+const { label = 'Common Mistake' } = Astro.props;
+---
+
+<div class="fm-warning-card">
+  <p class="fm-warning-card__label">{label}</p>
+  <div class="fm-warning-card__body">
+    <slot />
+  </div>
+</div>

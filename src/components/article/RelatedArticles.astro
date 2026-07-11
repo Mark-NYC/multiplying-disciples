@@ -1,0 +1,15 @@
+---
+// RelatedArticles — thin wrapper around the shared sitewide
+// RelatedArticles component: caps at 3 links and fixes the eyebrow
+// copy, so it stays quiet and never competes with ArticleCTA. Reuses
+// the existing component/styles rather than duplicating them.
+import BaseRelatedArticles from '../RelatedArticles.astro';
+
+interface Props {
+  paths: string[];
+}
+
+const { paths } = Astro.props;
+---
+
+<BaseRelatedArticles paths={paths.slice(0, 3)} heading="Related Articles" />

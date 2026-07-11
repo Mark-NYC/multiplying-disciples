@@ -29,40 +29,37 @@ notes: >
   in Phase 7B Batch 2. Featured image (unsplash-image-Hzi7U2SZ2GE.jpg)
   not found under supplied uploads (2024/08 folder was never supplied)
   — og_image omitted.
-  Phase 10C: pilot article for the article formatting system (see
-  PHASE_10C_ARTICLE_FORMATTING_SYSTEM.md). No markup changes needed to
-  the ~15 existing blockquotes — the enhanced quote style applies
-  automatically. Wrapped all 19 bullet lists (the recap after each
-  quote, plus the closing "What have we discovered" summary) in
-  callout--key-idea boxes, the highest-impact change for this
-  article's long quote-then-bullets rhythm. No wording changed.
-  Was the pilot article for the isolated "field manual" grain/
-  stamp-badge experiment (theme: field-manual); that experiment was
-  retired and folded into the sitewide ArticleLayout treatment, so
-  the flag was removed.
-  Phase 2 field test (article design system v2, see
-  PHASE_11_ARTICLE_FIELD_TEST.md): one of 3 pilot articles for the new
-  homepage-language component system, chosen as the "long educational
-  pillar" category — superseding the Phase 10C pilot pass above, per
-  explicit instruction to ignore/overwrite that experiment rather than
-  build on it. All 10 `callout callout--key-idea` boxes converted 1:1
-  to the new Insight Card component (same bullet content, no wording
-  changed). The ~15 podcast-host blockquotes were deliberately left as
-  plain blockquotes rather than forced into Scripture Block — they are
-  paraphrased commentary, not verbatim Bible text, and mislabeling them
-  as Scripture would misrepresent the source; see
-  PHASE_11_ARTICLE_FIELD_TEST.md for this finding. Promoted the 2
-  strongest, most quotable lines already in the article's own prose
-  (not the podcast-host blockquotes) to Pull Quotes. Added one
-  Practice Card built from the article's own closing rhetorical
-  question (no new copy). Added one Image + Caption (a genuine group
-  Bible-study photo) at the Great Commission section, where the text
-  already discusses baptism. No Scripture Block, Warning Card, or
-  Field Note added — none had an honest, non-forced fit in this
-  theological essay; see the field-test report for why.
+  Phase 10C: pilot article for the retired callout-box formatting
+  system — no longer relevant, superseded below.
+  Phase 11 (article design system v1 field test): converted all 10
+  callout--key-idea boxes 1:1 to Insight Cards. Superseded below.
+  Phase 12 (article design system refinement): converted to .mdx to
+  use real components instead of raw-HTML div classes. Cut Insight
+  Cards from 10 down to 6 (Genesis mandate, the Exodus 19 kingdom-of-
+  priests shift, the Great Commission's elements, the Acts 8:1
+  mission-drift pattern, the Four Fields process, and the closing
+  "what have we discovered" summary), spread across the article's 6
+  H2 sections — roughly one every 700 words. The other 4 former cards
+  are now plain bullet lists under their paragraphs; the content
+  itself is unchanged, only the box treatment was removed, per the
+  refinement brief's "do not automatically convert every list into an
+  Insight Card" rule. Each kept card got a distinct label (no longer
+  all "Insight") describing what kind of point it is. The ~15
+  podcast-host blockquotes are still deliberately left as plain
+  blockquotes, not Scripture Block — they are paraphrased commentary,
+  not verbatim Bible text. Kept both Pull Quotes (a long article may
+  use two). No Scripture Block, Warning Card, or Field Note — none had
+  an honest, non-forced fit in this theological essay; see
+  ARTICLE_DESIGN_SYSTEM.md and the Phase 12 report for why.
 ---
 
-<p class="fm-intro">What if the story of multiplication began before the church was even formed? What if God's grand design from Genesis to Revelation has always been about multiplication?</p>
+import ArticleIntro from '../../components/article/ArticleIntro.astro';
+import InsightCard from '../../components/article/InsightCard.astro';
+import PullQuote from '../../components/article/PullQuote.astro';
+import PracticeCard from '../../components/article/PracticeCard.astro';
+import ArticleImage from '../../components/article/ArticleImage.astro';
+
+<ArticleIntro>What if the story of multiplication began before the church was even formed? What if God's grand design from Genesis to Revelation has always been about multiplication?</ArticleIntro>
 
 [Listen to the episode: "The Multiplier Mandate Revealed from Genesis to..."](https://podcasts.apple.com/us/podcast/the-multiplier-mandate-revealed-from-genesis-to/id1562206185?i=1000666769251)
 
@@ -80,18 +77,14 @@ The story begins in the garden, where we discover God's original blueprint for h
 
 > "So the first verse I always go to is **Genesis 1:28**. So the very beginning of the whole process, God created Adam and Eve, he puts them in the garden, and he tells them to be **fruitful**, to **multiply**, to **subdue the earth**."
 
-This wasn't merely a suggestion—it was the core of human identity and purpose:
+This wasn't merely a suggestion — it was the core of human identity and purpose:
 
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
+<InsightCard label="The Core Idea">
 - To be **fruitful** and **multiply** God's image
 - To **fill the earth** with image-bearers
 - To have **dominion** as representatives of God's family
 - To work with our hands doing "the work of God's family"
-
-</div>
+</InsightCard>
 
 What might our world look like today if humanity had perfectly fulfilled this original commission? How different would history be if this pattern of multiplication had continued uninterrupted?
 
@@ -101,18 +94,7 @@ But as the podcast hosts explain, this divine mission quickly experienced "**set
 
 > "We see all of the earth coming together to build this tower to heaven to their own glory… And now instead of God's image being multiplied, we see man's image centralized and it being about man's exaltation."
 
-This represented a complete inversion of God's plan:
-
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
-- **Centralization** instead of dispersion
-- **Self-glorification** instead of reflecting God's glory
-- **Man's image** being exalted rather than God's
-- People **congregating** rather than **filling the earth**
-
-</div>
+This represented a complete inversion of God's plan: **centralization** instead of dispersion, **self-glorification** instead of reflecting God's glory, man's image being exalted rather than God's, people **congregating** rather than **filling the earth**.
 
 What's particularly striking is God's response:
 
@@ -132,23 +114,13 @@ This comes to fruition in **Genesis 12** with the call of Abraham:
 
 > "And then we zero in on one man where he says, go to the land that I will show you and I will make your name great and I will make you a great nation. And I will do this and I will bless you in order that you will be a blessing to all the families of the earth."
 
-Notice the progression of God's plan:
-
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
-- From focusing on **all humanity** to **one man**
-- From that man to a **great nation**
-- From that nation to "**all families of the earth**"
-
-</div>
+Notice the progression of God's plan: from focusing on **all humanity** to **one man**, from that man to a **great nation**, from that nation to "**all families of the earth**."
 
 What appears at first to be a narrowing of focus is actually God's strategy for ultimate expansion. As the podcast hosts emphasize:
 
 > "We see God using a person, Abram, whose name was changed Abraham as a **conduit** to then accomplish his mission to **all people in all places**."
 
-Could this pattern—focusing intensely on developing a few to reach the many—be the key to effective multiplication in our own contexts? What if the most global strategies begin with the most local investments?
+Could this pattern — focusing intensely on developing a few to reach the many — be the key to effective multiplication in our own contexts? What if the most global strategies begin with the most local investments?
 
 ## The Old Testament Pattern of Multiplication and Setbacks
 
@@ -162,16 +134,12 @@ After the dramatic **deliverance** from Egypt, God's people were at risk of forg
 
 This moment represents a critical restoration of vision:
 
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
+<InsightCard label="Key Distinction">
 - God reaffirms His commitment to use Israel to **impact all peoples**
 - He establishes them as a **kingdom of priests** to represent Him to the nations
 - He demonstrates His **faithfulness** to the promises made to Abraham
 - The small family has now grown into **millions** of descendants
-
-</div>
+</InsightCard>
 
 As the podcast hosts emphasize:
 
@@ -185,51 +153,19 @@ Despite Israel's repeated failures, God continually called His people back to th
 
 > "May God be gracious to us and bless us and make his face shine on us so that your ways may be known on the earth, your salvation among all nations. May the peoples praise you, God. May all the peoples praise you."
 
-This Psalm reveals several crucial aspects of God's unchanging vision:
-
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
-- The blessing of Israel has a **greater purpose** beyond themselves
-- God desires His **ways** and **salvation** to be known throughout the earth
-- His ultimate goal is that **all peoples** would praise Him
-- His rule should extend to **every nation** on earth
-
-</div>
+This Psalm reveals that the blessing of Israel has a greater purpose beyond themselves — God desires His ways and salvation to be known throughout the earth, His ultimate goal is that all peoples would praise Him, and His rule should extend to every nation.
 
 The prophets continued to expand this vision. In **Isaiah 49**, we learn that the coming Messiah's mission would be far greater than just restoring Israel:
 
 > "God has raised up a servant, but it's too light a thing. It's too small a thing for this servant that's going to be raised up to just rescue Jacob, that he is going to become a **light to the nations**."
 
-This prophecy reveals that:
-
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
-- The Messiah's work is "**too big**" to be limited to Israel
-- God's intention has "**always been**" for a global impact
-- The servant would be a "**light to the nations**" and to the Gentiles
-
-</div>
+This prophecy reveals that the Messiah's work is "too big" to be limited to Israel, God's intention has "always been" for a global impact, and the servant would be a "light to the nations" and to the Gentiles.
 
 Finally, **Malachi 1:11** provides perhaps the most vivid picture of God's comprehensive vision:
 
 > "From where the sun rises to where it sets… how much of the land of the earth is covered by the sun from where it rises to where it sets? Everything, right?"
 
-This powerful imagery conveys that:
-
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
-- God's passion extends to **every place** on earth
-- His name will be "**great among the nations**"
-- **Worship** of God will eventually fill the whole earth
-- He will use "**his people**" to accomplish this global mission
-
-</div>
+This powerful imagery conveys that God's passion extends to every place on earth, His name will be "great among the nations," worship of God will eventually fill the whole earth, and He will use "his people" to accomplish this global mission.
 
 Could it be that God's persistent calls to Israel throughout the Old Testament are also His call to us today? What if we are also at risk of "losing the plot" of God's multiplication mission?
 
@@ -243,18 +179,7 @@ When humanity continually failed to fulfill God's original mandate, God initiate
 
 > "Whenever man couldn't do it, God himself became a man and showed us how to get it done. And so Jesus became the **perfect Adam**. He became the perfect God man."
 
-This reveals an astonishing truth about Jesus's mission:
-
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
-- Jesus came as the "**perfect Adam**" to restore what was lost in Genesis
-- He modeled what it means to be "**truly human**"
-- He demonstrated the "**perfect image of the father**"
-- He created a pattern of **multiplication** through discipleship
-
-</div>
+This reveals an astonishing truth about Jesus's mission: he came as the "perfect Adam" to restore what was lost in Genesis, he modeled what it means to be "truly human," he demonstrated the "perfect image of the father," and he created a pattern of **multiplication** through discipleship.
 
 As the podcast emphasizes, Jesus's work creates a **new creation** that parallels the original creation:
 
@@ -268,27 +193,19 @@ After completing His redemptive work, Jesus gave His disciples their marching or
 
 > "All authority in heaven and earth has been given to me. Therefore, go make disciples of all nations, baptizing them in the name of the father, the son, and the holy spirit, teaching them to obey everything that I've commanded you. And behold, I will be with you always to the end of the age."
 
-Notice these critical elements:
-
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
+<InsightCard label="What This Means">
 - Jesus begins by claiming "**all authority**" — the mission is backed by His power
 - The command is to "**make disciples**" — not just converts
 - The scope is "**all nations**" — echoing God's original vision
 - The process involves "**baptizing**" and "**teaching**"
 - His promise of presence — "**I will be with you**" — guarantees success
+</InsightCard>
 
-</div>
-
-<div class="fm-image">
-
-![Hands held open over open Bibles on a table, with several other people's hands resting on their own open Bibles around them](/wp-content/uploads/2023/05/DBS_2-e1686219964976.jpeg)
-
-<figcaption>A small group opens Scripture together — "baptizing" and "teaching" were never meant to be solo work.</figcaption>
-
-</div>
+<ArticleImage
+  src="/wp-content/uploads/2023/05/DBS_2-e1686219964976.jpeg"
+  alt="Hands held open over open Bibles on a table, with several other people's hands resting on their own open Bibles around them"
+  caption={'A small group opens Scripture together — "baptizing" and "teaching" were never meant to be solo work.'}
+/>
 
 The podcast hosts highlight an often-overlooked aspect of this commission:
 
@@ -302,18 +219,7 @@ Before ascending, Jesus provided a strategic framework for how this worldwide mu
 
 > "He tells them to go to Jerusalem and to wait because the Holy Spirit's going to come on them and he's going to empower them to be his witnesses from Jerusalem to Judea to Samaria, to the ends of the earth."
 
-This passage reveals the essential elements for multiplication:
-
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
-- **Divine power** — "the Holy Spirit's going to come on them"
-- **Personal testimony** — "be his witnesses"
-- **Geographic progression** — "Jerusalem, Judea, Samaria, ends of the earth"
-- **Clear purpose** — leaving behind "**disciples, leaders, and churches**"
-
-</div>
+This passage reveals the essential elements for multiplication: **divine power** ("the Holy Spirit's going to come on them"), **personal testimony** ("be his witnesses"), **geographic progression** ("Jerusalem, Judea, Samaria, ends of the earth"), and a **clear purpose** — leaving behind "disciples, leaders, and churches."
 
 The hosts emphasize that this strategy directly connects to God's original design:
 
@@ -333,20 +239,16 @@ Despite the clear command to spread out from Jerusalem to the ends of the earth,
 
 This pivotal moment reveals several important principles:
 
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
+<InsightCard label="The Pattern">
 - Even the early church experienced **mission drift**
 - God uses **persecution** as a catalyst for expansion
 - The scattering of believers fulfilled the **geographic progression** Jesus outlined
 - God remains **faithful** to His mission even when His people falter
-
-</div>
+</InsightCard>
 
 The podcast hosts capture this principle with a memorable phrase:
 
-<p class="fm-pull-quote">"If you don't Acts 1:8, you'll be Acts 8:1."</p>
+<PullQuote>"If you don't Acts 1:8, you'll be Acts 8:1."</PullQuote>
 
 In other words, if you don't voluntarily participate in God's mission of expansion, circumstances may force you into it anyway. As they explain:
 
@@ -360,18 +262,7 @@ As the gospel spread beyond Jerusalem, something remarkable happened. The apostl
 
 > "Whenever Peter starts to explain what this looks like as the gospel's moving forward… in 1 Peter [2:9], he says to the church that spread out among the diaspora that they themselves have become a **kingdom of priests**, a **chosen race**, a **royal priesthood**… using the language to describe to them that the church has taken on the role and is fulfilling the purposes that was all the way back and what God was still doing in the book of Exodus."
 
-This revelation shows a profound continuity in God's plan:
-
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
-- The church has become the "**kingdom of priests**" promised in Exodus 19
-- Believers are now a "**chosen people**" and "**royal group**"
-- The church is "**still fulfilling the same mission**" and "**same purpose**"
-- God's patterns remain consistent "**throughout all of scripture**"
-
-</div>
+This revelation shows a profound continuity in God's plan: the church has become the "kingdom of priests" promised in Exodus 19, believers are now a "chosen people" and "royal group," the church is "still fulfilling the same mission" and "same purpose," and God's patterns remain consistent "throughout all of scripture."
 
 The implication is clear:
 
@@ -383,7 +274,7 @@ Could it be that your local church isn't just a gathering of believers but a str
 
 What is the ultimate destination of God's multiplication plan? What will the final fulfillment of this global vision actually look like?
 
-The Bible gives us a breathtaking glimpse into the end result of God's mission—a preview of what success will ultimately look like.
+The Bible gives us a breathtaking glimpse into the end result of God's mission — a preview of what success will ultimately look like.
 
 ### Revelation 5:9-10 – A Kingdom of Priests from Every Nation
 
@@ -391,20 +282,9 @@ The apostle John's vision in Revelation reveals the culmination of God's plan th
 
 > "And they sang a new song saying, you are worthy to take the scroll and to open its seals because you were slain and with your blood you purchased for God people from **every tribe** and **language** and **people** and **nation**. You have made them to be a **kingdom and priests** to serve our God and they will reign on the earth."
 
-This passage reveals several critical insights about the outcome of God's mission:
+This passage reveals that Jesus' sacrifice secured people from "every tribe, language, people, and nation," these diverse believers have become a unified "kingdom and priests," the original promise to Israel in Exodus 19 finds ultimate fulfillment, and the redeemed will "reign on the earth" — fulfilling the dominion mandate of Genesis 1:28.
 
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
-- Jesus' sacrifice secured people from "**every tribe, language, people, and nation**"
-- These diverse believers have become a unified "**kingdom and priests**"
-- The original promise to Israel in Exodus 19 finds ultimate fulfillment
-- The redeemed will "**reign on the earth**"—fulfilling the dominion mandate of Genesis 1:28
-
-</div>
-
-The podcast hosts emphasize that "**we have seen that kingdom of priests happen now**"—the process is already underway, though not yet complete.
+The podcast hosts emphasize that "**we have seen that kingdom of priests happen now**" — the process is already underway, though not yet complete.
 
 What role might you play in bringing this vision closer to fulfillment? How might your participation in making disciples advance God's global kingdom of priests?
 
@@ -414,20 +294,9 @@ John's vision continues with an even more expansive picture:
 
 > "After this I looked and there before me was a **great multitude** that no one could count from **every nation**, every **tribe**, **people** and **language** standing before the throne and before the land and they were wearing white robes and they were holding palm branches in their hand."
 
-This spectacular scene reveals:
+This spectacular scene reveals a crowd so vast it's beyond counting — a truly successful multiplication, representatives from literally every ethnolinguistic group on earth, the complete fulfillment of God's promise to bless "all families of the earth" through Abraham, and the ultimate expression of worship from a globally diverse yet unified body.
 
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
-- A crowd so vast it's beyond counting—a truly successful multiplication
-- Representatives from literally every ethnolinguistic group on earth
-- The complete fulfillment of God's promise to bless "all families of the earth" through Abraham
-- The ultimate expression of worship from a globally diverse yet unified body
-
-</div>
-
-This vision is not just a beautiful conclusion—it's a compelling motivation for our mission today. It assures us that despite all setbacks and challenges, God's multiplication plan will ultimately succeed.
+This vision is not just a beautiful conclusion — it's a compelling motivation for our mission today. It assures us that despite all setbacks and challenges, God's multiplication plan will ultimately succeed.
 
 What if every evangelistic conversation, every disciple you make, every church you help plant is actually building toward this magnificent culmination? How might this end vision inspire greater boldness and perseverance in your multiplication efforts?
 
@@ -437,38 +306,24 @@ How do you participate in this grand biblical narrative of multiplication? What 
 
 ### Understanding the Four Fields Process
 
-The podcast hosts introduce a practical framework called the "**Four Fields**" process—a biblical strategy for implementing multiplication principles:
+The podcast hosts introduce a practical framework called the "**Four Fields**" process — a biblical strategy for implementing multiplication principles:
 
 > "When we kind of zero into the four fields, we're going to say, how do we participate specifically on the ground on a daily basis? How do we contribute and participate to what God is up to in his mission from beginning to end?"
 
 This process helps believers move from big-picture vision to practical implementation:
 
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
+<InsightCard label="Movement Principle">
 - It provides a clear pathway for participation in God's mission
 - It focuses on what happens "**on the ground on a daily basis**"
 - It connects our activity to God's overarching plan "**from beginning to end**"
 - It answers the question: "This is what I do, and this is why I do it"
-
-</div>
+</InsightCard>
 
 The hosts use a helpful metaphor to explain why both vision and process are essential:
 
 > "When we go somewhere, we, a lot of us use Google Maps, you want to put into the Google Maps, what is your destination? Where are you going? And you've got to have the right destination, or you end up at the wrong endpoint, right? And then you've got to know what are the steps along the way?"
 
-This framework ensures:
-
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
-- You have the right "**endpoint**" (the Father's heart)
-- You know the "**clear steps along the way**"
-- You possess the "**skills to be able to drive the car**"
-
-</div>
+This framework ensures you have the right "endpoint" (the Father's heart), you know the "clear steps along the way," and you possess the "skills to be able to drive the car."
 
 Could this "Four Fields" process be the practical roadmap you've been missing in your disciple-making journey?
 
@@ -478,18 +333,7 @@ At the heart of any multiplication movement is the development of leaders who ca
 
 > "We talked about earlier this year, wanting to lean in to see what does that look like to see the **multiplying church** and her leaders be effective at every level from the church that can multiply to raising up leaders that have what they need to multiply to seeing whole **networks** begin to multiply until there is no place left."
 
-The podcast emphasizes several critical aspects of leadership development:
-
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
-- Leaders need certain "**minimums**" to be effective multipliers
-- Development must happen at "**every level**"—from individual churches to networks
-- The goal is leaders who have "in their hands what they need to multiply"
-- These essentials are part of the movement's "**original DNA tools**"
-
-</div>
+The podcast emphasizes several critical aspects of leadership development: leaders need certain "minimums" to be effective multipliers, development must happen at "every level" — from individual churches to networks, the goal is leaders who have "in their hands what they need to multiply," and these essentials are part of the movement's "original DNA tools."
 
 As the hosts explain:
 
@@ -505,18 +349,7 @@ The podcast repeatedly highlights a pattern that offers encouragement:
 
 > "We see this faithful God who as he gives a commission, he is on the scene, his hand is on the wheel to make sure that this reaches that destination of seeing no place left that has not heard in any given generation."
 
-This pattern reveals several principles for overcoming setbacks:
-
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
-- God remains "**faithful**" even when His people falter
-- His "**hand is on the wheel**" guiding the process
-- He consistently gets the mission "**back on track**" when it drifts
-- He often uses challenges to advance His purposes (like persecution in Acts 8:1)
-
-</div>
+This pattern reveals that God remains "faithful" even when His people falter, His "hand is on the wheel" guiding the process, He consistently gets the mission "back on track" when it drifts, and He often uses challenges to advance His purposes — like the persecution in Acts 8:1.
 
 The hosts emphasize this encouraging truth:
 
@@ -526,38 +359,30 @@ What current challenges might God be using to refocus your multiplication effort
 
 ## Conclusion
 
-As we've journeyed from Genesis to Revelation, we've witnessed God's unwavering commitment to seeing His **image multiplied** throughout the earth. This isn't just ancient history—it's a living story that continues today, and you're invited to play a vital role.
+As we've journeyed from Genesis to Revelation, we've witnessed God's unwavering commitment to seeing His **image multiplied** throughout the earth. This isn't just ancient history — it's a living story that continues today, and you're invited to play a vital role.
 
-The **Father's heart** has always been for "**no place left**" without witness to His glory. From the garden to the Tower of Babel, from Abraham to Israel, from Jesus to the early church, and ultimately to the great multitude in Revelation—God's vision has remained consistent even when His methods have adapted.
+The **Father's heart** has always been for "**no place left**" without witness to His glory. From the garden to the Tower of Babel, from Abraham to Israel, from Jesus to the early church, and ultimately to the great multitude in Revelation — God's vision has remained consistent even when His methods have adapted.
 
 What have we discovered along the way?
 
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
+<InsightCard label="Summary">
 - God's original design for humanity included **multiplication** from the very beginning
 - Despite repeated **setbacks** and human failure, God faithfully keeps His mission on track
 - Jesus came as the "**perfect Adam**" to model and empower true multiplication
 - The church now serves as God's "**kingdom of priests**" to continue this mission
 - Practical frameworks like the "**Four Fields**" process help us participate effectively
 - Leadership development with the right "**minimums**" is essential for sustainable movements
-- God's ultimate success is guaranteed—there will be worshippers from "**every nation, tribe, people and language**"
-
-</div>
+- God's ultimate success is guaranteed — there will be worshippers from "**every nation, tribe, people and language**"
+</InsightCard>
 
 As Mark and Dave emphasize throughout their podcast, understanding both the destination (the Father's heart) and the pathway (the Four Fields process) is crucial for effective multiplication. Without clear vision, we lose direction; without practical process, we lack implementation.
 
 The question now is: Where do you fit in this grand narrative? Will you embrace your identity as both a **new creation** and an **ambassador**? Will you develop the necessary "**head, heart, and hands**" to become an effective multiplier in God's kingdom?
 
-<p class="fm-pull-quote">The story that began in Genesis continues through you.</p>
+<PullQuote>The story that began in Genesis continues through you.</PullQuote>
 
 The mission that Jesus commissioned still awaits completion. And the vision of that great multitude grows closer with each disciple made and each church planted.
 
-<div class="fm-practice-card">
-
-<p class="fm-practice-card__label">Practice This Week</p>
-
+<PracticeCard label="Your Next Step">
 What step will you take today to advance God's multiplication story "until there is no place left"?
-
-</div>
+</PracticeCard>

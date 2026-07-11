@@ -1,10 +1,11 @@
-/* Field Manual article design system — Phase 2 field test.
-   Loaded only by ArticleLayoutV2 (the 3 field-test articles), never
+/* Field Manual article design system.
+   Loaded only by ArticleLayoutV2 (the field-test articles), never
    sitewide. Every class here is prefixed `fm-` so nothing collides
    with the existing global `.callout`/`.article-*` system that every
    other article still uses. Reuses the homepage's tokens (colors,
    radii, eyebrow, .button) from global.css rather than inventing new
-   ones — see PHASE_11_ARTICLE_FIELD_TEST.md. */
+   ones. See ARTICLE_DESIGN_SYSTEM.md for the component reference this
+   CSS backs. */
 
 :root {
   /* Editorial serif, used sparingly: Scripture Block + Pull Quote
@@ -12,6 +13,10 @@
      slot), not sitewide. */
   --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
   --fm-content-width: 44rem; /* 704px — inside the requested 680-740px range */
+  /* One shadow token, reused everywhere a card needs to lift off the
+     page — softer and lighter than a SaaS dashboard card, never
+     stacked or doubled. */
+  --fm-shadow: 0 3px 14px rgba(31, 37, 35, 0.06);
 }
 
 /* --- Reading column -------------------------------------------- */
@@ -24,20 +29,41 @@
 .fm-article p,
 .fm-article ul,
 .fm-article ol {
-  line-height: 1.75;
+  font-size: 1.0625rem; /* ~17-18px on top of the 1.0625rem body base */
+  line-height: 1.7;
 }
 
-/* Green headings, carried over from the homepage — scoped to this
-   layout only, never the sitewide `article h2/h3` rule other articles
-   still use. */
-.fm-article :is(h2, h3, h4) {
+/* Green H2, deep ink H3 — hierarchy by color as well as size, so
+   every heading doesn't read as equally important. Left-aligned
+   (the article default), never centered. */
+.fm-article h2 {
   color: var(--color-primary);
+  /* Noticeably more room above than below — separates major sections
+     without needing an eyebrow or a decorative rule on every one. */
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.fm-article h2:first-child {
+  margin-top: 0;
+}
+
+.fm-article h3 {
+  color: var(--color-ink);
+  margin-top: 2rem;
+  margin-bottom: 0.65rem;
+}
+
+@media (max-width: 640px) {
+  .fm-article h2 {
+    margin-top: 2.75rem;
+  }
 }
 
 /* --- Article Hero ------------------------------------------------
    Clean white layout, never text-over-photo: copy first, image
    second, caption third. Copy sits in the reading column; the image
-   is allowed to run a little wider for presence. */
+   is allowed to run a little wider for presence. Never centered. */
 
 .fm-hero {
   max-width: var(--fm-content-width);
@@ -53,13 +79,31 @@
 .fm-hero__headline {
   margin: 0 0 1rem;
   font-size: var(--fs-h1);
-  line-height: 1.1;
+  line-height: 1.15;
   color: var(--color-primary);
+  /* Controlled measure so a long legacy title wraps as confident
+     lines, not an unreadable wall — and doesn't strand a single word
+     on its own last line as often. */
+  max-width: 30ch;
+}
+
+/* A handful of migrated WordPress titles run long (a title plus an
+   em-dash subtitle). Step the size down so those still read as a
+   controlled block instead of 6+ lines at full hero size. */
+.fm-hero__headline--medium {
+  font-size: clamp(2.25rem, 1.9rem + 1.6vw, 3rem);
+  max-width: 34ch;
+}
+
+.fm-hero__headline--long {
+  font-size: clamp(1.875rem, 1.6rem + 1.2vw, 2.5rem);
+  max-width: 38ch;
 }
 
 .fm-hero__subhead {
   margin: 0 0 1.1rem;
-  font-size: 1.2rem;
+  max-width: 38ch;
+  font-size: 1.15rem;
   font-weight: 500;
   line-height: 1.5;
   color: var(--color-text-muted);
@@ -70,7 +114,7 @@
   font-family: var(--font-mono);
   font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-text-muted);
 }
@@ -99,7 +143,18 @@
 
 @media (max-width: 640px) {
   .fm-hero__headline {
-    line-height: 1.15;
+    max-width: none;
+    line-height: 1.2;
+  }
+
+  /* The medium/long size steps matter even more on a narrow viewport
+     — without them a long legacy title runs to 8-9 lines. */
+  .fm-hero__headline--medium {
+    font-size: 1.875rem;
+  }
+
+  .fm-hero__headline--long {
+    font-size: 1.625rem;
   }
 
   .fm-hero__image-wrap {
@@ -108,103 +163,122 @@
 }
 
 /* --- Large intro paragraph (Wes McDowell technique) ---------------
-   Only the first paragraph of the body gets this treatment — content
-   authors add `fm-intro` to that one <p> directly in the markdown,
-   then the article returns to standard reading typography. */
+   Larger than body copy, smaller than an H2, never bold throughout.
+   Exactly one per article, immediately after the hero. */
 
 .fm-intro {
-  font-size: clamp(1.2rem, 1.1rem + 0.4vw, 1.4rem);
+  font-size: 1.5rem; /* ~24px desktop, inside the 22-26px target */
   font-weight: 500;
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--color-ink);
   margin: 0 0 1.75rem;
 }
 
+@media (max-width: 640px) {
+  .fm-intro {
+    font-size: 1.25rem; /* ~20px mobile, inside the 19-21px target */
+  }
+}
+
 /* --- Insight Card ---------------------------------------------
-   White card, soft shadow, green eyebrow. Major ideas. */
+   White card, subtle warm border, restrained shadow, small green
+   eyebrow. Normal body typography inside — this is a highlight, not a
+   different voice. */
 
 .fm-insight-card {
-  margin: 2rem 0;
+  margin: 2.5rem 0;
   padding: 1.5rem 1.75rem;
   background: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--fm-shadow);
 }
 
 .fm-insight-card__label {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   margin: 0 0 0.75rem;
   color: var(--color-primary);
 }
 
-.fm-insight-card > *:last-child {
+.fm-insight-card__body {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.fm-insight-card__body > *:last-child {
   margin-bottom: 0 !important;
 }
 
-.fm-insight-card > *:first-child:not(.fm-insight-card__label) {
+.fm-insight-card__body > *:first-child {
   margin-top: 0 !important;
 }
 
-.fm-insight-card ul,
-.fm-insight-card ol {
+.fm-insight-card__body ul,
+.fm-insight-card__body ol {
   margin: 0;
   padding-left: 1.25rem;
 }
 
-.fm-insight-card li {
+.fm-insight-card__body li {
   margin: 0.4rem 0;
 }
 
 /* --- Practice Card -----------------------------------------------
-   Soft sage background, action-oriented. "What to do this week." */
+   Soft sage background, dark green text, no heavy shadow. Must read
+   as complete on its own, with no field story attached. */
 
 .fm-practice-card {
-  margin: 2rem 0;
+  margin: 2.5rem 0;
   padding: 1.5rem 1.75rem;
   background: var(--color-surface);
   border-radius: var(--radius-card);
+  color: var(--color-primary);
 }
 
 .fm-practice-card__label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  display: block;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   margin: 0 0 0.75rem;
   color: var(--color-accent-hover);
 }
 
-.fm-practice-card > *:last-child {
+.fm-practice-card__body {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--color-ink);
+}
+
+.fm-practice-card__body > *:last-child {
   margin-bottom: 0 !important;
 }
 
-.fm-practice-card ul,
-.fm-practice-card ol {
+.fm-practice-card__body ul,
+.fm-practice-card__body ol {
   margin: 0;
   padding-left: 1.25rem;
 }
 
-.fm-practice-card li {
+.fm-practice-card__body li {
   margin: 0.4rem 0;
 }
 
 /* --- Warning Card --------------------------------------------
-   Clay accent. Common mistakes. */
+   White/very light background, clay left border. No icon, no
+   alarm-style language — used sparingly. */
 
 .fm-warning-card {
-  margin: 2rem 0;
-  padding: 1.5rem 1.75rem;
-  background: #ffffff;
+  margin: 2.5rem 0;
+  padding: 1.25rem 1.5rem;
+  background: #fdf8f4;
   border-left: 3px solid var(--color-clay);
   border-radius: 0 var(--radius-card) var(--radius-card) 0;
 }
@@ -212,41 +286,58 @@
 .fm-warning-card__label {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 0 0 0.75rem;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.6rem;
   color: var(--color-clay-text);
 }
 
-.fm-warning-card > *:last-child {
+.fm-warning-card__body {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.fm-warning-card__body > *:last-child {
   margin-bottom: 0 !important;
 }
 
 /* --- Scripture Block -----------------------------------------
-   Editorial styling. Large serif. No card chrome — a quiet, gold-
-   ruled column so it reads as Scripture, not the site's commentary. */
+   Soft sage wash, subtle left rule, larger serif text. Upright (not
+   italic) so long passages stay readable, not just short verses. */
 
 .fm-scripture {
-  margin: 2.25rem 0;
-  padding: 0.25rem 0 0.25rem 1.5rem;
+  margin: 2.5rem 0;
+  padding: 1.5rem 1.75rem;
+  background: var(--color-surface);
   border-left: 3px solid var(--color-gold);
+  border-radius: 0 var(--radius-card) var(--radius-card) 0;
 }
 
-.fm-scripture p {
+.fm-scripture__text {
   font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 1.1rem + 0.4vw, 1.4rem);
-  font-style: italic;
-  line-height: 1.55;
+  font-size: 1.25rem;
+  /* Explicit reset — .fm-scripture is a <blockquote>, and the global
+     `article blockquote` rule (global.css) sets italic by default. */
+  font-style: normal;
+  line-height: 1.6;
   color: var(--color-ink);
-  margin: 0 0 0.6rem;
 }
 
-.fm-scripture cite {
+.fm-scripture__text p {
+  margin: 0 0 0.85rem;
+}
+
+.fm-scripture__text p:last-child {
+  margin-bottom: 0;
+}
+
+.fm-scripture__reference {
   display: block;
+  margin-top: 0.9rem;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-style: normal;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -254,33 +345,51 @@
   color: var(--color-gold-text);
 }
 
+@media (max-width: 640px) {
+  .fm-scripture {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .fm-scripture__text {
+    font-size: 1.1rem;
+  }
+}
+
 /* --- Pull Quote --------------------------------------------------
-   Large serif. No box. No decorative quotation marks. Use sparingly —
-   authors wrap one sentence in <p class="fm-pull-quote">. */
+   Large serif, no box, no decorative quotation marks. Strong
+   whitespace above/below carries the emphasis instead of a border. */
 
 .fm-pull-quote {
-  margin: 2.5rem auto;
-  max-width: 34rem;
+  margin: 3rem auto;
+  max-width: 30rem;
   font-family: var(--font-serif);
-  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 1.875rem);
+  font-size: 1.75rem;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.35;
   color: var(--color-primary);
 }
 
-/* --- Image + Caption -----------------------------------------
-   Every image supports the argument and gets a specific caption —
-   never decorative, never generic. */
+@media (max-width: 640px) {
+  .fm-pull-quote {
+    font-size: 1.4rem;
+    margin: 2.5rem auto;
+  }
+}
+
+/* --- Article Image -----------------------------------------------
+   Consistent radius, restrained/no shadow — a content image, not a
+   card. Caption explains relevance, directly underneath. `wide`
+   allows an intentional, slightly wider breakout on desktop only. */
 
 .fm-image {
-  margin: 2.25rem 0;
+  margin: 2.5rem 0;
 }
 
 .fm-image img {
   display: block;
   width: 100%;
   margin: 0;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-image);
 }
 
 .fm-image figcaption {
@@ -291,12 +400,102 @@
   line-height: 1.5;
 }
 
+@media (min-width: 900px) {
+  .fm-image--wide {
+    margin-left: -3rem;
+    margin-right: -3rem;
+    width: calc(100% + 6rem);
+  }
+}
+
+/* --- Field Note ----------------------------------------------
+   The signature proof component. Renders only when a real, approved
+   note exists (see FieldNote.astro) — this styling never appears as
+   an empty shell. Warm-paper card, gold top rule, mono label so it
+   reads as a distinct "field record" rather than another Insight
+   Card. */
+
+.fm-field-note {
+  margin: 3rem 0;
+  padding: 1.75rem 1.75rem 1.5rem;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-gold);
+  border-radius: var(--radius-card);
+  box-shadow: var(--fm-shadow);
+}
+
+.fm-field-note__label {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold-text);
+}
+
+.fm-field-note__location {
+  margin: 0 0 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.fm-field-note__headline {
+  margin: 0 0 0.75rem;
+  color: var(--color-primary);
+}
+
+.fm-field-note__story {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.fm-field-note__story > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.fm-field-note__image-wrap {
+  margin: 1.25rem 0 0;
+}
+
+.fm-field-note__image {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border-radius: var(--radius-image);
+}
+
+.fm-field-note__caption {
+  margin: 0.65rem 0 0;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.fm-field-note__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 1.1rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.fm-field-note__meta a {
+  color: var(--color-accent-hover);
+  font-weight: 600;
+}
+
 /* --- End CTA -------------------------------------------------
    One CTA per article, homepage dark-band language. No competing
    actions — one button, one quiet secondary link. */
 
 .fm-end-cta {
-  margin: 3rem 0 2rem;
+  margin: 3.5rem 0 2rem;
   padding: 2.5rem 2rem;
   background: var(--color-footer-bg);
   color: var(--color-footer-text);
@@ -305,9 +504,15 @@
 }
 
 .fm-end-cta h2 {
-  margin: 0 0 1.5rem;
+  margin: 0 0 1rem;
   color: var(--color-footer-text);
   font-size: var(--fs-h3);
+}
+
+.fm-end-cta__body {
+  max-width: 32rem;
+  margin: -0.5rem auto 1.5rem;
+  color: var(--color-footer-text-muted);
 }
 
 .fm-end-cta__actions {
@@ -348,3 +553,18 @@
     padding: 2rem 1.25rem;
   }
 }
+
+/* --- Accessibility: visible focus states -------------------------
+   Interactive elements introduced by this system get an explicit
+   focus ring — nothing here relies on default browser styling alone. */
+
+.fm-end-cta .button:focus-visible,
+.fm-end-cta__secondary:focus-visible,
+.fm-field-note__meta a:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* --- Reduced motion ------------------------------------------
+   This system adds no animation of its own; nothing to guard here
+   beyond inheriting the sitewide prefers-reduced-motion rules. */

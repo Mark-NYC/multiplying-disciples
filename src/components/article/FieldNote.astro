@@ -1,0 +1,69 @@
+---
+// FieldNote — the signature "proof" component, and the only one in
+// this system backed by its own content collection instead of being
+// authored inline. An article references a note by id; the note's
+// own `approved` flag is the single gate for whether anything
+// renders. A missing id, an unapproved note, or an empty fieldNotes
+// collection all resolve to rendering nothing — never a placeholder,
+// never "story coming soon." See FIELD_NOTE_TEMPLATE.md to author a
+// new one and ARTICLE_DESIGN_SYSTEM.md for how to reference it.
+//
+// Usage (inside a field-manual-v2 .mdx article body):
+//   <FieldNote id="queens-conversation-box-01" />
+import { getCollection, render } from 'astro:content';
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+
+const notes = await getCollection('fieldNotes', ({ data }) => data.approved === true);
+const note = notes.find((entry) => entry.id === id);
+
+const { Content } = note ? await render(note) : { Content: null };
+---
+
+{
+  note && Content && (
+    <aside class="fm-field-note" aria-label="Field note">
+      <p class="fm-field-note__label">
+        Field Note{note.data.number && <span> {note.data.number}</span>}
+      </p>
+      {note.data.location && <p class="fm-field-note__location">{note.data.location}</p>}
+      {note.data.headline && <h3 class="fm-field-note__headline">{note.data.headline}</h3>}
+
+      <div class="fm-field-note__story">
+        <Content />
+      </div>
+
+      {
+        note.data.image && (
+          <figure class="fm-field-note__image-wrap">
+            <img
+              class="fm-field-note__image"
+              src={note.data.image}
+              alt={note.data.image_alt ?? ''}
+              loading="lazy"
+            />
+            {note.data.image_caption && (
+              <figcaption class="fm-field-note__caption">{note.data.image_caption}</figcaption>
+            )}
+          </figure>
+        )
+      }
+
+      {
+        (note.data.attribution || note.data.related_tool || note.data.related_article) && (
+          <p class="fm-field-note__meta">
+            {note.data.attribution && <span>{note.data.attribution}</span>}
+            {note.data.related_article && (
+              <a href={note.data.related_article}>Read more &rarr;</a>
+            )}
+            {note.data.related_tool && <a href={note.data.related_tool}>Try this tool &rarr;</a>}
+          </p>
+        )
+      }
+    </aside>
+  )
+}

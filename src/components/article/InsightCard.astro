@@ -1,0 +1,29 @@
+---
+// InsightCard — clarifies a key idea, framework, definition, summary,
+// or theological distinction. White card, subtle border, restrained
+// shadow, small green eyebrow.
+//
+// Use: 0-2 per normal article; a long article may use more, spaced far
+// apart (roughly one visual break per 600-900 words of surrounding
+// text). Do not convert every list or blockquote into one — most
+// paragraphs should just stay paragraphs.
+//
+// `label` is required on purpose: every card should say what kind of
+// idea it is (e.g. "The Core Idea", "Key Distinction", "What This
+// Means", "Movement Principle", "Summary") rather than defaulting to
+// the generic word "Insight" everywhere.
+//
+// Usage: <InsightCard label="Key Distinction">...markdown...</InsightCard>
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<div class="fm-insight-card">
+  <p class="fm-insight-card__label">{label}</p>
+  <div class="fm-insight-card__body">
+    <slot />
+  </div>
+</div>

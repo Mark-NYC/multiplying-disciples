@@ -1,0 +1,32 @@
+---
+// ArticleImage — a single image that supports the argument, with a
+// caption that explains relevance (never a generic label like "Prayer
+// walking"). Full reading-column width by default; set `wide` for an
+// intentional, slightly wider breakout on desktop.
+//
+// If the real context of an existing image isn't known, write a
+// truthful general caption or omit the caption entirely — never
+// invent specifics (a location, a number of people, an outcome).
+//
+// Usage:
+//   <ArticleImage
+//     src="/path/to/image.jpg"
+//     alt="A small group opens Scripture together"
+//     caption="A small group opens Scripture together — the same
+//       pattern of multiplication this article traces from Genesis to
+//       Revelation starts this small."
+//   />
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  wide?: boolean;
+}
+
+const { src, alt, caption, wide = false } = Astro.props;
+---
+
+<figure class:list={['fm-image', { 'fm-image--wide': wide }]}>
+  <img src={src} alt={alt} loading="lazy" />
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>

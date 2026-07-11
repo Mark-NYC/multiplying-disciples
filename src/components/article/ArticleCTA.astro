@@ -1,0 +1,54 @@
+---
+// ArticleCTA — the one closing next step. Homepage dark-band
+// language: heading, one primary button, one quiet secondary text
+// link. Never render more than one of these per article.
+//
+// `variant="tool-first"` swaps priority for strongly tool-focused
+// articles (e.g. a how-to that centers on a single named tool) —
+// primary becomes the tool, secondary becomes the lab invite.
+interface Props {
+  heading?: string;
+  body?: string;
+  primaryLabel?: string;
+  primaryUrl?: string;
+  secondaryLabel?: string;
+  secondaryUrl?: string;
+  variant?: 'default' | 'tool-first';
+}
+
+const defaults = {
+  default: {
+    heading: 'Ready to practice this?',
+    primaryLabel: 'Join the Next Live Lab',
+    primaryUrl: '/#ch-practice',
+    secondaryLabel: 'Start with the Conversation Box',
+    secondaryUrl: '/starter-tools/',
+  },
+  'tool-first': {
+    heading: 'Ready to practice this?',
+    primaryLabel: 'Use the Conversation Box',
+    primaryUrl: '/starter-tools/',
+    secondaryLabel: 'Join the Next Live Lab',
+    secondaryUrl: '/#ch-practice',
+  },
+} as const;
+
+const {
+  variant = 'default',
+  heading = defaults[variant].heading,
+  body,
+  primaryLabel = defaults[variant].primaryLabel,
+  primaryUrl = defaults[variant].primaryUrl,
+  secondaryLabel = defaults[variant].secondaryLabel,
+  secondaryUrl = defaults[variant].secondaryUrl,
+} = Astro.props;
+---
+
+<section class="fm-end-cta">
+  <h2>{heading}</h2>
+  {body && <p class="fm-end-cta__body">{body}</p>}
+  <div class="fm-end-cta__actions">
+    <a class="button" href={primaryUrl}>{primaryLabel}</a>
+    <a class="fm-end-cta__secondary" href={secondaryUrl}>{secondaryLabel}</a>
+  </div>
+</section>

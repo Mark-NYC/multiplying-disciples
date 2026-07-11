@@ -49,30 +49,32 @@ notes: >
   starter-tools into a relative path. Featured image
   eliott-reyna-jCEpN62oWL4-unsplash.jpg confirmed present, used as
   og_image only (page has no inline images, matching the original).
-  Phase 2 field test (article design system v2, see
-  PHASE_11_ARTICLE_FIELD_TEST.md): one of 3 pilot articles for the new
-  homepage-language component system, chosen as the "practical how-to"
-  category. No wording changed. Removed the 2 now-redundant "JUMP TO"
-  anchor lines — TableOfContents already covers the same 3 destinations.
-  Removed the closing "Learn how you can multiply disciples by getting
-  started with these starter tools" line — ArticleLayoutV2 already
-  renders one closing CTA (ArticleEndCTA) and this was a second,
-  competing action. Wrapped the opening paragraph in the new large
-  intro-paragraph style. Converted the 4 already-verbatim Scripture
-  quotations in Section 2 into Scripture Block components with <cite>
-  references (previously plain quoted text, not blockquotes). Wrapped
-  the 7-step "lead a prayer walk" list in a Practice Card. Wrapped the
-  Don'ts list in a Warning Card. Wrapped the "power of walking prayer"
-  4-point list in an Insight Card. Added one Pull Quote and one
-  Image + Caption (a genuine Discovery-Bible-Study-style photo of
-  hands over open Bibles) — no other images added.
+  Phase 11 (article design system v1 field test): first pass at this
+  system. Superseded below.
+  Phase 12 (article design system refinement): converted to .mdx to
+  use real components. Kept all 4 Scripture Blocks as-is — Scripture
+  Block has no numeric cap in the refined system ("only where useful"),
+  and this article's whole purpose is presenting these 4 verses, so
+  they're core content, not decoration. Kept 1 Insight Card (relabeled
+  "The Core Idea"), 1 Practice Card (relabeled "Try This This Week"),
+  1 Warning Card (relabeled "Common Mistake" — the new default), and 1
+  Pull Quote. Kept the 1 inline Image + Caption. No Field Note — no
+  real, approved story exists yet for this article.
 ---
 
-<p class="fm-intro">One unique way of praying that many are finding effective at connecting prayer and missions and many have found to be particularly powerful is prayer walking. See prayer walking scriptures below.</p>
+import ArticleIntro from '../../components/article/ArticleIntro.astro';
+import ScriptureBlock from '../../components/article/ScriptureBlock.astro';
+import ArticleImage from '../../components/article/ArticleImage.astro';
+import PracticeCard from '../../components/article/PracticeCard.astro';
+import WarningCard from '../../components/article/WarningCard.astro';
+import InsightCard from '../../components/article/InsightCard.astro';
+import PullQuote from '../../components/article/PullQuote.astro';
+
+<ArticleIntro>One unique way of praying that many are finding effective at connecting prayer and missions and many have found to be particularly powerful is prayer walking. See prayer walking scriptures below.</ArticleIntro>
 
 In this post, we will explore the meaning of prayer walking, where it comes from, how to lead a prayer walk, and the power of this practice. We will also dive into some of the scriptures on prayer walking and provide guidance on what to pray during a prayer walk.
 
-### Section 1: What is Prayer Walking?
+## Section 1: What is Prayer Walking?
 
 Prayer walking is a spiritual practice that involves walking while praying.
 
@@ -80,19 +82,15 @@ It is a way of connecting with God and seeking His guidance, protection, and ble
 
 And it can be done anywhere, whether it's in your neighborhood, a park, or a busy street.
 
-### Section 2: Prayer Walking Scriptures
+## Section 2: Prayer Walking Scriptures
 
 Here are a few Scriptures that connect prayer to our mission to be the light of the world:
 
 #### 1. Matthew 5:14-16
 
-<div class="fm-scripture">
-
+<ScriptureBlock reference="Matthew 5:14-16">
 "You are the light of the world. A city set on a hill cannot be hidden. Nor do people light a lamp and put it under a basket, but on a stand, and it gives light to all in the house. In the same way, let your light shine before others, so that they may see your good works and give glory to your Father who is in heaven."
-
-<cite>Matthew 5:14-16</cite>
-
-</div>
+</ScriptureBlock>
 
 This passage reminds us of our calling to be a light to the world and to let our good deeds shine before others.
 
@@ -100,13 +98,9 @@ Through prayer walking, we can lift up our communities in prayer and bring the l
 
 #### 2. Ephesians 5:8-10
 
-<div class="fm-scripture">
-
+<ScriptureBlock reference="Ephesians 5:8-10">
 "For at one time you were darkness, but now you are light in the Lord. Walk as children of light (for the fruit of light is found in all that is good and right and true), and try to discern what is pleasing to the Lord."
-
-<cite>Ephesians 5:8-10</cite>
-
-</div>
+</ScriptureBlock>
 
 This verse encourages us to walk as children of light, seeking to discern what is pleasing to the Lord.
 
@@ -114,13 +108,9 @@ Prayer walking can help us discern the needs of our communities and pray for God
 
 #### 3. Philippians 2:14-15
 
-<div class="fm-scripture">
-
+<ScriptureBlock reference="Philippians 2:14-15">
 "Do all things without grumbling or disputing, that you may be blameless and innocent, children of God without blemish in the midst of a crooked and twisted generation, among whom you shine as lights in the world."
-
-<cite>Philippians 2:14-15</cite>
-
-</div>
+</ScriptureBlock>
 
 This passage reminds us that we are called to shine as lights in the world, even in the midst of a crooked and twisted generation.
 
@@ -128,13 +118,9 @@ Through prayer walking, we can bring hope and light to those around us and be a 
 
 #### 4. Colossians 4:2-6
 
-<div class="fm-scripture">
-
+<ScriptureBlock reference="Colossians 4:2-6">
 "Continue steadfastly in prayer, being watchful in it with thanksgiving. At the same time, pray also for us, that God may open to us a door for the word, to declare the mystery of Christ, on account of which I am in prison— that I may make it clear, which is how I ought to speak. Walk in wisdom toward outsiders, making the best use of the time. Let your speech always be gracious, seasoned with salt, so that you may know how you ought to answer each person."
-
-<cite>Colossians 4:2-6</cite>
-
-</div>
+</ScriptureBlock>
 
 This passage encourages us to continue steadfastly in prayer and to walk in wisdom toward outsiders, making the best use of the time.
 
@@ -142,15 +128,13 @@ Through prayer walking, we can pray for open doors for the Gospel and for opport
 
 As we can see, the Scriptures are filled with reminders of our mission to be the light of the world and the importance of prayer in fulfilling that mission.
 
-<div class="fm-image">
+<ArticleImage
+  src="/wp-content/uploads/2023/05/DBS_2-e1686219964976.jpeg"
+  alt="Two hands open in prayer over open Bibles on a wooden table, with two other people's hands resting on open Bibles beside them"
+  caption="Praying over open Scripture — the same posture prayer walking carries outdoors, verse by verse through a neighborhood."
+/>
 
-![Two hands open in prayer over open Bibles on a wooden table, with two other people's hands resting on open Bibles beside them](/wp-content/uploads/2023/05/DBS_2-e1686219964976.jpeg)
-
-<figcaption>Praying over open Scripture — the same posture prayer walking carries outdoors, verse by verse through a neighborhood.</figcaption>
-
-</div>
-
-### 5H Prayer Walking Scriptures
+## 5H Prayer Walking Scriptures
 
 The purpose extends beyond mere exercise or casual observation. Prayer walking helps believers actively seek God's work in their communities while remaining attuned to where He is already moving. To maintain focus and purpose during these walks, a framework known as the "Five H's" provides consistent themes for prayer.
 
@@ -240,7 +224,7 @@ Each "H" represents a key prayer theme you can use during your walk. You don't n
 - Unity among believers
 - Shared vision for neighborhood transformation
 
-### Section 4: Where Does Prayer Walk Come From?
+## Section 4: Where Does Prayer Walk Come From?
 
 Prayer walking has been around for centuries and can be found in many cultures and religions.
 
@@ -248,7 +232,7 @@ In Christianity, no origin of prayer walking is known. It is a relatively new id
 
 Today, prayer walking is practiced by Christians all around the world as a way of connecting with God and seeking His will.
 
-### Section 5: How do you lead a prayer walk?
+## Section 5: How do you lead a prayer walk?
 
 Leading a prayer walk can be a wonderful way to gather a group of believers and seek God's guidance for your community or neighborhood.
 
@@ -266,21 +250,17 @@ Leading a prayer walk can be a wonderful way to gather a group of believers and 
 - Brief your prayer partner on the framework you'll be using
 - Be aware of gospel conversation opportunities as you go to share the gospel
 
-<div class="fm-practice-card">
-
-<p class="fm-practice-card__label">Practice This Week</p>
-
+<PracticeCard label="Try This This Week">
 Here are some practical steps to lead a prayer walk:
 
 1. **Plan your route:** Decide on the route you will take and identify specific areas that you want to pray for. You can also split up into smaller groups and cover different areas simultaneously.
 2. **Invite others:** Invite other believers to join you in the prayer walk. You can use social media, emails, or text messages to invite people.
 3. **Prepare your heart:** Before starting the prayer walk, take time to prepare your heart by confessing your sins, praying for the Holy Spirit's guidance, and asking God to reveal His heart for the area you will be praying for.
-4. **Start walking:** As you walk, pray silently or out loud for the area, the people who live there, the local businesses, and any specific needs or issues. [Use the 5H Prayer Walk Framework.](#5h-prayer-walking-scriptures)
+4. **Start walking:** As you walk, pray silently or out loud for the area, the people who live there, the local businesses, and any specific needs or issues. Use the 5H Prayer Walk Framework above.
 5. **Listen to the Holy Spirit:** As you pray, listen to the Holy Spirit's promptings. He may lead you to pray for specific people or situations.
 6. **Encourage others:** As you walk and pray, encourage others to join in prayer and share any insights or prayers that God lays on their hearts.
 7. **End with thanksgiving:** At the end of the walk, thank God for the opportunity to pray and ask Him to continue to work in the area you covered.
-
-</div>
+</PracticeCard>
 
 #### Do's:
 
@@ -292,16 +272,12 @@ Here are some practical steps to lead a prayer walk:
 - Stay alert to your surroundings
 - Keep a prayer journal to track answers
 
-<div class="fm-warning-card">
-
-<p class="fm-warning-card__label">Common Mistakes</p>
-
+<WarningCard label="Common Mistake">
 - Don't draw unnecessary attention to yourself
 - Don't trespass on private property
 - Don't get discouraged if you don't see immediate results
 - Don't feel pressured to pray for everything at once
-
-</div>
+</WarningCard>
 
 #### Sample Prayer Walking Schedule
 
@@ -319,30 +295,26 @@ Here are some practical steps to lead a prayer walk:
 - 15 minutes: Focus on final H (Hands) and specific observations
 - 10 minutes: Closing prayer and recording insights
 
-### Section 6: What is the power of walking prayer?
+## Section 6: What is the power of walking prayer?
 
 Prayer walking is a powerful way to seek God's guidance and presence in a specific area. Here are some reasons why prayer walking can be powerful:
 
-<div class="fm-insight-card">
-
-<p class="fm-insight-card__label">Insight</p>
-
+<InsightCard label="The Core Idea">
 - **It is a physical act of faith:** Prayer walking is an act of faith that demonstrates a belief in God's presence and power. As you walk and pray, you are physically demonstrating your trust in God.
 - **It engages all of your senses:** As you walk and pray, you are engaging all of your senses in the act of prayer. You are seeing the sights, hearing the sounds, and feeling the atmosphere of the area you are praying for. This can make your prayers more real and tangible.
 - **It allows you to pray with others:** Prayer walking is a great way to gather believers together to pray. As you pray with others, you can encourage and strengthen one another in your faith.
 - **It can bring about change:** Prayer walking can bring about change in the area you are praying for. As you pray for God's presence and guidance, you are inviting Him to work in that area and bring about transformation.
+</InsightCard>
 
-</div>
-
-### Section 7: How long is a prayer walk?
+## Section 7: How long is a prayer walk?
 
 The length of a prayer walk can vary depending on the area you are covering and the time you have available. Some prayer walks may only cover a few blocks and last for 20-30 minutes, while others may cover larger areas and last for several hours.
 
 [See sample prayer walking formats.](#sample-prayer-walking-schedule)
 
-<p class="fm-pull-quote">The most important thing is to listen to the Holy Spirit's guidance and pray as long as He leads you to pray.</p>
+<PullQuote>The most important thing is to listen to the Holy Spirit's guidance and pray as long as He leads you to pray.</PullQuote>
 
-### Section 8: What do you say when you lead a prayer?
+## Section 8: What do you say when you lead a prayer?
 
 When leading a prayer, it is important to remember that prayer is a conversation with God. Here are some tips for leading a prayer:
 
@@ -351,7 +323,7 @@ When leading a prayer, it is important to remember that prayer is a conversation
 3. Listen to the Holy Spirit: As you pray, listen to the Holy Spirit's guidance and pray as He leads you.
 4. Encourage participation: Encourage others to join in prayer and share any prayers or insights that God lays on their hearts.
 
-### Starting a Prayer Movement
+## Starting a Prayer Movement
 
 If you feel led by God in starting a prayer movement in your community, prayer walking can be a great way to get started. By gathering a group of like-minded individuals and walking and praying together, you can begin to build a sense of community and shared purpose.
 
@@ -411,7 +383,7 @@ Here are key Scriptures about prayer, categorized for easy reference:
 - **Jude 1:20** – "But you, beloved, building yourselves up in your most holy faith and praying in the Holy Spirit."
 - **Ephesians 6:18** – "Praying at all times in the Spirit, with all prayer and supplication."
 
-### Conclusion
+## Conclusion
 
 In conclusion, prayer walking is a powerful practice that can deepen your relationship with God and transform your community.
 

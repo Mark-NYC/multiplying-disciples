@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import mdx from '@astrojs/mdx';
 
 // Canonical production domain. Do not change without updating REDIRECTS.md
 // and confirming DNS/hosting cutover with the site owner.
@@ -20,5 +21,9 @@ export default defineConfig({
     // here if a future page gets added as a source-pending placeholder
     // (see MIGRATION_PLAN.md / URL_INVENTORY.md).
     sitemap(),
+    // Powers the 3 field-manual-v2 test articles (.mdx), so InsightCard/
+    // PracticeCard/etc. can be used as real components instead of raw
+    // HTML divs. Every other article stays plain .md.
+    mdx(),
   ],
 });

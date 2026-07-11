@@ -1,0 +1,27 @@
+---
+// ScriptureBlock — makes a direct Bible quotation readable and
+// distinct without looking like a generic quote graphic. Soft sage
+// wash, a subtle left rule, larger serif text, reference underneath.
+// Works for a single short verse or a longer multi-paragraph passage
+// (long passages stay upright, not italic, so they stay readable).
+//
+// Use only for verbatim Scripture — never for someone paraphrasing or
+// commenting on a verse. That stays a plain blockquote or a PullQuote.
+//
+// Usage:
+//   <ScriptureBlock reference="Matthew 5:14-16">
+//     "You are the light of the world..."
+//   </ScriptureBlock>
+interface Props {
+  reference: string;
+}
+
+const { reference } = Astro.props;
+---
+
+<blockquote class="fm-scripture">
+  <div class="fm-scripture__text">
+    <slot />
+  </div>
+  <cite class="fm-scripture__reference">{reference}</cite>
+</blockquote>
