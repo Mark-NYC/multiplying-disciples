@@ -738,7 +738,7 @@ import { SITE, COVO_LABS_URL } from '../data/site';
      difference, which also makes the headline wrap more cleanly. */
   @media (min-width: 801px) {
     #ch-why.block-grid {
-      grid-template-columns: 0.8fr 1.2fr;
+      grid-template-columns: 0.77fr 1.23fr;
     }
 
     /* The text cell is now narrower than the video cell, so its own
@@ -746,6 +746,25 @@ import { SITE, COVO_LABS_URL } from '../data/site';
        the taller video cell instead of leaving empty space below it. */
     #ch-why.block-grid .block-grid__cell--text {
       aspect-ratio: auto;
+    }
+
+    /* Field-tested and community: a gentler version of the same idea —
+       the baptism and prayer photos are emotional beats in the scroll,
+       not small content blocks, so they get modestly more room than an
+       even split. Narrowing the text column also shrinks its square,
+       which cuts down the excess empty space below its short copy. The
+       ratio is intentionally lighter than the coaching video's (which
+       stays the largest, single "watch this" moment on the page) so
+       the three full-bleed rows don't all read as the same module. */
+    #ch-field-tested.block-grid {
+      grid-template-columns: 0.88fr 1.12fr;
+    }
+
+    /* Community's image/text order is flipped via `order` below (image
+       visually first), so the wider fraction goes in the first column
+       here to land on the image, not the text. */
+    #ch-community.block-grid {
+      grid-template-columns: 1.12fr 0.88fr;
     }
   }
 
@@ -843,13 +862,15 @@ import { SITE, COVO_LABS_URL } from '../data/site';
   }
 
   /* This card is a hook now — three short beats, not an explanation —
-     so it gets extra top/bottom padding to feel open and confident
-     rather than compressed. */
+     so it gets extra padding on every side to feel open and premium
+     rather than compressed, the weakest section in the previous pass. */
   .block-grid__cell--green {
     background: var(--color-primary);
     color: var(--color-primary-text);
-    padding-top: clamp(3.5rem, calc(4vw + 2rem), 5.5rem);
-    padding-bottom: clamp(3.5rem, calc(4vw + 2rem), 5.5rem);
+    padding-top: clamp(4rem, calc(4vw + 2.5rem), 6.5rem);
+    padding-bottom: clamp(4rem, calc(4vw + 2.5rem), 6.5rem);
+    padding-left: clamp(1.75rem, 6vw, 5.5rem);
+    padding-right: clamp(1.75rem, 6vw, 5.5rem);
   }
 
   /* Eyebrow sits slightly tighter to the headline here than the
@@ -899,7 +920,8 @@ import { SITE, COVO_LABS_URL } from '../data/site';
   /* Why Coaching card only: generous headline -> quote handoff, since
      this h2 is the only one in a block-grid cell. */
   #ch-why .block-grid__cell--text h2 {
-    margin-bottom: 1.75rem;
+    line-height: 1.25;
+    margin-bottom: 2.25rem;
   }
 
   /* Community card only: this is the strongest of the three medium-
@@ -935,7 +957,7 @@ import { SITE, COVO_LABS_URL } from '../data/site';
     font-style: italic;
     font-weight: 500 !important;
     line-height: 1.6 !important;
-    margin-bottom: 1.25rem !important;
+    margin-bottom: 1.5rem !important;
     color: var(--color-primary-text) !important;
   }
 
@@ -946,7 +968,7 @@ import { SITE, COVO_LABS_URL } from '../data/site';
     font-size: var(--fs-body) !important;
     font-weight: 600 !important;
     line-height: 1.6 !important;
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 1.75rem !important;
     color: var(--color-primary-text) !important;
   }
 
@@ -1037,12 +1059,13 @@ import { SITE, COVO_LABS_URL } from '../data/site';
 
   /* --- Conviction band ------------------------------------------- */
 
-  /* Deliberately the quietest section on the page — ~38% less padding
-     than the previous pass, and a card-title-tier heading rather than
-     a full H2, so it doesn't compete with the sections around it. */
+  /* Deliberately the quietest section on the page — trimmed further
+     still, and a card-title-tier heading rather than a full H2, so it
+     passes through the scroll instead of interrupting the momentum
+     toward the sections that follow it. */
   .conviction {
     background: var(--color-gold);
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
   }
 
   .conviction__inner {
@@ -1088,7 +1111,7 @@ import { SITE, COVO_LABS_URL } from '../data/site';
 
   @media (max-width: 700px) {
     .conviction {
-      padding: 1.5rem 1.5rem;
+      padding: 1.25rem 1.5rem;
     }
 
     /* Plain column (not reversed) — the seal sits below the copy, as

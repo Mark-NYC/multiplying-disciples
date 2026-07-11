@@ -427,12 +427,21 @@ article tbody tr:nth-child(even) td {
   font-size: 0.95rem;
   border: none;
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
+/* One restrained hover treatment shared by every button on the site —
+   a hint of lift, not a bounce or a color-shifting animation. */
 .button:hover {
   background: var(--color-primary-hover);
   color: var(--color-primary-text);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(23, 76, 60, 0.18);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .button--secondary {
@@ -553,17 +562,17 @@ article tbody tr:nth-child(even) td {
 }
 
 .labs-cta__inner {
-  /* ~23% wider than the site's standard content column — this is the
+  /* ~36% wider than the site's standard content column — this is the
      page's primary destination, so the featured lab card (which fills
      this container) gets noticeably more room than every other card
-     on the homepage. */
-  max-width: 74rem;
+     on the homepage. Widened another ~10% from the previous pass. */
+  max-width: 82rem;
   margin: 0 auto;
 }
 
 .labs-cta h2 {
-  max-width: 42rem;
-  margin: 0 auto 1rem;
+  max-width: 46rem;
+  margin: 0 auto 1.25rem;
   font-size: var(--fs-h2);
 }
 
@@ -633,13 +642,16 @@ article tbody tr:nth-child(even) td {
   text-align: left;
   margin: 3rem 0 1.5rem;
   background: #ffffff;
-  border: 1px solid var(--color-border);
   border-radius: calc(var(--radius-card) + 10px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  /* ~20-25% more interior room than the previous pass — this is the
+  /* No hairline border — the card reads clearly against the section's
+     warm gradient from the shadow alone, so a border would only add a
+     line that isn't doing any work. Shadow deepened slightly to carry
+     that definition on its own. */
+  box-shadow: 0 14px 40px rgba(31, 37, 35, 0.08);
+  /* ~10% more interior room than the previous pass — this is the
      page's primary conversion card, so it should feel roomier than
      any other card on the homepage. */
-  padding: clamp(2.5rem, 5vw, 4rem);
+  padding: clamp(2.75rem, 5.5vw, 4.4rem);
 }
 
 @media (max-width: 860px) {
@@ -720,12 +732,14 @@ article tbody tr:nth-child(even) td {
   font-weight: 500;
 }
 
+/* No border — the Warm Paper tint against the outer card's white is
+   enough to read as "nested card" on its own; a soft shadow instead
+   of a hard edge is what actually reads as premium here. */
 .featured-lab__form-card {
   background: var(--color-bg);
-  border: 1px solid rgba(220, 210, 187, 0.6);
-  border-radius: calc(var(--radius-card) + 4px);
-  padding: clamp(1.75rem, 3vw, 2.25rem);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  border-radius: calc(var(--radius-card) + 6px);
+  padding: clamp(2rem, 3.5vw, 2.5rem);
+  box-shadow: 0 4px 16px rgba(31, 37, 35, 0.05);
   max-width: 25rem;
 }
 
@@ -736,18 +750,18 @@ article tbody tr:nth-child(even) td {
 }
 
 .featured-lab__form-heading {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.6rem;
   font-size: clamp(1.375rem, 1.1rem + 0.8vw, 1.625rem);
 }
 
 .featured-lab__form-invite {
-  margin: 0 0 0.85rem;
+  margin: 0 0 1rem;
   font-size: 1rem;
   color: var(--color-text-muted);
 }
 
 .featured-lab__form-meta {
-  margin: 0 0 1.75rem;
+  margin: 0 0 2rem;
   font-size: 1rem;
   color: var(--color-text-muted);
 }
@@ -783,9 +797,9 @@ article tbody tr:nth-child(even) td {
   font-weight: 800;
   /* The single most important click on the page — sized up so it
      reads as unmissable, not just another form button. */
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  font-size: 1.05rem;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+  font-size: 1.1rem;
   width: 100%;
 }
 
