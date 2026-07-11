@@ -4,11 +4,13 @@ description: "Discover biblical discipleship beyond Sundays. Learn Jesus's metho
 slug: "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
 canonical: "https://multiplyingdisciples.us/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
 date: 2025-02-23
+updated: 2026-07-11
 primary_keyword: "discipleship meaning"
 secondary_keywords:
   - "definition of discipleship"
   - "discipleship scriptures"
   - "4-1-1 tool"
+  - "cost of discipleship"
 hub: "disciple-making"
 related_articles:
   - "/discover-the-12-disciples-of-jesus-christ/"
@@ -43,6 +45,18 @@ notes: >
   self-referential link. Added descriptive alt text to the 2 inline
   images, which had none in the source. Preserved 3 external links
   (CoVo Multipliers, Church Waffle, Obey.Tools) exactly as-is.
+
+  2026-07-11 update: added a new "The Cost of Discipleship" section
+  (Luke 14:25-33, Bonhoeffer's cheap-grace/costly-grace distinction, a
+  practical cost-audit table and steps) between "Jesus's Model of
+  Discipleship" and "Core Elements of Biblical Discipleship." This
+  page now inherits redirected traffic from 3 retired articles whose
+  search intent centered on the cost/price of discipleship
+  ("radical-discipleship...", "the-high-price-of-discipleship...",
+  "the-hidden-power-of-bonhoeffers-discipleship-model..." — see
+  `CONTENT_SIMPLIFICATION_REMOVAL_MANIFEST.md` rows 6, 8, 25) but the
+  article previously had no dedicated treatment of that theme beyond
+  two quoted verses.
 ---
 
 Jesus's famous last words challenged His followers to "go and make disciples of all nations." This compelling command launches us into exploring what **discipleship** truly means and why it transforms lives today. Whether you're newly curious about following Jesus or seeking to deepen your spiritual journey, understanding biblical **discipleship** opens the door to life-changing growth.
@@ -280,6 +294,39 @@ Action Steps for Following Jesus's Model:
 - Always point disciples toward multiplication
 
 The transformative power of **Jesus's** approach to **discipleship** lies in its simplicity and reproducibility. When we follow His pattern, we see similar life change in our modern context.
+
+## The Cost of Discipleship
+
+**Jesus** never hid the price tag. Before anyone signed up to follow Him, He told two short stories about counting the cost first — a builder who checks he can finish the tower, a king who checks he can win the war (Luke 14:28-32). Skipping that math doesn't make **discipleship** easier; it just guarantees you'll quit partway through, confused about why following Jesus feels harder than advertised.
+
+This is the piece a lot of modern **discipleship** teaching quietly drops. It's easier to talk about the benefits of following Jesus than the cost of it. But **Jesus** was specific: "Whoever does not carry their own cross and follow me cannot be my disciple" (Luke 14:27), and even more bluntly, "Whoever does not renounce all that he has cannot be my disciple" (Luke 14:33).
+
+### Cheap Grace vs. Costly Grace
+
+The theologian Dietrich Bonhoeffer named this tension directly in his book *The Cost of Discipleship*, written as he watched the German church accommodate itself to Nazism rather than pay any real price for following Christ. His distinction still cuts today:
+
+- **Cheap grace** is forgiveness treated as a doctrine to affirm rather than a call to follow — grace without a cross, faith without obedience, a Savior with no Lordship attached.
+- **Costly grace** is the real thing: grace that's free because Christ paid for it, but that costs the disciple everything, because it calls him to actually follow.
+
+Bonhoeffer's most famous line on this — "when Christ calls a man, he bids him come and die" — isn't about literal martyrdom for most disciples. It's about the daily death of self-rule that Luke 9:23 calls taking up your cross "daily."
+
+### What the Cost Actually Looks Like
+
+| Area of Life | What Cheap Discipleship Keeps | What Costly Discipleship Surrenders |
+|---|---|---|
+| Time | Whatever's left over after other priorities | A real, protected place for abiding and obeying |
+| Relationships | Comfortable distance from people who need the gospel | Real investment in a few, even when it's inconvenient |
+| Reputation | Approval of people who don't follow Jesus | Willingness to be misunderstood for obedience |
+| Control | The right to decide your own direction | Following even when the next step isn't fully clear |
+
+### Practical Steps for Counting the Cost
+
+- Name the one area above where you're currently paying "cheap" instead of "costly" — be specific, not general
+- Ask a mentor or accountability partner to name what they see, since blind spots are rarely self-diagnosed
+- Take one concrete, costly step of obedience this week rather than resolving to "try harder" in the abstract
+- Revisit Luke 14:25-33 before starting a Discovery Bible Study group, so newer believers count the cost from day one instead of discovering it later and feeling misled
+
+Counting the cost isn't a warning to stay away from **discipleship** — it's the doorway into a **discipleship** that's actually real, and durable enough to survive hardship instead of evaporating at the first cost it meets.
 
 ## Core Elements of Biblical Discipleship
 
