@@ -64,11 +64,6 @@ import { SITE } from '../data/site';
     </div>
   </section>
 
-  <!-- Front matter: a manual-style running header under the hero. -->
-  <section class="frontmatter" aria-label="Document header">
-    <p class="frontmatter__meta">Multiplying Disciples &middot; Field Manual &middot; North America</p>
-  </section>
-
   <!-- 2. PROBLEM / REPS — the line that separates this site from a
        content library. Names the actual product (reps, not more
        reading) before anything else. Kept short on purpose. -->
@@ -81,10 +76,15 @@ import { SITE } from '../data/site';
       <p class="conviction-strip__lead">
         Most Christians do not need another sermon, podcast, or framework.
       </p>
-      <p class="conviction-strip__medium">They need someone to practice with.</p>
+      <p class="conviction-strip__medium">
+        They need someone to <span class="conviction-strip__medium-emphasis">practice with</span>.
+      </p>
       <p class="conviction-strip__small">
-        Our labs help you learn one simple tool, use it with someone you know, and come back ready
-        for the next step.
+        Practice one simple tool.
+        <br />
+        Use it with someone you know.
+        <br />
+        Come back ready for the next step.
       </p>
     </div>
   </section>
@@ -726,11 +726,14 @@ import { SITE } from '../data/site';
     margin: 0 auto;
   }
 
+  /* The primary statement — sized up so it reads as the clear lead of
+     the section and isn't overshadowed by the large paragraph below
+     it. */
   .conviction-strip__text {
     margin: 0 auto 3.5rem;
-    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+    font-size: clamp(1.2rem, 2.5vw, 1.55rem);
     font-weight: 700;
-    line-height: 1.4;
+    line-height: 1.35;
     color: var(--color-ink);
   }
 
@@ -738,10 +741,12 @@ import { SITE } from '../data/site';
     color: var(--color-primary);
   }
 
-  /* Large opening paragraph — 28px (mobile) to 44px (desktop). */
+  /* Large opening paragraph — 28px (mobile) to 44px (desktop). Tighter
+     max-width than a plain paragraph so it reads as an editorial pull
+     quote rather than a full-width line of body copy. */
   .conviction-strip__lead {
-    max-width: 53rem;
-    margin: 0 auto 2rem;
+    max-width: 46.5rem;
+    margin: 0 auto 2.25rem;
     font-size: clamp(1.75rem, 4.9vw, 2.75rem);
     font-weight: 500;
     line-height: 1.3;
@@ -749,23 +754,30 @@ import { SITE } from '../data/site';
   }
 
   /* Medium supporting paragraph — 22px (mobile) to 32px (desktop),
-     clearly smaller than the lead paragraph above it. */
+     clearly smaller than the lead paragraph above it. Charcoal by
+     default; only "practice with" picks up the dark green. */
   .conviction-strip__medium {
     max-width: 53rem;
-    margin: 0 auto 1.75rem;
+    margin: 0 auto 2rem;
     font-size: clamp(1.375rem, 3.6vw, 2rem);
     font-weight: 600;
     line-height: 1.35;
+    color: var(--color-ink);
+  }
+
+  .conviction-strip__medium-emphasis {
     color: var(--color-primary);
   }
 
-  /* Small explanatory paragraph — 17px (mobile) to 21px (desktop). */
+  /* Final explanatory copy — the practical next step, not another
+     headline: smaller than the medium statement, regular weight,
+     muted, and narrow enough to read as three short lines. */
   .conviction-strip__small {
-    max-width: 42.5rem;
+    max-width: 24rem;
     margin: 0 auto;
-    font-size: clamp(1.0625rem, 2.3vw, 1.3125rem);
+    font-size: clamp(1rem, 2vw, 1.1875rem);
     font-weight: 400;
-    line-height: 1.65;
+    line-height: 1.7;
     color: var(--color-text-muted);
   }
 
@@ -775,8 +787,8 @@ import { SITE } from '../data/site';
     }
 
     .conviction-strip__text {
-      margin-bottom: 3rem;
-      line-height: 1.45;
+      margin-bottom: 3.25rem;
+      line-height: 1.4;
     }
   }
 
