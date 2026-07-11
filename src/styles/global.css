@@ -540,7 +540,10 @@ article tbody tr:nth-child(even) td {
 }
 
 .labs-cta__descriptor {
-  max-width: 30rem;
+  /* Wide enough that "Practice one simple tool. Walk away knowing
+     your next disciple-making step." stays on one line at desktop
+     widths; still narrow enough to wrap naturally on mobile. */
+  max-width: 38rem;
   margin: 0 auto 3.5rem;
   font-size: 1.05rem;
   color: var(--color-text-muted);
