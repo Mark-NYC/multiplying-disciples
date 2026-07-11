@@ -189,8 +189,10 @@ const {
   }
 
   /* Every pill carries the same visual weight — Warm Paper on Soft Sage,
-     a quiet light-green rule, Deep Ink text. Long labels wrap to a
-     second line instead of truncating or forcing a wide single line. */
+     Deep Ink text. The two backgrounds are already distinct enough that
+     a stroke isn't doing any work; a soft shadow gives quiet definition
+     instead of a drawn line. Long labels wrap to a second line instead
+     of truncating or forcing a wide single line. */
   .pill {
     flex-shrink: 0;
     display: inline-flex;
@@ -204,7 +206,7 @@ const {
     padding: 0.93rem 1.9rem;
     border-radius: var(--radius-pill);
     background: var(--color-bg);
-    border: 1px solid rgba(79, 157, 105, 0.35);
+    box-shadow: 0 1px 3px rgba(31, 37, 35, 0.06);
     color: var(--color-ink);
     font-size: var(--fs-support);
     font-weight: 600;
