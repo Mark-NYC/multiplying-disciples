@@ -38,27 +38,14 @@ import { SITE, COVO_LABS_URL } from '../data/site';
        single-pill badge so each claim can actually be read at a glance. -->
   <section class="hero">
     <div class="hero__inner">
-      <h1>Learn to make disciples who multiply.</h1>
-      <p class="hero__subhead">
-        Simple biblical tools, live practice, and coaching to help you obey Jesus with real
-        people.
-      </p>
-
-      <ul class="hero__proof">
-        <li>Practice with real people</li>
-        <li>Use it this week</li>
-      </ul>
+      <h1>Make disciples who multiply.</h1>
+      <p class="hero__subhead">Simple tools and live practice to help you obey Jesus with real people.</p>
 
       <p class="hero__ctas">
-        <a class="button" href="/#ch-practice">
-          Join a Live Lab
-        </a>
-        <a class="button button--secondary" href="/starter-tools/">Start with the Tools</a>
+        <a class="button" href="/#ch-practice">Join a Live Lab</a>
       </p>
       <p class="hero__secondary">
-        <span class="hero__secondary-chip">
-          Not sure where to begin? Start with the <a href="/starter-tools/">Conversation Box</a>.
-        </span>
+        <a href="/starter-tools/">Start with the Tools &rarr;</a>
       </p>
     </div>
   </section>
@@ -452,11 +439,10 @@ import { SITE, COVO_LABS_URL } from '../data/site';
     background-size: cover;
     background-position: center 38%;
     background-repeat: no-repeat;
-    /* 24rem previously. Bumped up so the photo itself reads ~10%
-       taller on desktop, plus extra room so the Conversation Box link
-       above sits clearly apart from the photo rather than crowding
-       it. */
-    padding: 1.25rem 1.25rem 28.5rem;
+    /* ~14% less than the previous pass (28.5rem) — a deliberately
+       restrained hero: fewer elements above the photo, and the photo
+       itself sits closer to the CTA instead of a long reveal below it. */
+    padding: 1.75rem 1.25rem 24.5rem;
   }
 
   /* Mobile: the tall, narrow hero forces a heavier horizontal crop on a
@@ -468,7 +454,7 @@ import { SITE, COVO_LABS_URL } from '../data/site';
   @media (max-width: 640px) {
     .hero {
       padding-top: 3rem;
-      padding-bottom: 23rem;
+      padding-bottom: 20rem;
       background-position: center 100%;
     }
   }
@@ -536,134 +522,62 @@ import { SITE, COVO_LABS_URL } from '../data/site';
     }
   }
 
-  /* Fluid across the whole viewport range (see --fs-h1 in global.css) —
-     46px at narrow widths up to 64px at desktop — so no separate
-     mobile override is needed. */
+  /* One idea, one next step: headline, one short subhead, one button,
+     one quiet text link. Fluid across the whole viewport range (see
+     --fs-h1 in global.css) — 46px at narrow widths up to 64px at
+     desktop — so no separate mobile override is needed. Narrower than
+     the section's own max-width so the line itself reads as a
+     deliberate, confident block rather than stretching to fill the
+     available space. */
   .hero h1 {
+    max-width: 34rem;
+    margin: 0 auto 1.5rem;
     font-size: var(--fs-h1);
     line-height: 1.08;
-    margin: 0 0 1.25rem;
   }
 
   .hero__subhead {
+    max-width: 27rem;
+    margin: 0 auto 2.5rem;
     font-size: var(--fs-body);
     color: var(--color-text-muted);
-    margin-bottom: 1.5rem;
-  }
-
-  /* Three short proof points — replaces the old single long pill badge.
-     Compact inline items on desktop; still comfortably tappable/legible
-     stacked on mobile. Deliberately plain text, no card/pill chrome, so
-     three short claims read at a glance instead of one busy shape. */
-  .hero__proof {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.1rem;
-    margin: 0 0 1.5rem;
-    padding: 0;
-    list-style: none;
-    font-size: var(--fs-support);
-    font-weight: 600;
-    color: var(--color-ink);
-  }
-
-  .hero__proof li {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  .hero__proof li::before {
-    content: '';
-    width: 0.4rem;
-    height: 0.4rem;
-    flex-shrink: 0;
-    border-radius: 50%;
-    background: var(--color-accent);
-  }
-
-  /* Mobile: bullets crowd a hero that already needs to fit a two-line
-     headline and both CTAs above the fold, so they're dropped rather
-     than shrunk further. */
-  @media (max-width: 640px) {
-    .hero__proof {
-      display: none;
-    }
   }
 
   .hero__ctas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 0;
+    margin: 0;
   }
 
-  /* Primary CTA reads as the obvious next step — ~12% larger and a
-     touch heavier than the secondary button beside it, not just the
-     same shape in a different color. */
-  .hero__ctas .button:not(.button--secondary) {
-    padding: 0.85rem 1.85rem;
+  /* The one action in the hero — sized up so it reads as unmissable
+     with nothing beside it competing for attention. */
+  .hero__ctas .button {
+    padding: 0.9rem 2.1rem;
     font-size: 1.05rem;
     font-weight: 700;
   }
 
-  @media (max-width: 640px) {
-    .hero__ctas {
-      flex-wrap: nowrap;
-      gap: 0.6rem;
-      margin-top: 1.25rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero__ctas .button {
-      flex: 1 1 0;
-      padding-left: 0.75rem;
-      padding-right: 0.75rem;
-      font-size: 0.85rem;
-      white-space: nowrap;
-    }
-
-    /* With the "Conversation Box" pill hidden on mobile, the outlined
-       button now sits right against the photo. Its transparent
-       background reads fine over the fade at the top of the image but
-       loses contrast lower down, so give it the same solid backdrop as
-       the chip used to provide. */
-    .hero__ctas .button--secondary {
-      background: rgba(247, 243, 234, 0.92);
-    }
-  }
-
+  /* Quiet text link, not a second button — available without
+     competing with the primary action above it. */
   .hero__secondary {
-    /* 1.5rem previously — tightened ~12px so this link reads as
-       belonging to the CTA pair above it, not floating on its own. */
-    margin-top: 0.75rem;
+    margin-top: 1.1rem;
     font-size: 0.95rem;
-    color: var(--color-text-muted);
   }
 
-  /* Guaranteed-legible chip: the hero photo has its own baked-in
-     white-to-photo fade, and how much of that fade shows above this
-     line varies by viewport. A solid, near-opaque Warm Paper backdrop
-     means this link stays readable regardless of what's behind it. */
-  .hero__secondary-chip {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-pill);
-    background: rgba(247, 243, 234, 0.92);
-  }
-
+  /* Soft paper-colored glow instead of a pill/chip background — this
+     link sits right at the top of the photo, where legibility can't be
+     assumed, but it should still read as plain text, not a shape. */
   .hero__secondary a {
     color: var(--color-clay-text);
     font-weight: 600;
+    text-shadow: 0 1px 3px rgba(247, 243, 234, 0.9), 0 0 10px rgba(247, 243, 234, 0.85);
   }
 
   @media (max-width: 640px) {
-    .hero__secondary {
-      display: none;
+    .hero__subhead {
+      max-width: 22rem;
+    }
+
+    .hero__ctas {
+      margin-top: 1.25rem;
     }
   }
 
