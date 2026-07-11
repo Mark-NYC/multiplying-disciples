@@ -1,6 +1,7 @@
 ---
 import { SITE } from '../data/site';
 import BrandSeal from './BrandSeal.astro';
+import RotatingFooterSeal from './RotatingFooterSeal.astro';
 
 const year = new Date().getFullYear();
 
@@ -43,6 +44,7 @@ const quickLinks = [
   </div>
   <div class="site-footer__bottom">
     <p>&copy; {year} {SITE.name} &middot; Built by Frontier Creative</p>
+    <RotatingFooterSeal />
   </div>
 </footer>
 
@@ -110,13 +112,38 @@ const quickLinks = [
 
   .site-footer__bottom {
     border-top: 1px solid rgba(247, 243, 234, 0.12);
-    text-align: center;
-    padding: 1.25rem 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 2rem;
   }
 
   .site-footer__bottom p {
     margin: 0;
     font-size: 0.8rem;
     color: var(--color-footer-text-muted);
+  }
+
+  /* Bottom-right placement on wider screens, with real breathing room
+     from the copyright text beside it and the footer's own edges. */
+  @media (min-width: 641px) {
+    .site-footer__bottom {
+      justify-content: space-between;
+      padding-right: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+  }
+
+  /* Narrow screens: the seal drops to its own centered row below the
+     copyright line rather than crowding it. */
+  @media (max-width: 640px) {
+    .site-footer__bottom {
+      flex-direction: column;
+      gap: 1.5rem;
+      padding-bottom: 2rem;
+    }
   }
 </style>
