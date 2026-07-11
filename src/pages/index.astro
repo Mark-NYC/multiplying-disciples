@@ -439,8 +439,9 @@ import { SITE, COVO_LABS_URL } from '../data/site';
     background-repeat: no-repeat;
     /* Trimmed a further ~24px now that the two CTAs sit on one row
        instead of a button plus a stacked link — the photo starts
-       sooner and reads as connected to the CTA. */
-    padding: 1.75rem 1.25rem 23rem;
+       sooner and reads as connected to the CTA. Top padding carries a
+       half-line of extra breathing room above the headline. */
+    padding: 3.75rem 1.25rem 23rem;
   }
 
   /* Mobile: the tall, narrow hero forces a heavier horizontal crop on a
@@ -451,7 +452,7 @@ import { SITE, COVO_LABS_URL } from '../data/site';
      the section run down close to the bottom of the screen. */
   @media (max-width: 640px) {
     .hero {
-      padding-top: 3rem;
+      padding-top: 4.5rem;
       padding-bottom: 18.5rem;
       background-position: center 100%;
     }
