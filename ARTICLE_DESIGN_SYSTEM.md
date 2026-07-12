@@ -359,28 +359,37 @@ unlike everything else in this Components section — it works in
 plain `.md` files (raw HTML passes through Astro's markdown renderer
 same as any other inline tag).
 
-**When to use:** 0-1 per article. Reach for it on the single most
-load-bearing phrase — usually in the opening hook or one section's
-punchline — never on a heading (headings already carry visual weight
-on their own) and never on something already bolded (pick one
-emphasis device, not both stacked on the same words). Treat it as a
-notch above `<strong>`, not an alternative to it — if you're reaching
-for it more than once per article, it stops reading as deliberate.
+**Where it's allowed:** only inside something already set apart from
+the reading flow — a blockquote/pull-quote, a heading (H2/H3), or a
+callout block's own text (`PullQuote`, a `WarningCard`/`InsightCard`
+label or lead line). **Never in ordinary body paragraph text.**
+Regular prose already has `<strong>` for emphasis (see "Body copy
+style" above) — the underline is reserved for things a skimming reader
+sees as a landmark, not for words inside a paragraph they're reading
+line by line. If a phrase isn't already living inside a quote, header,
+or callout, that's a sign to either promote it into one of those or
+leave it plain.
+
+**When to use:** 0-1 per article. Pick the single strongest phrase —
+usually the pull-quote/thesis blockquote near the top, or one section
+heading — not several small ones scattered across different callouts.
+Never stack it on top of existing bold text.
 
 **Markup:** a `<span>` with three classes — `fm-underline`, a shape
 (`fm-underline--shape-a` thick-left/taper-right, or `fm-underline--shape-b`
 the mirror), and a color. Only single words/short phrases that won't
 wrap — it's a stretched SVG mask, not a text-decoration, so it doesn't
-track line breaks.
+track line breaks (a heading that wraps across lines should get the
+mark on whichever short word/phrase sits alone on one line).
 
 **Color:** if the phrase already carries its own accent color, match
 it exactly (`fm-underline--clay-text` or `fm-underline--primary`). For
-ordinary black body text — the normal case — use
+ordinary black text — headings and most blockquotes — use
 `fm-underline--clay` (or `fm-underline--gold` for variety); never
 leave it to inherit black, or the mark disappears into the text.
 
 ```md
-Most people don't need more content. They need <span class="fm-underline fm-underline--shape-a fm-underline--clay">reps</span>.
+> In this article you will learn the <span class="fm-underline fm-underline--shape-a fm-underline--clay">three foundational habits</span> that transform ordinary believers into disciple-makers.
 ```
 
 ### ArticleImage
