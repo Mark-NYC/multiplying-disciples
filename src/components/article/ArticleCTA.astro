@@ -46,11 +46,33 @@ const eyebrow = 'TAKE THE NEXT STEP';
 
 // Stable per-page id — there is only ever one ArticleCTA per article.
 const labContainerId = 'article-cta-lab';
+
+// One fixed, type-mapped lead image per CTA type — standardized here,
+// not configured per article (no `image` field on `article_cta`;
+// don't add one). Real photos, not stock — see the alt text for what's
+// actually shown. Swap the file to change the image sitewide for that
+// type, in one place.
+const CTA_IMAGES: Record<'lab' | 'tool' | 'community', { src: string; alt: string }> = {
+  lab: {
+    src: '/images/CTA-Article-Images/Join a Lab.webp',
+    alt: 'A group of about ten people smiling together outdoors after a lab — most of the people pictured are not yet following Jesus, met through ordinary relationships.',
+  },
+  tool: {
+    src: '/images/CTA-Article-Images/Get the Conversation Box Tool.webp',
+    alt: 'A hand-drawn Conversation Quadrant: Casual, Meaningful, Spiritual, and Discovery.',
+  },
+  community: {
+    src: '/images/CTA-Article-Images/Join The Community.webp',
+    alt: 'Four people gathered around a café table with laptops open, meeting together to practice.',
+  },
+};
+const ctaImage = type !== 'none' ? CTA_IMAGES[type] : undefined;
 ---
 
 {
   type !== 'none' && (
     <section class="fm-cta">
+      {ctaImage && <img class="fm-cta__image" src={ctaImage.src} alt={ctaImage.alt} loading="lazy" />}
       <p class="fm-cta__eyebrow eyebrow eyebrow--gold-text">{eyebrow}</p>
       <h2 class="fm-cta__headline">{stakesHeadline}</h2>
       {bridgeCopy && <p class="fm-cta__body">{bridgeCopy}</p>}

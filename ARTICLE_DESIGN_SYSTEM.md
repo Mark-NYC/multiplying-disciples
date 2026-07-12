@@ -541,6 +541,26 @@ full registration form; an article reader who wants to register clicks
 through to CoVo's own lab page, same as the sitewide `.lab-card` used
 elsewhere on this site.
 
+### Lead image
+
+Every CTA (except `type: none`) shows one real photo above the eyebrow,
+fixed per type — not configurable per article, not an `article_cta`
+field. Defined once in `ArticleCTA.astro` (`CTA_IMAGES`), sourced from
+`public/images/CTA-Article-Images/`:
+
+| Type | Image | What it shows |
+|---|---|---|
+| `lab` | `Join a Lab.webp` | A group of about ten people outdoors after a lab — most pictured are not yet following Jesus, met through ordinary relationships. |
+| `tool` | `Get the Conversation Box Tool.webp` | The hand-drawn Conversation Quadrant (Casual / Meaningful / Spiritual / Discovery). |
+| `community` | `Join The Community.webp` | Four people around a café table with laptops open, meeting to practice together. |
+
+Real photos, not stock — same rule as `ArticleImage` and `FieldNote`
+elsewhere in this system: the alt text describes only what's actually
+known to be true about the photo (per the site owner), nothing
+invented. To change the image for a type sitewide, replace the file
+(or the path in `CTA_IMAGES`) in one place — never add an `image`
+override to an individual article's frontmatter.
+
 ### Lab-card design
 
 Matches the sitewide `.lab-card`/`.featured-lab-card` closely in
