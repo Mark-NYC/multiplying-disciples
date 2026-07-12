@@ -297,6 +297,52 @@
 .fm-role-eyebrow[data-accent='primary'] { background: #dfe8e3; color: var(--color-primary); }
 .fm-role-eyebrow[data-accent='ink'] { background: #e7e5df; color: var(--color-primary-hover); }
 
+/* --- Story nav (numbered pills) ------------------------------------
+   A compact row of numbered circular pills linking straight to each
+   item's heading anchor further down the page — used on articles
+   where hide_toc removes the automatic sidebar TOC and a simple "jump
+   to item N" strip serves the reader better than a full descriptive
+   list (e.g. discover-the-12-disciples-of-jesus-christ). Opt-in,
+   hand-built per article via plain HTML in the .mdx body — links to
+   real heading ids already on the page, never invented anchors. */
+
+.fm-story-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fm-story-nav li {
+  margin: 0;
+}
+
+.fm-story-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-pill);
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+}
+
+.fm-story-nav a:hover,
+.fm-story-nav a:focus-visible {
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+  transform: translateY(-1px);
+}
+
 /* Grid of RoleFact boxes — 2 columns on desktop, 1 on mobile, with
    generous gaps so a long reference section gets real breathing room
    instead of another stack of H4s running straight into each other. */
