@@ -33,13 +33,12 @@ export const PRIMARY_NAV: NavLink[] = [
 // adding. "Commands of Christ" has no page on this site; the series
 // lives on Obey.Tools (already an established external destination —
 // the 7 Stories guide links its per-story facilitation guides there),
-// so it links out with a visible domain hint. Swap in the exact
-// collection URL if a deeper obey.tools path is confirmed.
+// so it links out with a visible domain hint. URL supplied by Mark.
 
 export const MENU_FEATURED: NavLink[] = [
   { label: 'Stickers', href: '/stickers/' },
   { label: '7 Stories of Hope', href: '/movement-resources/7-stories-of-hope-complete-facilitation-guide/' },
-  { label: 'Commands of Christ', href: 'https://obey.tools/', externalDomain: 'obey.tools' },
+  { label: 'Commands of Christ', href: 'https://obey.tools/commands-of-christ.html', externalDomain: 'obey.tools' },
   { label: 'Kingdom Ministry Training', href: '/kingdom-ministry-training/' },
 ];
 

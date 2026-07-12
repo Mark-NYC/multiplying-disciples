@@ -26,9 +26,9 @@ sitemap. Structure:
 
 1. `MORE RESOURCES` — Stickers (`/stickers/`) · 7 Stories of Hope
    (`/movement-resources/7-stories-of-hope-complete-facilitation-guide/`)
-   · Commands of Christ (`https://obey.tools/`, rendered with a muted
-   "obey.tools ↗" domain hint) · Kingdom Ministry Training
-   (`/kingdom-ministry-training/`)
+   · Commands of Christ (`https://obey.tools/commands-of-christ.html`,
+   rendered with a muted "obey.tools ↗" domain hint) · Kingdom
+   Ministry Training (`/kingdom-ministry-training/`)
 2. `BROWSE TOPICS` — All Articles (`/blog/`) · Share the Gospel
    (`/share-the-gospel/`) · Disciple Making (`/disciple-making/`) ·
    Simple Church (`/simple-church/`) · Prayer (`/prayer/`) · Church
@@ -49,13 +49,11 @@ earn them).
 
 ## External destination note
 
-**Commands of Christ** has no page on this site — per Mark, the series
-lives on Obey.Tools, already an established external destination here
-(the 7 Stories guide links its per-story facilitation guides there).
-The menu links to `https://obey.tools/` with a visible domain hint. If
-a deeper collection URL exists (e.g. a commands-of-christ category),
-swap it into `MENU_FEATURED` in `src/data/navigation.ts` — the exact
-path couldn't be verified from the build environment.
+**Commands of Christ** has no page on this site — the series lives on
+Obey.Tools, already an established external destination here (the
+7 Stories guide links its per-story facilitation guides there). The
+menu links to `https://obey.tools/commands-of-christ.html` (exact URL
+supplied by Mark) with a visible domain hint.
 
 ## Deliberately excluded from the menu
 
