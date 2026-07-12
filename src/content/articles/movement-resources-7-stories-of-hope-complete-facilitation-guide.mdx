@@ -103,15 +103,28 @@ notes: >
   fast," which a contents box doesn't serve any better than the new nav
   does). Replaced the numbered Markdown link list with a new
   `.fm-story-nav` component pattern (plain HTML in the .mdx body, CSS
-  in field-manual-article.css) — 7 compact circular pills labeled 1-7
-  only, each linking to its story's real heading anchor with a
-  descriptive `aria-label`/`title` for accessibility since the visible
-  pill text is just the number. This is the same "hand-built per
-  article, opt-in, links to real existing anchor ids" pattern as
-  `.fm-role-nav` on unlocking-the-power-of-apest-the-ultimate-guide.mdx,
-  adapted to use a plain numbered circle instead of an icon image since
-  the 7 stories don't have individual icons/photos the way the APEST
-  roles or the 12 disciples do.
+  in field-manual-article.css) — same "hand-built per article, opt-in,
+  links to real existing anchor ids" pattern as `.fm-role-nav` on
+  unlocking-the-power-of-apest-the-ultimate-guide.mdx, adapted to use a
+  plain numbered badge instead of an icon image since the 7 stories
+  don't have individual icons/photos the way the APEST roles or the 12
+  disciples do.
+
+  2026-07-12 (pills expanded to number + title + reference): first pass
+  used pills with just the bare numeral 1-7 plus an aria-label/title for
+  the full name, on the theory that the number alone was enough once
+  someone already knew which story they wanted. User feedback: put the
+  story title and Scripture reference on the pill itself, not behind a
+  hover tooltip. Reworked `.fm-story-nav` from a plain circle into a
+  two-part pill (small numbered badge + stacked title/reference text),
+  same visual family as `.fm-role-nav`'s icon+label pill. Used each
+  story's short title (matching the labels already on the hero
+  infographic — e.g. "Hope for the Rejected" rather than the longer
+  H3 text "Hope for the Rejected: The Woman Weeping at Jesus' Feet") so
+  the pill stays scannable; the fuller H3 title is still what the
+  reader sees immediately after clicking through. Dropped the
+  aria-label/title attributes from this pass since the pill's own
+  visible text (number + title + reference) now is the accessible name.
 ---
 
 import ArticleIntro from '../../components/article/ArticleIntro.astro';
@@ -126,13 +139,13 @@ import PullQuote from '../../components/article/PullQuote.astro';
 ## Jump to a Story
 
 <ul class="fm-story-nav">
-<li><a href="#1-hope-for-the-rejected-the-woman-weeping-at-jesus-feet-luke-736-50" aria-label="Story 1: Hope for the Rejected — The Woman Weeping at Jesus' Feet (Luke 7:36-50)" title="Story 1: Hope for the Rejected — The Woman Weeping at Jesus' Feet (Luke 7:36-50)">1</a></li>
-<li><a href="#2-hope-for-the-non-religious-pharisee--tax-collector-luke-189-17" aria-label="Story 2: Hope for the Non-Religious — Pharisee & Tax Collector (Luke 18:9-17)" title="Story 2: Hope for the Non-Religious — Pharisee & Tax Collector (Luke 18:9-17)">2</a></li>
-<li><a href="#3-hope-changes-things-zacchaeus-luke-191-10" aria-label="Story 3: Hope Changes Things — Zacchaeus (Luke 19:1-10)" title="Story 3: Hope Changes Things — Zacchaeus (Luke 19:1-10)">3</a></li>
-<li><a href="#4-hope-forgives-unforgiving-servant-matthew-1821-35" aria-label="Story 4: Hope Forgives — Unforgiving Servant (Matthew 18:21-35)" title="Story 4: Hope Forgives — Unforgiving Servant (Matthew 18:21-35)">4</a></li>
-<li><a href="#5-hope-through-death-thieves-on-the-cross-luke-2326-43" aria-label="Story 5: Hope Through Death — Thieves on the Cross (Luke 23:26-43)" title="Story 5: Hope Through Death — Thieves on the Cross (Luke 23:26-43)">5</a></li>
-<li><a href="#6-hope-rose-from-the-dead-resurrection-luke-241-20" aria-label="Story 6: Hope Rose From The Dead — Resurrection (Luke 24:1-20)" title="Story 6: Hope Rose From The Dead — Resurrection (Luke 24:1-20)">6</a></li>
-<li><a href="#7-hope-is-waiting-for-you-prodigal-son-luke-1511-32" aria-label="Story 7: Hope is Waiting For You — Prodigal Son (Luke 15:11-32)" title="Story 7: Hope is Waiting For You — Prodigal Son (Luke 15:11-32)">7</a></li>
+<li><a href="#1-hope-for-the-rejected-the-woman-weeping-at-jesus-feet-luke-736-50"><span class="fm-story-nav__num">1</span><span><span class="fm-story-nav__title">Hope for the Rejected</span><span class="fm-story-nav__ref">Luke 7:36-50</span></span></a></li>
+<li><a href="#2-hope-for-the-non-religious-pharisee--tax-collector-luke-189-17"><span class="fm-story-nav__num">2</span><span><span class="fm-story-nav__title">Hope for the Non-Religious</span><span class="fm-story-nav__ref">Luke 18:9-17</span></span></a></li>
+<li><a href="#3-hope-changes-things-zacchaeus-luke-191-10"><span class="fm-story-nav__num">3</span><span><span class="fm-story-nav__title">Hope Changes Things</span><span class="fm-story-nav__ref">Luke 19:1-10</span></span></a></li>
+<li><a href="#4-hope-forgives-unforgiving-servant-matthew-1821-35"><span class="fm-story-nav__num">4</span><span><span class="fm-story-nav__title">Hope Forgives</span><span class="fm-story-nav__ref">Matthew 18:21-35</span></span></a></li>
+<li><a href="#5-hope-through-death-thieves-on-the-cross-luke-2326-43"><span class="fm-story-nav__num">5</span><span><span class="fm-story-nav__title">Hope Through Death</span><span class="fm-story-nav__ref">Luke 23:26-43</span></span></a></li>
+<li><a href="#6-hope-rose-from-the-dead-resurrection-luke-241-20"><span class="fm-story-nav__num">6</span><span><span class="fm-story-nav__title">Hope Rose From The Dead</span><span class="fm-story-nav__ref">Luke 24:1-20</span></span></a></li>
+<li><a href="#7-hope-is-waiting-for-you-prodigal-son-luke-1511-32"><span class="fm-story-nav__num">7</span><span><span class="fm-story-nav__title">Hope is Waiting For You</span><span class="fm-story-nav__ref">Luke 15:11-32</span></span></a></li>
 </ul>
 
 Not sure where to start? Read the stories below, then jump straight to [how to lead the 3/3rds process](#how-to-lead-the-7-stories-of-hope-the-33rds-process) step by step.
