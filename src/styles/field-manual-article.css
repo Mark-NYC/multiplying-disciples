@@ -470,75 +470,189 @@
 }
 
 /* --- End CTA -------------------------------------------------
-   One CTA per article, homepage dark-band language. No competing
-   actions — one button, one quiet secondary link. */
+   One CTA per article. Warm-paper container (not a dark band) per
+   the end-of-article CTA system in ARTICLE_DESIGN_SYSTEM.md — the
+   stakes headline does the persuading, the container just holds it.
+   No competing actions — one primary button, one quiet secondary
+   link, or the dynamic lab card. */
 
-.fm-end-cta {
+.fm-cta {
   margin: 3.5rem 0 2rem;
   padding: 2.5rem 2rem;
-  background: var(--color-footer-bg);
-  color: var(--color-footer-text);
+  background: #ffffff;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
+  box-shadow: var(--fm-shadow);
   text-align: center;
 }
 
-.fm-end-cta h2 {
+.fm-cta__eyebrow {
+  margin: 0 0 0.75rem;
+}
+
+.fm-cta__headline {
   margin: 0 0 1rem;
-  color: var(--color-footer-text);
+  color: var(--color-primary);
   font-size: var(--fs-h3);
 }
 
-.fm-end-cta__body {
+.fm-cta__body {
   max-width: 32rem;
   margin: -0.5rem auto 1.5rem;
-  color: var(--color-footer-text-muted);
+  color: var(--color-text-muted);
 }
 
-.fm-end-cta__actions {
+.fm-cta__actions {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.9rem;
 }
 
-/* The default .button is Primary Green — invisible on this band's own
-   Primary Green background. Clay is the palette's designated CTA
-   color (see the --color-clay comment in global.css), so it's the one
-   accent that actually stands out here. */
-.fm-end-cta .button {
-  padding: 0.9rem 2.1rem;
-  font-size: 1.05rem;
-  background: var(--color-clay);
-  color: #ffffff;
-}
-
-.fm-end-cta .button:hover {
-  background: var(--color-clay-text);
-}
-
-.fm-end-cta__secondary {
-  color: var(--color-footer-text-muted);
+.fm-cta__secondary {
+  color: var(--color-text-muted);
   font-size: 0.95rem;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.fm-end-cta__secondary:hover {
-  color: var(--color-footer-text);
+.fm-cta__secondary:hover {
+  color: var(--color-text);
 }
 
 @media (max-width: 640px) {
-  .fm-end-cta {
+  .fm-cta {
     padding: 2rem 1.25rem;
   }
+}
+
+/* --- Dynamic lab card (type: lab) ---------------------------------
+   Rendered client-side by renderArticleCtaLabInto() in
+   src/lib/labs-feed.js — never hardcoded. Deliberately close to (but
+   not a copy-paste of) the sitewide .lab-card/.featured-lab-card in
+   global.css: same content hierarchy, badge treatment, and button
+   style, adapted to sit inside .fm-cta's lighter container instead of
+   the dark .cta-band. Unscoped/global like its siblings, since it's
+   injected via innerHTML rather than present at Astro build time. */
+
+.fm-cta__lab {
+  max-width: 26rem;
+  margin: 0.5rem auto 0;
+  text-align: left;
+}
+
+.fm-cta__lab-loading {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.fm-lab-card {
+  padding: 1.5rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+.fm-lab-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.75rem;
+}
+
+.fm-lab-card__badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+.fm-lab-card__badge--live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.fm-lab-card__badge-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-clay);
+  animation: lab-live-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes lab-live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(189, 90, 34, 0.45);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 0 4px rgba(189, 90, 34, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fm-lab-card__badge-dot {
+    animation: none;
+  }
+}
+
+.fm-lab-card__date {
+  margin: 0 0 0.15rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.fm-lab-card__time {
+  margin: 0 0 0.75rem;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.fm-lab-card__title {
+  font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+  color: var(--color-primary);
+}
+
+.fm-lab-card__description {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin: 0 0 1.1rem;
+}
+
+.fm-lab-card--fallback {
+  text-align: center;
+}
+
+.fm-lab-card--fallback .fm-lab-card__title {
+  margin-top: 0;
+}
+
+.fm-lab-card__fallback-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 /* --- Accessibility: visible focus states -------------------------
    Interactive elements introduced by this system get an explicit
    focus ring — nothing here relies on default browser styling alone. */
 
-.fm-end-cta .button:focus-visible,
-.fm-end-cta__secondary:focus-visible,
+.fm-cta .button:focus-visible,
+.fm-cta__secondary:focus-visible,
+.fm-lab-card__cta:focus-visible,
 .fm-field-note__meta a:focus-visible {
   outline: 2px solid var(--color-gold);
   outline-offset: 2px;

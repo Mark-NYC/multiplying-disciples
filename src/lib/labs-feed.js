@@ -10,7 +10,12 @@
 // — it all comes from this feed, so a new lab published on Covo shows up
 // here automatically without an MD deploy.
 
-import { COVO_LABS_FEED_URL, COVO_SUBSCRIBE_FUNCTION_URL } from '../data/site';
+import {
+  COVO_LABS_FEED_URL,
+  COVO_SUBSCRIBE_FUNCTION_URL,
+  COVO_LABS_URL,
+  COVO_COMMUNITY_URL,
+} from '../data/site';
 
 // Tracking params for every outbound link to a Covo lab page. `contentTag`
 // follows the utm_content convention in ECOSYSTEM_GROWTH_STRATEGY.md
@@ -143,12 +148,29 @@ function wireNotifyForm(container) {
 // the subscribe-updates function) when none are upcoming or the feed is
 // unreachable. `ctaLabel` defaults to "Join This Lab". `contentTag`, if
 // given, is stamped onto each lab link as `utm_content` (see withLabUtm).
+//
+// `limit === 1` (the only way this is currently called — the legacy
+// ArticleLayout "Next Live Lab" card) is treated as "show the single
+// best upcoming lab," not "show the single soonest one": public-labs
+// does not filter by availability, so the soonest lab can be full.
+// Fetches a wider pool and picks via selectNextAvailableLab so a full
+// nearest-chronological lab is skipped rather than displayed — see
+// ARTICLE_DESIGN_SYSTEM.md for why this matters. `limit > 1` keeps the
+// previous unfiltered behavior (a schedule grid legitimately may want
+// to show a full lab alongside open ones).
 export async function renderLabsInto(container, limit, ctaLabel = 'Join This Lab', contentTag) {
   try {
-    const labs = await fetchUpcomingLabs(limit);
-    if (labs.length > 0) {
-      container.innerHTML = labs.map((lab) => labCardHtml(lab, ctaLabel, contentTag)).join('');
-      return;
+    if (limit === 1) {
+      const labs = await fetchUpcomingLabs(10);
+      const lab = selectNextAvailableLab(labs);
+      container.innerHTML = lab ? labCardHtml(lab, ctaLabel, contentTag) : '';
+      if (lab) return;
+    } else {
+      const labs = await fetchUpcomingLabs(limit);
+      if (labs.length > 0) {
+        container.innerHTML = labs.map((lab) => labCardHtml(lab, ctaLabel, contentTag)).join('');
+        return;
+      }
     }
   } catch {
     // fall through to the notify-me fallback below
@@ -461,4 +483,114 @@ export async function initFeaturedLabSection(container, contentTag) {
   }
 
   return lab;
+}
+
+// --- Article CTA lab card (end-of-article CTA system) -----------------
+//
+// See ARTICLE_DESIGN_SYSTEM.md ("End-of-article CTA system") for the
+// authoring reference. Used by src/components/article/ArticleCTA.astro
+// for `article_cta.type: lab`. Reuses formatFullDate/formatTimeWithZone/
+// seatsLabel/withLabUtm/escapeHtml above rather than re-implementing
+// date/time/seat formatting a third time.
+
+// Pure selection logic, exported for unit testing independent of the
+// network call: excludes past labs, full labs, and any lab explicitly
+// marked unavailable/closed/cancelled, then returns the earliest
+// remaining one. `public-labs` already returns soonest-first, but this
+// re-sorts defensively rather than assuming that ordering holds.
+export function selectNextAvailableLab(labs, now = new Date()) {
+  const eligible = (labs || []).filter((lab) => {
+    if (!lab || !lab.event_date) return false;
+    if (new Date(lab.event_date) <= now) return false; // past
+    if (lab.has_availability === false) return false; // full / closed / cancelled / unavailable
+    if (typeof lab.seats_remaining === 'number' && lab.seats_remaining <= 0) return false;
+    const status = (lab.status || '').toLowerCase();
+    if (['full', 'closed', 'cancelled', 'canceled', 'unavailable'].includes(status)) return false;
+    return true;
+  });
+  eligible.sort((a, b) => new Date(a.event_date) - new Date(b.event_date));
+  return eligible[0] || null;
+}
+
+function fmLabCardHtml(lab, contentTag) {
+  const summary = lab.hook || lab.description || '';
+  const href = withLabUtm(lab.url, contentTag);
+  return `
+    <div class="fm-lab-card">
+      <p class="fm-lab-card__meta">
+        <span class="fm-lab-card__badge fm-lab-card__badge--live">
+          <span class="fm-lab-card__badge-dot" aria-hidden="true"></span>
+          Live Lab
+        </span>
+        <span class="fm-lab-card__badge">${escapeHtml(seatsLabel(lab))}</span>
+      </p>
+      <p class="fm-lab-card__date">${escapeHtml(formatFullDate(lab.event_date))}</p>
+      <p class="fm-lab-card__time">${escapeHtml(formatTimeWithZone(lab.event_date))}</p>
+      <h3 class="fm-lab-card__title">${escapeHtml(lab.title)}</h3>
+      ${summary ? `<p class="fm-lab-card__description">${escapeHtml(summary)}</p>` : ''}
+      <a
+        class="button fm-lab-card__cta"
+        href="${href}"
+        data-ecosystem-cta
+        data-cta-level="level_3"
+        data-cta-type="covo_lab"
+        data-destination-site="covo"
+      >View Lab Details</a>
+    </div>
+  `;
+}
+
+// No upcoming lab has an open seat right now — distinct from a fetch
+// failure below (this is a confirmed "nothing available", not "we
+// don't know"). Per ARTICLE_DESIGN_SYSTEM.md, never show a full lab,
+// an empty card, or placeholder data here.
+function fmAllLabsFullFallbackHtml() {
+  return `
+    <div class="fm-lab-card fm-lab-card--fallback">
+      <h3 class="fm-lab-card__title">The current labs are full.</h3>
+      <p class="fm-lab-card__description">New Live Multiplying Labs are added regularly. View the full schedule or join the community to hear when the next lab opens.</p>
+      <div class="fm-lab-card__fallback-actions">
+        <a class="button" href="${COVO_LABS_URL}" data-ecosystem-cta data-cta-type="covo_labs_all" data-destination-site="covo">View All Labs</a>
+        <a class="fm-cta__secondary" href="${COVO_COMMUNITY_URL}" data-ecosystem-cta data-cta-type="covo_community" data-destination-site="covo">Join the Community</a>
+      </div>
+    </div>
+  `;
+}
+
+// The public-labs request itself failed (network/outage) — a distinct,
+// more restrained state from "confirmed all full" above, since we
+// genuinely don't know availability. Never show stale/hard-coded data
+// or a fabricated seat count here.
+function fmLabsErrorFallbackHtml() {
+  return `
+    <div class="fm-lab-card fm-lab-card--fallback">
+      <h3 class="fm-lab-card__title">See the next Live Lab.</h3>
+      <div class="fm-lab-card__fallback-actions">
+        <a class="button" href="${COVO_LABS_URL}" data-ecosystem-cta data-cta-type="covo_labs_all" data-destination-site="covo">View All Labs</a>
+      </div>
+    </div>
+  `;
+}
+
+// Fetches upcoming labs, picks the earliest one with an open seat via
+// selectNextAvailableLab (skipping a full nearest-chronological lab
+// rather than showing it — this is the fix for the bug where the
+// article CTA displayed a full lab), and renders the result into
+// `container`. Falls back to the "all full" state when the feed
+// responds but nothing is eligible, or the restrained "data
+// unavailable" state when the feed request itself fails.
+export async function renderArticleCtaLabInto(container, contentTag) {
+  let labs;
+  try {
+    // Fetch more than 1 — the feed does not filter by availability, so
+    // the earliest result can be full while a later one is open.
+    labs = await fetchUpcomingLabs(10);
+  } catch (err) {
+    console.error('public-labs request failed', err);
+    container.innerHTML = fmLabsErrorFallbackHtml();
+    return;
+  }
+
+  const lab = selectNextAvailableLab(labs);
+  container.innerHTML = lab ? fmLabCardHtml(lab, contentTag) : fmAllLabsFullFallbackHtml();
 }

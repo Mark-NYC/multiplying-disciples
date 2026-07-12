@@ -19,6 +19,33 @@ const externalLink = z.object({
   url: z.string().url(),
 });
 
+// Canonical end-of-article CTA config — see ARTICLE_DESIGN_SYSTEM.md
+// ("End-of-article CTA system") for the full authoring reference.
+// Presence of `article_cta` is itself the opt-in: an article with no
+// `article_cta` key at all gets no new-system CTA (legacy articles
+// keep rendering through their existing layout untouched). `type`
+// defaults to "lab" once the block exists, since a lab invite is the
+// right next step for most practical articles.
+//
+// `destination` is required for "tool" and "community" (there's no
+// sitewide default tool/community URL to fall back to — the author
+// must supply one), optional/ignored for "lab" and "none". Never put
+// a lab title, date, seat count, or URL here — those are always
+// fetched live from CoVo's public-labs feed (src/lib/labs-feed.js).
+const articleCta = z
+  .object({
+    type: z.enum(['lab', 'tool', 'community', 'none']).default('lab'),
+    stakes_headline: z.string().optional(),
+    bridge_copy: z.string().optional(),
+    destination: z
+      .object({
+        label: z.string(),
+        href: z.string(),
+      })
+      .optional(),
+  })
+  .optional();
+
 const articles = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/articles' }),
   schema: z.object({
@@ -64,6 +91,11 @@ const articles = defineCollection({
     cta_primary_url: z.string().optional(),
     cta_secondary_label: z.string().optional(),
     cta_secondary_url: z.string().optional(),
+    // Canonical end-of-article CTA (see comment above the articleCta
+    // schema). Supersedes the cta_* fields above going forward — those
+    // remain in the schema only because they're harmless if unused;
+    // see ARTICLE_DESIGN_SYSTEM.md for the migration note.
+    article_cta: articleCta,
     ...migrationFields,
   }),
 });

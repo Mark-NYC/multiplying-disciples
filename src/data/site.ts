@@ -30,6 +30,15 @@ export const SITE = {
 export const COVO_LABS_URL = 'https://www.covomultipliers.com/#upcoming-labs';
 export const COVO_HOME_URL = 'https://www.covomultipliers.com/';
 
+// Placeholder pending a real destination (ECOSYSTEM_GROWTH_STRATEGY.md
+// references "the CoVo Field Room" / a WhatsApp practice community, but
+// no concrete URL for either exists anywhere in this repo or the known
+// site content). Points at COVO_HOME_URL — a real, already-used
+// destination — rather than a fabricated link. Replace with the actual
+// Field Room / WhatsApp join link as soon as one is confirmed; every
+// "Join the Community" CTA on this site reads from this one constant.
+export const COVO_COMMUNITY_URL = COVO_HOME_URL;
+
 // Actual lab data (titles, dates, descriptions, seat counts, landing
 // page URLs) is never hardcoded here — it's fetched live from CoVo's
 // public-labs Edge Function, the single source of truth shared by CoVo's
