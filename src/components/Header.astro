@@ -1,5 +1,5 @@
 ---
-import { PRIMARY_NAV } from '../data/navigation';
+import { PRIMARY_NAV, MENU_FEATURED, MENU_TOPICS, MENU_CONTACT } from '../data/navigation';
 import { SITE } from '../data/site';
 
 const currentPath = Astro.url.pathname;
@@ -12,13 +12,6 @@ const isActive = (href: string) =>
     <a class="site-header__logo" href="/">
       <img src="/images/logo.png" alt={SITE.name} width="290" height="44" />
     </a>
-
-    <input type="checkbox" id="nav-toggle" class="site-header__toggle-input" />
-    <label for="nav-toggle" class="site-header__toggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
 
     <nav aria-label="Primary" class="site-header__nav-wrap">
       <ul class="site-header__nav">
@@ -51,9 +44,8 @@ const isActive = (href: string) =>
       </ul>
       <div class="site-header__actions">
         {/* A real link, not a JS toggle — search lives at /search/ so
-            this stays useful with JavaScript disabled. Icon-only on
-            desktop; icon + word inside the open mobile menu. */}
-        <a class="site-header__search" href="/search/">
+            this stays useful with JavaScript disabled. */}
+        <a class="site-header__search" href="/search/" aria-label="Search the site">
           <svg
             viewBox="0 0 24 24"
             width="20"
@@ -67,7 +59,6 @@ const isActive = (href: string) =>
             <circle cx="11" cy="11" r="7" />
             <path d="M21 21l-4.8-4.8" />
           </svg>
-          <span class="site-header__search-label">Search</span>
         </a>
         <a class="button button--small" href="/#ch-practice">Join a Lab</a>
         <ul class="site-header__socials">
@@ -97,8 +88,219 @@ const isActive = (href: string) =>
         </ul>
       </div>
     </nav>
+
+    {/* Menu trigger. The checkbox + labels are the no-JavaScript
+        fallback (open/close still work); the real <button>s are
+        unhidden by the script below, which then owns state, focus,
+        Escape, and scroll lock. */}
+    <input type="checkbox" id="nav-toggle" class="site-header__toggle-input" />
+    <label for="nav-toggle" class="site-header__toggle" data-menu-fallback-open aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <button
+      type="button"
+      class="site-header__toggle"
+      data-menu-open
+      aria-expanded="false"
+      aria-controls="site-menu"
+      aria-label="Menu"
+      hidden
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <label class="site-header__backdrop" for="nav-toggle" data-menu-backdrop aria-hidden="true"
+    ></label>
+
+    <div class="site-menu" id="site-menu" data-menu-panel aria-label="Site menu">
+      <div class="site-menu__head">
+        <p class="site-menu__title eyebrow eyebrow--gold-text">Menu</p>
+        <label for="nav-toggle" class="site-menu__close" data-menu-fallback-close aria-label="Close menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M5 5l14 14M19 5L5 19" />
+          </svg>
+        </label>
+        <button type="button" class="site-menu__close" data-menu-close aria-label="Close menu" hidden>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M5 5l14 14M19 5L5 19" />
+          </svg>
+        </button>
+      </div>
+
+      <nav aria-label="More resources" class="site-menu__body">
+        {/* Primary nav repeated for small screens only, where the
+            inline header nav is hidden — first in the hierarchy per
+            the mobile menu spec. Desktop hides this block. */}
+        <div class="site-menu__primary">
+          <ul class="site-menu__list site-menu__list--primary">
+            {PRIMARY_NAV.map((link) => (
+              <li>
+                <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a href="/search/">Search</a>
+            </li>
+          </ul>
+          <a class="button site-menu__lab-cta" href="/#ch-practice">Join a Lab</a>
+        </div>
+
+        <div class="site-menu__section">
+          <p class="site-menu__label eyebrow eyebrow--gold-text">More Resources</p>
+          <ul class="site-menu__list">
+            {MENU_FEATURED.map((link) => (
+              <li>
+                <a href={link.href} rel={link.externalDomain ? 'noopener' : undefined}>
+                  {link.label}
+                  {link.externalDomain && (
+                    <span class="site-menu__external">{link.externalDomain} &#8599;</span>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="site-menu__section">
+          <p class="site-menu__label eyebrow eyebrow--gold-text">Browse Topics</p>
+          <ul class="site-menu__list">
+            {MENU_TOPICS.map((link) => (
+              <li>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="site-menu__section site-menu__section--contact">
+          <ul class="site-menu__list">
+            <li>
+              <a href={MENU_CONTACT.href}>{MENU_CONTACT.label}</a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Socials only where the header row's own icons are hidden. */}
+        <ul class="site-menu__socials">
+          <li>
+            <a href={SITE.social.facebook} aria-label="Multiplying Disciples on Facebook">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M13.5 21v-7.5h2.5l.5-3h-3V8.5c0-.9.25-1.5 1.55-1.5H16.5V4.3C16.2 4.26 15.2 4.17 14 4.17c-2.4 0-4 1.46-4 4.15V10.5H7.5v3H10V21h3.5z" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href={SITE.social.instagram} aria-label="Multiplying Disciples on Instagram">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href={SITE.social.youtube} aria-label="Multiplying Disciples on YouTube">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M21.6 7.5c-.25-1-1-1.75-2-2C17.9 5 12 5 12 5s-5.9 0-7.6.5c-1 .25-1.75 1-2 2C2 9.2 2 12 2 12s0 2.8.4 4.5c.25 1 1 1.75 2 2C6.1 19 12 19 12 19s5.9 0 7.6-.5c1-.25 1.75-1 2-2 .4-1.7.4-4.5.4-4.5s0-2.8-.4-4.5zM10 15V9l5.2 3-5.2 3z" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </header>
+
+<script>
+  // Accessible drawer behavior for the site menu. Progressive
+  // enhancement: without JS the checkbox + labels above still open and
+  // close the panel; with JS the real buttons take over and add
+  // aria-expanded, Escape, a focus trap, focus restoration, and scroll
+  // lock.
+  const checkbox = document.getElementById('nav-toggle') as HTMLInputElement | null;
+  const openBtn = document.querySelector<HTMLButtonElement>('[data-menu-open]');
+  const closeBtn = document.querySelector<HTMLButtonElement>('[data-menu-close]');
+  const panel = document.querySelector<HTMLElement>('[data-menu-panel]');
+  const backdrop = document.querySelector<HTMLElement>('[data-menu-backdrop]');
+  const fallbackOpen = document.querySelector<HTMLElement>('[data-menu-fallback-open]');
+  const fallbackClose = document.querySelector<HTMLElement>('[data-menu-fallback-close]');
+
+  if (checkbox && openBtn && closeBtn && panel && backdrop) {
+    // Swap the no-JS controls for the real buttons.
+    checkbox.disabled = true;
+    checkbox.checked = false;
+    fallbackOpen?.setAttribute('hidden', '');
+    fallbackClose?.setAttribute('hidden', '');
+    openBtn.hidden = false;
+    closeBtn.hidden = false;
+
+    let lastFocused: Element | null = null;
+
+    function focusables(): HTMLElement[] {
+      return Array.from(
+        panel!.querySelectorAll<HTMLElement>('a[href], button:not([hidden])'),
+      ).filter((el) => el.offsetParent !== null || el === closeBtn);
+    }
+
+    function onKeydown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        close();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const items = focusables();
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    function open() {
+      lastFocused = document.activeElement;
+      panel!.classList.add('is-open');
+      backdrop!.classList.add('is-open');
+      panel!.setAttribute('role', 'dialog');
+      panel!.setAttribute('aria-modal', 'true');
+      openBtn!.setAttribute('aria-expanded', 'true');
+      document.documentElement.style.overflow = 'hidden';
+      closeBtn!.focus();
+      document.addEventListener('keydown', onKeydown);
+    }
+
+    function close() {
+      panel!.classList.remove('is-open');
+      backdrop!.classList.remove('is-open');
+      panel!.removeAttribute('role');
+      panel!.removeAttribute('aria-modal');
+      openBtn!.setAttribute('aria-expanded', 'false');
+      document.documentElement.style.overflow = '';
+      document.removeEventListener('keydown', onKeydown);
+      if (lastFocused instanceof HTMLElement) lastFocused.focus();
+    }
+
+    openBtn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    backdrop.addEventListener('click', close);
+    // Following a link should close the drawer (matters for same-page
+    // anchors like /#ch-practice, where no navigation event fires).
+    panel.addEventListener('click', (event) => {
+      if ((event.target as Element).closest('a[href]')) close();
+    });
+  }
+</script>
 
 <style>
   .site-header {
@@ -112,7 +314,6 @@ const isActive = (href: string) =>
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
     gap: 1.5rem;
   }
 
@@ -140,15 +341,24 @@ const isActive = (href: string) =>
     border: 0;
   }
 
+  /* The hamburger — shown at every width, far right. Shared styling
+     for the no-JS <label> and the real <button>. */
   .site-header__toggle {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    width: 2rem;
-    height: 2rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0.6rem;
+    background: transparent;
+    border: none;
     cursor: pointer;
     flex-shrink: 0;
+  }
+
+  .site-header__toggle[hidden] {
+    display: none;
   }
 
   .site-header__toggle span {
@@ -156,7 +366,10 @@ const isActive = (href: string) =>
     height: 2px;
     background: var(--color-text);
     border-radius: 1px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .site-header__toggle:hover span {
+    background: var(--color-accent-hover);
   }
 
   .site-header__toggle-input:focus-visible ~ .site-header__toggle {
@@ -198,8 +411,9 @@ const isActive = (href: string) =>
     font-weight: 700;
   }
 
-  /* Resources dropdown — <details>/<summary> so it works with zero JS
-     and is tap-friendly on mobile, not just hover-friendly on desktop. */
+  /* Resources dropdown — <details>/<summary> so it works with zero JS.
+     (No PRIMARY_NAV item currently has children; kept for when one
+     does.) */
   .site-header__dropdown details {
     position: relative;
   }
@@ -221,20 +435,6 @@ const isActive = (href: string) =>
 
   .site-header__dropdown summary:hover {
     color: var(--color-accent-hover);
-  }
-
-  .site-header__dropdown summary::after {
-    content: '';
-    width: 0.5em;
-    height: 0.5em;
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
-    transform: rotate(45deg) translateY(-2px);
-    transition: transform 0.15s ease;
-  }
-
-  .site-header__dropdown details[open] summary::after {
-    transform: rotate(-135deg) translateY(2px);
   }
 
   .site-header__dropdown-menu {
@@ -278,25 +478,12 @@ const isActive = (href: string) =>
   .site-header__search {
     display: flex;
     align-items: center;
-    gap: 0.45rem;
     color: var(--color-text);
     text-decoration: none;
   }
 
   .site-header__search:hover {
     color: var(--color-accent-hover);
-  }
-
-  /* Icon-only at desktop widths — the word appears in the mobile menu. */
-  .site-header__search-label {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
   }
 
   .site-header__socials {
@@ -317,105 +504,192 @@ const isActive = (href: string) =>
     color: var(--color-accent-hover);
   }
 
+  /* --- Menu drawer -------------------------------------------------
+     A calm field-guide panel: Warm Paper, hairline border, mono
+     section labels, plain ink links, generous whitespace. Slides in
+     from the right at every width; full-width sheet on small
+     screens. */
+
+  .site-header__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: rgba(31, 37, 35, 0.35);
+    opacity: 0;
+    visibility: hidden;
+    cursor: default;
+  }
+
+  .site-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    width: min(24rem, 100vw);
+    overflow-y: auto;
+    background: var(--color-bg);
+    border-left: 1px solid var(--color-border);
+    box-shadow: -12px 0 32px rgba(31, 37, 35, 0.12);
+    padding: 1.25rem 1.75rem 2.5rem;
+    transform: translateX(100%);
+    visibility: hidden;
+  }
+
+  /* Open state — driven by JS (.is-open) or, without JS, by the
+     checkbox. */
+  .site-menu.is-open,
+  .site-header__toggle-input:checked ~ .site-menu {
+    transform: none;
+    visibility: visible;
+  }
+
+  .site-header__backdrop.is-open,
+  .site-header__toggle-input:checked ~ .site-header__backdrop {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .site-menu {
+      transition: transform 0.2s ease, visibility 0.2s;
+    }
+
+    .site-header__backdrop {
+      transition: opacity 0.2s ease, visibility 0.2s;
+    }
+  }
+
+  .site-menu__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 1.5rem;
+  }
+
+  .site-menu__title {
+    margin: 0;
+  }
+
+  .site-menu__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-right: -0.6rem;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-pill);
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  .site-menu__close[hidden] {
+    display: none;
+  }
+
+  .site-menu__close:hover {
+    color: var(--color-accent-hover);
+    background: var(--color-surface);
+  }
+
+  .site-menu__section {
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .site-menu__label {
+    margin: 0 0 0.85rem;
+  }
+
+  .site-menu__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-menu__list a {
+    display: block;
+    padding: 0.55rem 0;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .site-menu__list a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .site-menu__list a[aria-current='page'] {
+    color: var(--color-accent-hover);
+    font-weight: 700;
+  }
+
+  /* Quiet domain hint on the one off-site resource, so an external
+     jump never surprises. */
+  .site-menu__external {
+    margin-left: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  /* Primary nav inside the drawer — small screens only; the desktop
+     header keeps its inline nav, so repeating it here would be noise. */
+  .site-menu__primary {
+    display: none;
+  }
+
+  .site-menu__socials {
+    display: none;
+  }
+
   @media (max-width: 900px) {
-    .site-header__toggle {
-      display: flex;
-    }
-
-    /* Hamburger -> X, driven purely by the checkbox state (no JS). */
-    .site-header__toggle-input:checked ~ .site-header__toggle span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    .site-header__toggle-input:checked ~ .site-header__toggle span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .site-header__toggle-input:checked ~ .site-header__toggle span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
     .site-header__nav-wrap {
       display: none;
-      order: 3;
-      flex-basis: 100%;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 0;
     }
 
-    .site-header__toggle-input:checked ~ .site-header__nav-wrap {
-      display: flex;
+    .site-menu {
+      width: 100vw;
+      border-left: none;
     }
 
-    .site-header__nav {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0;
-      padding: 1rem 0 0;
-    }
-
-    .site-header__nav li {
-      width: 100%;
-    }
-
-    .site-header__nav > li > a {
+    .site-menu__primary {
       display: block;
+      padding: 0 0 1.4rem;
+    }
+
+    .site-menu__list--primary a {
+      font-size: 1.15rem;
       padding: 0.6rem 0;
     }
 
-    .site-header__dropdown details {
+    .site-menu__lab-cta {
+      display: block;
       width: 100%;
+      text-align: center;
+      margin-top: 0.75rem;
     }
 
-    .site-header__dropdown summary {
-      padding: 0.6rem 0;
-    }
-
-    .site-header__dropdown-menu {
-      position: static;
-      transform: none;
-      box-shadow: none;
-      border: none;
-      background: var(--color-surface);
-      margin: 0.25rem 0 0.5rem;
-      min-width: 0;
-    }
-
-    /* Search + CTA + socials, pinned to the bottom of the open mobile
-       menu. */
-    .site-header__actions {
-      flex-direction: column;
-      align-items: flex-start;
+    .site-menu__socials {
+      display: flex;
+      align-items: center;
       gap: 1rem;
-      width: 100%;
-      margin-top: 1rem;
-      padding: 1.25rem 0 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 1.4rem 0 0;
       border-top: 1px solid var(--color-border);
     }
 
-    /* In the open menu the search link reads like the other nav items:
-       icon plus the visible word, full-width ≥44px tap target. */
-    .site-header__search {
-      width: 100%;
-      padding: 0.6rem 0;
-      font-size: 1.15rem;
-      font-weight: 500;
-    }
-
-    .site-header__search-label {
-      position: static;
-      width: auto;
-      height: auto;
-      margin: 0;
-      overflow: visible;
-      clip: auto;
-      white-space: normal;
-    }
-
-    .site-header__actions .button {
-      width: 100%;
-      text-align: center;
+    .site-menu__socials a {
+      display: flex;
+      padding: 0.5rem;
+      margin: -0.5rem 0;
+      color: var(--color-text);
     }
   }
 </style>

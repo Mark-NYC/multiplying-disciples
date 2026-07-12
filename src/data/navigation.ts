@@ -2,6 +2,9 @@ export interface NavLink {
   label: string;
   href: string;
   children?: NavLink[];
+  // Set for off-site destinations — the menu renders a small muted
+  // domain hint next to the label so an external jump never surprises.
+  externalDomain?: string;
 }
 
 // Primary header navigation, kept deliberately short: Labs / Tools /
@@ -20,3 +23,34 @@ export const PRIMARY_NAV: NavLink[] = [
   { label: 'Articles', href: '/blog/' },
   { label: 'About', href: '/vision/' },
 ];
+
+// --- Hamburger menu (see NAVIGATION_MAP.md) --------------------------
+// A small set of deeper resources that don't belong in the primary
+// nav. Deliberately NOT a sitemap: no Strategy Coordinator, no
+// Movement Resources index, no 4 Fields Toolbox, no legal/utility
+// pages, no individual articles beyond the named featured resources.
+// Every href below is a real, existing destination — verify before
+// adding. "Commands of Christ" has no page on this site; the series
+// lives on Obey.Tools (already an established external destination —
+// the 7 Stories guide links its per-story facilitation guides there),
+// so it links out with a visible domain hint. URL supplied by Mark.
+
+export const MENU_FEATURED: NavLink[] = [
+  { label: 'Stickers', href: '/stickers/' },
+  { label: '7 Stories of Hope', href: '/movement-resources/7-stories-of-hope-complete-facilitation-guide/' },
+  { label: 'Commands of Christ', href: 'https://obey.tools/commands-of-christ.html', externalDomain: 'obey.tools' },
+  { label: 'Kingdom Ministry Training', href: '/kingdom-ministry-training/' },
+];
+
+// The strongest topic hubs only (plus the full index) — labels match
+// the hubs' real titles in src/content/hubs/.
+export const MENU_TOPICS: NavLink[] = [
+  { label: 'All Articles', href: '/blog/' },
+  { label: 'Share the Gospel', href: '/share-the-gospel/' },
+  { label: 'Disciple Making', href: '/disciple-making/' },
+  { label: 'Simple Church', href: '/simple-church/' },
+  { label: 'Prayer', href: '/prayer/' },
+  { label: 'Church Planting Movements', href: '/church-planting-movements/' },
+];
+
+export const MENU_CONTACT: NavLink = { label: 'Contact Us', href: '/contact-us/' };

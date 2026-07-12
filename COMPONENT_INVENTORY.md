@@ -16,7 +16,7 @@ Current inventory after the 2026-07 sitewide consistency pass.
 | Component | Purpose | Used by |
 | --- | --- | --- |
 | `SEO.astro` | meta/OG/Twitter/structured data | BaseLayout |
-| `Header.astro` | logo, nav, Join-a-Lab CTA, socials, no-JS mobile menu | BaseLayout |
+| `Header.astro` | logo, inline nav, Join-a-Lab CTA, socials, and the accessible menu drawer (hamburger at all widths; primary nav + deeper resources on mobile, deeper resources only on desktop; JS dialog with no-JS checkbox fallback — see NAVIGATION_MAP.md) | BaseLayout |
 | `Footer.astro` | dark green footer: tagline, quick links, seal | BaseLayout |
 | `Breadcrumbs.astro` | mono breadcrumb + BreadcrumbList JSON-LD | ArticleLayout, HubLayout, ToolLayout, blog index |
 | `ArticleList.astro` | **new** — the shared article list row (thumbnail, title, description, meta) | blog index, HubLayout |
