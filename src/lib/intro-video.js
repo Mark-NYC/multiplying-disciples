@@ -11,16 +11,24 @@ function pushVideoEvent(eventName) {
   });
 }
 
-// Enters fullscreen video playback immediately on click. Standard
-// Fullscreen API covers desktop + Android Chrome; iOS Safari has no
-// requestFullscreen on <video> and needs its own webkit API instead.
+// Enters fullscreen video playback on click. Standard Fullscreen API
+// covers desktop + Android Chrome and can be called right away. iOS
+// Safari has no requestFullscreen on <video> — it needs the
+// video-specific webkitEnterFullscreen instead, which iOS silently
+// ignores until the video has loaded metadata (it hasn't yet: preload
+// is "none" and playback has only just been kicked off), so that call
+// is deferred until the loadedmetadata event fires.
 function enterFullscreen(video) {
   if (video.requestFullscreen) {
     video.requestFullscreen().catch(() => {});
-  } else if (video.webkitEnterFullscreen) {
-    video.webkitEnterFullscreen();
   } else if (video.webkitRequestFullscreen) {
     video.webkitRequestFullscreen();
+  } else if (video.webkitEnterFullscreen) {
+    if (video.readyState >= 1) {
+      video.webkitEnterFullscreen();
+    } else {
+      video.addEventListener('loadedmetadata', () => video.webkitEnterFullscreen(), { once: true });
+    }
   }
 }
 
