@@ -11,6 +11,19 @@ function pushVideoEvent(eventName) {
   });
 }
 
+// Enters fullscreen video playback immediately on click. Standard
+// Fullscreen API covers desktop + Android Chrome; iOS Safari has no
+// requestFullscreen on <video> and needs its own webkit API instead.
+function enterFullscreen(video) {
+  if (video.requestFullscreen) {
+    video.requestFullscreen().catch(() => {});
+  } else if (video.webkitEnterFullscreen) {
+    video.webkitEnterFullscreen();
+  } else if (video.webkitRequestFullscreen) {
+    video.webkitRequestFullscreen();
+  }
+}
+
 export function initHomeIntroVideos() {
   document.querySelectorAll('[data-intro-video]').forEach((frame) => {
     const trigger = frame.querySelector('[data-intro-video-trigger]');
@@ -51,6 +64,7 @@ export function initHomeIntroVideos() {
 
       frame.replaceChildren(video);
       video.play();
+      enterFullscreen(video);
     };
 
     trigger.addEventListener('click', startPlayback);
