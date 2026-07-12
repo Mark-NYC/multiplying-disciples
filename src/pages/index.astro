@@ -23,6 +23,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import RotatingSeal from '../components/RotatingSeal.astro';
 import ForYouIfSection from '../components/ForYouIfSection.astro';
+import HomeIntroVideo from '../components/HomeIntroVideo.astro';
 import { SITE, COVO_LABS_URL } from '../data/site';
 ---
 
@@ -46,6 +47,21 @@ import { SITE, COVO_LABS_URL } from '../data/site';
         <a class="button button--secondary" href="/starter-tools/">Start with the Tools</a>
       </p>
     </div>
+  </section>
+
+  <!-- 1b. ONBOARDING VIDEO — a fast, human "here's what this actually
+       is" before the reps pitch, so a skeptical visitor hears it in
+       someone's voice instead of just reading claims. Click-to-play:
+       the MP4 never loads until the visitor clicks the thumbnail. -->
+  <section class="intro-video-section" id="ch-intro-video">
+    <HomeIntroVideo
+      videoSrc="https://kmlwiq5edojbuq6o.public.blob.vercel-storage.com/homepage-video.mp4"
+      posterSrc="/md-home-video-thumbnail.webp"
+      posterAlt="A Multiplying Disciples coach introducing the ministry"
+      eyebrow="Start Here"
+      heading="What Multiplying Disciples is, in 60 seconds"
+      body="A quick, honest introduction to what we do and why it matters — before you dig into the reps."
+    />
   </section>
 
   <!-- 2. PROBLEM / REPS — the homepage's central positioning statement,
@@ -658,6 +674,20 @@ import { SITE, COVO_LABS_URL } from '../data/site';
   }
   .eyebrow--clay {
     color: var(--color-clay-text);
+  }
+
+  /* --- Onboarding video: fast intro, click-to-play (see
+     HomeIntroVideo.astro for the frame/poster/player itself) -------- */
+
+  .intro-video-section {
+    padding: 4.5rem 0 1rem;
+    background: var(--color-bg);
+  }
+
+  @media (max-width: 640px) {
+    .intro-video-section {
+      padding: 3.5rem 0 0.5rem;
+    }
   }
 
   /* --- Front matter: manual-style running header under the hero --- */

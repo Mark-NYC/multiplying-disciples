@@ -1,0 +1,190 @@
+---
+// Click-to-play onboarding video. Renders a poster image with a custom
+// play button; the <video> element (and its source) is only created in
+// the DOM after a visitor clicks, so the MP4 is never requested on
+// initial page load. See ecosystem-tracking.js for the same
+// window.dataLayer push pattern this reuses for GA4 events.
+interface Props {
+  videoSrc: string;
+  posterSrc: string;
+  posterAlt: string;
+  eyebrow?: string;
+  heading?: string;
+  body?: string;
+}
+
+const { videoSrc, posterSrc, posterAlt, eyebrow, heading, body } = Astro.props;
+---
+
+<div class="intro-video">
+  {(eyebrow || heading || body) && (
+    <div class="intro-video__copy">
+      {eyebrow && <p class="eyebrow eyebrow--gold-text">{eyebrow}</p>}
+      {heading && <h2>{heading}</h2>}
+      {body && <p class="intro-video__body">{body}</p>}
+    </div>
+  )}
+
+  <div class="intro-video__frame" data-intro-video data-video-src={videoSrc}>
+    <img
+      src={posterSrc}
+      alt={posterAlt}
+      class="intro-video__poster"
+      width="1145"
+      height="1373"
+      loading="lazy"
+      data-intro-video-poster
+    />
+    <div class="intro-video__scrim" aria-hidden="true"></div>
+    <button
+      type="button"
+      class="intro-video__trigger"
+      aria-label="Play homepage introduction video"
+      data-intro-video-trigger
+    >
+      <span class="intro-video__play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+
+<script>
+  import { initHomeIntroVideos } from '../lib/intro-video.js';
+
+  initHomeIntroVideos();
+</script>
+
+<style>
+  .intro-video {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+
+  .intro-video__copy {
+    margin: 0 auto 2rem;
+    max-width: 34rem;
+  }
+
+  .intro-video__copy h2 {
+    margin: 0 0 0.75rem;
+    font-size: var(--fs-h2);
+    line-height: 1.15;
+  }
+
+  .intro-video__body {
+    margin: 0;
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  /* 9:16 frame, capped so the vertical video reads as an intentional
+     element in the layout rather than a full-height wall. */
+  .intro-video__frame {
+    position: relative;
+    width: 100%;
+    max-width: 22rem;
+    aspect-ratio: 9 / 16;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    background: var(--color-ink);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+  }
+
+  .intro-video__poster {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Only a light gradient at the base for play-button contrast — kept
+     subtle so the photo doesn't read as darkened. */
+  .intro-video__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(31, 37, 35, 0.32) 0%, rgba(31, 37, 35, 0) 42%);
+    pointer-events: none;
+  }
+
+  /* The button covers the entire frame (not just the play icon) so any
+     click on the thumbnail starts playback — the visible circle is a
+     purely decorative child, positioned via the button's own flex
+     centering rather than absolute placement. */
+  .intro-video__trigger {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .intro-video__trigger:focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: -3px;
+  }
+
+  .intro-video__play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    background: var(--color-bg);
+    color: var(--color-primary);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+    transition: transform 0.15s ease, background-color 0.15s ease;
+  }
+
+  .intro-video__play svg {
+    transform: translateX(2px);
+  }
+
+  .intro-video__trigger:hover .intro-video__play,
+  .intro-video__trigger:focus-visible .intro-video__play {
+    background: #ffffff;
+    transform: scale(1.06);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .intro-video__play {
+      transition: none;
+    }
+
+    .intro-video__trigger:hover .intro-video__play,
+    .intro-video__trigger:focus-visible .intro-video__play {
+      transform: none;
+    }
+  }
+
+  /* Once swapped in, the <video> fills the same frame; contain (not
+     cover) so playback is never cropped, even if its real dimensions
+     differ slightly from the frame's 9:16. */
+  .intro-video :global(.intro-video__player) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: var(--color-ink);
+  }
+
+  @media (max-width: 640px) {
+    .intro-video__frame {
+      max-width: 17rem;
+    }
+  }
+</style>
