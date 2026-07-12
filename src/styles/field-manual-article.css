@@ -486,6 +486,16 @@
   text-align: center;
 }
 
+.fm-cta__image {
+  display: block;
+  width: 100%;
+  max-width: 20rem;
+  aspect-ratio: 1200 / 630;
+  object-fit: cover;
+  margin: 0 auto 1.5rem;
+  border-radius: var(--radius-image);
+}
+
 .fm-cta__eyebrow {
   margin: 0 0 0.75rem;
 }
