@@ -10,6 +10,7 @@ related_articles:
   - "/christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/"
 related_tools: []
 og_image: "/wp-content/uploads/2023/04/pexels-photo-2258251.jpeg"
+hero_image: "/wp-content/uploads/2023/04/pexels-photo-2258251.jpeg"
 status: "migrated"
 migration_priority: "tier-2"
 original_url: "https://multiplyingdisciples.us/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/"

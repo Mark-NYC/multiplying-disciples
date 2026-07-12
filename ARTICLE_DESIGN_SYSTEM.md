@@ -1,3 +1,12 @@
+> **Note (2026-07-12):** This document is the historical design
+> rationale from the field-manual-v2 rollout. The system it describes
+> is now the sitewide standard — see **ARTICLE_SYSTEM.md** (current
+> authoring reference), **CTA_GUIDE.md** (end-of-article CTAs),
+> **DESIGN_SYSTEM.md** (tokens), and **COMPONENT_INVENTORY.md**.
+> Where they disagree, the newer docs win. The `article_system`
+> frontmatter flag referenced below no longer exists — every article
+> uses this layout now.
+
 # Article Design System
 
 The homepage is the cover of the field manual. Articles are pages

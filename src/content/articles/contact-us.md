@@ -32,8 +32,6 @@ notes: >
   4 — a utility page, not blog content. No media referenced.
 ---
 
-## Connect
-
 Want to connect with local believers, get trained to make disciples, or learn more about Jesus? We'd love to hear from you.
 
 *The original online form on this page (built on a third-party subscription-form service) could not be migrated directly to this new site. Until a replacement contact form is built, please reach out by email:*

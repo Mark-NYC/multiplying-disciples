@@ -10,6 +10,7 @@ related_articles:
   - "/three-thirds/"
 related_tools: []
 og_image: "/wp-content/uploads/2023/05/Untitled-design-5-1024x576.jpg"
+hero_image: "/wp-content/uploads/2023/05/Untitled-design-5-1024x576.jpg"
 status: "migrated"
 migration_priority: "tier-2"
 original_url: "https://multiplyingdisciples.us/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/"

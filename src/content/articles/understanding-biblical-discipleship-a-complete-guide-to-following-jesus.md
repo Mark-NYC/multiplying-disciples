@@ -26,6 +26,7 @@ external_links:
   - label: "Obey.Tools"
     url: "https://obey.tools/"
 og_image: "/wp-content/uploads/2025/02/Untitled-design-2025-11-28T172403.122.webp"
+hero_image: "/wp-content/uploads/2025/02/Untitled-design-2025-11-28T172403.122.webp"
 status: "migrated"
 migration_priority: "tier-2"
 original_url: "https://multiplyingdisciples.us/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"

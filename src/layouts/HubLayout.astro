@@ -1,8 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import RelatedArticles from '../components/RelatedArticles.astro';
+import ArticleList from '../components/ArticleList.astro';
 import ToolCTA from '../components/ToolCTA.astro';
 
 interface Props {
@@ -16,6 +17,15 @@ const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: data.title, href: data.slug },
 ];
+
+// Resolve key_articles (site-relative slug paths) to real article
+// entries, preserving the hand-curated order from the hub's
+// frontmatter. Hubs use the same ArticleList treatment as /blog/ so
+// both surfaces read as one system.
+const allArticles = data.key_articles.length ? await getCollection('articles') : [];
+const keyArticles = data.key_articles
+  .map((path) => allArticles.find((entry) => entry.data.slug === path))
+  .filter((entry): entry is CollectionEntry<'articles'> => Boolean(entry));
 ---
 
 <BaseLayout
@@ -41,9 +51,14 @@ const breadcrumbItems = [
     <h1>{data.title}</h1>
     <p class="hub-intro">{data.intro}</p>
 
-    {data.key_articles.length > 0 && (
-      <RelatedArticles paths={data.key_articles} heading="Key articles" />
-    )}
+    {
+      keyArticles.length > 0 && (
+        <section aria-label="Key articles">
+          <h2 class="hub-section-label">Key Articles</h2>
+          <ArticleList entries={keyArticles} showHub={false} titleHeading="h3" />
+        </section>
+      )
+    }
 
     {(data.related_tools.length > 0 || data.next_step) && (
       <ToolCTA tools={data.related_tools} nextStep={data.next_step} />
@@ -52,11 +67,28 @@ const breadcrumbItems = [
 </BaseLayout>
 
 <style>
+  /* Same Primary Green headline treatment as article pages. */
+  h1 {
+    color: var(--color-primary);
+  }
+
   .hub-intro {
     padding-left: 1rem;
     border-left: 3px solid var(--color-primary);
     font-size: 1.05rem;
     color: var(--color-text-muted);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Same quiet mono label language as the Related Articles box and
+     the blog index's meta line. */
+  .hub-section-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    margin: 0 0 0.25rem;
   }
 </style>

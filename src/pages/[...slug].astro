@@ -1,7 +1,6 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import ArticleLayout from '../layouts/ArticleLayout.astro';
-import ArticleLayoutV2 from '../layouts/ArticleLayoutV2.astro';
 import ToolLayout from '../layouts/ToolLayout.astro';
 import HubLayout from '../layouts/HubLayout.astro';
 
@@ -49,18 +48,10 @@ const { kind, entry } = Astro.props as Props;
 const { Content, headings } = await render(entry as any);
 
 const articleEntry = entry as CollectionEntry<'articles'>;
-const isFieldManualV2 = kind === 'article' && articleEntry.data.article_system === 'field-manual-v2';
 ---
 
 {
-  kind === 'article' && isFieldManualV2 && (
-    <ArticleLayoutV2 article={articleEntry} headings={headings}>
-      <Content />
-    </ArticleLayoutV2>
-  )
-}
-{
-  kind === 'article' && !isFieldManualV2 && (
+  kind === 'article' && (
     <ArticleLayout article={articleEntry} headings={headings}>
       <Content />
     </ArticleLayout>

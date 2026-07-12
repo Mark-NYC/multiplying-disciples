@@ -2,7 +2,8 @@
 // Field-journal style contents box for article pages — numbered links
 // to each H2 in the body, generated from Astro's own heading extraction
 // (so it always matches the actual rendered `id` attributes, no manual
-// upkeep). Renders nothing for short articles with fewer than 2 H2s.
+// upkeep). Renders nothing for short articles with fewer than 3 H2s —
+// a two-section page is already scannable without a contents box.
 interface Heading {
   depth: number;
   slug: string;
@@ -18,7 +19,7 @@ const items = headings.filter((heading) => heading.depth === 2);
 ---
 
 {
-  items.length >= 2 && (
+  items.length >= 3 && (
     <nav class="field-toc" aria-label="Table of contents">
       <p class="field-toc__label">In This Article</p>
       <ol class="field-toc__list">

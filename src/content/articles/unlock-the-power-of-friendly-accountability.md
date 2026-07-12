@@ -11,6 +11,7 @@ related_articles:
   - "/starter-tools/"
 related_tools: []
 og_image: "/wp-content/uploads/2023/05/Three-Thirds-Meeting-Format.webp"
+hero_image: "/wp-content/uploads/2023/05/Three-Thirds-Meeting-Format.webp"
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/unlock-the-power-of-friendly-accountability/"

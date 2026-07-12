@@ -1,0 +1,155 @@
+---
+// ArticleList — the one shared "list of articles" treatment, used by
+// the /blog/ index and every hub page so both surfaces read as the
+// same visual family: small thumbnail, title, description, quiet
+// mono meta line (hub · date). Thumbnails come from each article's
+// og_image; articles without one simply render text-only rows.
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import { imageDimensions } from '../lib/image-dimensions.mjs';
+
+interface Props {
+  entries: CollectionEntry<'articles'>[];
+  // Hide the per-row hub link (used on hub pages, where every row
+  // belongs to the hub the visitor is already on).
+  showHub?: boolean;
+  // 'h2' on the blog index (rows sit directly under the page H1);
+  // 'h3' on hub pages, where the rows sit under a "Key Articles" H2.
+  titleHeading?: 'h2' | 'h3';
+}
+
+const { entries, showHub = true, titleHeading = 'h2' } = Astro.props;
+const TitleTag = titleHeading;
+
+const hubs = showHub ? await getCollection('hubs') : [];
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+function hubFor(entry: CollectionEntry<'articles'>) {
+  if (!entry.data.hub) return undefined;
+  // Hub entry ids are their frontmatter `slug`, not the bare filename.
+  return hubs.find((hub) => hub.id === `/${entry.data.hub}/`);
+}
+
+function bestDate(entry: CollectionEntry<'articles'>): Date | undefined {
+  return entry.data.updated ?? entry.data.date;
+}
+---
+
+<ul class="article-list">
+  {entries.map((entry) => {
+    const hub = showHub ? hubFor(entry) : undefined;
+    const date = bestDate(entry);
+    const thumb = entry.data.og_image ?? entry.data.hero_image;
+    const thumbDims = thumb ? imageDimensions(thumb) : undefined;
+    return (
+      <li class="article-list__item">
+        {thumb && (
+          <a href={entry.data.slug} class="article-list__thumbnail" aria-hidden="true" tabindex="-1">
+            <img
+              src={thumb}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              width={thumbDims?.width ?? 150}
+              height={thumbDims?.height ?? 100}
+            />
+          </a>
+        )}
+        <div class="article-list__content">
+          <TitleTag class="article-list__title">
+            <a href={entry.data.slug}>{entry.data.display_title ?? entry.data.title}</a>
+          </TitleTag>
+          <p class="article-list__description">{entry.data.description}</p>
+          {(hub || date) && (
+            <p class="article-list__meta">
+              {hub && (
+                <>
+                  <a href={hub.data.slug}>{hub.data.title}</a>
+                  {date && <span aria-hidden="true"> &middot; </span>}
+                </>
+              )}
+              {date && <time datetime={date.toISOString()}>{dateFormatter.format(date)}</time>}
+            </p>
+          )}
+        </div>
+      </li>
+    );
+  })}
+</ul>
+
+<style>
+  .article-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .article-list__item {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .article-list__thumbnail {
+    flex-shrink: 0;
+    display: block;
+    width: 150px;
+    height: 100px;
+  }
+
+  .article-list__thumbnail img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  .article-list__content {
+    min-width: 0;
+    flex: 1;
+  }
+
+  @media (max-width: 540px) {
+    .article-list__item {
+      gap: 1rem;
+    }
+
+    .article-list__thumbnail,
+    .article-list__thumbnail img {
+      width: 88px;
+      height: 88px;
+    }
+  }
+
+  .article-list__title {
+    margin: 0 0 0.4rem;
+    font-size: 1.15rem;
+  }
+
+  .article-list__title a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-list__description {
+    margin: 0 0 0.5rem;
+    color: var(--color-text-muted);
+    font-size: 0.98rem;
+  }
+
+  .article-list__meta {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    color: var(--color-text-muted);
+  }
+
+  .article-list__meta a {
+    color: var(--color-accent-hover);
+  }
+</style>

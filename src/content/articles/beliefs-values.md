@@ -7,6 +7,7 @@ related_articles:
   - "/vision/"
   - "/movement-resources/"
 related_tools: []
+exclude_from_blog: true
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/beliefs-values/"
@@ -24,8 +25,6 @@ notes: >
   would misrepresent it as topical content. No tool CTA (no natural
   fit for a doctrinal statement).
 ---
-
-## Doctrinal Center & Theological Values
 
 ### Written by our friends at [Sentergy](https://www.sentergy.us/)
 

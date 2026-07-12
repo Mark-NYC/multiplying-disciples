@@ -22,8 +22,20 @@ interface Props {
   imageCaption?: string;
 }
 
+import { imageDimensions } from '../../lib/image-dimensions.mjs';
+
 const { eyebrow, title, subheading, date, updatedDate, readingTime, image, imageAlt, imageCaption } =
   Astro.props;
+
+// Real intrinsic dimensions (when the file lives in public/) so the
+// hero never causes layout shift under the reader.
+const dims = image ? imageDimensions(image) : undefined;
+
+// Square/portrait lead images (mostly WordPress-era social graphics
+// and portrait photos) would tower over the article at full reading
+// width — crop those to a calm editorial 3:2. Landscape images,
+// including tool diagrams, render at their natural proportions.
+const isTall = dims ? dims.height / dims.width > 0.9 : false;
 
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
@@ -48,7 +60,15 @@ const metaParts = [
 {
   image && (
     <figure class="fm-hero__image-wrap">
-      <img class="fm-hero__image" src={image} alt={imageAlt ?? ''} loading="eager" />
+      <img
+        class:list={['fm-hero__image', { 'fm-hero__image--tall': isTall }]}
+        src={image}
+        alt={imageAlt ?? ''}
+        loading="eager"
+        fetchpriority="high"
+        width={dims?.width}
+        height={dims?.height}
+      />
       {imageCaption && <figcaption class="fm-hero__caption">{imageCaption}</figcaption>}
     </figure>
   )

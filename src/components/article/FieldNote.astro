@@ -11,6 +11,7 @@
 // Usage (inside a field-manual-v2 .mdx article body):
 //   <FieldNote id="queens-conversation-box-01" />
 import { getCollection, render } from 'astro:content';
+import { imageDimensions } from '../../lib/image-dimensions.mjs';
 
 interface Props {
   id: string;
@@ -22,6 +23,7 @@ const notes = await getCollection('fieldNotes', ({ data }) => data.approved === 
 const note = notes.find((entry) => entry.id === id);
 
 const { Content } = note ? await render(note) : { Content: null };
+const imageDims = note?.data.image ? imageDimensions(note.data.image) : undefined;
 ---
 
 {
@@ -45,6 +47,9 @@ const { Content } = note ? await render(note) : { Content: null };
               src={note.data.image}
               alt={note.data.image_alt ?? ''}
               loading="lazy"
+              decoding="async"
+              width={imageDims?.width}
+              height={imageDims?.height}
             />
             {note.data.image_caption && (
               <figcaption class="fm-field-note__caption">{note.data.image_caption}</figcaption>

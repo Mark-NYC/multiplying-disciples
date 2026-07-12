@@ -10,6 +10,7 @@ related_articles:
   - "/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/"
   - "/movement-resources/12-practice-church-circle/"
 related_tools: []
+exclude_from_blog: true
 status: "migrated"
 migration_priority: "tier-2"
 original_url: "https://multiplyingdisciples.us/stickers/"

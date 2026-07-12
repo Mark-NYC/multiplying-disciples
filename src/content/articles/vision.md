@@ -9,6 +9,7 @@ related_articles:
   - "/disciple-making-movement-dmm-key-characteristics-and-definition/"
   - "/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/"
 related_tools: []
+exclude_from_blog: true
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/vision/"
@@ -32,8 +33,6 @@ notes: >
 ---
 
 For Beliefs & Values Statement [Click Here.](/beliefs-values/)
-
-## The Vision
 
 The apostle Paul, in Romans 15:18-24, writes to the church in Rome that he and his co-workers have "fully proclaimed" the gospel from "Jerusalem all the way around to Illyricum" (v19). He concludes, "there is no more place for me to work in these regions" and asks for the disciples of Jesus in Rome to help him on his way to Spain (v23-24). Paul and his co-workers aimed to continue taking the gospel and kingdom of God to the gaps: "where Christ was not known" (v20).
 

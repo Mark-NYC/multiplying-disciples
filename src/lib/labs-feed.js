@@ -2,9 +2,9 @@
 // feed (covo-multipliers/supabase/functions/public-labs — the single
 // source of truth for lab data). Every place on this site that shows a
 // live lab CTA should import from here rather than re-implementing the
-// fetch, the UTM tagging, or the card markup: the homepage's bottom lab
-// CTA (src/pages/index.astro) and the blog "Next Live Lab" card
-// (src/layouts/ArticleLayout.astro) both use this module.
+// fetch, the UTM tagging, or the card markup: the homepage's featured
+// lab section (src/pages/index.astro) and the end-of-article Lab CTA
+// (src/components/article/ArticleCTA.astro) both use this module.
 //
 // No lab title, date, description, or URL is ever hardcoded on this site
 // — it all comes from this feed, so a new lab published on Covo shows up
@@ -53,61 +53,6 @@ function formatLabDate(iso) {
   return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
-function labCardHtml(lab, ctaLabel, contentTag) {
-  const seatsLabel = lab.has_availability
-    ? `${lab.seats_remaining} seat${lab.seats_remaining === 1 ? '' : 's'} left`
-    : 'Full';
-  // Prefer the short outcome-based hook; fall back to the longer
-  // description for labs that haven't been backfilled with a hook yet.
-  const summary = lab.hook || lab.description;
-  const description = summary
-    ? `<p class="lab-card__description">${escapeHtml(summary)}</p>`
-    : '';
-  const href = withLabUtm(lab.url, contentTag);
-  return `
-    <div class="lab-card">
-      <p class="lab-card__meta">
-        <span class="lab-card__date">${formatLabDate(lab.event_date)}</span>
-        <span class="lab-card__badge lab-card__badge--live">
-          <span class="lab-card__badge-dot" aria-hidden="true"></span>
-          Live Lab
-        </span>
-        <span class="lab-card__badge">${escapeHtml(seatsLabel)}</span>
-      </p>
-      <h3 class="lab-card__title">${escapeHtml(lab.title)}</h3>
-      ${description}
-      <a
-        class="button lab-card__cta"
-        href="${href}"
-        data-ecosystem-cta
-        data-cta-level="level_3"
-        data-cta-type="covo_lab"
-        data-destination-site="covo"
-      >${escapeHtml(ctaLabel)}</a>
-    </div>
-  `;
-}
-
-function notifyFormHtml() {
-  return `
-    <div class="lab-card lab-card--signup">
-      <h3 class="lab-card__title">New labs are on the way</h3>
-      <p class="lab-card__description">Get notified when the next lab opens.</p>
-      <form class="lab-card__form js-labs-notify-form">
-        <input
-          type="email"
-          name="email"
-          aria-label="Email address"
-          placeholder="you@example.com"
-          required
-        />
-        <button type="submit" class="button">Get notified</button>
-      </form>
-      <p class="lab-card__status js-labs-notify-status" role="status"></p>
-    </div>
-  `;
-}
-
 function wireNotifyForm(container) {
   const form = container.querySelector('.js-labs-notify-form');
   if (!form) return;
@@ -143,124 +88,10 @@ function wireNotifyForm(container) {
   });
 }
 
-// Fetches up to `limit` upcoming labs and renders them into `container`
-// as `.lab-card` markup, or falls back to a "notify me" card (wired to
-// the subscribe-updates function) when none are upcoming or the feed is
-// unreachable. `ctaLabel` defaults to "Join This Lab". `contentTag`, if
-// given, is stamped onto each lab link as `utm_content` (see withLabUtm).
-//
-// `limit === 1` (the only way this is currently called — the legacy
-// ArticleLayout "Next Live Lab" card) is treated as "show the single
-// best upcoming lab," not "show the single soonest one": public-labs
-// does not filter by availability, so the soonest lab can be full.
-// Fetches a wider pool and picks via selectNextAvailableLab so a full
-// nearest-chronological lab is skipped rather than displayed — see
-// ARTICLE_DESIGN_SYSTEM.md for why this matters. `limit > 1` keeps the
-// previous unfiltered behavior (a schedule grid legitimately may want
-// to show a full lab alongside open ones).
-export async function renderLabsInto(container, limit, ctaLabel = 'Join This Lab', contentTag) {
-  try {
-    if (limit === 1) {
-      const labs = await fetchUpcomingLabs(10);
-      const lab = selectNextAvailableLab(labs);
-      container.innerHTML = lab ? labCardHtml(lab, ctaLabel, contentTag) : '';
-      if (lab) return;
-    } else {
-      const labs = await fetchUpcomingLabs(limit);
-      if (labs.length > 0) {
-        container.innerHTML = labs.map((lab) => labCardHtml(lab, ctaLabel, contentTag)).join('');
-        return;
-      }
-    }
-  } catch {
-    // fall through to the notify-me fallback below
-  }
-  container.innerHTML = notifyFormHtml();
-  wireNotifyForm(container);
-}
-
-// --- Featured single-lab card (homepage #ch-practice section) --------
-//
-// A distinct, larger card for the homepage's one primary conversion
-// point — separate markup/classes (.featured-lab-card*) from .lab-card
-// above so this section can be redesigned without touching the
-// article "Next Live Lab" card, which keeps using labCardHtml().
-
-function featuredLabCardHtml(lab, ctaLabel, contentTag) {
-  const isFull = !lab.has_availability;
-  const seatsLabel = isFull
-    ? 'Full'
-    : `${lab.seats_remaining} seat${lab.seats_remaining === 1 ? '' : 's'} left`;
-  const summary = lab.hook || lab.description;
-  const description = summary
-    ? `<p class="featured-lab-card__description">${escapeHtml(summary)}</p>`
-    : '';
-  const href = withLabUtm(lab.url, contentTag);
-  return `
-    <div class="featured-lab-card">
-      <p class="featured-lab-card__meta">
-        <span class="lab-card__date">${formatLabDate(lab.event_date)}</span>
-        <span class="lab-card__badge lab-card__badge--live">
-          <span class="lab-card__badge-dot" aria-hidden="true"></span>
-          Live Lab
-        </span>
-      </p>
-      <p class="featured-lab-card__seats${isFull ? ' featured-lab-card__seats--full' : ''}">${escapeHtml(seatsLabel)}</p>
-      <h3 class="featured-lab-card__title">${escapeHtml(lab.title)}</h3>
-      ${description}
-      <a
-        class="button featured-lab-card__cta"
-        href="${href}"
-        data-ecosystem-cta
-        data-cta-level="level_3"
-        data-cta-type="covo_lab"
-        data-destination-site="covo"
-      >${escapeHtml(ctaLabel)}</a>
-    </div>
-  `;
-}
-
-function featuredNotifyFormHtml() {
-  return `
-    <div class="featured-lab-card featured-lab-card--signup">
-      <h3 class="featured-lab-card__title">New labs are on the way</h3>
-      <p class="featured-lab-card__description">Get notified when the next lab opens.</p>
-      <form class="featured-lab-card__form js-labs-notify-form">
-        <input
-          type="email"
-          name="email"
-          aria-label="Email address"
-          placeholder="you@example.com"
-          required
-        />
-        <button type="submit" class="button">Get notified</button>
-      </form>
-      <p class="featured-lab-card__status js-labs-notify-status" role="status"></p>
-    </div>
-  `;
-}
-
-// Fetches the single next upcoming lab and renders it into `container`
-// as the large featured card, or falls back to the "notify me" card.
-// `contentTag`, if given, is stamped onto the lab link as `utm_content`.
-export async function renderFeaturedLabInto(container, contentTag) {
-  try {
-    const labs = await fetchUpcomingLabs(1);
-    if (labs.length > 0) {
-      container.innerHTML = featuredLabCardHtml(labs[0], 'Join This Lab', contentTag);
-      return;
-    }
-  } catch {
-    // fall through to the notify-me fallback below
-  }
-  container.innerHTML = featuredNotifyFormHtml();
-  wireNotifyForm(container);
-}
-
 // --- Full on-page registration section (homepage #ch-practice) -------
 //
-// Unlike renderFeaturedLabInto() above (a card that links out to CoVo),
-// this renders the lab's real details plus CoVo's own reusable signup
+// Rather than a card that links out to CoVo, this renders the lab's
+// real details plus CoVo's own reusable signup
 // form embedded directly on the page — see
 // embeds/lab-registration-widget.js in the covo-multipliers repo, the
 // single implementation shared with every CoVo lab landing page. This

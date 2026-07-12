@@ -6,7 +6,6 @@ canonical: "https://multiplyingdisciples.us/movement-resources/strategy-coordina
 related_articles:
   - "/movement-resources/"
 related_tools: []
-og_image: "/wp-content/uploads/2023/04/pexels-omar-lopez-1182825-1.jpg"
 status: "migrated"
 migration_priority: "unknown"
 original_url: "https://multiplyingdisciples.us/movement-resources/strategy-coordinator/"

@@ -268,8 +268,9 @@ import { COVO_LABS_URL } from '../data/site';
   <!-- 10. STORIES FROM THE FIELD — specific, small stories rather than
        generic praise. One dominant testimonial (a real, approved quote
        naming a specific action), plus up to two smaller supporting
-       quotes. Any TODO placeholder below must only ever be swapped for
-       a real, approved testimonial — never invented copy. -->
+       quotes. Empty slots stay empty until a real, approved
+       testimonial exists — never invented copy, never a visible
+       placeholder. -->
   <section class="field-quote" id="ch-field-notes">
     <div class="field-quote__inner">
       <p class="eyebrow eyebrow--gold-bright">504 &middot; Stories From the Field</p>
@@ -293,13 +294,12 @@ import { COVO_LABS_URL } from '../data/site';
           </p>
           <footer>&mdash; Lab participant</footer>
         </blockquote>
-        <blockquote class="field-quote__quote field-quote__quote--todo">
-          <p>
-            TODO: real, approved testimonial naming one specific action (e.g. started a
-            Discovery Bible Study, shared the gospel for the first time, baptized someone).
-          </p>
-          <footer>&mdash; TODO: name, role</footer>
-        </blockquote>
+        {/* Second supporting-quote slot, intentionally empty: add a
+            blockquote.field-quote__quote here only when a real,
+            approved testimonial naming one specific action exists
+            (e.g. started a Discovery Bible Study, shared the gospel
+            for the first time). Never invented copy, never a visible
+            placeholder. */}
       </div>
     </div>
   </section>
@@ -1320,12 +1320,6 @@ import { COVO_LABS_URL } from '../data/site';
     font-size: 0.85rem;
     font-weight: 600;
     color: #ddae50;
-  }
-
-  /* Marks the still-pending placeholder so it's obviously not a real
-     quote at a glance in the editor/preview, without changing size. */
-  .field-quote__quote--todo p {
-    opacity: 0.7;
   }
 
   @media (max-width: 800px) {

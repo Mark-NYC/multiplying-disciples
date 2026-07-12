@@ -8,6 +8,7 @@ related_articles:
 related_tools: []
 exclude_from_blog: true
 og_image: "/wp-content/uploads/2025/01/Free-Disciple-Making-Training.webp"
+hero_image: "/wp-content/uploads/2025/01/Free-Disciple-Making-Training.webp"
 status: "migrated"
 migration_priority: "unknown"
 original_url: "https://multiplyingdisciples.us/free-training/"

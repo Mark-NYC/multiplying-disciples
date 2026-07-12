@@ -11,6 +11,7 @@ related_articles:
   - "/starter-tools/"
 related_tools: []
 og_image: "/wp-content/uploads/2023/05/pexels-photo-5543191.jpeg"
+hero_image: "/wp-content/uploads/2023/05/pexels-photo-5543191.jpeg"
 status: "migrated"
 migration_priority: "tier-2"
 original_url: "https://multiplyingdisciples.us/disciple-making-movement-dmm-key-characteristics-and-definition/"

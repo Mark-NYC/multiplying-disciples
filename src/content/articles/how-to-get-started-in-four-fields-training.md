@@ -18,6 +18,7 @@ related_articles:
 related_tools: []
 external_links: []
 og_image: "/wp-content/uploads/2023/05/Screenshot-2023-05-06-at-10.05.09-AM.jpg"
+hero_image: "/wp-content/uploads/2023/05/Screenshot-2023-05-06-at-10.05.09-AM.jpg"
 status: "migrated"
 migration_priority: "tier-2"
 original_url: "https://multiplyingdisciples.us/how-to-get-started-in-four-fields-training/"
