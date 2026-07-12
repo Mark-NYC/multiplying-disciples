@@ -20,6 +20,7 @@ status: "migrated"
 migration_priority: "tier-1"
 original_url: "https://multiplyingdisciples.us/discover-the-12-disciples-of-jesus-christ/"
 article_system: "field-manual-v2"
+hide_toc: true
 hero_category: "Jesus and the Twelve"
 hero_subheading: "The order Jesus called them reveals a pattern: ordinary people, trained in public, sent to multiply."
 article_cta:
@@ -73,7 +74,43 @@ notes: >
   content itself is touched. Added article_cta (type: community) —
   this page is a reference/biography lookup, not a single practiced
   skill.
+
+  2026-07-12 (rework, per site owner's direct follow-up): three
+  changes, all preserving every existing anchor id, heading, and word
+  of prose. (1) Added `hide_toc: true` (new schema field on the
+  articles collection) so the auto-generated "In This Article" table
+  of contents no longer displaces the order infographic, which people
+  come to this page to see first — converted to .mdx to support this
+  and the components below. (2) Replaced the plain-text "Click to
+  Jump to Bio" link list with a tappable photo grid
+  (`.fm-disciple-grid`) using the same 12 stylized portrait images
+  already in the page (each already has the disciple's name baked in
+  from the original design), same order and same anchors as the
+  original link list — a real image-based nav, not just text. (3)
+  Wrapped each of the 12 disciples' full bio sections (heading and
+  every subsection, text unchanged) in a new DiscipleCard component
+  (src/components/article/DiscipleCard.astro): a bordered card with
+  that disciple's own portrait + a "Called N of 12" badge above the
+  original heading, colored to match the duotone already baked into
+  that portrait (12 distinct hex accents, not the sitewide 5-token
+  palette — the point here is matching each existing photo, not brand
+  consistency). The portrait that used to sit as a bare image between
+  sections is now that section's card-header image instead of a
+  separate floating image — no image was duplicated or dropped, only
+  relocated into the card that already matched it. Also fixed "Role in
+  Jesus' Ministry" to a real ### heading in 11 of the 12 sections where
+  it was missing the heading marker (only Simon Peter's, the first
+  section, had it correctly) — a pre-existing, consistent formatting
+  gap, corrected for consistency now that every section is visually
+  one unit. Judas Iscariot's card intentionally stays shorter than the
+  other 11 (only Origins/Call/Role, no Strengths/Growth Areas/
+  Transformation/etc.) — that was already true in the source and is
+  the right call for the betrayer; the card closes right before the
+  general "Are the 12 Disciples and Apostles the Same?" section, which
+  isn't about Judas specifically and stays outside any card.
 ---
+
+import DiscipleCard from '../../components/article/DiscipleCard.astro';
 
 The **12 disciples of Jesus in order** weren’t chosen randomly. Jesus called each disciple intentionally—and understanding the **order in which Jesus called them** helps you see how His disciple-making pattern unfolds. If you’re looking for a clear list, a simple explanation, and an infographic showing the disciples in order of calling, this guide gives you everything in one place.
 
@@ -121,7 +158,20 @@ Andrew was Jesus's first disciple, introduced to Jesus by John the Baptist (John
 
 ## 12 Disciples in Order **(Click to Jump to Bio)**
 
-[Andrew](#andrew-apostle-who-was-the-first-disciple-of-jesus) · [John](#john-the-beloved-disciple) · [Peter](#simon-peter-the-rock-of-the-early-church) · [Philip](#philip-the-practical-seeker) · [Bartholomew](#bartholomew-nathanael-the-guileless-israelite) · [Matthew](#matthew-from-tax-collector-to-gospel-writer) · [James (son of Zebedee)](#james-son-of-zebedee-the-first-martyred-apostle) · [Thomas](#thomas-from-doubter-to-devoted-witness) · [James (son of Alphaeus)](#james-son-of-alphaeus-the-lesser-known-apostle) · [Thaddaeus](#thaddaeus-the-apostle-of-three-names) · [Simon the Zealot](#simon-the-zealot-from-revolutionary-to-disciple) · [Judas Iscariot](#judas-iscariot-the-betrayer)
+<ul class="fm-disciple-grid">
+<li><a href="#andrew-apostle-who-was-the-first-disciple-of-jesus"><img src="/wp-content/uploads/2023/04/2-4-1024x1024.jpg" alt="Andrew" loading="lazy" /></a></li>
+<li><a href="#john-the-beloved-disciple"><img src="/wp-content/uploads/2023/04/5-1024x1024.jpg" alt="John" loading="lazy" /></a></li>
+<li><a href="#simon-peter-the-rock-of-the-early-church"><img src="/wp-content/uploads/2023/04/1-4-1024x1024.jpg" alt="Simon Peter" loading="lazy" /></a></li>
+<li><a href="#philip-the-practical-seeker"><img src="/wp-content/uploads/2023/04/6-1024x1024.jpg" alt="Philip" loading="lazy" /></a></li>
+<li><a href="#bartholomew-nathanael-the-guileless-israelite"><img src="/wp-content/uploads/2023/04/7-1024x1024.jpg" alt="Bartholomew (Nathanael)" loading="lazy" /></a></li>
+<li><a href="#matthew-from-tax-collector-to-gospel-writer"><img src="/wp-content/uploads/2023/04/9-1024x1024.jpg" alt="Matthew" loading="lazy" /></a></li>
+<li><a href="#james-son-of-zebedee-the-first-martyred-apostle"><img src="/wp-content/uploads/2023/04/4-1-1024x1024.jpg" alt="James son of Zebedee" loading="lazy" /></a></li>
+<li><a href="#thomas-from-doubter-to-devoted-witness"><img src="/wp-content/uploads/2023/04/8-1024x1024.jpg" alt="Thomas" loading="lazy" /></a></li>
+<li><a href="#james-son-of-alphaeus-the-lesser-known-apostle"><img src="/wp-content/uploads/2023/04/3-4-1024x1024.jpg" alt="James son of Alphaeus" loading="lazy" /></a></li>
+<li><a href="#thaddaeus-the-apostle-of-three-names"><img src="/wp-content/uploads/2023/04/10-1024x1024.jpg" alt="Thaddaeus" loading="lazy" /></a></li>
+<li><a href="#simon-the-zealot-from-revolutionary-to-disciple"><img src="/wp-content/uploads/2023/04/11-1024x1024.jpg" alt="Simon the Zealot" loading="lazy" /></a></li>
+<li><a href="#judas-iscariot-the-betrayer"><img src="/wp-content/uploads/2023/04/12-1024x1024.jpg" alt="Judas Iscariot" loading="lazy" /></a></li>
+</ul>
 
 ### Who were the 12 Disciples of Jesus Christ?
 
@@ -151,9 +201,9 @@ It is important to note that the order in which the disciples are listed can var
 
 Each of the disciples brought their unique skills, backgrounds, and perspectives to the group, and their individual stories are an important part of the larger narrative of the gospel.
 
-![](/wp-content/uploads/2023/04/1-4-1024x1024.jpg)
-
 [BACK TO TOP](#the-12-disciples-of-jesus-in-order-called)
+
+<DiscipleCard order={3} total={12} image="/wp-content/uploads/2023/04/1-4-1024x1024.jpg" imageAlt="Stylized purple-and-gold portrait of Simon Peter" accent="#a9842c">
 
 ## Simon Peter: The Rock of the Early Church
 
@@ -284,9 +334,11 @@ Peter's influence extends through:
 
 Peter's journey from impetuous fisherman to foundational apostle continues to inspire believers worldwide, offering hope that God can use anyone who submits to divine transformation.
 
-![](/wp-content/uploads/2023/04/2-4-1024x1024.jpg)
-
 [BACK TO TOP](#the-12-disciples-of-jesus-in-order-called)
+
+</DiscipleCard>
+
+<DiscipleCard order={1} total={12} image="/wp-content/uploads/2023/04/2-4-1024x1024.jpg" imageAlt="Stylized teal-and-navy portrait of Andrew" accent="#2e8b57">
 
 ## Andrew: Apostle Who Was The First Disciple of Jesus
 
@@ -298,7 +350,7 @@ Who was the first disciple of Jesus? Andrew, like his brother Simon Peter, was b
 
 Andrew holds the distinction of being the first disciple of Jesus, earning him the title "Protokletos" (First-Called) in Orthodox tradition. After hearing John the Baptist declare Jesus as the "Lamb of God," Andrew spent a day with Jesus and became convinced of His messianic identity. His immediate response was to find his brother Simon Peter and bring him to Jesus, marking his characteristic role as one who brings others to Christ.
 
-Role in Jesus' Ministry
+### Role in Jesus' Ministry
 
 Throughout the Gospels, Andrew appears in several key moments:
 
@@ -413,9 +465,11 @@ Andrew's influence continues through:
 
 Andrew's legacy as the "First-Called" and his consistent pattern of bringing others to Jesus offers a compelling model of discipleship that emphasizes personal evangelism and humble service. His life demonstrates how quiet faithfulness and personal connections can have far-reaching impact in God's kingdom.
 
-![](/wp-content/uploads/2023/04/4-1-1024x1024.jpg)
-
 [BACK TO TOP](#the-12-disciples-of-jesus-in-order-called)
+
+</DiscipleCard>
+
+<DiscipleCard order={6} total={12} image="/wp-content/uploads/2023/04/4-1-1024x1024.jpg" imageAlt="Stylized bright green portrait of James son of Zebedee" accent="#2f9e6b">
 
 ## James son of Zebedee: The First Martyred Apostle
 
@@ -427,7 +481,7 @@ James, son of Zebedee and Salome, was born into a relatively prosperous fishing 
 
 Jesus called James and John while they were mending nets with their father Zebedee. Their immediate response—leaving their father and the family business—demonstrated remarkable commitment. The brothers' fierce dedication and passionate nature soon earned them the nickname "Boanerges" (Sons of Thunder) from Jesus, reflecting their intense personalities and zeal for Jesus' mission.
 
-Role in Jesus' Ministry
+### Role in Jesus' Ministry
 
 James held a privileged position as part of Jesus' inner circle:
 
@@ -549,9 +603,11 @@ James' influence extends through:
 
 James' relatively brief ministry and martyrdom provide a powerful testimony of complete dedication to Christ. His transformation from an ambitious "Son of Thunder" to a faithful martyr demonstrates how divine grace can redirect natural passion and zeal into powerful service for God's kingdom. His life stands as an enduring example of the cost and reward of full commitment to Christ.
 
-![](/wp-content/uploads/2023/04/5-1024x1024.jpg)
-
 [BACK TO TOP](#the-12-disciples-of-jesus-in-order-called)
+
+</DiscipleCard>
+
+<DiscipleCard order={2} total={12} image="/wp-content/uploads/2023/04/5-1024x1024.jpg" imageAlt="Stylized pink-and-cyan portrait of John" accent="#c23384">
 
 ## John: The Beloved Disciple
 
@@ -563,7 +619,7 @@ John, the younger son of Zebedee and Salome, grew up in a prosperous fishing fam
 
 Called simultaneously with his brother James, John left their father's fishing business immediately to follow Jesus. Originally a disciple of John the Baptist, he likely witnessed Jesus' baptism. His youth and passionate nature contributed to the nickname "Son of Thunder," shared with his brother James, though this fiery temperament would be transformed through his relationship with Jesus into deep love and contemplative wisdom.
 
-Role in Jesus' Ministry
+### Role in Jesus' Ministry
 
 John held a special place in Jesus' inner circle:
 
@@ -692,9 +748,11 @@ John's influence extends through:
 
 John's transformation from the "Son of Thunder" to the "Apostle of Love" represents one of the most profound character developments among the disciples. His long life and extensive ministry provided unique opportunities to reflect deeply on Christ's nature and message. Through his writings and leadership, John established patterns of theological reflection, spiritual formation, and faithful endurance that continue to shape Christianity today. His emphasis on love, truth, and direct experience with Christ offers a model of mature faith that remains deeply relevant.
 
-![](/wp-content/uploads/2023/04/6-1024x1024.jpg)
-
 [BACK TO TOP](#the-12-disciples-of-jesus-in-order-called)
+
+</DiscipleCard>
+
+<DiscipleCard order={4} total={12} image="/wp-content/uploads/2023/04/6-1024x1024.jpg" imageAlt="Stylized blue portrait of Philip" accent="#3b6ea5">
 
 ## Philip: The Practical Seeker
 
@@ -706,7 +764,7 @@ Philip hailed from Bethsaida, the same town as Andrew and Peter, suggesting poss
 
 Philip was personally called by Jesus with the simple command "Follow me." His immediate response was to find Nathanael (Bartholomew) and share his discovery of the Messiah, demonstrating an early pattern of both seeking and sharing truth. His analytical nature showed itself even in this first encounter, as he responded to Nathanael's skepticism with the practical invitation to "Come and see."
 
-Role in Jesus' Ministry
+### Role in Jesus' Ministry
 
 Throughout the Gospels, Philip appears in several significant moments:
 
@@ -828,9 +886,11 @@ Philip's influence extends through:
 
 Philip's journey from practical skeptic to faithful witness demonstrates the importance of both intellectual honesty and spiritual growth. His analytical nature and willingness to ask questions provides encouragement for those who approach faith through reason, while his eventual deep faith shows how intellectual seeking can lead to profound spiritual understanding. His role as a cultural bridge-builder offers valuable lessons for cross-cultural ministry today.
 
-![](/wp-content/uploads/2023/04/7-1024x1024.jpg)
-
 [BACK TO TOP](#the-12-disciples-of-jesus-in-order-called)
+
+</DiscipleCard>
+
+<DiscipleCard order={5} total={12} image="/wp-content/uploads/2023/04/7-1024x1024.jpg" imageAlt="Stylized red-and-coral portrait of Bartholomew (Nathanael)" accent="#c0392b">
 
 ## Bartholomew (Nathanael): The Guileless Israelite
 
@@ -842,7 +902,7 @@ Bartholomew, also known as Nathanael, came from Cana in Galilee, the site of Jes
 
 Nathanael's call came through Philip's invitation, leading to a remarkable encounter with Jesus. His initial skepticism about anything good coming from Nazareth transformed into one of the most profound early confessions of Jesus' identity: "Rabbi, you are the Son of God! You are the King of Israel!" Jesus' supernatural knowledge of Nathanael's character and location under the fig tree convinced him immediately of Jesus' divine nature.
 
-Role in Jesus' Ministry
+### Role in Jesus' Ministry
 
 Throughout the Gospels, Bartholomew's presence is marked by:
 
@@ -966,9 +1026,11 @@ Bartholomew's influence extends through:
 
 Bartholomew's transformation from a skeptical scholar to a convinced apostle demonstrates how intellectual honesty and spiritual openness can lead to profound faith. His immediate recognition of Jesus' divine nature, once confronted with evidence, shows how genuine seeking leads to discovery. His life offers encouragement to those who approach faith through intellectual inquiry while demonstrating the importance of personal encounter with Christ.
 
-![](/wp-content/uploads/2023/04/9-1024x1024.jpg)
-
 [BACK TO TOP](#the-12-disciples-of-jesus-in-order-called)
+
+</DiscipleCard>
+
+<DiscipleCard order={7} total={12} image="/wp-content/uploads/2023/04/9-1024x1024.jpg" imageAlt="Stylized dark slate-teal portrait of Matthew" accent="#2f4858">
 
 ## Matthew: From Tax Collector to Gospel Writer
 
@@ -980,7 +1042,7 @@ Matthew, also known as Levi son of Alphaeus, worked as a tax collector in Capern
 
 Jesus' call to Matthew came while he was sitting at his tax booth, a moment that dramatically illustrates divine grace. His immediate response—leaving a lucrative career to follow Jesus—demonstrates remarkable transformation. Matthew's first act as a disciple was hosting a great feast for Jesus, introducing his tax collector and "sinner" friends to his new master, showing early signs of his evangelistic heart.
 
-Role in Jesus' Ministry
+### Role in Jesus' Ministry
 
 Throughout the Gospels, Matthew's presence is marked by:
 
@@ -1106,9 +1168,11 @@ Matthew's influence extends through:
 
 Matthew's transformation from wealthy tax collector to faithful apostle demonstrates the profound power of divine grace to change lives completely. His ability to use his professional skills—record keeping, organization, and attention to detail—in service of the gospel shows how God can redeem and repurpose our abilities. His Gospel stands as a lasting testimony to both his literary gift and his deep understanding of how Jesus fulfilled Jewish prophecy and expectations.
 
-![](/wp-content/uploads/2023/04/8-1024x1024.jpg)
-
 [BACK TO TOP](#the-12-disciples-of-jesus-in-order-called)
+
+</DiscipleCard>
+
+<DiscipleCard order={8} total={12} image="/wp-content/uploads/2023/04/8-1024x1024.jpg" imageAlt="Stylized sage-green portrait of Thomas" accent="#5b6f4f">
 
 ## Thomas: From Doubter to Devoted Witness
 
@@ -1120,7 +1184,7 @@ Thomas, also called Didymus (meaning "twin" in both Aramaic and Greek), likely c
 
 While the specific moment of Thomas's call is not recorded in Scripture, his commitment to Jesus is evidenced by his willingness to face death with his Lord when Jesus decided to return to Judea to help Lazarus (John 11:16). This early demonstration of courage and loyalty reveals a character often overshadowed by his later doubts.
 
-Role in Jesus' Ministry
+### Role in Jesus' Ministry
 
 Throughout the Gospels, Thomas appears in several significant moments:
 
@@ -1245,9 +1309,11 @@ Thomas's influence extends through:
 
 Thomas's journey from skeptic to martyred missionary demonstrates how honest doubt can lead to profound faith. His famous doubting episode, rather than being a final mark against him, became a stepping stone to one of the most powerful confessions of Christ's deity in Scripture. His later missionary work, extending possibly as far as India, shows how transformed doubt can fuel passionate ministry. His life offers hope and encouragement to those who struggle with doubts while seeking authentic faith.
 
-![](/wp-content/uploads/2023/04/3-4-1024x1024.jpg)
-
 [BACK TO TOP](#the-12-disciples-of-jesus-in-order-called)
+
+</DiscipleCard>
+
+<DiscipleCard order={9} total={12} image="/wp-content/uploads/2023/04/3-4-1024x1024.jpg" imageAlt="Stylized green portrait of James son of Alphaeus" accent="#1f6f5c">
 
 ## James son of Alphaeus: The Lesser Known Apostle
 
@@ -1259,7 +1325,7 @@ James, son of Alphaeus, is often called "James the Less" or "James the Lesser" t
 
 While the specific circumstances of his call are not recorded in Scripture, James was among those chosen by Jesus to be part of the twelve. His selection demonstrates Jesus' pattern of choosing both prominent and quieter personalities to form his core group of disciples. Though less visible than others, his faithful response to Jesus' call proved equally significant.
 
-Role in Jesus' Ministry
+### Role in Jesus' Ministry
 
 Throughout the Gospels, James's presence is marked by:
 
@@ -1383,9 +1449,11 @@ James's influence extends through:
 
 James son of Alphaeus demonstrates the profound impact of quiet, faithful service in God's kingdom. Though less prominent in Scripture than some other disciples, his consistent presence and faithful ministry remind us that not all effective service requires public recognition or recorded acclaim. His life challenges our modern emphasis on visibility and prominence, showing how steady, behind-the-scenes ministry can significantly impact the kingdom of God.
 
-![](/wp-content/uploads/2023/04/10-1024x1024.jpg)
-
 [BACK TO TOP](#the-12-disciples-of-jesus-in-order-called)
+
+</DiscipleCard>
+
+<DiscipleCard order={10} total={12} image="/wp-content/uploads/2023/04/10-1024x1024.jpg" imageAlt="Stylized magenta-and-mauve portrait of Thaddaeus" accent="#9c4f6e">
 
 ## Thaddaeus: The Apostle of Three Names
 
@@ -1397,7 +1465,7 @@ Thaddaeus, also known as Judas son of James (Luke 6:16) and Lebbaeus (in some ma
 
 While the specific moment of his call isn't recorded, his inclusion among the twelve demonstrates Jesus' recognition of his potential. The fact that he was known by multiple names suggests he may have been well-connected within different communities, possibly serving as a bridge between various groups within Jesus' followers.
 
-Role in Jesus' Ministry
+### Role in Jesus' Ministry
 
 Throughout the Gospels, Thaddaeus appears in several notable moments:
 
@@ -1517,9 +1585,11 @@ Thaddaeus's influence extends through:
 
 Thaddaeus's life demonstrates the importance of spiritual curiosity and the value of asking profound questions about faith. His famous question about Jesus' self-revelation (John 14:22) shows a deep desire to understand spiritual truth, while his missionary work reveals how such understanding leads to active service. Though known by multiple names, his identity in Christ's service was clear and compelling.
 
-![](/wp-content/uploads/2023/04/11-1024x1024.jpg)
-
 [BACK TO TOP](#the-12-disciples-of-jesus-in-order-called)
+
+</DiscipleCard>
+
+<DiscipleCard order={11} total={12} image="/wp-content/uploads/2023/04/11-1024x1024.jpg" imageAlt="Stylized purple portrait of Simon the Zealot" accent="#6a3f8f">
 
 ## Simon the Zealot: From Revolutionary to Disciple
 
@@ -1531,7 +1601,7 @@ Simon's designation as "the Zealot" distinguishes him from Simon Peter and provi
 
 While the specific moment of Simon's call isn't recorded, his response required perhaps the most dramatic ideological transformation of all the disciples. Leaving behind revolutionary politics to follow Jesus' message of loving enemies and turning the other cheek demonstrated extraordinary openness to radical change. His calling represents the power of Christ to unite people across deep political divides.
 
-Role in Jesus' Ministry
+### Role in Jesus' Ministry
 
 Throughout the Gospels, Simon's presence is marked by:
 
@@ -1655,9 +1725,11 @@ Simon's influence extends through:
 
 Simon the Zealot's transformation from political revolutionary to peaceful disciple demonstrates the power of Christ to redirect passion toward Kingdom purposes. His presence among the apostles, especially alongside Matthew, shows how the gospel transcends political and social divisions. His life challenges modern believers to examine how their political passions align with Kingdom priorities and demonstrates how fervor for earthly causes can be transformed into zeal for God's kingdom.
 
-![](/wp-content/uploads/2023/04/12-1024x1024.jpg)
-
 [BACK TO TOP](#the-12-disciples-of-jesus-in-order-called)
+
+</DiscipleCard>
+
+<DiscipleCard order={12} total={12} image="/wp-content/uploads/2023/04/12-1024x1024.jpg" imageAlt="Stylized grayscale-sepia portrait of Judas Iscariot" accent="#5c5248">
 
 ## Judas Iscariot: The Betrayer
 
@@ -1669,7 +1741,7 @@ Judas Iscariot, the only disciple from Judea rather than Galilee, came from Keri
 
 Like the other disciples, Judas was personally chosen by Jesus after a night of prayer. His initial response must have shown promise, as he was entrusted with the group's finances. His calling demonstrates Jesus' willingness to invest in someone whose future betrayal He foreknew, revealing both divine sovereignty and human responsibility in a profound way.
 
-Role in Jesus' Ministry
+### Role in Jesus' Ministry
 
 Throughout the Gospels, Judas's presence is marked by:
 
@@ -1679,6 +1751,8 @@ Throughout the Gospels, Judas's presence is marked by:
 - Participated in apostolic missions
 - Expressed concern for the poor
 - Gradually revealed true character
+
+</DiscipleCard>
 
 ### Are the 12 Disciples and Apostles the Same?
 

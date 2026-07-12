@@ -55,10 +55,27 @@ Guidelines:
 ## How an article is built
 
 A field-manual-v2 article is a `.mdx` file (not `.md`) so it can use
-real components instead of raw HTML. `ArticleLayoutV2` always renders
-the shell — breadcrumbs, `ArticleHero`, table of contents (if 2+ H2s),
-related articles (max 3), and `ArticleCTA`. The `.mdx` body imports and
-places whichever content components actually fit that article:
+real components instead of raw HTML — unless it needs no components at
+all, in which case it can stay `.md` (see below). `ArticleLayoutV2`
+always renders the shell — breadcrumbs, `ArticleHero`, table of
+contents (if 2+ H2s), related articles (max 3), and `ArticleCTA`. The
+`.mdx` body imports and places whichever content components actually
+fit that article:
+
+**`hide_toc: true`** opts a single article out of the automatic "In
+This Article" table of contents (off by default everywhere — the TOC
+still shows for every other field-manual-v2 article with 2+ H2s). Use
+this only when the article's own search intent is better served by
+getting straight to the content than by a contents box first — e.g.
+`discover-the-12-disciples-of-jesus-christ`, where readers come for an
+order/list infographic that a TOC would otherwise push below the fold.
+
+**`article_system: field-manual-v2` doesn't require any content
+components.** If an article's hero/CTA chrome is all you're changing —
+e.g. the site's single highest-traffic page, where the safest move is
+to touch nothing else — it's fine to set `article_system` and leave
+the file as plain `.md` with zero body changes. Only convert to `.mdx`
+when you actually need a component in the body.
 
 ```mdx
 ---
@@ -231,6 +248,37 @@ repeating reference section real breathing room instead of another
 stack of headings running straight into each other.
 
 **Mobile:** single column, full width.
+
+### DiscipleCard
+
+**Purpose:** wraps one full biography/profile section (its real H2 and
+every subsection beneath it, text unchanged) in a bordered card with a
+small portrait + position badge above the heading — used on
+`discover-the-12-disciples-of-jesus-christ` so each of the 12 disciples'
+long bios reads as one distinct "exploration card" instead of 12
+identical walls of text back to back. The H2 inside `<slot />` keeps
+its original text and id, so nothing about anchors/jump-nav/SEO
+changes — this is a visual container only.
+
+**Props:** `order` (number, e.g. calling order 1-12), `total` (number,
+e.g. 12), `image`, `imageAlt`, `accent` (a real hex color, not one of
+the 5 brand tokens — this card's accent is meant to match the specific
+duotone already baked into that person's portrait image, and a set of
+12+ people needs more distinct colors than the 5-token palette
+provides).
+
+```mdx
+<DiscipleCard order={3} total={12} image="/path/portrait.jpg" imageAlt="..." accent="#a9842c">
+## Simon Peter: The Rock of the Early Church
+...rest of that disciple's original section, unchanged...
+</DiscipleCard>
+```
+
+This is a one-article pattern (like RoleFact/role-nav above), not a
+general-purpose component — reach for it only when an article profiles
+a set of individually-named people/things with their own real photos,
+each of which should feel like its own card rather than a section in a
+long list.
 
 ### PracticeCard
 

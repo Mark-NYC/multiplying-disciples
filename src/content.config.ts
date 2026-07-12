@@ -81,6 +81,13 @@ const articles = defineCollection({
     hero_image: z.string().optional(),
     hero_image_alt: z.string().optional(),
     hero_image_caption: z.string().optional(),
+    // Opt out of the automatic "In This Article" table of contents that
+    // ArticleLayoutV2 otherwise renders for any article with 2+ H2s.
+    // Off (TOC shows) by default everywhere; only set true when an
+    // article's own search intent is better served by getting straight
+    // to the content the reader came for (e.g. an order/list infographic)
+    // than by a contents box first.
+    hide_toc: z.boolean().optional(),
     // Closing ArticleCTA, used only when article_system is set. Omit
     // entirely for the default "Ready to practice this?" copy; set
     // cta_variant: "tool-first" to swap which action is primary.
