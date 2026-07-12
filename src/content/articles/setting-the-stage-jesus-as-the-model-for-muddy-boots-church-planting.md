@@ -6,7 +6,7 @@ canonical: "https://multiplyingdisciples.us/setting-the-stage-jesus-as-the-model
 hub: "church-planting-movements"
 related_articles:
   - "/jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark/"
-  - "/the-leadership-phase-everyone-skips-why-investment-matters/"
+  - "/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/"
 related_tools: []
 status: "migrated"
 migration_priority: "tier-3"

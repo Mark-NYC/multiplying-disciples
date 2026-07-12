@@ -27,6 +27,31 @@ target: one visual break every 600-900 words. A normal-length article
 should use no more than 3-4 special blocks total; a long article can
 use more, but spaced far apart.
 
+## Body copy style
+
+**Bold the phrases a skimming reader's eye should catch.** In every
+article body (new or converted), bold the handful of words or short
+phrases per section that carry the actual point — a key term being
+defined, the specific consequence, the name of a framework or tool, the
+one clause that matters if someone reads nothing else. This is a
+regular, ongoing practice for all articles going forward, not a one-off
+pass.
+
+Guidelines:
+
+- Bold *phrases*, not full sentences — 2-6 words at a time. A bolded
+  sentence reads as shouting, not emphasis.
+- Roughly 1-3 bolded phrases per section is tasteful; bolding every
+  other line defeats the purpose by making nothing stand out.
+- Bold the term or the stakes, not filler words around it. "**Labs turn
+  knowledge into skill**" beats "*Labs* turn knowledge into *skill*."
+- Don't bold something already inside a component (`InsightCard`,
+  `PracticeCard`, `WarningCard`, `PullQuote`, `ScriptureBlock`, stakes
+  headlines) — those already have their own visual weight; bold is for
+  plain paragraph text.
+- If nothing in a section is genuinely worth a reader's eye catching on
+  a skim, leave it unbolded — this is not a per-paragraph quota.
+
 ## How an article is built
 
 A field-manual-v2 article is a `.mdx` file (not `.md`) so it can use
