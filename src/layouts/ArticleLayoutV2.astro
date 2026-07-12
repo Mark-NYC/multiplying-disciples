@@ -33,10 +33,12 @@ const { data } = article;
 const hubs = data.hub ? await getCollection('hubs') : [];
 const parentHub = hubs.find((hub) => hub.id === `/${data.hub}/`);
 
+// Short breadcrumb only: Home, then the article's hub/category if it
+// has one — never the article's own title (that's what the H1 right
+// below is for). See ARTICLE_DESIGN_SYSTEM.md, "Article hero standard."
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   ...(parentHub ? [{ label: parentHub.data.title, href: parentHub.data.slug }] : []),
-  { label: data.title, href: data.slug },
 ];
 
 // Rough estimate from the raw source body — strips MDX import lines
@@ -81,12 +83,15 @@ const ctaContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__article-c
   </Fragment>
 
   <div class="page-container">
-    <Breadcrumbs items={breadcrumbItems} />
+    {/* Home-only (no hub) isn't a useful trail on its own — the shared
+        Breadcrumbs component always renders its last item as the
+        non-link "current page," which would make Home unclickable. */}
+    {breadcrumbItems.length > 1 && <Breadcrumbs items={breadcrumbItems} />}
 
     <article>
       <ArticleHero
-        category={data.hero_category ?? parentHub?.data.title ?? 'Field Manual'}
-        title={data.title}
+        eyebrow={data.hero_eyebrow}
+        title={data.display_title ?? data.title}
         subheading={data.hero_subheading}
         date={data.date}
         updatedDate={data.updated}

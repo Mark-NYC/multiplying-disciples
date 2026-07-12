@@ -79,9 +79,9 @@ when you actually need a component in the body.
 
 ```mdx
 ---
-title: "..."
+title: "A Step-by-Step Guide to Prayer Walking Scriptures and Changing Lives"
+display_title: "How to Pray Walk Your Neighborhood"
 article_system: "field-manual-v2"
-hero_category: "Prayer"
 hero_subheading: "..."
 hero_image: "/path/to/image.jpg"
 hero_image_alt: "..."
@@ -101,34 +101,126 @@ Normal markdown body content, headings, lists, blockquotes...
 </InsightCard>
 ```
 
+## Article hero standard
+
+**The core problem this section fixes:** the hero used to stack a
+breadcrumb, an eyebrow, an H1, a subheading, metadata, and a featured
+image — and several of those routinely repeated the same one or two
+words (the hub name showing up in both the breadcrumb *and* the
+eyebrow; the full SEO title showing up in the breadcrumb *and* the H1).
+Read top to bottom, it felt like it was written for a crawler, not a
+person. The hero must now read as exactly five things, in this order,
+with nothing repeated between them:
+
+1. A short breadcrumb
+2. One human-readable H1
+3. One supporting sentence
+4. Compact metadata
+5. The featured visual
+
+### 1. Breadcrumb
+
+`Home / [Hub]` — maximum three levels, and the article's own title
+never appears in it (the H1 right below already says that). The final
+breadcrumb segment is always the article's hub/category/resource
+collection, not the page you're currently on. `ArticleLayoutV2` builds
+this automatically from `hub` frontmatter; there is nothing to set by
+hand. An article with no `hub` gets a bare `Home` breadcrumb — that's
+fine, don't invent a fake middle level to fill space.
+
+Never show a breadcrumb hub segment and a matching eyebrow saying the
+same thing (see below) — pick one place to say "this article belongs
+to Prayer," not two.
+
+### 2. Eyebrow — off by default
+
+`hero_eyebrow` is unset on every article unless there's a genuinely new
+piece of context to add that the breadcrumb and H1 don't already
+carry — e.g. **Field Guide**, **Case Study**, **Tool**, **Biblical
+Framework**. It must never restate the hub/category (that's the
+breadcrumb's job), a keyword, or the title. When in doubt, leave it
+unset — a missing eyebrow is the correct default, not an oversight.
+
+### 3. H1 — `display_title`, separate from the SEO `title`
+
+`title` remains the full SEO/keyword title — it drives `<title>`, Open
+Graph tags, Twitter cards, and structured data via `SEO.astro`, and a
+reader never sees it directly. `display_title` is what actually renders
+as the page's `<h1>`: a short, plain sentence written for a person
+skimming the page, not a phrase engineered to catch every search
+variant.
+
+```yaml
+title: "7 Stories of Hope in the Bible: A Discovery Process to Help Seekers Find Jesus"
+display_title: "7 Stories of Hope to Read With a Seeker"
+description: "A simple seven-week Bible discovery process that helps a spiritually curious friend encounter Jesus and respond in faith."
+```
+
+If `display_title` is omitted, the H1 falls back to `title` — this is
+why legacy/unconverted articles need no changes at all. Only set
+`display_title` when the SEO title would actually be a poor headline;
+a title that's already short and conversational (e.g. "Three Thirds
+Bible Study Process") doesn't need one.
+
+**Sizing:** every field-manual-v2 article's H1 renders at the same
+fixed size regardless of length (`clamp(2.1rem, 1.8rem + 1.4vw, 2.75rem)`
+desktop, `1.6rem` mobile) — reduced 2026-07-12 alongside the
+`display_title` standard, since headlines are now consistently short
+and the previous size (tuned for a mix of short titles and full SEO
+titles) read as oversized on mobile once paired with a short, human
+sentence. A long title still wraps as confident lines via the fixed
+`max-width: 34ch` measure, not a smaller font.
+
+### 4. Supporting sentence
+
+`hero_subheading` — exactly one sentence, distinct from both the H1
+and the meta `description`. It should add a reason to keep reading,
+not restate what the H1 or description already said in different
+words. If a draft subheading is just the description reworded, cut it
+or rewrite it to say something the H1/description haven't covered yet
+(a stake, a specific promise, a scope boundary).
+
+### 5. Compact metadata
+
+Publish date, updated date, reading time — rendered automatically,
+joined with `·`. Nothing to author by hand; this line is already as
+compact as the standard requires.
+
+### Featured visual
+
+`hero_image` / `hero_image_alt` / `hero_image_caption`. The caption
+should add information (what the image shows, why it's here) rather
+than just repeating the title or subheading back.
+
 ## Components
 
 All components live in `src/components/article/`.
 
 ### ArticleHero
 
-**Purpose:** category, left-aligned title, restrained subheading, quiet
-metadata, then a wide image with a specific caption. Never centered,
-never text-over-photo.
+**Purpose:** optional rare eyebrow, left-aligned human title,
+restrained subheading, quiet metadata, then a wide image with a
+specific caption. Never centered, never text-over-photo. See "Article
+hero standard" above for the full authoring rules — this entry is just
+the component reference.
 
 **Rendered automatically** by `ArticleLayoutV2` from frontmatter — not
-placed by hand in the `.mdx` body.
+placed by hand in the `.mdx` body. `ArticleLayoutV2` passes
+`eyebrow={data.hero_eyebrow}` (undefined by default — no fallback to
+hub/category) and `title={data.display_title ?? data.title}`.
 
-**Props:** `category`, `title`, `subheading?`, `date?`, `updatedDate?`,
+**Props:** `eyebrow?`, `title`, `subheading?`, `date?`, `updatedDate?`,
 `readingTime?`, `image?`, `imageAlt?`, `imageCaption?`. Nothing is
-required beyond category/title — a subheading-less or image-less
-article still renders a complete hero.
+required beyond title — an eyebrow-less, subheading-less, or
+image-less article still renders a complete hero (eyebrow-less is now
+the norm, not the exception).
 
 **Title size is fixed, not length-based:** every article's `<h1>`
-renders at the same size (`clamp(2.25rem, 1.9rem + 1.6vw, 3rem)`
-desktop, `1.875rem` mobile) regardless of title length — a 30-character
-title and a 100-character migrated WordPress title read at the same
-scale. This was a deliberate standardization (2026-07-11): the
-component previously stepped the font down past 50 and 70 characters,
-which meant short titles rendered larger than long ones and articles
-looked inconsistent side by side. A long title still wraps as
-confident lines instead of a wall of text via the fixed `max-width:
-34ch` measure, not a smaller font.
+renders at the same size (`clamp(2.1rem, 1.8rem + 1.4vw, 2.75rem)`
+desktop, `1.6rem` mobile) regardless of length — a short display title
+and a longer legacy fallback title read at the same scale. A long
+title still wraps as confident lines instead of a wall of text via the
+fixed `max-width: 34ch` measure, not a smaller font.
 
 **Mobile:** headline drops its max-width cap (lets the browser wrap
 naturally) but stays the same fixed size as desktop's mobile
@@ -645,7 +737,7 @@ uses). The component:
 - Headline: `--fs-h3` size, Primary Green, centered, one line of
   breathing room above the body copy.
 - Eyebrow: small, uppercase, gold-text — same treatment as
-  `ArticleHero`'s category eyebrow, for visual continuity.
+  `ArticleHero`'s (rare, opt-in) eyebrow, for visual continuity.
 - Button hierarchy: exactly one primary `.button` (green); a secondary
   link, if present, is plain underlined text, never a second button.
 - Lab card: same content hierarchy as the sitewide `.lab-card` /

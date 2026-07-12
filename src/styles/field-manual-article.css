@@ -72,17 +72,22 @@
   text-align: left;
 }
 
-.fm-hero__category {
+.fm-hero__eyebrow {
   margin: 0 0 0.85rem;
 }
 
 /* Fixed at one size for every field-manual-v2 article, regardless of
    title length — standardized so a short title and a long legacy
    title read at the same scale. Controlled measure so a long title
-   wraps as confident lines, not an unreadable wall. */
+   wraps as confident lines, not an unreadable wall. Sized down
+   2026-07-12 alongside the display_title standard: headlines are now
+   consistently short, human sentences rather than full SEO titles, so
+   the fixed size no longer needs to accommodate a wall of keyword
+   text — especially on mobile, where the previous size read as
+   oversized once paired with a short, punchy headline. */
 .fm-hero__headline {
   margin: 0 0 1rem;
-  font-size: clamp(2.25rem, 1.9rem + 1.6vw, 3rem);
+  font-size: clamp(2.1rem, 1.8rem + 1.4vw, 2.75rem);
   line-height: 1.15;
   color: var(--color-primary);
   max-width: 34ch;
@@ -133,7 +138,7 @@
   .fm-hero__headline {
     max-width: none;
     line-height: 1.2;
-    font-size: 1.875rem;
+    font-size: 1.6rem;
   }
 
   .fm-hero__image-wrap {

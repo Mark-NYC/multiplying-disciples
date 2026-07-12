@@ -1,12 +1,17 @@
 ---
-// ArticleHero — category eyebrow, left-aligned title, restrained
-// subheading, quiet metadata, then a wide editorial image with a
-// specific caption. Never centered, never text-over-photo. Renders
-// exactly what it's given — no field is required if the article
-// doesn't have it (a subheading-less or image-less article still
-// renders a complete-looking hero).
+// ArticleHero — a person-first hero: optional rare eyebrow, one
+// left-aligned human headline, one supporting sentence, quiet
+// metadata, then a wide editorial image with a specific caption.
+// Never centered, never text-over-photo. Renders exactly what it's
+// given — no field is required if the article doesn't have it (an
+// eyebrow-less, subheading-less, or image-less article still renders
+// a complete-looking hero). See ARTICLE_DESIGN_SYSTEM.md, "Article
+// hero standard," for the full authoring rules — in particular, no
+// eyebrow by default; the breadcrumb already carries the hub/category
+// context, so an eyebrow that just repeats it is visual noise, not a
+// second signal.
 interface Props {
-  category: string;
+  eyebrow?: string;
   title: string;
   subheading?: string;
   date?: Date;
@@ -17,7 +22,7 @@ interface Props {
   imageCaption?: string;
 }
 
-const { category, title, subheading, date, updatedDate, readingTime, image, imageAlt, imageCaption } =
+const { eyebrow, title, subheading, date, updatedDate, readingTime, image, imageAlt, imageCaption } =
   Astro.props;
 
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
@@ -34,7 +39,7 @@ const metaParts = [
 ---
 
 <header class="fm-hero">
-  <p class="fm-hero__category eyebrow eyebrow--gold-text">{category}</p>
+  {eyebrow && <p class="fm-hero__eyebrow eyebrow eyebrow--gold-text">{eyebrow}</p>}
   <h1 class="fm-hero__headline">{title}</h1>
   {subheading && <p class="fm-hero__subhead">{subheading}</p>}
   {metaParts.length > 0 && <p class="fm-hero__meta">{metaParts.join(' · ')}</p>}
