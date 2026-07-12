@@ -1303,6 +1303,15 @@ import { COVO_LABS_URL } from '../data/site';
     border-top: 1px solid rgba(247, 243, 234, 0.2);
   }
 
+  /* While only one supporting quote exists (the second slot is waiting
+     on a real, approved testimonial), let it use the full row instead
+     of sitting lopsided in the left column. Reverts automatically when
+     a second quote is added. */
+  .field-quote__quote:only-child {
+    grid-column: 1 / -1;
+    max-width: 44rem;
+  }
+
   .field-quote__quote {
     margin: 0;
   }

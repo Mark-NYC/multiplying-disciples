@@ -119,10 +119,13 @@ function bestDate(entry: CollectionEntry<'articles'>): Date | undefined {
       gap: 1rem;
     }
 
+    /* Keep the desktop 3:2 shape on mobile — a square crop chops the
+       wording out of text-heavy social graphics (e.g. the "7 Stories
+       of Hope" card). */
     .article-list__thumbnail,
     .article-list__thumbnail img {
       width: 88px;
-      height: 88px;
+      height: 59px;
     }
   }
 
