@@ -38,7 +38,7 @@ import { SITE, COVO_LABS_URL } from '../data/site';
        single-pill badge so each claim can actually be read at a glance. -->
   <section class="hero">
     <div class="hero__inner">
-      <h1>Make disciples who <span class="hero__highlight fm-underline fm-underline--gold">multiply.</span></h1>
+      <h1>Make disciples who <span class="hero__highlight fm-underline fm-underline--shape-a fm-underline--clay-text">multiply.</span></h1>
       <p class="hero__subhead">Simple tools and live practice to help you obey Jesus with real people.</p>
 
       <p class="hero__ctas">
@@ -55,7 +55,7 @@ import { SITE, COVO_LABS_URL } from '../data/site';
   <section class="conviction-strip" id="ch-reps">
     <div class="conviction-strip__inner">
       <p class="eyebrow eyebrow--gold-text">You do not need more disciple-making content.</p>
-      <h2 class="conviction-strip__headline">You need <span class="fm-underline fm-underline--gold">reps</span>.</h2>
+      <h2 class="conviction-strip__headline">You need <span class="fm-underline fm-underline--shape-b fm-underline--primary">reps</span>.</h2>
       <p class="conviction-strip__body">
         Most Christians do not need another sermon, podcast, or framework. They need someone to
         practice with.
@@ -166,7 +166,7 @@ import { SITE, COVO_LABS_URL } from '../data/site';
   <section class="labs-cta" id="ch-practice">
     <div class="labs-cta__inner">
       <p class="eyebrow eyebrow--gold-text">Next Live Lab</p>
-      <h2>Join the Next <span class="fm-underline fm-underline--clay">Live</span> Multiplying Lab</h2>
+      <h2>Join the Next <span class="fm-underline fm-underline--shape-a fm-underline--clay">Live</span> Multiplying Lab</h2>
       <p class="labs-cta__descriptor">
         Practice one simple tool. Walk away knowing your next disciple-making step.
       </p>
@@ -405,7 +405,7 @@ import { SITE, COVO_LABS_URL } from '../data/site';
        visually distinct from the dark footer immediately below. -->
   <section class="final-cta" id="ch-final-cta">
     <div class="final-cta__inner">
-      <h2>Your next disciple-making conversation could happen <span class="fm-underline fm-underline--clay">this week</span>.</h2>
+      <h2>Your next disciple-making conversation could happen <span class="fm-underline fm-underline--shape-b fm-underline--clay">this week</span>.</h2>
       <p class="final-cta__body">
         Join a Live Multiplying Lab. Practice one simple tool. Use it with someone you know.
       </p>
@@ -565,13 +565,20 @@ import { SITE, COVO_LABS_URL } from '../data/site';
      the visual equivalent of circling something in a field notebook
      with a marker, not a printed rule. Each is one filled shape (not
      a constant-width stroked line) so it thickens and tapers the way
-     a real brush mark does. Sized to the element's own box (stretches,
-     doesn't tile), so this is for single words/short phrases only, not
-     lines that can wrap — see .block-grid__punch--coaching's native
-     wavy text-decoration for that case. Gold/clay reuse existing brand
-     accents (clay matches the brand spec's own "live-lab indicators"
-     use of Burnt Clay); the two shapes are mirror images of each
-     other so the taper direction always points toward the word.  */
+     a real brush mark does. Shape and color are independent: the SVG
+     is used as a mask (so it can be any solid color via
+     background-color) rather than baking a fixed fill into each one.
+     Sized to the element's own box (stretches, doesn't tile), so this
+     is for single words/short phrases only, not lines that can wrap —
+     see .block-grid__punch--coaching's native wavy text-decoration for
+     that case.
+
+     Color rule: when the underlined word already has its own accent
+     color (clay-text, primary green), the stroke matches that color
+     exactly — two-tone word+underline reads as a mismatched sticker.
+     When the word is plain ink/black, the stroke stays a brand accent
+     color instead of also going black, so it still reads as a
+     deliberate mark rather than disappearing into the text. */
   .fm-underline {
     position: relative;
     display: inline-block;
@@ -584,19 +591,39 @@ import { SITE, COVO_LABS_URL } from '../data/site';
     right: -0.05em;
     bottom: -0.24em;
     height: 0.38em;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
     pointer-events: none;
   }
 
   /* Thick at the left, tapers to a fine point at the right. */
-  .fm-underline--gold::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 32' preserveAspectRatio='none'%3E%3Cpath fill='%23d8a642' d='M3,5 C40,2 100,4 155,9 C172,11 186,13 197,16 L197,18 C186,17 172,14 155,12 C100,7 40,10 4,17 C2,14 2,8 3,5 Z'/%3E%3C/svg%3E");
+  .fm-underline--shape-a::after {
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 32' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M3,5 C40,2 100,4 155,9 C172,11 186,13 197,16 L197,18 C186,17 172,14 155,12 C100,7 40,10 4,17 C2,14 2,8 3,5 Z'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 32' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M3,5 C40,2 100,4 155,9 C172,11 186,13 197,16 L197,18 C186,17 172,14 155,12 C100,7 40,10 4,17 C2,14 2,8 3,5 Z'/%3E%3C/svg%3E");
   }
 
-  /* Mirror of the gold shape — thin at the left, thick at the right. */
+  /* Mirror of shape-a — thin at the left, thick at the right. */
+  .fm-underline--shape-b::after {
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 32' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M197,5 C160,2 100,4 45,9 C28,11 14,13 3,16 L3,18 C14,17 28,14 45,12 C100,7 160,10 196,17 C198,14 198,8 197,5 Z'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 32' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M197,5 C160,2 100,4 45,9 C28,11 14,13 3,16 L3,18 C14,17 28,14 45,12 C100,7 160,10 196,17 C198,14 198,8 197,5 Z'/%3E%3C/svg%3E");
+  }
+
+  /* Matches .hero__highlight's own text color exactly. */
+  .fm-underline--clay-text::after {
+    background-color: var(--color-clay-text);
+  }
+
+  /* Matches .conviction-strip__headline's own text color exactly. */
+  .fm-underline--primary::after {
+    background-color: var(--color-primary);
+  }
+
+  /* Plain-ink words (labs-cta / final-cta h2s) stay a brand accent
+     rather than also going black. */
   .fm-underline--clay::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 32' preserveAspectRatio='none'%3E%3Cpath fill='%23bd5a22' d='M197,5 C160,2 100,4 45,9 C28,11 14,13 3,16 L3,18 C14,17 28,14 45,12 C100,7 160,10 196,17 C198,14 198,8 197,5 Z'/%3E%3C/svg%3E");
+    background-color: var(--color-clay);
   }
 
   .hero__subhead {
