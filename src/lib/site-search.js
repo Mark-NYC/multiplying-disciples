@@ -140,11 +140,11 @@ export function initSiteSearch(els) {
     if (el) el.hidden = !visible;
   }
 
-  function renderResults(query) {
+  function renderResults() {
     results.textContent = '';
     const visible = currentMatches.slice(0, shownCount);
 
-    for (const match of visible) {
+    for (const [index, match] of visible.entries()) {
       const doc = docsById.get(match.id);
       if (!doc) continue;
       const terms = match.terms || [];
@@ -162,8 +162,11 @@ export function initSiteSearch(els) {
       link.href = doc.url;
       highlightInto(link, doc.title, terms);
       link.addEventListener('click', () => {
+        // Deliberately no query text — event name + non-sensitive
+        // metadata only (see SEARCH_SYSTEM.md, "Analytics").
         pushAnalytics('site_search_result_click', {
-          search_query: query.slice(0, 100),
+          result_position: index + 1,
+          result_type: doc.type,
           destination_url: doc.url,
         });
       });
@@ -228,7 +231,7 @@ export function initSiteSearch(els) {
           if (announce) status.textContent = 'No results';
         } else {
           show(none, false);
-          renderResults(trimmed);
+          renderResults();
           if (announce) {
             status.textContent = `${currentMatches.length}${currentMatches.length === MAX_RESULTS ? '+' : ''} result${currentMatches.length === 1 ? '' : 's'}`;
           }
@@ -236,8 +239,9 @@ export function initSiteSearch(els) {
 
         clearTimeout(analyticsTimer);
         analyticsTimer = setTimeout(() => {
+          // Deliberately no query text — results_count: 0 still flags
+          // that a no-results search happened.
           pushAnalytics('site_search', {
-            search_query: trimmed.slice(0, 100),
             results_count: currentMatches.length,
           });
         }, ANALYTICS_DEBOUNCE_MS);
@@ -263,6 +267,16 @@ export function initSiteSearch(els) {
     clearTimeout(debounceTimer);
     setUrl(input.value.trim());
     runSearch(input.value);
+  });
+
+  more?.addEventListener('click', () => {
+    const previousCount = shownCount;
+    shownCount = currentMatches.length;
+    renderResults();
+    // The button hides once everything is shown — move focus to the
+    // first newly revealed result so keyboard users aren't dropped.
+    const links = results.querySelectorAll('.search-result__title a');
+    if (links[previousCount]) links[previousCount].focus();
   });
 
   clear?.addEventListener('click', () => {

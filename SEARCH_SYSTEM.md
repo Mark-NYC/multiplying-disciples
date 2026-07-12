@@ -98,15 +98,19 @@ search item is a ≥44px full-width target.
 ## Analytics
 
 Follows the existing `window.dataLayer` push pattern
-(ecosystem-tracking.js) — inert until GA4/GTM is wired up:
+(ecosystem-tracking.js) — inert until GA4/GTM is wired up. **No query
+text is ever pushed** — events carry only names and non-sensitive
+metadata:
 
-- `site_search` (debounced 1.5s): `search_query` (trimmed to 100
-  chars), `results_count` (0 = a no-results search).
-- `site_search_result_click`: `search_query`, `destination_url`.
+- `site_search` (debounced 1.5s): `results_count` (0 = a no-results
+  search happened).
+- `site_search_result_click`: `result_position` (1-based rank of the
+  clicked result), `result_type` (Article/Hub/Tool), `destination_url`
+  (an on-site path).
 
-Queries are on-site ministry-topic searches pushed to the page's own
-dataLayer; nothing is sent anywhere until a tag manager is installed —
-review this list when that happens.
+This means individual failed queries can't be analyzed — only how
+often searches fail. That trade-off is deliberate; revisit here if
+richer search analytics are ever wanted.
 
 ## Sizes (measured, this build)
 
