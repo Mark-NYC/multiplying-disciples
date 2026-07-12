@@ -1,54 +1,105 @@
 ---
-// ArticleCTA — the one closing next step. Homepage dark-band
-// language: heading, one primary button, one quiet secondary text
-// link. Never render more than one of these per article.
+// ArticleCTA — the one canonical end-of-article CTA. See
+// ARTICLE_DESIGN_SYSTEM.md ("End-of-article CTA system") for the full
+// authoring reference. Never render more than one of these per article.
 //
-// `variant="tool-first"` swaps priority for strongly tool-focused
-// articles (e.g. a how-to that centers on a single named tool) —
-// primary becomes the tool, secondary becomes the lab invite.
-interface Props {
-  heading?: string;
-  body?: string;
-  primaryLabel?: string;
-  primaryUrl?: string;
-  secondaryLabel?: string;
-  secondaryUrl?: string;
-  variant?: 'default' | 'tool-first';
+// Driven entirely by `articleCta` (an article's `article_cta`
+// frontmatter block) plus a UTM content tag. Supports exactly 4 types:
+//   - lab:       dynamic next-available-lab card (client-side, via
+//                src/lib/labs-feed.js — never hardcode lab data here)
+//   - tool:      one configured primary destination, no lab card
+//   - community: one configured primary destination, optional
+//                secondary "next lab" link
+//   - none:      renders nothing at all
+//
+// `articleCta` being undefined (an article with no article_cta block)
+// still renders — defaults to `type: "lab"` with generic copy — because
+// every field-manual-v2 article already unconditionally showed a CTA
+// before this system existed; this keeps that contract rather than
+// silently removing it. Legacy (non-field-manual-v2) articles are
+// unaffected: ArticleLayout.astro only renders this component when an
+// article explicitly sets `article_cta`.
+interface Destination {
+  label: string;
+  href: string;
 }
 
-const defaults = {
-  default: {
-    heading: 'Ready to practice this?',
-    primaryLabel: 'Join the Next Live Lab',
-    primaryUrl: '/#ch-practice',
-    secondaryLabel: 'Start with the Conversation Box',
-    secondaryUrl: '/starter-tools/',
-  },
-  'tool-first': {
-    heading: 'Ready to practice this?',
-    primaryLabel: 'Use the Conversation Box',
-    primaryUrl: '/starter-tools/',
-    secondaryLabel: 'Join the Next Live Lab',
-    secondaryUrl: '/#ch-practice',
-  },
-} as const;
+interface ArticleCtaData {
+  type?: 'lab' | 'tool' | 'community' | 'none';
+  stakes_headline?: string;
+  bridge_copy?: string;
+  destination?: Destination;
+}
 
-const {
-  variant = 'default',
-  heading = defaults[variant].heading,
-  body,
-  primaryLabel = defaults[variant].primaryLabel,
-  primaryUrl = defaults[variant].primaryUrl,
-  secondaryLabel = defaults[variant].secondaryLabel,
-  secondaryUrl = defaults[variant].secondaryUrl,
-} = Astro.props;
+interface Props {
+  articleCta?: ArticleCtaData;
+  contentTag?: string;
+}
+
+const { articleCta, contentTag } = Astro.props;
+
+const type = articleCta?.type ?? 'lab';
+const stakesHeadline = articleCta?.stakes_headline ?? 'Ready to practice this?';
+const bridgeCopy = articleCta?.bridge_copy;
+const destination = articleCta?.destination;
+const eyebrow = 'TAKE THE NEXT STEP';
+
+// Stable per-page id — there is only ever one ArticleCTA per article.
+const labContainerId = 'article-cta-lab';
 ---
 
-<section class="fm-end-cta">
-  <h2>{heading}</h2>
-  {body && <p class="fm-end-cta__body">{body}</p>}
-  <div class="fm-end-cta__actions">
-    <a class="button" href={primaryUrl}>{primaryLabel}</a>
-    <a class="fm-end-cta__secondary" href={secondaryUrl}>{secondaryLabel}</a>
-  </div>
-</section>
+{
+  type !== 'none' && (
+    <section class="fm-cta">
+      <p class="fm-cta__eyebrow eyebrow eyebrow--gold-text">{eyebrow}</p>
+      <h2 class="fm-cta__headline">{stakesHeadline}</h2>
+      {bridgeCopy && <p class="fm-cta__body">{bridgeCopy}</p>}
+
+      {
+        type === 'lab' && (
+          <div
+            class="fm-cta__lab"
+            id={labContainerId}
+            aria-live="polite"
+            data-labs-content-tag={contentTag}
+          >
+            <p class="fm-cta__lab-loading">Loading the next lab&hellip;</p>
+          </div>
+        )
+      }
+
+      {
+        type === 'tool' && destination && (
+          <div class="fm-cta__actions">
+            <a class="button" href={destination.href}>
+              {destination.label}
+            </a>
+          </div>
+        )
+      }
+
+      {
+        type === 'community' && destination && (
+          <div class="fm-cta__actions">
+            <a class="button" href={destination.href}>
+              {destination.label}
+            </a>
+            <a class="fm-cta__secondary" href="https://www.covomultipliers.com/#upcoming-labs">
+              See the next Live Lab
+            </a>
+          </div>
+        )
+      }
+    </section>
+  )
+}
+
+<script>
+  // No-ops safely for type !== 'lab' (the container above won't exist).
+  import { renderArticleCtaLabInto } from '../../lib/labs-feed.js';
+
+  const container = document.getElementById('article-cta-lab');
+  if (container) {
+    renderArticleCtaLabInto(container, container.dataset.labsContentTag);
+  }
+</script>

@@ -54,6 +54,11 @@ function estimateReadingTime(body: string | undefined): string | undefined {
 }
 
 const readingTime = estimateReadingTime((article as unknown as { body?: string }).body);
+
+// utm_content tag for the end-of-article CTA's lab link, following the
+// "page-slug__cta-level__placement" convention in
+// ECOSYSTEM_GROWTH_STRATEGY.md.
+const ctaContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__article-cta`;
 ---
 
 <BaseLayout
@@ -109,14 +114,6 @@ const readingTime = estimateReadingTime((article as unknown as { body?: string }
       {data.related_tools.length > 0 && <ToolCTA tools={data.related_tools} />}
     </div>
 
-    <ArticleCTA
-      variant={data.cta_variant}
-      heading={data.cta_heading}
-      body={data.cta_body}
-      primaryLabel={data.cta_primary_label}
-      primaryUrl={data.cta_primary_url}
-      secondaryLabel={data.cta_secondary_label}
-      secondaryUrl={data.cta_secondary_url}
-    />
+    <ArticleCTA articleCta={data.article_cta} contentTag={ctaContentTag} />
   </div>
 </BaseLayout>

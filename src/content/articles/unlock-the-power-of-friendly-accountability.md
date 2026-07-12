@@ -14,6 +14,10 @@ og_image: "/wp-content/uploads/2023/05/Three-Thirds-Meeting-Format.webp"
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/unlock-the-power-of-friendly-accountability/"
+article_cta:
+  type: lab
+  stakes_headline: "Without accountability, good intentions keep turning into another week of inaction."
+  bridge_copy: "You do not need another article. You need a place to practice, set a clear next step, and come back with the story."
 notes: >
   Migrated from WordPress post_id 8096. Removed 2 duplicate pull-quote
   H4s that repeated adjacent text verbatim, the reusable "Are you in?
@@ -31,6 +35,18 @@ notes: >
   third inline image (Includes-3-Circles-Video) is present under a
   dedup-suffixed filename (same photo, WordPress "-1" collision
   suffix) — kept.
+
+  2026-07-12: added article_cta (the new canonical end-of-article CTA
+  system — see ARTICLE_DESIGN_SYSTEM.md). This article's old CTA (the
+  ArticleLayout cta-band's dynamic lab card) was displaying the
+  nearest-chronological lab even when it was full, because the
+  underlying renderLabsInto() never filtered by availability — a
+  sitewide bug affecting every legacy article, not unique to this one;
+  fixed at the source in src/lib/labs-feed.js so every legacy
+  cta-band benefits, and this article additionally upgraded to the new
+  ArticleCTA component/stakes-headline system per the brief. No lab
+  title, date, seat count, or URL was ever hardcoded in this article
+  either before or after — there was nothing to remove from the body.
 ---
 
 Disciple making is the core mission of Christianity. As followers of Jesus Christ, we are called to make disciples of all nations. However, disciple making is not always easy, both in the frontiers where the Gospel is new and in North America. In both of these contexts, it is important to have accountability structures in place to ensure that discipleship is happening effectively. In this article, we will explore the power of accountability in disciple making movements (DMM), and how friendly accountability can lead to obedience-based disciple making while avoiding legalism.
