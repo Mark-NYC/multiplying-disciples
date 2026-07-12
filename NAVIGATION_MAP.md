@@ -26,7 +26,9 @@ sitemap. Structure:
 
 1. `MORE RESOURCES` — Stickers (`/stickers/`) · 7 Stories of Hope
    (`/movement-resources/7-stories-of-hope-complete-facilitation-guide/`)
-   · Kingdom Ministry Training (`/kingdom-ministry-training/`)
+   · Commands of Christ (`https://obey.tools/`, rendered with a muted
+   "obey.tools ↗" domain hint) · Kingdom Ministry Training
+   (`/kingdom-ministry-training/`)
 2. `BROWSE TOPICS` — All Articles (`/blog/`) · Share the Gospel
    (`/share-the-gospel/`) · Disciple Making (`/disciple-making/`) ·
    Simple Church (`/simple-church/`) · Prayer (`/prayer/`) · Church
@@ -37,7 +39,7 @@ sitemap. Structure:
 
 1. Primary: Labs · Tools · Articles · About · Search, then the
    Join a Lab button
-2. `MORE RESOURCES` (same three links)
+2. `MORE RESOURCES` (same four links)
 3. `BROWSE TOPICS` (same six links)
 4. Contact Us
 5. Social icons (footer of the drawer)
@@ -45,14 +47,18 @@ sitemap. Structure:
 One level of nesting only — no accordions (nine resource links didn't
 earn them).
 
+## External destination note
+
+**Commands of Christ** has no page on this site — per Mark, the series
+lives on Obey.Tools, already an established external destination here
+(the 7 Stories guide links its per-story facilitation guides there).
+The menu links to `https://obey.tools/` with a visible domain hint. If
+a deeper collection URL exists (e.g. a commands-of-christ category),
+swap it into `MENU_FEATURED` in `src/data/navigation.ts` — the exact
+path couldn't be verified from the build environment.
+
 ## Deliberately excluded from the menu
 
-- **Commands of Christ** — no page exists on this site; the only
-  reference anywhere is an external link to obeychrist.com inside the
-  /movement-resources/ body. Not linked rather than inventing a route
-  or pointing a first-class menu item at an unverified external site.
-  **Migration need:** if this resource matters, either migrate a page
-  for it or have Mark confirm the external destination.
 - Strategy Coordinator resources (explicitly out of scope).
 - Movement Resources index, 4 Fields Toolbox (deep resource pages,
   reachable from Tools/articles).

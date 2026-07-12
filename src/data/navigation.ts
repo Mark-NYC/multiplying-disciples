@@ -2,6 +2,9 @@ export interface NavLink {
   label: string;
   href: string;
   children?: NavLink[];
+  // Set for off-site destinations — the menu renders a small muted
+  // domain hint next to the label so an external jump never surprises.
+  externalDomain?: string;
 }
 
 // Primary header navigation, kept deliberately short: Labs / Tools /
@@ -26,13 +29,17 @@ export const PRIMARY_NAV: NavLink[] = [
 // nav. Deliberately NOT a sitemap: no Strategy Coordinator, no
 // Movement Resources index, no 4 Fields Toolbox, no legal/utility
 // pages, no individual articles beyond the named featured resources.
-// Every href below is a real, existing route — verify before adding
-// ("Commands of Christ" is omitted because no page for it exists on
-// this site yet; see NAVIGATION_MAP.md).
+// Every href below is a real, existing destination — verify before
+// adding. "Commands of Christ" has no page on this site; the series
+// lives on Obey.Tools (already an established external destination —
+// the 7 Stories guide links its per-story facilitation guides there),
+// so it links out with a visible domain hint. Swap in the exact
+// collection URL if a deeper obey.tools path is confirmed.
 
 export const MENU_FEATURED: NavLink[] = [
   { label: 'Stickers', href: '/stickers/' },
   { label: '7 Stories of Hope', href: '/movement-resources/7-stories-of-hope-complete-facilitation-guide/' },
+  { label: 'Commands of Christ', href: 'https://obey.tools/', externalDomain: 'obey.tools' },
   { label: 'Kingdom Ministry Training', href: '/kingdom-ministry-training/' },
 ];
 

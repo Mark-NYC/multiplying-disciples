@@ -187,9 +187,9 @@ Resources / Browse Topics / Contact, mobile panel with the primary nav
 first. The old checkbox-only mobile menu was upgraded to an accessible
 dialog (real button, aria-expanded, focus trap, Escape, focus
 restoration, scroll lock) with the checkbox retained as the no-JS
-fallback. "Commands of Christ" was requested for the menu but has no
-page on this site — documented in NAVIGATION_MAP.md as a migration
-decision instead of inventing a route.
+fallback. "Commands of Christ" has no page on this site — per Mark the
+series lives on Obey.Tools, so the menu links there with a visible
+domain hint (see NAVIGATION_MAP.md for the deeper-URL note).
 
 ## Unresolved issues / needs Mark's judgment
 
