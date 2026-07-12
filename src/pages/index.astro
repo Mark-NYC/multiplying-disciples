@@ -561,15 +561,17 @@ import { SITE, COVO_LABS_URL } from '../data/site';
   }
 
   /* --- Hand-drawn underline accents (field-journal marker marks) ---
-     A loose, single-stroke squiggle under a key word or short phrase —
-     the visual equivalent of circling something in a field notebook.
-     Sized to the element's own box (stretches, doesn't tile), so this
-     is for single words/short phrases only, not lines that can wrap —
-     see .block-grid__punch--coaching's native wavy text-decoration for
-     that case. Two color variants reuse existing brand accents: gold
-     for the page's positioning language, clay for CTA/live-lab
-     moments (matching the brand spec's own "live-lab indicators" use
-     of Burnt Clay). */
+     A single tapered brush stroke under a key word or short phrase —
+     the visual equivalent of circling something in a field notebook
+     with a marker, not a printed rule. Each is one filled shape (not
+     a constant-width stroked line) so it thickens and tapers the way
+     a real brush mark does. Sized to the element's own box (stretches,
+     doesn't tile), so this is for single words/short phrases only, not
+     lines that can wrap — see .block-grid__punch--coaching's native
+     wavy text-decoration for that case. Gold/clay reuse existing brand
+     accents (clay matches the brand spec's own "live-lab indicators"
+     use of Burnt Clay); the two shapes are mirror images of each
+     other so the taper direction always points toward the word.  */
   .fm-underline {
     position: relative;
     display: inline-block;
@@ -578,21 +580,23 @@ import { SITE, COVO_LABS_URL } from '../data/site';
   .fm-underline::after {
     content: '';
     position: absolute;
-    left: -0.06em;
-    right: -0.06em;
-    bottom: -0.22em;
-    height: 0.34em;
+    left: -0.05em;
+    right: -0.05em;
+    bottom: -0.24em;
+    height: 0.38em;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     pointer-events: none;
   }
 
+  /* Thick at the left, tapers to a fine point at the right. */
   .fm-underline--gold::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14' preserveAspectRatio='none'%3E%3Cpath d='M2,9 C12,4 20,11 30,7 C40,3 50,10 60,6 C70,3 80,9 90,5 C94,4 97,5 98,4' fill='none' stroke='%23d8a642' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 32' preserveAspectRatio='none'%3E%3Cpath fill='%23d8a642' d='M3,5 C40,2 100,4 155,9 C172,11 186,13 197,16 L197,18 C186,17 172,14 155,12 C100,7 40,10 4,17 C2,14 2,8 3,5 Z'/%3E%3C/svg%3E");
   }
 
+  /* Mirror of the gold shape — thin at the left, thick at the right. */
   .fm-underline--clay::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14' preserveAspectRatio='none'%3E%3Cpath d='M2,6 C10,10 18,3 28,7 C38,11 48,4 58,8 C68,11 78,4 88,7 C93,9 96,6 98,7' fill='none' stroke='%23bd5a22' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 32' preserveAspectRatio='none'%3E%3Cpath fill='%23bd5a22' d='M197,5 C160,2 100,4 45,9 C28,11 14,13 3,16 L3,18 C14,17 28,14 45,12 C100,7 160,10 196,17 C198,14 198,8 197,5 Z'/%3E%3C/svg%3E");
   }
 
   .hero__subhead {
