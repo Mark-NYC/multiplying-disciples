@@ -56,7 +56,9 @@ const breadcrumbItems = [
 const isUtilityPage = data.exclude_from_blog;
 
 // Rough estimate from the raw source body — strips MDX import lines
-// and tags rather than trying to be exact. 200wpm, rounded, 1 min floor.
+// and tags rather than trying to be exact. 200wpm, rounded. Pages
+// under ~2 minutes (short tool/download pages) show no reading time
+// at all — "1 min read" is meta noise, not reader help.
 function estimateReadingTime(body: string | undefined): string | undefined {
   if (!body) return undefined;
   const text = body
@@ -64,7 +66,7 @@ function estimateReadingTime(body: string | undefined): string | undefined {
     .replace(/<[^>]+>/g, ' ')
     .replace(/[#>*_`]/g, ' ');
   const words = text.trim().split(/\s+/).filter(Boolean).length;
-  if (words < 50) return undefined;
+  if (words < 300) return undefined;
   const minutes = Math.max(1, Math.round(words / 200));
   return `${minutes} min read`;
 }
