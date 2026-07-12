@@ -1,0 +1,102 @@
+# CONTENT_AUDIT.md
+
+Audit of every page in `src/content/` against the cluster strategy in
+CONTENT_CLUSTER_ROADMAP.md. Evidence: real GSC data in
+URL_INVENTORY.md (last-3-months clicks/impressions at migration time),
+current frontmatter, word counts, and the redirect map in vercel.json.
+
+**Quality** = editorial judgment of the current page against its
+target query (Strong / Adequate / Thin / Utility).
+**Traffic Tier** = the GSC-derived tier from URL_INVENTORY.md
+(T1 >1,000 impressions or >10 clicks; T2 100–999; T3 <100; U =
+unknown/no data).
+**Recommendation** = Keep / Improve / Merge / Redirect / Retire /
+Utility (not part of cluster strategy).
+
+## Editorial articles
+
+| Current Title | URL | Cluster | Quality | Tier | Search Intent | Rec. | Notes |
+|---|---|---|---|---|---|---|---|
+| The 12 Disciples of Jesus, in Order | /discover-the-12-disciples-of-jesus-christ/ | Meet Jesus | Strong | T1 (330c / 116,772i) | Informational: "12 disciples of jesus in order" | **Keep + Improve** | The site's biggest asset by far; CTR is only 0.28% — meta/title CTR work + stronger internal links out of it is the single highest-leverage task on the site. |
+| Testimony in the Bible: 20 Verses | /testimony-in-the-bible-20-verses-to-ignite-your-faith/ | Testimony | Strong | T1 (19c / 9,723i) | Informational: "testimony in the bible" | **Keep** | Also serves "Bible verses about testimony" — do NOT create a separate verses article. |
+| Bible Verses About Spreading the Gospel | /bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/ | Sharing the Gospel | Strong | T1 (2c / 8,305i) | Informational: verses about evangelism | **Improve** | 0.02% CTR on 8.3k impressions — title/description CTR fix, then bridge readers to How to Share the Gospel pillar. |
+| Simple 15-Second Testimony Examples | /15-second-testimony-examples-ignite-your-faith/ | Testimony | Strong | T1 (13c / 7,669i) | Informational + practical: "15 second testimony", "testimony examples" | **Keep** | Cluster workhorse; becomes the practice-tool anchor under the new testimony pillar. |
+| The 3 Circles Gospel Presentation | /the-three-circles-gospel-presentation-step-by-step/ | Sharing the Gospel | Strong | T1 (62c / 6,670i) | How-to: "3 circles gospel" | **Keep** | Best click-earner per impression on the site; model article. |
+| 7 Stories of Hope to Read With a Seeker | /movement-resources/7-stories-of-hope-complete-facilitation-guide/ | Sharing the Gospel (bridge to Simple Church) | Strong | T1 (75c / 5,396i) | Practical: discovery process with seekers | **Keep** | Highest-clicks page; already links per-story guides to Obey.Tools. |
+| What Does "Apostle" Actually Mean? | /apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/ | Meet Jesus / Leadership | Strong | T1 (0c / 2,430i) | Informational: "apostle meaning" | **Improve** | 0 clicks on 2.4k impressions — CTR fix; two images still missing (see SITE_AUDIT). |
+| How to Evangelize: 5 Simple Steps | /how-to-evangelize-ultimate-step-by-step-guide/ | Sharing the Gospel | Strong | T1 (0c / 1,817i) | How-to: "how to evangelize" | **Improve** | 0 clicks — CTR fix; will interlink tightly with the new How to Share the Gospel pillar (distinct query families). |
+| Unlocking the Power of APEST | /unlocking-the-power-of-apest-the-ultimate-guide/ | Leadership & Multiplication | Strong | T1 (4c / 1,290i) | Informational: "APEST" | **Keep** | Cluster anchor for fivefold-gifting queries. |
+| Three Thirds Bible Study Process | /three-thirds/ | Simple Church (shared with Making Disciples) | Strong | T1 (13c / 737i) | How-to: "three thirds process" | **Keep** | Core format article; bridge between discipleship and church practice. |
+| Church Waffle | /movement-resources/12-practice-church-circle/ | Simple Church | Strong | T1 (12c / 308i) | Tool: "church circle" practices | **Keep** | The practice-church tool anchor. |
+| Understanding Biblical Discipleship | /understanding-biblical-discipleship-a-complete-guide-to-following-jesus/ | Making Disciples | Strong | T2 (1c / 609i) | Informational: "biblical discipleship" | **Improve** | Long SEO H1, default CTA, AI-looking hero; carries four legacy redirects — worth a real refresh. Sits under the new How to Make Disciples pillar. |
+| Four Fields of Kingdom Growth (book page) | /four-fields-of-kingdom-growth-…-shank/ | Leadership & Multiplication | Strong (48k words — the whole book) | T2 (7c / 603i) | Informational/reference: "four fields Shank" | **Keep** | Unique reference asset; needs a TOC-first reading experience eventually, but not a cluster gap. |
+| How to Get Started in Four Fields Training | /how-to-get-started-in-four-fields-training/ | Disciple Training | Strong | T2 (5c / 495i) | How-to: four fields training | **Keep** | Reassign conceptually to the Training cluster; natural KMT feeder. |
+| Prayer is Essential: 12 Key Prayer Points | /prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/ | Prayer & the Field | Strong | T2 (2c / 403i) | Informational: movement prayer | **Keep** | |
+| How to Pray Walk Your Neighborhood | /a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/ | Prayer & the Field | Strong | T2 (8c / 335i) | How-to: "prayer walking" | **Keep** | Cluster pillar candidate for prayer-walking queries. |
+| Christian Prayer Wheel | /christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/ | Prayer & the Field | Strong | T2 (4c / 190i) | How-to: "prayer wheel" | **Keep** | |
+| 7 Biblical Reasons You Can't Stay Silent About Your Testimony | /the-power-of-sharing-your-testimony-scripture-…/ | Testimony | Strong | T2 (0c / 166i) | Informational: testimony scripture | **Keep** | |
+| 4 Stages of Movement | /4-stages-of-movement-unlock-your-next-steps/ | Leadership & Multiplication | Strong | T2 (7c / 165i) | Informational: movement stages | **Keep** | |
+| The Power of Multiplication | /the-power-of-multiplication-…-great-commission/ | Leadership & Multiplication | Adequate | T2 (0c / 160i) | Informational: multiplication | **Improve** | Becomes a supporting article under a new "What Is a Church Planting Movement" pillar. |
+| What Is a Simple Church? | /what-is-a-simple-church-meeting-christ-in-a-spiritual-family/ | Simple Church | Strong | T2 (0c / 142i) | Definitional: "simple church" | **Keep + Improve** | Cluster pillar; 0 clicks on 142i — CTR pass and expansion as the pillar. |
+| Disciple Making Movement (DMM): Key Characteristics | /disciple-making-movement-dmm-key-characteristics-and-definition/ | Leadership & Multiplication | Adequate | T2 (3c / 128i) | Definitional: "what is DMM" | **Improve** | Carries several redirected legacy DMM URLs; deserves pillar-grade depth. |
+| 10 Qualities Present in Every CPM | /10-qualities-present-in-every-church-planting-movement-…/ | Leadership & Multiplication | Adequate | T2 (1c / 107i) | Informational | **Keep** | |
+| Finding a Person of Peace | /finding-persons-of-peace-a-key-strategy-…/ | Prayer & the Field | Adequate (707 words) | T3 (0c / 66i) | Definitional + how-to: "person of peace" | **Improve** | Head-term opportunity; too thin for the query today. Priority improve. |
+| Breaking Down Barriers: Pastors' Objections | /breaking-down-barriers-…/ | Leadership & Multiplication | Adequate | T3 (1c / 66i) | Pastor-facing objections | **Keep** | |
+| The Clear Pathway of Jesus | /the-clear-pathway-of-jesus-a-biblical-model-for-disciple-making/ | Making Disciples | Strong | T3 (0c / 46i) | Informational: Jesus' disciple-making model | **Keep (merge target)** | Absorbs "Setting the Stage: Muddy Boots" (below). |
+| The Multiplier Mandate | /the-multiplier-mandate-revealed-from-genesis-to-revelation/ | Leadership & Multiplication | Strong | T3 (0c / 33i) | Theological foundation | **Keep** | |
+| How to Spot a Lone Wolf | /how-to-spot-a-lone-wolf-and-not-become-one/ | Leadership & Multiplication | Adequate | T3 (0c / 30i) | Practitioner health | **Keep** | Currently hub-less (orphan) — assign to church-planting-movements hub. |
+| Jesus the Leader (Gospel of Mark) | /jesus-the-leader-…-gospel-of-mark/ | Disciple Training | Adequate | T3 (0c / 29i) | Informational: how Jesus trained | **Improve** | Seed for the "How Jesus Trained His Disciples" training-cluster article — expand this rather than writing a duplicate. |
+| The Secret Ingredient of Trustworthy Leaders | /the-secret-ingredient-of-trustworthy-leaders-…/ | Leadership & Multiplication | Adequate | T3 (1c / 24i) | Character/leadership | **Keep** | Orphan — assign to a hub. |
+| The Leadership Phase… (redirected already) | — | — | — | — | — | — | Already redirected in vercel.json; listed for completeness. |
+| How Paul Catalyzed a Movement in Ephesus | /unleashing-the-movement-…-ephesus-…/ | Leadership & Multiplication | Adequate | T3 (0c / 19i) | Biblical case study | **Keep** | |
+| Content vs. Systems | /content-vs-systems-the-game-changer-for-leadership-development/ | Disciple Training | Strong | T3 (0c / 18i) | Leadership dev philosophy | **Keep** | Natural KMT feeder. |
+| Unlock the Power of Friendly Accountability | /unlock-the-power-of-friendly-accountability/ | Making Disciples | Strong | T3 (0c / 17i) | Practical: accountability | **Keep** | |
+| The 3 Core Habits of a Disciple | /the-3-core-habits-of-a-disciple/ | Making Disciples | Strong | T3 | Practical | **Keep** | Carries the "love and obedience" redirect. |
+| Setting the Stage: Muddy Boots | /setting-the-stage-jesus-as-the-model-for-muddy-boots-church-planting/ | Making Disciples | Thin (551 words) | T3 | Jesus' model | **Merge** | Merge into The Clear Pathway of Jesus (same thesis, stronger page); redirect after merging. |
+| 5 Surprising Ways to Attract Multiplying Leaders | /5-surprising-ways-to-attract-multiplying-leaders/ | Leadership & Multiplication | Adequate | T3 (2c / 20i) | Practical: finding leaders | **Keep** | |
+| 4 Responses to the Gospel | /4-responses-to-the-gospel/ | Sharing the Gospel | Thin (37 words) | T3 | Tool stub | **Improve** | A named starter tool with no article behind it — expand into a real explainer (parable of the soils / filtering). |
+| 5 T's Strategy Coordinator Overview | /movement-resources/strategy-coordinator/ | — | Adequate | U | Niche practitioner role | **Not part of cluster strategy** | Per direction, Strategy Coordinator content stays out of the cluster/menu architecture. Keep the URL live as a quiet resource; no inbound cluster links. |
+
+## Utility, tool, and legal pages (not part of the cluster strategy)
+
+| Title | URL | Rec. | Notes |
+|---|---|---|---|
+| 3 Circles (slides page) | /3-circles/ | Utility/Tool — Keep | Tool destination for Practice CTAs; linked from 3 Circles article + hub. |
+| 4-1-1 (slides page) | /4-1-1/ | Utility/Tool — Keep | 35 words; tool stub, fine as-is. |
+| 4 Fields Toolbox | /movement-resources/4-fields-toolbox/ | Utility/Tool — Keep | Excluded from menu by direction; stays linked from Four Fields content. |
+| Start Here | /start-here/ | Utility — Keep | Onboarding landing. |
+| Starter Tools | /starter-tools/ | Utility — Keep | Primary "Tools" destination. |
+| Stickers | /stickers/ | Utility — Keep | T2 (7c/359i) — genuine product interest. |
+| Church Waffle Sticker / Four Fields Sticker | /the-church-waffle-sticker/, /the-four-fields-sticker-simple-2x2/ | Utility — Keep | |
+| Movement Resources | /movement-resources/ | Utility — Keep | Index page; excluded from menu. |
+| Kingdom Ministry Training | /kingdom-ministry-training/ | Utility — **Improve (Phase 1)** | Only 19 impressions but it is a named business priority; upgrade from a bare slide-link list to a true training landing page that Training-cluster articles can send readers to. |
+| FREE 1-Hour Live Disciple Making Training | /free-training/ | Utility — Keep | Lab-adjacent landing; review vs. the live labs section for redundancy (Mark's call). |
+| Harvest Group Resources & Coaching Plan | /action-plan/ | Utility — Keep | |
+| The Vision / Doctrinal Center & Theological Values | /vision/, /beliefs-values/ | Utility — Keep | About pages. |
+| Connect | /contact-us/ | Utility — Keep | |
+| Privacy Policy | /privacy-policy/ | Utility — Keep | Excluded from search + blog. |
+| Your seat is saved! | /elementor-10714/ | **Retire (Mark's call)** | Expired event confirmation kept only for the indexed URL; candidate for a 301 to /free-training/ once Mark confirms. |
+
+## Already-redirected legacy URLs (31)
+
+vercel.json holds 31 permanent redirects from the WordPress era (top
+DMM listicles, discipleship guides, evangelism strategy posts, book
+reviews, leadership series). Two facts matter for the roadmap:
+
+1. Their redirect targets (biblical discipleship, DMM definition,
+   how-to-evangelize, 3 core habits) inherit their query equity —
+   those targets are "Improve" priorities above.
+2. Their old query families ("ways to make disciples", "disciple
+   making movement examples", "empowered evangelists", "seven words of
+   Jesus") are demand evidence used in CONTENT_GAP_ANALYSIS.md — several
+   Phase 2/3 roadmap articles deliberately re-open those topics with
+   stronger, single-intent pages.
+
+## Hubs (10)
+
+All ten hubs are Keep. Under the roadmap each hub gains a designated
+pillar article and a curated key-article order that mirrors its
+cluster (see CONTENT_CLUSTER_ROADMAP.md). One new hub is proposed:
+**Disciple Training** (the only major cluster without a hub today);
+`/jesus-and-the-twelve/`, `/stories-of-hope/`, `/3-circles-guide/`,
+and `/four-fields/` remain as sub-hubs feeding larger clusters.
