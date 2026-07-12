@@ -173,6 +173,22 @@
   box-shadow: var(--fm-shadow);
 }
 
+.fm-insight-card__head {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.fm-insight-card__icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  padding: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  object-fit: contain;
+}
+
 .fm-insight-card__label {
   display: block;
   font-family: var(--font-mono);
@@ -183,6 +199,103 @@
   margin: 0 0 0.75rem;
   color: var(--color-primary);
 }
+
+/* Optional named accents (opt-in via the `accent` prop) — a colored
+   top edge plus a matching icon-badge tint. Omitting `accent` renders
+   the plain card above with no visual change. */
+.fm-insight-card--primary { border-top: 3px solid var(--color-primary); }
+.fm-insight-card--accent { border-top: 3px solid var(--color-accent); }
+.fm-insight-card--gold { border-top: 3px solid var(--color-gold); }
+.fm-insight-card--clay { border-top: 3px solid var(--color-clay); }
+.fm-insight-card--ink { border-top: 3px solid var(--color-primary-hover); }
+
+.fm-insight-card--accent .fm-insight-card__label { color: var(--color-accent-hover); }
+.fm-insight-card--gold .fm-insight-card__label { color: var(--color-gold-text); }
+.fm-insight-card--clay .fm-insight-card__label { color: var(--color-clay-text); }
+.fm-insight-card--ink .fm-insight-card__label { color: var(--color-primary-hover); }
+
+.fm-insight-card--primary .fm-insight-card__icon { background: #dfe8e3; }
+.fm-insight-card--accent .fm-insight-card__icon { background: #e3f0e6; }
+.fm-insight-card--gold .fm-insight-card__icon { background: #f7ecd6; }
+.fm-insight-card--clay .fm-insight-card__icon { background: #fbe4d6; }
+.fm-insight-card--ink .fm-insight-card__icon { background: #e7e5df; }
+
+/* --- Role nav (e.g. APEST) ---------------------------------------
+   A small pill row acting as a visual "map" of a guide's named
+   sections. Opt-in, hand-built per article via plain HTML in the
+   .mdx body — not a component, since the set of roles/pills is
+   specific to one article. Links to real heading ids already on the
+   page (never invented anchors). */
+
+.fm-role-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 2rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fm-role-nav li {
+  margin: 0;
+}
+
+.fm-role-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 1.1rem 0.4rem 0.4rem;
+  border-radius: var(--radius-pill);
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.fm-role-nav a:hover,
+.fm-role-nav a:focus-visible {
+  border-color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.fm-role-nav img {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-pill);
+  padding: 5px;
+  object-fit: contain;
+  background: var(--color-surface);
+}
+
+.fm-role-nav a[data-accent='clay'] img { background: #fbe4d6; }
+.fm-role-nav a[data-accent='gold'] img { background: #f7ecd6; }
+.fm-role-nav a[data-accent='accent'] img { background: #e3f0e6; }
+.fm-role-nav a[data-accent='primary'] img { background: #dfe8e3; }
+.fm-role-nav a[data-accent='ink'] img { background: #e7e5df; }
+
+/* Small pill eyebrow tying a deep-dive section back to its role-nav
+   color, hand-placed above a heading via plain HTML — same opt-in,
+   article-specific pattern as .fm-role-nav above. */
+.fm-role-eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-pill);
+  margin: 0;
+}
+
+.fm-role-eyebrow[data-accent='clay'] { background: #fbe4d6; color: var(--color-clay-text); }
+.fm-role-eyebrow[data-accent='gold'] { background: #f7ecd6; color: var(--color-gold-text); }
+.fm-role-eyebrow[data-accent='accent'] { background: #e3f0e6; color: var(--color-accent-hover); }
+.fm-role-eyebrow[data-accent='primary'] { background: #dfe8e3; color: var(--color-primary); }
+.fm-role-eyebrow[data-accent='ink'] { background: #e7e5df; color: var(--color-primary-hover); }
 
 .fm-insight-card__body {
   font-size: 1.0625rem;
