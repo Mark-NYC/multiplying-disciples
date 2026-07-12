@@ -19,6 +19,16 @@ og_image: "/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called.web
 status: "migrated"
 migration_priority: "tier-1"
 original_url: "https://multiplyingdisciples.us/discover-the-12-disciples-of-jesus-christ/"
+article_system: "field-manual-v2"
+hero_category: "Jesus and the Twelve"
+hero_subheading: "The order Jesus called them reveals a pattern: ordinary people, trained in public, sent to multiply."
+article_cta:
+  type: community
+  stakes_headline: "Knowing all twelve names in order won't tell you whether you're actually living out their pattern."
+  bridge_copy: "This is a calling worked out with others, not a trivia answer settled alone. Find people living out that same pattern today, inside the CoVo community."
+  destination:
+    label: "Explore CoVo Multipliers"
+    href: "https://www.covomultipliers.com/"
 notes: >
   Real content ported from the WordPress export (post_id 7410). This is the
   single highest-traffic page on the whole site (330 clicks / 116,772
@@ -44,6 +54,25 @@ notes: >
   12-Disciples-of-Jesus-in-Order-Called-with-Bible-References.webp
   (inline infographic), plus ~25 numbered per-disciple thumbnail images
   under /wp-content/uploads/2023/04/.
+
+  2026-07-12 (Batch 5, flagship SEO article — maximally conservative):
+  this is the site's single highest-traffic page (116,772 impressions).
+  Per the site owner's explicit brief for this batch, treated it as the
+  flagship reference it is, not a design experiment: opted into
+  article_system: field-manual-v2 for the updated hero/CTA chrome the
+  rest of the site now uses, but changed nothing else. No hero_image —
+  the featured image (og_image) has "12 Disciples of Jesus in Order
+  Called" baked into the graphic as a title card; the only other
+  candidate infographic already in the body has Bible references baked
+  in too, and none of the ~25 per-disciple thumbnails were reviewed for
+  hero suitability given the stakes of guessing wrong on this specific
+  page — omitted rather than risk a mismatched or duplicated image.
+  Every heading, anchor id, jump link, and word of body content is
+  byte-for-byte unchanged; this file intentionally stays .md (no MDX
+  components used) precisely so nothing about the 116K-impression
+  content itself is touched. Added article_cta (type: community) —
+  this page is a reference/biography lookup, not a single practiced
+  skill.
 ---
 
 The **12 disciples of Jesus in order** weren’t chosen randomly. Jesus called each disciple intentionally—and understanding the **order in which Jesus called them** helps you see how His disciple-making pattern unfolds. If you’re looking for a clear list, a simple explanation, and an infographic showing the disciples in order of calling, this guide gives you everything in one place.
