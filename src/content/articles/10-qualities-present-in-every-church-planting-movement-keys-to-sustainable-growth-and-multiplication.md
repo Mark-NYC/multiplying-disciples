@@ -11,6 +11,7 @@ related_articles:
   - "/starter-tools/"
 related_tools: []
 og_image: "/wp-content/uploads/2023/04/maxresdefault-3.jpg"
+hero_image: "/wp-content/uploads/2023/04/maxresdefault-3.jpg"
 status: "migrated"
 migration_priority: "tier-2"
 original_url: "https://multiplyingdisciples.us/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/"

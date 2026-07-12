@@ -10,6 +10,7 @@ related_articles:
   - "/stickers/"
 related_tools: []
 og_image: "/wp-content/uploads/2025/12/Christian-Prayer-Wheel-diagram-showing-12-prayer-segments.webp"
+hero_image: "/wp-content/uploads/2025/12/Christian-Prayer-Wheel-diagram-showing-12-prayer-segments.webp"
 status: "migrated"
 migration_priority: "tier-2"
 original_url: "https://multiplyingdisciples.us/christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/"

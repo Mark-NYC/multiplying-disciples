@@ -84,6 +84,36 @@
   box-sizing: border-box;
 }
 
+/* Keyboard users get one consistent, on-brand focus ring sitewide —
+   no component should rely on the browser default alone. Mouse/touch
+   focus stays unstyled via :focus-visible. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Skip link — first focusable element on every page (BaseLayout).
+   Visually hidden until focused, then a small on-brand pill in the
+   top-left corner. */
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  z-index: 100;
+  padding: 0.6rem 1.1rem;
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  border-radius: var(--radius-button);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
 html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
@@ -553,43 +583,9 @@ article tbody tr:nth-child(even) td {
   color: var(--color-footer-text);
 }
 
-/* CovoMark is a dark-line-on-transparent icon; invert it to stay visible
-   against the dark .cta-band background (it reads fine as-is against the
-   light .labs-cta background on the homepage). */
-.cta-band .covo-mark {
-  filter: brightness(0) invert(1);
-}
-
 .cta-band p {
   margin: 0 0 1.25rem;
   color: var(--color-footer-text-muted);
-}
-
-/* A single live lab card (article "Next Live Lab" CTA) embedded inside
-   the dark .cta-band. Needs local color resets — .lab-card is a white
-   card, but .cta-band h2/h3 and .cta-band p above would otherwise paint
-   its title/text in the band's light-on-dark colors. Two-class selectors
-   here outrank those single-class-plus-element rules. */
-.cta-band__lab {
-  max-width: 26rem;
-  margin: 1.5rem auto 0;
-  text-align: left;
-}
-
-.cta-band__lab .labs-cta__loading {
-  text-align: center;
-  color: var(--color-footer-text-muted);
-  margin: 0;
-}
-
-.cta-band__lab .lab-card__title {
-  color: var(--color-text);
-}
-
-.cta-band__lab .lab-card__meta,
-.cta-band__lab .lab-card__description,
-.cta-band__lab .lab-card__status {
-  color: var(--color-text-muted);
 }
 
 .cta-band__actions {
@@ -646,12 +642,6 @@ article tbody tr:nth-child(even) td {
   max-width: 38rem;
   margin: 0 auto 3.5rem;
   font-size: var(--fs-body);
-  color: var(--color-text-muted);
-}
-
-.labs-cta__loading {
-  grid-column: 1 / -1;
-  text-align: center;
   color: var(--color-text-muted);
 }
 
@@ -992,225 +982,6 @@ article tbody tr:nth-child(even) td {
   }
 }
 
-.lab-card {
-  display: flex;
-  flex-direction: column;
-  padding: 1.5rem;
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-card);
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
-}
-
-.lab-card__meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 0 0 0.6rem;
-}
-
-.lab-card__date {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  color: var(--color-accent-hover);
-}
-
-/* Status badges — "Live Lab" (constant, pulsing dot) plus a second,
-   same-sized pill carrying the actual seat countdown. */
-.lab-card__badge {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  padding: 0.2rem 0.65rem;
-  border-radius: var(--radius-pill);
-  background: var(--color-surface);
-  color: var(--color-text-muted);
-  border: 1px solid var(--color-border);
-}
-
-.lab-card__badge--live {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.lab-card__badge-dot {
-  width: 0.4rem;
-  height: 0.4rem;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--color-clay);
-  animation: lab-live-pulse 1.8s ease-in-out infinite;
-}
-
-@keyframes lab-live-pulse {
-  0%,
-  100% {
-    opacity: 1;
-    box-shadow: 0 0 0 0 rgba(189, 90, 34, 0.45);
-  }
-  50% {
-    opacity: 0.7;
-    box-shadow: 0 0 0 4px rgba(189, 90, 34, 0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .lab-card__badge-dot,
-  .featured-lab__live-dot {
-    animation: none;
-  }
-}
-
-.lab-card__title {
-  font-size: 1.05rem;
-  margin: 0 0 0.5rem;
-}
-
-.lab-card__description {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  margin: 0 0 1.1rem;
-}
-
-.lab-card__cta {
-  align-self: flex-start;
-  margin-top: auto;
-}
-
-.lab-card--signup {
-  grid-column: 1 / -1;
-  align-items: center;
-  text-align: center;
-}
-
-.lab-card__form {
-  display: flex;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 0.75rem;
-}
-
-.lab-card__form input {
-  padding: 0.65rem 0.9rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-button);
-  font-size: 0.95rem;
-  min-width: 14rem;
-}
-
-.lab-card__status {
-  margin: 0.75rem 0 0;
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-}
-
-/* Featured lab card — the homepage's single-lab spotlight in the
-   #ch-practice section (src/pages/index.astro). Deliberately a
-   separate class from .lab-card above rather than a variant of it:
-   this card is injected by its own renderFeaturedLabInto() function in
-   labs-feed.js, so the article "Next Live Lab" card (.lab-card, in
-   ArticleLayout's .cta-band) is completely unaffected by anything
-   here. Unscoped/global for the same reason as .lab-card — it's
-   rendered client-side, so Astro's build-time style scoping can't
-   reach it. ~20-25% larger than .lab-card, with heavier padding, a
-   touch more corner radius, and a site-consistent soft shadow. */
-.featured-lab-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: clamp(2.25rem, 4vw, 3.25rem) clamp(1.75rem, 4vw, 2.75rem);
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: calc(var(--radius-card) + 4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.featured-lab-card__meta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin: 0 0 0.85rem;
-}
-
-/* Seats remaining reads as its own line — a clear but not shouty
-   signal of urgency, sitting between the meta row and the title. */
-.featured-lab-card__seats {
-  margin: 0 0 1rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--color-clay-text);
-}
-
-.featured-lab-card__seats--full {
-  color: var(--color-text-muted);
-}
-
-.featured-lab-card__title {
-  margin: 0 0 0.85rem;
-  font-size: clamp(1.5rem, 3.2vw, 2rem);
-  line-height: 1.2;
-}
-
-.featured-lab-card__description {
-  max-width: 26rem;
-  margin: 0 0 1.75rem;
-  font-size: 1rem;
-  color: var(--color-text-muted);
-}
-
-/* The one button on this card is the answer to "what do I do next" —
-   full width, generous padding, impossible to miss. */
-.featured-lab-card__cta {
-  width: 100%;
-  padding: 1rem 1.75rem;
-  font-size: 1.05rem;
-}
-
-.featured-lab-card--signup {
-  align-items: center;
-}
-
-.featured-lab-card--signup .featured-lab-card__title {
-  margin-bottom: 0.5rem;
-}
-
-.featured-lab-card__form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.6rem;
-  width: 100%;
-  margin-top: 0.75rem;
-}
-
-.featured-lab-card__form input {
-  flex: 1 1 14rem;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-button);
-  font-size: 1rem;
-}
-
-.featured-lab-card__form button {
-  flex-shrink: 0;
-}
-
-.featured-lab-card__status {
-  margin: 0.85rem 0 0;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-
 /* Resource grid — card layout for tool/resource listing pages
    (Starter Tools, Stickers, 4 Fields Toolbox). Content authors wrap
    each item in <div class="resource-grid">/<div class="resource-card">
@@ -1229,6 +1000,7 @@ article tbody tr:nth-child(even) td {
   text-align: center;
   gap: 0.85rem;
   padding: 1.5rem 1rem;
+  background: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
 }
@@ -1239,9 +1011,35 @@ article tbody tr:nth-child(even) td {
   object-fit: contain;
 }
 
+/* Markdown wraps each card's image/label in its own <p>; the card's
+   flex gap already provides the rhythm, so the article paragraph
+   margin would double it. */
+.resource-card p {
+  margin: 0;
+}
+
 .resource-card__label {
   font-weight: 700;
   margin: 0;
+}
+
+/* Button pinned to the bottom edge so a row of cards with different
+   label lengths still lines up. */
+.resource-card__cta {
+  margin-top: auto;
+}
+
+@media (max-width: 540px) {
+  /* These are small, bold, hand-drawn tool marks — two-up keeps the
+     page from becoming one extremely tall single-file stack on phones. */
+  .resource-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .resource-card img {
+    max-height: 120px;
+  }
 }
 
 .resource-card__price {

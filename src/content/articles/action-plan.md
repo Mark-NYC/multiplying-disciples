@@ -38,8 +38,6 @@ notes: >
   the footer wordmark) confirmed present.
 ---
 
-## Harvest Group Resources & Coaching Plan
-
 Kick start your local harvest group with the resources and coaching checkpoints below.
 
 ## 4 Week Training Overview

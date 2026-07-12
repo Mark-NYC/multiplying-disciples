@@ -9,6 +9,7 @@ related_articles:
   - "/movement-resources/12-practice-church-circle/"
   - "/the-three-circles-gospel-presentation-step-by-step/"
 related_tools: []
+exclude_from_blog: true
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/starter-tools/"

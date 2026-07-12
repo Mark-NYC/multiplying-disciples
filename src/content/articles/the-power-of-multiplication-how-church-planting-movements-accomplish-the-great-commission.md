@@ -11,6 +11,7 @@ related_articles:
   - "/starter-tools/"
 related_tools: []
 og_image: "/wp-content/uploads/2023/04/multiplication.jpeg"
+hero_image: "/wp-content/uploads/2023/04/multiplication.jpeg"
 status: "migrated"
 migration_priority: "tier-2"
 original_url: "https://multiplyingdisciples.us/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/"

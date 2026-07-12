@@ -9,6 +9,7 @@ related_articles:
   - "/3-circles/"
   - "/movement-resources/12-practice-church-circle/"
 related_tools: []
+exclude_from_blog: true
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/start-here/"
@@ -41,55 +42,121 @@ notes: >
 
 Learn to make disciples using simple tools.
 
-## Start Here.
-
 Ready to learn how to "do the stuff" of multiplying disciples, leaders, and churches? These starter simple tools have emerged as best practices from the field in North America for short term discipleship. We suggest you start with training your disciples using these tools and utilize the movement resources only when you begin to see the fruit of a new generation of disciples emerging.
 
-### Full Packet
+<div class="resource-grid">
 
-[View the full 12-lesson packet](https://www.churchwaffle.com/)
+<div class="resource-card">
 
-### 3 Circles
+**Full Packet**
 
-[![3 Circles icon](/wp-content/uploads/2023/02/3circles.png)](/3-circles/)
+<div class="resource-card__cta">
+
+[View the 12-lesson packet](https://www.churchwaffle.com/)
+
+</div>
+
+</div>
+
+<div class="resource-card">
+
+![3 Circles icon](/wp-content/uploads/2023/02/3circles.png)
+
+**3 Circles**
+
+<div class="resource-card__cta">
 
 [View](/3-circles/)
 
-### 4-1-1
+</div>
 
-[![4-1-1 icon](/wp-content/uploads/2023/02/411.png)](/4-1-1/)
+</div>
+
+<div class="resource-card">
+
+![4-1-1 icon](/wp-content/uploads/2023/02/411.png)
+
+**4-1-1**
+
+<div class="resource-card__cta">
 
 [View](/4-1-1/)
 
-### 4 Responses
+</div>
 
-[![4 Responses icon](/wp-content/uploads/2023/02/4responses.jpg)](/4-responses-to-the-gospel/)
+</div>
+
+<div class="resource-card">
+
+![4 Responses icon](/wp-content/uploads/2023/02/4responses.jpg)
+
+**4 Responses**
+
+<div class="resource-card__cta">
 
 [View](/4-responses-to-the-gospel/)
 
-### Stories of Hope
+</div>
 
-[![Stories of Hope icon](/wp-content/uploads/2023/02/Untitled-design-2023-02-04T194046.359.png)](/movement-resources/7-stories-of-hope-complete-facilitation-guide/)
+</div>
+
+<div class="resource-card">
+
+![Stories of Hope icon](/wp-content/uploads/2023/02/Untitled-design-2023-02-04T194046.359.png)
+
+**Stories of Hope**
+
+<div class="resource-card__cta">
 
 [View](/movement-resources/7-stories-of-hope-complete-facilitation-guide/)
 
-### Three Thirds
+</div>
 
-[![Three Thirds icon](/wp-content/uploads/2023/02/33.png)](/three-thirds/)
+</div>
+
+<div class="resource-card">
+
+![Three Thirds icon](/wp-content/uploads/2023/02/33.png)
+
+**Three Thirds**
+
+<div class="resource-card__cta">
 
 [View](/three-thirds/)
 
-### 4 Fields
+</div>
 
-[![4 Fields icon](/wp-content/uploads/2023/02/4fields.png)](/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/)
+</div>
+
+<div class="resource-card">
+
+![4 Fields icon](/wp-content/uploads/2023/02/4fields.png)
+
+**4 Fields**
+
+<div class="resource-card__cta">
 
 [View](/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/)
 
-### Church Circle
+</div>
 
-[![Church Circle icon](/wp-content/uploads/2023/02/Untitled-design-34-300x300.png)](/movement-resources/12-practice-church-circle/)
+</div>
+
+<div class="resource-card">
+
+![Church Circle icon](/wp-content/uploads/2023/02/Untitled-design-34-300x300.png)
+
+**Church Circle**
+
+<div class="resource-card__cta">
 
 [View](/movement-resources/12-practice-church-circle/)
+
+</div>
+
+</div>
+
+</div>
 
 ## Get Training
 

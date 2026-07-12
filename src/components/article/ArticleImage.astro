@@ -23,10 +23,21 @@ interface Props {
   wide?: boolean;
 }
 
+import { imageDimensions } from '../../lib/image-dimensions.mjs';
+
 const { src, alt, caption, wide = false } = Astro.props;
+
+const dims = imageDimensions(src);
 ---
 
 <figure class:list={['fm-image', { 'fm-image--wide': wide }]}>
-  <img src={src} alt={alt} loading="lazy" />
+  <img
+    src={src}
+    alt={alt}
+    loading="lazy"
+    decoding="async"
+    width={dims?.width}
+    height={dims?.height}
+  />
   {caption && <figcaption>{caption}</figcaption>}
 </figure>

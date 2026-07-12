@@ -1,0 +1,54 @@
+---
+// Branded 404 — calm, on-palette, and genuinely useful: a short line,
+// the three places a lost visitor most likely wants to go, and no
+// dead-end. Astro emits this as dist/404.html, which Vercel serves
+// automatically for any unmatched URL.
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description="This page doesn't exist or has moved. Find articles, tools, and next steps for making disciples."
+  canonical="https://multiplyingdisciples.us/404/"
+  type="website"
+  noindex={true}
+>
+  <div class="page-container not-found">
+    <p class="eyebrow eyebrow--gold-text">404 &middot; Page Not Found</p>
+    <h1>This page isn&rsquo;t here.</h1>
+    <p class="not-found__copy">
+      The page you&rsquo;re looking for doesn&rsquo;t exist or has moved. If you followed a link
+      from somewhere on this site, we&rsquo;d like to fix it &mdash;
+      <a href="/contact-us/">let us know</a>.
+    </p>
+    <div class="not-found__actions">
+      <a class="button" href="/">Back to the homepage</a>
+      <a class="button button--secondary" href="/blog/">Browse all articles</a>
+      <a class="button button--secondary" href="/starter-tools/">See the starter tools</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .not-found {
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+  }
+
+  .not-found h1 {
+    color: var(--color-primary);
+    margin: 0 0 1rem;
+  }
+
+  .not-found__copy {
+    color: var(--color-text-muted);
+    margin: 0 0 2rem;
+    max-width: 34rem;
+  }
+
+  .not-found__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+  }
+</style>

@@ -35,8 +35,6 @@ notes: >
   — dropped; confirmation photo confirmed present.
 ---
 
-## Your seat is saved!
-
 **Watch for emails from us with more details and in the meantime...**
 
 *This page confirmed a seat for a past FREE Disciple Maker Training on Zoom, originally scheduled for February 26, 2025. That training has already taken place, so the details below are historical rather than active.*

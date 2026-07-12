@@ -11,6 +11,7 @@ related_articles:
   - "/starter-tools/"
 related_tools: []
 og_image: "/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-4.svg"
+hero_image: "/wp-content/uploads/2023/07/5-Levels-of-Movement-_-4-Stages-of-Movement-4.svg"
 status: "migrated"
 migration_priority: "tier-2"
 original_url: "https://multiplyingdisciples.us/4-stages-of-movement-unlock-your-next-steps/"

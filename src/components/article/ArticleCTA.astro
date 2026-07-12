@@ -1,24 +1,23 @@
 ---
-// ArticleCTA — the one canonical end-of-article CTA. See
-// ARTICLE_DESIGN_SYSTEM.md ("End-of-article CTA system") for the full
-// authoring reference. Never render more than one of these per article.
+// ArticleCTA — the one canonical end-of-article CTA. See CTA_GUIDE.md
+// for the full authoring reference. Never render more than one of
+// these per article.
 //
 // Driven entirely by `articleCta` (an article's `article_cta`
 // frontmatter block) plus a UTM content tag. Supports exactly 4 types:
-//   - lab:       dynamic next-available-lab card (client-side, via
-//                src/lib/labs-feed.js — never hardcode lab data here)
-//   - tool:      one configured primary destination, no lab card
-//   - community: one configured primary destination, optional
-//                secondary "next lab" link
+//   - lab:       the Lab CTA — dynamic next-available-lab card
+//                (client-side, via src/lib/labs-feed.js — never
+//                hardcode lab data here)
+//   - tool:      the Practice CTA — one configured primary
+//                destination, no lab card
+//   - community: the Tribe CTA — one configured primary destination,
+//                optional secondary "next lab" link
 //   - none:      renders nothing at all
 //
 // `articleCta` being undefined (an article with no article_cta block)
-// still renders — defaults to `type: "lab"` with generic copy — because
-// every field-manual-v2 article already unconditionally showed a CTA
-// before this system existed; this keeps that contract rather than
-// silently removing it. Legacy (non-field-manual-v2) articles are
-// unaffected: ArticleLayout.astro only renders this component when an
-// article explicitly sets `article_cta`.
+// still renders — defaults to `type: "lab"` with generic copy. The
+// layout is responsible for passing `{ type: 'none' }` for utility
+// pages (see ArticleLayout.astro).
 interface Destination {
   label: string;
   href: string;
@@ -35,6 +34,8 @@ interface Props {
   articleCta?: ArticleCtaData;
   contentTag?: string;
 }
+
+import { imageDimensions } from '../../lib/image-dimensions.mjs';
 
 const { articleCta, contentTag } = Astro.props;
 
@@ -67,12 +68,23 @@ const CTA_IMAGES: Record<'lab' | 'tool' | 'community', { src: string; alt: strin
   },
 };
 const ctaImage = type !== 'none' ? CTA_IMAGES[type] : undefined;
+const ctaImageDims = ctaImage ? imageDimensions(ctaImage.src) : undefined;
 ---
 
 {
   type !== 'none' && (
     <section class="fm-cta">
-      {ctaImage && <img class="fm-cta__image" src={ctaImage.src} alt={ctaImage.alt} loading="lazy" />}
+      {ctaImage && (
+        <img
+          class="fm-cta__image"
+          src={ctaImage.src}
+          alt={ctaImage.alt}
+          loading="lazy"
+          decoding="async"
+          width={ctaImageDims?.width}
+          height={ctaImageDims?.height}
+        />
+      )}
       <p class="fm-cta__eyebrow eyebrow eyebrow--gold-text">{eyebrow}</p>
       <h2 class="fm-cta__headline">{stakesHeadline}</h2>
       {bridgeCopy && <p class="fm-cta__body">{bridgeCopy}</p>}

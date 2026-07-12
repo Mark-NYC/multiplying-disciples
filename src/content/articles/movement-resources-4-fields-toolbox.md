@@ -47,6 +47,4 @@ After using the [starter tools](/starter-tools/) and gathering disciples as chur
 
 [Download PDF - FREE](/wp-content/uploads/2023/04/4-Fields-Toolbox-Updated-03.31.23.pdf)
 
-[Download PNG - FREE](/wp-content/uploads/2023/04/IMG_4574-1.jpg)
-
 </div>

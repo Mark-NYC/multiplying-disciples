@@ -9,6 +9,7 @@ related_articles:
   - "/movement-resources/strategy-coordinator/"
   - "/movement-resources/4-fields-toolbox/"
 related_tools: []
+exclude_from_blog: true
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/movement-resources/"

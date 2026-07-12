@@ -10,6 +10,7 @@ related_articles:
   - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
 related_tools: []
 og_image: "/wp-content/uploads/2025/01/3-5.jpg"
+hero_image: "/wp-content/uploads/2025/01/3-5.jpg"
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/the-3-core-habits-of-a-disciple/"

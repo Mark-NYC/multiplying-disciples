@@ -19,13 +19,14 @@ const externalLink = z.object({
   url: z.string().url(),
 });
 
-// Canonical end-of-article CTA config — see ARTICLE_DESIGN_SYSTEM.md
-// ("End-of-article CTA system") for the full authoring reference.
-// Presence of `article_cta` is itself the opt-in: an article with no
-// `article_cta` key at all gets no new-system CTA (legacy articles
-// keep rendering through their existing layout untouched). `type`
-// defaults to "lab" once the block exists, since a lab invite is the
-// right next step for most practical articles.
+// Canonical end-of-article CTA config — see CTA_GUIDE.md for the full
+// authoring reference. Exactly three renderable types: "tool" (the
+// Practice CTA), "lab" (the Lab CTA), and "community" (the Tribe CTA),
+// plus "none". Fallback when the block is absent: editorial articles
+// get the default Lab CTA; utility pages (exclude_from_blog: true)
+// get none — see ArticleLayout.astro. `type` defaults to "lab" once
+// the block exists, since a lab invite is the right next step for
+// most practical articles.
 //
 // `destination` is required for "tool" and "community" (there's no
 // sitewide default tool/community URL to fall back to — the author
@@ -77,16 +78,13 @@ const articles = defineCollection({
     og_image: z.string().optional(),
     // True for utility/legal pages (e.g. /privacy-policy/) that should
     // exist as a real page but not appear in the /blog/ article index.
+    // Utility pages also skip the share row, reading meta, and the
+    // automatic end-of-article CTA (see ArticleLayout.astro).
     exclude_from_blog: z.boolean().default(false),
-    // Opts a single article into ArticleLayoutV2 (the homepage-language
-    // article design system) instead of the sitewide ArticleLayout.
-    // Only set on the field-test articles; every other article is
-    // untouched. See ARTICLE_DESIGN_SYSTEM.md.
-    article_system: z.enum(['field-manual-v2']).optional(),
-    // Article Hero fields, used only when article_system is set.
-    // No eyebrow by default (see ARTICLE_DESIGN_SYSTEM.md, "Article
-    // hero standard" — the breadcrumb already carries the hub/category
-    // context, so a matching eyebrow just repeats it). Set hero_eyebrow
+    // Article Hero fields (see ARTICLE_SYSTEM.md, "Article hero").
+    // No eyebrow by default — the breadcrumb already carries the
+    // hub/category context, so a matching eyebrow just repeats it.
+    // Set hero_eyebrow
     // only in the rare case where it adds real, new context the reader
     // can't get from the breadcrumb or H1 — e.g. "Field Guide", "Case
     // Study", "Tool", "Biblical Framework". Never the hub name, a
@@ -97,26 +95,14 @@ const articles = defineCollection({
     hero_image_alt: z.string().optional(),
     hero_image_caption: z.string().optional(),
     // Opt out of the automatic "In This Article" table of contents that
-    // ArticleLayoutV2 otherwise renders for any article with 2+ H2s.
+    // ArticleLayout otherwise renders for any article with 3+ H2s.
     // Off (TOC shows) by default everywhere; only set true when an
     // article's own search intent is better served by getting straight
     // to the content the reader came for (e.g. an order/list infographic)
     // than by a contents box first.
     hide_toc: z.boolean().optional(),
-    // Closing ArticleCTA, used only when article_system is set. Omit
-    // entirely for the default "Ready to practice this?" copy; set
-    // cta_variant: "tool-first" to swap which action is primary.
-    cta_variant: z.enum(['default', 'tool-first']).optional(),
-    cta_heading: z.string().optional(),
-    cta_body: z.string().optional(),
-    cta_primary_label: z.string().optional(),
-    cta_primary_url: z.string().optional(),
-    cta_secondary_label: z.string().optional(),
-    cta_secondary_url: z.string().optional(),
     // Canonical end-of-article CTA (see comment above the articleCta
-    // schema). Supersedes the cta_* fields above going forward — those
-    // remain in the schema only because they're harmless if unused;
-    // see ARTICLE_DESIGN_SYSTEM.md for the migration note.
+    // schema and CTA_GUIDE.md).
     article_cta: articleCta,
     ...migrationFields,
   }),

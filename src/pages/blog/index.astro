@@ -9,6 +9,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleList from '../../components/ArticleList.astro';
 
 const [articles, hubs] = await Promise.all([getCollection('articles'), getCollection('hubs')]);
 
@@ -41,19 +42,6 @@ const sorted = articles
   if (!dateA && dateB) return 1;
   return a.data.title.localeCompare(b.data.title);
 });
-
-const dateFormatter = new Intl.DateTimeFormat('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
-
-function hubFor(entry: CollectionEntry<'articles'>) {
-  if (!entry.data.hub) return undefined;
-  // Hub entry ids are their frontmatter `slug` (e.g. "/church-planting-movements/"),
-  // not the bare filename — see the matching comment in ArticleLayout.astro.
-  return hubs.find((hub) => hub.id === `/${entry.data.hub}/`);
-}
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -94,40 +82,16 @@ const sortedHubs = [...hubs].sort((a, b) => a.data.title.localeCompare(b.data.ti
       )
     }
 
-    <ul class="blog-list">
-      {sorted.map((entry) => {
-        const hub = hubFor(entry);
-        const date = bestDate(entry);
-        return (
-          <li class="blog-list__item">
-            {entry.data.og_image && (
-              <a href={entry.data.slug} class="blog-list__thumbnail" aria-hidden="true" tabindex="-1">
-                <img src={entry.data.og_image} alt="" loading="lazy" width="150" height="100" />
-              </a>
-            )}
-            <div class="blog-list__content">
-              <h2>
-                <a href={entry.data.slug}>{entry.data.title}</a>
-              </h2>
-              <p class="blog-list__description">{entry.data.description}</p>
-              <p class="blog-list__meta">
-                {hub && (
-                  <>
-                    <a href={hub.data.slug}>{hub.data.title}</a>
-                    {date && <span aria-hidden="true"> &middot; </span>}
-                  </>
-                )}
-                {date && <time datetime={date.toISOString()}>{dateFormatter.format(date)}</time>}
-              </p>
-            </div>
-          </li>
-        );
-      })}
-    </ul>
+    <ArticleList entries={sorted} />
   </div>
 </BaseLayout>
 
 <style>
+  /* Same Primary Green headline treatment as article pages. */
+  h1 {
+    color: var(--color-primary);
+  }
+
   .blog-intro {
     font-size: 1.05rem;
     color: var(--color-text-muted);
@@ -162,79 +126,6 @@ const sortedHubs = [...hubs].sort((a, b) => a.data.title.localeCompare(b.data.ti
   }
 
   .blog-hub-links a {
-    color: var(--color-accent-hover);
-  }
-
-  .blog-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .blog-list__item {
-    display: flex;
-    gap: 1.25rem;
-    padding: 1.75rem 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .blog-list__thumbnail {
-    flex-shrink: 0;
-    display: block;
-    width: 150px;
-    height: 100px;
-  }
-
-  .blog-list__thumbnail img {
-    width: 150px;
-    height: 100px;
-    object-fit: cover;
-  }
-
-  .blog-list__content {
-    min-width: 0;
-    flex: 1;
-  }
-
-  @media (max-width: 540px) {
-    .blog-list__item {
-      gap: 1rem;
-    }
-
-    .blog-list__thumbnail {
-      width: 88px;
-      height: 88px;
-    }
-
-    .blog-list__thumbnail img {
-      width: 88px;
-      height: 88px;
-    }
-  }
-
-  .blog-list__item h2 {
-    margin: 0 0 0.4rem;
-    font-size: 1.15rem;
-  }
-
-  .blog-list__item h2 a:hover {
-    color: var(--color-accent-hover);
-  }
-
-  .blog-list__description {
-    margin: 0 0 0.5rem;
-    color: var(--color-text-muted);
-  }
-
-  .blog-list__meta {
-    margin: 0;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.02em;
-    color: var(--color-text-muted);
-  }
-
-  .blog-list__meta a {
     color: var(--color-accent-hover);
   }
 </style>

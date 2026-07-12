@@ -7,6 +7,7 @@ related_articles: []
 related_tools: []
 exclude_from_blog: true
 og_image: "/wp-content/uploads/2025/01/jon-tyson-YtYNavix3pw-unsplash-copy.jpg"
+hero_image: "/wp-content/uploads/2025/01/jon-tyson-YtYNavix3pw-unsplash-copy.jpg"
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/kingdom-ministry-training/"

@@ -54,6 +54,7 @@ const items = tools.map((name) => {
           </ul>
         </>
       )}
+      {nextStep && items.length === 0 && <h2>Next Step</h2>}
       {nextStep && (
         <a
           class="tool-cta__button"

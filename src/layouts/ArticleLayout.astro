@@ -1,15 +1,25 @@
 ---
+// The one article layout, used by every article on the site — the
+// "field manual" system that started as ArticleLayoutV2 on a handful
+// of field-test articles and is now the sitewide standard. See
+// ARTICLE_SYSTEM.md for the component reference and authoring rules.
+//
+// Legacy (WordPress-migrated) articles flow through the same layout
+// with graceful fallbacks: `og_image` doubles as the hero image when
+// no `hero_image` is set, `title` is the H1 when no `display_title`
+// exists, and utility pages (`exclude_from_blog: true`) skip the
+// share row, reading meta, and end-of-article CTA.
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import RelatedArticles from '../components/RelatedArticles.astro';
+import RelatedArticles from '../components/article/RelatedArticles.astro';
 import ToolCTA from '../components/ToolCTA.astro';
-import CovoMark from '../components/CovoMark.astro';
-import BrandSeal from '../components/BrandSeal.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import ShareButtons from '../components/ShareButtons.astro';
+import ArticleHero from '../components/article/ArticleHero.astro';
 import ArticleCTA from '../components/article/ArticleCTA.astro';
+import '../styles/article.css';
 
 interface Heading {
   depth: number;
@@ -28,40 +38,58 @@ const { data } = article;
 const hubs = data.hub ? await getCollection('hubs') : [];
 // Hub entry ids are their frontmatter `slug` (e.g. "/church-planting-movements/"),
 // not the bare filename — the content layer's default id generation picks up
-// the `slug` field automatically. Compare against that shape, not the raw
-// article `hub:` value.
+// the `slug` field automatically.
 const parentHub = hubs.find((hub) => hub.id === `/${data.hub}/`);
 
-const dateFormatter = new Intl.DateTimeFormat('en-US', {
-  year: 'numeric',
-  month: 'short',
-  day: 'numeric',
-});
-const fieldDate = data.date ?? data.updated;
-
+// Short breadcrumb only: Home, then the article's hub/category if it
+// has one — never the article's own title (that's what the H1 right
+// below is for).
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   ...(parentHub ? [{ label: parentHub.data.title, href: parentHub.data.slug }] : []),
-  { label: data.title, href: data.slug },
 ];
 
-// Closing "next step" CTA shown on real editorial articles only —
-// utility/tool/legal pages (exclude_from_blog: true) already have
-// their own specific CTA and shouldn't get a second, generic one.
+// Utility/legal/landing pages (privacy policy, contact, sticker pages…)
+// are real pages but not editorial articles: no share row, no reading
+// meta, and no automatic end-of-article CTA — their own body already is
+// the call to action.
+const isUtilityPage = data.exclude_from_blog;
 
-// utm_content tag for the lab links in this CTA band, following the
+// Rough estimate from the raw source body — strips MDX import lines
+// and tags rather than trying to be exact. 200wpm, rounded, 1 min floor.
+function estimateReadingTime(body: string | undefined): string | undefined {
+  if (!body) return undefined;
+  const text = body
+    .replace(/^import .+$/gm, '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/[#>*_`]/g, ' ');
+  const words = text.trim().split(/\s+/).filter(Boolean).length;
+  if (words < 50) return undefined;
+  const minutes = Math.max(1, Math.round(words / 200));
+  return `${minutes} min read`;
+}
+
+const readingTime = isUtilityPage
+  ? undefined
+  : estimateReadingTime((article as unknown as { body?: string }).body);
+
+// `hero_image` is the only source of the hero visual — articles that
+// open with their own visual (e.g. the 12-disciples portrait grid)
+// deliberately have none. WordPress-migrated articles carried their
+// old lead thumbnail over as an explicit hero_image during the 2026-07
+// consistency pass. Alt falls back to the title for migrated images
+// that never had hand-written alt text.
+const heroImage = data.hero_image;
+const heroImageAlt = data.hero_image_alt ?? data.title;
+
+// End-of-article CTA fallback (see CTA_GUIDE.md): an explicit
+// `article_cta` block always wins; an editorial article without one
+// gets the default Lab CTA; a utility page gets none.
+const articleCta = data.article_cta ?? (isUtilityPage ? { type: 'none' as const } : undefined);
+
+// utm_content tag for the end-of-article CTA's lab link, following the
 // "page-slug__cta-level__placement" convention in
 // ECOSYSTEM_GROWTH_STRATEGY.md.
-const labsContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__cta-band`;
-
-// Canonical end-of-article CTA system (see ARTICLE_DESIGN_SYSTEM.md):
-// an article that sets `article_cta` gets the new ArticleCTA component
-// instead of this layout's own built-in cta-band below. An article
-// with no `article_cta` keeps the existing cta-band exactly as before
-// — this is the "existing article system already expects one" case,
-// so nothing is silently added or removed for the ~50 legacy articles
-// that haven't opted in yet.
-const hasNewCta = Boolean(data.article_cta);
 const ctaContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__article-cta`;
 ---
 
@@ -69,186 +97,74 @@ const ctaContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__article-c
   title={data.title}
   description={data.description}
   canonical={data.canonical}
-  ogImage={data.og_image}
+  ogImage={data.og_image ?? data.hero_image}
   type="article"
   publishedDate={data.date}
   updatedDate={data.updated}
   noindex={data.status === 'source-pending'}
 >
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+  </Fragment>
+
   <div class="page-container">
-    <Breadcrumbs items={breadcrumbItems} />
+    {/* Home-only (no hub) isn't a useful trail on its own — the shared
+        Breadcrumbs component always renders its last item as the
+        non-link "current page," which would make Home unclickable. */}
+    {breadcrumbItems.length > 1 && <Breadcrumbs items={breadcrumbItems} />}
 
     {
       data.status === 'source-pending' && (
         <p class="source-pending-banner">
-          This page is a migration placeholder. Live content has not been imported from
-          WordPress yet. Original URL:{' '}
-          <a href={data.original_url}>{data.original_url}</a>
+          This page is a migration placeholder. Live content has not been imported from WordPress
+          yet. Original URL: <a href={data.original_url}>{data.original_url}</a>
         </p>
       )
     }
 
     <article>
-      {data.og_image && (
-        <div class="article-thumbnail-wrap">
-          <img class="article-thumbnail" src={data.og_image} alt={data.title} width="800" height="450" />
-        </div>
-      )}
-      <p class="eyebrow eyebrow--gold-text">
-        {parentHub ? parentHub.data.title : 'Field Manual'}
-        {fieldDate && (
-          <span class="article-dateline"> &middot; {dateFormatter.format(fieldDate)}</span>
-        )}
-      </p>
-      <h1>{data.title}</h1>
-      <ShareButtons url={data.canonical} title={data.title} />
-      <TableOfContents headings={headings} />
-      <slot />
+      <ArticleHero
+        eyebrow={data.hero_eyebrow}
+        title={data.display_title ?? data.title}
+        subheading={data.hero_subheading}
+        date={data.date}
+        updatedDate={data.updated}
+        readingTime={readingTime}
+        image={heroImage}
+        imageAlt={heroImageAlt}
+        imageCaption={data.hero_image_caption}
+      />
+
+      <div class="fm-article">
+        {!isUtilityPage && <ShareButtons url={data.canonical} title={data.title} />}
+        {!data.hide_toc && <TableOfContents headings={headings} />}
+        <slot />
+      </div>
     </article>
 
-    {parentHub && (
-      <p class="article-hub-link">
-        Part of the <a href={parentHub.data.slug}>{parentHub.data.title}</a> hub.
-      </p>
-    )}
+    <div class="fm-article">
+      {parentHub && (
+        <p class="article-hub-link">
+          Part of the <a href={parentHub.data.slug}>{parentHub.data.title}</a> hub.
+        </p>
+      )}
 
-    {data.related_articles.length > 0 && <RelatedArticles paths={data.related_articles} />}
-    {data.related_tools.length > 0 && <ToolCTA tools={data.related_tools} />}
+      {data.related_articles.length > 0 && <RelatedArticles paths={data.related_articles} />}
+      {data.related_tools.length > 0 && <ToolCTA tools={data.related_tools} />}
+    </div>
 
-    {hasNewCta && <ArticleCTA articleCta={data.article_cta} contentTag={ctaContentTag} />}
-
-    {
-      !hasNewCta && !data.exclude_from_blog && (
-        <section class="cta-band">
-          <div class="cta-band__seal" aria-hidden="true">
-            <BrandSeal />
-          </div>
-          <h2><CovoMark /> Be a movement multiplier.</h2>
-          <p>Get starter tools and coaching to multiply disciples, leaders, and churches in your city.</p>
-          <div
-            class="cta-band__lab"
-            id="article-next-lab"
-            aria-live="polite"
-            data-labs-content-tag={labsContentTag}
-          >
-            <p class="labs-cta__loading">Loading the next lab&hellip;</p>
-          </div>
-          <div class="cta-band__actions">
-            <a class="button button--secondary-dark" href="/contact-us/">Connect</a>
-          </div>
-        </section>
-      )
-    }
+    <ArticleCTA articleCta={articleCta} contentTag={ctaContentTag} />
   </div>
 </BaseLayout>
 
-<script>
-  // No-ops safely when hasNewCta is true (this container won't exist —
-  // ArticleCTA above mounts its own lab card via a separate script).
-  import { renderLabsInto } from '../lib/labs-feed.js';
-
-  const container = document.getElementById('article-next-lab');
-  if (container) {
-    renderLabsInto(container, 1, 'Join This Lab', container.dataset.labsContentTag);
-  }
-</script>
-
 <style>
-  .article-thumbnail-wrap {
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 1.5rem;
-  }
-
-  .article-thumbnail {
-    display: block;
-    width: 100%;
-    max-height: 420px;
-    object-fit: cover;
-    margin: 0;
-  }
-
-  /* Same animated film grain used on homepage photos (see
-     index.astro's .hero::before) — ties every article's lead image
-     back to the same field-tested texture. */
-  .article-thumbnail-wrap::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='2.6' intercept='-0.8'/%3E%3CfeFuncG type='linear' slope='2.6' intercept='-0.8'/%3E%3CfeFuncB type='linear' slope='2.6' intercept='-0.8'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.5;
-    mix-blend-mode: overlay;
-    will-change: transform;
-    animation: article-grain-drift 0.8s steps(5) infinite;
-  }
-
-  @keyframes article-grain-drift {
-    0%,
-    100% {
-      transform: translate(0, 0);
-    }
-    10% {
-      transform: translate(-6%, -9%);
-    }
-    25% {
-      transform: translate(-13%, 6%);
-    }
-    40% {
-      transform: translate(8%, -18%);
-    }
-    55% {
-      transform: translate(-4%, 14%);
-    }
-    70% {
-      transform: translate(11%, 3%);
-    }
-    85% {
-      transform: translate(-9%, -5%);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .article-thumbnail-wrap::after {
-      animation: none;
-    }
-  }
-
-  .article-dateline {
-    color: var(--color-text-muted);
-    font-weight: 500;
-  }
-
   .article-hub-link {
     font-size: 0.95rem;
     color: var(--color-text-muted);
-  }
-
-  /* Low-opacity brand seal watermark on the closing CTA band — same
-     mark used on the homepage conviction band and sitewide footer. */
-  .cta-band {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-band__seal {
-    position: absolute;
-    top: 50%;
-    right: -1.5rem;
-    transform: translateY(-50%);
-    width: 9rem;
-    height: 9rem;
-    color: var(--color-footer-text);
-    opacity: 0.08;
-    pointer-events: none;
-  }
-
-  @media (max-width: 640px) {
-    .cta-band__seal {
-      display: none;
-    }
   }
 </style>

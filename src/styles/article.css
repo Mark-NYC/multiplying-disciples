@@ -1,11 +1,10 @@
-/* Field Manual article design system.
-   Loaded only by ArticleLayoutV2 (the field-test articles), never
-   sitewide. Every class here is prefixed `fm-` so nothing collides
-   with the existing global `.callout`/`.article-*` system that every
-   other article still uses. Reuses the homepage's tokens (colors,
-   radii, eyebrow, .button) from global.css rather than inventing new
-   ones. See ARTICLE_DESIGN_SYSTEM.md for the component reference this
-   CSS backs. */
+/* Field Manual article design system — the sitewide article
+   stylesheet, loaded by ArticleLayout for every article. Every class
+   here is prefixed `fm-` so nothing collides with the global
+   `.callout` system still available inside markdown bodies. Reuses
+   the homepage's tokens (colors, radii, eyebrow, .button) from
+   global.css rather than inventing new ones. See ARTICLE_SYSTEM.md
+   for the component reference this CSS backs. */
 
 :root {
   /* Editorial serif, used sparingly: Scripture Block + Pull Quote
@@ -124,6 +123,14 @@
   border-radius: calc(var(--radius-image) + 2px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   margin: 0;
+}
+
+/* Square/portrait lead images get a calm editorial 3:2 crop instead
+   of towering over the article — see ArticleHero.astro. */
+.fm-hero__image--tall {
+  aspect-ratio: 3 / 2;
+  height: auto;
+  object-fit: cover;
 }
 
 .fm-hero__caption {
