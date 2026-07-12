@@ -40,10 +40,7 @@ notes: >
   remove, just one redundant bold wrapper on a heading. Each story links
   out to its own per-story facilitation guide on Obey.Tools, consistent
   with this site's stated strategy of linking to Obey.Tools for practical
-  tools rather than duplicating content. The top jump-links use in-page
-  anchors generated from headings — verify these resolve correctly after
-  build (Astro auto-generates heading ids; exact slugs for headings with
-  punctuation like "3/3rds" or a trailing "?" should be spot-checked).
+  tools rather than duplicating content.
 
   2026-07-12 (Tier 1, last remaining): converted to .mdx. Reused the
   landscape infographic (the "-1" image, already the og_image) as the
@@ -52,42 +49,50 @@ notes: >
   infographic, and a title-only banner with a stock praying-hands photo
   — neither carried unique information once the hero showed the real
   infographic). Removed the hand-built 3-link jump list at the very top
-  now that the auto-generated "In This Article" TOC (14 real H2s in this
-  article) supersedes it, and stripped all 17 in-body "---" horizontal
-  rules, consistent with every other converted article — headings and
-  card spacing already do the separating work.
+  (superseded by the auto-generated "In This Article" TOC) and stripped
+  all 17 in-body "---" horizontal rules, consistent with every other
+  converted article — headings and card spacing already do the
+  separating work.
 
   Card placements, kept deliberately sparse for a long (~3,300 word)
   reference guide: one InsightCard for the Green/Yellow/Red "responses
   to the gospel" framework (Acts 17:32-34), immediately followed by the
   existing hand-drawn diagram as an ArticleImage since it maps each
   response to a concrete next action the bullets don't spell out; one
-  ArticleImage (Gen Z Bible study stock photo) in the opening section;
+  ArticleImage (Gen Z Bible study stock photo) in the background section;
   one InsightCard for the "what you're actually training people to do"
   list near the end (mirrors the "why it works" InsightCard already used
   on three-thirds.mdx for the same 3/3rds framework); one WarningCard for
   the "What NOT to Do" list in Practical Coaching Tips (its sibling "What
   TO Do" list stays plain, matching the three-thirds precedent of boxing
-  only the mistake side); one PracticeCard for "Your Next Steps" (kept
-  the real H2 heading above it, only the numbered list itself is boxed,
-  same pattern as three-thirds' Week-1 PracticeCard); one PullQuote using
-  the article's own closing line ("Hope isn't just available. Hope has a
-  name—Jesus."), pulled up to the top of "The Bottom Line" section with
-  the trailing sentence merged into the final paragraph. Deliberately
-  left un-boxed: the "Person of Peace" definition (short, already a
-  tight list), the "Three Equal Parts" 3/3rds framework definition
-  (three-thirds.mdx leaves its own equivalent unboxed too, kept
-  consistent across both), the "Critical Success Factors" and "What
-  Happens After" sections (real H3 structure already, boxing would
-  flatten it), the "Critical Rules" DO/DON'T list under Story 1 (the
-  WarningCard budget was spent on the later, more general "What NOT to
-  Do" list — this one stays as the existing bolded plain text, same
-  restraint three-thirds applied to its ~8 non-promoted "Common mistake:"
-  instances), and all 7 individual story write-ups (each already uses a
-  repeating bold-label pattern — Who This Reaches / The Hope / the
-  question — but the entries are full narrative paragraphs, not short
-  reference facts, so RoleFact's compact 2-column grid was the wrong
-  shape for them; left as plain H3 sections).
+  only the mistake side); one PracticeCard for "Your Next Steps"; one
+  PullQuote using the article's own closing line ("Hope isn't just
+  available. Hope has a name—Jesus."), pulled up to the top of "The
+  Bottom Line" section with the trailing sentence merged into the final
+  paragraph.
+
+  2026-07-12 (action-guide reorder): user feedback — people arrive with
+  clear intent to find and use the 7 stories, not to read about them
+  first. Restructured around that: added a new "Jump to a Story" H2
+  right after the intro with 7 anchor links straight into the story
+  section below (verified against the real Astro-generated H3 ids after
+  build — punctuation and numerals in headings like "Luke 7:36-50" slug
+  in non-obvious ways, e.g. the colon is dropped rather than
+  hyphenated). Moved "The 7 Stories of Hope in the Bible," "How To Lead
+  The 7 Stories: The 3/3rds Process," and the Story 1 / Stories 2-6 /
+  Story 7 walkthroughs up to immediately follow the jump nav — this is
+  now the first real content block instead of the fourth. Moved
+  "Critical Success Factors" and "Practical Coaching Tips" (the tips)
+  up to directly follow the walkthroughs, ahead of "What Happens After"
+  and "Adapting These Stories." Moved the two most theory-heavy
+  sections — "What Makes The 7 Stories of Hope Different?" and "Who Are
+  The Stories For?" (with the Person of Peace definition, the Green/
+  Yellow/Red InsightCard, and the Acts 17 diagram) — down to after all
+  of the above, immediately before "The Power of This Method," so the
+  "why this works" rationale now follows the action content instead of
+  gatekeeping it. No sentences were rewritten or cut in this pass, only
+  reordered; all internal section content is otherwise identical to the
+  first field-manual-v2 conversion pass.
 ---
 
 import ArticleIntro from '../../components/article/ArticleIntro.astro';
@@ -99,51 +104,17 @@ import PullQuote from '../../components/article/PullQuote.astro';
 
 <ArticleIntro>The **7 Stories of Hope in the Bible** are a proven process for helping people who are curious about Jesus but not yet ready to commit. These aren't random inspirational stories, they're biblical accounts specifically designed to help seekers discover who Jesus really is and lead them to repentance and faith.</ArticleIntro>
 
-## What Makes The 7 Stories of Hope Different?
+## Jump to a Story
 
-In our post-Christian culture, many people are inoculated against one-time Gospel presentations. They're interested in learning about Jesus, but they need time, space, and a non-threatening environment to process what they're discovering.
+1. [Hope for the Rejected: The Woman Weeping at Jesus' Feet (Luke 7:36-50)](#1-hope-for-the-rejected-the-woman-weeping-at-jesus-feet-luke-736-50)
+2. [Hope for the Non-Religious: Pharisee & Tax Collector (Luke 18:9-17)](#2-hope-for-the-non-religious-pharisee--tax-collector-luke-189-17)
+3. [Hope Changes Things: Zacchaeus (Luke 19:1-10)](#3-hope-changes-things-zacchaeus-luke-191-10)
+4. [Hope Forgives: Unforgiving Servant (Matthew 18:21-35)](#4-hope-forgives-unforgiving-servant-matthew-1821-35)
+5. [Hope Through Death: Thieves on the Cross (Luke 23:26-43)](#5-hope-through-death-thieves-on-the-cross-luke-2326-43)
+6. [Hope Rose From The Dead: Resurrection (Luke 24:1-20)](#6-hope-rose-from-the-dead-resurrection-luke-241-20)
+7. [Hope is Waiting For You: Prodigal Son (Luke 15:11-32)](#7-hope-is-waiting-for-you-prodigal-son-luke-1511-32)
 
-<ArticleImage
-  src="/wp-content/uploads/2025/03/gen-z-bible-study.jpg"
-  alt="Two young men sitting together, one holding a Bible, praying with hands folded over an open journal"
-  caption="The 7 Stories create the time and space a curious seeker actually needs — not a one-time pitch."
-/>
-
-The 7 Stories of Hope provide an extended Gospel presentation that:
-
-- Allows people to see their need for Jesus
-- Shows them biblical examples of people like them encountering Christ
-- Leads them to committed faith through discovery, not lecture
-- Trains them to become disciple-makers from day one
-
-## Who Are The Stories For?
-
-**Target Audience: "Yellow Light" People**
-
-In Acts 17:32-34, when Paul preached in Athens, people responded three ways:
-
-<InsightCard label="Three Responses to the Gospel">
-- **Green Light (Yes):** Immediate belief—"Some became followers of Jesus and believed"
-- **Yellow Light (Maybe):** Curious but hesitant—"We want to hear you again on this subject"
-- **Red Light (No):** Outright rejection—"Some sneered"
-</InsightCard>
-
-<ArticleImage
-  src="/wp-content/uploads/2025/01/e3adfe1623cfb8a49a60f903b1515adb.Screen-Shot-2023-08-05-at-8.26.31-AM-1.webp"
-  alt="Hand-drawn diagram of Acts 17:32-34 showing a red-yellow-green traffic light matched to 'their response' (No / Maybe / Yes / I'm a Christian) and 'our response' (keep searching for a person of peace, Bible discovery, or train in the commands of Christ)"
-  caption="What to do next for each response: red keeps searching for a person of peace, yellow moves to Bible discovery, green moves to training."
-/>
-
-The 7 Stories of Hope are designed specifically for yellow lights—people whose hearts God has already prepared but who need a process to discover Jesus for themselves.
-
-### What Is a "Person of Peace"?
-
-Someone far from God whose heart has been prepared by God for the Good News (Luke 10). They demonstrate:
-
-- Openness to spiritual conversation
-- Willingness to meet regularly
-- Interest in learning about Jesus
-- Receptivity to hosting others in their home
+Not sure where to start? Read the stories below, then jump straight to [how to lead the 3/3rds process](#how-to-lead-the-7-stories-of-hope-the-33rds-process) step by step.
 
 ## The 7 Stories of Hope in The Bible
 
@@ -425,6 +396,43 @@ Don't correct for "right" answers. Let people discover truth themselves. The Spi
 
 Don't push them to decide if they're not ready. But do make the invitation clear.
 
+## Practical Coaching Tips
+
+### Where to Share
+
+**Best:** In the home of a person of peace
+**Why:** Non-threatening, natural environment, easy for them to invite others
+
+### When to Share
+
+**Frequency:** Once per week
+**Duration:** 1 to 1.5 hours per story
+
+### Group Size
+
+**Ideal:** Smaller than 10 people
+**Why:** More intimate, everyone can participate
+**Solution if larger:** Train others to start new groups (reproduction thinking)
+
+<WarningCard label="What NOT to Do">
+- Don't chase "rabbits" (appealing but off-topic subjects)
+- Don't talk about politics or religion (either good or bad)
+- Don't bring your outline with you (know it, don't read it)
+- Don't get stuck in one of the 3 thirds
+- Don't correct people for "wrong" answers
+- Don't lecture—facilitate discovery
+</WarningCard>
+
+### What TO Do
+
+- Stick to the specific Bible story each week
+- Let the group talk 80% of the time
+- Let the Holy Spirit work through discovery
+- Have fun—enjoy the process
+- Model obedience yourself first
+- Be honest about your own struggles
+- Pray for each person between meetings
+
 ## What Happens After The 7 Stories?
 
 ### If They Accept Jesus
@@ -470,42 +478,51 @@ Feel free to experiment with different stories or order as the Holy Spirit leads
 
 The key: Keep sharing stories of people who met Jesus in Scripture and their lives were changed.
 
-## Practical Coaching Tips
+## What Makes The 7 Stories of Hope Different?
 
-### Where to Share
+In our post-Christian culture, many people are inoculated against one-time Gospel presentations. They're interested in learning about Jesus, but they need time, space, and a non-threatening environment to process what they're discovering.
 
-**Best:** In the home of a person of peace
-**Why:** Non-threatening, natural environment, easy for them to invite others
+<ArticleImage
+  src="/wp-content/uploads/2025/03/gen-z-bible-study.jpg"
+  alt="Two young men sitting together, one holding a Bible, praying with hands folded over an open journal"
+  caption="The 7 Stories create the time and space a curious seeker actually needs — not a one-time pitch."
+/>
 
-### When to Share
+The 7 Stories of Hope provide an extended Gospel presentation that:
 
-**Frequency:** Once per week
-**Duration:** 1 to 1.5 hours per story
+- Allows people to see their need for Jesus
+- Shows them biblical examples of people like them encountering Christ
+- Leads them to committed faith through discovery, not lecture
+- Trains them to become disciple-makers from day one
 
-### Group Size
+## Who Are The Stories For?
 
-**Ideal:** Smaller than 10 people
-**Why:** More intimate, everyone can participate
-**Solution if larger:** Train others to start new groups (reproduction thinking)
+**Target Audience: "Yellow Light" People**
 
-<WarningCard label="What NOT to Do">
-- Don't chase "rabbits" (appealing but off-topic subjects)
-- Don't talk about politics or religion (either good or bad)
-- Don't bring your outline with you (know it, don't read it)
-- Don't get stuck in one of the 3 thirds
-- Don't correct people for "wrong" answers
-- Don't lecture—facilitate discovery
-</WarningCard>
+In Acts 17:32-34, when Paul preached in Athens, people responded three ways:
 
-### What TO Do
+<InsightCard label="Three Responses to the Gospel">
+- **Green Light (Yes):** Immediate belief—"Some became followers of Jesus and believed"
+- **Yellow Light (Maybe):** Curious but hesitant—"We want to hear you again on this subject"
+- **Red Light (No):** Outright rejection—"Some sneered"
+</InsightCard>
 
-- Stick to the specific Bible story each week
-- Let the group talk 80% of the time
-- Let the Holy Spirit work through discovery
-- Have fun—enjoy the process
-- Model obedience yourself first
-- Be honest about your own struggles
-- Pray for each person between meetings
+<ArticleImage
+  src="/wp-content/uploads/2025/01/e3adfe1623cfb8a49a60f903b1515adb.Screen-Shot-2023-08-05-at-8.26.31-AM-1.webp"
+  alt="Hand-drawn diagram of Acts 17:32-34 showing a red-yellow-green traffic light matched to 'their response' (No / Maybe / Yes / I'm a Christian) and 'our response' (keep searching for a person of peace, Bible discovery, or train in the commands of Christ)"
+  caption="What to do next for each response: red keeps searching for a person of peace, yellow moves to Bible discovery, green moves to training."
+/>
+
+The 7 Stories of Hope are designed specifically for yellow lights—people whose hearts God has already prepared but who need a process to discover Jesus for themselves.
+
+### What Is a "Person of Peace"?
+
+Someone far from God whose heart has been prepared by God for the Good News (Luke 10). They demonstrate:
+
+- Openness to spiritual conversation
+- Willingness to meet regularly
+- Interest in learning about Jesus
+- Receptivity to hosting others in their home
 
 ## The Power of This Method
 
