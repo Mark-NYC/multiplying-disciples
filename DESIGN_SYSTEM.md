@@ -94,6 +94,16 @@ Scripture, TOC); left rule + pale wash = "caution/quote" (Warning,
 blockquote). Not every section becomes a card — most paragraphs stay
 paragraphs.
 
+## Menu drawer (see NAVIGATION_MAP.md)
+
+The hamburger opens a right-hand drawer at every width: Warm Paper
+fill, hairline `--color-border` left edge, one soft shadow, mono
+gold-text section labels (`MORE RESOURCES`, `BROWSE TOPICS`), plain
+Deep Ink links with ≥44px targets, sections separated by hairline
+rules and whitespace — no cards, no oversized type. 24rem wide on
+desktop, full-width sheet on mobile. 0.2s slide only under
+`prefers-reduced-motion: no-preference`.
+
 ## Search (see SEARCH_SYSTEM.md)
 
 The /search/ page reuses these tokens wholesale: white input on Warm

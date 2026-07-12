@@ -20,3 +20,31 @@ export const PRIMARY_NAV: NavLink[] = [
   { label: 'Articles', href: '/blog/' },
   { label: 'About', href: '/vision/' },
 ];
+
+// --- Hamburger menu (see NAVIGATION_MAP.md) --------------------------
+// A small set of deeper resources that don't belong in the primary
+// nav. Deliberately NOT a sitemap: no Strategy Coordinator, no
+// Movement Resources index, no 4 Fields Toolbox, no legal/utility
+// pages, no individual articles beyond the named featured resources.
+// Every href below is a real, existing route — verify before adding
+// ("Commands of Christ" is omitted because no page for it exists on
+// this site yet; see NAVIGATION_MAP.md).
+
+export const MENU_FEATURED: NavLink[] = [
+  { label: 'Stickers', href: '/stickers/' },
+  { label: '7 Stories of Hope', href: '/movement-resources/7-stories-of-hope-complete-facilitation-guide/' },
+  { label: 'Kingdom Ministry Training', href: '/kingdom-ministry-training/' },
+];
+
+// The strongest topic hubs only (plus the full index) — labels match
+// the hubs' real titles in src/content/hubs/.
+export const MENU_TOPICS: NavLink[] = [
+  { label: 'All Articles', href: '/blog/' },
+  { label: 'Share the Gospel', href: '/share-the-gospel/' },
+  { label: 'Disciple Making', href: '/disciple-making/' },
+  { label: 'Simple Church', href: '/simple-church/' },
+  { label: 'Prayer', href: '/prayer/' },
+  { label: 'Church Planting Movements', href: '/church-planting-movements/' },
+];
+
+export const MENU_CONTACT: NavLink = { label: 'Contact Us', href: '/contact-us/' };

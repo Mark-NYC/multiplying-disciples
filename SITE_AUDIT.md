@@ -179,6 +179,18 @@ every capture: no overflow on any page at any width.
 already on the approved system and are unchanged visually; their
 `article_system` flag was removed.
 
+## Addendum: hamburger menu (2026-07-12, later pass)
+
+Added the restrained menu drawer documented in NAVIGATION_MAP.md:
+hamburger at the far right at all widths, desktop panel with Featured
+Resources / Browse Topics / Contact, mobile panel with the primary nav
+first. The old checkbox-only mobile menu was upgraded to an accessible
+dialog (real button, aria-expanded, focus trap, Escape, focus
+restoration, scroll lock) with the checkbox retained as the no-JS
+fallback. "Commands of Christ" was requested for the menu but has no
+page on this site — documented in NAVIGATION_MAP.md as a migration
+decision instead of inventing a route.
+
 ## Unresolved issues / needs Mark's judgment
 
 1. **Missing media** (pre-existing, see MEDIA_ACQUISITION_CHECKLIST):
