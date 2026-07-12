@@ -159,7 +159,39 @@ whatever actually describes that card; never default to the word
 </InsightCard>
 ```
 
-**Mobile:** full width, padding unchanged (already modest).
+**Optional `accent` and `icon` props** — off by default, so every
+existing plain card is unaffected. Reach for these only when an
+article has a genuine set of parallel, named categories worth telling
+apart at a glance (one card per role/type in a framework) — not as
+routine decoration on ordinary cards.
+
+- `accent`: `'primary' | 'accent' | 'gold' | 'clay' | 'ink'` — adds a
+  colored top edge and tints the label + icon badge with that token.
+  These are the only 5 values; they map to existing brand colors
+  (Primary Green, Growth Green, Harvest Gold, Burnt Clay, Deep Ink) —
+  never invent a 6th color.
+- `icon` / `iconAlt`: a small real image (a line icon, not a photo)
+  rendered as a circular badge next to the label, inside the card —
+  not floated above it as a separate `ArticleImage`.
+
+```mdx
+<InsightCard label="The Apostle" accent="clay" icon="/path/icon.png" iconAlt="Line icon of a running figure">
+- Point one
+- Point two
+</InsightCard>
+```
+
+See `unlocking-the-power-of-apest-the-ultimate-guide.mdx` for the
+reference implementation: 5 roles, 5 accents, one icon per card, plus
+a hand-built `.fm-role-nav` pill strip (icon + color-coded link to
+each role's real heading anchor) and a matching small `.fm-role-eyebrow`
+pill above each role's deep-dive heading — both defined in
+`field-manual-article.css`, written as plain HTML in the `.mdx` body
+rather than as new components, since a fixed set of named roles is
+specific to that one article, not a reusable pattern.
+
+**Mobile:** full width, padding unchanged (already modest). The pill
+nav wraps to multiple rows at narrow widths.
 
 ### PracticeCard
 

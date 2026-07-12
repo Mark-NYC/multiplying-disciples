@@ -13,16 +13,30 @@
 // Means", "Movement Principle", "Summary") rather than defaulting to
 // the generic word "Insight" everywhere.
 //
+// `accent` and `icon` are both optional and off by default — omitting
+// them renders exactly the plain white card every other article
+// already uses. Only reach for them when a set of cards represents
+// parallel, named categories worth telling apart at a glance (e.g. one
+// card per role in a framework) — not as routine decoration.
+//
 // Usage: <InsightCard label="Key Distinction">...markdown...</InsightCard>
+// Usage with an icon + accent color:
+//   <InsightCard label="The Apostle" accent="clay" icon="/path/icon.png" iconAlt="...">...</InsightCard>
 interface Props {
   label: string;
+  accent?: 'primary' | 'accent' | 'gold' | 'clay' | 'ink';
+  icon?: string;
+  iconAlt?: string;
 }
 
-const { label } = Astro.props;
+const { label, accent, icon, iconAlt } = Astro.props;
 ---
 
-<div class="fm-insight-card">
-  <p class="fm-insight-card__label">{label}</p>
+<div class:list={['fm-insight-card', accent && `fm-insight-card--${accent}`]}>
+  <div class="fm-insight-card__head">
+    {icon && <img class="fm-insight-card__icon" src={icon} alt={iconAlt ?? ''} loading="lazy" />}
+    <p class="fm-insight-card__label">{label}</p>
+  </div>
   <div class="fm-insight-card__body">
     <slot />
   </div>

@@ -82,6 +82,26 @@ notes: >
   and ids untouched for that reason. Added article_cta (type:
   community) — APEST is a team framework lived out with others, not a
   single skill practiced in one session.
+
+  2026-07-12 (design pass): moved each role's line-icon inside its own
+  InsightCard (new optional `icon`/`iconAlt`/`accent` props on
+  InsightCard, off by default everywhere else on the site) instead of
+  floating above it, and gave each of the 5 roles its own accent color
+  (Apostle=clay, Prophet=gold, Evangelist=accent/Growth Green,
+  Shepherd=primary/Primary Green, Teacher=ink/Deep Ink — all existing
+  brand tokens, no new colors invented). Moved the APEST pentagon
+  diagram earlier, right after the "definitions" intro line, so the
+  reader sees the whole framework before the 5 individual cards. Added
+  a small icon+color pill nav (`.fm-role-nav`) linking to each role's
+  real "Function of X" deep-dive anchor, replacing the plain "read more
+  later in this article" sentence, and a matching small color pill
+  (`.fm-role-eyebrow`) above each "### The Function of X" heading so
+  the whole guide — overview cards, quick nav, and deep-dive sections —
+  reads as one color-coded system per role. Both are hand-built with
+  plain HTML/CSS scoped to this article's use case
+  (`.fm-role-nav`/`.fm-role-eyebrow` in field-manual-article.css), not
+  new components, since the 5-named-role pattern is specific to this
+  page.
 ---
 
 import InsightCard from '../../components/article/InsightCard.astro';
@@ -106,68 +126,51 @@ These are the five biblical roles of leadership that Paul writes about in Ephesi
 
 Below are definitions of each leadership role from prominent thought leaders on the topic of APEST including Neil Cole, Alan Hirsch, and Mike Breen.
 
-Read a more in depth explanation of the function of each role [later in this article](#the-function-of-the-apostle).
-
-<ArticleImage
-  src="/wp-content/uploads/2023/04/1-1-1024x1024.png"
-  alt="Line icon of a running figure, representing the Apostle's pioneering, sent-out gifting"
-/>
-
-<InsightCard label="The Apostle">
-- Sent with a specific God-given assignment to lay a foundation for the expansion of the church and they are mature enough to equip others to do the same. – *Neil Cole*
-- Innovator and cultural architect who initiates a new product, or service, and develops the organization. – *Alan Hirsch*
-- A visionary, catalytic pioneer, always pushing into new territory, eager to discover and explore. Apostles like to establish new churches or ministries. They constantly come up with new, innovative means to do kingdom work. – *Mike Breen*
-</InsightCard>
-
-<ArticleImage
-  src="/wp-content/uploads/2023/04/2-1-1024x1024.png"
-  alt="Line icon of a megaphone, representing the Prophet's gifting to speak on God's behalf"
-/>
-
-<InsightCard label="The Prophet">
-- Speak to the church on God's behalf, bringing words of edification, exhortation, and consolation and are mature enough to help others to do the same. – *Neil Cole*
-- Provocateur who probes awareness and fosters questioning of current programming leading to organizational learning. – *Alan Hirsch*
-- Listens closely to God and humbly communicates to the Body, even if it's sometimes with a challenging or corrective word. Prophets are in-tune with God and therefore able to discern his will and his truth. They can stand back from circumstances and get a clear picture of what is happening; this allows them to see creative solutions and cast vision. – *Mike Breen*
-</InsightCard>
-
-<ArticleImage
-  src="/wp-content/uploads/2023/04/3-2-1024x1024.png"
-  alt="Line icon of a connected network, representing the Evangelist's gifting to recruit and connect people to the gospel"
-/>
-
-<InsightCard label="The Evangelist">
-- Evangelists will passionately seek out opportunities to share Gospel with others and lead them toward acceptance of Jesus and are mature enough to equip others to do the same; driven by love of God and love of people. – *Neil Cole*
-- Evangelists are people who are passionate about sharing the gospel and reaching the lost. They are often gifted in communicating the gospel in ways that resonate with people who are outside of the church. – *Alan Hirsch*
-- Is an infectious communicator of the Gospel message, who recruits others to join the cause. Evangelists call for a personal response to God's loving, saving redemption in Christ and draw believers to engage with the ongoing mission of growing the Church. – *Mike Breen*
-</InsightCard>
-
-<ArticleImage
-  src="/wp-content/uploads/2023/04/4-2-1024x1024.png"
-  alt="Line icon of a circle, representing the Shepherd's gifting to gather and care for community"
-/>
-
-<InsightCard label="The Shepherd">
-- Shepherds' overwhelming concern for continuing care of a specific community and are mature enough to equip others to do the same. – *Neil Cole*
-- Shepherds are people who care for and nurture others, providing support, guidance, and encouragement. They are often gifted in creating safe spaces and building relationships with those in need of pastoral care. – *Alan Hirsch*
-- A Shepherd can identify needs, provide comfort, and encourage others. Pastors easily empathize with others and exhibit lots of patience with those in need. Out of a drive to nurture, protect, and love God's people, they spend most of their time with other Christians. – *Mike Breen*
-</InsightCard>
-
-<ArticleImage
-  src="/wp-content/uploads/2023/04/5-1024x1024.png"
-  alt="Line icon of a candle, representing the Teacher's gifting to illuminate and explain God's word"
-/>
-
-<InsightCard label="The Teacher">
-- Teachers spur the progressive growth of understanding and application of truth, and are mature enough to equip others to do the same. – *Neil Cole*
-- Teachers are people who have a deep understanding of God's word and are gifted in explaining and applying it to others. They help to ground and strengthen the church by providing solid biblical teaching. – *Alan Hirsch*
-- Teachers look for effective methods to explain, enlighten and apply God's truth, wisdom and ways. Teachers assist others in remaining biblically grounded, learning to discern God's will, and helping the community remain faithful to Christ's own teachings. – *Mike Breen*
-</InsightCard>
-
 <ArticleImage
   src="/wp-content/uploads/2023/04/Untitled-design-14.png"
   alt="Diagram of the APEST pentagon showing Apostle, Prophet, Evangelist, Shepherd, and Teacher arranged around a center point"
   caption="The five APEST gifts, arranged as Hirsch describes them: interdependent, not hierarchical."
 />
+
+Read a more in depth explanation of the function of each role — jump straight to one, or keep reading for all five definitions first:
+
+<ul class="fm-role-nav">
+<li><a href="#the-function-of-the-apostle" data-accent="clay"><img src="/wp-content/uploads/2023/04/1-1-1024x1024.png" alt="" loading="lazy" />Apostle</a></li>
+<li><a href="#the-function-of-the-prophet" data-accent="gold"><img src="/wp-content/uploads/2023/04/2-1-1024x1024.png" alt="" loading="lazy" />Prophet</a></li>
+<li><a href="#the-function-of-the-evangelist" data-accent="accent"><img src="/wp-content/uploads/2023/04/3-2-1024x1024.png" alt="" loading="lazy" />Evangelist</a></li>
+<li><a href="#the-function-of-the-shepherd" data-accent="primary"><img src="/wp-content/uploads/2023/04/4-2-1024x1024.png" alt="" loading="lazy" />Shepherd</a></li>
+<li><a href="#the-function-of-the-teacher" data-accent="ink"><img src="/wp-content/uploads/2023/04/5-1024x1024.png" alt="" loading="lazy" />Teacher</a></li>
+</ul>
+
+<InsightCard label="The Apostle" accent="clay" icon="/wp-content/uploads/2023/04/1-1-1024x1024.png" iconAlt="Line icon of a running figure, representing the Apostle's pioneering, sent-out gifting">
+- Sent with a specific God-given assignment to lay a foundation for the expansion of the church and they are mature enough to equip others to do the same. – *Neil Cole*
+- Innovator and cultural architect who initiates a new product, or service, and develops the organization. – *Alan Hirsch*
+- A visionary, catalytic pioneer, always pushing into new territory, eager to discover and explore. Apostles like to establish new churches or ministries. They constantly come up with new, innovative means to do kingdom work. – *Mike Breen*
+</InsightCard>
+
+<InsightCard label="The Prophet" accent="gold" icon="/wp-content/uploads/2023/04/2-1-1024x1024.png" iconAlt="Line icon of a megaphone, representing the Prophet's gifting to speak on God's behalf">
+- Speak to the church on God's behalf, bringing words of edification, exhortation, and consolation and are mature enough to help others to do the same. – *Neil Cole*
+- Provocateur who probes awareness and fosters questioning of current programming leading to organizational learning. – *Alan Hirsch*
+- Listens closely to God and humbly communicates to the Body, even if it's sometimes with a challenging or corrective word. Prophets are in-tune with God and therefore able to discern his will and his truth. They can stand back from circumstances and get a clear picture of what is happening; this allows them to see creative solutions and cast vision. – *Mike Breen*
+</InsightCard>
+
+<InsightCard label="The Evangelist" accent="accent" icon="/wp-content/uploads/2023/04/3-2-1024x1024.png" iconAlt="Line icon of a connected network, representing the Evangelist's gifting to recruit and connect people to the gospel">
+- Evangelists will passionately seek out opportunities to share Gospel with others and lead them toward acceptance of Jesus and are mature enough to equip others to do the same; driven by love of God and love of people. – *Neil Cole*
+- Evangelists are people who are passionate about sharing the gospel and reaching the lost. They are often gifted in communicating the gospel in ways that resonate with people who are outside of the church. – *Alan Hirsch*
+- Is an infectious communicator of the Gospel message, who recruits others to join the cause. Evangelists call for a personal response to God's loving, saving redemption in Christ and draw believers to engage with the ongoing mission of growing the Church. – *Mike Breen*
+</InsightCard>
+
+<InsightCard label="The Shepherd" accent="primary" icon="/wp-content/uploads/2023/04/4-2-1024x1024.png" iconAlt="Line icon of a circle, representing the Shepherd's gifting to gather and care for community">
+- Shepherds' overwhelming concern for continuing care of a specific community and are mature enough to equip others to do the same. – *Neil Cole*
+- Shepherds are people who care for and nurture others, providing support, guidance, and encouragement. They are often gifted in creating safe spaces and building relationships with those in need of pastoral care. – *Alan Hirsch*
+- A Shepherd can identify needs, provide comfort, and encourage others. Pastors easily empathize with others and exhibit lots of patience with those in need. Out of a drive to nurture, protect, and love God's people, they spend most of their time with other Christians. – *Mike Breen*
+</InsightCard>
+
+<InsightCard label="The Teacher" accent="ink" icon="/wp-content/uploads/2023/04/5-1024x1024.png" iconAlt="Line icon of a candle, representing the Teacher's gifting to illuminate and explain God's word">
+- Teachers spur the progressive growth of understanding and application of truth, and are mature enough to equip others to do the same. – *Neil Cole*
+- Teachers are people who have a deep understanding of God's word and are gifted in explaining and applying it to others. They help to ground and strengthen the church by providing solid biblical teaching. – *Alan Hirsch*
+- Teachers look for effective methods to explain, enlighten and apply God's truth, wisdom and ways. Teachers assist others in remaining biblically grounded, learning to discern God's will, and helping the community remain faithful to Christ's own teachings. – *Mike Breen*
+</InsightCard>
 
 **APEST leadership is not a hierarchy, but a team effort that requires each role to work together for the growth and health of the church.**
 
@@ -218,6 +221,8 @@ Below is a more in depth look at the function of each of the leadership roles in
 - [The Function of the Evangelist](#the-function-of-the-evangelist)
 - [The Function of the Shepherd](#the-function-of-the-shepherd)
 - [The Function of the Teacher](#the-function-of-the-teacher)
+
+<p class="fm-role-eyebrow" data-accent="clay">APOSTLE</p>
 
 ### The Function of the Apostle
 
@@ -279,6 +284,8 @@ In conclusion, the role of the apostle is essential for igniting the primal fire
 
 [Watch on YouTube](https://youtu.be/rlbGZbyI-QA)
 
+<p class="fm-role-eyebrow" data-accent="gold">PROPHET</p>
+
 ### The Function of the Prophet
 
 In Primal Fire, Cole emphasizes that the prophet's primary function is not to predict the future or offer personal guidance to individuals.
@@ -324,6 +331,8 @@ Prophets must be careful not to rely on their own intuition or personal agendas 
 Overall, Cole's vision of the prophetic gift is one of empowerment, correction, and inspiration.
 
 He sees prophets as vital members of the body of Christ, equipping believers to hear God's voice and challenging the Church to stay focused on God's mission. By embracing the prophetic gift and its function, the Church can grow in its relationship with God and become more effective in fulfilling its mission.
+
+<p class="fm-role-eyebrow" data-accent="accent">EVANGELIST</p>
 
 ### The Function of the Evangelist
 
@@ -381,6 +390,8 @@ The evangelist is not just a one-time evangelizer but rather a firestarter who i
 
 [Watch on YouTube](https://youtu.be/gK359tl6hTA)
 
+<p class="fm-role-eyebrow" data-accent="primary">SHEPHERD</p>
+
 ### The Function of the Shepherd
 
 In Neil Cole's book, "Primal Fire," he discusses the fivefold ministry model and the role of the shepherd in the church. The shepherd, also known as the pastor, is an essential part of the church's leadership team, responsible for nurturing and caring for the congregation.
@@ -428,6 +439,8 @@ Shepherds need apostles to help keep the church growing beyond the families of t
 Going Deeper Questions by Curtis Seargeant in [Equipping Disciples for Ministry as Kingdom Priests Article.](https://www.missionfrontiers.org/pdfs/MF_45-4_JULY-AUG_23_Web_2.pdf)
 
 [Watch on YouTube](https://youtu.be/atL52su2QYc)
+
+<p class="fm-role-eyebrow" data-accent="ink">TEACHER</p>
 
 ### The Function of the Teacher
 
