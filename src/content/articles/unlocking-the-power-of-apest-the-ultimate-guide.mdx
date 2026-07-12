@@ -102,11 +102,35 @@ notes: >
   (`.fm-role-nav`/`.fm-role-eyebrow` in field-manual-article.css), not
   new components, since the 5-named-role pattern is specific to this
   page.
+
+  2026-07-12 (spacing + highlighting pass): each role's deep-dive
+  section was still a long, undifferentiated wall of text below the
+  eyebrow pill. Two changes: (1) Apostle's "Overview of the Apostle"
+  bullet list (Basic Definition/Effect/Characteristics/Shadow — the
+  densest single reference block in the article) is now an InsightCard
+  with accent="clay", the same treatment as the top role cards, so it
+  reads as a highlighted reference block rather than a plain nested
+  list. (2) The 4 recurring Q&A facts every role has ("Who is an NT
+  example," "immature expressions," "if only this gift functioned,"
+  "interdependence") are now wrapped in a new RoleFact component
+  (src/components/article/RoleFact.astro) arranged in a 2x2
+  `.fm-role-facts` grid, tinted to that role's accent — real headings
+  (H4) are preserved inside each box for SEO, only the container is new
+  styling. This replaces what was previously 4 back-to-back plain H4 +
+  paragraph pairs with a highlighted, breathing-room-having grid.
+  Normalized Teacher's 4th fact (the only one of the 5 roles' 4th
+  facts that was a blockquote instead of a plain paragraph) to plain
+  text so all 5 roles' grids look identical. Also converted 3 misused
+  "pull quote as heading/blockquote" spots to real PullQuote: Apostle's
+  closing H4 (word-for-word duplicate of a sentence in its own first
+  paragraph), and the standalone blockquotes under Prophet and
+  Evangelist.
 ---
 
 import InsightCard from '../../components/article/InsightCard.astro';
 import ArticleImage from '../../components/article/ArticleImage.astro';
 import PullQuote from '../../components/article/PullQuote.astro';
+import RoleFact from '../../components/article/RoleFact.astro';
 
 In this ultimate guide to APEST, we'll be discussing APEST leadership and its role in disciple making movements using [Neil Cole's, "Primal Fire,"](https://www.amazon.com/Primal-Fire-Reigniting-Church-Gifts/dp/1414385501/ref=sr_1_1?crid=264ULYUWWSVVB&keywords=primal+fire&qid=1682471666&sprefix=primal+fire%2Caps%2C247&sr=8-1) and content by [Alan Hirsch](https://www.alanhirsch.org/about).
 
@@ -230,7 +254,7 @@ According to Cole, the apostle is a "sent one" who carries a unique calling to p
 
 One of the key roles of the apostle, according to Cole, is to create networks of relationships that can support and sustain the growth of new works. The apostle is not a lone ranger, but rather someone who understands the importance of collaboration and partnership in building healthy and vibrant communities of faith. The apostle is skilled at connecting people and resources, and is committed to working with others to achieve a common vision.
 
-##### Overview of the Apostle
+<InsightCard label="Overview of the Apostle" accent="clay">
 
 - **Basic Definition:** Sent with a specific God-given assignment to lay a foundation for the expansion of the church and they are mature enough to equip others to do the same
 - **Basic Effect on Others:** I can do this
@@ -256,21 +280,43 @@ One of the key roles of the apostle, according to Cole, is to create networks of
   - Can play the martyr and assume others are out to get them
   - Not very good at managing new works once they are started o Can leave behind a leadership vacuum
 
+</InsightCard>
+
+<div class="fm-role-facts">
+
+<RoleFact accent="clay">
+
 #### Who is a New Testament example of an apostle?
 
 Paul. His emphasis on expanding and extending the kingdom to new people groups and places was a major focus of his efforts (Rom. 15:18–20).
+
+</RoleFact>
+
+<RoleFact accent="clay">
 
 #### What do immature expressions of the apostle look like?
 
 Immature apostles may forget to ensure the firm establishment of work they have helped to catalyze. It is possible to be mobile without abandoning ongoing
 
+</RoleFact>
+
+<RoleFact accent="clay">
+
 #### What might it look like if only the apostle is functioning well in a movement?
 
 We would get (as we sometimes see today) continued but fragmented growth. United and cooperative action would be limited. Apostles acting alone may tend to only “move with the movers” and neglect people who are not actively engaged in advancing the kingdom
 
+</RoleFact>
+
+<RoleFact accent="clay">
+
 #### How is the apostle ideally interdependent with the other APEST gifts?
 
 Apostles need to seek counsel from prophets to direct their efforts. Once they get their work established, they need to involve evangelists in communicating the good news more broadly and effectively in their field of service. They need to rely on shepherds to provide deeper levels of care and unity as the work grows, since this becomes more difficult as the work scales up. They need to rely on teachers, not only to enhance disciples’ depth of understanding, but also to be more effective in passing on their insights and experiences to others.
+
+</RoleFact>
+
+</div>
 
 Going Deeper Questions by Curtis Seargeant in [Equipping Disciples for Ministry as Kingdom Priests Article.](https://www.missionfrontiers.org/pdfs/MF_45-4_JULY-AUG_23_Web_2.pdf)
 
@@ -280,7 +326,7 @@ Finally, Cole emphasizes that the apostle is a servant leader who is willing to 
 
 In conclusion, the role of the apostle is essential for igniting the primal fire of the gospel in the church today. The apostle is a sent one who is passionate about pioneering new works and breaking down barriers to the gospel. The apostle is a networker, strategist, visionary, and servant leader who is committed to building healthy and vibrant communities of faith. By embracing the apostolic calling, we can tap into the power of the Holy Spirit and see the church grow and flourish in new and exciting ways.
 
-#### The apostle is an entrepreneur of the gospel, willing to take risks and innovate new ways of reaching people with the message of salvation.
+<PullQuote>The apostle is an entrepreneur of the gospel, willing to take risks and innovate new ways of reaching people with the message of salvation.</PullQuote>
 
 [Watch on YouTube](https://youtu.be/rlbGZbyI-QA)
 
@@ -302,25 +348,45 @@ This helps believers grow in their faith, deepen their relationship with God, an
 
 In addition to these functions, Cole notes that prophets also have a unique ability to inspire and motivate others. Through their words and actions, prophets can stir up passion and enthusiasm for God's mission, encouraging others to join in the work of the Kingdom.
 
+<div class="fm-role-facts">
+
+<RoleFact accent="gold">
+
 #### Who is a New Testament example of an prophet?
 
 John. In Revelation, he spoke God’s personalized message to several churches in Asia for that specific time (Rev. 2–3), as well as to God’s people generally in the book as a whole.
+
+</RoleFact>
+
+<RoleFact accent="gold">
 
 #### What do immature expressions of the prophet look like?
 
 Immature prophets may be tempted to pride because they hear from the Lord more clearly. They may also be so focused on hearing that they forget to take practical action in response to what is heard.
 
+</RoleFact>
+
+<RoleFact accent="gold">
+
 #### What might it look like if only the prophet is functioning well in a movement?
 
 We would get a lot more listening and watching, but a lot less action. Growth would decrease significantly. Prophets acting alone can tend to listen far more than they act on what they have heard.
+
+</RoleFact>
+
+<RoleFact accent="gold">
 
 #### How is the prophet ideally interdependent with the other APEST gifts?
 
 Prophets need to communicate with and be patient with apostles who have enthusiasm that may not always be aimed in the right direction. They must remember that without the apostles, new ground will not be gained effectively. They need to rely on evangelists, especially when they have a message for outside the church, because the evangelists are far more winsome in their communications. They need the shepherds for a similar reason when communicating within the church, because the shepherds can “translate” the message in such a way as not to discourage or divide the body more than necessary. They need teachers to help them communicate the truth they hear in a way that can be more effectively understood and passed on to others.
 
+</RoleFact>
+
+</div>
+
 Going Deeper Questions by Curtis Seargeant in [Equipping Disciples for Ministry as Kingdom Priests Article.](https://www.missionfrontiers.org/pdfs/MF_45-4_JULY-AUG_23_Web_2.pdf)
 
-> Prophets are not just talkers; they are doers. They live what they preach and model the values they espouse. They are not afraid to take a stand for what is right, even if it means going against the flow.
+<PullQuote>Prophets are not just talkers; they are doers. They live what they preach and model the values they espouse. They are not afraid to take a stand for what is right, even if it means going against the flow.</PullQuote>
 
 [Watch on YouTube](https://youtu.be/s3E8hjQK_Sg)
 
@@ -350,25 +416,45 @@ According to Cole, the evangelist has a deep compassion for the lost and a burni
 
 This passion is contagious and inspires others to share the gospel as well. The evangelist is not content to simply share the message of salvation but also wants to see people transformed by the power of the Holy Spirit.
 
+<div class="fm-role-facts">
+
+<RoleFact accent="accent">
+
 #### Who is a New Testament example of an evangelist?
 
 Peter. He was moved to share the good news with those outside the kingdom both in public (Acts 2:14ff. and 3:11ff.) and private settings (Acts 10:34ff.), in large and small groups alike.
+
+</RoleFact>
+
+<RoleFact accent="accent">
 
 #### What do immature expressions of the evangelist look like?
 
 Immature evangelists may minimize the cost of discipleship in their communications, in order to maximize the number of people who respond to the good news. They can become conversion-focused rather than discipleship-focused.
 
+</RoleFact>
+
+<RoleFact accent="accent">
+
 #### What might it look like if only the evangelist is functioning well in a movement?
 
 We would get continued growth, and maybe even faster growth for a while. However, depth of discipleship would suffer, and long-term growth would likely falter as well. Evangelists acting alone can tend to bring a lot of babies into the family who are then neglected.
+
+</RoleFact>
+
+<RoleFact accent="accent">
 
 #### How is the evangelist ideally interdependent with the other APEST gifts?
 
 Evangelists need apostles to help establish foundations for them to build on as they reach out to new places or people groups who require more crosscultural awareness and fluency. They need prophets to equip new followers of Christ in how to hear God more effectively on an ongoing basis. They need shepherds to provide ongoing encouragement and community building for those whom they bring to the body. They need teachers to help take the new believers to continue to grow in an ongoing basis.
 
+</RoleFact>
+
+</div>
+
 Going Deeper Questions by Curtis Seargeant in [Equipping Disciples for Ministry as Kingdom Priests Article.](https://www.missionfrontiers.org/pdfs/MF_45-4_JULY-AUG_23_Web_2.pdf)
 
-> The evangelist is a "firestarter" who inspires and equips others to share their faith with those around them.
+<PullQuote>The evangelist is a "firestarter" who inspires and equips others to share their faith with those around them.</PullQuote>
 
 [Watch on YouTube](https://youtu.be/94oPr1MckUU)
 
@@ -420,21 +506,41 @@ In conclusion, the role of the shepherd in the church is essential for the spiri
 
 The shepherd is responsible for caring for and nurturing the people, overseeing the church's spiritual health, protecting the flock from harm, maintaining unity within the church, and serving as a humble and servant-leader. As Cole emphasizes in his book, the fivefold ministry model, including the role of the shepherd, is crucial for the church's effectiveness in carrying out the work of the ministry and fulfilling its mission to make disciples of all nations.
 
+<div class="fm-role-facts">
+
+<RoleFact accent="primary">
+
 #### Who is a New Testament example of a shepherd?
 
 Barnabas was used to unite and encourage God’s people consistently. Consider for example his work with Paul (Acts 9:26–27; 11:25–26), John Mark (Acts 12:25, 15:36–39), and generally in the Church (Acts 4:36–37; 11:19–23).
+
+</RoleFact>
+
+<RoleFact accent="primary">
 
 #### What do immature expressions of the shepherd look like?
 
 An immature shepherd may compromise in failing to call people to change or grow in the interest of encouraging people and seeking to maintain unity. This can end up sacrificing growth for comfort.
 
+</RoleFact>
+
+<RoleFact accent="primary">
+
 #### What might it look like if only the shepherd is functioning well in a movement?
 
 We would have great morale, but growth would decrease dramatically. Everyone already inside the church would be well taken care of, but those outside would be largely neglected. Shepherds acting alone can tend to create an inward-focused ethos.
 
+</RoleFact>
+
+<RoleFact accent="primary">
+
 #### How is the shepherd ideally interdependent with the other APEST gifts?
 
 Shepherds need apostles to help keep the church growing beyond the families of those who are already followers of Christ. They need prophets to make sure the hard-to-hear messages that lead to further growth in Christ are shared. They need evangelists to help bring others into the body and to equip others to do the same. They need teachers to ensure continued growth of the disciples in understanding and in passing on what they are learning to others.
+
+</RoleFact>
+
+</div>
 
 Going Deeper Questions by Curtis Seargeant in [Equipping Disciples for Ministry as Kingdom Priests Article.](https://www.missionfrontiers.org/pdfs/MF_45-4_JULY-AUG_23_Web_2.pdf)
 
@@ -472,21 +578,41 @@ Overall, the role of the teacher is critical in helping individuals grow in thei
 
 As Cole writes in "Primal Fire," "The teacher helps us to understand what we believe and why, and to translate that into everyday life. They inspire us to keep learning and growing in our faith, and to share our knowledge and understanding with others."
 
+<div class="fm-role-facts">
+
+<RoleFact accent="ink">
+
 #### Who is a New Testament example of a teacher?
 
 Aquila and Priscilla. Consider how they taught Apollos to teach others (Acts 18:24–28).
+
+</RoleFact>
+
+<RoleFact accent="ink">
 
 #### What do immature expressions of the teacher look like?
 
 Immature teachers may be tempted to pride because of their deeper insights into Scripture. They can be tempted to view themselves as irreplaceable and may treat teaching opportunities as performances.
 
+</RoleFact>
+
+<RoleFact accent="ink">
+
 #### What might it look like if only the teacher is functioning well in a movement?
 
 We would have very knowledgeable disciples, not necessarily applying what they learned. Growth would slow dramatically, and pride would likely become a major problem. Teachers acting alone can tend toward a theoretical and academic approach as they teach about things that may go beyond relevance for the personal experience and application of their hearers.
 
+</RoleFact>
+
+<RoleFact accent="ink">
+
 #### How is the teacher ideally interdependent with the other APEST gifts?
 
-> Teachers need apostles to establish patterns of faithfulness in disciples, so they will apply what they learn and pass it on to others. They need prophets to keep disciples alert to hearing from the Spirit of God as well as the Word of God. They need evangelists to ensure there will always be more new believers to equip. They need shepherds to care for the disciples so that these disciples will be in a position of health and thus better able to learn and teach others.
+Teachers need apostles to establish patterns of faithfulness in disciples, so they will apply what they learn and pass it on to others. They need prophets to keep disciples alert to hearing from the Spirit of God as well as the Word of God. They need evangelists to ensure there will always be more new believers to equip. They need shepherds to care for the disciples so that these disciples will be in a position of health and thus better able to learn and teach others.
+
+</RoleFact>
+
+</div>
 
 Going Deeper Questions by Curtis Seargeant in [Equipping Disciples for Ministry as Kingdom Priests Article.](https://www.missionfrontiers.org/pdfs/MF_45-4_JULY-AUG_23_Web_2.pdf)
 
