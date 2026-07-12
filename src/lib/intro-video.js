@@ -19,7 +19,7 @@ export function initHomeIntroVideos() {
 
     const startPlayback = () => {
       const video = document.createElement('video');
-      video.className = 'intro-video__player';
+      video.className = 'intro-video-frame__player';
       video.controls = true;
       video.playsInline = true;
       video.loop = false;

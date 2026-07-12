@@ -4,51 +4,43 @@
 // the DOM after a visitor clicks, so the MP4 is never requested on
 // initial page load. See ecosystem-tracking.js for the same
 // window.dataLayer push pattern this reuses for GA4 events.
+//
+// Deliberately fills whatever box its parent gives it edge-to-edge (no
+// self-imposed max-width, aspect-ratio, radius, or shadow) — the caller
+// (e.g. the block-grid video cell on the homepage) owns the box shape,
+// same as the site's other edge-to-edge block-grid image cells.
 interface Props {
   videoSrc: string;
   posterSrc: string;
   posterAlt: string;
-  eyebrow?: string;
-  heading?: string;
-  body?: string;
 }
 
-const { videoSrc, posterSrc, posterAlt, eyebrow, heading, body } = Astro.props;
+const { videoSrc, posterSrc, posterAlt } = Astro.props;
 ---
 
-<div class="intro-video">
-  {(eyebrow || heading || body) && (
-    <div class="intro-video__copy">
-      {eyebrow && <p class="eyebrow eyebrow--gold-text">{eyebrow}</p>}
-      {heading && <h2>{heading}</h2>}
-      {body && <p class="intro-video__body">{body}</p>}
-    </div>
-  )}
-
-  <div class="intro-video__frame" data-intro-video data-video-src={videoSrc}>
-    <img
-      src={posterSrc}
-      alt={posterAlt}
-      class="intro-video__poster"
-      width="1145"
-      height="1373"
-      loading="lazy"
-      data-intro-video-poster
-    />
-    <div class="intro-video__scrim" aria-hidden="true"></div>
-    <button
-      type="button"
-      class="intro-video__trigger"
-      aria-label="Play homepage introduction video"
-      data-intro-video-trigger
-    >
-      <span class="intro-video__play" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
-          <path d="M8 5v14l11-7z" />
-        </svg>
-      </span>
-    </button>
-  </div>
+<div class="intro-video-frame" data-intro-video data-video-src={videoSrc}>
+  <img
+    src={posterSrc}
+    alt={posterAlt}
+    class="intro-video-frame__poster"
+    width="1145"
+    height="1373"
+    loading="lazy"
+    data-intro-video-poster
+  />
+  <div class="intro-video-frame__scrim" aria-hidden="true"></div>
+  <button
+    type="button"
+    class="intro-video-frame__trigger"
+    aria-label="Play homepage introduction video"
+    data-intro-video-trigger
+  >
+    <span class="intro-video-frame__play" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+    </span>
+  </button>
 </div>
 
 <script>
@@ -58,46 +50,14 @@ const { videoSrc, posterSrc, posterAlt, eyebrow, heading, body } = Astro.props;
 </script>
 
 <style>
-  .intro-video {
-    max-width: var(--content-max-width);
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    text-align: center;
-  }
-
-  .intro-video__copy {
-    margin: 0 auto 2rem;
-    max-width: 34rem;
-  }
-
-  .intro-video__copy h2 {
-    margin: 0 0 0.75rem;
-    font-size: var(--fs-h2);
-    line-height: 1.15;
-  }
-
-  .intro-video__body {
-    margin: 0;
-    font-size: var(--fs-body);
-    line-height: 1.6;
-    color: var(--color-text-muted);
-  }
-
-  /* 9:16 frame, capped so the vertical video reads as an intentional
-     element in the layout rather than a full-height wall. */
-  .intro-video__frame {
+  .intro-video-frame {
     position: relative;
     width: 100%;
-    max-width: 22rem;
-    aspect-ratio: 9 / 16;
-    margin: 0 auto;
+    height: 100%;
     overflow: hidden;
-    border-radius: var(--radius-card);
-    background: var(--color-ink);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
   }
 
-  .intro-video__poster {
+  .intro-video-frame__poster {
     display: block;
     width: 100%;
     height: 100%;
@@ -107,7 +67,7 @@ const { videoSrc, posterSrc, posterAlt, eyebrow, heading, body } = Astro.props;
 
   /* Only a light gradient at the base for play-button contrast — kept
      subtle so the photo doesn't read as darkened. */
-  .intro-video__scrim {
+  .intro-video-frame__scrim {
     position: absolute;
     inset: 0;
     background: linear-gradient(to top, rgba(31, 37, 35, 0.32) 0%, rgba(31, 37, 35, 0) 42%);
@@ -118,7 +78,7 @@ const { videoSrc, posterSrc, posterAlt, eyebrow, heading, body } = Astro.props;
      click on the thumbnail starts playback — the visible circle is a
      purely decorative child, positioned via the button's own flex
      centering rather than absolute placement. */
-  .intro-video__trigger {
+  .intro-video-frame__trigger {
     position: absolute;
     inset: 0;
     display: flex;
@@ -132,12 +92,12 @@ const { videoSrc, posterSrc, posterAlt, eyebrow, heading, body } = Astro.props;
     cursor: pointer;
   }
 
-  .intro-video__trigger:focus-visible {
+  .intro-video-frame__trigger:focus-visible {
     outline: 3px solid var(--color-gold);
     outline-offset: -3px;
   }
 
-  .intro-video__play {
+  .intro-video-frame__play {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,41 +110,35 @@ const { videoSrc, posterSrc, posterAlt, eyebrow, heading, body } = Astro.props;
     transition: transform 0.15s ease, background-color 0.15s ease;
   }
 
-  .intro-video__play svg {
+  .intro-video-frame__play svg {
     transform: translateX(2px);
   }
 
-  .intro-video__trigger:hover .intro-video__play,
-  .intro-video__trigger:focus-visible .intro-video__play {
+  .intro-video-frame__trigger:hover .intro-video-frame__play,
+  .intro-video-frame__trigger:focus-visible .intro-video-frame__play {
     background: #ffffff;
     transform: scale(1.06);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .intro-video__play {
+    .intro-video-frame__play {
       transition: none;
     }
 
-    .intro-video__trigger:hover .intro-video__play,
-    .intro-video__trigger:focus-visible .intro-video__play {
+    .intro-video-frame__trigger:hover .intro-video-frame__play,
+    .intro-video-frame__trigger:focus-visible .intro-video-frame__play {
       transform: none;
     }
   }
 
-  /* Once swapped in, the <video> fills the same frame; contain (not
-     cover) so playback is never cropped, even if its real dimensions
-     differ slightly from the frame's 9:16. */
-  .intro-video :global(.intro-video__player) {
+  /* Once swapped in, the <video> fills the same box; contain (not
+     cover) so playback is never cropped, even though the box itself
+     (set by the parent) isn't necessarily 9:16 — it may letterbox. */
+  .intro-video-frame :global(.intro-video-frame__player) {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: contain;
     background: var(--color-ink);
-  }
-
-  @media (max-width: 640px) {
-    .intro-video__frame {
-      max-width: 17rem;
-    }
   }
 </style>
