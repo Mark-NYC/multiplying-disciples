@@ -17,7 +17,7 @@ original_url: "https://multiplyingdisciples.us/unlock-the-power-of-friendly-acco
 article_cta:
   type: lab
   stakes_headline: "Without accountability, good intentions keep turning into another week of inaction."
-  bridge_copy: "You do not need another article. You need a place to practice, set a clear next step, and come back with the story."
+  bridge_copy: "Knowing what accountability should look like doesn't create it. A lab is where that knowledge turns into practice, done together with others."
 notes: >
   Migrated from WordPress post_id 8096. Removed 2 duplicate pull-quote
   H4s that repeated adjacent text verbatim, the reusable "Are you in?
