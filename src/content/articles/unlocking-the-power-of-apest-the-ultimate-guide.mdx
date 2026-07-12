@@ -26,6 +26,16 @@ og_image: "/wp-content/uploads/2023/04/Untitled-design-14.png"
 status: "migrated"
 migration_priority: "tier-1"
 original_url: "https://multiplyingdisciples.us/unlocking-the-power-of-apest-the-ultimate-guide/"
+article_system: "field-manual-v2"
+hero_category: "Jesus and the Twelve"
+hero_subheading: "Ephesians 4 names five leadership gifts, not one. Most churches only ever develop two of them."
+article_cta:
+  type: community
+  stakes_headline: "A church that only develops shepherds and teachers will stay well cared-for and never grow."
+  bridge_copy: "Recognizing your APEST gifting on paper isn't the same as functioning in it alongside a team. Find people living out all five gifts, inside the CoVo community."
+  destination:
+    label: "Explore CoVo Multipliers"
+    href: "https://www.covomultipliers.com/"
 notes: >
   Real content ported from the WordPress export (post_id 7212). 4 clicks
   / 1,290 impressions in the known GSC export. Conceptually overlaps
@@ -49,7 +59,34 @@ notes: >
   malformed bold+link at the very end. The in-page jump list
   ("The Function of the Apostle" etc.) uses Astro's real generated
   heading ids — verified against the build output, not assumed.
+
+  2026-07-12 (Batch 3, leadership): converted to .mdx. No hero image —
+  the og_image is a "What is... APEST?" title graphic that would
+  visually fight the real H1, so it's kept as an in-body ArticleImage
+  right after the role definitions instead, where it works as a
+  genuine explainer diagram. Converted the five role-definition quote
+  sets (Apostle/Prophet/Evangelist/Shepherd/Teacher, each with
+  Cole/Hirsch/Breen definitions) to InsightCard, one per role, with
+  each role's small line-icon converted to an ArticleImage above its
+  card. Deliberately left the five long "Function of the Apostle" /
+  "Function of the Prophet" / etc. deep-dive sections and their
+  "Who is an NT example" / "immature expressions" / "functioning
+  alone" / "interdependent" mini-FAQ pattern as plain headings and
+  prose — that pattern already repeats cleanly 5 times via existing
+  heading structure, and this is the site's flagship APEST reference
+  guide (tier-1, real external citations to Cole and Hirsch); adding
+  20 more card wrappers on top of a page this information-dense would
+  add visual noise, not clarity, and risks working against the
+  in-page jump-list anchors this page depends on for its own
+  in-page navigation. Left all "### The Function of X" heading text
+  and ids untouched for that reason. Added article_cta (type:
+  community) — APEST is a team framework lived out with others, not a
+  single skill practiced in one session.
 ---
+
+import InsightCard from '../../components/article/InsightCard.astro';
+import ArticleImage from '../../components/article/ArticleImage.astro';
+import PullQuote from '../../components/article/PullQuote.astro';
 
 In this ultimate guide to APEST, we'll be discussing APEST leadership and its role in disciple making movements using [Neil Cole's, "Primal Fire,"](https://www.amazon.com/Primal-Fire-Reigniting-Church-Gifts/dp/1414385501/ref=sr_1_1?crid=264ULYUWWSVVB&keywords=primal+fire&qid=1682471666&sprefix=primal+fire%2Caps%2C247&sr=8-1) and content by [Alan Hirsch](https://www.alanhirsch.org/about).
 
@@ -69,49 +106,70 @@ These are the five biblical roles of leadership that Paul writes about in Ephesi
 
 Below are definitions of each leadership role from prominent thought leaders on the topic of APEST including Neil Cole, Alan Hirsch, and Mike Breen.
 
-Read a more in depth explanation of the function of each role [later in this article](#the-function-of-the-apostle).
+Read a more in depth explanation of the function of each role [later in this article](#the-function-of-the-apostle).
 
-![](/wp-content/uploads/2023/04/1-1-1024x1024.png)
+<ArticleImage
+  src="/wp-content/uploads/2023/04/1-1-1024x1024.png"
+  alt="Line icon of a running figure, representing the Apostle's pioneering, sent-out gifting"
+/>
 
-#### The Apostle
-
+<InsightCard label="The Apostle">
 - Sent with a specific God-given assignment to lay a foundation for the expansion of the church and they are mature enough to equip others to do the same. – *Neil Cole*
 - Innovator and cultural architect who initiates a new product, or service, and develops the organization. – *Alan Hirsch*
 - A visionary, catalytic pioneer, always pushing into new territory, eager to discover and explore. Apostles like to establish new churches or ministries. They constantly come up with new, innovative means to do kingdom work. – *Mike Breen*
+</InsightCard>
 
-![](/wp-content/uploads/2023/04/2-1-1024x1024.png)
+<ArticleImage
+  src="/wp-content/uploads/2023/04/2-1-1024x1024.png"
+  alt="Line icon of a megaphone, representing the Prophet's gifting to speak on God's behalf"
+/>
 
-#### The Prophet
-
-- Speak to the church on God’s behalf, bringing words of edification, exhortation, and consolation and are mature enough to help others to do the same. – *Neil Cole*
+<InsightCard label="The Prophet">
+- Speak to the church on God's behalf, bringing words of edification, exhortation, and consolation and are mature enough to help others to do the same. – *Neil Cole*
 - Provocateur who probes awareness and fosters questioning of current programming leading to organizational learning. – *Alan Hirsch*
-- Listens closely to God and humbly communicates to the Body, even if it’s sometimes with a challenging or corrective word. Prophets are in-tune with God and therefore able to discern his will and his truth. They can stand back from circumstances and get a clear picture of what is happening; this allows them to see creative solutions and cast vision. – *Mike Breen*
+- Listens closely to God and humbly communicates to the Body, even if it's sometimes with a challenging or corrective word. Prophets are in-tune with God and therefore able to discern his will and his truth. They can stand back from circumstances and get a clear picture of what is happening; this allows them to see creative solutions and cast vision. – *Mike Breen*
+</InsightCard>
 
-![](/wp-content/uploads/2023/04/3-2-1024x1024.png)
+<ArticleImage
+  src="/wp-content/uploads/2023/04/3-2-1024x1024.png"
+  alt="Line icon of a connected network, representing the Evangelist's gifting to recruit and connect people to the gospel"
+/>
 
-#### The Evangelist
-
+<InsightCard label="The Evangelist">
 - Evangelists will passionately seek out opportunities to share Gospel with others and lead them toward acceptance of Jesus and are mature enough to equip others to do the same; driven by love of God and love of people. – *Neil Cole*
 - Evangelists are people who are passionate about sharing the gospel and reaching the lost. They are often gifted in communicating the gospel in ways that resonate with people who are outside of the church. – *Alan Hirsch*
-- Is an infectious communicator of the Gospel message, who recruits others to join the cause. Evangelists call for a personal response to God’s loving, saving redemption in Christ and draw believers to engage with the ongoing mission of growing the Church. – *Mike Breen*
+- Is an infectious communicator of the Gospel message, who recruits others to join the cause. Evangelists call for a personal response to God's loving, saving redemption in Christ and draw believers to engage with the ongoing mission of growing the Church. – *Mike Breen*
+</InsightCard>
 
-![](/wp-content/uploads/2023/04/4-2-1024x1024.png)
+<ArticleImage
+  src="/wp-content/uploads/2023/04/4-2-1024x1024.png"
+  alt="Line icon of a circle, representing the Shepherd's gifting to gather and care for community"
+/>
 
-#### The Shepherd
-
+<InsightCard label="The Shepherd">
 - Shepherds' overwhelming concern for continuing care of a specific community and are mature enough to equip others to do the same. – *Neil Cole*
 - Shepherds are people who care for and nurture others, providing support, guidance, and encouragement. They are often gifted in creating safe spaces and building relationships with those in need of pastoral care. – *Alan Hirsch*
-- A Shepherd can identify needs, provide comfort, and encourage others. Pastors easily empathize with others and exhibit lots of patience with those in need. Out of a drive to nurture, protect, and love God’s people, they spend most of their time with other Christians. – *Mike Breen*
+- A Shepherd can identify needs, provide comfort, and encourage others. Pastors easily empathize with others and exhibit lots of patience with those in need. Out of a drive to nurture, protect, and love God's people, they spend most of their time with other Christians. – *Mike Breen*
+</InsightCard>
 
-![](/wp-content/uploads/2023/04/5-1024x1024.png)
+<ArticleImage
+  src="/wp-content/uploads/2023/04/5-1024x1024.png"
+  alt="Line icon of a candle, representing the Teacher's gifting to illuminate and explain God's word"
+/>
 
-#### The Teacher
-
+<InsightCard label="The Teacher">
 - Teachers spur the progressive growth of understanding and application of truth, and are mature enough to equip others to do the same. – *Neil Cole*
 - Teachers are people who have a deep understanding of God's word and are gifted in explaining and applying it to others. They help to ground and strengthen the church by providing solid biblical teaching. – *Alan Hirsch*
-- Teachers look for effective methods to explain, enlighten and apply God’s truth, wisdom and ways. Teachers assist others in remaining biblically grounded, learning to discern God’s will, and helping the community remain faithful to Christ’s own teachings. – *Mike Breen*
+- Teachers look for effective methods to explain, enlighten and apply God's truth, wisdom and ways. Teachers assist others in remaining biblically grounded, learning to discern God's will, and helping the community remain faithful to Christ's own teachings. – *Mike Breen*
+</InsightCard>
 
-> APEST leadership is not a hierarchy, but a team effort that requires each role to work together for the growth and health of the church.
+<ArticleImage
+  src="/wp-content/uploads/2023/04/Untitled-design-14.png"
+  alt="Diagram of the APEST pentagon showing Apostle, Prophet, Evangelist, Shepherd, and Teacher arranged around a center point"
+  caption="The five APEST gifts, arranged as Hirsch describes them: interdependent, not hierarchical."
+/>
+
+**APEST leadership is not a hierarchy, but a team effort that requires each role to work together for the growth and health of the church.**
 
 ### Who Came Up with APEST?
 
@@ -433,6 +491,6 @@ Furthermore, by leveraging the strengths of each role, leaders can more effectiv
 
 In short, the APEST model is a powerful tool for understanding and leveraging the unique strengths of different leadership roles within disciple-making movements. By embracing the APEST model and utilizing it effectively, leaders can create more dynamic, inclusive, and effective movements that transform communities and impact the world.
 
-> In short, the APEST model is a powerful tool for understanding and leveraging the unique strengths of different leadership roles within disciple-making movements.
+<PullQuote>The APEST model is a powerful tool for understanding and leveraging the unique strengths of different leadership roles within disciple-making movements.</PullQuote>
 
 Learn how you can multiply disciples by **[getting started with these starter tools](/starter-tools/)**.

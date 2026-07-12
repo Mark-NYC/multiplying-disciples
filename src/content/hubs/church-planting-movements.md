@@ -14,7 +14,6 @@ key_articles:
   - "/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/"
   - "/4-stages-of-movement-unlock-your-next-steps/"
   - "/the-multiplier-mandate-revealed-from-genesis-to-revelation/"
-  - "/the-leadership-phase-everyone-skips-why-investment-matters/"
   - "/unleashing-the-movement-how-paul-catalyzed-a-disciple-making-movement-in-ephesus-lessons-for-todays-church/"
   - "/content-vs-systems-the-game-changer-for-leadership-development/"
   - "/setting-the-stage-jesus-as-the-model-for-muddy-boots-church-planting/"

@@ -38,13 +38,14 @@ Vercel serverless function returning a true HTTP 410, wired via `vercel.json`
 | `/discover-the-game-changing-secrets-starfish-and-the-spirit-review/` | `/church-planting-movements/` | 301 | implemented |
 | `/disciple-making-movement-books-top-25-must-reads/` | `/church-planting-movements/` | 301 | implemented |
 | `/royal-priest-strategy-explodes-disciple-making-movement-worldwide/` | `/church-planting-movements/` | 301 | implemented |
-| `/spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication/` | `/the-leadership-phase-everyone-skips-why-investment-matters/` | 301 | implemented |
+| `/spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication/` | `/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/` | 301 | implemented |
 | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` | `/movement-resources/strategy-coordinator/` | 301 | implemented |
 | `/the-hidden-power-of-bonhoeffers-discipleship-model-and-why-its-more-relevant-than-ever/` | `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` | 301 | implemented |
 | `/start-strengthen-sustain-core-insights-on-building-lasting-ministry/` | `/content-vs-systems-the-game-changer-for-leadership-development/` | 301 | implemented |
 | `/next-gen-local-owners-building-beachheads-of-the-kingdom/` | `/church-planting-movements/` | 301 | implemented |
-| `/go-slow-to-go-fast-could-transform-your-leadership-pipeline/` | `/the-leadership-phase-everyone-skips-why-investment-matters/` | 301 | implemented |
+| `/go-slow-to-go-fast-could-transform-your-leadership-pipeline/` | `/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/` | 301 | implemented |
 | `/filtering-unlock-this-essential-for-disciple-making-movements/` | `/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/` | 301 | implemented |
+| `/the-leadership-phase-everyone-skips-why-investment-matters/` | `/church-planting-movements/` | 301 | implemented |
 | `/strategy-coordinator/` (hub retired) | `/movement-resources/strategy-coordinator/` | 301 | implemented |
 | `/seven-words-of-jesus-on-the-cross/` | — (true 410 via `api/gone.js`) | 410 | implemented |
 | `/bible-passages-about-love-what-scripture-really-says/` | — (true 410 via `api/gone.js`) | 410 | implemented |
@@ -160,6 +161,30 @@ preserved at their exact original path. Tier 2 is now 100% migrated
 (22 of 22). This file exists as the mechanism for the *future* case
 where a path genuinely cannot be preserved (see rule 8 in the brief's
 SEO rules).
+
+## Article removal (2026-07-12) — the-leadership-phase-everyone-skips-why-investment-matters
+
+Removed at the site owner's request during Batch 3 of the field-manual-v2
+rollout (not part of the 2026-07-11 content-simplification pass above).
+
+| Old URL | New URL / destination | Type | Reason | Status |
+|---|---|---|---|---|
+| `/the-leadership-phase-everyone-skips-why-investment-matters/` | `/church-planting-movements/` | 301 | Article deleted; no single surviving article fully replaces its Identify/Equip/Invest/Entrust framework, so it falls back to the hub | implemented |
+
+Two existing redirects that previously pointed *at* this now-deleted article
+were repointed to the closest surviving match (same investment/leadership-
+pipeline theme):
+
+| Old URL | Previous destination | New destination | Status |
+|---|---|---|---|
+| `/spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication/` | `/the-leadership-phase-everyone-skips-why-investment-matters/` | `/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/` | implemented |
+| `/go-slow-to-go-fast-could-transform-your-leadership-pipeline/` | `/the-leadership-phase-everyone-skips-why-investment-matters/` | `/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/` | implemented |
+
+Also removed as a `related_articles`/`key_articles` entry from: the
+`church-planting-movements` hub, `jesus-the-leader-examining-...`,
+`the-secret-ingredient-of-trustworthy-leaders-...`,
+`content-vs-systems-the-game-changer-...`, and
+`setting-the-stage-jesus-as-the-model-for-muddy-boots-church-planting`.
 
 ## Format for future entries
 
