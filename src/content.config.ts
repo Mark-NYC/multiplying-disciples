@@ -62,8 +62,7 @@ const articles = defineCollection({
     // Open Graph, Twitter cards, and structured data (via SEO.astro) —
     // never shown to a reader. When display_title is absent, the H1
     // falls back to `title` (legacy/unconverted articles are
-    // unaffected). See ARTICLE_DESIGN_SYSTEM.md, "Article hero
-    // standard."
+    // unaffected). See ARTICLE_SYSTEM.md ("Article hero").
     display_title: z.string().optional(),
     description: z.string(),
     // Full site-relative path, exactly matching the live WordPress URL,
@@ -120,7 +119,7 @@ const articles = defineCollection({
 // content. An article references one by id (see the FieldNote
 // component); an unapproved or missing id renders nothing. See
 // FIELD_NOTE_TEMPLATE.md for the copy-paste authoring template and
-// ARTICLE_DESIGN_SYSTEM.md for how this wires into an article.
+// ARTICLE_SYSTEM.md for how this wires into an article.
 const fieldNotes = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/field-notes' }),
   schema: z.object({

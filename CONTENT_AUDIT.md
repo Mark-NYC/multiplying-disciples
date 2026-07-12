@@ -88,7 +88,7 @@ reviews, leadership series). Two facts matter for the roadmap:
    those targets are "Improve" priorities above.
 2. Their old query families ("ways to make disciples", "disciple
    making movement examples", "empowered evangelists", "seven words of
-   Jesus") are demand evidence used in CONTENT_GAP_ANALYSIS.md — several
+   Jesus") are demand evidence used in docs/archive/CONTENT_GAP_ANALYSIS.md — several
    Phase 2/3 roadmap articles deliberately re-open those topics with
    stronger, single-intent pages.
 

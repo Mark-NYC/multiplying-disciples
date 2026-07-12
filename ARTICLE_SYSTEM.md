@@ -7,7 +7,7 @@ two-system split (legacy `ArticleLayout` vs opt-in `ArticleLayoutV2`)
 was retired in the 2026-07 consistency pass; the `article_system`
 frontmatter flag no longer exists.
 
-Historical design rationale lives in ARTICLE_DESIGN_SYSTEM.md; this
+Historical design rationale lives in docs/archive/ARTICLE_DESIGN_SYSTEM.md; this
 file is the current authoring reference.
 
 ## Article structure (top to bottom)
@@ -130,3 +130,52 @@ migration_priority: "unknown"
 Body starts with an `ArticleIntro` (or a strong plain paragraph in
 `.md`), then `##` sections. Images get real alt text; the rehype
 pipeline adds dimensions and lazy loading automatically.
+
+## Editorial workflow
+
+How an article moves from idea to published:
+
+1. **Roadmap** — the article exists as a ☆ entry in
+   CONTENT_CLUSTER_ROADMAP.md with a cluster, pillar relationship,
+   and CTA already decided. Don't write pages that aren't on the
+   roadmap without adding them there first.
+2. **Draft** — authored per this document; frontmatter `status`
+   stays `migrated-draft` (or `migrated` for touched legacy pages)
+   while in review.
+3. **Review** — Mark approves copy. Field Notes require the
+   subject's approval before `approved: true` is ever set (see
+   FIELD_NOTE_TEMPLATE.md); testimonial-style claims are never
+   invented or paraphrased into existence.
+4. **Pre-publish checklist** — the section below passes.
+5. **Publish** — flip `status` to `published`, add the article to
+   its hub's `key_articles` (pillar first), add at least one inbound
+   link from a sibling article, and confirm the CTA matches the
+   cluster table in INTERNAL_LINKING_PLAN.md.
+
+## Pre-publish checklist (SEO + linking)
+
+Per page, before `status` moves to `published`:
+
+- [ ] `title` ≤ ~60 chars where possible; `display_title` set when
+      the SEO title isn't a human headline.
+- [ ] `description` unique, ≤ ~155 chars.
+- [ ] `canonical` matches the live production URL exactly (protocol,
+      domain, trailing slash).
+- [ ] `slug` matches its established path exactly (or the change is
+      logged in REDIRECTS.md).
+- [ ] Open Graph title/description/URL/image render (view source).
+- [ ] Single `<h1>` (the hero title); body headings start at `##`
+      with no skipped levels.
+- [ ] `hub` set; 3–5 `related_articles`; related tools where
+      relevant; one clear next step (the CTA).
+- [ ] All internal links are plain `<a href>` (true by construction —
+      see INTERNAL_LINKING_PLAN.md's crawlability rule).
+- [ ] Any referenced media resolves at its preserved path.
+- [ ] Image `alt` text written by a human; captions add context, not
+      description.
+
+Site-wide invariants (check when config changes, not per page):
+`site` in astro.config.mjs matches production; `trailingSlash:
+'always'` + `build.format: 'directory'` remain set; sitemap excludes
+`/search/` and any noindex placeholders; robots.txt points at the
+real sitemap.

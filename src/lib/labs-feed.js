@@ -318,7 +318,7 @@ export async function initFeaturedLabSection(container, contentTag) {
 
 // --- Article CTA lab card (end-of-article CTA system) -----------------
 //
-// See ARTICLE_DESIGN_SYSTEM.md ("End-of-article CTA system") for the
+// See CTA_GUIDE.md for the
 // authoring reference. Used by src/components/article/ArticleCTA.astro
 // for `article_cta.type: lab`. Reuses formatFullDate/formatTimeWithZone/
 // seatsLabel/withLabUtm/escapeHtml above rather than re-implementing
@@ -373,7 +373,7 @@ function fmLabCardHtml(lab, contentTag) {
 
 // No upcoming lab has an open seat right now — distinct from a fetch
 // failure below (this is a confirmed "nothing available", not "we
-// don't know"). Per ARTICLE_DESIGN_SYSTEM.md, never show a full lab,
+// don't know"). Per CTA_GUIDE.md, never show a full lab,
 // an empty card, or placeholder data here.
 function fmAllLabsFullFallbackHtml() {
   return `

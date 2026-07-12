@@ -17,8 +17,17 @@ status. Rebuilt from real data supplied 2026-07-06:
 
 This **replaces** the earlier provisional 45-URL list built only from the
 migration brief, which — cross-checked against this real data — turned
-out to have 7 incorrect slugs. See `PROTECTED_URLS.md` for the corrected
+out to have 7 incorrect slugs. See `docs/archive/PROTECTED_URLS.md` for the corrected
 list of what the brief got wrong.
+
+## Protected URLs (absorbed from docs/archive/PROTECTED_URLS.md, 2026-07-12)
+
+Every tier-1 and tier-2 URL in the table below is **protected**: do
+not rename, merge, or heavily rewrite these pages before launch
+without checking GSC first. All 12 tier-1 and 22 tier-2 URLs were
+migrated at their exact paths and audited (Phase 5); the full
+verification record is archived at docs/archive/PROTECTED_URLS.md and
+docs/archive/PHASE_5_PROTECTED_URL_AUDIT.md.
 
 ## Priority tiers (real, computed from Pages.csv)
 
@@ -41,11 +50,11 @@ list of what the brief got wrong.
 any page — all migrated pages have real content, not placeholders.)
 
 **Phase 3 status:** all 12 real tier-1 URLs are now migrated (5 from
-Phase 1/2 + 7 from Phase 3 — see `PHASE_3_TIER_1_BATCH.md`). 0 tier-1
+Phase 1/2 + 7 from Phase 3 — see `docs/archive/PHASE_3_TIER_1_BATCH.md`). 0 tier-1
 pages remain. Tier-2 (22 URLs) and below are Phase 4+ work.
 
 **Phase 4 status:** Batches 1-4 of Tier 2 are migrated — 22 of 22
-tier-2 URLs, 100% complete (see `PHASE_4_TIER_2_BATCH_PLAN.md`). Batch 1: `/5-proven-
+tier-2 URLs, 100% complete (see `docs/archive/PHASE_4_TIER_2_BATCH_PLAN.md`). Batch 1: `/5-proven-
 strategies-unlock-the-secrets-of-effective-personal-evangelism/`,
 `/understanding-biblical-discipleship-a-complete-guide-to-following-
 jesus/`, `/four-fields-of-kingdom-growth-starting-and-releasing-
@@ -71,11 +80,11 @@ and-definition/`, `/10-qualities-present-in-every-church-planting-
 movement-keys-to-sustainable-growth-and-multiplication/`. Batch 4:
 `/stickers/` (the final tier-2 URL — a Sticker Mule product showcase
 page, migrated into the existing articles collection with no new
-content type; see `PHASE_4_TIER_2_BATCH_PLAN.md` for the layout
+content type; see `docs/archive/PHASE_4_TIER_2_BATCH_PLAN.md` for the layout
 decision and media findings). 0 tier-2 URLs remain.
 
 **Phase 5 status:** full protected URL audit completed across all 34
-migrated tier-1/tier-2 URLs — see `PHASE_5_PROTECTED_URL_AUDIT.md`.
+migrated tier-1/tier-2 URLs — see `docs/archive/PHASE_5_PROTECTED_URL_AUDIT.md`.
 Found and fixed 2 real bugs (a duplicate H1, 3 stray absolute internal
 links). All 34 URLs re-confirmed preserved at their exact original
 path with correct canonical, no noindex, no guessed slugs, no hub
@@ -85,7 +94,7 @@ Next: Tier 3 (48 URLs) + the 40 "unknown"-tier URLs + the
 category/tag archive URL question.
 
 **Phase 6 status:** archive/URL-structure decision completed — see
-`PHASE_6_ARCHIVE_URL_DECISION.md`. The 20 category/tag archive rows
+`docs/archive/PHASE_6_ARCHIVE_URL_DECISION.md`. The 20 category/tag archive rows
 below now carry their decided redirect target (301 to the closest
 hub). `/blog/` (row below, tier-3, 95 impressions) is confirmed via
 the WordPress export to have **empty body content** — it's WordPress's
@@ -103,7 +112,7 @@ are confirmed via the export's `post_parent` field to be genuine
 WordPress child pages of `/movement-resources/`, not archives either.
 
 **Phase 7A status:** `/blog/` built — see `src/pages/blog/index.astro`
-and `MIGRATION_PLAN.md`. A real Astro index page, not a WordPress
+and `docs/archive/MIGRATION_PLAN.md`. A real Astro index page, not a WordPress
 content migration (there was no body content to port). Lists all 33
 migrated articles (sorted by tier, then by best-available date),
 shows each article's title/description/hub/date, and links to all 11
@@ -112,7 +121,7 @@ to `published` above. 46 pages now build clean (was 45). Site nav's
 `/blog/` links (present on every page) now resolve instead of 404ing.
 
 **Phase 7B Batch 1 status:** first Tier 3 batch migrated — 7 pages,
-see `PHASE_7B_TIER_3_BATCH_1.md`. Led with `/movement-resources/` (real
+see `docs/archive/PHASE_7B_TIER_3_BATCH_1.md`. Led with `/movement-resources/` (real
 content, not an archive, per Phase 6), then
 `/disciple-making-resources-for-churches-that-will-multiply/`,
 `/under-the-hood-of-disciple-making-movements/`,
@@ -127,12 +136,12 @@ target. 8 files across 5 of these pages are missing from supplied
 uploads (5 featured/og_images plus 2 inline supporting images on
 `under-the-hood-of-disciple-making-movements`) — all deferred,
 non-blocking (none are above-the-fold hero necessities or direct
-PDFs); see `PHASE_7B_TIER_3_BATCH_1.md` and
+PDFs); see `docs/archive/PHASE_7B_TIER_3_BATCH_1.md` and
 `MEDIA_ACQUISITION_CHECKLIST.md` for the full breakdown. 53 pages now
 build clean (was 46). 41 tier-3 URLs remain (48 − 7).
 
 **Phase 7B Batch 2 status:** second Tier 3 batch migrated — 7 pages,
-see `PHASE_7B_TIER_3_BATCH_2.md`. `/starter-tools/` (a header/footer
+see `docs/archive/PHASE_7B_TIER_3_BATCH_2.md`. `/starter-tools/` (a header/footer
 dual-nav-linked WordPress "page" that turned out to be a GenerateBlocks
 resource/tool grid, not prose — migrated into the existing `articles`
 collection + `ArticleLayout`, same page-type judgment call as
@@ -149,12 +158,12 @@ key-article slots to the Church Planting Movements hub (now 10),
 Jesus and the Twelve hubs. 11 files across 5 of these pages are
 missing from supplied uploads (7 featured/og_images plus 4 inline
 supporting images on `unlock-biblical-principles-for-multiplying-disciples`)
-— all deferred, non-blocking; see `PHASE_7B_TIER_3_BATCH_2.md` and
+— all deferred, non-blocking; see `docs/archive/PHASE_7B_TIER_3_BATCH_2.md` and
 `MEDIA_ACQUISITION_CHECKLIST.md` for the full breakdown. 60 pages now
 build clean (was 53). 34 tier-3 URLs remain (41 − 7).
 
 **Phase 7B Batch 3 status:** third Tier 3 batch migrated — 7 pages,
-see `PHASE_7B_TIER_3_BATCH_3.md`. `/start-here/` (a near-duplicate of
+see `docs/archive/PHASE_7B_TIER_3_BATCH_3.md`. `/start-here/` (a near-duplicate of
 `/starter-tools/`'s resource grid, plus unrelated podcast-theme
 demo/placeholder content dropped as chrome — migrated into the
 existing `articles` collection + `ArticleLayout`, same precedent as
@@ -174,12 +183,12 @@ and `/the-multiplier-mandate-revealed-from-genesis-to-revelation/`
 dynamics, no clean single-hub fit). 12 files across 5 of these pages
 are missing from supplied uploads (8 featured/og_images, 1 hero image,
 1 grid-image size variant substituted instead, 2 inline images) — all
-deferred, non-blocking; see `PHASE_7B_TIER_3_BATCH_3.md` and
+deferred, non-blocking; see `docs/archive/PHASE_7B_TIER_3_BATCH_3.md` and
 `MEDIA_ACQUISITION_CHECKLIST.md` for the full breakdown. 67 pages now
 build clean (was 60). 27 tier-3 URLs remain (34 − 7).
 
 **Phase 7B Batch 4 status:** fourth Tier 3 batch migrated — 7 pages,
-see `PHASE_7B_TIER_3_BATCH_4.md`. `/beliefs-values/` (the ministry's
+see `docs/archive/PHASE_7B_TIER_3_BATCH_4.md`. `/beliefs-values/` (the ministry's
 doctrinal statement, linked from `/vision/` — genuine prose, migrated
 into the existing `articles` collection + `ArticleLayout`, deliberately
 given no hub assignment) and `/privacy-policy/` (a standard legal
@@ -205,13 +214,13 @@ inline image on that same page is present under a slightly different
 filename/month, kept), plus 1 unresolvable text-only PDF reference on
 `/beliefs-values/` with no actual link in the export (not a broken
 link, just an unlinked mention) — all deferred, non-blocking; see
-`PHASE_7B_TIER_3_BATCH_4.md` and `MEDIA_ACQUISITION_CHECKLIST.md` for
+`docs/archive/PHASE_7B_TIER_3_BATCH_4.md` and `MEDIA_ACQUISITION_CHECKLIST.md` for
 the full breakdown. 74 pages now build clean (was 67). `/blog/` lists
 60 articles (54 + 6 blog-eligible — `/privacy-policy/` correctly
 excluded). 20 tier-3 URLs remain (27 − 7).
 
 **Phase 7B Batch 5 status:** fifth Tier 3 batch migrated — 7 pages,
-see `PHASE_7B_TIER_3_BATCH_5.md`. Batch list re-derived directly from
+see `docs/archive/PHASE_7B_TIER_3_BATCH_5.md`. Batch list re-derived directly from
 this file (not assumed from the prior batch's forward-looking note),
 confirming all 7 recommended URLs were indeed the top 7 remaining
 tier-3 rows by impressions. `/kingdom-ministry-training/` (a
@@ -231,7 +240,7 @@ and `/content-vs-systems-the-game-changer-for-leadership-development/`
 (both → Disciple Making hub). 8 files across 5 of these pages are
 missing from supplied uploads (5 featured/og_images, 1 decorative
 badge image, 1 checklist infographic, 1 product photo) — all
-deferred, non-blocking; see `PHASE_7B_TIER_3_BATCH_5.md` and
+deferred, non-blocking; see `docs/archive/PHASE_7B_TIER_3_BATCH_5.md` and
 `MEDIA_ACQUISITION_CHECKLIST.md` for the full breakdown. 81 pages now
 build clean (was 74). `/blog/` lists 65 articles (60 + 5 blog-eligible
 — `/kingdom-ministry-training/` and `/the-four-fields-sticker-simple-2x2/`
@@ -239,7 +248,7 @@ correctly excluded via `exclude_from_blog`). 13 tier-3 URLs remain
 (20 − 7).
 
 **Phase 7B Batch 6 status:** sixth Tier 3 batch migrated — 7 pages,
-see `PHASE_7B_TIER_3_BATCH_6.md`. Batch list re-derived directly from
+see `docs/archive/PHASE_7B_TIER_3_BATCH_6.md`. Batch list re-derived directly from
 this file, confirming all 7 recommended URLs were indeed the top 7
 remaining tier-3 rows by impressions (re-derivation also caught that
 the actual remaining-tier-3 count was 12, not the 13 carried forward
@@ -261,14 +270,14 @@ and `/next-gen-local-owners-building-beachheads-of-the-kingdom/` → all
 5 to Church Planting Movements hub (now 21 slots). 5 files across 3 of
 these pages are missing from supplied uploads (2 featured/og_images, 3
 inline supporting images on one page) — all deferred, non-blocking;
-see `PHASE_7B_TIER_3_BATCH_6.md` and `MEDIA_ACQUISITION_CHECKLIST.md`
+see `docs/archive/PHASE_7B_TIER_3_BATCH_6.md` and `MEDIA_ACQUISITION_CHECKLIST.md`
 for the full breakdown. 88 pages now build clean (was 81). `/blog/`
 lists 71 articles (65 + 6 blog-eligible — `/contact-us/` correctly
 excluded via `exclude_from_blog`). 5 tier-3 URLs remain (12 − 7).
 
 **Phase 7B Batch 7 status (final Tier 3 batch):** the seventh and
 final Tier 3 batch migrated — the remaining 5 pages, see
-`PHASE_7B_TIER_3_BATCH_7.md`. `/action-plan/`, `/the-church-waffle-sticker/`,
+`docs/archive/PHASE_7B_TIER_3_BATCH_7.md`. `/action-plan/`, `/the-church-waffle-sticker/`,
 and `/elementor-10714/` all received the special inspection this batch
 called for: `/action-plan/` is a stale July-August 2023 cohort
 coaching-plan landing page (4-week checkpoint structure preserved as
@@ -296,7 +305,7 @@ included in `/blog/`. 9 files across 4 of these 5 pages are missing
 from supplied uploads (2 featured/og_images, 1 decorative brandmark on
 the legacy page, 4 decorative images on the cohort page, 2 screenshot
 previews on the resource page) — all deferred, non-blocking; see
-`PHASE_7B_TIER_3_BATCH_7.md` and `MEDIA_ACQUISITION_CHECKLIST.md` for
+`docs/archive/PHASE_7B_TIER_3_BATCH_7.md` and `MEDIA_ACQUISITION_CHECKLIST.md` for
 the full breakdown. 93 pages now build clean (was 88). `/blog/` lists
 73 articles (71 + 2 blog-eligible — `/action-plan/`,
 `/the-church-waffle-sticker/`, and `/elementor-10714/` all correctly
@@ -305,8 +314,8 @@ not-migrated — Tier 3 is now 100% migrated (48 of 48 original Tier 3
 URLs accounted for).**
 
 **Phase 8 full-site audit status:** ran a comprehensive audit of all
-93 generated pages against this inventory, `PROTECTED_URLS.md`, and
-every prior phase doc — see `PHASE_8_FULL_SITE_AUDIT.md` for the full
+93 generated pages against this inventory, `docs/archive/PROTECTED_URLS.md`, and
+every prior phase doc — see `docs/archive/PHASE_8_FULL_SITE_AUDIT.md` for the full
 breakdown. Confirmed: all 81 `migrated` rows in the table below
 generate correctly; the other 12 generated pages (11 hubs + `/blog/`)
 are accounted for as documented new IA; 0 duplicate slugs, 0 hub/
@@ -316,14 +325,14 @@ across all 93 pages; `/blog/` and all 11 hub pages fully verified
 (67 `key_articles` links, 11 `next_step` links, 0 broken). Found and
 fixed 1 genuine bug: a broken image link on `/kingdom-ministry-training/`
 caused by a Unicode space mismatch between the markdown reference and
-the actual filename (see `PHASE_8_FULL_SITE_AUDIT.md` §7). All 20
+the actual filename (see `docs/archive/PHASE_8_FULL_SITE_AUDIT.md` §7). All 20
 proposed archive redirects in `REDIRECTS.md` reconfirmed valid and
 still unimplemented. No missed/undiscovered URLs were found requiring
 migration.
 
 **Phase 9 status:** resolved the 6 real, confirmed-but-unmigrated URLs
 flagged as a Phase 8 risk — see
-`PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md`. Migrated 4 as real content:
+`docs/archive/PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md`. Migrated 4 as real content:
 `/free-training/` (an evergreen lead-magnet landing page, the
 most-linked of the 6), `/3-circles/` and `/4-1-1/` (real Google
 Slides tool pages), and both real `/movement-resources/` children
@@ -436,8 +445,8 @@ Sorted by impressions (real GSC data where available).
 | `/about-us/` | page | not-migrated | 0 | 0 | unknown |
 | `/get-coaching/` | page | not-migrated | 0 | 0 | unknown |
 | `/4-1-1/` | page | migrated | 0 | 0 | unknown |
-| `/3-circles/` | page (real tool, see PROTECTED_URLS.md hub collision note) | migrated | 0 | 0 | unknown |
-| `/4-fields/` | page (stale/superseded duplicate content — see PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md, intentionally not migrated) | not-migrated | 0 | 0 | unknown |
+| `/3-circles/` | page (real tool, see docs/archive/PROTECTED_URLS.md hub collision note) | migrated | 0 | 0 | unknown |
+| `/4-fields/` | page (stale/superseded duplicate content — see docs/archive/PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md, intentionally not migrated) | not-migrated | 0 | 0 | unknown |
 | `/movement-resources/strategy-coordinator/` | page | migrated | 0 | 0 | unknown |
 | `/movement-resources/4-fields-toolbox/` | page | migrated | 0 | 0 | unknown |
 | `/start/` | page | not-migrated | 0 | 0 | unknown |
@@ -476,7 +485,7 @@ Sorted by impressions (real GSC data where available).
 ## Category and tag archive URLs (from GSC, not in the export above)
 
 These are WordPress taxonomy archive pages. **Decided in Phase 6**
-(see `PHASE_6_ARCHIVE_URL_DECISION.md`): all 20 get a 301 to their
+(see `docs/archive/PHASE_6_ARCHIVE_URL_DECISION.md`): all 20 get a 301 to their
 closest matching hub — every one has 0 clicks despite having
 impressions, and a stronger, curated hub replacement already exists
 for every topic. Proposed redirects are documented as `pending` rows
@@ -509,11 +518,11 @@ in `REDIRECTS.md`, not yet implemented (no hosting config chosen yet).
 export, the live sitemap index, and the WordPress export — zero
 presence in any of the three. No rows tracked here since there's no
 confirmed URL; default recommendation is allow 404/410 once live
-(see `PHASE_6_ARCHIVE_URL_DECISION.md` sections 3-4).
+(see `docs/archive/PHASE_6_ARCHIVE_URL_DECISION.md` sections 3-4).
 
 ## Media URLs
 
-See `MEDIA_URLS_TO_PRESERVE.md` for the full list (24 with confirmed
+See `docs/archive/MEDIA_URLS_TO_PRESERVE.md` for the full list (24 with confirmed
 Search Console impressions, plus ~39 more referenced directly by the 5
 migrated pages).
 
@@ -531,7 +540,7 @@ requires; not tracked as separate inventory rows.
 11 hub pages are new information architecture, not migrated WordPress
 URLs: `/jesus-and-the-twelve/`, `/testimony/`, `/share-the-gospel/`,
 `/3-circles-guide/` (deliberately not `/3-circles/` — see
-`PROTECTED_URLS.md` for why), `/stories-of-hope/`, `/prayer/`,
+`docs/archive/PROTECTED_URLS.md` for why), `/stories-of-hope/`, `/prayer/`,
 `/disciple-making/`, `/simple-church/`, `/four-fields/`,
 `/church-planting-movements/`, `/strategy-coordinator/`. All 11 were
 checked against the real 122-page inventory above and confirmed
