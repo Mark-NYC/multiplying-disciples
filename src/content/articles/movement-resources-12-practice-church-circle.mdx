@@ -24,6 +24,16 @@ og_image: "/wp-content/uploads/2025/01/4-1-1-12-Stories-Packet.webp"
 status: "migrated"
 migration_priority: "tier-1"
 original_url: "https://multiplyingdisciples.us/movement-resources/12-practice-church-circle/"
+article_system: "field-manual-v2"
+hero_category: "Simple Church"
+hero_subheading: "Twelve short-term discipleship stories, each paired with one command of Jesus — equipping a follower to simply obey."
+hero_image: "/wp-content/uploads/2025/01/4-1-1-12-Stories-Packet.webp"
+hero_image_alt: "The Church Waffle packet cover, showing twelve icons arranged in a circle, each representing one discipleship story"
+hero_image_caption: "The Church Waffle — 12 short-term discipleship stories, each tied to one of Jesus's commands."
+article_cta:
+  type: lab
+  stakes_headline: "Twelve practices on a page will not form a church until a group actually lives them out together."
+  bridge_copy: "A lab is where you learn to facilitate one of these stories with a real group, before you try to lead all twelve."
 notes: >
   Real content ported from the WordPress export (post_id 5856, a child
   page of "Movement Resources" — same nested-path pattern as the
@@ -40,15 +50,26 @@ notes: >
   for practical tools rather than duplicating them. Only 1 inline image
   plus the featured image actually need local preservation — see
   MEDIA_ACQUISITION_CHECKLIST.md.
+
+  2026-07-12 (Batch 1, practical tools): converted to .mdx. This is a
+  thin, list-style resource page (1 real heading in the whole source —
+  intro paragraph, then 12 numbered external links to obey.tools, each
+  with a 1-line caption) — not a candidate for InsightCard/PracticeCard/
+  WarningCard placement, since there's no prose to pull a framework or
+  common-mistake out of without inventing one. Applied only the
+  mechanical parts: hero (reusing the packet cover image already used
+  as og_image — no longer duplicated inline at the top of the body),
+  ArticleIntro around the one real explanatory paragraph, and
+  article_cta. Left the 12-item list exactly as it was; boxing a clean
+  external-link reference list would add clutter, not clarity. Added
+  article_cta (type: lab).
 ---
 
-![4-1-1 / 12 Stories packet](/wp-content/uploads/2025/01/4-1-1-12-Stories-Packet-1024x576.webp)
+import ArticleIntro from '../../components/article/ArticleIntro.astro';
+
+<ArticleIntro>The church waffle is an effective model for short-term discipleship stories that can be used to train disciples to obey Jesus and identify as a church around the practice of those stories that correspond to the passage in Acts 2:36-47.</ArticleIntro>
 
 [View Packet PDF — FREE](https://www.churchwaffle.com/) &middot; [View Web App](https://obey.tools/)
-
-### Want to learn more about the Church Waffle?
-
-The church waffle is an effective model for short-term discipleship stories that can be used to train disciples to obey Jesus and identify as a church around the practice of those stories that correspond to the passage in Acts 2:36-47.
 
 Read this article, [Understanding Biblical Discipleship](/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/), to learn more.
 
