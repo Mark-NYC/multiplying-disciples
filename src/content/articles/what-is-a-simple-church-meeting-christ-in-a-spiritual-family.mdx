@@ -13,6 +13,18 @@ og_image: "/wp-content/uploads/2023/04/12044-small-group-bible-study-gettyimages
 status: "migrated"
 migration_priority: "tier-2"
 original_url: "https://multiplyingdisciples.us/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/"
+article_system: "field-manual-v2"
+hero_category: "Simple Church"
+hero_subheading: "No building, no budget, no staff required — just a spiritual family with Christ as the head."
+hero_image: "/wp-content/uploads/2023/04/12044-small-group-bible-study-gettyimages-rawpixel.jpeg"
+hero_image_alt: "A group of people holding hands in prayer around a table with open Bibles"
+article_cta:
+  type: community
+  stakes_headline: "Waiting for the right building or program is optional — a spiritual family gathered around Christ is already a church."
+  bridge_copy: "Reading the definition isn't the same as belonging to one. Find people already living this out, inside the CoVo community."
+  destination:
+    label: "Explore CoVo Multipliers"
+    href: "https://www.covomultipliers.com/"
 notes: >
   Migrated from WordPress post_id 7002. Removed a leading stray
   Elementor <style> block (no visible content, pure chrome). The
@@ -41,7 +53,23 @@ notes: >
   rawpixel.jpeg confirmed present, used as og_image only (page has no
   inline images, matching the original). Completes the Simple Church
   hub's 3rd and final key-article slot.
+
+  2026-07-12 (Batch 4, Simple Church): converted to .mdx. Promoted the
+  confirmed-present featured image to the hero (no baked-in text, a
+  clean fit). Kept the opening thesis statement as a plain blockquote
+  (unchanged from the prior migration's reasoning). Converted
+  "Characteristics of Simple Churches" — the article's core defining
+  framework — to an InsightCard; left the "3 ways church is used" and
+  "5 reasons people participate" numbered lists as plain lists rather
+  than adding a second and third card, per the design system's
+  restraint guidance (0-2 highlighted blocks for a normal-length
+  article). Added article_cta (type: community) — this article
+  explains a model, it doesn't teach a single practiced skill, so
+  pointing to a community actually living this out fits better than a
+  lab card.
 ---
+
+import InsightCard from '../../components/article/InsightCard.astro';
 
 > A simple church is a spiritual family that has Christ as King in the areas of loving God, loving others, and making disciples.
 
@@ -55,7 +83,7 @@ In the New Testament, we see examples of house churches in the book of Acts, whe
 
 ### What is Church?
 
-So, what exactly is a church? According to the Bible, a church is a gathering of believers who are committed to Jesus Christ and to one another. This commitment is expressed in a number of ways, including worship, fellowship, prayer, and service.
+So, what exactly is a church? According to the Bible, **a church is a gathering of believers who are committed to Jesus Christ and to one another.** This commitment is expressed in a number of ways, including worship, fellowship, prayer, and service.
 
 The church is not a building, but a community of people who are seeking to live out their faith together.
 
@@ -77,6 +105,7 @@ So, why would someone choose to be part of a house church? There are a number of
 
 ### Characteristics of Simple Churches
 
+<InsightCard label="Characteristics of Simple Churches">
 - **Christ as the Head:** Simple churches have Christ as the head, and all members submit to His lordship. They are led by the Holy Spirit, who guides and directs their activities.
 - **Intimacy:** Simple churches are built on relationships, not programs. Members meet together in homes or other informal settings, which allows for deeper, more meaningful relationships to form. Members are not just attendees or spectators, but active participants in the community.
 - **Flexibility:** Simple churches are adaptable and flexible to the needs of their members. They can be started anywhere, and their structure can vary depending on the context. They are not bound by traditional church structures, which allows them to be more agile and responsive to the needs of the community.
@@ -84,9 +113,10 @@ So, why would someone choose to be part of a house church? There are a number of
 - **Discipleship:** Simple churches prioritize discipleship, which involves not only learning about Christ but also putting His teachings into practice. Members are encouraged to share their struggles and victories with each other, and they support and hold each other accountable in their faith journey.
 - **Worship:** Simple churches typically have a relaxed and informal style of worship. Members may sing songs or hymns, pray together, read Scripture, and share testimonies. The focus is on building intimacy with God and fostering a sense of community.
 - **Gospel Sharing:** Simple churches have an evangelistic missional focus. Members are encouraged to reach out to their neighbors and friends with the love of Christ, and to share the gospel with those who do not yet know Him. They may also engage in other forms of outreach, such as serving the poor or partnering with other ministries.
+</InsightCard>
 
 ### Conclusion
 
-Simple churches are a valuable and effective way to build community and further the kingdom of God. They prioritize intimacy, discipleship, and mission, and they are adaptable and flexible to the needs of their members.
+Simple churches are a valuable and effective way to build community and further the kingdom of God. They prioritize **intimacy, discipleship, and mission**, and they are adaptable and flexible to the needs of their members.
 
 Learn how you can multiply disciples by [getting started with these starter tools](/starter-tools/).
