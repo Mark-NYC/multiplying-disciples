@@ -348,6 +348,41 @@ Never add one just because an article doesn't have a Field Note.
 <PullQuote>He met them where they were at.</PullQuote>
 ```
 
+### Hand-drawn underline
+
+**Purpose:** a single tapered brush-stroke mark under one key word or
+short phrase — the field-journal equivalent of circling something in
+a notebook. Same `.fm-underline` utility as the homepage's "reps" /
+"Live" / "multiply." marks, defined once in `global.css`, so —
+unlike everything else in this Components section — it works in
+**every** article, `field-manual-v2` or legacy `ArticleLayout`, and in
+plain `.md` files (raw HTML passes through Astro's markdown renderer
+same as any other inline tag).
+
+**When to use:** 0-1 per article. Reach for it on the single most
+load-bearing phrase — usually in the opening hook or one section's
+punchline — never on a heading (headings already carry visual weight
+on their own) and never on something already bolded (pick one
+emphasis device, not both stacked on the same words). Treat it as a
+notch above `<strong>`, not an alternative to it — if you're reaching
+for it more than once per article, it stops reading as deliberate.
+
+**Markup:** a `<span>` with three classes — `fm-underline`, a shape
+(`fm-underline--shape-a` thick-left/taper-right, or `fm-underline--shape-b`
+the mirror), and a color. Only single words/short phrases that won't
+wrap — it's a stretched SVG mask, not a text-decoration, so it doesn't
+track line breaks.
+
+**Color:** if the phrase already carries its own accent color, match
+it exactly (`fm-underline--clay-text` or `fm-underline--primary`). For
+ordinary black body text — the normal case — use
+`fm-underline--clay` (or `fm-underline--gold` for variety); never
+leave it to inherit black, or the mark disappears into the text.
+
+```md
+Most people don't need more content. They need <span class="fm-underline fm-underline--shape-a fm-underline--clay">reps</span>.
+```
+
 ### ArticleImage
 
 **Purpose:** a single image that supports the argument. Consistent

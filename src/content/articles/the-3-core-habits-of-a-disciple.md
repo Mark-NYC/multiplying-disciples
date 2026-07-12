@@ -135,7 +135,7 @@ The power of this tool lies in its **visual impact** and **immediate applicabili
 
 ## Habit #3: Share Your Story and the Gospel Using 3 Circles
 
-James's hands trembled slightly as he reached for a paper napkin in the cafe. His college roommate had just shared about his struggles with depression and feelings of meaninglessness. "Can I show you something that helped me understand my own life better?" James asked. As his friend nodded, James picked up a pen and drew the first circle. Twenty minutes later, his roommate prayed to receive Christ.
+James's hands trembled slightly as he reached for a paper napkin in the cafe. His college roommate had just shared about his struggles with depression and feelings of meaninglessness. "Can I show you something that helped me understand my own life better?" James asked. As his friend nodded, James picked up a pen and drew the first circle. Twenty minutes later, his roommate <span class="fm-underline fm-underline--shape-a fm-underline--clay">prayed to receive Christ</span>.
 
 "I never thought I could explain the gospel clearly," James later told his mentor. "But the **3 Circles** made it so simple that even my friend could immediately share it with someone else."
 

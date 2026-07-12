@@ -560,71 +560,11 @@ import { SITE, COVO_LABS_URL } from '../data/site';
     color: var(--color-clay-text);
   }
 
-  /* --- Hand-drawn underline accents (field-journal marker marks) ---
-     A single tapered brush stroke under a key word or short phrase —
-     the visual equivalent of circling something in a field notebook
-     with a marker, not a printed rule. Each is one filled shape (not
-     a constant-width stroked line) so it thickens and tapers the way
-     a real brush mark does. Shape and color are independent: the SVG
-     is used as a mask (so it can be any solid color via
-     background-color) rather than baking a fixed fill into each one.
-     Sized to the element's own box (stretches, doesn't tile), so this
-     is for single words/short phrases only, not lines that can wrap —
-     see .block-grid__punch--coaching's native wavy text-decoration for
-     that case.
-
-     Color rule: when the underlined word already has its own accent
-     color (clay-text, primary green), the stroke matches that color
-     exactly — two-tone word+underline reads as a mismatched sticker.
-     When the word is plain ink/black, the stroke stays a brand accent
-     color instead of also going black, so it still reads as a
-     deliberate mark rather than disappearing into the text. */
-  .fm-underline {
-    position: relative;
-    display: inline-block;
-  }
-
-  .fm-underline::after {
-    content: '';
-    position: absolute;
-    left: -0.05em;
-    right: -0.05em;
-    bottom: -0.24em;
-    height: 0.38em;
-    mask-repeat: no-repeat;
-    mask-size: 100% 100%;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: 100% 100%;
-    pointer-events: none;
-  }
-
-  /* Thick at the left, tapers to a fine point at the right. */
-  .fm-underline--shape-a::after {
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 32' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M3,5 C40,2 100,4 155,9 C172,11 186,13 197,16 L197,18 C186,17 172,14 155,12 C100,7 40,10 4,17 C2,14 2,8 3,5 Z'/%3E%3C/svg%3E");
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 32' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M3,5 C40,2 100,4 155,9 C172,11 186,13 197,16 L197,18 C186,17 172,14 155,12 C100,7 40,10 4,17 C2,14 2,8 3,5 Z'/%3E%3C/svg%3E");
-  }
-
-  /* Mirror of shape-a — thin at the left, thick at the right. */
-  .fm-underline--shape-b::after {
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 32' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M197,5 C160,2 100,4 45,9 C28,11 14,13 3,16 L3,18 C14,17 28,14 45,12 C100,7 160,10 196,17 C198,14 198,8 197,5 Z'/%3E%3C/svg%3E");
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 32' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M197,5 C160,2 100,4 45,9 C28,11 14,13 3,16 L3,18 C14,17 28,14 45,12 C100,7 160,10 196,17 C198,14 198,8 197,5 Z'/%3E%3C/svg%3E");
-  }
-
-  /* Matches .hero__highlight's own text color exactly. */
-  .fm-underline--clay-text::after {
-    background-color: var(--color-clay-text);
-  }
-
-  /* Matches .conviction-strip__headline's own text color exactly. */
-  .fm-underline--primary::after {
-    background-color: var(--color-primary);
-  }
-
-  /* Plain-ink words (labs-cta / final-cta h2s) stay a brand accent
-     rather than also going black. */
-  .fm-underline--clay::after {
-    background-color: var(--color-clay);
-  }
+  /* .fm-underline base + shape/color variants now live in global.css
+     as a sitewide utility (see the "Hand-drawn underline accents"
+     block there) — this page just applies them to specific words
+     below. --clay-text matches .hero__highlight's own text color;
+     --primary matches .conviction-strip__headline's own text color. */
 
   .hero__subhead {
     max-width: 27rem;
