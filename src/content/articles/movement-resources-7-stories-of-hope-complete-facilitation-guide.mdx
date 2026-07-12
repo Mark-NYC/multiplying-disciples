@@ -22,6 +22,16 @@ og_image: "/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible-1.webp"
 status: "migrated"
 migration_priority: "tier-1"
 original_url: "https://multiplyingdisciples.us/movement-resources/7-stories-of-hope-complete-facilitation-guide/"
+article_system: "field-manual-v2"
+hero_category: "Stories of Hope"
+hero_subheading: "Seven Bible stories and a weekly 3/3rds process, built to walk a spiritually curious friend from first conversation to committed faith."
+hero_image: "/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible-1.webp"
+hero_image_alt: "Infographic listing all seven Stories of Hope in numbered order, each with its Bible reference"
+hero_image_caption: "The seven stories, in order, with their Bible references — the whole process at a glance."
+article_cta:
+  type: lab
+  stakes_headline: "Knowing all seven stories won't help if you never sit down and lead someone through them."
+  bridge_copy: "Understanding a process on paper and actually facilitating it with a real person are two different skills. A lab is where the second one gets built, through practice with other people."
 notes: >
   Real content ported from the WordPress export (post_id 5937, a child
   page of "Movement Resources"). "Especially important" per the migration
@@ -34,23 +44,70 @@ notes: >
   anchors generated from headings — verify these resolve correctly after
   build (Astro auto-generates heading ids; exact slugs for headings with
   punctuation like "3/3rds" or a trailing "?" should be spot-checked).
+
+  2026-07-12 (Tier 1, last remaining): converted to .mdx. Reused the
+  landscape infographic (the "-1" image, already the og_image) as the
+  hero and dropped the two other near-duplicate header graphics that
+  opened the body (the vertical Pinterest-style crop of the same
+  infographic, and a title-only banner with a stock praying-hands photo
+  — neither carried unique information once the hero showed the real
+  infographic). Removed the hand-built 3-link jump list at the very top
+  now that the auto-generated "In This Article" TOC (14 real H2s in this
+  article) supersedes it, and stripped all 17 in-body "---" horizontal
+  rules, consistent with every other converted article — headings and
+  card spacing already do the separating work.
+
+  Card placements, kept deliberately sparse for a long (~3,300 word)
+  reference guide: one InsightCard for the Green/Yellow/Red "responses
+  to the gospel" framework (Acts 17:32-34), immediately followed by the
+  existing hand-drawn diagram as an ArticleImage since it maps each
+  response to a concrete next action the bullets don't spell out; one
+  ArticleImage (Gen Z Bible study stock photo) in the opening section;
+  one InsightCard for the "what you're actually training people to do"
+  list near the end (mirrors the "why it works" InsightCard already used
+  on three-thirds.mdx for the same 3/3rds framework); one WarningCard for
+  the "What NOT to Do" list in Practical Coaching Tips (its sibling "What
+  TO Do" list stays plain, matching the three-thirds precedent of boxing
+  only the mistake side); one PracticeCard for "Your Next Steps" (kept
+  the real H2 heading above it, only the numbered list itself is boxed,
+  same pattern as three-thirds' Week-1 PracticeCard); one PullQuote using
+  the article's own closing line ("Hope isn't just available. Hope has a
+  name—Jesus."), pulled up to the top of "The Bottom Line" section with
+  the trailing sentence merged into the final paragraph. Deliberately
+  left un-boxed: the "Person of Peace" definition (short, already a
+  tight list), the "Three Equal Parts" 3/3rds framework definition
+  (three-thirds.mdx leaves its own equivalent unboxed too, kept
+  consistent across both), the "Critical Success Factors" and "What
+  Happens After" sections (real H3 structure already, boxing would
+  flatten it), the "Critical Rules" DO/DON'T list under Story 1 (the
+  WarningCard budget was spent on the later, more general "What NOT to
+  Do" list — this one stays as the existing bolded plain text, same
+  restraint three-thirds applied to its ~8 non-promoted "Common mistake:"
+  instances), and all 7 individual story write-ups (each already uses a
+  repeating bold-label pattern — Who This Reaches / The Hope / the
+  question — but the entries are full narrative paragraphs, not short
+  reference facts, so RoleFact's compact 2-column grid was the wrong
+  shape for them; left as plain H3 sections).
 ---
 
-![7 Stories of Hope in the Bible](/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible-3.webp)
+import ArticleIntro from '../../components/article/ArticleIntro.astro';
+import ArticleImage from '../../components/article/ArticleImage.astro';
+import InsightCard from '../../components/article/InsightCard.astro';
+import WarningCard from '../../components/article/WarningCard.astro';
+import PracticeCard from '../../components/article/PracticeCard.astro';
+import PullQuote from '../../components/article/PullQuote.astro';
 
-The **7 Stories of Hope in the Bible** are a proven process for helping people who are curious about Jesus but not yet ready to commit. These aren't random inspirational stories, they're biblical accounts specifically designed to help seekers discover who Jesus really is and lead them to repentance and faith.
-
-- [The 7 Stories of Hope in the Bible](#the-7-stories-of-hope-in-the-bible)
-- [How To Lead The 7 Stories of Hope: The 3/3rds Process](#how-to-lead-the-7-stories-of-hope-the-33rds-process)
-- [What Happens After The 7 Stories?](#what-happens-after-the-7-stories)
-
-![7 Stories of Hope in the Bible](/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible.webp)
+<ArticleIntro>The **7 Stories of Hope in the Bible** are a proven process for helping people who are curious about Jesus but not yet ready to commit. These aren't random inspirational stories, they're biblical accounts specifically designed to help seekers discover who Jesus really is and lead them to repentance and faith.</ArticleIntro>
 
 ## What Makes The 7 Stories of Hope Different?
 
 In our post-Christian culture, many people are inoculated against one-time Gospel presentations. They're interested in learning about Jesus, but they need time, space, and a non-threatening environment to process what they're discovering.
 
-![Gen Z Bible study](/wp-content/uploads/2025/03/gen-z-bible-study.jpg)
+<ArticleImage
+  src="/wp-content/uploads/2025/03/gen-z-bible-study.jpg"
+  alt="Two young men sitting together, one holding a Bible, praying with hands folded over an open journal"
+  caption="The 7 Stories create the time and space a curious seeker actually needs — not a one-time pitch."
+/>
 
 The 7 Stories of Hope provide an extended Gospel presentation that:
 
@@ -65,11 +122,17 @@ The 7 Stories of Hope provide an extended Gospel presentation that:
 
 In Acts 17:32-34, when Paul preached in Athens, people responded three ways:
 
+<InsightCard label="Three Responses to the Gospel">
 - **Green Light (Yes):** Immediate belief—"Some became followers of Jesus and believed"
 - **Yellow Light (Maybe):** Curious but hesitant—"We want to hear you again on this subject"
 - **Red Light (No):** Outright rejection—"Some sneered"
+</InsightCard>
 
-![4 responses to the gospel](/wp-content/uploads/2025/01/e3adfe1623cfb8a49a60f903b1515adb.Screen-Shot-2023-08-05-at-8.26.31-AM-1.webp)
+<ArticleImage
+  src="/wp-content/uploads/2025/01/e3adfe1623cfb8a49a60f903b1515adb.Screen-Shot-2023-08-05-at-8.26.31-AM-1.webp"
+  alt="Hand-drawn diagram of Acts 17:32-34 showing a red-yellow-green traffic light matched to 'their response' (No / Maybe / Yes / I'm a Christian) and 'our response' (keep searching for a person of peace, Bible discovery, or train in the commands of Christ)"
+  caption="What to do next for each response: red keeps searching for a person of peace, yellow moves to Bible discovery, green moves to training."
+/>
 
 The 7 Stories of Hope are designed specifically for yellow lights—people whose hearts God has already prepared but who need a process to discover Jesus for themselves.
 
@@ -98,8 +161,6 @@ A woman "known as a sinner" crashes a Pharisee's dinner party to worship Jesus. 
 
 [Start the 1st Story facilitation guide](https://obey.tools/hope-for-the-rejected-the-woman-weeping-at-jesus-feet-luke-736-50/)
 
----
-
 ### 2. Hope for the Non-Religious: Pharisee & Tax Collector (Luke 18:9-17)
 
 **Who This Reaches:** Those who think Christianity is for "religious people" or who feel like they could never measure up.
@@ -115,8 +176,6 @@ Jesus' verdict shocks everyone: the tax collector went home justified before God
 **The Question:** Which man's prayer sounds more like yours?
 
 [Start the 2nd Story facilitation guide](https://obey.tools/hope-for-the-non-religious-pharisee-tax-collector-luke-189-17/)
-
----
 
 ### 3. Hope Changes Things: Zacchaeus (Luke 19:1-10)
 
@@ -136,8 +195,6 @@ That same day, he pledged to give half his possessions to the poor and repay eve
 
 [Start the 3rd Story facilitation guide](https://obey.tools/hope-changes-things-zacchaeus-luke-1818-30/)
 
----
-
 ### 4. Hope Forgives: Unforgiving Servant (Matthew 18:21-35)
 
 **Who This Reaches:** Those trapped in bitterness, unforgiveness, or resentment.
@@ -153,8 +210,6 @@ But that same servant immediately grabbed a fellow servant by the throat, demand
 **The Question:** Who do you need to forgive? What debt are you holding against someone that's smaller than what God has forgiven you?
 
 [Start the 4th Story facilitation guide](https://obey.tools/hope-forgives-unforgiving-servant-matthew-1821-35/)
-
----
 
 ### 5. Hope Through Death: Thieves on the Cross (Luke 23:26-43)
 
@@ -174,8 +229,6 @@ No baptism. No good works. No time to make amends. Just faith in his final momen
 
 [Start the 5th Story facilitation guide](https://obey.tools/hope-through-death-thieves-on-the-cross/)
 
----
-
 ### 6. Hope Rose From The Dead: Resurrection (Luke 24:1-20)
 
 **Who This Reaches:** Those who need proof that this is real, that Jesus is who he claimed to be.
@@ -193,8 +246,6 @@ The disciples didn't believe them at first. They needed to see for themselves. A
 **The Question:** Do you believe Jesus actually rose from the dead? What would change in your life if you knew for certain that Jesus is alive?
 
 [Start the 6th Story facilitation guide](https://obey.tools/hope-rose-from-the-dead-resurrection-luke-241-20/)
-
----
 
 ### 7. Hope is Waiting For You: Prodigal Son (Luke 15:11-32)
 
@@ -216,8 +267,6 @@ Meanwhile, the older brother—who'd stayed and worked faithfully—grew bitter 
 
 [Start the 7th Story facilitation guide](https://obey.tools/hope-is-waiting-for-you-prodigal-son-luke-1511-32/)
 
----
-
 ## How To Lead The 7 Stories of Hope: The 3/3rds Process
 
 The power isn't just in the stories—it's in the **process**. The 3/3rds method creates well-rounded disciples, prevents you from only focusing on teaching, and trains self-feeders who can reproduce this without you.
@@ -230,8 +279,6 @@ The power isn't just in the stories—it's in the **process**. The 3/3rds method
 
 Total time: 1 to 1.5 hours per story
 Frequency: Once per week
-
----
 
 ## Story 1: Hope for the Rejected (Luke 7:36-50)
 
@@ -282,8 +329,6 @@ Frequency: Once per week
    - If we love Jesus, we obey what He says
 4. **Pray** and ask the Holy Spirit to help everyone obey
 
----
-
 ## Stories 2-6: The Same Process
 
 Every story from 2-6 follows this identical pattern:
@@ -324,8 +369,6 @@ Same obedience focus:
 - **Story 5:** Hope Through Death: Thieves on the Cross (Luke 23:26-43)
 - **Story 6:** Hope Rose From The Dead: Resurrection (Luke 24:1-20)
 
----
-
 ## Story 7: The Decision Point
 
 ### Hope is Waiting For You: Prodigal Son (Luke 15:11-32)
@@ -339,8 +382,6 @@ Use this session to help people **repent and turn to Jesus in faith**.
 Include a solid Gospel presentation asking people to make a decision to follow Jesus. This is where you ask: "Are you the younger brother who needs to come home? Are you the older brother who's been close but resentful? Either way—will you surrender your life to Jesus today?"
 
 This is typically included when you ask "What do you need to do this week?" The answer should be: "Repent and believe in Jesus."
-
----
 
 ## Critical Success Factors
 
@@ -384,8 +425,6 @@ Don't correct for "right" answers. Let people discover truth themselves. The Spi
 
 Don't push them to decide if they're not ready. But do make the invitation clear.
 
----
-
 ## What Happens After The 7 Stories?
 
 ### If They Accept Jesus
@@ -410,8 +449,6 @@ The 7 Stories aren't exhaustive content you must complete. They're a **yellow li
 
 Don't get stuck endlessly meeting with people who aren't progressing toward faith.
 
----
-
 ## Adapting These Stories
 
 ### Can You Use Different Stories?
@@ -433,8 +470,6 @@ Feel free to experiment with different stories or order as the Holy Spirit leads
 
 The key: Keep sharing stories of people who met Jesus in Scripture and their lives were changed.
 
----
-
 ## Practical Coaching Tips
 
 ### Where to Share
@@ -453,14 +488,14 @@ The key: Keep sharing stories of people who met Jesus in Scripture and their liv
 **Why:** More intimate, everyone can participate
 **Solution if larger:** Train others to start new groups (reproduction thinking)
 
-### What NOT to Do
-
+<WarningCard label="What NOT to Do">
 - Don't chase "rabbits" (appealing but off-topic subjects)
 - Don't talk about politics or religion (either good or bad)
 - Don't bring your outline with you (know it, don't read it)
 - Don't get stuck in one of the 3 thirds
 - Don't correct people for "wrong" answers
 - Don't lecture—facilitate discovery
+</WarningCard>
 
 ### What TO Do
 
@@ -472,28 +507,25 @@ The key: Keep sharing stories of people who met Jesus in Scripture and their liv
 - Be honest about your own struggles
 - Pray for each person between meetings
 
----
-
 ## The Power of This Method
 
 This isn't just evangelism. It's disciple-making from day one.
 
-**You're training people to:**
-
+<InsightCard label="What You're Actually Training">
 - Discover truth from Scripture (not just hear sermons)
 - Obey immediately (not just learn intellectually)
 - Share with others (not just consume)
 - Be accountable (not just attend)
 - Facilitate discovery (not just teach)
+</InsightCard>
 
 By the time they finish the 7 Stories, they won't just be converts—they'll be disciple-makers who can reproduce this exact process with others.
 
 **That's how movements start.**
 
----
-
 ## Your Next Steps
 
+<PracticeCard label="Your Next Steps">
 1. **Identify your person of peace** (someone showing yellow light interest)
 2. **Schedule your first meeting** in their home
 3. **Prepare Story 1** by knowing the framework (don't bring notes)
@@ -501,15 +533,14 @@ By the time they finish the 7 Stories, they won't just be converts—they'll be 
 5. **Follow up within 48 hours** to encourage obedience
 6. **Repeat weekly** until they surrender to Christ
 7. **Immediately begin discipleship** when they believe
-
----
+</PracticeCard>
 
 ## The Bottom Line
 
 The 7 Stories of Hope aren't just a curriculum. They're a reproducible process that creates disciples who make disciples.
 
+<PullQuote>Hope isn't just available. Hope has a name—Jesus.</PullQuote>
+
 Use them with yellow light people. Follow the 3/3rds process. Let the Holy Spirit do the heart work. And watch what happens when seekers discover Jesus for themselves.
 
-**Ready to start?** Pick your person of peace and schedule Story 1 this week.
-
-Hope isn't just available. Hope has a name—Jesus. And these seven stories show seekers how to find him.
+**Ready to start?** Pick your person of peace and schedule Story 1 this week. These seven stories show seekers how to find him.
