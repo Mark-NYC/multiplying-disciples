@@ -70,14 +70,20 @@ placed by hand in the `.mdx` body.
 required beyond category/title — a subheading-less or image-less
 article still renders a complete hero.
 
-**Long titles:** a handful of migrated WordPress titles run 80-100+
-characters. The component automatically steps the font size down past
-50 and 70 characters so a long legacy title still reads as a
-controlled block instead of 6-9 lines.
+**Title size is fixed, not length-based:** every article's `<h1>`
+renders at the same size (`clamp(2.25rem, 1.9rem + 1.6vw, 3rem)`
+desktop, `1.875rem` mobile) regardless of title length — a 30-character
+title and a 100-character migrated WordPress title read at the same
+scale. This was a deliberate standardization (2026-07-11): the
+component previously stepped the font down past 50 and 70 characters,
+which meant short titles rendered larger than long ones and articles
+looked inconsistent side by side. A long title still wraps as
+confident lines instead of a wall of text via the fixed `max-width:
+34ch` measure, not a smaller font.
 
 **Mobile:** headline drops its max-width cap (lets the browser wrap
-naturally at the smaller size) but keeps the same length-based size
-steps, so a long title still doesn't run to 8+ lines.
+naturally) but stays the same fixed size as desktop's mobile
+breakpoint — no per-title variation at any viewport.
 
 ### ArticleIntro
 
