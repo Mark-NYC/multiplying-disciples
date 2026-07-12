@@ -12,6 +12,13 @@ og_image: "/wp-content/uploads/2025/11/Sharing-Your-Testimony-Scripture-7-Biblic
 status: "migrated"
 migration_priority: "tier-2"
 original_url: "https://multiplyingdisciples.us/the-power-of-sharing-your-testimony-scripture-7-biblical-reasons-you-cant-stay-silent/"
+article_system: "field-manual-v2"
+hero_category: "Testimony"
+hero_subheading: "Scripture doesn't suggest testimony — it commands it. Seven biblical reasons silence isn't humility."
+article_cta:
+  type: lab
+  stakes_headline: "Staying silent about what Jesus did keeps someone else convinced their own story is hopeless."
+  bridge_copy: "A lab won't script your testimony for you, but it's where you say it out loud for the first time instead of only reading about why you should."
 notes: >
   Migrated from WordPress post_id 13736. Clean modern Gutenberg-block
   source with no chrome to remove. Preserved the inline infographic
@@ -21,9 +28,40 @@ notes: >
   15-second-testimony-examples) to relative paths. No heading-level
   issues to fix — all section headings were already clean H2s.
   Completes the Testimony hub's 3rd and final key-article slot.
+
+  2026-07-12 (Batch 2, gospel conversation tools): converted to .mdx.
+  No hero image — both available images (og_image, the inline
+  infographic) have the title/headline text baked into the graphic,
+  which would visually fight the real H1; ArticleHero renders a
+  complete hero without one, same as finding-persons-of-peace this
+  batch. Converted the inline infographic to ArticleImage (kept its
+  existing accurate alt text) and all 8 verbatim Bible quotes (the 7
+  numbered reasons plus the closing Mark 5:19) to ScriptureBlock — no
+  numeric cap applies since presenting these verses is this article's
+  whole purpose (same reasoning as Prayer Walking's 4 Scripture
+  Blocks). Converted the closing "15-Second Framework" section to a
+  PracticeCard and the final line to a PullQuote. Added article_cta
+  (type: lab).
+
+  Flagged, not changed: this article's 6 illustrative anecdotes (the
+  Southeast Asia missionary, the single mom, the business owner, the
+  gang member, the couple, the professor) read as invented sermon-
+  illustration vignettes, not verified real stories — each has
+  suspiciously precise, uncited outcome numbers (twelve families,
+  fifteen women, three men, forty students, eight countries, three
+  graduate students). Left as plain prose (not elevated to Field Note
+  or Pull Quote, which would lend them unearned weight); a content-
+  accuracy review of these anecdotes is outside this batch's scope but
+  worth a dedicated pass.
 ---
 
-The **power of sharing your testimony** scripture reveals isn't just about you feeling good — it's about spiritual warfare, multiplication, and the advancement of God's kingdom. The woman had been bleeding for twelve years. She'd spent everything on doctors. Then she touched Jesus's robe and was instantly healed.
+import ArticleIntro from '../../components/article/ArticleIntro.astro';
+import ArticleImage from '../../components/article/ArticleImage.astro';
+import ScriptureBlock from '../../components/article/ScriptureBlock.astro';
+import PracticeCard from '../../components/article/PracticeCard.astro';
+import PullQuote from '../../components/article/PullQuote.astro';
+
+<ArticleIntro>The power of sharing your testimony scripture reveals isn't just about you feeling good — it's about spiritual warfare, multiplication, and the advancement of God's kingdom. The woman had been bleeding for twelve years. She'd spent everything on doctors. Then she touched Jesus's robe and was instantly healed.</ArticleIntro>
 
 Jesus could have let her slip away quietly into the crowd. Instead, He stopped everything and said, "Daughter, your faith has healed you" (Mark 5:34). He made her tell her story publicly.
 
@@ -33,11 +71,17 @@ When you keep your story silent, you're not being humble. You're being disobedie
 
 Scripture commands testimony over 40 times. Not suggests. Commands. Let's break down exactly why sharing your testimony carries the kind of power that changes everything.
 
-![The Power of Sharing Your Testimony Scripture: 7 Biblical Reasons infographic showing Revelation 12:11, Psalm 107:2, John 4:39, Romans 10:9-10, Acts 4:33, Acts 1:8, and 2 Timothy 1:8 with 15-second testimony template](/wp-content/uploads/2025/11/7-Scripture-Based-Reasons-Your-Testimony-Is-a-Spiritual-Weapon.webp)
+<ArticleImage
+  src="/wp-content/uploads/2025/11/7-Scripture-Based-Reasons-Your-Testimony-Is-a-Spiritual-Weapon.webp"
+  alt="The Power of Sharing Your Testimony Scripture: 7 Biblical Reasons infographic showing Revelation 12:11, Psalm 107:2, John 4:39, Romans 10:9-10, Acts 4:33, Acts 1:8, and 2 Timothy 1:8 with 15-second testimony template"
+  caption="The 7 reasons, each with its own verse and one-line takeaway."
+/>
 
 ## 1. Your Testimony Is a Spiritual Weapon (Revelation 12:11)
 
-"They triumphed over him by the blood of the Lamb and by the word of their testimony; they did not love their lives so much as to shrink from death." (Revelation 12:11)
+<ScriptureBlock reference="Revelation 12:11">
+"They triumphed over him by the blood of the Lamb and by the word of their testimony; they did not love their lives so much as to shrink from death."
+</ScriptureBlock>
 
 This verse isn't poetry — it's combat strategy. The enemy is defeated by two things working together: Christ's finished work and your spoken witness. Not your silent gratitude. Your *spoken* witness.
 
@@ -51,9 +95,9 @@ Satan wants you silent. That should tell you everything about why you need to sp
 
 ## 2. Testimony Is How the Gospel Actually Spreads (John 4:39)
 
-> Many of the Samaritans from that town believed in him because of the woman's testimony, 'He told me everything I ever did.'
->
-> John 4:39
+<ScriptureBlock reference="John 4:39">
+"Many of the Samaritans from that town believed in him because of the woman's testimony, 'He told me everything I ever did.'"
+</ScriptureBlock>
 
 The woman at the well had zero theological training. Messy past. No credentials. But her raw, authentic testimony — "Come, see a man who told me everything I ever did" — brought an entire town to Jesus.
 
@@ -67,9 +111,9 @@ Your three-minute story can do what a three-hour sermon can't — because it's y
 
 ## 3. God Literally Commands It (Psalm 107:2)
 
-> Let the redeemed of the Lord tell their story—those he redeemed from the hand of the foe.
->
-> Psalm 107:2
+<ScriptureBlock reference="Psalm 107:2">
+"Let the redeemed of the Lord tell their story—those he redeemed from the hand of the foe."
+</ScriptureBlock>
 
 This isn't a suggestion. "Let the redeemed say so" is an imperative. If Jesus redeemed you, speaking up isn't optional.
 
@@ -83,9 +127,9 @@ If you've experienced [the testimony in the Bible it describes](/testimony-in-th
 
 ## 4. Your Story Strengthens Your Own Faith (Psalm 66:16)
 
-> Come and hear, all you who fear God; let me tell you what he has done for me.
->
-> Psalm 66:16
+<ScriptureBlock reference="Psalm 66:16">
+"Come and hear, all you who fear God; let me tell you what he has done for me."
+</ScriptureBlock>
 
 Here's what nobody tells you about sharing testimony: it reinforces your faith more than theirs.
 
@@ -101,9 +145,9 @@ Psychology backs this up — externalization of internal experiences creates cog
 
 ## 5. It Gives Others Permission to Hope (Acts 4:33)
 
-> With great power the apostles continued to testify to the resurrection of the Lord Jesus. And God's grace was so powerfully at work in them all.
->
-> Acts 4:33
+<ScriptureBlock reference="Acts 4:33">
+"With great power the apostles continued to testify to the resurrection of the Lord Jesus. And God's grace was so powerfully at work in them all."
+</ScriptureBlock>
 
 When you share what Jesus did in your mess, you're telling people in their mess that rescue is possible.
 
@@ -121,9 +165,9 @@ That's not manipulation. That's how faith spreads — from one witness to anothe
 
 ## 6. Testimony Fulfills the Great Commission (Acts 1:8)
 
-> But you will receive power when the Holy Spirit comes on you; and you will be my witnesses in Jerusalem, and in all Judea and Samaria, and to the ends of the earth.
->
-> Acts 1:8
+<ScriptureBlock reference="Acts 1:8">
+"But you will receive power when the Holy Spirit comes on you; and you will be my witnesses in Jerusalem, and in all Judea and Samaria, and to the ends of the earth."
+</ScriptureBlock>
 
 Jesus's last words before ascending were about testimony. The Holy Spirit's power isn't for private blessing — it's for public witness.
 
@@ -137,9 +181,9 @@ Want a simple way to start? Check out these [15-second testimony examples](/15-s
 
 ## 7. It Defeats Shame and Accusation (2 Timothy 1:8)
 
-> So do not be ashamed of the testimony about our Lord or of me his prisoner. Rather, join with me in suffering for the gospel, by the power of God.
->
-> 2 Timothy 1:8
+<ScriptureBlock reference="2 Timothy 1:8">
+"So do not be ashamed of the testimony about our Lord or of me his prisoner. Rather, join with me in suffering for the gospel, by the power of God."
+</ScriptureBlock>
 
 Shame silences testimony. That's exactly what the enemy wants.
 
@@ -159,6 +203,7 @@ You don't need a dramatic story to have a powerful testimony. You need an authen
 
 Here's the framework that works everywhere:
 
+<PracticeCard label="The 15-Second Framework">
 **Before:** "There was a time in my life when I was _____ (lost, broken, searching, successful but empty)."
 
 **Met Jesus:** "Then I encountered Jesus, who _____ (forgave, healed, gave purpose)."
@@ -166,6 +211,7 @@ Here's the framework that works everywhere:
 **After:** "Now I'm _____ (free, hopeful, living with purpose)."
 
 **Question:** "Has anything like that ever happened to you?"
+</PracticeCard>
 
 That's it. fifteen seconds. No pressure, no performance, just truth and an invitation.
 
@@ -177,9 +223,9 @@ Practice until it feels natural, like telling a friend about a movie you loved. 
 
 The demon-possessed man in Mark 5 begged to follow Jesus. Christ gave him a different mission:
 
-> Go home to your own people and tell them how much the Lord has done for you
->
-> Mark 5:19
+<ScriptureBlock reference="Mark 5:19">
+"Go home to your own people and tell them how much the Lord has done for you"
+</ScriptureBlock>
 
 Not a seminary degree. Not a perfect past. Just a simple, Spirit-empowered declaration of what Jesus actually did.
 
@@ -187,6 +233,6 @@ That man went to the Decapolis and told his story. By the time Jesus returned to
 
 Your story can do that. It can prepare ground for the gospel in places you'll never see. The power of sharing your testimony scripture describes isn't theoretical — it's the engine of every revival in history.
 
-So let the redeemed say so. Tell what Jesus has done. Use your story as the weapon it was meant to be.
+<PullQuote>So let the redeemed say so. Tell what Jesus has done. Use your story as the weapon it was meant to be.</PullQuote>
 
 Start today.

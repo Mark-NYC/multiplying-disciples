@@ -12,6 +12,13 @@ related_tools: []
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/"
+article_system: "field-manual-v2"
+hero_category: "Share the Gospel"
+hero_subheading: "Jesus told his disciples to look for one receptive person in every town — not to convince everyone at once."
+article_cta:
+  type: lab
+  stakes_headline: "You can know the Person-of-Peace strategy by heart and still never notice the one already in your life."
+  bridge_copy: "A lab won't hand you your Person of Peace, but it's where you learn to actually watch for one instead of just knowing the concept."
 notes: >
   Migrated from WordPress post_id 6859 (post). Fills the Share the
   Gospel hub's previously-reserved "finding persons of peace"
@@ -34,9 +41,26 @@ notes: >
   wrapped the 4-step "How to find Persons of Peace" list in .steps;
   boxed the Messenger/Message/Mission 3-part framework in
   callout--key-idea. No wording changed.
+
+  2026-07-12 (Batch 2, gospel conversation tools): converted to .mdx.
+  Promoted "Why are Persons of Peace important?" and "How to find
+  Persons of Peace in the North American Context" from H3 to H2 — they
+  were nested under "What is a Person of Peace?" but are really their
+  own major sections, not sub-points of a definition. Converted the
+  Luke 10:5-6 callout to a real ScriptureBlock (verbatim Scripture),
+  the 4-step "steps" div to a PracticeCard, and the Messenger/Message/
+  Mission callout to an InsightCard. No hero image — the featured
+  image was already confirmed missing from supplied uploads at
+  original migration and the article has no inline images; ArticleHero
+  renders a complete hero without one. Added article_cta (type: lab).
 ---
 
-A clear strategy of Jesus for evangelism and disciple-making is to find "Persons of Peace."
+import ArticleIntro from '../../components/article/ArticleIntro.astro';
+import ScriptureBlock from '../../components/article/ScriptureBlock.astro';
+import PracticeCard from '../../components/article/PracticeCard.astro';
+import InsightCard from '../../components/article/InsightCard.astro';
+
+<ArticleIntro>A clear strategy of Jesus for evangelism and disciple-making is to find "Persons of Peace."</ArticleIntro>
 
 In this post, we'll explore what a Person of Peace is, why they are important, and how to find them in the North American context.
 
@@ -46,17 +70,13 @@ A Person of Peace is someone who is receptive to the message of the gospel and h
 
 In the Bible, Jesus instructed his disciples to look for Persons of Peace when he sent them out on their missionary journeys.
 
-<div class="callout callout--scripture">
-
+<ScriptureBlock reference="Luke 10:5-6">
 "Whatever house you enter, first say, 'Peace be to this house!' And if a son of peace is there, your peace will rest upon him. But if not, it will return to you."
-
-<cite>Luke 10:5-6</cite>
-
-</div>
+</ScriptureBlock>
 
 This indicates that Jesus expected his disciples to find Persons of Peace and that these individuals would be instrumental in spreading the gospel message.
 
-### Why are Persons of Peace important?
+## Why are Persons of Peace important?
 
 Persons of Peace are important because they have the ability to influence their community. When a Person of Peace becomes a believer, they are likely to share their faith with their family, friends, and neighbors.
 
@@ -64,38 +84,28 @@ This can lead to a movement of new believers within a community.
 
 Additionally, Persons of Peace can help to bridge cultural and language barriers. They can act as a liaison between missionaries and the local community, helping to build trust and understanding.
 
-### How to find Persons of Peace in the North American Context
+## How to find Persons of Peace in the North American Context
 
 Finding Persons of Peace in the North American context can be challenging, but it is not impossible. Here are some strategies that have been effective as a best practice:
 
-<div class="steps">
-
+<PracticeCard label="Try This This Week">
 1. **Pray for guidance:** Ask God to guide you to Persons of Peace in your community. He may reveal individuals to you through dreams, visions, or through other people.
 2. **Build relationships:** Spend time building relationships with people in your community. Attend local events, volunteer at a food bank or shelter, and get to know your neighbors. As you build relationships, look for individuals who are open to spiritual conversations and who have a positive influence on those around them.
 3. **Look for people with social influence:** Persons of Peace often have social influence within their community. They may be community leaders, business owners, or well-respected individuals. Look for people who have a positive reputation and who are well-connected within their community.
 4. **Listen to the Holy Spirit:** The Holy Spirit may prompt you to reach out to specific individuals or to go to certain places. Be open to his leading and follow his guidance.
-
-</div>
+</PracticeCard>
 
 ## How to Identify a Person of Peace
 
 Persons of peace are identifiable as receiving three primary things: the messenger, the message, and the mission. Let's look at each briefly.
 
-<div class="callout callout--key-idea">
+<InsightCard label="Messenger, Message, Mission">
+**Messenger:** The person of peace is open to listen and talk with the messenger who is boldly and clearly sharing the good news of Jesus with them.
 
-### Messenger
+**Message:** The person of peace receives the message of the gospel and is open to either hearing and learning more or turning to believe immediately.
 
-The person of peace is open to listen and talk with the messenger who is boldly and clearly sharing the good news of Jesus with them.
-
-### Message
-
-The person of peace receives the message of the gospel and is open to either hearing and learning more or turning to believe immediately.
-
-### Mission
-
-It is not enough to simply be receptive and open to the messenger and message, a true person of peace is also a door or connector to a relational network. A great example of this would be the woman at the well found in John 4 who runs back her village and invites the whole town to come and see Jesus.
-
-</div>
+**Mission:** It is not enough to simply be receptive and open to the messenger and message, a true person of peace is also a door or connector to a relational network. A great example of this would be the woman at the well found in John 4 who runs back her village and invites the whole town to come and see Jesus.
+</InsightCard>
 
 ## Conclusion
 
