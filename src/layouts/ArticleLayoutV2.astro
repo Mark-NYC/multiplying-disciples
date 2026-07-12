@@ -98,7 +98,7 @@ const ctaContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__article-c
 
       <div class="fm-article">
         <ShareButtons url={data.canonical} title={data.title} />
-        <TableOfContents headings={headings} />
+        {!data.hide_toc && <TableOfContents headings={headings} />}
         <slot />
       </div>
     </article>

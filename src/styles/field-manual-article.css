@@ -831,3 +831,101 @@
 /* --- Reduced motion ------------------------------------------
    This system adds no animation of its own; nothing to guard here
    beyond inheriting the sitewide prefers-reduced-motion rules. */
+
+/* --- Disciple grid + card (discover-the-12-disciples-of-jesus-christ)
+   Hand-built, article-specific patterns — a photo-tile jump nav and a
+   per-disciple "exploration card" wrapper. Not general components:
+   the 12-named-portraits pattern is specific to that one article. */
+
+.fm-disciple-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+  margin: 2rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 720px) {
+  .fm-disciple-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .fm-disciple-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.fm-disciple-grid li {
+  margin: 0;
+}
+
+.fm-disciple-grid a {
+  display: block;
+  border-radius: var(--radius-image);
+  overflow: hidden;
+  box-shadow: var(--fm-shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fm-disciple-grid a:hover,
+.fm-disciple-grid a:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(23, 76, 60, 0.18);
+}
+
+.fm-disciple-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.fm-disciple-card {
+  margin: 3rem 0;
+  padding: 1.75rem 2rem 2rem;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-top: 5px solid var(--disciple-accent, var(--color-primary));
+  border-radius: var(--radius-card);
+  box-shadow: var(--fm-shadow);
+}
+
+.fm-disciple-card__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.fm-disciple-card__portrait {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--disciple-accent, var(--color-primary));
+  flex-shrink: 0;
+}
+
+.fm-disciple-card__order {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--disciple-accent, var(--color-primary));
+  margin: 0;
+}
+
+.fm-disciple-card__body :global(h2:first-child) {
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 640px) {
+  .fm-disciple-card {
+    padding: 1.4rem 1.25rem 1.6rem;
+  }
+}

@@ -1,0 +1,38 @@
+---
+// DiscipleCard — wraps one full disciple bio section (its real H2 and
+// every subsection beneath it, unchanged) in a bordered card with a
+// small portrait + calling-order badge above the heading. Purely a
+// visual container: the H2 inside `<slot />` keeps its original text,
+// so anchor ids used elsewhere on the page (the jump nav, "BACK TO
+// TOP" links) are completely unaffected.
+//
+// `accent` is a real hex color (not one of the 5 brand tokens used by
+// InsightCard/RoleFact) because this card's accent is meant to match
+// the specific duotone already baked into that disciple's portrait
+// image — 12 disciples need 12 distinct colors, not 5.
+//
+// Usage:
+//   <DiscipleCard order={3} total={12} image="/path.jpg" imageAlt="..." accent="#4b2e83">
+//   ## Simon Peter: The Rock of the Early Church
+//   ...rest of that disciple's original section...
+//   </DiscipleCard>
+interface Props {
+  order: number;
+  total: number;
+  image: string;
+  imageAlt: string;
+  accent: string;
+}
+
+const { order, total, image, imageAlt, accent } = Astro.props;
+---
+
+<div class="fm-disciple-card" style={`--disciple-accent: ${accent}`}>
+  <div class="fm-disciple-card__header">
+    <img class="fm-disciple-card__portrait" src={image} alt={imageAlt} loading="lazy" />
+    <p class="fm-disciple-card__order">Called {order} of {total}</p>
+  </div>
+  <div class="fm-disciple-card__body">
+    <slot />
+  </div>
+</div>
