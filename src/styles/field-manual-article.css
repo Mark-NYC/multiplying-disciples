@@ -76,28 +76,16 @@
   margin: 0 0 0.85rem;
 }
 
+/* Fixed at one size for every field-manual-v2 article, regardless of
+   title length — standardized so a short title and a long legacy
+   title read at the same scale. Controlled measure so a long title
+   wraps as confident lines, not an unreadable wall. */
 .fm-hero__headline {
   margin: 0 0 1rem;
-  font-size: var(--fs-h1);
+  font-size: clamp(2.25rem, 1.9rem + 1.6vw, 3rem);
   line-height: 1.15;
   color: var(--color-primary);
-  /* Controlled measure so a long legacy title wraps as confident
-     lines, not an unreadable wall — and doesn't strand a single word
-     on its own last line as often. */
-  max-width: 30ch;
-}
-
-/* A handful of migrated WordPress titles run long (a title plus an
-   em-dash subtitle). Step the size down so those still read as a
-   controlled block instead of 6+ lines at full hero size. */
-.fm-hero__headline--medium {
-  font-size: clamp(2.25rem, 1.9rem + 1.6vw, 3rem);
   max-width: 34ch;
-}
-
-.fm-hero__headline--long {
-  font-size: clamp(1.875rem, 1.6rem + 1.2vw, 2.5rem);
-  max-width: 38ch;
 }
 
 .fm-hero__subhead {
@@ -145,16 +133,7 @@
   .fm-hero__headline {
     max-width: none;
     line-height: 1.2;
-  }
-
-  /* The medium/long size steps matter even more on a narrow viewport
-     — without them a long legacy title runs to 8-9 lines. */
-  .fm-hero__headline--medium {
     font-size: 1.875rem;
-  }
-
-  .fm-hero__headline--long {
-    font-size: 1.625rem;
   }
 
   .fm-hero__image-wrap {
