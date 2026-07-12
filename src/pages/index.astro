@@ -137,7 +137,7 @@ import { COVO_LABS_URL } from '../data/site';
       <p class="block-grid__punch block-grid__punch--coaching">Tools explain it. Coaching helps live it.</p>
     </div>
 
-    <div class="block-grid__cell block-grid__cell--video-wrap">
+    <div class="block-grid__cell block-grid__cell--image block-grid__cell--video-wrap">
       <HomeIntroVideo
         videoSrc="https://kmlwiq5edojbuq6o.public.blob.vercel-storage.com/homepage-video.mp4"
         posterSrc="/md-home-video-thumbnail.webp"
@@ -725,6 +725,24 @@ import { COVO_LABS_URL } from '../data/site';
     grid-template-columns: 1fr 1fr;
   }
 
+  /* Coaching section only: the video is one of the page's primary
+     trust builders, so its column (and, since cells are square, its
+     rendered size) is ~20% larger than the even 50/50 split every
+     other block-grid row uses — the text column gives up the
+     difference, which also makes the headline wrap more cleanly. */
+  @media (min-width: 801px) {
+    #ch-why.block-grid {
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+
+    /* The text cell is now narrower than the video cell, so its own
+       1:1 square would be shorter than the row — stretch it to match
+       the taller video cell instead of leaving empty space below it. */
+    #ch-why.block-grid .block-grid__cell--text {
+      aspect-ratio: auto;
+    }
+  }
+
   /* Every cell is a true square; if a text cell's content ever
      outgrows the square, the cell (and its row) grows and the paired
      image simply covers the taller cell — no clipped copy. */
@@ -762,26 +780,11 @@ import { COVO_LABS_URL } from '../data/site';
     animation: grain-drift 0.8s steps(5) infinite;
   }
 
-  /* Video cell: holds HomeIntroVideo's own 9:16 frame (see that
-     component for the poster/play-button/player itself), so — unlike
-     the plain square photo cells above — this one is never forced to
-     a 1:1 square. It just centers the frame on a card-like surface. */
-  .block-grid__cell--video-wrap {
-    aspect-ratio: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2.5rem 1.5rem;
-    background: var(--color-surface);
-  }
-
-  /* This card's own copy already runs longer than the other block-grid
-     text cells (quote + coaching chain + punchline), so — like the
-     video cell beside it — it isn't forced into a 1:1 square; its
-     height instead follows its (already vertically-centered) content. */
-  #ch-why .block-grid__cell--text {
-    aspect-ratio: auto;
-  }
+  /* Video cell: same edge-to-edge square treatment as the other
+     block-grid photo cells above (--image gives it position/overflow/
+     grain) — HomeIntroVideo's poster fills it edge-to-edge via
+     object-fit: cover, same as a plain <img> would. No extra rules
+     needed here. */
 
   .coaching-caption {
     margin: 0;
