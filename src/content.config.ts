@@ -50,6 +50,14 @@ const articles = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/articles' }),
   schema: z.object({
     title: z.string(),
+    // Optional human-written headline for the visible <h1> and page
+    // hero. `title` stays the full SEO/keyword title used in <title>,
+    // Open Graph, Twitter cards, and structured data (via SEO.astro) —
+    // never shown to a reader. When display_title is absent, the H1
+    // falls back to `title` (legacy/unconverted articles are
+    // unaffected). See ARTICLE_DESIGN_SYSTEM.md, "Article hero
+    // standard."
+    display_title: z.string().optional(),
     description: z.string(),
     // Full site-relative path, exactly matching the live WordPress URL,
     // e.g. "/discover-the-12-disciples-of-jesus-christ/". This is what
@@ -76,7 +84,14 @@ const articles = defineCollection({
     // untouched. See ARTICLE_DESIGN_SYSTEM.md.
     article_system: z.enum(['field-manual-v2']).optional(),
     // Article Hero fields, used only when article_system is set.
-    hero_category: z.string().optional(),
+    // No eyebrow by default (see ARTICLE_DESIGN_SYSTEM.md, "Article
+    // hero standard" — the breadcrumb already carries the hub/category
+    // context, so a matching eyebrow just repeats it). Set hero_eyebrow
+    // only in the rare case where it adds real, new context the reader
+    // can't get from the breadcrumb or H1 — e.g. "Field Guide", "Case
+    // Study", "Tool", "Biblical Framework". Never the hub name, a
+    // keyword, or a restatement of the title.
+    hero_eyebrow: z.string().optional(),
     hero_subheading: z.string().optional(),
     hero_image: z.string().optional(),
     hero_image_alt: z.string().optional(),

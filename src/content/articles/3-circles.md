@@ -3,7 +3,7 @@ title: "3 Circles"
 description: "The Three Circles Gospel Tool Google Slides deck — a simple way to share the Gospel and make disciples using three drawn circles."
 slug: "/3-circles/"
 canonical: "https://multiplyingdisciples.us/3-circles/"
-hub: "3-circles"
+hub: "3-circles-guide"
 related_articles:
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
