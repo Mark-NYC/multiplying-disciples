@@ -50,6 +50,25 @@ const isActive = (href: string) =>
         }
       </ul>
       <div class="site-header__actions">
+        {/* A real link, not a JS toggle — search lives at /search/ so
+            this stays useful with JavaScript disabled. Icon-only on
+            desktop; icon + word inside the open mobile menu. */}
+        <a class="site-header__search" href="/search/">
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4.8-4.8" />
+          </svg>
+          <span class="site-header__search-label">Search</span>
+        </a>
         <a class="button button--small" href="/#ch-practice">Join a Lab</a>
         <ul class="site-header__socials">
           <li>
@@ -256,6 +275,30 @@ const isActive = (href: string) =>
     flex-shrink: 0;
   }
 
+  .site-header__search {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .site-header__search:hover {
+    color: var(--color-accent-hover);
+  }
+
+  /* Icon-only at desktop widths — the word appears in the mobile menu. */
+  .site-header__search-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
   .site-header__socials {
     display: flex;
     align-items: center;
@@ -339,7 +382,8 @@ const isActive = (href: string) =>
       min-width: 0;
     }
 
-    /* CTA + socials, pinned to the bottom of the open mobile menu. */
+    /* Search + CTA + socials, pinned to the bottom of the open mobile
+       menu. */
     .site-header__actions {
       flex-direction: column;
       align-items: flex-start;
@@ -348,6 +392,25 @@ const isActive = (href: string) =>
       margin-top: 1rem;
       padding: 1.25rem 0 1.5rem;
       border-top: 1px solid var(--color-border);
+    }
+
+    /* In the open menu the search link reads like the other nav items:
+       icon plus the visible word, full-width ≥44px tap target. */
+    .site-header__search {
+      width: 100%;
+      padding: 0.6rem 0;
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+
+    .site-header__search-label {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      clip: auto;
+      white-space: normal;
     }
 
     .site-header__actions .button {

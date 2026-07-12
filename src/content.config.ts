@@ -5,6 +5,12 @@ import { glob } from 'astro/loaders';
 // and its Search Console priority tier until the full export replaces
 // "unknown"/"source-pending" placeholders. See URL_INVENTORY.md.
 const migrationFields = {
+  // Removes a page from the site search index (/search-index.json —
+  // see SEARCH_SYSTEM.md). Independent of exclude_from_blog: utility
+  // pages like /starter-tools/ stay searchable, while legal/contact/
+  // registration-confirmation pages set this to true. source-pending
+  // placeholders are always excluded regardless of this flag.
+  exclude_from_search: z.boolean().default(false),
   status: z.enum(['source-pending', 'migrated-draft', 'migrated', 'published']),
   migration_priority: z.enum(['tier-1', 'tier-2', 'tier-3', 'unknown']),
   // Optional because new pages (like hubs) don't have a WordPress

@@ -6,6 +6,7 @@ canonical: "https://multiplyingdisciples.us/privacy-policy/"
 related_articles: []
 related_tools: []
 exclude_from_blog: true
+exclude_from_search: true
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/privacy-policy/"

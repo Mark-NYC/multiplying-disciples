@@ -20,6 +20,7 @@ Current inventory after the 2026-07 sitewide consistency pass.
 | `Footer.astro` | dark green footer: tagline, quick links, seal | BaseLayout |
 | `Breadcrumbs.astro` | mono breadcrumb + BreadcrumbList JSON-LD | ArticleLayout, HubLayout, ToolLayout, blog index |
 | `ArticleList.astro` | **new** — the shared article list row (thumbnail, title, description, meta) | blog index, HubLayout |
+| header search link (in `Header.astro`) | icon link to /search/ (icon-only desktop, icon+word in mobile menu) | Header |
 | `TableOfContents.astro` | "In This Article" box, auto from H2s (renders at 3+) | ArticleLayout |
 | `ShareButtons.astro` | share row (FB/X/LinkedIn/email/copy) | ArticleLayout (editorial articles only) |
 | `RelatedArticles.astro` | bordered related-links box | article/RelatedArticles wrapper, ToolLayout |
@@ -56,6 +57,15 @@ Current inventory after the 2026-07 sitewide consistency pass.
 | `intro-video.js` | homepage video behavior |
 | `image-dimensions.mjs` | **new** — build-time intrinsic-size lookup for public/ images (PNG/JPEG/GIF/WebP, dependency-free) |
 | `rehype-img-dimensions.mjs` | **new** — adds width/height + lazy/async to every markdown image |
+| `site-search.js` | **new** — client search for /search/ (MiniSearch + rendering + URL sync); see SEARCH_SYSTEM.md |
+
+## Search (see SEARCH_SYSTEM.md)
+
+| Item | Purpose |
+| --- | --- |
+| `src/pages/search/index.astro` | the /search/ page (form, states, result styles) |
+| `src/pages/search-index.json.ts` | build-time JSON search index from the content collections |
+| `exclude_from_search` frontmatter | removes a page from the index (legal/contact/confirmation pages) |
 
 ## Deprecated / removed in this pass
 

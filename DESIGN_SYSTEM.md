@@ -94,6 +94,16 @@ Scripture, TOC); left rule + pale wash = "caution/quote" (Warning,
 blockquote). Not every section becomes a card — most paragraphs stay
 paragraphs.
 
+## Search (see SEARCH_SYSTEM.md)
+
+The /search/ page reuses these tokens wholesale: white input on Warm
+Paper with the standard border/radius and a Primary Green focus ring,
+mono uppercase status line, gold-text type eyebrows on result rows,
+Primary Green result titles, and `<mark>` highlights as a quiet Soft
+Sage wash (no color change, no glow). The header control is an
+icon-only link at desktop widths and a full-width icon+word row in the
+open mobile menu.
+
 ## Eyebrows, badges, meta
 
 - `.eyebrow` — mono, uppercase, 0.14em tracking, with color variants
