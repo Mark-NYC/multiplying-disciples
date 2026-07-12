@@ -426,6 +426,22 @@ The stakes headline must:
 - Your future depends on clicking here now.
 - This one secret will change everything.
 
+**Bridge copy for `type: lab` must not promise this article's specific
+content will be practiced in the lab the reader joins.** Labs vary in
+what they actually cover session to session — we run labs, not
+guarantee that any given one rehearses this exact tool, story, or
+framework. Write the bridge copy to communicate the *need for
+practice* and that a lab *is the place practice happens*, not a
+guarantee of this article's material specifically.
+
+- Bad: "A lab is where you practice drawing it with real feedback,
+  before the conversation that actually matters." (promises this
+  session covers 3 Circles specifically)
+- Good: "No lab can promise you'll practice these exact circles that
+  day — but every lab exists to put real practice and real feedback in
+  front of you, not just more reading." (honest about variability,
+  still makes the case for joining one)
+
 ### 5. Dynamic lab behavior
 
 Article authors never manually specify a lab title, date, time, seats
@@ -507,6 +523,7 @@ uses). The component:
 - [ ] Stakes headline communicates a real consequence of inaction
 - [ ] Correct CTA type selected
 - [ ] Bridge copy is short
+- [ ] For `type: lab`, bridge copy does not promise this article's specific tool/content will be practiced that session
 - [ ] No lab details are hard-coded
 - [ ] Dynamic lab card resolves correctly
 - [ ] Full labs are skipped
