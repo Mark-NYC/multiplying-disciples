@@ -24,7 +24,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import RotatingSeal from '../components/RotatingSeal.astro';
 import ForYouIfSection from '../components/ForYouIfSection.astro';
 import HomeIntroVideo from '../components/HomeIntroVideo.astro';
-import { SITE, COVO_LABS_URL } from '../data/site';
+import { COVO_LABS_URL } from '../data/site';
 ---
 
 <BaseLayout
@@ -47,21 +47,6 @@ import { SITE, COVO_LABS_URL } from '../data/site';
         <a class="button button--secondary" href="/starter-tools/">Start with the Tools</a>
       </p>
     </div>
-  </section>
-
-  <!-- 1b. ONBOARDING VIDEO — a fast, human "here's what this actually
-       is" before the reps pitch, so a skeptical visitor hears it in
-       someone's voice instead of just reading claims. Click-to-play:
-       the MP4 never loads until the visitor clicks the thumbnail. -->
-  <section class="intro-video-section" id="ch-intro-video">
-    <HomeIntroVideo
-      videoSrc="https://kmlwiq5edojbuq6o.public.blob.vercel-storage.com/homepage-video.mp4"
-      posterSrc="/md-home-video-thumbnail.webp"
-      posterAlt="A Multiplying Disciples coach introducing the ministry"
-      eyebrow="Start Here"
-      heading="What Multiplying Disciples is, in 60 seconds"
-      body="A quick, honest introduction to what we do and why it matters — before you dig into the reps."
-    />
   </section>
 
   <!-- 2. PROBLEM / REPS — the homepage's central positioning statement,
@@ -152,26 +137,13 @@ import { SITE, COVO_LABS_URL } from '../data/site';
       <p class="block-grid__punch block-grid__punch--coaching">Tools explain it. Coaching helps live it.</p>
     </div>
 
-    <a
-      class="block-grid__cell block-grid__cell--image block-grid__cell--video"
-      href={SITE.social.youtube}
-      target="_blank"
-      rel="noopener"
-      aria-label="Watch why live practice changes everything on YouTube"
-    >
-      <img
-        src="/wp-content/uploads/2025/03/maxresdefault-7-1024x576.jpg"
-        alt="A Multiplying Disciples coach recording a short teaching video"
-        width="1024"
-        height="576"
-        loading="lazy"
+    <div class="block-grid__cell block-grid__cell--video-wrap">
+      <HomeIntroVideo
+        videoSrc="https://kmlwiq5edojbuq6o.public.blob.vercel-storage.com/homepage-video.mp4"
+        posterSrc="/md-home-video-thumbnail.webp"
+        posterAlt="A Multiplying Disciples coach recording a short teaching video"
       />
-      <span class="block-grid__play" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-          <path d="M8 5v14l11-7z" />
-        </svg>
-      </span>
-    </a>
+    </div>
   </section>
   <p class="coaching-caption">Why live practice changes everything</p>
 
@@ -676,20 +648,6 @@ import { SITE, COVO_LABS_URL } from '../data/site';
     color: var(--color-clay-text);
   }
 
-  /* --- Onboarding video: fast intro, click-to-play (see
-     HomeIntroVideo.astro for the frame/poster/player itself) -------- */
-
-  .intro-video-section {
-    padding: 4.5rem 0 1rem;
-    background: var(--color-bg);
-  }
-
-  @media (max-width: 640px) {
-    .intro-video-section {
-      padding: 3.5rem 0 0.5rem;
-    }
-  }
-
   /* --- Front matter: manual-style running header under the hero --- */
 
   .frontmatter {
@@ -767,24 +725,6 @@ import { SITE, COVO_LABS_URL } from '../data/site';
     grid-template-columns: 1fr 1fr;
   }
 
-  /* Coaching section only: the video is one of the page's primary
-     trust builders, so its column (and, since cells are square, its
-     rendered size) is ~20% larger than the even 50/50 split every
-     other block-grid row uses — the text column gives up the
-     difference, which also makes the headline wrap more cleanly. */
-  @media (min-width: 801px) {
-    #ch-why.block-grid {
-      grid-template-columns: 0.8fr 1.2fr;
-    }
-
-    /* The text cell is now narrower than the video cell, so its own
-       1:1 square would be shorter than the row — stretch it to match
-       the taller video cell instead of leaving empty space below it. */
-    #ch-why.block-grid .block-grid__cell--text {
-      aspect-ratio: auto;
-    }
-  }
-
   /* Every cell is a true square; if a text cell's content ever
      outgrows the square, the cell (and its row) grows and the paired
      image simply covers the taller cell — no clipped copy. */
@@ -822,37 +762,25 @@ import { SITE, COVO_LABS_URL } from '../data/site';
     animation: grain-drift 0.8s steps(5) infinite;
   }
 
-  /* Video cell: a plain anchor rather than a div, so the whole square
-     is clickable through to the video. */
-  .block-grid__cell--video {
-    display: block;
-    cursor: pointer;
-  }
-
-  .block-grid__play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  /* Video cell: holds HomeIntroVideo's own 9:16 frame (see that
+     component for the poster/play-button/player itself), so — unlike
+     the plain square photo cells above — this one is never forced to
+     a 1:1 square. It just centers the frame on a card-like surface. */
+  .block-grid__cell--video-wrap {
+    aspect-ratio: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 4.25rem;
-    height: 4.25rem;
-    border-radius: 50%;
-    background: rgba(31, 37, 35, 0.55);
-    color: #ffffff;
-    transition: background-color 0.15s ease, transform 0.15s ease;
+    padding: 2.5rem 1.5rem;
+    background: var(--color-surface);
   }
 
-  .block-grid__play svg {
-    transform: translateX(2px);
-  }
-
-  .block-grid__cell--video:hover .block-grid__play,
-  .block-grid__cell--video:focus-visible .block-grid__play {
-    background: rgba(23, 76, 60, 0.85);
-    transform: translate(-50%, -50%) scale(1.06);
+  /* This card's own copy already runs longer than the other block-grid
+     text cells (quote + coaching chain + punchline), so — like the
+     video cell beside it — it isn't forced into a 1:1 square; its
+     height instead follows its (already vertically-centered) content. */
+  #ch-why .block-grid__cell--text {
+    aspect-ratio: auto;
   }
 
   .coaching-caption {
