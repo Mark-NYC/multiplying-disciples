@@ -193,6 +193,45 @@ specific to that one article, not a reusable pattern.
 **Mobile:** full width, padding unchanged (already modest). The pill
 nav wraps to multiple rows at narrow widths.
 
+### RoleFact
+
+**Purpose:** a small, tinted, low-key highlight box for one fact in a
+*repeating* Q&A pattern across a named-role set (e.g. one gift's "NT
+example," "immature expression," etc. in an APEST-style guide) —
+lighter than `InsightCard` on purpose (no shadow, no white background),
+so a long reference section doesn't repeat a heavy card many times
+over. Whatever heading/paragraph markup is passed as children stays
+real (an H4 stays a real `<h4>`, preserving heading structure/SEO) —
+this only adds a tinted, padded container plus compact styling.
+
+**When to use:** only for a genuinely repeating fact pattern across
+3+ parallel named items in one article (e.g. 4 facts × 5 roles). Not a
+general-purpose callout — use `InsightCard` for that.
+
+**Props:** `accent` (required — same 5 values as `InsightCard`'s
+`accent`: `'primary' | 'accent' | 'gold' | 'clay' | 'ink'`).
+
+```mdx
+<div class="fm-role-facts">
+<RoleFact accent="clay">
+#### Who is a New Testament example of an apostle?
+Paul...
+</RoleFact>
+<RoleFact accent="clay">
+#### What do immature expressions of the apostle look like?
+...
+</RoleFact>
+</div>
+```
+
+`.fm-role-facts` (in `field-manual-article.css`) lays its `RoleFact`
+children out as a 2-column grid with generous gaps on desktop,
+collapsing to 1 column under 640px — this is what gives a long,
+repeating reference section real breathing room instead of another
+stack of headings running straight into each other.
+
+**Mobile:** single column, full width.
+
 ### PracticeCard
 
 **Purpose:** one concrete action for the reader. Soft sage background,

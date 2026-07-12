@@ -297,6 +297,53 @@
 .fm-role-eyebrow[data-accent='primary'] { background: #dfe8e3; color: var(--color-primary); }
 .fm-role-eyebrow[data-accent='ink'] { background: #e7e5df; color: var(--color-primary-hover); }
 
+/* Grid of RoleFact boxes — 2 columns on desktop, 1 on mobile, with
+   generous gaps so a long reference section gets real breathing room
+   instead of another stack of H4s running straight into each other. */
+.fm-role-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 2.5rem 0;
+}
+
+@media (max-width: 640px) {
+  .fm-role-facts {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fm-role-fact {
+  border-radius: var(--radius-card);
+  padding: 1.15rem 1.35rem;
+}
+
+.fm-role-fact h4 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem !important;
+  line-height: 1.35;
+}
+
+.fm-role-fact p {
+  margin: 0 !important;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+
+.fm-role-fact--clay { background: #fbe4d6; }
+.fm-role-fact--gold { background: #f7ecd6; }
+.fm-role-fact--accent { background: #e3f0e6; }
+.fm-role-fact--primary { background: #dfe8e3; }
+.fm-role-fact--ink { background: #e7e5df; }
+
+.fm-role-fact--clay h4 { color: var(--color-clay-text); }
+.fm-role-fact--gold h4 { color: var(--color-gold-text); }
+.fm-role-fact--accent h4 { color: var(--color-accent-hover); }
+.fm-role-fact--primary h4 { color: var(--color-primary); }
+.fm-role-fact--ink h4 { color: var(--color-primary-hover); }
+
 .fm-insight-card__body {
   font-size: 1.0625rem;
   line-height: 1.65;

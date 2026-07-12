@@ -1,0 +1,33 @@
+---
+// RoleFact — a small, tinted, low-key highlight box for one fact in a
+// repeating Q&A pattern across a set of named roles (e.g. one gift's
+// "NT example" or "immature expression" in an APEST-style guide).
+// Lighter than InsightCard on purpose: no shadow, no white background,
+// meant to punctuate a long reference section without repeating a
+// heavy card many times over.
+//
+// Whatever heading/paragraph markup is passed as children stays real
+// (an H4 stays a real <h4>) — this only adds a tinted, padded
+// container plus compact label/body styling around it. Usually used
+// in a `.fm-role-facts` grid of 3-4, one per fact, written as plain
+// HTML in the article body (see unlocking-the-power-of-apest-the-
+// ultimate-guide.mdx) rather than as a reusable multi-instance
+// pattern — the named-role set is specific to that one article.
+//
+// Usage:
+//   <div class="fm-role-facts">
+//     <RoleFact accent="clay">
+//     #### Who is a New Testament example of an apostle?
+//     Paul...
+//     </RoleFact>
+//   </div>
+interface Props {
+  accent: 'primary' | 'accent' | 'gold' | 'clay' | 'ink';
+}
+
+const { accent } = Astro.props;
+---
+
+<div class:list={['fm-role-fact', `fm-role-fact--${accent}`]}>
+  <slot />
+</div>
