@@ -1,0 +1,265 @@
+---
+// /search/ — the site search page. A dedicated page (not a modal) so
+// the nav control is a real link that still lands somewhere useful
+// without JavaScript, the query lives in the URL (?q=...), and no
+// focus-trap machinery is needed. The index (/search-index.json) and
+// the search JavaScript load only here — nothing is added to any
+// other page's bundle. See SEARCH_SYSTEM.md.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Search', href: '/search/' },
+];
+---
+
+<BaseLayout
+  title="Search"
+  description="Search every article, hub, and tool on Multiplying Disciples."
+  canonical="https://multiplyingdisciples.us/search/"
+  type="website"
+  noindex={true}
+>
+  <div class="page-container">
+    <Breadcrumbs items={breadcrumbItems} />
+
+    <p class="eyebrow eyebrow--gold-text">Field Manual &middot; Search</p>
+    <h1>Search</h1>
+
+    <form class="search-form" role="search" action="/search/" method="get">
+      <label class="search-form__label" for="search-input">
+        Search articles, hubs, and tools
+      </label>
+      <div class="search-form__row">
+        <input
+          id="search-input"
+          class="search-form__input"
+          type="search"
+          name="q"
+          placeholder="Search testimony, evangelism, discipleship, simple church&hellip;"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button
+          class="search-form__clear"
+          type="button"
+          id="search-clear"
+          aria-label="Clear search"
+          hidden
+        >
+          Clear
+        </button>
+      </div>
+    </form>
+
+    <noscript>
+      <p class="search-noscript">
+        Instant search needs JavaScript. You can still browse <a href="/blog/">every article</a> or start from the <a href="/starter-tools/">starter tools</a>.
+      </p>
+    </noscript>
+
+    <p class="search-status" id="search-status" role="status" aria-live="polite"></p>
+
+    <ol class="search-results" id="search-results"></ol>
+
+    <div class="search-more">
+      <button class="button button--secondary" type="button" id="search-more" hidden></button>
+    </div>
+
+    <div class="search-empty" id="search-empty">
+      <p>
+        Type at least two characters to search everything on the site &mdash; articles, topic
+        hubs, and tools.
+      </p>
+      <p class="search-empty__hint">
+        Common searches: <a href="/search/?q=3%20circles">3 circles</a>&ensp;&middot;&ensp;<a href="/search/?q=testimony">testimony</a>&ensp;&middot;&ensp;<a href="/search/?q=simple%20church">simple church</a>&ensp;&middot;&ensp;<a href="/search/?q=person%20of%20peace">person of peace</a>&ensp;&middot;&ensp;<a href="/search/?q=prayer%20walking">prayer walking</a>
+      </p>
+    </div>
+
+    <div class="search-none" id="search-none" hidden>
+      <p class="search-none__title">No results for <strong id="search-none-query"></strong>.</p>
+      <p>
+        Try a shorter or more general word &mdash; or browse <a href="/blog/">the full article index</a>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  import { initSiteSearch } from '../../lib/site-search.js';
+
+  initSiteSearch({
+    input: document.getElementById('search-input'),
+    clear: document.getElementById('search-clear'),
+    status: document.getElementById('search-status'),
+    results: document.getElementById('search-results'),
+    more: document.getElementById('search-more'),
+    empty: document.getElementById('search-empty'),
+    none: document.getElementById('search-none'),
+    noneQuery: document.getElementById('search-none-query'),
+  });
+</script>
+
+<style>
+  h1 {
+    color: var(--color-primary);
+    margin-bottom: 1.25rem;
+  }
+
+  .search-form {
+    margin: 0 0 1.5rem;
+  }
+
+  .search-form__label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .search-form__row {
+    display: flex;
+    gap: 0.6rem;
+    align-items: stretch;
+  }
+
+  .search-form__input {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0.75rem 1rem;
+    font-size: 1.05rem;
+    font-family: inherit;
+    color: var(--color-text);
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-button);
+  }
+
+  .search-form__input:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 1px;
+    border-color: var(--color-primary);
+  }
+
+  /* WebKit adds its own tiny clear control; we provide a labeled one. */
+  .search-form__input::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  .search-form__clear {
+    flex-shrink: 0;
+    padding: 0.45rem 1.1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--color-text-muted);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-button);
+    cursor: pointer;
+  }
+
+  .search-form__clear:hover {
+    color: var(--color-text);
+    background: var(--color-surface);
+  }
+
+  .search-noscript {
+    padding: 1rem 1.25rem;
+    background: var(--color-surface);
+    border-radius: var(--radius-card);
+  }
+
+  .search-status {
+    min-height: 1.4em;
+    margin: 0 0 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .search-results {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .search-results :global(li) {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .search-results :global(li:first-child) {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .search-results :global(.search-result__type) {
+    margin: 0 0 0.3rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-gold-text);
+  }
+
+  .search-results :global(.search-result__title) {
+    margin: 0 0 0.35rem;
+    font-size: 1.15rem;
+    line-height: 1.35;
+    font-weight: 700;
+  }
+
+  .search-results :global(.search-result__title a) {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .search-results :global(.search-result__title a:hover) {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .search-results :global(.search-result__excerpt) {
+    margin: 0;
+    font-size: 0.98rem;
+    color: var(--color-text-muted);
+    line-height: 1.55;
+    overflow-wrap: break-word;
+  }
+
+  /* Highlighted match — quiet sage wash, no color change, so it stays
+     readable and screen readers treat it as ordinary emphasized text. */
+  .search-results :global(mark) {
+    background: var(--color-surface);
+    color: inherit;
+    border-radius: 3px;
+    padding: 0 0.1em;
+  }
+
+  .search-more {
+    margin: 1.5rem 0;
+  }
+
+  /* .button sets display:inline-block, which would otherwise beat the
+     UA stylesheet's [hidden] rule and leak an empty pill. */
+  .search-more :global(.button[hidden]) {
+    display: none;
+  }
+
+  .search-empty,
+  .search-none {
+    max-width: 34rem;
+    color: var(--color-text-muted);
+  }
+
+  .search-empty__hint a {
+    color: var(--color-accent-hover);
+  }
+
+  .search-none__title {
+    color: var(--color-text);
+  }
+</style>

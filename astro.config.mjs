@@ -17,11 +17,11 @@ export default defineConfig({
     format: 'directory',
   },
   integrations: [
-    // Phase 1 batch (homepage + 4 articles) now has real, lightly-improved
-    // content — status: migrated, no exclusions needed. Re-add a filter
-    // here if a future page gets added as a source-pending placeholder
-    // (see MIGRATION_PLAN.md / URL_INVENTORY.md).
-    sitemap(),
+    // /search/ is a noindex utility page (see src/pages/search/) — keep
+    // it out of the sitemap. Re-add a status filter here if a future
+    // page gets added as a source-pending placeholder (see
+    // MIGRATION_PLAN.md / URL_INVENTORY.md).
+    sitemap({ filter: (page) => !page.includes('/search/') }),
     // Powers the .mdx articles, so InsightCard/PracticeCard/etc. can be
     // used as real components instead of raw HTML divs. Plain .md
     // articles run through the same shared article layout.
