@@ -427,20 +427,34 @@ The stakes headline must:
 - This one secret will change everything.
 
 **Bridge copy for `type: lab` must not promise this article's specific
-content will be practiced in the lab the reader joins.** Labs vary in
-what they actually cover session to session — we run labs, not
-guarantee that any given one rehearses this exact tool, story, or
-framework. Write the bridge copy to communicate the *need for
-practice* and that a lab *is the place practice happens*, not a
-guarantee of this article's material specifically.
+content, tool, or outcome will be practiced or achieved in the lab the
+reader joins.** Labs vary in what they actually cover session to
+session — we run labs, not guarantee that any given one rehearses this
+exact tool, story, or framework, and we never promise a specific
+result. The bridge copy has exactly two jobs, every time:
+
+1. Communicate that knowledge without practice does not lead to change.
+2. Communicate that labs turn knowledge into skill through shared practice.
+
+Nothing else belongs in it — no naming this article's tool, no "you'll
+say/draw/walk/lead ___," no specific outcome. Just the two points
+above, in the article's own voice so eight lab CTAs in a row don't
+read as the same sentence with nouns swapped.
 
 - Bad: "A lab is where you practice drawing it with real feedback,
   before the conversation that actually matters." (promises this
   session covers 3 Circles specifically)
-- Good: "No lab can promise you'll practice these exact circles that
-  day — but every lab exists to put real practice and real feedback in
-  front of you, not just more reading." (honest about variability,
-  still makes the case for joining one)
+- Bad: "A lab won't script your testimony for you, but it's where you
+  say it out loud for the first time." (still names this article's
+  specific activity — "say it out loud" — as something the lab
+  delivers)
+- Good: "Knowing a tool exists doesn't mean you can use it. That only
+  comes from practice — which is exactly what a lab is for." (states
+  the knowledge/skill gap and labs' role in closing it, nothing
+  article-specific)
+- Good: "Information alone doesn't change anyone. A lab turns what you
+  know into something you can actually do, through practice with other
+  people."
 
 ### 5. Dynamic lab behavior
 
@@ -523,7 +537,7 @@ uses). The component:
 - [ ] Stakes headline communicates a real consequence of inaction
 - [ ] Correct CTA type selected
 - [ ] Bridge copy is short
-- [ ] For `type: lab`, bridge copy does not promise this article's specific tool/content will be practiced that session
+- [ ] For `type: lab`, bridge copy says only (1) knowledge without practice doesn't create change and (2) labs turn knowledge into skill through shared practice — no article-specific tool, activity, or outcome named
 - [ ] No lab details are hard-coded
 - [ ] Dynamic lab card resolves correctly
 - [ ] Full labs are skipped
