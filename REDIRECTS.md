@@ -10,7 +10,7 @@ source of truth for redirects — do not launch with an entry still marked
 Positioning shift from "disciple-making encyclopedia" to a practice-first
 field manual. 29 thin/generic articles removed; full rationale, search-intent
 confidence rating, and GSC clicks/impressions for every row are in
-`CONTENT_SIMPLIFICATION_REMOVAL_MANIFEST.md`. Unlike every row below this
+`docs/archive/CONTENT_SIMPLIFICATION_REMOVAL_MANIFEST.md`. Unlike every row below this
 section, these are **implemented now**, not just documented: real rules live
 in `vercel.json` (`redirects` array, `statusCode: 301` explicit — not
 `permanent: true`, which Vercel defaults to a 308) and in `api/gone.js` (a
@@ -73,14 +73,14 @@ new archive URLs were discovered during Tier 3. Also reconfirmed: 0
 of the 91 migrated content files have a slug that differs from its
 own `original_url` path, so no *new* redirects are needed for any
 migrated page (Tier 1, 2, or 3) — every exact original WordPress path
-was preserved throughout. See `PHASE_8_FULL_SITE_AUDIT.md` §8 for the
+was preserved throughout. See `docs/archive/PHASE_8_FULL_SITE_AUDIT.md` §8 for the
 full breakdown. Still `pending` — not implemented anywhere.
 
 ## Status as of Phase 6
 
 **20 redirects proposed (not yet implemented anywhere)** — all 7
 WordPress category archives and all 13 tag archives, each 301'd to
-its closest matching hub page. See `PHASE_6_ARCHIVE_URL_DECISION.md`
+its closest matching hub page. See `docs/archive/PHASE_6_ARCHIVE_URL_DECISION.md`
 for the full evidence and per-URL reasoning (all 20 have 0 GSC clicks
 despite having impressions — the classic thin-taxonomy-page signature
 — and a stronger, curated hub replacement already exists for every
@@ -102,7 +102,7 @@ WordPress content pages (confirmed via the export: real
 their exact existing URLs. No redirect involved.
 
 `/blog/` is recommended to become a real Astro index page (not a
-redirect target) — see `PHASE_6_ARCHIVE_URL_DECISION.md` section 5.
+redirect target) — see `docs/archive/PHASE_6_ARCHIVE_URL_DECISION.md` section 5.
 
 ### Proposed archive redirects (pending)
 
@@ -132,7 +132,7 @@ redirect target) — see `PHASE_6_ARCHIVE_URL_DECISION.md` section 5.
 ## Status as of Phase 5
 
 **No redirects are currently planned.** The Phase 5 protected URL
-audit (`PHASE_5_PROTECTED_URL_AUDIT.md`) re-confirmed, via a scripted
+audit (`docs/archive/PHASE_5_PROTECTED_URL_AUDIT.md`) re-confirmed, via a scripted
 diff against the generated `dist/` output, that all 34 migrated
 tier-1/tier-2 URLs are live at their exact original WordPress path —
 zero renames, zero merges, zero redirects needed. This file remains
@@ -144,9 +144,9 @@ correctly empty.
 or removed — including through Phase 3, which migrated 7 more tier-1
 pages (all at their exact original real URLs, several of which differed
 from what the migration brief originally guessed — see the corrections
-table in `PROTECTED_URLS.md`; those were caught and fixed *before*
+table in `docs/archive/PROTECTED_URLS.md`; those were caught and fixed *before*
 publishing, not via redirect), and through Phase 4 Batches 1-4, which
-migrated all 22 tier-2 pages (see `PHASE_4_TIER_2_BATCH_PLAN.md`),
+migrated all 22 tier-2 pages (see `docs/archive/PHASE_4_TIER_2_BATCH_PLAN.md`),
 again all at their exact original real URLs with no slug changes, no
 merges, and no collisions with existing hub or protected URLs. This
 includes the 2 pages that shared a deferred "Won't fix" media file and
@@ -156,7 +156,7 @@ product-page layout decision and a resolved missing-media flag, was
 still preserved at its exact original URL with no redirect needed —
 none of these required a redirect or slug change, only documented
 layout/media-handling decisions (see `MEDIA_ACQUISITION_CHECKLIST.md`
-and `MIGRATION_PLAN.md`). All URLs in `URL_INVENTORY.md` are being
+and `docs/archive/MIGRATION_PLAN.md`). All URLs in `URL_INVENTORY.md` are being
 preserved at their exact original path. Tier 2 is now 100% migrated
 (22 of 22). This file exists as the mechanism for the *future* case
 where a path genuinely cannot be preserved (see rule 8 in the brief's
@@ -216,3 +216,15 @@ redirects, which are not equivalent for SEO.
 and requires confirming there are no entries silently missing (cross-check
 against every `not-migrated` URL in `URL_INVENTORY.md` once the full
 sitemap/GSC export is in).
+
+## Media paths (absorbed from docs/archive/MEDIA_URLS_TO_PRESERVE.md, 2026-07-12)
+
+Old `/wp-content/uploads/...` media paths (PDFs, images) can rank in
+Google Images, earn direct impressions, and be hotlinked — every such
+path must be **preserved exactly** (the file lives at the same path
+under `public/`) or **301-redirected here**, never silently dropped.
+Astro serves `public/` files at the same root-relative path, so
+preservation is the default and requires no redirect entry.
+Per-file status lives in MEDIA_ACQUISITION_CHECKLIST.md (the
+authoritative media table); the original path inventory is archived
+at docs/archive/MEDIA_URLS_TO_PRESERVE.md.

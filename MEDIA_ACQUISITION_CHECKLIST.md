@@ -1,7 +1,7 @@
 # Media Acquisition Checklist
 
 Every media file referenced by an already-migrated page or a Phase 3
-Tier 1 page (the 7 in `PHASE_3_TIER_1_BATCH.md`), cross-referenced
+Tier 1 page (the 7 in `docs/archive/PHASE_3_TIER_1_BATCH.md`), cross-referenced
 against Search Console impressions. Source: WordPress export XML +
 Google Search Console Pages CSV (supplied 2026-07-06).
 
@@ -26,7 +26,7 @@ broken images (down from 5)**, confirmed via a fresh `astro build` +
 chased further in this phase.
 
 **Phase 5 re-confirmation:** the protected URL audit
-(`PHASE_5_PROTECTED_URL_AUDIT.md`) re-checked every one of the 92
+(`docs/archive/PHASE_5_PROTECTED_URL_AUDIT.md`) re-checked every one of the 92
 distinct `/wp-content/uploads/` image references across all 45 built
 pages plus 31 `og:image` values — the 2 `apostles-meaning` files above
 remain the **only** broken images anywhere on the migrated site.
@@ -48,7 +48,7 @@ discipleship__1608243288.jpeg` (under-the-hood),
 with their surrounding prose left intact: `picture1-
 e1692189886892.jpeg` and `Table-of-Math.jpeg`. None are above-the-fold
 hero-only necessities or direct-access PDFs, so none of this blocks
-the batch — see `PHASE_7B_TIER_3_BATCH_1.md` for the full breakdown.
+the batch — see `docs/archive/PHASE_7B_TIER_3_BATCH_1.md` for the full breakdown.
 No broken *visible* images resulted: none of these files are actually
 referenced in the shipped HTML (unlike the `apostles-meaning` gap,
 where the `<img>` tags remain and are genuinely broken) — all 8 were
@@ -74,7 +74,7 @@ dropped from the body with their surrounding prose left intact:
 `pexels-photo-4400997-e1686571140942.jpeg`, and
 `pexels-photo-14933981.jpeg`. None are above-the-fold hero-only
 necessities or direct-access PDFs, so none of this blocks the batch —
-see `PHASE_7B_TIER_3_BATCH_2.md` for the full breakdown.
+see `docs/archive/PHASE_7B_TIER_3_BATCH_2.md` for the full breakdown.
 `/royal-priest-strategy-explodes-disciple-making-movement-worldwide/`
 and `/missionary-verses-in-the-bible-reveal-gods-heart/` have zero
 missing media — all referenced files (including 3 inline images on
@@ -103,7 +103,7 @@ identical Church Waffle card. 2 are inline supporting images on
 with their captions kept as plain text: `2023/08/maxresdefault-2.jpg`
 and `2023/08/ChristianAlley-1.jpg`. None are above-the-fold hero-only
 necessities or direct-access PDFs, so none of this blocks the batch —
-see `PHASE_7B_TIER_3_BATCH_3.md` for the full breakdown.
+see `docs/archive/PHASE_7B_TIER_3_BATCH_3.md` for the full breakdown.
 `/the-hidden-power-of-bonhoeffers-discipleship-model-and-why-its-more-relevant-than-ever/`
 and `/bible-passages-about-love-what-scripture-really-says/` have zero
 missing media — all referenced files (including the inline infographic
@@ -138,7 +138,7 @@ Scripture References" has no actual `<a href>` or attachment anywhere
 in the export — no postmeta attachment captured, no matching filename
 in supplied uploads — kept as plain text since there is no real
 destination, not a broken link to defer. None of the missing files
-block the batch — see `PHASE_7B_TIER_3_BATCH_4.md` for the full
+block the batch — see `docs/archive/PHASE_7B_TIER_3_BATCH_4.md` for the full
 breakdown. `/discovering-the-disciple-meaning-a-life-changing-journey/`
 has zero missing media — its featured image confirmed present
 (exact filename match). `/privacy-policy/` and
@@ -165,7 +165,7 @@ unlock-the-power-of-friendly-accountability) is present but under a
 dedup `-1` suffix (`2025/01/Includes-3-Circles-Video-1-1024x576.webp`)
 — same pattern as Batch 4's personal-evangelism-main-header, kept as-is,
 not counted as missing. None of the missing files block the batch —
-see `PHASE_7B_TIER_3_BATCH_5.md` for the full breakdown.
+see `docs/archive/PHASE_7B_TIER_3_BATCH_5.md` for the full breakdown.
 `/spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication/`,
 `/content-vs-systems-the-game-changer-for-leadership-development/`, and
 `/kingdom-ministry-training/` reference no missing media (the latter's
@@ -194,8 +194,8 @@ page were kept as external hotlinks per the established precedent
 (e.g. `/7-surprising-disciple-making-movement-examples/`), not treated
 as local media at all. `/contact-us/` references no media (its Brevo
 subscription form was replaced with a `mailto:` fallback — see
-`PHASE_7B_TIER_3_BATCH_6.md`). None of the missing files block the
-batch — see `PHASE_7B_TIER_3_BATCH_6.md` for the full breakdown.
+`docs/archive/PHASE_7B_TIER_3_BATCH_6.md`). None of the missing files block the
+batch — see `docs/archive/PHASE_7B_TIER_3_BATCH_6.md` for the full breakdown.
 `/go-slow-to-go-fast-could-transform-your-leadership-pipeline/`,
 `/start-strengthen-sustain-core-insights-on-building-lasting-ministry/`,
 and `/next-gen-local-owners-building-beachheads-of-the-kingdom/`
@@ -224,7 +224,7 @@ images on `/4-responses-to-the-gospel/`:
 `2023/04/Screen-Shot-2023-04-02-at-6.40.51-AM-1024x701.jpg` and
 `2023/04/Screen-Shot-2023-04-02-at-6.40.40-AM-1024x802.jpg` — dropped,
 kept the real Google Slides links each screenshot wrapped. None of the
-missing files block the batch — see `PHASE_7B_TIER_3_BATCH_7.md` for
+missing files block the batch — see `docs/archive/PHASE_7B_TIER_3_BATCH_7.md` for
 the full breakdown. This closes out Tier 3 media tracking; all 48
 original Tier 3 URLs have now been migrated.
 
@@ -248,7 +248,7 @@ first pass; the remaining 2 (`5520c44066fbc694ac1c2e207151fe125162f59d.jpeg`
 and `760px-Ghirlandaio_Domenico_-_Calling_of_the_Apostles_-_1481.jpg`,
 both on `/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/`)
 are the same already-documented Tier 1 gap above — not new. See
-`PHASE_8_FULL_SITE_AUDIT.md` §7 for the full breakdown.
+`docs/archive/PHASE_8_FULL_SITE_AUDIT.md` §7 for the full breakdown.
 
 **Phase 9 media findings:** migrating the 4 real content pages
 resolved from the 6 remaining link targets surfaced 7 more genuinely
@@ -281,25 +281,25 @@ with `%E2%80%AF` encoding from the start this time. None of the 7
 genuinely missing files block their pages: none are above-the-fold-
 critical, none are the primary CTA/destination link, and none are a
 missing direct-access PDF. See
-`PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md` for the full breakdown.
+`docs/archive/PHASE_9_LINK_TARGETS_AND_HUB_STATUS.md` for the full breakdown.
 
 **Received-uploads log:**
 
 - 2026-07-06 — `2023/02` month folder (559 files) supplied and extracted
   into `public/wp-content/uploads/2023/02/`. None of this checklist's
-  103 tracked files live in that folder — see `MEDIA_IMPORT_PLAN.md`'s
+  103 tracked files live in that folder — see `docs/archive/MEDIA_IMPORT_PLAN.md`'s
   "Received uploads log" for the one broader-scope (Priority C) file
   this upload was checked against. No rows in this doc changed status.
 - 2026-07-06 — `2023/04` month folder (47 files) supplied and extracted
   into `public/wp-content/uploads/2023/04/`. All 39 of this checklist's
   tracked files that live in `2023/04` matched exactly and are now
   marked "Yes" below (the other 8 tracked `2023/04` files are Priority C
-  in `MEDIA_IMPORT_PLAN.md`, out of this doc's migrated/tier-1 scope).
+  in `docs/archive/MEDIA_IMPORT_PLAN.md`, out of this doc's migrated/tier-1 scope).
 - 2026-07-06 — `2023/05` month folder (39 files) supplied and extracted
   into `public/wp-content/uploads/2023/05/`. All 19 of this checklist's
   tracked files that live in `2023/05` matched exactly and are now
   marked "Yes" below (the other 20 tracked `2023/05` files are Priority
-  C in `MEDIA_IMPORT_PLAN.md`, out of this doc's migrated/tier-1 scope).
+  C in `docs/archive/MEDIA_IMPORT_PLAN.md`, out of this doc's migrated/tier-1 scope).
 - 2026-07-06 — `2023/06` month folder (3 files) supplied as a zip that
   also contained macOS `.DS_Store`/`__MACOSX` junk (excluded during
   extraction, never touched the repo) and extracted into
@@ -311,7 +311,7 @@ missing direct-access PDF. See
   into `public/wp-content/uploads/2023/07/`. The 2 of this checklist's
   tracked files that live in `2023/07` matched exactly and are now
   marked "Yes" below (the other 4 tracked `2023/07` files are Priority C
-  in `MEDIA_IMPORT_PLAN.md`, out of this doc's migrated/tier-1 scope).
+  in `docs/archive/MEDIA_IMPORT_PLAN.md`, out of this doc's migrated/tier-1 scope).
 - 2026-07-06 — `2023/08` month folder (56 files landed, same macOS junk
   pattern excluded) supplied and extracted into
   `public/wp-content/uploads/2023/08/`. All 5 of this checklist's
@@ -370,7 +370,7 @@ missing direct-access PDF. See
   this checklist (all already present from earlier `2025/10`/`2025/12`
   uploads, now marked "Yes" above). The page's originally-flagged 3
   missing files (`2-1024x1024.jpg`, `3-Circles-Sticker-Multiplying-
-  Disciples.webp`, `3.jpg`, tracked in `MEDIA_IMPORT_PLAN.md`'s
+  Disciples.webp`, `3.jpg`, tracked in `docs/archive/MEDIA_IMPORT_PLAN.md`'s
   Priority C list) are confirmed **not needed** — they only appeared
   inside a GenerateBlocks container hidden on every breakpoint
   (`hideOnDesktop`+`hideOnTablet`+`hideOnMobile` all `true`) in the
@@ -538,7 +538,7 @@ no new uploads were needed for this batch.
 
 Note: `/wp-content/uploads/2023/05/Screen-Shot-2023-05-20-at-12.10.25-PM-scaled.jpg`
 is also referenced (inline, `how-to-get-started-in-four-fields-training`) but
-was already tracked as Priority C in `MEDIA_IMPORT_PLAN.md` prior to this
+was already tracked as Priority C in `docs/archive/MEDIA_IMPORT_PLAN.md` prior to this
 batch and confirmed present there; not duplicated here.
 
 ### Phase 4 — Tier 2 Batch 2 media (2026-07-06)
@@ -547,7 +547,7 @@ All 24 distinct media files referenced by the 7 Phase 4 Tier 2 Batch 2
 pages were confirmed already present under `public/wp-content/uploads/`
 — no new uploads were needed for this batch. The strategy-coordinator
 page alone accounts for 13 of these 24 (the highest media count of any
-tier-2 page, as flagged in `PHASE_4_TIER_2_BATCH_PLAN.md`).
+tier-2 page, as flagged in `docs/archive/PHASE_4_TIER_2_BATCH_PLAN.md`).
 
 | WordPress path | Expected public path | Binary present? | Referenced by | Impressions |
 |---|---|---|---|---|
@@ -641,7 +641,7 @@ decisions, neither blocking:**
 3. Confirm the referencing page's image renders — image `src` values in
    every migrated article already point at these exact relative paths.
 4. Update this checklist's "Binary present?" column to "Yes" and
-   cross-reference in `MEDIA_URLS_TO_PRESERVE.md`.
+   cross-reference in `docs/archive/MEDIA_URLS_TO_PRESERVE.md`.
 
 ## If a media URL truly cannot be preserved
 

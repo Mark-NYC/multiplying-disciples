@@ -48,7 +48,22 @@ const breadcrumbItems = [
   { label: 'Blog', href: '/blog/' },
 ];
 
-const sortedHubs = [...hubs].sort((a, b) => a.data.title.localeCompare(b.data.title));
+// Hub pills, largest topic first — each carries a live article count
+// so the row reads as a real map of the library, not a link dump.
+const hubArticleCount = new Map<string, number>();
+for (const entry of sorted) {
+  if (!entry.data.hub) continue;
+  hubArticleCount.set(entry.data.hub, (hubArticleCount.get(entry.data.hub) ?? 0) + 1);
+}
+
+const hubPills = [...hubs]
+  .map((hub) => ({
+    title: hub.data.title,
+    slug: hub.data.slug,
+    count: hubArticleCount.get(hub.data.slug.replace(/^\/|\/$/g, '')) ?? 0,
+  }))
+  .filter((hub) => hub.count > 0)
+  .sort((a, b) => b.count - a.count || a.title.localeCompare(b.title));
 ---
 
 <BaseLayout
@@ -68,13 +83,19 @@ const sortedHubs = [...hubs].sort((a, b) => a.data.title.localeCompare(b.data.ti
     </p>
 
     {
-      sortedHubs.length > 0 && (
-        <nav class="blog-hub-links" aria-label="Browse by topic">
-          <span class="blog-hub-links__label">Browse by topic:</span>
-          <ul>
-            {sortedHubs.map((hub) => (
+      hubPills.length > 0 && (
+        <nav class="blog-topics" aria-label="Browse by topic">
+          <p class="blog-topics__label eyebrow eyebrow--gold-text">Browse by Topic</p>
+          <ul class="blog-topics__list">
+            {hubPills.map((hub) => (
               <li>
-                <a href={hub.data.slug}>{hub.data.title}</a>
+                <a class="blog-topics__pill" href={hub.slug}>
+                  <span class="blog-topics__name">{hub.title}</span>
+                  <span class="blog-topics__count" aria-hidden="true">{hub.count}</span>
+                  <span class="sr-only">
+                    &nbsp;— {hub.count} article{hub.count === 1 ? '' : 's'}
+                  </span>
+                </a>
               </li>
             ))}
           </ul>
@@ -98,34 +119,93 @@ const sortedHubs = [...hubs].sort((a, b) => a.data.title.localeCompare(b.data.ti
     margin-bottom: 1.5rem;
   }
 
-  .blog-hub-links {
+  /* Browse-by-topic pills — same visual family as the article
+     role-nav pills (white pill, hairline border, quiet lift on
+     hover), each with a live article count in a Soft Sage badge. */
+  .blog-topics {
     margin-bottom: 2.5rem;
-    padding-bottom: 1.5rem;
+    padding-bottom: 2rem;
     border-bottom: 1px solid var(--color-border);
   }
 
-  .blog-hub-links__label {
-    font-weight: 600;
-    margin-right: 0.5rem;
+  .blog-topics__label {
+    margin: 0 0 0.85rem;
   }
 
-  .blog-hub-links ul {
-    display: inline;
+  .blog-topics__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  .blog-hub-links li {
-    display: inline;
+  .blog-topics__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 2.75rem;
+    padding: 0.45rem 0.5rem 0.45rem 1.1rem;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    box-shadow: 0 1px 3px rgba(31, 37, 35, 0.05);
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    text-decoration: none;
   }
 
-  .blog-hub-links li:not(:last-child)::after {
-    content: ' \00b7 ';
-    color: var(--color-text-muted);
+  .blog-topics__pill:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 3px 10px rgba(23, 76, 60, 0.12);
+    transform: translateY(-1px);
   }
 
-  .blog-hub-links a {
-    color: var(--color-accent-hover);
+  .blog-topics__pill:hover .blog-topics__name {
+    color: var(--color-primary);
+  }
+
+  .blog-topics__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.65rem;
+    height: 1.65rem;
+    padding: 0 0.4rem;
+    border-radius: var(--radius-pill);
+    background: var(--color-surface);
+    color: var(--color-primary);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .blog-topics__pill:hover .blog-topics__count {
+    background: var(--color-accent);
+    color: var(--color-accent-text);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .blog-topics__pill {
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .blog-topics__count {
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
   }
 </style>

@@ -2,7 +2,7 @@
 
 Copy this into a new file at `src/content/field-notes/<your-id>.md`,
 fill it in, and reference it from an article with
-`<FieldNote id="your-id" />` (see `ARTICLE_DESIGN_SYSTEM.md`).
+`<FieldNote id="your-id" />` (see `ARTICLE_SYSTEM.md`).
 
 The filename (without `.md`) is the id. Use something short and
 descriptive, e.g. `queens-conversation-box-01.md`.
@@ -49,7 +49,7 @@ is a few sentences to a short paragraph, not a full article.
   `related_tool`, and `related_article` are all optional except the
   body text itself — a Field Note can be as minimal as a location and
   a sentence, or as full as the example in
-  `ARTICLE_DESIGN_SYSTEM.md`.
+  `ARTICLE_SYSTEM.md`.
 
 ## Example (filled in, still unapproved)
 
