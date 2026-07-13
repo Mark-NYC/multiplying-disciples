@@ -31,6 +31,11 @@ Deployed on Vercel as a fully static build. Redirects live in
 
 ## Documentation index — one source of truth per topic
 
+New here (human or Claude session)? Start with
+[REPOSITORY_PLAYBOOK.md](REPOSITORY_PLAYBOOK.md) — the orientation
+guide to the principles behind everything below. The documents in this
+table remain the source of truth for their topics.
+
 | Topic | Document |
 | --- | --- |
 | Design system (colors, type, spacing, imagery, a11y) | [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md) |
