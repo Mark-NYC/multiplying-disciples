@@ -10,6 +10,15 @@ interface Props {
 
 const { paths, heading = 'Related articles' } = Astro.props;
 
+// Bespoke landing pages (src/pages/*.astro) aren't collection entries,
+// so the slug lookup below can't see them — known titles here keep them
+// from rendering as "(coming soon)". Add a row when a page graduates
+// from the articles collection to a bespoke page.
+const BESPOKE_PAGE_TITLES: Record<string, string> = {
+  '/kingdom-ministry-training/': 'Kingdom Ministry Training',
+  '/stickers/': 'Stickers',
+};
+
 const allArticles = paths.length ? await getCollection('articles') : [];
 
 function humanize(path: string): string {
@@ -22,10 +31,11 @@ function humanize(path: string): string {
 
 const items = paths.map((path) => {
   const match = allArticles.find((entry) => entry.data.slug === path);
+  const bespokeTitle = BESPOKE_PAGE_TITLES[path];
   return {
     href: path,
-    label: match ? match.data.title : humanize(path),
-    pending: !match,
+    label: match ? match.data.title : (bespokeTitle ?? humanize(path)),
+    pending: !match && !bespokeTitle,
   };
 });
 ---

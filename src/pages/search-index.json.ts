@@ -107,11 +107,13 @@ export const GET: APIRoute = async () => {
     });
   }
 
-  // /kingdom-ministry-training/ is a bespoke landing page
-  // (src/pages/kingdom-ministry-training.astro), not a collection entry,
-  // so the loops above can't see it — indexed by hand so its five named
-  // skills stay findable. Keep this in sync with that page's SESSIONS
-  // list. Typed 'Tool' (it's a training/tool landing, not an article).
+  // Bespoke landing pages (src/pages/*.astro) aren't collection entries,
+  // so the loops above can't see them — indexed by hand here, typed
+  // 'Tool' (they're training/tool landings, not articles). Keep each in
+  // sync with its page's source data.
+
+  // /kingdom-ministry-training/ — keep in sync with that page's
+  // SESSIONS list.
   docs.push({
     id: '/kingdom-ministry-training/',
     url: '/kingdom-ministry-training/',
@@ -122,6 +124,19 @@ export const GET: APIRoute = async () => {
       'Hearing God for Self · Practicing Prophecy · Building a Community of Practice · Simple 5-Step Healing Prayer Model (GAPAP) · Power Evangelism · Build a healthy Kingdom Ministry learning community',
     body:
       'Do what Jesus did. Jesus proclaimed and demonstrated the gospel of the Kingdom. Jesus not only shared the good news — He also demonstrated it in the power of the Holy Spirit (Matthew 4:23). Five sessions with teaching, tools, and activations: hearing God, prophecy, healing prayer (GAPAP, adapted from John Wimber’s 5-Step Model), power evangelism, and building a community of practice, including how to lead and start a 1 Corinthians 14 meeting. Discipleship packet: a regular equipping and self-correcting rhythm for emerging and established networks.',
+    type: 'Tool',
+  });
+
+  // /stickers/ — keep in sync with that page's STICKERS list.
+  docs.push({
+    id: '/stickers/',
+    url: '/stickers/',
+    title: 'Stickers',
+    description:
+      'Quality, inexpensive movement stickers — 3 Circles, 15-Second Testimony, Prayer Wheel, 4 Fields, and Church Waffle — shared at cost on Sticker Mule.',
+    headings: 'Movement Stickers · Every sticker is a tool you can learn',
+    body:
+      'Put the gospel in plain sight. A tool sticker on your phone, laptop, or water bottle keeps a gospel conversation one question away. We created this page as a service to you. Order inexpensive, quality stickers to help you share the gospel and advance the Kingdom — no profit is made from these links. 3 Circles Sticker, 15 Second Testimony Sticker, Prayer Wheel Sticker, 3 Circles Sticker Black, 4 Fields Sticker, Church Waffle Sticker. How it works: we upload quality sticker ready images to Sticker Mule and create shared cart links with very affordable pricing. Get $10 credit on Sticker Mule.',
     type: 'Tool',
   });
 

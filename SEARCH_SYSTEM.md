@@ -30,10 +30,10 @@ anyway — all to index ~60 pages that a 110KB-gzipped JSON handles.
 
 | Collection | Included | Notes |
 | --- | --- | --- |
-| articles | 51 | includes utility/landing pages like starter-tools, stickers, vision |
+| articles | 50 | includes utility/landing pages like starter-tools and vision |
 | hubs | 10 | title, description, intro |
 | tools | 0 today | wired up; indexes automatically when entries exist |
-| hand-indexed | 1 | `/kingdom-ministry-training/` — a bespoke landing page (`src/pages/`), not a collection entry, so it's added as a static doc (typed Tool) in `search-index.json.ts`; keep it in sync with the page's session list |
+| hand-indexed | 2 | `/kingdom-ministry-training/` and `/stickers/` — bespoke landing pages (`src/pages/`), not collection entries, so each is added as a static doc (typed Tool) in `search-index.json.ts`; keep them in sync with each page's source data |
 
 Per document: visible title (`display_title` fallback `title`), SEO
 title (only when it differs), description, all H2–H4 headings, plain-text
