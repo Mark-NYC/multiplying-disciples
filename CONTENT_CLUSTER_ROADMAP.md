@@ -154,8 +154,9 @@ but marked Improve in CONTENT_AUDIT.md.
   cluster without one.
 - **Pillar:** ☆ **Disciple Training: How to Train Disciples Who Make
   Disciples**.
-- **Supporting:** ★(I) Kingdom Ministry Training (upgrade the page
-  from slide list to real training landing) · ★ How to Get Started in
+- **Supporting:** ★ Kingdom Ministry Training (rebuilt 2026-07 from
+  slide list into a bespoke training landing page,
+  `src/pages/kingdom-ministry-training.astro`) · ★ How to Get Started in
   Four Fields Training · ★ Content vs. Systems · ★(I) Jesus the
   Leader (expand toward "How Jesus Trained His Disciples") · ☆
   Discipleship Training Curriculum (Free, Reproducible) · ☆ Commands
@@ -315,8 +316,9 @@ Ordered by (proven impressions × conversion proximity):
 10. ☆ How to Share the Gospel (pillar).
 11. ☆ What Is the Gospel?
 12. ☆ Disciple Training pillar + **new `/disciple-training/` hub**.
-13. **Kingdom Ministry Training page upgrade** (business priority;
-    every Training CTA lands here).
+13. ~~**Kingdom Ministry Training page upgrade**~~ ✅ shipped 2026-07
+    (business priority; every Training CTA lands here — rebuilt as a
+    bespoke landing page, `src/pages/kingdom-ministry-training.astro`).
 14. **Person of Peace expansion** (head term, existing thin page).
 15. ☆ What Are the Commands of Christ? (bridge; the menu now points
     at obey.tools — this article gives search a reason to arrive).
@@ -435,9 +437,11 @@ Christians search situations:
 ## 4. The training gap (biggest commercial gap)
 
 Kingdom Ministry Training — a named business priority with live
-training content — is a 430-word slide-link page with 19 impressions.
-Nothing on the site targets "discipleship training", "training
-curriculum", or "evangelism training". Meanwhile the redirected
+training content — was a 430-word slide-link page with 19 impressions
+until the 2026-07 rebuild into a bespoke landing page
+(`src/pages/kingdom-ministry-training.astro`); the destination is now
+ready, but nothing on the site yet targets "discipleship training",
+"training curriculum", or "evangelism training". Meanwhile the redirected
 legacy URL "equipping-your-church-for-disciple-making-movements-a-
 pastors-guide-to-effective-training" (71 impressions, tier-3) proves
 the family ranked before. This is the largest mismatch between what
