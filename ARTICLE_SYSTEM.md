@@ -132,6 +132,29 @@ Body starts with an `ArticleIntro` (or a strong plain paragraph in
 `.md`), then `##` sections. Images get real alt text; the rehype
 pipeline adds dimensions and lazy loading automatically.
 
+## Hub pages
+
+Hubs are the topic landing pages (`src/content/hubs/`, rendered by
+`src/layouts/HubLayout.astro`). Ten exist today. A hub's frontmatter
+(schema in `src/content.config.ts`):
+
+| Field | Purpose |
+| --- | --- |
+| `title` / `description` / `slug` / `canonical` | as for articles; `slug` drives the route (e.g. `/testimony/`) |
+| `intro` | 1–3 sentences framing the topic, shown under the H1 |
+| `key_articles` | slug paths rendered as the hub's article list (shared `ArticleList` component — same visual family as /blog/). **Cluster pillar first**, then supports in journey order (see INTERNAL_LINKING_PLAN.md) |
+| `related_tools` | tool titles for the tools box |
+| `next_step` | `{label, href}` — the hub's one CTA box. Points at the cluster's primary CTA destination, never generically at the homepage |
+| `status` / `migration_priority` | migration fields, as for articles |
+
+Rules: each hub belongs to one cluster in CONTENT_CLUSTER_ROADMAP.md;
+hub intros should end with a one-line link to the next hub along the
+journey bridge map (a Phase 2/3 upgrade — most intros don't have this
+yet); when an article is published, add it to its hub's
+`key_articles`. Only five hubs appear in the menu's Browse Topics
+section (NAVIGATION_MAP.md); the other five are reached from /blog/'s
+topic pills and article breadcrumbs.
+
 ## Editorial workflow
 
 How an article moves from idea to published:

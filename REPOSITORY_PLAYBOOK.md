@@ -13,6 +13,10 @@ single-source-of-truth documents indexed in README.md. **Where this playbook
 and a source-of-truth doc disagree, the source-of-truth doc wins — fix the
 disagreement rather than working around it.**
 
+*Last verified against the repository: 2026-07-13 (production build passing,
+69 pages; every file, route, and frontmatter field named below checked
+against `src/`).*
+
 ---
 
 ## 1. What this site is (and is not)
@@ -32,13 +36,43 @@ disagreement rather than working around it.**
   This site's job is search capture, clear answers, and *routing* — not doing
   everything itself. Commands of Christ content, for example, deliberately
   lives on obey.tools; this site links there rather than growing a rival set.
+- **Audience — four visitor types** (ECOSYSTEM_GROWTH_STRATEGY.md): Bible
+  Learners (broad curiosity, e.g. the 12 Disciples page), Evangelism
+  Learners, Disciple-Making Practitioners, and Movement Practitioners /
+  Leaders. Each has a defined funnel path and CTA weight — broad Bible pages
+  get soft CTAs, leader pages get community/training CTAs.
 - **The operating line:** *Rank broad. Answer fast. Route wisely. Train the
   obedient. Track fruit.*
 - **The governing question for every page:** *What obedient step should this
   reader take next?* If a page can't answer that, it isn't finished. Traffic
   is not the win; moving the right people from curiosity to obedience is.
 
-## 2. Non-negotiable integrity rules
+## 2. Repository map
+
+Astro 7, fully static output, deployed on Vercel. `npm run dev` to work,
+`npm run build` (= `astro check` + build) to verify, `npm run preview` to
+serve the build.
+
+| Path | What it is |
+| --- | --- |
+| `src/content/articles/` | all articles + utility pages (`.md`/`.mdx`); **routing comes from each entry's `slug` frontmatter (the exact original WordPress path), never the filename** |
+| `src/content/hubs/` | 10 topic hub pages |
+| `src/content/field-notes/` | real field stories; render nothing unless `approved: true` |
+| `src/content/tools/` | empty today; schema wired, indexes/renders automatically when entries exist |
+| `src/content.config.ts` | **the frontmatter source of truth** — all collection schemas, heavily commented |
+| `src/pages/[...slug].astro` | one catch-all route rendering articles, tools, and hubs by `slug` |
+| `src/pages/` | homepage, `/blog/`, `/search/` (+ `search-index.json.ts`), 404 |
+| `src/layouts/` | `BaseLayout` (shell/SEO), `ArticleLayout` (the ONE article layout), `HubLayout`, `ToolLayout` |
+| `src/components/` | shared UI; `src/components/article/` = MDX article components (see COMPONENT_INVENTORY.md) |
+| `src/styles/` | `global.css` (tokens + authorable patterns), `article.css` (article layer) |
+| `src/lib/` | `labs-feed.js` (CoVo live labs), `ecosystem-tracking.js`, `site-search.js`, `image-dimensions.mjs` + `rehype-img-dimensions.mjs` (zero-CLS images), `intro-video.js` |
+| `src/data/` | `site.ts` (canonical constants: domain, socials, CoVo URLs), `navigation.ts` (menu data) |
+| `public/wp-content/…` | preserved WordPress media paths — **never rename** |
+| `vercel.json` | executable redirects (documented in REDIRECTS.md); `api/gone.js` serves true 410s |
+| `astro.config.mjs` | canonical domain, `trailingSlash: 'always'`, sitemap filter, MDX, image rehype plugin |
+| `docs/archive/` | historical records, not guidance — living root docs win on any conflict |
+
+## 3. Non-negotiable integrity rules
 
 These are the most-enforced rules in the repo's history. Multiple sessions
 have specifically removed content that violated them.
@@ -67,24 +101,29 @@ have specifically removed content that violated them.
    sessions had to strip article-specific promises from Lab CTA copy because
    lab content varies. Keep bridge copy generic about what a lab contains.
 
-## 3. Documentation discipline
+## 4. Documentation discipline
 
-The 2026-07-12 documentation audit collapsed 44 root docs into ~13 living
-documents, each the *one obvious place* for its topic (see README.md's index).
-Rules going forward:
+The 2026-07-12 documentation audit (now archived at
+docs/archive/DOCUMENTATION_AUDIT.md) collapsed 44 root docs into the living
+set indexed in README.md, each the *one obvious place* for its topic. Rules
+going forward:
 
 - **One source of truth per topic. Never create a second document covering
-  ground an existing doc owns.** Extend the existing doc.
+  ground an existing doc owns.** Extend the existing doc. (This includes
+  suggested-but-redundant filenames: there is no SEO_STRATEGY.md because SEO
+  rules live in ARTICLE_SYSTEM.md + URL_INVENTORY.md + REDIRECTS.md + the
+  roadmap; no COPY_GUIDE.md because voice rules live here and in
+  CTA_GUIDE.md; and so on.)
 - **When you change a system, update its doc in the same branch.** The docs
   describe current reality, not history.
 - **Archive, never silently delete.** Completed records go to
-  `docs/archive/` with its README note. Where an archived file disagrees with
-  a living doc, the living doc wins.
+  `docs/archive/` with a row in its README. Where an archived file disagrees
+  with a living doc, the living doc wins.
 - **README.md is the entry point** — keep its documentation index current.
-- One-time audit records (SITE_AUDIT.md, DOCUMENTATION_AUDIT.md) move to the
-  archive once their branches merge; their open issues move into the roadmap.
+- MEDIA_ACQUISITION_CHECKLIST.md is temporary: archive it once the last
+  outstanding media files land.
 
-## 4. Design system principles
+## 5. Design system principles
 
 Full token reference: DESIGN_SYSTEM.md. Tokens in `src/styles/global.css`,
 article layer in `src/styles/article.css`. The homepage is the reference
@@ -121,10 +160,11 @@ The principles behind the tokens:
   "final polish pass" that added more borders/rhythm changes was *reverted* —
   when in doubt, do less.
 
-## 5. Article system rules
+## 6. Article and hub rules
 
-Full reference: ARTICLE_SYSTEM.md. The essentials future sessions get wrong
-at their peril:
+Full reference: ARTICLE_SYSTEM.md (including the hub-authoring section and
+the pre-publish checklist). The essentials future sessions get wrong at
+their peril:
 
 - **There is exactly one article layout** — `ArticleLayout.astro`, the
   field-manual system, for all `.md` and `.mdx` articles. The old two-system
@@ -144,7 +184,11 @@ at their peril:
 - **Routing is frontmatter-driven:** `slug` (the exact original WordPress
   path) drives the URL, not the filename. TOC auto-renders at 3+ H2s
   (`hide_toc` to opt out). `exclude_from_blog: true` marks utility pages
-  (skip share row, reading meta, blog index, auto-CTA).
+  (skip share row, reading meta, blog index, auto-CTA);
+  `exclude_from_search: true` is separate and rarer (legal/contact pages).
+- **Hubs:** pillar first in `key_articles`; `next_step` points at the
+  cluster's primary CTA destination, never the homepage; add every newly
+  published article to its hub.
 - Article-specific components (`DiscipleCard`, `RoleFact`) stay
   article-specific — don't generalize them without cause.
 - Bold key phrases in body text ("bold-keyword standard") is an accepted
@@ -156,7 +200,7 @@ at their peril:
   link, confirm CTA matches the cluster table. Don't write pages that aren't
   on the roadmap without adding them there first.
 
-## 6. CTA rules
+## 7. CTA rules
 
 Full reference: CTA_GUIDE.md.
 
@@ -180,7 +224,7 @@ Full reference: CTA_GUIDE.md.
 - Each CTA type has one fixed real-photo lead image, standardized sitewide —
   not configurable per article.
 
-## 7. SEO philosophy
+## 8. SEO guardrails
 
 - **URL preservation is sacred.** Every migrated slug is the exact original
   WordPress path, `trailingSlash: 'always'`, directory build format.
@@ -214,10 +258,11 @@ Full reference: CTA_GUIDE.md.
 - **Launch gate:** DNS cutover from WordPress is explicitly out of scope
   until LAUNCH_CHECKLIST.md passes and a human signs off. Never "launch."
 
-## 8. Copy and voice rules
+## 9. Copy and voice rules
 
 - Plain, warm, direct, second person. Short sentences. Practice-first: every
-  page moves toward something the reader *does*.
+  page moves toward something the reader *does*. No corporate ministry
+  language.
 - Headlines are human, not keyword strings — that's what
   `display_title` exists for. Answer the search intent fast (definition or
   answer above the fold), then deepen.
@@ -230,7 +275,7 @@ Full reference: CTA_GUIDE.md.
 - Broad Bible-curiosity pages (12 Disciples, apostle meaning) get *soft*
   CTAs: route to practical disciple-making articles first, heavy asks never.
 
-## 9. Component and engineering rules
+## 10. Component and engineering rules
 
 - **Check COMPONENT_INVENTORY.md before building anything.** Reuse
   `ArticleList` for any article listing (blog index and hubs already share
@@ -258,8 +303,14 @@ Full reference: CTA_GUIDE.md.
   checks. No horizontal overflow, ever.
 - Resource cards keep a fixed internal order (image, label, price, button
   pinned to bottom), reserved image area, 2-up grid below 540px.
+- **Analytics reality check:** tracking pushes to `window.dataLayer` exist
+  (ecosystem CTAs, site search) but are **inert until GA4/GTM is wired up**
+  — no analytics service is connected in this repo today. The full
+  UTM/event schema for when it is lives in ECOSYSTEM_GROWTH_STRATEGY.md.
+  Search analytics deliberately never include query text (privacy decision,
+  SEARCH_SYSTEM.md).
 
-## 10. Navigation principles
+## 11. Navigation principles
 
 Full reference: NAVIGATION_MAP.md.
 
@@ -267,7 +318,7 @@ Full reference: NAVIGATION_MAP.md.
   opens a **restrained drawer, not a mega menu**: one level of nesting, no
   accordions, mono gold section labels, plain links.
 - **Exclusion is a feature.** The menu deliberately omits utility pages,
-  individual articles, four of the ten hubs, Start Here, and Beliefs &
+  individual articles, five of the ten hubs, Start Here, and Beliefs &
   Values — each exclusion is reasoned in NAVIGATION_MAP.md. Don't add menu
   items without that same justification; listing everything turns the menu
   into a sitemap.
@@ -276,33 +327,65 @@ Full reference: NAVIGATION_MAP.md.
 - Footer: Labs · Tools · Articles · About · Contact · Privacy Policy.
   Privacy stays footer-only.
 
-## 11. How a Claude session should work here
+## 12. How a Claude session should work here
 
 1. **Orient:** read README.md's index, then the source-of-truth doc(s) for
-   whatever you're touching. Check SITE_AUDIT.md's "Unresolved issues" and
-   the roadmap phases before proposing work — it may already be queued or
-   deliberately rejected.
+   whatever you're touching. Check CONTENT_CLUSTER_ROADMAP.md — both its
+   phases and its "Open editorial & technical debt" section — before
+   proposing work; it may already be queued or deliberately rejected.
 2. **Small, reviewable increments.** The history is dozens of focused PRs
    with descriptive commit subjects, frequently refined over several rounds
    of Mark's feedback. Match that: one concern per branch, plain-language
    commit messages describing the change's intent.
-3. **Never launch, never rename protected URLs, never touch
-   `public/wp-content/` paths,** and never change the canonical domain or
-   trailing-slash config without explicit direction.
+3. **Prohibited without explicit direction from Mark:**
+   - launching (DNS cutover) or anything the launch gate covers;
+   - renaming/merging/heavily rewriting protected tier-1/2 URLs;
+   - touching `public/wp-content/` paths;
+   - changing the canonical domain, `trailingSlash`, or build format;
+   - adding brand colors, fonts, or font sizes;
+   - publishing testimonials, Field Notes, or quotes (approval is his);
+   - adding menu items or new external destinations;
+   - removing `data-ecosystem-cta` attributes or UTM tagging;
+   - deleting documentation (archive instead).
 4. **When content is missing (image, quote, story), leave a marked empty
    slot** — a source comment or an unapproved Field Note — rather than
    inventing or visibly placeholding. MDX comments marking future Field Note
    insertion points must stay in place.
-5. **Update docs with code** (§3), and record editorial copy changes in the
-   commit/PR so Mark can review the exact wording.
+5. **Standard workflow before committing:**
+   - [ ] `npm run build` passes (`astro check` + full static build);
+   - [ ] visual changes verified in a real browser at
+         375/390/430/768/1024/1440 — no horizontal overflow, no console
+         errors;
+   - [ ] any slug/URL change logged in REDIRECTS.md first;
+   - [ ] new/edited articles pass ARTICLE_SYSTEM.md's pre-publish checklist;
+   - [ ] the owning doc(s) updated in the same branch (§4);
+   - [ ] editorial copy changes called out in the commit/PR for Mark's
+         review.
 6. **Anything ambiguous about copy, theology, positioning, external URLs, or
    removing content goes to Mark.** Precedent: the Commands of Christ menu
    URL, hub inclusions, and testimonial slots were all owner decisions.
 
-## 12. Future work and recommendations
+## 13. Open decisions that require Mark
 
-The queue of record is CONTENT_CLUSTER_ROADMAP.md (Phases 1–3). Highest
-leverage, in order:
+Current as of 2026-07-13 (also tracked in the roadmap's debt section):
+
+1. One real, approved homepage testimonial quote (slot marked in
+   `src/pages/index.astro`).
+2. First Field Note approvals — the system is live with zero approved notes.
+3. The real CoVo Field Room / WhatsApp community URL to replace the
+   `COVO_COMMUNITY_URL` placeholder in `src/data/site.ts`.
+4. Launch sign-off (LAUNCH_CHECKLIST.md) — including the post-deploy smoke
+   test of the 29 content-simplification redirects.
+5. The 5 outstanding media files (MEDIA_ACQUISITION_CHECKLIST.md).
+6. Whether `/movement-resources/strategy-coordinator/` and
+   `/4-responses-to-the-gospel/` should become utility pages
+   (`exclude_from_blog`) instead of editorial articles.
+7. Copy approval for every article moving to `status: published`.
+
+## 14. Future work and recommendations
+
+The queue of record is CONTENT_CLUSTER_ROADMAP.md (Phases 1–3 plus its
+"Open editorial & technical debt" section). Highest leverage, in order:
 
 1. **Phase 1 CTR arbitrage** — title/meta/intent passes on 12 Disciples,
    Spreading-the-Gospel verses, How to Evangelize, Apostles Meaning (~129k
@@ -313,22 +396,17 @@ leverage, in order:
    (What Is the Gospel / a Disciple / an Oikos / the Commands of Christ).
 3. **Kingdom Ministry Training page upgrade** — the site's biggest
    commercial mismatch: a named business priority that is currently a
-   430-word slide list.
-4. **Editorial debt from the consistency pass** (SITE_AUDIT.md): human
-   `display_title`s for migrated legacy articles; per-article
-   `article_cta` stakes headlines for the 16 articles on default Lab copy;
-   the Muddy Boots → Clear Pathway merge; hub assignment for Lone Wolf and
-   Trustworthy Leaders.
-5. **Awaiting real-world inputs:** one approved homepage testimonial; first
-   approved Field Notes (add them to the search index when live); the 5
-   outstanding media files (MEDIA_ACQUISITION_CHECKLIST.md); the real CoVo
-   Field Room / WhatsApp community URL; post-deploy smoke test of all 29
-   simplification redirects.
-6. **Deliberately deferred, revisit only with evidence:** responsive
+   430-word slide-list page.
+4. **Editorial debt** (roadmap debt section): human `display_title`s for
+   migrated legacy articles; per-article `article_cta` stakes headlines for
+   the 16 articles on default Lab copy; the Muddy Boots → Clear Pathway
+   merge; hub assignment for Lone Wolf and Trustworthy Leaders.
+5. **Deliberately deferred, revisit only with evidence:** responsive
    `srcset` generation (WordPress-era size variants exist on disk); Pagefind
    (only if the site grows past a few hundred pages); a DBS cluster (only
    with GSC evidence after Phase 2); richer search-query analytics (privacy
-   trade-off documented in SEARCH_SYSTEM.md).
+   trade-off documented in SEARCH_SYSTEM.md); GA4/GTM wiring (the dataLayer
+   events are ready when it happens).
 
 The direction in one sentence: **finish the journey spine (pillars + CTR +
 linking) with the same restraint, honesty, and URL discipline that got the
