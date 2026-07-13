@@ -3,7 +3,10 @@ title: "Kingdom Ministry Training"
 description: "Bridging the theology and practice of spiritual gifts through hands-on training — hearing God, prophecy, healing prayer, and power evangelism."
 slug: "/kingdom-ministry-training/"
 canonical: "https://multiplyingdisciples.us/kingdom-ministry-training/"
-related_articles: []
+related_articles:
+  - "/free-training/"
+  - "/content-vs-systems-the-game-changer-for-leadership-development/"
+  - "/how-to-get-started-in-four-fields-training/"
 related_tools: []
 exclude_from_blog: true
 og_image: "/wp-content/uploads/2025/01/jon-tyson-YtYNavix3pw-unsplash-copy.jpg"

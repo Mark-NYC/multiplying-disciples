@@ -6,9 +6,9 @@ canonical: "https://multiplyingdisciples.us/unlock-the-power-of-friendly-account
 hub: "disciple-making"
 related_articles:
   - "/three-thirds/"
-  - "/the-three-circles-gospel-presentation-step-by-step/"
+  - "/how-to-spot-a-lone-wolf-and-not-become-one/"
+  - "/the-3-core-habits-of-a-disciple/"
   - "/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/"
-  - "/starter-tools/"
 related_tools: []
 og_image: "/wp-content/uploads/2023/05/Three-Thirds-Meeting-Format.webp"
 hero_image: "/wp-content/uploads/2023/05/Three-Thirds-Meeting-Format.webp"

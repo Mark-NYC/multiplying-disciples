@@ -5,10 +5,10 @@ slug: "/5-surprising-ways-to-attract-multiplying-leaders/"
 canonical: "https://multiplyingdisciples.us/5-surprising-ways-to-attract-multiplying-leaders/"
 hub: "four-fields"
 related_articles:
+  - "/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/"
   - "/the-clear-pathway-of-jesus-a-biblical-model-for-disciple-making/"
   - "/how-to-get-started-in-four-fields-training/"
   - "/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/"
-  - "/starter-tools/"
 related_tools: []
 status: "migrated"
 migration_priority: "tier-3"

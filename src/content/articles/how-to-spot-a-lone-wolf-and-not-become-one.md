@@ -3,8 +3,10 @@ title: "How to Spot a Lone Wolf and Not Become One"
 description: "Learn to identify and address lone wolf mentality through Acts 15 and Apostle Paul's example, and foster close-knit relationships for growth."
 slug: "/how-to-spot-a-lone-wolf-and-not-become-one/"
 canonical: "https://multiplyingdisciples.us/how-to-spot-a-lone-wolf-and-not-become-one/"
+hub: "church-planting-movements"
 related_articles:
-  - "/starter-tools/"
+  - "/unlock-the-power-of-friendly-accountability/"
+  - "/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/"
   - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
 related_tools: []
 status: "migrated"
@@ -73,7 +75,7 @@ While there may be times when we need to stand alone, it should not be the patte
 
 As Christians, we are called to be in community with one another.
 
-We are not meant to journey alone. It is crucial to have a close-knit community of believers who know what is going on in our lives and can provide support, accountability, and encouragement.
+We are not meant to journey alone. It is crucial to have a close-knit community of believers who know what is going on in our lives and can provide support, [friendly accountability](/unlock-the-power-of-friendly-accountability/), and encouragement.
 
 This community should be centered on Christ and focused on growing in Him together.
 

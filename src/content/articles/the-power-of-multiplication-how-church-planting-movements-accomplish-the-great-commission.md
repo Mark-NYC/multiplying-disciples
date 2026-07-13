@@ -7,8 +7,8 @@ hub: "church-planting-movements"
 related_articles:
   - "/4-stages-of-movement-unlock-your-next-steps/"
   - "/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/"
+  - "/the-multiplier-mandate-revealed-from-genesis-to-revelation/"
   - "/disciple-making-movement-dmm-key-characteristics-and-definition/"
-  - "/starter-tools/"
 related_tools: []
 og_image: "/wp-content/uploads/2023/04/multiplication.jpeg"
 hero_image: "/wp-content/uploads/2023/04/multiplication.jpeg"
@@ -51,7 +51,7 @@ One key factor in the success of church planting movements is their ability to c
 
 Discipleship is a key component of church planting movements.
 
-The goal is not just to make converts, but to make disciples who will in turn make more disciples. This involves teaching new believers the basics of the Christian faith, helping them to grow in their understanding of Scripture, and equipping them to share their faith with others.
+The goal is not just to make converts, but to [make disciples who will in turn make more disciples](/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/). This involves teaching new believers the basics of the Christian faith, helping them to grow in their understanding of Scripture, and equipping them to share their faith with others.
 
 One effective model of discipleship used in church planting movements is called T4T (Training for Trainers). This model focuses on teaching new believers to share the Gospel with others, and then to disciple those they lead to Christ.
 
@@ -61,7 +61,7 @@ The process is repeated, with each new disciple becoming a trainer themselves.
 
 Church planting is at the heart of church planting movements.
 
-The goal is to establish healthy, reproducing churches that can continue to multiply and reach others with the Gospel. Churches are often started in homes or other small gatherings, and are led by lay leaders who have been trained in discipleship and leadership.
+The goal is to establish healthy, reproducing churches that can continue to multiply and reach others with the Gospel. Churches are often started as [simple churches in homes or other small gatherings](/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/), and are led by lay leaders who have been trained in discipleship and leadership.
 
 One key to the success of church planting movements is the use of rapid reproduction. This means that new churches are started quickly and often, with the goal of each church planting more churches in turn.
 

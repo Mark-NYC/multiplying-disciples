@@ -174,4 +174,4 @@ We created this page as a service to you. Order inexpensive, quality stickers to
 
 **How it Works:** We created this page as a service to you. The way it works is simple: we upload quality "sticker ready" images to Sticker Mule and create shared cart links with very affordable pricing. Our goal is to help you share the gospel and advance the Kingdom. Blessings.
 
-[Click here for $10 Credit on Sticker Mule](https://www.stickermule.com/unlock?ref_id=5148851701&utm_medium=embed&utm_source=invite&utm_content=728x90)
+[Get $10 credit on Sticker Mule](https://www.stickermule.com/unlock?ref_id=5148851701&utm_medium=embed&utm_source=invite&utm_content=728x90)

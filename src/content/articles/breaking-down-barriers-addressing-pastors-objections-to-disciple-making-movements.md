@@ -7,6 +7,7 @@ hub: "church-planting-movements"
 related_articles:
   - "/disciple-making-movement-dmm-key-characteristics-and-definition/"
   - "/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/"
+  - "/unleashing-the-movement-how-paul-catalyzed-a-disciple-making-movement-in-ephesus-lessons-for-todays-church/"
 related_tools: []
 og_image: "/wp-content/uploads/2023/04/multiplication.jpeg"
 hero_image: "/wp-content/uploads/2023/04/multiplication.jpeg"

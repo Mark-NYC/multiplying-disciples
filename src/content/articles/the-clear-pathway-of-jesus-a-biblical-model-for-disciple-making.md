@@ -120,7 +120,7 @@ From Jesus' ministry and parables emerges a clear **five-part kingdom growth pro
 #### Field 1: Entry
 
 - Jesus **constantly entered** new fields looking for receptive hearts
-- He searched for **persons of peace** (Luke 10) who would receive the messenger, message, and mission
+- He searched for [**persons of peace**](/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/) (Luke 10) who would receive the messenger, message, and mission
 - He focused on **relational networks** as pathways for the gospel
 
 #### Field 2: Gospel Sowing
@@ -351,20 +351,20 @@ Begin putting the biblical pattern into practice:
 
 #### 2. Sow the Gospel Widely
 
-- Learn simple ways to **share the gospel story**
-- Practice **telling your testimony** effectively
+- Learn simple ways to [**share the gospel story**](/the-three-circles-gospel-presentation-step-by-step/)
+- Practice [**telling your testimony**](/15-second-testimony-examples-ignite-your-faith/) effectively
 - Begin gospel conversations in your everyday interactions
 
 #### 3. Disciple Through Obedience
 
 - Focus on **simple commands** of Jesus that can be immediately obeyed
-- Create accountability for **putting learning into practice**
+- Create [accountability for **putting learning into practice**](/unlock-the-power-of-friendly-accountability/)
 - Look for those who are **faithful to act** on what they learn
 
 #### 4. Form Simple Churches
 
 - Gather new disciples in ways that are **easily reproducible**
-- Teach the basic elements of church found in **Acts 2:36-47**
+- Teach the [basic elements of church found in **Acts 2:36-47**](/movement-resources/12-practice-church-circle/)
 - Keep gatherings simple enough that anyone could lead them
 
 #### 5. Develop Leaders Through Practice
