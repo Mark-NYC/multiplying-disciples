@@ -17,6 +17,8 @@ What lives here and where its living successor is:
 | CONTENT_GAP_ANALYSIS.md | CONTENT_CLUSTER_ROADMAP.md → appendix |
 | ROLLBACK_PLAN.md | LAUNCH_CHECKLIST.md → "Rollback" |
 | PROTECTED_URLS.md | URL_INVENTORY.md → "Protected URLs" |
+| SITE_AUDIT.md (2026-07-12 consistency pass) | the shipped fixes; its live "Unresolved issues" moved to CONTENT_CLUSTER_ROADMAP.md → "Open editorial & technical debt" |
+| DOCUMENTATION_AUDIT.md (2026-07-12) | the executed structure itself: README.md's doc index + the living root documents |
 
 Relative links inside these files may reference siblings by their old
 root-level names; all such siblings live in this same directory.

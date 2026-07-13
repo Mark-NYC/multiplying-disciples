@@ -54,11 +54,6 @@ table remain the source of truth for their topics.
 | Launch gate & rollback | [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) |
 | Media file status (temporary, until the last files land) | [MEDIA_ACQUISITION_CHECKLIST.md](MEDIA_ACQUISITION_CHECKLIST.md) |
 
-Recent one-time records still at root: [SITE_AUDIT.md](SITE_AUDIT.md)
-(the 2026-07-12 consistency pass) and
-[DOCUMENTATION_AUDIT.md](DOCUMENTATION_AUDIT.md) (the audit behind
-this structure) — both move to the archive once their branches merge.
-
 Completed migration-era records live in
 [docs/archive/](docs/archive/README.md). Where an archived file
 disagrees with a document above, the document above wins.

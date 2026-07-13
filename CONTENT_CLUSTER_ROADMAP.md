@@ -346,6 +346,38 @@ How Jesus Made Disciples), Simple Church long-tail (Baptism, Luke
 consolidation/refresh backlog from CONTENT_AUDIT.md. Rationale:
 valuable but dependent on the spine existing first.
 
+## Open editorial & technical debt
+
+Live items migrated from the 2026-07-12 consistency pass
+(docs/archive/SITE_AUDIT.md) so they aren't lost when that record was
+archived. Work these alongside the phases above:
+
+1. **Missing media** (see MEDIA_ACQUISITION_CHECKLIST.md): Full
+   Packet / Three Thirds / 4 Fields card artwork on starter-tools;
+   the two removed apostles-article images and the 4-Fields Toolbox
+   PNG can be restored by dropping files into `public/wp-content/...`
+   and re-adding the references.
+2. **Homepage testimonial slot** — needs one real, approved quote
+   naming a specific action (slot marked by a comment in
+   `src/pages/index.astro`). *Requires Mark.*
+3. **Field Notes** — system is live, zero approved notes exist;
+   `_example-dev-preview` stays unapproved. *Requires Mark / story
+   subjects.*
+4. **`display_title` for migrated legacy articles** — many still show
+   long SEO titles as their H1; writing short human headlines is an
+   editorial pass.
+5. **`article_cta` assignments** — 16 migrated editorial articles run
+   on the default Lab CTA; per-article stakes headlines (and
+   tool/community reassignment where a lab isn't the honest next
+   step) are an editorial pass.
+6. **Responsive `srcset`** — deliberately deferred; images have
+   dimensions + lazy loading but no responsive variants (WordPress-era
+   `-300x`/`-768x` files exist if ever worth wiring up).
+7. **Blog-index membership** of
+   `/movement-resources/strategy-coordinator/` and
+   `/4-responses-to-the-gospel/` — currently editorial articles; flag
+   if they should be utility pages instead. *Requires Mark.*
+
 
 ---
 
