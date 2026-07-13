@@ -86,6 +86,12 @@ const articles = defineCollection({
     // Utility pages also skip the share row, reading meta, and the
     // automatic end-of-article CTA (see ArticleLayout.astro).
     exclude_from_blog: z.boolean().default(false),
+    // Showcases the article in the /blog/ index's featured band (3
+    // slots; first flagged article in index order becomes the large
+    // lead card). If fewer than 3 articles are flagged the band fills
+    // from the top of the index so it always shows exactly 3. Needs a
+    // strong og_image/hero_image to earn the slot.
+    featured: z.boolean().default(false),
     // Article Hero fields (see ARTICLE_SYSTEM.md, "Article hero").
     // No eyebrow by default — the breadcrumb already carries the
     // hub/category context, so a matching eyebrow just repeats it.

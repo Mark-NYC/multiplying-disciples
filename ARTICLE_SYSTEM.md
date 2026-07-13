@@ -49,6 +49,7 @@ Common optional fields:
 | `hide_toc` | suppress the automatic contents box |
 | `article_cta` | end-of-article CTA config — see CTA_GUIDE.md |
 | `exclude_from_blog` | marks a utility page (see below) |
+| `featured` | showcases the article in /blog/'s featured band (3 slots; first flagged article becomes the large lead card; the band fills from the top of the index if fewer than 3 are flagged). Needs a strong og_image/hero_image. |
 
 ## Utility pages
 
