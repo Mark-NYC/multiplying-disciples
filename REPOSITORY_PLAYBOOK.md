@@ -61,7 +61,7 @@ serve the build.
 | `src/content/tools/` | empty today; schema wired, indexes/renders automatically when entries exist |
 | `src/content.config.ts` | **the frontmatter source of truth** — all collection schemas, heavily commented |
 | `src/pages/[...slug].astro` | one catch-all route rendering articles, tools, and hubs by `slug` |
-| `src/pages/` | homepage, `/blog/`, `/search/` (+ `search-index.json.ts`), 404 |
+| `src/pages/` | homepage, `/kingdom-ministry-training/` (bespoke training landing page, hand-indexed for search), `/blog/`, `/search/` (+ `search-index.json.ts`), 404 |
 | `src/layouts/` | `BaseLayout` (shell/SEO), `ArticleLayout` (the ONE article layout), `HubLayout`, `ToolLayout` |
 | `src/components/` | shared UI; `src/components/article/` = MDX article components (see COMPONENT_INVENTORY.md) |
 | `src/styles/` | `global.css` (tokens + authorable patterns), `article.css` (article layer) |
@@ -394,9 +394,11 @@ The queue of record is CONTENT_CLUSTER_ROADMAP.md (Phases 1–3 plus its
    the Gospel, How to Make Disciples, the Disciple Training pillar + new
    `/disciple-training/` hub, What Is a CPM. Plus definitional cornerstones
    (What Is the Gospel / a Disciple / an Oikos / the Commands of Christ).
-3. **Kingdom Ministry Training page upgrade** — the site's biggest
-   commercial mismatch: a named business priority that is currently a
-   430-word slide-list page.
+3. ~~**Kingdom Ministry Training page upgrade**~~ — done 2026-07:
+   rebuilt as a bespoke landing page
+   (`src/pages/kingdom-ministry-training.astro`, same URL, hand-indexed
+   for site search). The remaining half of the mismatch is the Disciple
+   Training cluster (pillar + hub) that routes searchers into it.
 4. **Editorial debt** (roadmap debt section): human `display_title`s for
    migrated legacy articles; per-article `article_cta` stakes headlines for
    the 16 articles on default Lab copy; the Muddy Boots → Clear Pathway

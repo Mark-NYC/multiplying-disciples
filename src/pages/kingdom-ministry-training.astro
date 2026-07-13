@@ -1,0 +1,589 @@
+---
+// Kingdom Ministry Training — the training landing page (roadmap Phase 1
+// item "Kingdom Ministry Training page upgrade"; every Training CTA in
+// the Disciple Training cluster lands here). Rebuilt from the migrated
+// slide-list article (src/content/articles/kingdom-ministry-training.md,
+// removed in the same change) into a bespoke page using the homepage's
+// visual system: same tokens, monospace eyebrows, dark conviction band,
+// Soft Sage "do this" band, gold-ruled final CTA.
+//
+// Copy integrity: every session title, description, and link below is
+// carried over from the real WordPress training page — restructured and
+// tightened, never invented. No testimonials, no seat counts, no urgency.
+//
+// This page is not a content-collection entry (routing is a plain page
+// file, same URL as before), so it is hand-indexed for site search in
+// src/pages/search-index.json.ts — keep the session list there in sync
+// with SESSIONS below.
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+interface Session {
+  num: string;
+  id: string;
+  title: string;
+  description: string;
+  slidesUrl: string;
+  videoUrl: string;
+  videoLabel: string;
+}
+
+// The five real training sessions, with the original slide decks and
+// full training recordings. Session 3's recording lives on Rumble (the
+// others are YouTube) — label stays honest about where the link goes.
+const SESSIONS: Session[] = [
+  {
+    num: '01',
+    id: 'session-1',
+    title: 'Hearing God for Self',
+    description:
+      'Unpack and practice hearing God for yourself. Learn hands-on activations in the ways God speaks and how you can hear Him practically.',
+    slidesUrl:
+      'https://docs.google.com/presentation/d/13xAfMBJuACeUwJ0RqmWCbCdllR6SYCM1MTHsE1aEYnM/edit?usp=sharing',
+    videoUrl: 'https://www.youtube.com/watch?v=yHq6WdQoNDU',
+    videoLabel: 'Watch the training',
+  },
+  {
+    num: '02',
+    id: 'session-2',
+    title: 'Practicing Prophecy',
+    description:
+      'Look at prophecy in the New Testament to understand the why, who, and how of prophecy 101. Grow in giving and receiving prophetic words through hands-on activations.',
+    slidesUrl:
+      'https://docs.google.com/presentation/d/13r7HYZ_egjPmIMVMCxx6aV-6NNiTl2Tn9sCyRRq6Y2g/edit?usp=sharing',
+    videoUrl: 'https://www.youtube.com/watch?v=qkqjphLSXRk',
+    videoLabel: 'Watch the training',
+  },
+  {
+    num: '03',
+    id: 'session-3',
+    title: 'Building a Community of Practice',
+    description:
+      'Experience and learn to create a community of practice that integrates Kingdom Ministry skills into a local church network context — including how to lead and start a 1 Corinthians 14 meeting.',
+    slidesUrl: 'https://bit.ly/1COR14',
+    videoUrl: 'https://rumble.com/v31o6gg-1cor14-meeting-how-to-lead-and-start-one.html',
+    videoLabel: 'Watch the training',
+  },
+  {
+    num: '04',
+    id: 'session-4',
+    title: 'Simple 5-Step Healing Prayer Model (GAPAP)',
+    description:
+      'Jesus both models and commands us to pray for the sick. This practical model, adapted from John Wimber’s 5-Step Model, trains any believer to pray more effectively for physical healing.',
+    slidesUrl:
+      'https://docs.google.com/presentation/d/1-qPkBIoF4OZ-EglqCi1FBiuzKkjB9eTIWKD3URhLZ_Y/edit?usp=sharing',
+    videoUrl: 'https://www.youtube.com/watch?v=FmjPyUM-1SA',
+    videoLabel: 'Watch the training',
+  },
+  {
+    num: '05',
+    id: 'session-5',
+    title: 'Power Evangelism',
+    description:
+      'Demonstrating the Kingdom of God was a central part of Jesus’s ministry as He went about Galilee. Review what power evangelism includes — hearing God, prophecy, and healing prayer — and practice simple skills for engaging.',
+    slidesUrl:
+      'https://docs.google.com/presentation/d/1ROW4QDrGrWMjGYzqPK8pFft51B7Bla9SYyHfs5q6X9g/edit?usp=sharing',
+    videoUrl: 'https://www.youtube.com/watch?v=z_DIWdOHDxg',
+    videoLabel: 'Watch the training',
+  },
+];
+---
+
+<BaseLayout
+  title="Kingdom Ministry Training | Multiplying Disciples"
+  description="Bridging the theology and practice of spiritual gifts through hands-on training — hearing God, prophecy, healing prayer, and power evangelism."
+  canonical="https://multiplyingdisciples.us/kingdom-ministry-training/"
+  ogImage="/wp-content/uploads/2025/01/jon-tyson-YtYNavix3pw-unsplash-copy.jpg"
+  type="website"
+>
+  <!-- 1. HERO — one idea (do what Jesus did), one next step (start
+       Session 1). Typographic on Warm Paper; the training itself is the
+       hero, not a photo. -->
+  <section class="kmt-hero">
+    <div class="kmt-hero__inner">
+      <p class="eyebrow eyebrow--gold-text">Kingdom Ministry Training</p>
+      <h1>Do what Jesus <span class="fm-underline fm-underline--shape-a fm-underline--clay-text">did</span>.</h1>
+      <p class="kmt-hero__subhead">
+        Hands-on training in hearing God, prophecy, healing prayer, and power evangelism —
+        bridging the theology and practice of spiritual gifts.
+      </p>
+      <p class="kmt-hero__ctas">
+        <a class="button" href="#session-1">Start with Session 1</a>
+        <a class="button button--secondary" href="#sessions">See all five sessions</a>
+      </p>
+      <p class="kmt-hero__meta">Five sessions &middot; Slides + full training video for each</p>
+    </div>
+  </section>
+
+  <!-- 2. THE MODEL — the page's conviction: Jesus proclaimed AND
+       demonstrated. Dark Primary Green band, same treatment as the
+       homepage's "Stories From the Field" band. -->
+  <section class="kmt-model" id="the-model">
+    <div class="kmt-model__inner">
+      <p class="eyebrow eyebrow--gold-bright">The Model</p>
+      <h2>Jesus proclaimed <em>and demonstrated</em> the gospel of the Kingdom.</h2>
+      <p>
+        Jesus not only shared the good news &mdash; He also demonstrated it in the power of the
+        Holy Spirit (Matthew 4:23). We are called to follow in His model.
+      </p>
+      <p class="kmt-model__question">
+        But how do you get started? That question is what these five sessions answer, one
+        practiced skill at a time.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3. THE FIVE SESSIONS — the heart of the page. Each card carries
+       the real session description plus its two real destinations
+       (slides + full training video). -->
+  <section class="kmt-sessions" id="sessions">
+    <div class="kmt-sessions__inner">
+      <p class="eyebrow eyebrow--gold-text">The Curriculum</p>
+      <h2>Five sessions, practiced &mdash; not just presented.</h2>
+
+      <ul class="kmt-format" aria-label="What every session includes">
+        <li><strong>Teaching</strong> &mdash; the biblical why, who, and how</li>
+        <li><strong>Tools</strong> &mdash; simple, reproducible models</li>
+        <li><strong>Activations</strong> &mdash; hands-on practice, every session</li>
+      </ul>
+
+      <ol class="kmt-session-list">
+        {
+          SESSIONS.map((session) => (
+            <li class="kmt-session" id={session.id}>
+              <span class="kmt-session__num" aria-hidden="true">{session.num}</span>
+              <div class="kmt-session__body">
+                <p class="kmt-session__label">Session {session.num}</p>
+                <h3>{session.title}</h3>
+                <p class="kmt-session__description">{session.description}</p>
+                <p class="kmt-session__actions">
+                  <a class="button" href={session.videoUrl} target="_blank" rel="noopener">
+                    {session.videoLabel}
+                  </a>
+                  <a
+                    class="button button--secondary"
+                    href={session.slidesUrl}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    View the slides
+                  </a>
+                </p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- 4. HEALTHY PRACTICE — the guardrails question every implementing
+       network asks, answered with the real discipleship packet. Soft
+       Sage band = the site's "do this" surface. -->
+  <section class="kmt-community" id="community">
+    <div class="kmt-community__inner">
+      <p class="eyebrow eyebrow--clay">Healthy Practice</p>
+      <h2>Build a healthy Kingdom Ministry learning community.</h2>
+      <p>
+        As networks begin to implement Spirit-led Kingdom Ministry, most have questions about
+        building in guardrails for healthy practice.
+      </p>
+      <p>
+        As a practicing network in New York City, we offer the discipleship packet below as an
+        emerging model &mdash; one way to build a community of practice into short- and mid-term
+        discipleship. The structure models a regular equipping and self-correcting rhythm for
+        emerging and established networks.
+      </p>
+      <p class="kmt-community__cta">
+        <a
+          class="button"
+          href="/wp-content/uploads/2023/04/Church-Waffle-English-04-2023.pdf"
+          target="_blank"
+          rel="noopener"
+        >
+          View the discipleship packet (PDF)
+        </a>
+      </p>
+      <p class="kmt-community__note">
+        Why a system instead of more content? See <a
+          href="/content-vs-systems-the-game-changer-for-leadership-development/"
+          >Content vs. Systems</a
+        >.
+      </p>
+    </div>
+  </section>
+
+  <!-- 5. FINAL CTA — the honest next step after self-paced sessions:
+       practice with real people. Light band + gold rule, same closing
+       treatment as the homepage. -->
+  <section class="kmt-final-cta">
+    <div class="kmt-final-cta__inner">
+      <h2>Don&rsquo;t practice <span class="fm-underline fm-underline--shape-b fm-underline--clay">alone</span>.</h2>
+      <p class="kmt-final-cta__body">
+        Work through the sessions at your own pace &mdash; then practice what you are learning
+        with real people.
+      </p>
+      <p class="kmt-final-cta__ctas">
+        <a class="button" href="/free-training/">Join a Free Live Training</a>
+      </p>
+      <p class="kmt-final-cta__secondary">
+        <a href="/how-to-get-started-in-four-fields-training/">Or get started in Four Fields training</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* --- Hero -------------------------------------------------------- */
+
+  .kmt-hero {
+    padding: 6.5rem 1.25rem 5.5rem;
+    text-align: center;
+  }
+
+  .kmt-hero__inner {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+  }
+
+  .kmt-hero .eyebrow {
+    margin-bottom: 1rem;
+  }
+
+  .kmt-hero h1 {
+    /* Wide enough for "Do what Jesus did." to sit on one line at
+       desktop sizes; narrower viewports wrap naturally. */
+    max-width: 40rem;
+    margin: 0 auto 1.5rem;
+    font-size: var(--fs-h1);
+    line-height: 1.08;
+    color: var(--color-primary);
+  }
+
+  .kmt-hero__subhead {
+    max-width: 36rem;
+    margin: 0 auto 2.5rem;
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  .kmt-hero__ctas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 0 0 1.75rem;
+  }
+
+  .kmt-hero__ctas .button {
+    padding: 0.9rem 2.1rem;
+    font-size: 1.05rem;
+  }
+
+  .kmt-hero__ctas .button:not(.button--secondary) {
+    font-weight: 700;
+  }
+
+  /* Quiet factual meta line — mono, same voice as article hero meta. */
+  .kmt-hero__meta {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 640px) {
+    .kmt-hero {
+      padding: 4.5rem 1.25rem 4rem;
+    }
+  }
+
+  /* --- The Model: dark conviction band ----------------------------- */
+
+  .kmt-model {
+    background: var(--color-primary);
+    padding: 5rem 1.5rem;
+    text-align: center;
+  }
+
+  .kmt-model__inner {
+    max-width: 44rem;
+    margin: 0 auto;
+  }
+
+  .kmt-model h2 {
+    margin: 0 0 1.5rem;
+    font-size: var(--fs-h2);
+    line-height: 1.12;
+    color: var(--color-primary-text);
+  }
+
+  .kmt-model h2 em {
+    font-style: normal;
+    color: var(--color-gold-bright);
+  }
+
+  .kmt-model p:not(.eyebrow) {
+    max-width: 38rem;
+    margin: 0 auto 1.1rem;
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: rgba(247, 243, 234, 0.88);
+  }
+
+  .kmt-model__question {
+    font-weight: 600;
+    color: var(--color-primary-text) !important;
+  }
+
+  .kmt-model p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 640px) {
+    .kmt-model {
+      padding: 4rem 1.25rem;
+    }
+  }
+
+  /* --- Sessions ----------------------------------------------------- */
+
+  .kmt-sessions {
+    padding: 5.5rem 1.25rem 6rem;
+  }
+
+  .kmt-sessions__inner {
+    max-width: 52rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .kmt-sessions h2 {
+    margin: 0 0 2rem;
+    font-size: var(--fs-h2);
+    line-height: 1.12;
+    color: var(--color-primary);
+  }
+
+  /* "Teaching · Tools · Activations" — the training's real format, as a
+     compact three-beat row rather than a paragraph. */
+  .kmt-format {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem 2.5rem;
+    flex-wrap: wrap;
+    margin: 0 0 3.5rem;
+    padding: 0;
+    font-size: var(--fs-support);
+    color: var(--color-text-muted);
+  }
+
+  .kmt-format strong {
+    color: var(--color-ink);
+  }
+
+  .kmt-session-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.5rem;
+    text-align: left;
+  }
+
+  /* One session, one card: white highlight card per the component
+     family rules (white card + border + shadow = highlight). */
+  .kmt-session {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: 0 3px 14px rgba(31, 37, 35, 0.06);
+    /* Anchor targets (#session-1) land clear of the sticky-free header
+       but still deserve breathing room above the card. */
+    scroll-margin-top: 1.5rem;
+  }
+
+  /* Oversized mono session number — field-manual index mark. */
+  .kmt-session__num {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-gold);
+    border-right: 1px solid var(--color-border);
+  }
+
+  .kmt-session__body {
+    padding: 2rem 2.25rem 2.25rem;
+  }
+
+  .kmt-session__label {
+    margin: 0 0 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-clay-text);
+  }
+
+  .kmt-session h3 {
+    margin: 0 0 0.75rem;
+    font-size: var(--fs-card-title);
+    line-height: 1.2;
+    color: var(--color-primary);
+  }
+
+  .kmt-session__description {
+    margin: 0 0 1.5rem;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  .kmt-session__actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .kmt-sessions {
+      padding: 4.5rem 1.25rem;
+    }
+
+    .kmt-session {
+      grid-template-columns: 1fr;
+    }
+
+    /* Number becomes a compact corner mark instead of a full column. */
+    .kmt-session__num {
+      justify-content: flex-start;
+      padding: 1.5rem 1.5rem 0;
+      font-size: 1.5rem;
+      border-right: none;
+    }
+
+    .kmt-session__body {
+      padding: 0.9rem 1.5rem 1.75rem;
+    }
+
+    .kmt-session__actions .button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  /* --- Healthy practice: Soft Sage "do this" band ------------------- */
+
+  .kmt-community {
+    background: var(--color-surface);
+    padding: 5rem 1.5rem;
+  }
+
+  .kmt-community__inner {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .kmt-community h2 {
+    margin: 0 0 1.5rem;
+    font-size: var(--fs-h3);
+    line-height: 1.15;
+    color: var(--color-primary);
+  }
+
+  .kmt-community p:not(.eyebrow) {
+    margin: 0 0 1.1rem;
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: var(--color-ink);
+  }
+
+  .kmt-community__cta {
+    margin: 2rem 0 1.25rem !important;
+  }
+
+  .kmt-community__cta .button {
+    padding: 0.9rem 2.1rem;
+    font-size: 1rem;
+  }
+
+  .kmt-community__note {
+    font-size: var(--fs-support) !important;
+    color: var(--color-text-muted) !important;
+    margin-bottom: 0 !important;
+  }
+
+  @media (max-width: 640px) {
+    .kmt-community {
+      padding: 4rem 1.25rem;
+    }
+  }
+
+  /* --- Final CTA: light band + gold rule, homepage closing pattern -- */
+
+  .kmt-final-cta {
+    padding: 5.75rem 1.5rem;
+    text-align: center;
+    background: var(--color-bg);
+    border-top: 3px solid var(--color-gold);
+  }
+
+  .kmt-final-cta__inner {
+    max-width: 38rem;
+    margin: 0 auto;
+  }
+
+  .kmt-final-cta h2 {
+    margin: 0 0 1.5rem;
+    font-size: var(--fs-h2);
+    line-height: 1.15;
+    color: var(--color-primary);
+  }
+
+  .kmt-final-cta__body {
+    margin: 0 0 2.25rem;
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  .kmt-final-cta__ctas {
+    margin: 0 0 1.25rem;
+  }
+
+  .kmt-final-cta__ctas .button {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+
+  .kmt-final-cta__secondary {
+    margin: 0;
+    font-size: var(--fs-support);
+  }
+
+  .kmt-final-cta__secondary a {
+    color: var(--color-clay-text);
+    font-weight: 600;
+  }
+
+  @media (max-width: 640px) {
+    .kmt-final-cta {
+      padding: 4rem 1.5rem;
+    }
+  }
+</style>

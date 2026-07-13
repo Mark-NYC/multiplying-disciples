@@ -69,7 +69,7 @@ Utility (not part of cluster strategy).
 | Stickers | /stickers/ | Utility — Keep | T2 (7c/359i) — genuine product interest. |
 | Church Waffle Sticker / Four Fields Sticker | /the-church-waffle-sticker/, /the-four-fields-sticker-simple-2x2/ | Utility — Keep | |
 | Movement Resources | /movement-resources/ | Utility — Keep | Index page; excluded from menu. |
-| Kingdom Ministry Training | /kingdom-ministry-training/ | Utility — **Improve (Phase 1)** | Only 19 impressions but it is a named business priority; upgrade from a bare slide-link list to a true training landing page that Training-cluster articles can send readers to. |
+| Kingdom Ministry Training | /kingdom-ministry-training/ | Utility — Keep (rebuilt 2026-07) | Named business priority; rebuilt from the bare slide-link list into a bespoke training landing page (`src/pages/kingdom-ministry-training.astro`) that Training-cluster articles send readers to. 19 impressions at migration — growth now depends on the Disciple Training cluster linking into it. |
 | FREE 1-Hour Live Disciple Making Training | /free-training/ | Utility — Keep | Lab-adjacent landing; review vs. the live labs section for redundancy (Mark's call). |
 | Harvest Group Resources & Coaching Plan | /action-plan/ | Utility — Keep | |
 | The Vision / Doctrinal Center & Theological Values | /vision/, /beliefs-values/ | Utility — Keep | About pages. |
