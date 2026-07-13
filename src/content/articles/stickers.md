@@ -76,7 +76,7 @@ We created this page as a service to you. Order inexpensive, quality stickers to
 
 <div class="resource-card">
 
-![3 Circles Sticker](/wp-content/uploads/2025/10/3-circles-sticker-cheap-1024x792.webp)
+[![3 Circles Sticker](/wp-content/uploads/2025/10/3-circles-sticker-cheap-1024x792.webp)](https://www.stickermule.com/multiplyingdisciples/item/17375956)
 
 **3 Circles Sticker**
 
@@ -92,7 +92,7 @@ We created this page as a service to you. Order inexpensive, quality stickers to
 
 <div class="resource-card">
 
-![15 Second Testimony Sticker](/wp-content/uploads/2025/12/15-Second-Testimony-Sticker-Personal-Testimony-Evangelism-Tool-1024x458.webp)
+[![15 Second Testimony Sticker](/wp-content/uploads/2025/12/15-Second-Testimony-Sticker-Personal-Testimony-Evangelism-Tool-1024x458.webp)](https://www.stickermule.com/multiplyingdisciples/item/19431674)
 
 **15 Second Testimony Sticker**
 
@@ -108,7 +108,7 @@ We created this page as a service to you. Order inexpensive, quality stickers to
 
 <div class="resource-card">
 
-![Prayer Wheel Sticker](/wp-content/uploads/2025/12/christian-prayer-wheel-sticker-1024x1024.webp)
+[![Prayer Wheel Sticker](/wp-content/uploads/2025/12/christian-prayer-wheel-sticker-1024x1024.webp)](https://www.stickermule.com/multiplyingdisciples/item/19440094)
 
 **Prayer Wheel Sticker**
 
@@ -124,7 +124,7 @@ We created this page as a service to you. Order inexpensive, quality stickers to
 
 <div class="resource-card">
 
-![3 Circles Sticker Black](/wp-content/uploads/2025/10/3-circles-sticker-dark-mode-1024x788.webp)
+[![3 Circles Sticker Black](/wp-content/uploads/2025/10/3-circles-sticker-dark-mode-1024x788.webp)](https://www.stickermule.com/multiplyingdisciples/item/17450852)
 
 **3 Circles Sticker Black**
 
@@ -140,7 +140,7 @@ We created this page as a service to you. Order inexpensive, quality stickers to
 
 <div class="resource-card">
 
-![4 Fields Sticker](/wp-content/uploads/2025/10/4-Fields-Sticker-4-Fields-of-Kingdom-Growth-1024x1024.webp)
+[![4 Fields Sticker](/wp-content/uploads/2025/10/4-Fields-Sticker-4-Fields-of-Kingdom-Growth-1024x1024.webp)](https://www.stickermule.com/multiplyingdisciples/item/17396712)
 
 **4 Fields Sticker**
 
@@ -156,7 +156,7 @@ We created this page as a service to you. Order inexpensive, quality stickers to
 
 <div class="resource-card">
 
-![Church Waffle Sticker](/wp-content/uploads/2025/10/church-waffle-sticker-1024x1024.webp)
+[![Church Waffle Sticker](/wp-content/uploads/2025/10/church-waffle-sticker-1024x1024.webp)](https://www.stickermule.com/multiplyingdisciples/item/17399820)
 
 **Church Waffle Sticker**
 
