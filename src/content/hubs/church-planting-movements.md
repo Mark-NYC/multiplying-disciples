@@ -16,6 +16,8 @@ key_articles:
   - "/the-multiplier-mandate-revealed-from-genesis-to-revelation/"
   - "/unleashing-the-movement-how-paul-catalyzed-a-disciple-making-movement-in-ephesus-lessons-for-todays-church/"
   - "/content-vs-systems-the-game-changer-for-leadership-development/"
+  - "/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/"
+  - "/how-to-spot-a-lone-wolf-and-not-become-one/"
   - "/setting-the-stage-jesus-as-the-model-for-muddy-boots-church-planting/"
 related_tools: []
 next_step:

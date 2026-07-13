@@ -32,11 +32,11 @@ notes: >
   supplied uploads — og_image omitted.
 ---
 
-For Beliefs & Values Statement [Click Here.](/beliefs-values/)
+Read our [Beliefs & Values statement](/beliefs-values/) alongside this vision.
 
 The apostle Paul, in Romans 15:18-24, writes to the church in Rome that he and his co-workers have "fully proclaimed" the gospel from "Jerusalem all the way around to Illyricum" (v19). He concludes, "there is no more place for me to work in these regions" and asks for the disciples of Jesus in Rome to help him on his way to Spain (v23-24). Paul and his co-workers aimed to continue taking the gospel and kingdom of God to the gaps: "where Christ was not known" (v20).
 
-Two observations are noteworthy with Paul's statement in Romans. First, we know that Paul, by himself, did not "proclaim" the message of the Gospel to every person who lived in that geographic region, which encompassed a sizable portion of the Roman empire in the 1st century. Estimates indicate there were millions ([link](https://en.wikipedia.org/wiki/Demography_of_the_Roman_Empire)) of people who lived within these geographic bounds.
+Two observations are noteworthy with Paul's statement in Romans. First, we know that Paul, by himself, did not "proclaim" the message of the Gospel to every person who lived in that geographic region, which encompassed a sizable portion of the Roman empire in the 1st century. Estimates indicate there were [millions of people](https://en.wikipedia.org/wiki/Demography_of_the_Roman_Empire) who lived within these geographic bounds.
 
 Proclaiming the gospel to every one of those people would have been an impossible task for any single individual. Second, we have an in-depth record from Luke's account of Paul and his co-workers' labor in the book of Acts that coincide with letters Paul wrote during this same period: Galatians, 1 & 2 Thessalonians, 1 & 2 Corinthians, and Romans. From this record, we know that Paul's usage of the word "proclaim" indicated much more than simply presenting an explanation of the gospel to one person and then moving on. Instead, we see that Paul was able to say there was No Place Left within these regions for him to work because over an estimated 15-year period (Acts 13 to Acts 20)
 

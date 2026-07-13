@@ -33,7 +33,7 @@ In this blog post, we will explore the 10 universal characteristics that are ess
 
 ### 1. Prayer
 
-Prayer is the cornerstone of any successful church planting movement. In order for a movement to take root and flourish, it must be undergirded by a vibrant culture of prayer. This prayer must be both personal and corporate, with a focus on seeking God's guidance and wisdom. Prayer is the fuel that ignites the movement and sustains it over the long haul.
+Prayer is the cornerstone of any successful church planting movement. In order for a movement to take root and flourish, it must be undergirded by a [vibrant culture of prayer](/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/). This prayer must be both personal and corporate, with a focus on seeking God's guidance and wisdom. Prayer is the fuel that ignites the movement and sustains it over the long haul.
 
 ### 2. Abundant Gospel Sowing
 
@@ -57,7 +57,7 @@ Church planting movements are driven by lay and bi-vocational leaders. This reli
 
 ### 7. Cell or House Churches
 
-While church buildings may be present in some church planting movements, the majority of churches are small, reproducible cell churches of 10-30 members meeting in homes and storefronts. These cell or house churches are easily replicable and can be started with minimal resources, making them ideal for rapid multiplication.
+While church buildings may be present in some church planting movements, the majority of churches are [small, reproducible cell churches of 10-30 members meeting in homes](/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/) and storefronts. These cell or house churches are easily replicable and can be started with minimal resources, making them ideal for rapid multiplication.
 
 ### 8. Churches Planting Churches
 

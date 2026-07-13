@@ -6,9 +6,9 @@ canonical: "https://multiplyingdisciples.us/disciple-making-movement-dmm-key-cha
 hub: "church-planting-movements"
 related_articles:
   - "/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/"
-  - "/4-stages-of-movement-unlock-your-next-steps/"
   - "/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/"
-  - "/starter-tools/"
+  - "/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/"
+  - "/4-stages-of-movement-unlock-your-next-steps/"
 related_tools: []
 og_image: "/wp-content/uploads/2023/05/pexels-photo-5543191.jpeg"
 hero_image: "/wp-content/uploads/2023/05/pexels-photo-5543191.jpeg"
