@@ -66,7 +66,7 @@ Utility (not part of cluster strategy).
 | 4 Fields Toolbox | /movement-resources/4-fields-toolbox/ | Utility/Tool — Keep | Excluded from menu by direction; stays linked from Four Fields content. |
 | Start Here | /start-here/ | Utility — Keep | Onboarding landing. |
 | Starter Tools | /starter-tools/ | Utility — Keep | Primary "Tools" destination. |
-| Stickers | /stickers/ | Utility — Keep | T2 (7c/359i) — genuine product interest. |
+| Stickers | /stickers/ | Utility — Keep (rebuilt 2026-07) | T2 (7c/359i) — genuine product interest. Rebuilt as a bespoke landing page (`src/pages/stickers.astro`) with a full-bleed vision-casting hero; all sticker images, prices, and Sticker Mule links unchanged. |
 | Church Waffle Sticker / Four Fields Sticker | /the-church-waffle-sticker/, /the-four-fields-sticker-simple-2x2/ | Utility — Keep | |
 | Movement Resources | /movement-resources/ | Utility — Keep | Index page; excluded from menu. |
 | Kingdom Ministry Training | /kingdom-ministry-training/ | Utility — Keep (rebuilt 2026-07) | Named business priority; rebuilt from the bare slide-link list into a bespoke training landing page (`src/pages/kingdom-ministry-training.astro`) that Training-cluster articles send readers to. 19 impressions at migration — growth now depends on the Disciple Training cluster linking into it. |

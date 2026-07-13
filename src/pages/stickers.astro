@@ -1,0 +1,463 @@
+---
+// Stickers — the movement-sticker storefront, rebuilt from the migrated
+// markdown article (src/content/articles/stickers.md, removed in the
+// same change) into a bespoke page so it can open with a true
+// edge-to-edge hero photo: the 3 Circles sticker on a phone case,
+// casting the vision for why the stickers exist before the grid asks
+// for a purchase. Same URL, and every sticker image, price, Sticker
+// Mule link, and the "How it Works" copy is carried over unchanged.
+//
+// Like /kingdom-ministry-training/, this page is not a collection
+// entry, so it is hand-indexed for site search in
+// src/pages/search-index.json.ts and title-mapped in
+// RelatedArticles.astro's bespoke-pages list.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { imageDimensions } from '../lib/image-dimensions.mjs';
+
+interface Sticker {
+  name: string;
+  image: string;
+  alt: string;
+  price: string;
+  buyUrl: string;
+}
+
+// The six real stickers, verbatim from the previous page: same images,
+// prices, and exact Sticker Mule item URLs.
+const STICKERS: Sticker[] = [
+  {
+    name: '3 Circles Sticker',
+    image: '/wp-content/uploads/2025/10/3-circles-sticker-cheap-1024x792.webp',
+    alt: '3 Circles Sticker',
+    price: 'Starting at $.14',
+    buyUrl: 'https://www.stickermule.com/multiplyingdisciples/item/17375956',
+  },
+  {
+    name: '15 Second Testimony Sticker',
+    image:
+      '/wp-content/uploads/2025/12/15-Second-Testimony-Sticker-Personal-Testimony-Evangelism-Tool-1024x458.webp',
+    alt: '15 Second Testimony Sticker',
+    price: 'Starting at $.12',
+    buyUrl: 'https://www.stickermule.com/multiplyingdisciples/item/19431674',
+  },
+  {
+    name: 'Prayer Wheel Sticker',
+    image: '/wp-content/uploads/2025/12/christian-prayer-wheel-sticker-1024x1024.webp',
+    alt: 'Prayer Wheel Sticker',
+    price: 'Starting at $.14',
+    buyUrl: 'https://www.stickermule.com/multiplyingdisciples/item/19440094',
+  },
+  {
+    name: '3 Circles Sticker Black',
+    image: '/wp-content/uploads/2025/10/3-circles-sticker-dark-mode-1024x788.webp',
+    alt: '3 Circles Sticker Black',
+    price: 'Starting at $.14',
+    buyUrl: 'https://www.stickermule.com/multiplyingdisciples/item/17450852',
+  },
+  {
+    name: '4 Fields Sticker',
+    image: '/wp-content/uploads/2025/10/4-Fields-Sticker-4-Fields-of-Kingdom-Growth-1024x1024.webp',
+    alt: '4 Fields Sticker',
+    price: 'Starting at $.14',
+    buyUrl: 'https://www.stickermule.com/multiplyingdisciples/item/17396712',
+  },
+  {
+    name: 'Church Waffle Sticker',
+    image: '/wp-content/uploads/2025/10/church-waffle-sticker-1024x1024.webp',
+    alt: 'Church Waffle Sticker',
+    price: 'Starting at $.22',
+    buyUrl: 'https://www.stickermule.com/multiplyingdisciples/item/17399820',
+  },
+];
+
+// The previous page's five related articles, preserved as "learn the
+// tool" links — every sticker is a tool the site actually teaches.
+const TOOL_ARTICLES = [
+  { label: '3 Circles', href: '/the-three-circles-gospel-presentation-step-by-step/' },
+  { label: '15-Second Testimony', href: '/15-second-testimony-examples-ignite-your-faith/' },
+  {
+    label: 'Prayer Wheel',
+    href: '/christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/',
+  },
+  {
+    label: 'Four Fields',
+    href: '/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/',
+  },
+  { label: 'Church Waffle', href: '/movement-resources/12-practice-church-circle/' },
+];
+
+const HERO_IMAGE = '/3-circles-phone-mockup.webp';
+const heroDims = imageDimensions(HERO_IMAGE);
+---
+
+<BaseLayout
+  title="Stickers | Multiplying Disciples"
+  description="Quality, inexpensive movement stickers — 3 Circles, 15-Second Testimony, Prayer Wheel, 4 Fields, and Church Waffle — shared at cost on Sticker Mule."
+  canonical="https://multiplyingdisciples.us/stickers/"
+  ogImage={HERO_IMAGE}
+  type="website"
+>
+  <!-- 1. HERO — edge-to-edge photo of the 3 Circles sticker living on a
+       real phone: the vision (a gospel tool in plain sight on the
+       things you carry) before the grid asks for a purchase. Copy sits
+       over the soft lake bokeh on the left behind a Deep Ink scrim. -->
+  <section class="stickers-hero">
+    <img
+      class="stickers-hero__image"
+      src={HERO_IMAGE}
+      alt="A 3 Circles sticker on the back of a phone case, propped on a weathered dock by a lake"
+      width={heroDims?.width}
+      height={heroDims?.height}
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="stickers-hero__scrim" aria-hidden="true"></div>
+    <div class="stickers-hero__inner">
+      <p class="eyebrow eyebrow--gold-bright">Movement Stickers</p>
+      <h1>Put the gospel in <span class="fm-underline fm-underline--shape-a fm-underline--gold">plain sight</span>.</h1>
+      <p class="stickers-hero__subhead">
+        A tool sticker on your phone, laptop, or water bottle keeps a gospel conversation one
+        question away &mdash; quality stickers, shared at cost, as a service to you.
+      </p>
+      <p class="stickers-hero__ctas">
+        <a class="button" href="#stickers">Browse the Stickers</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- 2. THE COLLECTION — the six real stickers, unchanged: same
+       images, prices, and Sticker Mule links as the previous page. -->
+  <section class="stickers-main" id="stickers">
+    <div class="stickers-main__inner">
+      <p class="eyebrow eyebrow--gold-text">The Collection</p>
+      <h2>Movement Stickers</h2>
+      <p class="stickers-main__intro">
+        We created this page as a service to you. Order inexpensive, quality stickers to help
+        you share the gospel and advance the Kingdom &mdash; no profit is made from these links.
+      </p>
+
+      <div class="resource-grid">
+        {
+          STICKERS.map((sticker) => {
+            const dims = imageDimensions(sticker.image);
+            return (
+              <div class="resource-card">
+                {/* The image links to the same Sticker Mule item as its
+                    Buy Now button (ported from the previous markdown
+                    page's linked-image pattern, PR #97). */}
+                <a href={sticker.buyUrl}>
+                  <img
+                    src={sticker.image}
+                    alt={sticker.alt}
+                    width={dims?.width}
+                    height={dims?.height}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <p class="resource-card__label">{sticker.name}</p>
+                <p class="resource-card__price">{sticker.price}</p>
+                <div class="resource-card__cta">
+                  <a href={sticker.buyUrl}>Buy Now</a>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+
+      <p class="stickers-main__how">
+        <strong>How it Works:</strong> We created this page as a service to you. The way it
+        works is simple: we upload quality &ldquo;sticker ready&rdquo; images to Sticker Mule
+        and create shared cart links with very affordable pricing. Our goal is to help you share
+        the gospel and advance the Kingdom. Blessings.
+      </p>
+      <p class="stickers-main__credit">
+        <a
+          href="https://www.stickermule.com/unlock?ref_id=5148851701&utm_medium=embed&utm_source=invite&utm_content=728x90"
+          >Get $10 credit on Sticker Mule</a
+        >
+      </p>
+    </div>
+  </section>
+
+  <!-- 3. LEARN THE TOOLS — the previous page's five related articles,
+       kept as real links: every sticker is a tool the site teaches.
+       Soft Sage band = the site's "read this / do this" surface. -->
+  <section class="stickers-learn">
+    <div class="stickers-learn__inner">
+      <h2>Every sticker is a tool you can learn</h2>
+      <p>
+        Don&rsquo;t just wear the mark &mdash; learn to use the tool behind it with someone you
+        know.
+      </p>
+      <ul class="stickers-learn__links">
+        {
+          TOOL_ARTICLES.map((article) => (
+            <li>
+              <a href={article.href}>{article.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* --- Hero: edge-to-edge photo with overlaid copy ------------------ */
+
+  .stickers-hero {
+    position: relative;
+    overflow: hidden;
+    /* Roomy but not full-screen: tall enough for the photo to breathe
+       at desktop widths, defined by the copy block + padding below. */
+    display: flex;
+    align-items: center;
+  }
+
+  .stickers-hero__image {
+    position: absolute;
+    inset: 0;
+    /* The photo composes the phone dead center, but the copy needs the
+       left half — oversizing the image and letting the section's
+       overflow:hidden crop the right edge slides the phone (and its
+       sticker) right of center, clear of the headline. object-position
+       alone can't do this at wide viewports, where cover needs no
+       horizontal crop to begin with. */
+    width: 132%;
+    /* The global img reset caps images at max-width:100%, which would
+       silently undo the oversize above. */
+    max-width: none;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+    border-radius: 0;
+  }
+
+  /* Deep Ink scrim, heaviest under the copy, fading out across the
+     photo so the phone stays bright. */
+  .stickers-hero__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      100deg,
+      rgba(31, 37, 35, 0.78) 0%,
+      rgba(31, 37, 35, 0.52) 34%,
+      rgba(31, 37, 35, 0.08) 62%,
+      rgba(31, 37, 35, 0) 75%
+    );
+    pointer-events: none;
+  }
+
+  /* Same animated film grain the homepage lays over its full-bleed
+     photos, so this hero reads as part of the same family. */
+  .stickers-hero::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='2.6' intercept='-0.8'/%3E%3CfeFuncG type='linear' slope='2.6' intercept='-0.8'/%3E%3CfeFuncB type='linear' slope='2.6' intercept='-0.8'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.45;
+    mix-blend-mode: overlay;
+    will-change: transform;
+    animation: stickers-grain-drift 0.8s steps(5) infinite;
+  }
+
+  @keyframes stickers-grain-drift {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    10% {
+      transform: translate(-6%, -9%);
+    }
+    25% {
+      transform: translate(-13%, 6%);
+    }
+    40% {
+      transform: translate(8%, -18%);
+    }
+    55% {
+      transform: translate(-4%, 14%);
+    }
+    70% {
+      transform: translate(11%, 3%);
+    }
+    85% {
+      transform: translate(-9%, -5%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stickers-hero::after {
+      animation: none;
+    }
+  }
+
+  .stickers-hero__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 7.5rem 1.25rem;
+  }
+
+  .stickers-hero h1 {
+    max-width: 21ch;
+    margin: 0 0 1.25rem;
+    font-size: var(--fs-h2);
+    line-height: 1.1;
+    color: var(--color-primary-text);
+  }
+
+  .stickers-hero__subhead {
+    max-width: 30rem;
+    margin: 0 0 2.25rem;
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: rgba(247, 243, 234, 0.9);
+  }
+
+  .stickers-hero__ctas {
+    margin: 0;
+  }
+
+  .stickers-hero__ctas .button {
+    padding: 0.9rem 2.1rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  /* The primary green button sits on a dark photo here — a hover to
+     Deep Ink would vanish, so it brightens to Growth Green instead. */
+  .stickers-hero__ctas .button:hover {
+    background: var(--color-accent-hover);
+  }
+
+  @media (max-width: 640px) {
+    /* Portrait crop: the copy stacks over a stronger, more even scrim
+       since the light sky and bright phone move behind it. */
+    .stickers-hero__inner {
+      padding: 5rem 1.25rem 5.5rem;
+    }
+
+    .stickers-hero__scrim {
+      background: linear-gradient(
+        180deg,
+        rgba(31, 37, 35, 0.72) 0%,
+        rgba(31, 37, 35, 0.5) 55%,
+        rgba(31, 37, 35, 0.25) 100%
+      );
+    }
+
+    /* Narrow screens: back to a plain centered cover crop — the copy
+       sits over the whole frame here, so the phone stays centered. */
+    .stickers-hero__image {
+      width: 100%;
+      object-position: 55% center;
+    }
+  }
+
+  /* --- The collection ----------------------------------------------- */
+
+  .stickers-main {
+    padding: 5rem 1.25rem 5.5rem;
+  }
+
+  .stickers-main__inner {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .stickers-main h2 {
+    margin: 0 0 1.25rem;
+    font-size: var(--fs-h2);
+    line-height: 1.12;
+    color: var(--color-primary);
+  }
+
+  .stickers-main__intro {
+    max-width: 38rem;
+    margin: 0 auto 3rem;
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  .stickers-main__how {
+    max-width: 44rem;
+    margin: 3rem auto 1rem;
+    font-size: var(--fs-support);
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    text-align: left;
+  }
+
+  .stickers-main__credit {
+    margin: 0;
+    text-align: left;
+    max-width: 44rem;
+    margin-inline: auto;
+    font-size: var(--fs-support);
+  }
+
+  .stickers-main__credit a {
+    color: var(--color-accent-hover);
+    font-weight: 600;
+  }
+
+  @media (max-width: 640px) {
+    .stickers-main {
+      padding: 4rem 1.25rem;
+    }
+  }
+
+  /* --- Learn the tools: Soft Sage band ------------------------------ */
+
+  .stickers-learn {
+    background: var(--color-surface);
+    padding: 4rem 1.5rem 4.5rem;
+    text-align: center;
+  }
+
+  .stickers-learn__inner {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+  }
+
+  .stickers-learn h2 {
+    margin: 0 0 0.75rem;
+    font-size: var(--fs-h3);
+    line-height: 1.15;
+    color: var(--color-primary);
+  }
+
+  .stickers-learn p {
+    margin: 0 0 1.75rem;
+    font-size: var(--fs-body);
+    color: var(--color-ink);
+  }
+
+  .stickers-learn__links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .stickers-learn__links a {
+    display: inline-block;
+    padding: 0.5rem 0;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+</style>
