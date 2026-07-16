@@ -121,6 +121,7 @@ const heroDims = imageDimensions(HERO_IMAGE);
       </p>
       <p class="stickers-hero__ctas">
         <a class="button" href="#stickers">Browse the Stickers</a>
+        <a class="stickers-hero__credit-link" href="#how-it-works">Get $10 sticker credit</a>
       </p>
     </div>
   </section>
@@ -166,7 +167,7 @@ const heroDims = imageDimensions(HERO_IMAGE);
         }
       </div>
 
-      <p class="stickers-main__how">
+      <p class="stickers-main__how" id="how-it-works">
         <strong>How it Works:</strong> We created this page as a service to you. The way it
         works is simple: we upload quality &ldquo;sticker ready&rdquo; images to Sticker Mule
         and create shared cart links with very affordable pricing. Our goal is to help you share
@@ -325,9 +326,25 @@ const heroDims = imageDimensions(HERO_IMAGE);
   }
 
   .stickers-hero__ctas .button {
+    display: block;
+    width: fit-content;
     padding: 0.9rem 2.1rem;
     font-size: 1.05rem;
     font-weight: 700;
+  }
+
+  .stickers-hero__credit-link {
+    display: inline-block;
+    margin-top: 0.85rem;
+    color: var(--color-primary-text);
+    font-size: var(--fs-support);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .stickers-hero__credit-link:hover {
+    color: var(--color-gold-bright);
   }
 
   /* The primary green button sits on a dark photo here — a hover to
