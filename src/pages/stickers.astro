@@ -1,5 +1,5 @@
 ---
-// Stickers — the movement-sticker storefront, rebuilt from the migrated
+// Stickers â€” the movement-sticker storefront, rebuilt from the migrated
 // markdown article (src/content/articles/stickers.md, removed in the
 // same change) into a bespoke page so it can open with a true
 // edge-to-edge hero photo: the 3 Circles sticker on a phone case,
@@ -71,7 +71,7 @@ const STICKERS: Sticker[] = [
 ];
 
 // The previous page's five related articles, preserved as "learn the
-// tool" links — every sticker is a tool the site actually teaches.
+// tool" links â€” every sticker is a tool the site actually teaches.
 const TOOL_ARTICLES = [
   { label: '3 Circles', href: '/the-three-circles-gospel-presentation-step-by-step/' },
   { label: '15-Second Testimony', href: '/15-second-testimony-examples-ignite-your-faith/' },
@@ -92,12 +92,12 @@ const heroDims = imageDimensions(HERO_IMAGE);
 
 <BaseLayout
   title="Stickers | Multiplying Disciples"
-  description="Quality, inexpensive movement stickers — 3 Circles, 15-Second Testimony, Prayer Wheel, 4 Fields, and Church Waffle — shared at cost on Sticker Mule."
+  description="Quality, inexpensive movement stickers â€” 3 Circles, 15-Second Testimony, Prayer Wheel, 4 Fields, and Church Waffle â€” shared at cost on Sticker Mule."
   canonical="https://multiplyingdisciples.us/stickers/"
   ogImage={HERO_IMAGE}
   type="website"
 >
-  <!-- 1. HERO — edge-to-edge photo of the 3 Circles sticker living on a
+  <!-- 1. HERO â€” edge-to-edge photo of the 3 Circles sticker living on a
        real phone: the vision (a gospel tool in plain sight on the
        things you carry) before the grid asks for a purchase. Copy sits
        over the soft lake bokeh on the left behind a Deep Ink scrim. -->
@@ -125,7 +125,7 @@ const heroDims = imageDimensions(HERO_IMAGE);
     </div>
   </section>
 
-  <!-- 2. THE COLLECTION — the six real stickers, unchanged: same
+  <!-- 2. THE COLLECTION â€” the six real stickers, unchanged: same
        images, prices, and Sticker Mule links as the previous page. -->
   <section class="stickers-main" id="stickers">
     <div class="stickers-main__inner">
@@ -173,15 +173,12 @@ const heroDims = imageDimensions(HERO_IMAGE);
         the gospel and advance the Kingdom. Blessings.
       </p>
       <p class="stickers-main__credit">
-        <a
-          href="https://www.stickermule.com/unlock?ref_id=5148851701&utm_medium=embed&utm_source=invite&utm_content=728x90"
-          >Get $10 credit on Sticker Mule</a
-        >
+        <a href="https://www.stickermule.com/unlock?ref_id=5148851701&utm_medium=embed&utm_source=invite&utm_content=728x90" target="_blank"><img alt="Custom Stickers, Die Cut Stickers, Bumper Stickers - Sticker Mule" height="90" src="https://cdn.stickermule.com/content/core/assets/banners/stickermule-invite-friends-large.png" width="728" /></a>
       </p>
     </div>
   </section>
 
-  <!-- 3. LEARN THE TOOLS — the previous page's five related articles,
+  <!-- 3. LEARN THE TOOLS â€” the previous page's five related articles,
        kept as real links: every sticker is a tool the site teaches.
        Soft Sage band = the site's "read this / do this" surface. -->
   <section class="stickers-learn">
@@ -220,7 +217,7 @@ const heroDims = imageDimensions(HERO_IMAGE);
     position: absolute;
     inset: 0;
     /* The photo composes the phone dead center, but the copy needs the
-       left half — oversizing the image and letting the section's
+       left half â€” oversizing the image and letting the section's
        overflow:hidden crop the right edge slides the phone (and its
        sticker) right of center, clear of the headline. object-position
        alone can't do this at wide viewports, where cover needs no
@@ -333,7 +330,7 @@ const heroDims = imageDimensions(HERO_IMAGE);
     font-weight: 700;
   }
 
-  /* The primary green button sits on a dark photo here — a hover to
+  /* The primary green button sits on a dark photo here â€” a hover to
      Deep Ink would vanish, so it brightens to Growth Green instead. */
   .stickers-hero__ctas .button:hover {
     background: var(--color-accent-hover);
@@ -355,7 +352,7 @@ const heroDims = imageDimensions(HERO_IMAGE);
       );
     }
 
-    /* Narrow screens: back to a plain centered cover crop — the copy
+    /* Narrow screens: back to a plain centered cover crop â€” the copy
        sits over the whole frame here, so the phone stays centered. */
     .stickers-hero__image {
       width: 100%;
