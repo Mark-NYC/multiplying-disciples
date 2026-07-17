@@ -151,7 +151,7 @@ const isActive = (href: string) =>
           <a class="button site-menu__lab-cta" href="/#ch-practice">Join a Lab</a>
         </div>
 
-        <div class="site-menu__section">
+        <div class="site-menu__section site-menu__section--featured">
           <p class="site-menu__label eyebrow eyebrow--gold-text">More Resources</p>
           <ul class="site-menu__list">
             {MENU_FEATURED.map((link) => (
@@ -627,6 +627,14 @@ const isActive = (href: string) =>
     font-weight: 700;
   }
 
+  /* More Resources reads as the drawer's headline block — h3-sized to
+     signal that these are prominent, high-value destinations. */
+  .site-menu__section--featured .site-menu__list a {
+    font-size: var(--fs-h3);
+    line-height: 1.2;
+    padding: 0.4rem 0;
+  }
+
   /* Quiet domain hint on the one off-site resource, so an external
      jump never surprises. */
   .site-menu__external {
@@ -664,8 +672,9 @@ const isActive = (href: string) =>
     }
 
     .site-menu__list--primary a {
-      font-size: 1.15rem;
-      padding: 0.6rem 0;
+      font-size: var(--fs-h3);
+      line-height: 1.2;
+      padding: 0.4rem 0;
     }
 
     .site-menu__lab-cta {
