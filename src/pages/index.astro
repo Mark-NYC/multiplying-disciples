@@ -435,7 +435,7 @@ import { COVO_LABS_URL } from '../data/site';
   /* Mobile: the tall, narrow hero forces a heavier horizontal crop on a
      wide photo than desktop gets. Instead of a full-bleed cover crop
      that buried faces behind the CTAs, sit the photo in the lower half:
-     size it to ~175% of the viewport width and anchor it bottom-center
+     size it to ~160% of the viewport width and anchor it bottom-center
      so all three guys read as one group — the outer two cropped just
      past their bodies to frame the interaction — while Warm Paper runs
      up from the photo to the top of the hero behind the headline. The
@@ -447,7 +447,12 @@ import { COVO_LABS_URL } from '../data/site';
     .hero {
       padding-top: 4.5rem;
       padding-bottom: 18.5rem;
-      background-size: 175% auto;
+      /* White fill behind the copy so it reads continuously with the
+         photo's white-hazed top edge — one white field from the top of
+         the hero down to the photo, bounded to the hero (the header
+         above and the section below keep their Warm Paper). */
+      background-color: #ffffff;
+      background-size: 160% auto;
       background-position: center bottom;
     }
   }
