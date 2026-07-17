@@ -433,21 +433,22 @@ import { COVO_LABS_URL } from '../data/site';
   }
 
   /* Mobile: the tall, narrow hero forces a heavier horizontal crop on a
-     wide photo than desktop gets. Rather than let the vertically
-     centered crop drop the men's faces right behind the CTAs, size the
-     image to the section height with a little extra (auto 118%) and
-     anchor it near the top — that slides the scene down so the faces
-     land in the open photo area below the buttons, clear of them, while
-     the hero keeps the exact same extent and padding. padding-top adds
-     breathing room above the headline; padding-bottom both reserves the
+     wide photo than desktop gets. Instead of a full-bleed cover crop
+     that buried faces behind the CTAs, sit the photo in the lower half:
+     size it to ~150% of the viewport width and anchor it bottom-center
+     so all three guys read as one group — the outer two cropped just
+     past their bodies to frame the interaction — while Warm Paper runs
+     up from the photo to the top of the hero behind the headline. The
+     section keeps the same extent and padding. padding-top adds
+     breathing room above the headline; padding-bottom reserves the
      photo area and lets the section run close to the bottom of the
      screen. */
   @media (max-width: 640px) {
     .hero {
       padding-top: 4.5rem;
       padding-bottom: 18.5rem;
-      background-size: auto 118%;
-      background-position: 60% 8%;
+      background-size: 150% auto;
+      background-position: center bottom;
     }
   }
 
