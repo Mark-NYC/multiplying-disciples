@@ -433,16 +433,21 @@ import { COVO_LABS_URL } from '../data/site';
   }
 
   /* Mobile: the tall, narrow hero forces a heavier horizontal crop on a
-     wide photo than desktop gets, so the reserved photo space is sized
-     to keep the whole scene (all three guys) in frame rather than
-     matching desktop's padding. padding-top adds breathing room above
-     the headline; padding-bottom both pushes the photo down and lets
-     the section run down close to the bottom of the screen. */
+     wide photo than desktop gets. Rather than let the vertically
+     centered crop drop the men's faces right behind the CTAs, size the
+     image to the section height with a little extra (auto 118%) and
+     anchor it near the top — that slides the scene down so the faces
+     land in the open photo area below the buttons, clear of them, while
+     the hero keeps the exact same extent and padding. padding-top adds
+     breathing room above the headline; padding-bottom both reserves the
+     photo area and lets the section run close to the bottom of the
+     screen. */
   @media (max-width: 640px) {
     .hero {
       padding-top: 4.5rem;
       padding-bottom: 18.5rem;
-      background-position: 70% center;
+      background-size: auto 118%;
+      background-position: 60% 8%;
     }
   }
 
