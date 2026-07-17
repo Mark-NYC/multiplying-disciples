@@ -17,6 +17,7 @@ const { paths, heading = 'Related articles' } = Astro.props;
 const BESPOKE_PAGE_TITLES: Record<string, string> = {
   '/kingdom-ministry-training/': 'Kingdom Ministry Training',
   '/stickers/': 'Stickers',
+  '/starter-tools/': 'Start Making Disciples',
 };
 
 const allArticles = paths.length ? await getCollection('articles') : [];

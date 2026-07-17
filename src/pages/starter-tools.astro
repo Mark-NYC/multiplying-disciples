@@ -1,0 +1,979 @@
+---
+// Start Making Disciples — the site's beginner tutorial.
+//
+// Rebuilt from the old /starter-tools/ resource grid (a flat 8-card
+// dump) into a guided, one-pathway tutorial for an ordinary Christian
+// asking "How do I actually start making disciples?". Same URL,
+// preserved for the dozens of inbound links + primary nav. Follows the
+// kingdom-ministry-training bespoke-page precedent: full-bleed sections,
+// the homepage visual system, hand-indexed for search (see
+// src/pages/search-index.json.ts) and title-mapped in RelatedArticles.
+//
+// Ecosystem framing (ECOSYSTEM_GROWTH_STRATEGY.md): this page shows the
+// PATHWAY, Obey.Tools is the TOOLBOX/practice layer, CoVo is
+// COACHING + TRIBE. One connected path, not three ministries.
+//
+// Destinations are only ever confirmed-real URLs (REPOSITORY_PLAYBOOK
+// integrity rule — never invent tools/pages/URLs). obey.tools' full
+// inventory can't be reached from this environment, so the only
+// cross-domain Obey.Tools link is Commands of Christ (the one URL
+// already confirmed in-repo: nav + preserved article bodies). Every
+// other step routes to the confirmed authoritative on-site tool page
+// (each of which itself bridges to obey.tools where an app exists).
+//
+// Tracking (see src/lib/ecosystem-tracking.js): every primary CTA
+// carries data-ecosystem-cta so the one delegated listener records it
+// to window.dataLayer. Cross-domain links additionally carry the
+// documented UTM structure; same-domain internal links never get UTMs.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { COVO_COMMUNITY_URL, COVO_LABS_URL } from '../data/site';
+
+// --- Cross-domain UTM helper -------------------------------------------
+// page-slug + level + placement per ECOSYSTEM_GROWTH_STRATEGY.md.
+// Same-domain links must NOT call this.
+function utm(href: string, campaign: string, content: string): string {
+  const params = new URLSearchParams({
+    utm_source: 'multiplyingdisciples',
+    utm_medium: 'organic_cta',
+    utm_campaign: campaign,
+    utm_content: `starter-tools__${content}`,
+  });
+  // Query must precede any #fragment (e.g. COVO_LABS_URL ends in
+  // #upcoming-labs) or the params get swallowed into the fragment.
+  const hashIndex = href.indexOf('#');
+  const base = hashIndex === -1 ? href : href.slice(0, hashIndex);
+  const hash = hashIndex === -1 ? '' : href.slice(hashIndex);
+  const sep = base.includes('?') ? '&' : '?';
+  return `${base}${sep}${params.toString()}${hash}`;
+}
+
+const COMMANDS_OF_CHRIST = 'https://obey.tools/commands-of-christ.html';
+
+interface Step {
+  num: string;
+  id: string;
+  title: string;
+  question: string;
+  what: string;
+  why: string;
+  action: string;
+  cta: {
+    label: string;
+    href: string;
+    external?: boolean;
+    ctaType: string;
+    destinationSite: string;
+  };
+  supporting?: { label: string; href: string }[];
+}
+
+// The one connected pathway: map -> converse -> gospel -> follow up ->
+// gather -> multiply. One dominant tool CTA per step; extra tools are
+// quiet supporting links. Every href is confirmed-real (slugs checked
+// against src/content/articles/*). Conversation Box / 4 Questions /
+// Oikos map / Church Assessment have no confirmed destination on either
+// domain, so those steps route to the nearest confirmed page and the
+// on-page action carries the weight — see the final report / notes.
+const STEPS: Step[] = [
+  {
+    num: '01',
+    id: 'step-1',
+    title: 'See the people God has already placed around you',
+    question: 'Who has God already put in my life?',
+    what: 'Before any strategy, notice the people already around you — family, coworkers, neighbors, friends. Write them down and start praying for them by name.',
+    why: 'You do not have to go find people. Most disciple making begins with the people you already see every week. Prayer is where it starts, not where it ends.',
+    action: 'Write down five people you already know, and begin praying for them this week.',
+    cta: {
+      label: 'Pray for the People Around You',
+      href: '/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/',
+      ctaType: 'onsite-tool',
+      destinationSite: 'multiplyingdisciples',
+    },
+    supporting: [
+      { label: 'Why prayer comes first', href: '/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/' },
+    ],
+  },
+  {
+    num: '02',
+    id: 'step-2',
+    title: 'Start spiritual conversations',
+    question: 'How do I move a normal conversation toward Jesus naturally?',
+    what: 'Learn one simple way to turn an everyday conversation toward spiritual things — a short question, or your own story in fifteen seconds.',
+    why: 'Most people never share because they are waiting to feel ready. A simple, repeatable opener means you can start today without a script you have to memorize.',
+    action: 'Choose one person and ask one spiritual question this week.',
+    cta: {
+      label: 'Learn the 15-Second Testimony',
+      href: '/15-second-testimony-examples-ignite-your-faith/',
+      ctaType: 'onsite-tool',
+      destinationSite: 'multiplyingdisciples',
+    },
+    supporting: [
+      { label: 'A step-by-step guide to evangelism', href: '/how-to-evangelize-ultimate-step-by-step-guide/' },
+    ],
+  },
+  {
+    num: '03',
+    id: 'step-3',
+    title: 'Share your story and the gospel',
+    question: 'How do I explain what Jesus has done and invite someone to respond?',
+    what: 'Learn one simple gospel tool you can draw on a napkin — the 3 Circles — so you can explain the good news clearly and invite a response.',
+    why: 'A tool you can reproduce keeps the gospel simple and passable. The goal is not a perfect presentation; it is a clear invitation the other person could pass on too.',
+    action: 'Practice one gospel tool until you can share it simply and naturally.',
+    cta: {
+      label: 'Learn the 3 Circles Gospel Tool',
+      href: '/the-three-circles-gospel-presentation-step-by-step/',
+      ctaType: 'onsite-tool',
+      destinationSite: 'multiplyingdisciples',
+    },
+    supporting: [
+      { label: 'Get the 3 Circles slides', href: '/3-circles/' },
+      { label: 'Read Stories of Hope with a seeker', href: '/movement-resources/7-stories-of-hope-complete-facilitation-guide/' },
+    ],
+  },
+  {
+    num: '04',
+    id: 'step-4',
+    title: 'Help interested people obey Jesus',
+    question: 'What do I do when someone is open or responds to the gospel?',
+    what: 'When someone responds, help them obey Jesus one command at a time. The Commands of Christ give you a simple, Bible-first path to follow together.',
+    why: 'Discipleship is not a class you graduate; it is obedience you practice. Meeting again quickly around one command turns interest into a following relationship.',
+    action: 'Meet again quickly and help the person obey one thing Jesus taught.',
+    cta: {
+      label: 'Begin the Commands of Christ',
+      href: COMMANDS_OF_CHRIST,
+      external: true,
+      ctaType: 'obeytools',
+      destinationSite: 'obeytools',
+    },
+    supporting: [
+      { label: 'Try a Three Thirds meeting', href: '/three-thirds/' },
+      { label: 'Understand biblical discipleship', href: '/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/' },
+    ],
+  },
+  {
+    num: '05',
+    id: 'step-5',
+    title: 'Gather disciples as church',
+    question: 'How does a group become a spiritual family that practices church?',
+    what: 'Help the people you are discipling gather as a simple church — a spiritual family that practices the basic habits of church together, wherever they meet.',
+    why: 'Disciples were never meant to follow Jesus alone. When a small group starts practicing church, obedience becomes a shared life instead of a private effort.',
+    action: 'Help the group recognize and practice the biblical habits of church.',
+    cta: {
+      label: 'Use the Church Circle',
+      href: '/movement-resources/12-practice-church-circle/',
+      ctaType: 'onsite-tool',
+      destinationSite: 'multiplyingdisciples',
+    },
+    supporting: [
+      { label: 'What a simple church looks like', href: '/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/' },
+      { label: 'The Three Thirds meeting pattern', href: '/three-thirds/' },
+    ],
+  },
+  {
+    num: '06',
+    id: 'step-6',
+    title: 'Help them do the same with others',
+    question: 'How does this continue beyond me?',
+    what: 'Help each new disciple take the same first steps you took — noticing people, praying, and beginning to share. A simple plan keeps it moving.',
+    why: 'Multiplication is not a bigger program; it is the same simple obedience, passed on. When you help others start, disciple making outlives you.',
+    action: 'Ask every disciple who they will pray for, share with, and begin helping.',
+    cta: {
+      label: 'Plan the Next Step with 4-1-1',
+      href: '/4-1-1/',
+      ctaType: 'onsite-tool',
+      destinationSite: 'multiplyingdisciples',
+    },
+    supporting: [
+      { label: 'Go deeper with the 4 Fields toolbox', href: '/movement-resources/4-fields-toolbox/' },
+    ],
+  },
+];
+
+// Confirmed CoVo destinations. Labs funnel through the homepage's own
+// live-registration section (site convention: nav "Labs" -> /#ch-practice);
+// the community link is the COVO_COMMUNITY_URL constant.
+const LAB_SECTION = '/#ch-practice';
+const COVO_COMMUNITY_UTM = utm(COVO_COMMUNITY_URL, 'disciple_making_pathway', 'community__mid');
+const COVO_COMMUNITY_UTM_FINAL = utm(COVO_COMMUNITY_URL, 'disciple_making_pathway', 'community__final');
+const COVO_LABS_UTM_FINAL = utm(COVO_LABS_URL, 'disciple_making_pathway', 'training__final');
+---
+
+<BaseLayout
+  title="Start Making Disciples: Simple Tools & Coaching"
+  description="Learn how to start making disciples with simple tools for relationships, gospel conversations, follow-up, and simple church — plus coaching and community to keep going."
+  canonical="https://multiplyingdisciples.us/starter-tools/"
+  ogImage="/images/baptism-backyard-pool.webp"
+  type="website"
+>
+  <!-- 1. HERO — one H1, one idea, one primary next step (start the
+       tutorial). Secondary route to practice with others. No off-site
+       jump above the fold. -->
+  <section class="st-hero">
+    <div class="st-hero__inner">
+      <p class="eyebrow eyebrow--gold-text">Start Here</p>
+      <h1>
+        Start Making{' '}
+        <span class="fm-underline fm-underline--shape-a fm-underline--clay-text">Disciples</span>.
+      </h1>
+      <p class="st-hero__subhead">
+        You do not need to master a program before you begin. You need a few simple tools, real
+        people to practice with, and help taking your next step.
+      </p>
+      <p class="st-hero__ctas">
+        <a
+          class="button"
+          href="#step-1"
+          data-ecosystem-cta
+          data-cta-level="tutorial"
+          data-cta-type="tutorial-start"
+          data-destination-site="multiplyingdisciples"
+        >Start the Tutorial</a>
+        <a
+          class="button button--secondary"
+          href={LAB_SECTION}
+          data-ecosystem-cta
+          data-cta-level="community"
+          data-cta-type="covo-lab"
+          data-destination-site="multiplyingdisciples"
+        >Practice With Others</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- 2. REALITY CHECK — tools are useful but insufficient. Short and
+       visually distinct (Soft Sage band). -->
+  <section class="st-reality" aria-labelledby="st-reality-h">
+    <div class="st-reality__inner">
+      <p class="eyebrow eyebrow--clay">First, the honest part</p>
+      <h2 id="st-reality-h">Tools help you obey. They do not make disciples for you.</h2>
+      <p>
+        These tools can help you notice people, start conversations, share the gospel, disciple
+        those who respond, and gather believers as church.
+      </p>
+      <p>
+        But tools do not make disciples by themselves. You learn disciple making by obeying Jesus
+        with real people, practicing with others, receiving feedback, and doing it again.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3. THREE CONNECTED LAYERS — the ecosystem in one glance. Text
+       only, no buttons: these explain how the three sites relate, they
+       are not three competing promos. The tutorial below stays the
+       dominant next step. -->
+  <section class="st-layers" aria-labelledby="st-layers-h">
+    <div class="st-layers__inner">
+      <p class="eyebrow eyebrow--gold-text">One connected pathway</p>
+      <h2 id="st-layers-h">
+        Multiplying Disciples shows you the pathway. Obey.Tools gives you the tools. CoVo gives you
+        people to practice with and coaching to keep going.
+      </h2>
+      <ul class="st-layers__grid">
+        <li class="st-layer">
+          <p class="st-layer__role">Pathway</p>
+          <h3>Multiplying Disciples</h3>
+          <p>Know what to do next and why it matters.</p>
+        </li>
+        <li class="st-layer">
+          <p class="st-layer__role">Toolbox</p>
+          <h3>Obey.Tools</h3>
+          <p>Use simple tools with real people.</p>
+        </li>
+        <li class="st-layer">
+          <p class="st-layer__role">Coaching &amp; Tribe</p>
+          <h3>CoVo Multipliers</h3>
+          <p>Practice, receive feedback, and keep going with others.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. THE GUIDED TUTORIAL — one numbered vertical pathway. Each step
+       answers: what am I doing, why it matters, which tool helps, what
+       to do now — with exactly one dominant tool CTA. The coaching
+       interruption (section 5) is injected after step 3. -->
+  <section class="st-tutorial" id="tutorial">
+    <div class="st-tutorial__intro">
+      <p class="eyebrow eyebrow--gold-text">The Pathway</p>
+      <h2>Six simple steps, in order.</h2>
+      <p>
+        Map people, start conversations, share the gospel, follow up, gather disciples as church,
+        and help them do the same. Take them one at a time — you only ever need the next step.
+      </p>
+    </div>
+
+    <ol class="st-steps">
+      {
+        STEPS.map((step) => (
+          <>
+            <li class="st-step" id={step.id}>
+              <div class="st-step__marker" aria-hidden="true">
+                <span class="st-step__num">{step.num}</span>
+              </div>
+              <div class="st-step__body">
+                <p class="st-step__label">Step {step.num}</p>
+                <h3>{step.title}</h3>
+                <p class="st-step__question">{step.question}</p>
+                <p class="st-step__what">{step.what}</p>
+                <p class="st-step__why">{step.why}</p>
+                <p class="st-step__action">
+                  <span class="st-step__action-label">Do this now</span>
+                  {step.action}
+                </p>
+                <p class="st-step__cta">
+                  <a
+                    class="button"
+                    href={
+                      step.cta.external
+                        ? utm(step.cta.href, 'disciple_making_pathway', `tool__step-${step.num}`)
+                        : step.cta.href
+                    }
+                    {...(step.cta.external ? { target: '_blank', rel: 'noopener' } : {})}
+                    data-ecosystem-cta
+                    data-cta-level="tool"
+                    data-cta-type={step.cta.ctaType}
+                    data-destination-site={step.cta.destinationSite}
+                  >
+                    {step.cta.label}
+                    {step.cta.external && <span class="st-step__ext"> &#8599; obey.tools</span>}
+                  </a>
+                </p>
+                {step.supporting && step.supporting.length > 0 && (
+                  <p class="st-step__supporting">
+                    Also helpful:{' '}
+                    {step.supporting.map((s, i) => (
+                      <>
+                        {i > 0 && <span aria-hidden="true"> &middot; </span>}
+                        <a href={s.href}>{s.label}</a>
+                      </>
+                    ))}
+                  </p>
+                )}
+              </div>
+            </li>
+
+            {step.num === '03' && (
+              <li class="st-interrupt" aria-labelledby="st-interrupt-h">
+                <div class="st-interrupt__body">
+                  <p class="eyebrow eyebrow--gold-bright">Do not skip this</p>
+                  <h3 id="st-interrupt-h">You can learn a tool alone. You cannot learn disciple making alone.</h3>
+                  <p class="st-interrupt__lead">
+                    The people who actually make disciples are the ones who practice, tell someone
+                    what happened, and come back for the next step. That rhythm is how the tools
+                    above turn into a life.
+                  </p>
+                  <ol class="st-rhythm">
+                    <li>Learn one simple tool.</li>
+                    <li>Use it with a real person.</li>
+                    <li>Share what happened.</li>
+                    <li>Receive feedback.</li>
+                    <li>Set the next goal.</li>
+                    <li>Repeat.</li>
+                  </ol>
+                  <p class="st-interrupt__ctas">
+                    <a
+                      class="button button--secondary-dark"
+                      href={LAB_SECTION}
+                      data-ecosystem-cta
+                      data-cta-level="training"
+                      data-cta-type="covo-lab"
+                      data-destination-site="multiplyingdisciples"
+                    >Join the Next Live Lab</a>
+                    <a
+                      class="button button--secondary-dark"
+                      href={COVO_COMMUNITY_UTM}
+                      target="_blank"
+                      rel="noopener"
+                      data-ecosystem-cta
+                      data-cta-level="community"
+                      data-cta-type="covo-community"
+                      data-destination-site="covo"
+                    >Join the Practice Community</a>
+                  </p>
+                </div>
+              </li>
+            )}
+          </>
+        ))
+      }
+    </ol>
+  </section>
+
+  {/* 6. FIELD PROOF — reserved for real, approved field stories only.
+      Zero approved Field Notes exist today (REPOSITORY_PLAYBOOK integrity
+      rule: never invent testimonials/anecdotes/outcomes), so this
+      section renders nothing rather than placeholder copy. Add one
+      <blockquote> per approved story here, each tied to a tutorial
+      stage (map -> convo, simple gospel tool -> follow-up, shared life
+      -> church). Until then the tutorial reads complete without it. */}
+
+  <!-- 7. FIRST THREE MOVES — make starting feel possible today. One
+       primary CTA back into the tutorial's first step. -->
+  <section class="st-first" aria-labelledby="st-first-h">
+    <div class="st-first__inner">
+      <p class="eyebrow eyebrow--gold-text">Start today</p>
+      <h2 id="st-first-h">Your first three moves</h2>
+      <ol class="st-first__list">
+        <li><strong>Map five people.</strong> Write down five people you already know.</li>
+        <li><strong>Start one spiritual conversation.</strong> Ask one person one question this week.</li>
+        <li><strong>Join a place to practice.</strong> Get coaching and a few people to practice with.</li>
+      </ol>
+      <p class="st-first__cta">
+        <a
+          class="button"
+          href="#step-1"
+          data-ecosystem-cta
+          data-cta-level="tutorial"
+          data-cta-type="tutorial-start"
+          data-destination-site="multiplyingdisciples"
+        >Take the First Step</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- 8. FINAL DECISION — three clear routes, one per ecosystem layer.
+       No newsletter/podcast/donation/social CTAs in the primary flow. -->
+  <section class="st-final" aria-labelledby="st-final-h">
+    <div class="st-final__inner">
+      <p class="eyebrow eyebrow--clay">Take your next step</p>
+      <h2 id="st-final-h">Three ways to keep going.</h2>
+      <div class="st-final__grid">
+        <div class="st-final__card">
+          <p class="st-final__role">Start with the tools</p>
+          <p>Open the first tool in the tutorial and use it with someone you know.</p>
+          <a
+            class="button"
+            href="#step-1"
+            data-ecosystem-cta
+            data-cta-level="tool"
+            data-cta-type="tutorial-start"
+            data-destination-site="multiplyingdisciples"
+          >Start the Tutorial</a>
+        </div>
+        <div class="st-final__card">
+          <p class="st-final__role">Get live coaching</p>
+          <p>Join the next live lab and practice one tool with a coach and others.</p>
+          <a
+            class="button"
+            href={COVO_LABS_UTM_FINAL}
+            target="_blank"
+            rel="noopener"
+            data-ecosystem-cta
+            data-cta-level="training"
+            data-cta-type="covo-lab"
+            data-destination-site="covo"
+          >Join a Live Lab <span class="st-step__ext">&#8599; covomultipliers.com</span></a>
+        </div>
+        <div class="st-final__card">
+          <p class="st-final__role">Practice with the tribe</p>
+          <p>Join the ongoing CoVo practice community and keep taking real steps together.</p>
+          <a
+            class="button"
+            href={COVO_COMMUNITY_UTM_FINAL}
+            target="_blank"
+            rel="noopener"
+            data-ecosystem-cta
+            data-cta-level="community"
+            data-cta-type="covo-community"
+            data-destination-site="covo"
+          >Join the Community <span class="st-step__ext">&#8599; covomultipliers.com</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Shared eyebrow (monospace label) — same treatment as the homepage. */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin: 0 0 0.6rem;
+  }
+  .eyebrow--gold-text { color: var(--color-gold-text); }
+  .eyebrow--gold-bright { color: var(--color-gold-bright); }
+  .eyebrow--clay { color: var(--color-clay-text); }
+
+  /* --- 1. Hero — clean text hero on Warm Paper -------------------- */
+  .st-hero {
+    padding: 5.5rem 1.25rem 4.5rem;
+    text-align: center;
+    background: var(--color-bg);
+  }
+  .st-hero__inner {
+    max-width: 44rem;
+    margin: 0 auto;
+  }
+  .st-hero h1 {
+    max-width: 22ch;
+    margin: 0 auto 1.5rem;
+    font-size: var(--fs-h1);
+    line-height: 1.08;
+    color: var(--color-primary);
+  }
+  .st-hero__highlight { color: var(--color-clay-text); }
+  .st-hero__subhead {
+    max-width: 34rem;
+    margin: 0 auto 2.5rem;
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+  .st-hero__ctas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+  .st-hero__ctas .button {
+    padding: 0.9rem 2.1rem;
+    font-size: 1.05rem;
+  }
+  .st-hero__ctas .button:not(.button--secondary) { font-weight: 700; }
+
+  @media (max-width: 400px) {
+    .st-hero__ctas { gap: 0.6rem; }
+    .st-hero__ctas .button { padding: 0.8rem 1.4rem; font-size: 0.95rem; }
+  }
+
+  /* --- 2. Reality check — Soft Sage band -------------------------- */
+  .st-reality {
+    padding: 3.5rem 1.5rem;
+    background: var(--color-surface);
+  }
+  .st-reality__inner {
+    max-width: 42rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .st-reality h2 {
+    margin: 0 0 1.25rem;
+    font-size: var(--fs-h3);
+    line-height: 1.2;
+    color: var(--color-primary);
+  }
+  .st-reality p:not(.eyebrow) {
+    margin: 0 auto 1rem;
+    max-width: 38rem;
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: var(--color-ink);
+  }
+  .st-reality p:last-child { margin-bottom: 0; }
+
+  /* --- 3. Three connected layers --------------------------------- */
+  .st-layers {
+    padding: 5rem 1.5rem;
+    background: var(--color-bg);
+  }
+  .st-layers__inner {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    text-align: center;
+  }
+  .st-layers h2 {
+    max-width: 40rem;
+    margin: 0 auto 3rem;
+    font-size: var(--fs-h3);
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+  .st-layers__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+  }
+  .st-layer {
+    padding: 1.75rem;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-accent);
+    border-radius: var(--radius-card);
+    box-shadow: var(--fm-shadow);
+  }
+  .st-layer__role {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-clay-text);
+  }
+  .st-layer h3 {
+    margin: 0 0 0.5rem;
+    font-size: var(--fs-card-title);
+    color: var(--color-primary);
+  }
+  .st-layer p:last-child {
+    margin: 0;
+    font-size: var(--fs-support);
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 720px) {
+    .st-layers__grid { grid-template-columns: 1fr; gap: 1rem; }
+    .st-layers { padding: 4rem 1.25rem; }
+  }
+
+  /* --- 4. Guided tutorial — numbered vertical pathway ------------ */
+  .st-tutorial {
+    padding: 5.5rem 1.25rem 4rem;
+    background: var(--color-bg);
+  }
+  .st-tutorial__intro {
+    max-width: 42rem;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+  .st-tutorial__intro h2 {
+    margin: 0 0 1rem;
+    font-size: var(--fs-h2);
+    line-height: 1.15;
+    color: var(--color-primary);
+  }
+  .st-tutorial__intro p:not(.eyebrow) {
+    margin: 0 auto;
+    max-width: 38rem;
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  .st-steps {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    counter-reset: none;
+  }
+
+  /* Each step: number marker in a left rail, connected by a vertical
+     line so the six steps read as one path, not six cards. */
+  .st-step {
+    display: grid;
+    grid-template-columns: 3.25rem 1fr;
+    gap: 1.25rem;
+    position: relative;
+    padding-bottom: 2.5rem;
+    scroll-margin-top: 1.5rem;
+  }
+  /* Connector line down the left rail, behind the number badges. */
+  .st-step::before {
+    content: '';
+    position: absolute;
+    left: 1.5rem;
+    top: 0.5rem;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-border);
+  }
+  .st-step:last-of-type::before { display: none; }
+
+  .st-step__marker { position: relative; z-index: 1; }
+  .st-step__num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .st-step__body {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--fm-shadow);
+    padding: 1.75rem 1.75rem 1.85rem;
+  }
+  .st-step__label {
+    margin: 0 0 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-clay-text);
+  }
+  .st-step__body h3 {
+    margin: 0 0 0.65rem;
+    font-size: var(--fs-card-title);
+    line-height: 1.2;
+    color: var(--color-primary);
+  }
+  .st-step__question {
+    margin: 0 0 1rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--color-accent-hover);
+  }
+  .st-step__what,
+  .st-step__why {
+    margin: 0 0 0.85rem;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-ink);
+  }
+  .st-step__why { color: var(--color-text-muted); }
+
+  .st-step__action {
+    margin: 1.25rem 0 1.5rem;
+    padding: 0.9rem 1.1rem;
+    background: var(--color-surface);
+    border-radius: var(--radius-button);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    color: var(--color-ink);
+  }
+  .st-step__action-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .st-step__cta { margin: 0 0 0.75rem; }
+  .st-step__cta .button { font-weight: 700; }
+  .st-step__ext {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    opacity: 0.85;
+  }
+
+  .st-step__supporting {
+    margin: 0;
+    font-size: var(--fs-support);
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+  .st-step__supporting a { color: var(--color-accent-hover); }
+
+  @media (max-width: 560px) {
+    .st-step {
+      grid-template-columns: 2.5rem 1fr;
+      gap: 0.85rem;
+    }
+    .st-step::before { left: 1.15rem; }
+    .st-step__num {
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 0.9rem;
+    }
+    .st-step__body { padding: 1.35rem 1.25rem 1.5rem; }
+    .st-step__cta .button { display: block; text-align: center; }
+  }
+
+  /* --- 5. Coaching interruption — dark green band, full bleed ----- */
+  .st-interrupt {
+    /* Break out of the .st-steps column to a full-width band. */
+    margin: 1rem calc(50% - 50vw) 2.5rem;
+    padding: 4rem 1.5rem;
+    background: var(--color-primary);
+  }
+  .st-interrupt__body {
+    max-width: 44rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .st-interrupt h3 {
+    margin: 0 0 1.25rem;
+    font-size: var(--fs-h2);
+    line-height: 1.15;
+    color: var(--color-primary-text);
+  }
+  .st-interrupt__lead {
+    margin: 0 auto 2rem;
+    max-width: 38rem;
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: rgba(247, 243, 234, 0.88);
+  }
+  .st-rhythm {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 0.75rem;
+    max-width: 40rem;
+    margin: 0 auto 2.25rem;
+    padding: 0;
+    list-style: none;
+    counter-reset: rhythm;
+    text-align: left;
+  }
+  .st-rhythm li {
+    counter-increment: rhythm;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--fs-support);
+    font-weight: 600;
+    color: var(--color-primary-text);
+  }
+  .st-rhythm li::before {
+    content: counter(rhythm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--color-gold);
+    color: var(--color-primary);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .st-interrupt__ctas {
+    display: flex;
+    justify-content: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+
+  @media (max-width: 560px) {
+    .st-interrupt { padding: 3rem 1.25rem; }
+    .st-interrupt__ctas .button {
+      width: 100%;
+      max-width: 22rem;
+      text-align: center;
+    }
+  }
+
+  /* --- 7. First three moves — Soft Sage band --------------------- */
+  .st-first {
+    padding: 5rem 1.5rem;
+    background: var(--color-surface);
+  }
+  .st-first__inner {
+    max-width: 40rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .st-first h2 {
+    margin: 0 0 2rem;
+    font-size: var(--fs-h2);
+    color: var(--color-primary);
+  }
+  .st-first__list {
+    max-width: 32rem;
+    margin: 0 auto 2.25rem;
+    padding: 0;
+    list-style: none;
+    counter-reset: moves;
+    text-align: left;
+  }
+  .st-first__list li {
+    counter-increment: moves;
+    position: relative;
+    padding: 0.9rem 0 0.9rem 3rem;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    color: var(--color-ink);
+  }
+  .st-first__list li:last-child { border-bottom: none; }
+  .st-first__list li::before {
+    content: counter(moves);
+    position: absolute;
+    left: 0;
+    top: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  .st-first__cta { margin: 0; }
+  .st-first__cta .button {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  /* --- 8. Final decision — three routes -------------------------- */
+  .st-final {
+    padding: 5.5rem 1.5rem;
+    background: var(--color-bg);
+    border-top: 3px solid var(--color-gold);
+  }
+  .st-final__inner {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    text-align: center;
+  }
+  .st-final h2 {
+    margin: 0 0 2.5rem;
+    font-size: var(--fs-h2);
+    color: var(--color-primary);
+  }
+  .st-final__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    text-align: left;
+  }
+  .st-final__card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--fm-shadow);
+  }
+  .st-final__role {
+    margin: 0 0 0.6rem;
+    font-size: var(--fs-card-title);
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+  .st-final__card p:not(.st-final__role) {
+    margin: 0 0 1.5rem;
+    font-size: var(--fs-support);
+    line-height: 1.55;
+    color: var(--color-text-muted);
+  }
+  .st-final__card .button {
+    margin-top: auto;
+    align-self: flex-start;
+  }
+  .st-final__card .st-step__ext { display: inline; }
+
+  @media (max-width: 760px) {
+    .st-final__grid { grid-template-columns: 1fr; }
+    .st-final { padding: 4rem 1.25rem; }
+    .st-final__card .button { align-self: stretch; text-align: center; }
+  }
+</style>

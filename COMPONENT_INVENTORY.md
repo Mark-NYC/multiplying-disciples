@@ -83,5 +83,6 @@ Current inventory after the 2026-07 sitewide consistency pass.
 ## Still-global CSS patterns (authorable from `.md` bodies)
 
 `.callout` family, `.steps`, `.resource-grid`/`.resource-card`,
-`.button-row`, `.cta-band` (used by starter-tools' in-body "Get
-Training" band), `.eyebrow`, `.fm-underline`. See global.css comments.
+`.button-row`, `.cta-band` (in-body "Get Training"-style band, e.g.
+`unlock-the-power-of-friendly-accountability`), `.eyebrow`,
+`.fm-underline`. See global.css comments.
