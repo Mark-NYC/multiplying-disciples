@@ -396,7 +396,7 @@ Sorted by impressions (real GSC data where available).
 | `/blog/` | new Astro index page (not a WP content migration — see Phase 7A) | published | 0 | 95 | tier-3 |
 | `/disciple-making-resources-for-churches-that-will-multiply/` | article | migrated | 1 | 92 | tier-3 |
 | `/under-the-hood-of-disciple-making-movements/` | article | migrated | 0 | 86 | tier-3 |
-| `/starter-tools/` | page | migrated | 0 | 78 | tier-3 |
+| `/starter-tools/` | bespoke tutorial page (`src/pages/starter-tools.astro`; was a migrated resource-grid article, rebuilt as the "Start Making Disciples" beginner tutorial — same URL, hand-indexed for search) | published | 0 | 78 | tier-3 |
 | `/what-are-disciple-making-movements-5-examples-from-around-the-world/` | article | migrated | 1 | 74 | tier-3 |
 | `/equipping-your-church-for-disciple-making-movements-a-pastors-guide-to-effective-training/` | article | migrated | 0 | 71 | tier-3 |
 | `/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/` | article | migrated | 0 | 66 | tier-3 |

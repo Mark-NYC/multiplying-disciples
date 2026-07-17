@@ -127,6 +127,23 @@ export const GET: APIRoute = async () => {
     type: 'Tool',
   });
 
+  // /starter-tools/ — the beginner disciple-making tutorial (bespoke
+  // page, was an articles-collection entry before the tutorial rebuild).
+  // Keep in sync with src/pages/starter-tools.astro (STEPS list).
+  docs.push({
+    id: '/starter-tools/',
+    url: '/starter-tools/',
+    title: 'Start Making Disciples',
+    seo_title: 'Start Making Disciples: Simple Tools & Coaching',
+    description:
+      'Learn how to start making disciples with simple tools for relationships, gospel conversations, follow-up, and simple church — plus coaching and community to keep going.',
+    headings:
+      'Tools help you obey. They do not make disciples for you. · One connected pathway · See the people God has already placed around you · Start spiritual conversations · Share your story and the gospel · Help interested people obey Jesus · Gather disciples as church · Help them do the same with others · You cannot learn disciple making alone · Your first three moves · Three ways to keep going',
+    body:
+      'How do I start making disciples? You do not need to master a program before you begin. You need a few simple tools, real people to practice with, and help taking your next step. Tools help you obey; they do not make disciples for you. Multiplying Disciples shows you the pathway, Obey.Tools gives you the tools, and CoVo Multipliers gives you people to practice with and coaching to keep going. The pathway: map the people around you and pray, start spiritual conversations, share your story and the gospel with the 3 Circles, help interested people obey Jesus through the Commands of Christ, gather disciples as simple church, and help them do the same with others. Learn one simple tool, use it with a real person, share what happened, receive feedback, set the next goal, and repeat. Your first three moves: map five people, start one spiritual conversation, and join a place where you can practice and receive coaching.',
+    type: 'Tool',
+  });
+
   // /stickers/ — keep in sync with that page's STICKERS list.
   docs.push({
     id: '/stickers/',

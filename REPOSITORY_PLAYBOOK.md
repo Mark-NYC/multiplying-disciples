@@ -61,7 +61,7 @@ serve the build.
 | `src/content/tools/` | empty today; schema wired, indexes/renders automatically when entries exist |
 | `src/content.config.ts` | **the frontmatter source of truth** — all collection schemas, heavily commented |
 | `src/pages/[...slug].astro` | one catch-all route rendering articles, tools, and hubs by `slug` |
-| `src/pages/` | homepage, `/kingdom-ministry-training/` and `/stickers/` (bespoke landing pages, hand-indexed for search and title-mapped in `RelatedArticles.astro`), `/blog/`, `/search/` (+ `search-index.json.ts`), 404 |
+| `src/pages/` | homepage, `/kingdom-ministry-training/`, `/stickers/`, and `/starter-tools/` (bespoke landing pages, hand-indexed for search and title-mapped in `RelatedArticles.astro`), `/blog/`, `/search/` (+ `search-index.json.ts`), 404 |
 | `src/layouts/` | `BaseLayout` (shell/SEO), `ArticleLayout` (the ONE article layout), `HubLayout`, `ToolLayout` |
 | `src/components/` | shared UI; `src/components/article/` = MDX article components (see COMPONENT_INVENTORY.md) |
 | `src/styles/` | `global.css` (tokens + authorable patterns), `article.css` (article layer) |
