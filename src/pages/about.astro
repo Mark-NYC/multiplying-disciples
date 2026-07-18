@@ -34,14 +34,16 @@ const founder = {
     <div class="ab-main__inner">
       <header class="ab-intro">
         <p class="eyebrow eyebrow--gold-text">About Multiplying Disciples</p>
-        <h1>
-          A practical pathway for{' '}
-          <span class="fm-underline fm-underline--shape-a fm-underline--clay-text">making disciples</span>.
-        </h1>
-        <p class="ab-intro__lead">
-          Multiplying Disciples helps ordinary Christians move from learning about disciple-making
-          to actually doing it.
-        </p>
+        <div class="ab-intro__napkin">
+          <h1>
+            A practical pathway for{' '}
+            <span class="fm-underline fm-underline--shape-a fm-underline--clay-text">making disciples</span>.
+          </h1>
+          <p class="ab-intro__lead">
+            Multiplying Disciples helps ordinary Christians move from learning about disciple-making
+            to actually doing it.
+          </p>
+        </div>
       </header>
 
       <div class="ab-story">
@@ -162,6 +164,7 @@ const founder = {
   }
   .ab-main__inner { max-width: var(--site-max-width); margin: 0 auto; }
   .ab-intro { max-width: 52rem; margin: 0 auto 5rem; text-align: center; }
+  .ab-intro__napkin { width: 100%; }
   .ab-intro h1 {
     max-width: 18ch; margin: 0 auto 1.5rem; font-size: var(--fs-h1); line-height: 1.05;
     color: var(--color-primary); text-wrap: balance;
@@ -266,20 +269,28 @@ const founder = {
   @media (max-width: 780px) {
     .ab-main { padding: 5rem 1.25rem 4.5rem; }
     .ab-intro {
+      width: min(100%, 34rem);
+      margin: 0 auto 3.5rem;
+    }
+    .ab-intro > .eyebrow {
+      margin-bottom: 1.35rem;
+    }
+    .ab-intro__napkin {
       display: flex;
       flex-direction: column;
       justify-content: center;
       aspect-ratio: 1 / 1;
-      width: min(100%, 34rem);
-      margin: 0 auto 3.5rem;
-      padding: 11% 12%;
+      padding: 12% 13% 13%;
       background: url('/tools-images/blank-napkin.webp') center / contain no-repeat;
     }
     .ab-intro h1 {
-      font-size: clamp(2.5rem, 11vw, 4rem);
+      margin-bottom: clamp(1rem, 4vw, 1.5rem);
+      font-size: clamp(1.65rem, 7vw, 2.6rem);
+      line-height: 1.03;
     }
     .ab-intro__lead {
-      font-size: clamp(1rem, 4vw, 1.25rem);
+      max-width: 27rem;
+      font-size: var(--fs-body);
       line-height: 1.5;
     }
     .ab-story { grid-template-columns: 1fr; gap: 2.75rem; }
@@ -291,7 +302,7 @@ const founder = {
     .ab-founder__photo { max-width: 22rem; margin: 0 auto; }
   }
   @media (max-width: 480px) {
-    .ab-intro { padding: 10% 11%; }
+    .ab-intro__napkin { padding: 12% 12% 13%; }
     .ab-pathway { padding: 1.75rem 1.35rem; }
     .ab-napkin { gap: 0.45rem; min-height: 6rem; padding: 1rem; letter-spacing: 0; }
     .ab-outcome .button, .ab-founder__cta .button { display: block; width: 100%; text-align: center; }
