@@ -121,7 +121,7 @@ const isActive = (href: string) =>
       {/* Top bar: logo · search · close (close sits top-right on desktop,
           drops to the foot on mobile — see CSS). */}
       <div class="site-menu__bar">
-        <RotatingSeal size="3.5rem" class="site-menu__seal" />
+        <RotatingSeal size="3.5rem" plate="#6f6552" class="site-menu__seal" />
 
         {/* Real GET form to /search/ — works with no JS (query lives in
             ?q=, read by src/pages/search/index.astro). */}
@@ -534,9 +534,7 @@ const isActive = (href: string) =>
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    /* A medium-darker tint of Warm Paper so the full-screen sheet reads
-       as a distinct layer over the page, not a seamless continuation. */
-    background: #e7ddc9;
+    background: var(--color-bg);
     padding: 1.1rem 1.5rem 2rem;
     opacity: 0;
     visibility: hidden;
