@@ -1,0 +1,105 @@
+---
+// FinalActionCards — the ending. Two paths only: use the tools, or practice
+// with others. Never three brand cards (Multiplying Disciples / Obey.Tools /
+// CoVo) — the visitor picks a next step, not an org.
+export interface FinalCard {
+  heading: string;
+  copy: string;
+  cta: {
+    label: string;
+    href: string;
+    external?: boolean;
+    secondary?: boolean;
+    ctaLevel?: string;
+    ctaType?: string;
+    destinationSite?: string;
+  };
+  primary?: boolean;
+}
+
+interface Props {
+  cards: FinalCard[];
+}
+
+const { cards } = Astro.props;
+---
+
+<section class="final-cards" aria-labelledby="final-cards-heading">
+  <div class="final-cards__inner">
+    <h2 id="final-cards-heading" class="final-cards__sr">Take your next step</h2>
+    <div class="final-cards__grid">
+      {cards.map((card) => (
+        <div class:list={['final-cards__card', { 'final-cards__card--primary': card.primary }]}>
+          <h3>{card.heading}</h3>
+          <p>{card.copy}</p>
+          <a
+            class:list={['button', { 'button--secondary': card.cta.secondary }]}
+            href={card.cta.href}
+            target={card.cta.external ? '_blank' : undefined}
+            rel={card.cta.external ? 'noopener' : undefined}
+            data-ecosystem-cta
+            data-cta-level={card.cta.ctaLevel}
+            data-cta-type={card.cta.ctaType}
+            data-destination-site={card.cta.destinationSite}
+          >
+            {card.cta.label}{card.cta.external && <span class="final-cards__ext" aria-hidden="true">&#8599;</span>}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .final-cards {
+    padding: 5rem 1.5rem;
+    background: var(--color-bg);
+    border-top: 3px solid var(--color-gold);
+  }
+  .final-cards__inner { max-width: 46rem; margin: 0 auto; }
+  .final-cards__sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .final-cards__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .final-cards__card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--fm-shadow);
+    text-align: left;
+  }
+  .final-cards__card--primary { border-top: 3px solid var(--color-accent); }
+  .final-cards__card h3 {
+    margin: 0 0 0.6rem;
+    font-size: var(--fs-card-title);
+    color: var(--color-primary);
+  }
+  .final-cards__card p {
+    margin: 0 0 1.5rem;
+    font-size: var(--fs-support);
+    line-height: 1.55;
+    color: var(--color-text-muted);
+  }
+  .final-cards__card .button { margin-top: auto; align-self: flex-start; }
+  .final-cards__ext { margin-left: 0.35rem; font-size: 0.85em; }
+
+  @media (max-width: 640px) {
+    .final-cards__grid { grid-template-columns: 1fr; }
+    .final-cards__card .button { align-self: stretch; text-align: center; }
+  }
+</style>

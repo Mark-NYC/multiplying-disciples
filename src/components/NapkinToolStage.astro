@@ -1,0 +1,349 @@
+---
+// NapkinToolStage — the recurring "field tools on a napkin" section used
+// for each of the three moves (Find people / Share Jesus / Make disciples).
+//
+// A single blank-napkin.webp base carries two hand-drawn tool SVGs layered
+// on top like sketches: one dominant, one supporting. The visual is the
+// focal point; copy is deliberately short. Each stage reveals once on scroll
+// into view (opacity + transform, staggered), and honours reduced motion.
+//
+// Tools are plain <img> overlays (the SVGs are self-contained), so this is a
+// practical reveal — no stroke-dashoffset choreography. If a tool asset is
+// missing (3 Circles is not drawn yet) pass `placeholder: true` and a clean,
+// clearly-labelled napkin card renders in its place, ready to swap later.
+import { imageDimensions } from '../lib/image-dimensions.mjs';
+
+export interface StageCta {
+  label: string;
+  href: string;
+  external?: boolean;
+  // Tracking (ecosystem-tracking.js) — passed straight through as data-*.
+  ctaLevel?: string;
+  ctaType?: string;
+  destinationSite?: string;
+}
+
+export interface StageTool {
+  /** Public path to the tool SVG. Omit when `placeholder` is true. */
+  src?: string;
+  /** Accessible name / caption for the tool. */
+  name: string;
+  alt?: string;
+  /** Which layer this tool occupies on the napkin. */
+  role: 'dominant' | 'support';
+  /** Render a labelled placeholder card instead of an image (missing asset). */
+  placeholder?: boolean;
+}
+
+interface Props {
+  id: string;
+  number: string;
+  eyebrow: string;
+  heading: string;
+  copy: string;
+  immediateAction: string;
+  primary: StageCta;
+  secondary?: StageCta & { toolName?: string };
+  tools: StageTool[];
+  variant?: 'paper' | 'sage';
+  reverse?: boolean;
+}
+
+const {
+  id,
+  number,
+  eyebrow,
+  heading,
+  copy,
+  immediateAction,
+  primary,
+  secondary,
+  tools,
+  variant = 'paper',
+  reverse = false,
+} = Astro.props;
+
+const napkin = imageDimensions('/tools-images/blank-napkin.webp');
+
+function ctaAttrs(cta: StageCta) {
+  return {
+    href: cta.href,
+    ...(cta.external ? { target: '_blank', rel: 'noopener' } : {}),
+    'data-ecosystem-cta': true,
+    ...(cta.ctaLevel ? { 'data-cta-level': cta.ctaLevel } : {}),
+    ...(cta.ctaType ? { 'data-cta-type': cta.ctaType } : {}),
+    ...(cta.destinationSite ? { 'data-destination-site': cta.destinationSite } : {}),
+  };
+}
+---
+
+<section
+  class:list={['napkin-stage', `napkin-stage--${variant}`, { 'napkin-stage--reverse': reverse }]}
+  id={id}
+>
+  <div class="napkin-stage__inner">
+    <div class="napkin-stage__text">
+      <div class="napkin-stage__intro">
+        <p class="napkin-stage__kicker"><span class="napkin-stage__num">{number}</span>{eyebrow}</p>
+        <h2>{heading}</h2>
+        <p class="napkin-stage__copy">{copy}</p>
+      </div>
+      <div class="napkin-stage__actions">
+        <p class="napkin-stage__do">{immediateAction}</p>
+        <div class="napkin-stage__ctas">
+          <a class="button napkin-stage__primary" {...ctaAttrs(primary)}>
+            {primary.label}{primary.external && <span class="napkin-stage__ext" aria-hidden="true">&#8599;</span>}
+          </a>
+          {secondary && (
+            <a class="button button--secondary napkin-stage__secondary" {...ctaAttrs(secondary)}>
+              {secondary.label}{secondary.external && <span class="napkin-stage__ext" aria-hidden="true">&#8599;</span>}
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <div class="napkin-stage__visual">
+      <div class="napkin" data-reveal>
+        <img
+          class="napkin__base"
+          src="/tools-images/blank-napkin.webp"
+          width={napkin?.width}
+          height={napkin?.height}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+        {tools.map((tool) => (
+          tool.placeholder ? (
+            <div class:list={['napkin__tool', `napkin__tool--${tool.role}`, 'napkin__tool--placeholder']}>
+              <div class="napkin__placeholder" role="img" aria-label={`${tool.name} (artwork coming soon)`}>
+                <span class="napkin__placeholder-circles" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="napkin__placeholder-name">{tool.name}</span>
+                <span class="napkin__placeholder-note">sketch coming soon</span>
+              </div>
+            </div>
+          ) : (
+            <img
+              class:list={['napkin__tool', `napkin__tool--${tool.role}`]}
+              src={tool.src}
+              alt={tool.alt ?? tool.name}
+              loading="lazy"
+              decoding="async"
+            />
+          )
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .napkin-stage {
+    padding: 5rem 1.5rem;
+  }
+  .napkin-stage--paper { background: var(--color-bg); }
+  .napkin-stage--sage { background: var(--color-surface); }
+
+  .napkin-stage__inner {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3.5rem;
+    align-items: center;
+  }
+  .napkin-stage__text { min-width: 0; }
+
+  /* Reversed stage: visual on the left (desktop only). */
+  @media (min-width: 861px) {
+    .napkin-stage--reverse .napkin-stage__text { order: 2; }
+    .napkin-stage--reverse .napkin-stage__visual { order: 1; }
+  }
+
+  /* --- Text column ------------------------------------------------ */
+  .napkin-stage__kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0 0 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-clay-text);
+  }
+  .napkin-stage__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    background: var(--color-gold);
+    color: var(--color-primary);
+    font-size: 0.85rem;
+  }
+  .napkin-stage__intro h2 {
+    margin: 0 0 1rem;
+    font-size: var(--fs-h2);
+    line-height: 1.12;
+    color: var(--color-primary);
+  }
+  .napkin-stage__copy {
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-ink);
+  }
+
+  .napkin-stage__actions { margin-top: 1.75rem; }
+  .napkin-stage__do {
+    margin: 0 0 1.25rem;
+    padding: 0.7rem 1rem;
+    display: inline-block;
+    background: #ffffff;
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-button);
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+  .napkin-stage--sage .napkin-stage__do { background: var(--color-bg); }
+
+  .napkin-stage__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  .napkin-stage__primary { padding: 0.9rem 1.9rem; font-weight: 700; }
+  .napkin-stage__secondary { padding: 0.75rem 1.4rem; font-size: var(--fs-support); }
+  .napkin-stage__ext { margin-left: 0.35rem; font-size: 0.85em; }
+
+  /* --- Napkin visual --------------------------------------------- */
+  .napkin-stage__visual { min-width: 0; }
+  .napkin {
+    position: relative;
+    max-width: 30rem;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;
+  }
+  .napkin__base {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 24px rgba(31, 37, 35, 0.12));
+  }
+  .napkin__tool {
+    position: absolute;
+    display: block;
+    height: auto;
+  }
+  .napkin__tool--dominant {
+    width: 70%;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    z-index: 2;
+  }
+  .napkin__tool--support {
+    width: 42%;
+    right: 4%;
+    bottom: 7%;
+    transform: rotate(4deg);
+    z-index: 3;
+    filter: drop-shadow(0 4px 10px rgba(31, 37, 35, 0.14));
+  }
+
+  /* Placeholder card for a tool whose SVG is not drawn yet (3 Circles). */
+  .napkin__tool--placeholder { width: 46%; }
+  .napkin__placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.9rem 0.75rem;
+    aspect-ratio: 1 / 1;
+    background: rgba(247, 243, 234, 0.92);
+    border: 2px dashed var(--color-accent);
+    border-radius: var(--radius-card);
+    text-align: center;
+  }
+  .napkin__placeholder-circles { display: flex; }
+  .napkin__placeholder-circles i {
+    width: 1.4rem;
+    height: 1.4rem;
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+  }
+  .napkin__placeholder-circles i + i { margin-left: -0.5rem; }
+  .napkin__placeholder-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.1;
+    color: var(--color-primary);
+  }
+  .napkin__placeholder-note {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  /* --- Scroll reveal (once, subtle) ------------------------------
+     Hidden state keeps each layer's final position (so the dominant
+     tool stays centred) and only offsets it 14px + fades it. The
+     reveal removes the offset, staggered per layer. */
+  .napkin__base,
+  .napkin__tool {
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .napkin__base { transform: translateY(14px); }
+  .napkin__tool--dominant { transform: translateX(-50%) translateY(14px) rotate(-2deg); }
+  .napkin__tool--support { transform: translateY(14px) rotate(4deg); }
+
+  .napkin.is-visible .napkin__base { opacity: 1; transform: translateY(0); }
+  .napkin.is-visible .napkin__tool--dominant {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) rotate(-2deg);
+    transition-delay: 0.18s;
+  }
+  .napkin.is-visible .napkin__tool--support {
+    opacity: 1;
+    transform: translateY(0) rotate(4deg);
+    transition-delay: 0.34s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .napkin__base,
+    .napkin__tool { opacity: 1 !important; transition: none !important; }
+    .napkin__base { transform: none; }
+    .napkin__tool--dominant { transform: translateX(-50%) rotate(-2deg); }
+    .napkin__tool--support { transform: rotate(4deg); }
+  }
+
+  /* --- Mobile ---------------------------------------------------- */
+  @media (max-width: 860px) {
+    .napkin-stage { padding: 3.5rem 1.25rem; }
+    .napkin-stage__inner {
+      grid-template-columns: 1fr;
+      row-gap: 2rem;
+    }
+    /* heading + copy, then napkin, then action + CTAs */
+    .napkin-stage__text { display: contents; }
+    .napkin-stage__intro { order: 1; }
+    .napkin-stage__visual { order: 2; }
+    .napkin-stage__actions { order: 3; margin-top: 0; }
+    .napkin { max-width: 22rem; }
+  }
+  @media (max-width: 480px) {
+    .napkin-stage__ctas { flex-direction: column; align-items: stretch; }
+    .napkin-stage__primary,
+    .napkin-stage__secondary { text-align: center; }
+  }
+</style>
