@@ -1,38 +1,12 @@
 ---
-// About / "Ordinary Christians can make disciples" — the site's About
-// page, the destination behind the "About" nav slot (see navigation.ts /
-// Footer.astro). Replaces the old placeholder that pointed at the /vision/
-// theology article; that article still lives at /vision/ unchanged.
-//
-// Uses the homepage visual system wholesale — shared color tokens,
-// monospace eyebrows, full-bleed photo hero with a green overlay (the
-// kingdom-ministry-training precedent), Primary Green conviction bands, a
-// Soft Sage core-convictions grid, the numbered three-step pathway, and
-// the gold-ruled final band. No new design language, no new tokens.
-//
-// The primary journey stays focused: Start Here (/starter-tools/),
-// Obey.Tools, the Lab (/#ch-practice — the homepage's own dynamic
-// next-lab section, the single funnel point for every lab CTA on the
-// site; see the note in navigation.ts), and the tribe/community. The
-// founder bio is plain prose on purpose — no résumé links out — so the
-// visitor and the mission stay central.
-//
-// Founder photo: public/images/mark-goering-nyc.jpg (Mark and his wife
-// Megan in NYC), copied from the covo-multipliers repo — a real, natural
-// photo, never stock. Hero photo reuses the brand's NYC basketball-court
-// disciple-making image.
-//
-// Keep the search entry in src/pages/search-index.json.ts in sync with
-// this page.
+// About page: one clear explanation, one visual breath, one founder story.
+// Keep the search entry in src/pages/search-index.json.ts in sync with this page.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { imageDimensions } from '../lib/image-dimensions.mjs';
 
 const OBEY = 'https://obey.tools';
 const CAMPAIGN = 'about_page';
 
-// Cross-domain UTM (page-slug + level + placement), matching the
-// convention in ECOSYSTEM_GROWTH_STRATEGY.md. Same-domain anchors never
-// get UTMs. Query precedes any #fragment.
 function utm(href: string, content: string): string {
   const params = new URLSearchParams({
     utm_source: 'multiplyingdisciples',
@@ -40,158 +14,111 @@ function utm(href: string, content: string): string {
     utm_campaign: CAMPAIGN,
     utm_content: `about__${content}`,
   });
-  const h = href.indexOf('#');
-  const base = h === -1 ? href : href.slice(0, h);
-  const frag = h === -1 ? '' : href.slice(h);
-  return `${base}${base.includes('?') ? '&' : '?'}${params.toString()}${frag}`;
+  return `${href}${href.includes('?') ? '&' : '?'}${params.toString()}`;
 }
 
-const founder = { src: '/images/mark-goering-nyc.jpg', ...imageDimensions('/images/mark-goering-nyc.jpg') };
-
-const CONVICTIONS = [
-  'Every follower of Jesus can make disciples.',
-  'Disciple-making begins with obedience, not expertise.',
-  'The best tools are simple enough to reproduce.',
-  'Training is incomplete until it becomes practice.',
-  'Churches can begin wherever disciples gather and obey Jesus together.',
-  'Healthy disciples multiply disciples, leaders, and churches.',
-  'Coaching and community help people stay in the game.',
-  'Local obedience matters more than platform growth.',
-  'The goal is generational fruit that outlives us.',
-];
+const founder = {
+  src: '/images/mark-goering-nyc.jpg',
+  ...imageDimensions('/images/mark-goering-nyc.jpg'),
+};
 ---
 
 <BaseLayout
   title="About | Multiplying Disciples"
-  description="Multiplying Disciples helps ordinary Christians move from learning about disciple-making to actually making disciples — through simple tools, real practice, coaching, and a community of practitioners."
+  description="Multiplying Disciples is a practical pathway that helps ordinary Christians move from learning about disciple-making to actually making disciples."
   canonical="https://multiplyingdisciples.us/about/"
   ogImage="/wp-content/uploads/home/Untitled-design-52.webp"
   type="website"
 >
-  <!-- 1. HERO — names the promise and offers one clear next step, with a
-       lighter second path to the tools. -->
-  <section class="ab-hero">
-    <div class="ab-hero__inner">
-      <p class="eyebrow eyebrow--gold-bright">About Multiplying Disciples</p>
-
-      <h1>
-        Ordinary Christians can{' '}
-        <span class="fm-underline fm-underline--shape-a fm-underline--clay-text">make disciples</span>.
-      </h1>
-
-      <p class="ab-hero__subhead">
-        Multiplying Disciples helps people move from learning about disciple-making to actually
-        doing it — through simple tools, real-world practice, coaching, and a community of
-        practitioners.
-      </p>
-
-      <p class="ab-hero__cta">
-        <a class="button" href="/starter-tools/">Start Making Disciples</a>
-      </p>
-
-      <p class="ab-hero__secondary">
-        <a
-          href={utm(`${OBEY}/`, 'hero__explore-tools')}
-          target="_blank"
-          rel="noopener"
-          data-ecosystem-cta
-          data-cta-level="tool"
-          data-cta-type="obeytools"
-          data-destination-site="obeytools"
-        >Explore the Tools <span class="ab-ext">&#8599;</span></a>
-      </p>
-    </div>
-  </section>
-
-  <!-- 2. WHY THIS EXISTS — the gap, named, then the four things people
-       actually need, as a clean four-part row. -->
-  <section class="ab-why">
-    <div class="ab-why__inner">
-      <p class="eyebrow eyebrow--gold-text">Why This Exists</p>
-      <h2>Most Christians do not need more information. They need a way to begin.</h2>
-
-      <div class="ab-why__copy">
-        <p>
-          Many Christians have spent years in church but still do not feel equipped to share the
-          gospel, disciple someone, or help a simple church begin.
+  <section class="ab-main">
+    <div class="ab-main__inner">
+      <header class="ab-intro">
+        <p class="eyebrow eyebrow--gold-text">About Multiplying Disciples</p>
+        <h1>
+          A practical pathway for{' '}
+          <span class="fm-underline fm-underline--shape-a fm-underline--clay-text">making disciples</span>.
+        </h1>
+        <p class="ab-intro__lead">
+          Multiplying Disciples helps ordinary Christians move from learning about disciple-making
+          to actually doing it.
         </p>
-        <p>
-          The problem is not a lack of sermons, books, or training events. People need simple tools
-          they can use, practice in real life, coaching when they get stuck, and other practitioners
-          who will stay in the game with them.
-        </p>
-        <p><strong>Multiplying Disciples exists to help close that gap.</strong></p>
+      </header>
+
+      <div class="ab-story">
+        <div class="ab-problem">
+          <h2>Most disciple-making training stops too soon.</h2>
+          <p>
+            You attend a training, learn a few tools, and leave inspired. Then real life happens.
+            You are not sure who to talk to, which tool to use, or what to do when someone responds.
+          </p>
+          <p>
+            You do not need more information. You need a clear next step, practice using what you
+            learn, and people who will help you keep going.
+          </p>
+        </div>
+
+        <div class="ab-pathway" aria-labelledby="pathway-title">
+          <p class="eyebrow eyebrow--clay">The Pathway</p>
+          <h2 id="pathway-title">Tools, practice, and people in one clear pathway.</h2>
+
+          <ol class="ab-pathway__steps">
+            <li>
+              <span class="ab-pathway__number">01</span>
+              <div>
+                <h3>Tools</h3>
+                <p>Simple, biblical tools show you what to do and are easy to pass on.</p>
+                <a
+                  href={utm(`${OBEY}/`, 'pathway__tools')}
+                  target="_blank"
+                  rel="noopener"
+                  data-ecosystem-cta
+                  data-cta-level="tool"
+                  data-cta-type="obeytools"
+                  data-destination-site="obeytools"
+                >Explore the Tools <span aria-hidden="true">&#8599;</span></a>
+              </div>
+            </li>
+            <li>
+              <span class="ab-pathway__number">02</span>
+              <div>
+                <h3>Live Labs</h3>
+                <p>Practice applying the tools to real disciple-making situations.</p>
+                <a href="/#ch-practice">Join the Next Lab</a>
+              </div>
+            </li>
+            <li>
+              <span class="ab-pathway__number">03</span>
+              <div>
+                <h3>Coaching + Tribe</h3>
+                <p>Get help when you are stuck and keep growing with people doing the work.</p>
+              </div>
+            </li>
+          </ol>
+
+          <p class="ab-pathway__summary">
+            Tools show you what to do. Labs help you practice. Coaching and tribe help you keep going.
+          </p>
+        </div>
       </div>
 
-      <ul class="ab-needs" aria-label="What people actually need">
-        <li class="ab-need">
-          <p class="ab-need__label">Simple Tools</p>
-          <p class="ab-need__text">Clear enough to use and reproduce.</p>
-        </li>
-        <li class="ab-need">
-          <p class="ab-need__label">Real Practice</p>
-          <p class="ab-need__text">Training becomes useful when it leads to obedience.</p>
-        </li>
-        <li class="ab-need">
-          <p class="ab-need__label">Coaching</p>
-          <p class="ab-need__text">Help applying the tools when real life gets messy.</p>
-        </li>
-        <li class="ab-need">
-          <p class="ab-need__label">Tribe</p>
-          <p class="ab-need__text">A community of practitioners learning and multiplying together.</p>
-        </li>
-      </ul>
+      <div class="ab-outcome">
+        <p>
+          The goal is not to complete training. It is to make disciples who make disciples, develop
+          leaders, and see new churches begin.
+        </p>
+        <a class="button" href="/starter-tools/">Start Making Disciples</a>
+      </div>
     </div>
   </section>
 
-  <!-- 3. WHAT WE ARE PURSUING — the goal, on a Primary Green band, with a
-       simple generational progression. -->
-  <section class="ab-pursuing">
-    <div class="ab-pursuing__inner">
-      <p class="eyebrow eyebrow--gold-bright">What We Are Pursuing</p>
-      <h2>The goal is multiplication.</h2>
-      <p class="ab-pursuing__body">
-        We are not trying to build an audience around a ministry brand. We want to see ordinary
-        people obey Jesus, make disciples, develop leaders, and start churches that multiply across
-        generations.
-      </p>
-
-      <ol class="ab-progression" aria-label="Disciples to leaders to churches to generations">
-        <li>Disciples</li>
-        <li>Leaders</li>
-        <li>Churches</li>
-        <li>Generations</li>
-      </ol>
-
-      <p class="ab-pursuing__note">
-        The work is not finished when someone learns the tool. It is bearing fruit when they obey
-        it, pass it on, and help others do the same.
-      </p>
+  <!-- Visual breath only. This can be swapped for the existing animated
+       napkin component without changing the two-section page structure. -->
+  <div class="ab-napkin-break" aria-hidden="true">
+    <div class="ab-napkin">
+      <span>Learn</span><b>&#8594;</b><span>Practice</span><b>&#8594;</b><span>Multiply</span>
     </div>
-  </section>
+  </div>
 
-  <!-- 4. CORE CONVICTIONS — a brief two-column list, then one emphasized
-       statement. Not a doctrinal statement. -->
-  <section class="ab-convictions">
-    <div class="ab-convictions__inner">
-      <p class="eyebrow eyebrow--gold-text">Core Convictions</p>
-      <h2>What shapes the work</h2>
-
-      <ul class="ab-convictions__list">
-        {CONVICTIONS.map((line) => (
-          <li>{line}</li>
-        ))}
-      </ul>
-
-      <p class="ab-convictions__emphasis">
-        Be part of a church where you are trained. Start a church where people can practice what
-        they are learning.
-      </p>
-    </div>
-  </section>
-
-  <!-- 5. FOUNDER — a natural photo of Mark (and Megan) in NYC beside a
-       grounded bio. Credible guide, not a résumé. -->
   <section class="ab-founder">
     <div class="ab-founder__inner">
       <figure class="ab-founder__photo">
@@ -207,643 +134,146 @@ const CONVICTIONS = [
       </figure>
 
       <div class="ab-founder__body">
-        <p class="eyebrow eyebrow--clay">Meet the Founder</p>
+        <p class="eyebrow eyebrow--clay">Built by a Practitioner</p>
         <h2>Mark Goering</h2>
-
         <p>
           Mark is a disciple-maker, church planter, and movement catalyst based in New York City. He
-          has spent years helping ordinary Christians share the gospel, disciple new believers,
-          develop leaders, and start simple churches in the places where they already live, work,
-          and play.
+          founded Multiplying Disciples to close the gap between disciple-making training and
+          disciple-making practice.
         </p>
         <p>
-          He founded Multiplying Disciples to give practitioners the simple tools, coaching, and
-          community he wished more Christians had. His work is shaped by field experience in New York
-          City, collaboration with disciple-makers across North America, and a conviction that
-          Jesus&rsquo; methods are still simple enough for ordinary people to obey and reproduce.
-        </p>
-        <p>
-          Mark also hosts the H3X podcast and helps lead CoVo Multipliers, a community for
-          disciple-makers pursuing multiplication alongside ordinary work and family life.
+          He has spent years sharing the gospel, discipling new believers, developing leaders, and
+          starting simple churches in the places where people live, work, and play. Everything here
+          is shaped by real field experience and made to be used, not just read.
         </p>
         <p>Mark lives in Queens with his wife, Megan, and their twin sons.</p>
+        <p class="ab-founder__cta">
+          <a class="button" href="/starter-tools/">Start Making Disciples</a>
+        </p>
       </div>
-    </div>
-  </section>
-
-  <!-- 6. HOW TO BEGIN — the site's three-step pathway (learn / practice /
-       find your tribe) with the primary and secondary next steps. -->
-  <section class="ab-begin">
-    <p class="eyebrow eyebrow--gold-text">How to Begin</p>
-    <h2>You do not need to have it all figured out.</h2>
-    <p class="ab-begin__subhead">
-      Start where you are. Take one step, use what you learn, and let someone help you keep going.
-    </p>
-
-    <ol class="ab-begin__steps">
-      <li class="ab-begin__step">
-        <span class="ab-begin__num">Step 01</span>
-        <h3>Learn</h3>
-        <p>Use the practical tools to begin sharing the gospel and making disciples.</p>
-      </li>
-      <li class="ab-begin__step">
-        <span class="ab-begin__num">Step 02</span>
-        <h3>Practice</h3>
-        <p>Join a live Lab and work through real disciple-making challenges with other practitioners.</p>
-      </li>
-      <li class="ab-begin__step">
-        <span class="ab-begin__num">Step 03</span>
-        <h3>Find Your Tribe</h3>
-        <p>Stay connected to people who are practicing, learning, and multiplying over the long haul.</p>
-      </li>
-    </ol>
-
-    <p class="ab-begin__ctas">
-      <a class="button" href="/starter-tools/">Start Making Disciples</a>
-      <a class="button button--secondary" href="/#ch-practice">Join the Next Lab</a>
-    </p>
-  </section>
-
-  <!-- 7. FINAL LINE — the closing statement on a gold-ruled band. -->
-  <section class="ab-final">
-    <div class="ab-final__inner">
-      <p>
-        Multiplying Disciples was built by practitioners to help ordinary Christians move from
-        learning about disciple-making to actually making disciples.
-      </p>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* --- 1. Hero — full-bleed photo + green overlay (kmt-hero
-     precedent) ------------------------------------------------------- */
-  .ab-hero {
-    position: relative;
-    display: grid;
-    align-items: center;
-    min-height: 34rem;
-    padding: 6rem 1.25rem 5rem;
-    text-align: center;
-    isolation: isolate;
+  .ab-main {
+    padding: 7rem 1.5rem 6rem;
+    background: radial-gradient(circle at 50% 0%, rgba(221, 232, 214, 0.7), transparent 34rem), var(--color-bg);
+  }
+  .ab-main__inner { max-width: var(--site-max-width); margin: 0 auto; }
+  .ab-intro { max-width: 52rem; margin: 0 auto 5rem; text-align: center; }
+  .ab-intro h1 {
+    max-width: 18ch; margin: 0 auto 1.5rem; font-size: var(--fs-h1); line-height: 1.05;
+    color: var(--color-primary); text-wrap: balance;
+  }
+  .ab-intro__lead {
+    max-width: 39rem; margin: 0 auto; font-size: clamp(1.15rem, 2vw, 1.35rem);
+    line-height: 1.55; color: var(--color-ink); text-wrap: balance;
+  }
+  .ab-story {
+    display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(3rem, 7vw, 6.5rem); align-items: start; max-width: 66rem; margin: 0 auto;
+  }
+  .ab-story h2 {
+    margin: 0 0 1.35rem; font-size: var(--fs-h2); line-height: 1.12;
+    color: var(--color-primary); text-wrap: balance;
+  }
+  .ab-problem { padding-top: 2rem; }
+  .ab-problem p {
+    margin: 0 0 1.15rem; font-size: 1.075rem; line-height: 1.7; color: var(--color-ink);
+  }
+  .ab-pathway {
+    padding: clamp(2rem, 4vw, 3rem); background: var(--color-surface);
+    border: 1px solid var(--color-border); border-radius: var(--radius-card); box-shadow: var(--fm-shadow);
+  }
+  .ab-pathway__steps { margin: 2rem 0 0; padding: 0; list-style: none; }
+  .ab-pathway__steps li {
+    position: relative; display: grid; grid-template-columns: 2.5rem 1fr;
+    gap: 1rem; padding: 0 0 2rem;
+  }
+  .ab-pathway__steps li:last-child { padding-bottom: 0; }
+  .ab-pathway__steps li:not(:last-child)::before {
+    content: ''; position: absolute; top: 2.35rem; bottom: 0.4rem; left: 1.1rem;
+    width: 2px; background: var(--color-gold);
+  }
+  .ab-pathway__number {
+    display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%;
+    font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
+    color: var(--color-primary-text); background: var(--color-primary);
+  }
+  .ab-pathway h3 { margin: 0 0 0.3rem; font-size: var(--fs-card-title); color: var(--color-primary); }
+  .ab-pathway__steps p {
+    margin: 0 0 0.35rem; font-size: var(--fs-support); line-height: 1.5; color: var(--color-text-muted);
+  }
+  .ab-pathway__steps a {
+    font-size: var(--fs-support); font-weight: 700; color: var(--color-clay-text); text-underline-offset: 0.2em;
+  }
+  .ab-pathway__summary {
+    margin: 2.25rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--color-border);
+    font-size: 1rem; font-weight: 700; line-height: 1.55; color: var(--color-primary);
+  }
+  .ab-outcome {
+    display: flex; justify-content: space-between; align-items: center; gap: 2rem;
+    max-width: 66rem; margin: 4.5rem auto 0; padding-top: 2.5rem; border-top: 2px solid var(--color-gold);
+  }
+  .ab-outcome p {
+    max-width: 46rem; margin: 0; font-size: clamp(1.15rem, 2vw, 1.4rem);
+    font-weight: 700; line-height: 1.45; color: var(--color-primary);
+  }
+  .ab-outcome .button, .ab-founder__cta .button { flex: 0 0 auto; padding: 0.9rem 1.7rem; font-weight: 700; }
+
+  .ab-napkin-break {
+    display: grid; place-items: center; min-height: 8rem; padding: 0 1.5rem;
+    background: linear-gradient(to bottom, var(--color-bg) 0 50%, var(--color-surface) 50% 100%);
+  }
+  .ab-napkin {
+    display: flex; align-items: center; justify-content: center; gap: clamp(0.6rem, 2vw, 1.4rem);
+    width: min(34rem, 92vw); min-height: 7rem; padding: 1.4rem 2rem; transform: rotate(-1.2deg);
     background:
-      linear-gradient(
-        180deg,
-        rgba(12, 34, 28, 0.74) 0%,
-        rgba(12, 34, 28, 0.6) 45%,
-        rgba(12, 34, 28, 0.8) 100%
-      ),
-      url('/wp-content/uploads/home/Untitled-design-52.webp') center 42% / cover no-repeat;
+      linear-gradient(135deg, transparent 0 48%, rgba(31, 37, 35, 0.035) 49% 51%, transparent 52%),
+      linear-gradient(35deg, transparent 0 48%, rgba(31, 37, 35, 0.025) 49% 51%, transparent 52%), #fffdf8;
+    background-size: 5rem 5rem, 7rem 7rem, auto; border: 1px solid rgba(31, 37, 35, 0.12);
+    box-shadow: 0 12px 30px rgba(31, 37, 35, 0.12); font-family: var(--font-mono);
+    font-size: clamp(0.9rem, 2.4vw, 1.25rem); font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--color-ink);
   }
+  .ab-napkin b { color: var(--color-clay-text); font-size: 1.25em; }
 
-  .ab-hero__inner {
-    width: 100%;
-    max-width: 46rem;
-    margin: 0 auto;
-  }
-
-  .ab-hero .eyebrow {
-    margin-bottom: 1rem;
-    color: var(--color-gold-bright);
-    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
-  }
-
-  .ab-hero h1 {
-    max-width: 20ch;
-    margin: 0 auto 1.5rem;
-    font-size: var(--fs-h1);
-    line-height: 1.06;
-    color: #ffffff;
-    text-wrap: balance;
-    text-shadow:
-      0 2px 6px rgba(0, 0, 0, 0.3),
-      0 12px 32px rgba(0, 0, 0, 0.28);
-  }
-
-  .ab-hero h1 .fm-underline {
-    color: #ffffff;
-  }
-
-  .ab-hero__subhead {
-    max-width: 40rem;
-    margin: 0 auto 2.25rem;
-    font-size: var(--fs-body);
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.94);
-    text-wrap: balance;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.38);
-  }
-
-  .ab-hero__cta {
-    margin: 0 0 1.25rem;
-  }
-
-  .ab-hero__cta .button {
-    padding: 0.95rem 2.3rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    background: var(--color-gold-bright);
-    border-color: var(--color-gold-bright);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  }
-
-  .ab-hero__cta .button:hover {
-    background: var(--color-gold);
-    border-color: var(--color-gold);
-    color: var(--color-primary);
-  }
-
-  .ab-hero__secondary {
-    margin: 0;
-    font-size: var(--fs-support);
-  }
-
-  .ab-hero__secondary a {
-    color: #ffffff;
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-  }
-
-  .ab-hero__secondary a:hover {
-    color: var(--color-gold-bright);
-  }
-
-  .ab-ext {
-    font-size: 0.85em;
-  }
-
-  @media (max-width: 640px) {
-    .ab-hero {
-      min-height: 32rem;
-      padding: 4.75rem 1.25rem 4.25rem;
-    }
-    .ab-hero__subhead {
-      max-width: 32rem;
-    }
-    .ab-hero__cta .button {
-      display: block;
-      width: 100%;
-      max-width: 22rem;
-      margin: 0 auto;
-      text-align: center;
-    }
-  }
-
-  /* --- 2. Why this exists ------------------------------------------- */
-  .ab-why {
-    padding: 5.5rem 1.5rem;
-    background: var(--color-bg);
-  }
-
-  .ab-why__inner {
-    max-width: var(--site-max-width);
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .ab-why h2 {
-    max-width: 24ch;
-    margin: 0 auto 1.75rem;
-    font-size: var(--fs-h2);
-    line-height: 1.15;
-    color: var(--color-primary);
-  }
-
-  .ab-why__copy {
-    max-width: 42rem;
-    margin: 0 auto 3.25rem;
-  }
-
-  .ab-why__copy p {
-    margin: 0 0 1.1rem;
-    font-size: var(--fs-body);
-    line-height: 1.6;
-    color: var(--color-ink);
-  }
-
-  .ab-why__copy p:last-child {
-    margin-bottom: 0;
-  }
-
-  .ab-why__copy strong {
-    color: var(--color-primary);
-  }
-
-  /* Four simple cards, clean row. */
-  .ab-needs {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-align: left;
-  }
-
-  .ab-need {
-    padding: 1.5rem 1.4rem;
-    background: #ffffff;
-    border: 1px solid var(--color-border);
-    border-top: 3px solid var(--color-accent);
-    border-radius: var(--radius-card);
-    box-shadow: var(--fm-shadow);
-  }
-
-  .ab-need__label {
-    margin: 0 0 0.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-clay-text);
-  }
-
-  .ab-need__text {
-    margin: 0;
-    font-size: var(--fs-support);
-    line-height: 1.5;
-    color: var(--color-text-muted);
-  }
-
-  @media (max-width: 760px) {
-    .ab-needs {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  @media (max-width: 460px) {
-    .ab-needs {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .ab-why {
-      padding: 4rem 1.25rem;
-    }
-  }
-
-  /* --- 3. What we are pursuing — Primary Green band ----------------- */
-  .ab-pursuing {
-    padding: 5rem 1.5rem;
-    text-align: center;
-    background: var(--color-primary);
-  }
-
-  .ab-pursuing__inner {
-    max-width: 44rem;
-    margin: 0 auto;
-  }
-
-  .ab-pursuing h2 {
-    margin: 0 0 1.5rem;
-    font-size: var(--fs-h2);
-    line-height: 1.12;
-    color: var(--color-primary-text);
-  }
-
-  .ab-pursuing__body {
-    max-width: 40rem;
-    margin: 0 auto 2.5rem;
-    font-size: var(--fs-body);
-    line-height: 1.6;
-    color: rgba(247, 243, 234, 0.88);
-  }
-
-  /* Generational progression — pill row with arrow connectors, the same
-     pattern as the starter-tools practice rhythm. */
-  .ab-progression {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.6rem;
-    margin: 0 0 2.5rem;
-    padding: 0;
-    list-style: none;
-  }
-
-  .ab-progression li {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 1.1rem;
-    border: 1px solid rgba(247, 243, 234, 0.3);
-    border-radius: var(--radius-pill);
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-primary-text);
-  }
-
-  .ab-progression li:not(:last-child)::after {
-    content: '\2192';
-    margin-left: 0.85rem;
-    color: var(--color-gold-bright);
-    font-size: 1.05rem;
-  }
-
-  .ab-pursuing__note {
-    max-width: 40rem;
-    margin: 0 auto;
-    font-size: var(--fs-support);
-    font-weight: 600;
-    line-height: 1.6;
-    color: var(--color-primary-text);
-  }
-
-  @media (max-width: 640px) {
-    .ab-pursuing {
-      padding: 4rem 1.25rem;
-    }
-    /* Drop the inline arrows on the wrapped mobile layout so pills read
-       cleanly stacked two-up instead of trailing a stray glyph. */
-    .ab-progression li:not(:last-child)::after {
-      display: none;
-    }
-  }
-
-  /* --- 4. Core convictions — Soft Sage, two-column list ------------- */
-  .ab-convictions {
-    padding: 5.5rem 1.5rem;
-    background: var(--color-surface);
-  }
-
-  .ab-convictions__inner {
-    max-width: var(--site-max-width);
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .ab-convictions h2 {
-    margin: 0 0 2.5rem;
-    font-size: var(--fs-h2);
-    line-height: 1.12;
-    color: var(--color-primary);
-  }
-
-  .ab-convictions__list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.85rem 2.5rem;
-    max-width: 52rem;
-    margin: 0 auto 3rem;
-    padding: 0;
-    list-style: none;
-    text-align: left;
-  }
-
-  .ab-convictions__list li {
-    position: relative;
-    padding: 0.35rem 0 0.35rem 1.6rem;
-    font-size: 1.0625rem;
-    line-height: 1.5;
-    color: var(--color-ink);
-  }
-
-  .ab-convictions__list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.85rem;
-    width: 0.55rem;
-    height: 0.55rem;
-    border-radius: 50%;
-    background: var(--color-accent);
-  }
-
-  .ab-convictions__emphasis {
-    max-width: 40rem;
-    margin: 0 auto;
-    padding: 1.75rem 2rem;
-    background: var(--color-bg);
-    border-left: 3px solid var(--color-gold);
-    border-radius: var(--radius-card);
-    font-size: var(--fs-card-title);
-    font-weight: 700;
-    line-height: 1.35;
-    color: var(--color-primary);
-    text-align: left;
-  }
-
-  @media (max-width: 640px) {
-    .ab-convictions {
-      padding: 4rem 1.25rem;
-    }
-    .ab-convictions__list {
-      grid-template-columns: 1fr;
-      max-width: 30rem;
-    }
-  }
-
-  /* --- 5. Founder -------------------------------------------------- */
-  .ab-founder {
-    padding: 5.5rem 1.5rem;
-    background: var(--color-bg);
-  }
-
+  .ab-founder { padding: 6rem 1.5rem; background: var(--color-surface); }
   .ab-founder__inner {
-    max-width: var(--site-max-width);
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 3rem;
-    align-items: center;
+    display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: center; max-width: 58rem; margin: 0 auto;
   }
-
-  .ab-founder__photo {
-    margin: 0;
-  }
-
+  .ab-founder__photo { margin: 0; }
   .ab-founder__photo img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-image);
+    display: block; width: 100%; height: auto; border-radius: var(--radius-image);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   }
-
   .ab-founder__photo figcaption {
-    margin-top: 0.75rem;
-    font-style: italic;
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
+    margin-top: 0.75rem; font-size: 0.9rem; font-style: italic; color: var(--color-text-muted);
   }
-
   .ab-founder__body h2 {
-    margin: 0 0 1.25rem;
-    font-size: var(--fs-h2);
-    line-height: 1.12;
-    color: var(--color-primary);
+    margin: 0 0 1.25rem; font-size: var(--fs-h2); line-height: 1.12; color: var(--color-primary);
   }
-
-  .ab-founder__body p:not(.eyebrow) {
-    margin: 0 0 1.1rem;
-    font-size: 1.0625rem;
-    line-height: 1.65;
-    color: var(--color-ink);
+  .ab-founder__body p:not(.eyebrow, .ab-founder__cta) {
+    margin: 0 0 1.1rem; font-size: 1.0625rem; line-height: 1.65; color: var(--color-ink);
   }
-
-  .ab-founder__body p:last-child {
-    margin-bottom: 0;
-  }
+  .ab-founder__cta { margin: 1.8rem 0 0; }
 
   @media (max-width: 780px) {
-    .ab-founder {
-      padding: 4rem 1.25rem;
-    }
-    .ab-founder__inner {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    .ab-founder__photo {
-      max-width: 22rem;
-      margin: 0 auto;
-    }
+    .ab-main { padding: 5rem 1.25rem 4.5rem; }
+    .ab-intro { margin-bottom: 3.5rem; }
+    .ab-story { grid-template-columns: 1fr; gap: 2.75rem; }
+    .ab-problem { padding-top: 0; }
+    .ab-outcome { display: block; margin-top: 3.5rem; }
+    .ab-outcome .button { display: inline-block; margin-top: 1.5rem; }
+    .ab-founder { padding: 4.5rem 1.25rem; }
+    .ab-founder__inner { grid-template-columns: 1fr; gap: 2rem; }
+    .ab-founder__photo { max-width: 22rem; margin: 0 auto; }
   }
-
-  /* --- 6. How to begin — three-step pathway ------------------------ */
-  .ab-begin {
-    padding: 6rem 1.5rem 5.5rem;
-    text-align: center;
-    background: var(--color-surface);
-  }
-
-  .ab-begin > h2 {
-    max-width: 20ch;
-    margin: 0.4rem auto 1rem;
-    font-size: var(--fs-h2);
-    line-height: 1.12;
-    color: var(--color-primary);
-  }
-
-  .ab-begin__subhead {
-    max-width: 36rem;
-    margin: 0 auto 3.5rem;
-    font-size: var(--fs-body);
-    line-height: 1.6;
-    color: var(--color-text-muted);
-  }
-
-  .ab-begin__steps {
-    max-width: var(--site-max-width);
-    margin: 0 auto;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    text-align: center;
-  }
-
-  .ab-begin__step {
-    position: relative;
-    padding: 0 0.75rem;
-  }
-
-  /* Connector arrows between steps (desktop). */
-  .ab-begin__step:not(:last-child)::after {
-    content: '\2192';
-    position: absolute;
-    top: 0.4rem;
-    right: -1.15rem;
-    color: var(--color-gold-text);
-    font-size: 1.6rem;
-    font-weight: 700;
-    line-height: 1;
-  }
-
-  .ab-begin__num {
-    display: block;
-    margin-bottom: 0.6rem;
-    font-family: var(--font-mono);
-    font-weight: 700;
-    font-size: var(--fs-eyebrow);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-clay-text);
-  }
-
-  .ab-begin__step h3 {
-    margin: 0 0 0.5rem;
-    font-size: var(--fs-card-title);
-    color: var(--color-primary);
-  }
-
-  .ab-begin__step p {
-    margin: 0 auto;
-    max-width: 22rem;
-    font-size: var(--fs-support);
-    line-height: 1.55;
-    color: var(--color-text-muted);
-  }
-
-  .ab-begin__ctas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin: 3.5rem 0 0;
-  }
-
-  .ab-begin__ctas .button {
-    padding: 0.9rem 2rem;
-    font-size: 1.05rem;
-    font-weight: 700;
-  }
-
-  @media (max-width: 720px) {
-    .ab-begin {
-      padding: 4.5rem 1.25rem;
-    }
-    .ab-begin__steps {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-      max-width: 22rem;
-    }
-    .ab-begin__step:not(:last-child)::after {
-      content: '\2193';
-      top: auto;
-      bottom: -1.6rem;
-      right: 50%;
-      transform: translateX(50%);
-    }
-    .ab-begin__ctas .button {
-      width: 100%;
-      max-width: 22rem;
-      text-align: center;
-    }
-  }
-
-  /* --- 7. Final line — gold-ruled band ----------------------------- */
-  .ab-final {
-    padding: 5rem 1.5rem;
-    text-align: center;
-    background: var(--color-bg);
-    border-top: 3px solid var(--color-gold);
-  }
-
-  .ab-final__inner {
-    max-width: 40rem;
-    margin: 0 auto;
-  }
-
-  .ab-final p {
-    margin: 0;
-    font-size: var(--fs-card-title);
-    font-weight: 600;
-    line-height: 1.4;
-    color: var(--color-primary);
-  }
-
-  @media (max-width: 640px) {
-    .ab-final {
-      padding: 4rem 1.25rem;
-    }
+  @media (max-width: 480px) {
+    .ab-pathway { padding: 1.75rem 1.35rem; }
+    .ab-napkin { gap: 0.45rem; min-height: 6rem; padding: 1rem; letter-spacing: 0; }
+    .ab-outcome .button, .ab-founder__cta .button { display: block; width: 100%; text-align: center; }
   }
 </style>
