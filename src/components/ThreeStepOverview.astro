@@ -1,0 +1,107 @@
+---
+// ThreeStepOverview — the whole page in one glance, near the top.
+// Find people -> Share Jesus -> Make disciples, one line each. A preview,
+// not an explanation. Each step anchors to its napkin stage below.
+interface Step {
+  number: string;
+  heading: string;
+  line: string;
+  href: string;
+}
+
+interface Props {
+  steps: Step[];
+}
+
+const { steps } = Astro.props;
+---
+
+<section class="three-step" aria-label="The three moves">
+  <ol class="three-step__list">
+    {steps.map((step) => (
+      <li class="three-step__item">
+        <a class="three-step__link" href={step.href}>
+          <span class="three-step__num">{step.number}</span>
+          <span class="three-step__heading">{step.heading}</span>
+          <span class="three-step__line">{step.line}</span>
+        </a>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  .three-step {
+    padding: 3rem 1.25rem 3.5rem;
+    background: var(--color-primary);
+  }
+  .three-step__list {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .three-step__item { position: relative; }
+  /* connector arrows between the three steps (desktop) */
+  .three-step__item:not(:last-child)::after {
+    content: '\2192';
+    position: absolute;
+    top: 0.5rem;
+    right: -0.9rem;
+    color: var(--color-gold);
+    font-size: 1.5rem;
+    font-weight: 700;
+    pointer-events: none;
+  }
+  .three-step__link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.25rem 1rem;
+    border-radius: var(--radius-card);
+  }
+  .three-step__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 0.85rem;
+    border-radius: 50%;
+    background: var(--color-gold);
+    color: var(--color-primary);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+  .three-step__heading {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: var(--fs-card-title);
+    font-weight: 700;
+    color: var(--color-primary-text);
+  }
+  .three-step__line {
+    display: block;
+    max-width: 22rem;
+    margin: 0 auto;
+    font-size: var(--fs-support);
+    line-height: 1.5;
+    color: rgba(247, 243, 234, 0.85);
+  }
+  .three-step__link:hover .three-step__heading { text-decoration: underline; }
+
+  @media (max-width: 720px) {
+    .three-step__list { grid-template-columns: 1fr; gap: 1.75rem; max-width: 24rem; }
+    .three-step__item:not(:last-child)::after {
+      content: '\2193';
+      top: auto;
+      bottom: -1.35rem;
+      right: 50%;
+      transform: translateX(50%);
+    }
+  }
+</style>
