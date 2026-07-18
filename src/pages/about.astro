@@ -229,17 +229,14 @@ const founder = {
   .ab-napkin {
     display: flex; align-items: center; justify-content: center; gap: clamp(0.6rem, 2vw, 1.4rem);
     width: min(34rem, 92vw); min-height: 7rem; padding: 1.4rem 2rem; transform: rotate(-1.2deg);
-    background:
-      linear-gradient(135deg, transparent 0 48%, rgba(31, 37, 35, 0.035) 49% 51%, transparent 52%),
-      linear-gradient(35deg, transparent 0 48%, rgba(31, 37, 35, 0.025) 49% 51%, transparent 52%), #fffdf8;
-    background-size: 5rem 5rem, 7rem 7rem, auto; border: 1px solid rgba(31, 37, 35, 0.12);
+    background: #fffdf8; border: 1px solid rgba(31, 37, 35, 0.12);
     box-shadow: 0 12px 30px rgba(31, 37, 35, 0.12); font-family: var(--font-mono);
     font-size: clamp(0.9rem, 2.4vw, 1.25rem); font-weight: 700; letter-spacing: 0.04em;
     text-transform: uppercase; color: var(--color-ink);
   }
   .ab-napkin b { color: var(--color-clay-text); font-size: 1.25em; }
 
-  .ab-founder { padding: 6rem 1.5rem; background: var(--color-surface); }
+  .ab-founder { padding: 6rem 1.5rem 3rem; background: var(--color-surface); }
   .ab-founder__inner {
     display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(2.5rem, 6vw, 5rem);
     align-items: center; max-width: 58rem; margin: 0 auto;
@@ -267,7 +264,7 @@ const founder = {
     .ab-problem { padding-top: 0; }
     .ab-outcome { display: block; margin-top: 3.5rem; }
     .ab-outcome .button { display: inline-block; margin-top: 1.5rem; }
-    .ab-founder { padding: 4.5rem 1.25rem; }
+    .ab-founder { padding: 4.5rem 1.25rem 2.5rem; }
     .ab-founder__inner { grid-template-columns: 1fr; gap: 2rem; }
     .ab-founder__photo { max-width: 22rem; margin: 0 auto; }
   }
