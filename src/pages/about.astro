@@ -47,7 +47,7 @@ const founder = {
       <div class="ab-story">
         <div class="ab-problem">
           <h2>Most disciple-making training stops too soon.</h2>
-          <p>
+          <p class="ab-problem__medium">
             You attend a training, learn a few tools, and leave inspired. Then real life happens.
             You are not sure who to talk to, which tool to use, or what to do when someone responds.
           </p>
@@ -181,6 +181,12 @@ const founder = {
   .ab-problem { padding-top: 2rem; }
   .ab-problem p {
     margin: 0 0 1.15rem; font-size: 1.075rem; line-height: 1.7; color: var(--color-ink);
+  }
+  .ab-problem .ab-problem__medium {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--color-primary);
   }
   .ab-pathway {
     padding: clamp(2rem, 4vw, 3rem); background: var(--color-surface);
