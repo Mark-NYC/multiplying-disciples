@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="155 32 684 486" role="img" aria-labelledby="title desc">
+  <title id="title">Conversation Quadrant</title>
+  <desc id="desc">Hand-drawn quadrant labeled Casual, Meaningful, Discovery, and Spiritual.</desc>
+  <style>
+    .ink{fill:none;stroke:#1F2523;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  </style>
+
+  <g id="axes" class="ink">
+    <path d="M169 288 C190 292 219 286 248 286 C310 284 376 285 432 288 C504 290 566 294 630 296 C696 297 757 296 824 300"/>
+    <path d="M458 44 C457 59 461 78 464 98 C468 127 472 157 473 184 C475 214 474 255 473 287 C472 326 473 369 472 408 C472 445 469 478 470 506"/>
+  </g>
+
+  <g id="arrowheads" class="ink">
+    <path d="M465 183 C472 183 478 182 485 180 M485 180 C482 178 480 177 478 176 M485 180 C482 184 480 186 478 188"/>
+    <path d="M730 295 C730 300 730 304 730 308 M730 308 C727 305 726 304 725 303 M730 308 C733 306 734 304 735 302"/>
+    <path d="M471 447 C466 447 462 447 459 448 M459 448 C461 444 463 442 465 441 M459 448 C461 451 462 453 464 454"/>
+  </g>
+
+  <g id="casual">
+    <text x="236" y="71" fill="#1F2523" font-family="Chalkboard SE, Comic Sans MS, cursive" font-size="25" font-weight="500" letter-spacing="0.4">CASUAL</text>
+    <path class="ink" d="M250 76 C269 74 290 75 316 77"/>
+  </g>
+
+  <g id="meaningful">
+    <text x="565" y="70" fill="#1F2523" font-family="Chalkboard SE, Comic Sans MS, cursive" font-size="22" font-weight="500" letter-spacing="0.15">MEANINGFUL</text>
+    <path class="ink" d="M596 78 C616 77 640 78 662 79"/>
+  </g>
+
+  <g id="discovery">
+    <text x="247" y="316" fill="#1F2523" font-family="Chalkboard SE, Comic Sans MS, cursive" font-size="23" font-weight="500" letter-spacing="0.15">DISCOVERY</text>
+    <path class="ink" d="M264 320 C280 317 300 316 320 316"/>
+  </g>
+
+  <g id="spiritual">
+    <text x="573" y="317" fill="#1F2523" font-family="Chalkboard SE, Comic Sans MS, cursive" font-size="23" font-weight="500" letter-spacing="0.2">SPIRITUAL</text>
+    <path class="ink" d="M598 322 C620 321 646 321 678 320"/>
+  </g>
+
+  <g id="accents" class="ink"/>
+</svg>

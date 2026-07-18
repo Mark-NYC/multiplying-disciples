@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 12 760 608" role="img" aria-labelledby="title desc">
+  <title id="title">Follow and Fish</title>
+  <desc id="desc">Hand-drawn Mark 1:17 sign with arrows pointing to Follow and Fish.</desc>
+  <style>
+    .ink{fill:none;stroke:#1F2523;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+    .label{fill:#1F2523;font-family:"Chalkboard SE","Comic Sans MS",cursive;font-weight:500}
+  </style>
+
+  <g id="sign" class="ink">
+    <path d="M68 32 C141 29 211 31 279 29 C369 28 458 29 548 29 C618 28 685 29 748 30 C757 30 762 36 762 45 L764 169 C764 180 757 186 748 187 C658 189 573 187 488 188 C391 189 294 188 198 189 C151 190 109 189 77 187 C68 186 62 179 62 170 L63 47 C63 39 65 34 68 32 Z"/>
+    <path d="M78 39 C149 36 219 37 290 36 C385 35 480 36 573 35 C637 35 699 35 746 37 C752 38 755 42 755 49 L756 165 C756 174 752 179 744 180 C660 182 578 180 494 181 C397 182 299 181 201 182 C156 183 114 182 82 180 C75 179 71 174 71 166 L71 51 C71 44 73 40 78 39 Z"/>
+  </g>
+
+  <g id="verse">
+    <text class="label" x="0" y="145" font-size="112" letter-spacing="1" transform="translate(205 0) scale(.72 1)">MARK 1:17</text>
+  </g>
+
+  <g id="left-arrow" class="ink">
+    <path d="M306 190 C285 245 260 296 231 347 C203 397 176 445 149 492"/>
+    <path d="M149 492 C153 479 158 468 164 458"/>
+    <path d="M149 492 C161 486 173 480 184 475"/>
+  </g>
+
+  <g id="right-arrow" class="ink">
+    <path d="M507 190 C531 246 557 297 585 347 C613 399 640 447 662 494"/>
+    <path d="M662 494 C652 486 642 480 632 476"/>
+    <path d="M662 494 C660 481 659 470 660 459"/>
+  </g>
+
+  <g id="follow">
+    <text class="label" x="0" y="607" font-size="96" letter-spacing="-1" transform="translate(30 0) scale(.7 1)">FOLLOW</text>
+  </g>
+
+  <g id="fish">
+    <text class="label" x="0" y="607" font-size="96" letter-spacing="-1" transform="translate(584 0) scale(.7 1)">FISH</text>
+  </g>
+
+  <g id="accents" class="ink"/>
+</svg>
