@@ -144,6 +144,22 @@ export const GET: APIRoute = async () => {
     type: 'Tool',
   });
 
+  // /about/ — the About page (bespoke landing). Keep in sync with
+  // src/pages/about.astro.
+  docs.push({
+    id: '/about/',
+    url: '/about/',
+    title: 'About',
+    seo_title: 'About Multiplying Disciples',
+    description:
+      'Multiplying Disciples helps ordinary Christians move from learning about disciple-making to actually making disciples — through simple tools, real practice, coaching, and a community of practitioners.',
+    headings:
+      'Why This Exists · Most Christians do not need more information. They need a way to begin. · What We Are Pursuing · The goal is multiplication. · Core Convictions · What shapes the work · Meet the Founder · Mark Goering · How to Begin · You do not need to have it all figured out.',
+    body:
+      'Ordinary Christians can make disciples. Multiplying Disciples helps people move from learning about disciple-making to actually doing it through simple tools, real-world practice, coaching, and a community of practitioners. Most Christians do not need more information; they need a way to begin. Many have spent years in church but still do not feel equipped to share the gospel, disciple someone, or help a simple church begin. People need simple tools they can use, real practice, coaching when they get stuck, and a tribe of practitioners who stay in the game. The goal is multiplication — not an audience around a ministry brand, but ordinary people who obey Jesus, make disciples, develop leaders, and start churches that multiply across generations: disciples to leaders to churches to generations. Core convictions: every follower of Jesus can make disciples; disciple-making begins with obedience, not expertise; the best tools are simple enough to reproduce; training is incomplete until it becomes practice; churches can begin wherever disciples gather and obey Jesus together; healthy disciples multiply disciples, leaders, and churches; coaching and community help people stay in the game; local obedience matters more than platform growth; the goal is generational fruit that outlives us. Mark Goering is a disciple-maker, church planter, and movement catalyst based in New York City. He founded Multiplying Disciples to give practitioners the simple tools, coaching, and community he wished more Christians had. He hosts the H3X podcast and helps lead CoVo Multipliers, and lives in Queens with his wife, Megan, and their twin sons. How to begin: learn, practice, find your tribe.',
+    type: 'Tool',
+  });
+
   // /stickers/ — keep in sync with that page's STICKERS list.
   docs.push({
     id: '/stickers/',
