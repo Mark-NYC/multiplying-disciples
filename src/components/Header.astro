@@ -534,7 +534,9 @@ const isActive = (href: string) =>
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    background: var(--color-bg);
+    /* A medium-darker tint of Warm Paper so the full-screen sheet reads
+       as a distinct layer over the page, not a seamless continuation. */
+    background: #e7ddc9;
     padding: 1.1rem 1.5rem 2rem;
     opacity: 0;
     visibility: hidden;
