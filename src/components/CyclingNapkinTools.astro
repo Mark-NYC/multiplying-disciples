@@ -1,0 +1,636 @@
+---
+// CyclingNapkinTools — the reusable looping "field tools on a napkin"
+// stage used by all three moves. One napkin shows one tool at a time and
+// cycles through two tools on a ~10s loop:
+//
+//   fresh flat napkin -> tool 1 revealed & demonstrated -> napkin crumples
+//   -> fresh flat napkin -> tool 2 revealed & demonstrated -> crumples -> loop
+//
+// The tool SVGs are inlined (namespaced per instance via loadInlineSvg) so
+// their internal named groups can be revealed one at a time. Small overlay
+// layers add the marker-style annotations the artwork itself doesn't carry
+// (circles around FOLLOW/FISH, the animated Conversation Box names, etc.).
+//
+// Below the napkin: keyboard-accessible tool tabs (manual controls) and the
+// two stable CTA buttons; the CTA matching the tool currently on the napkin
+// is highlighted. The loop only runs while the section is meaningfully in
+// view, pauses when the tab is hidden or the stage is hovered/focused, and
+// is replaced by a static, tab-switchable view under prefers-reduced-motion.
+import fs from 'node:fs';
+import path from 'node:path';
+import { loadInlineSvg } from '../lib/inline-svg.mjs';
+
+export interface ToolCta {
+  label: string;
+  href: string;
+  external?: boolean;
+  primary?: boolean;
+  ctaLevel?: string;
+  ctaType?: string;
+  destinationSite?: string;
+}
+export interface CyclingTool {
+  key: string;
+  name: string;
+  animType: 'follow-fish' | 'conversation' | 'three-circles' | 'testimony' | 'three-thirds' | 'church-waffle';
+  svgSrc?: string;
+  ariaLabel: string;
+  cta: ToolCta;
+}
+interface Props {
+  id: string;
+  tools: CyclingTool[];
+  flatSrc?: string;
+  crumpledSrc?: string;
+}
+
+const {
+  id,
+  tools,
+  flatSrc = '/tools-images/blank-napkin.webp',
+  crumpledSrc = '/tools-images/crumpled-napkin.webp',
+} = Astro.props;
+
+// Build-time: is the crumpled napkin present? If not, the stage falls back
+// to a CSS-only crush of the flat napkin so the loop still reads as
+// "discarded -> fresh" without a broken image.
+const hasCrumpled = (() => {
+  try {
+    return fs.existsSync(path.join(process.cwd(), 'public', crumpledSrc.replace(/^\//, '')));
+  } catch {
+    return false;
+  }
+})();
+
+const primaryIndex = Math.max(0, tools.findIndex((t) => t.cta.primary));
+// Inline + namespace each real tool SVG. Placeholder tools (3 Circles) get
+// a restrained inline schematic instead — swap in a real /tools-images svg
+// later by giving that tool an svgSrc.
+const inlined = tools.map((t) => (t.svgSrc ? loadInlineSvg(t.svgSrc, `${id}-${t.key}`) : ''));
+
+// CTA render order is stable (primary first); tabs follow napkin sequence.
+const ctaOrder = tools
+  .map((t, i) => ({ t, i }))
+  .sort((a, b) => (b.t.cta.primary ? 1 : 0) - (a.t.cta.primary ? 1 : 0));
+---
+
+<div class="cnt" data-cnt id={`${id}-stage`} data-primary={primaryIndex} data-has-crumpled={hasCrumpled ? '1' : '0'}>
+  <div class="cnt__viewport">
+    <div class="cnt__stage" data-state="flat">
+      <div class="cnt__paper">
+        <img class="cnt__napkin" src={flatSrc} width="800" height="800" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        {tools.map((t, i) => (
+          <div
+            class:list={['cnt__tool', `cnt__tool--${t.animType}`, { 'is-active': i === 0 }]}
+            data-index={i}
+            data-tool-name={t.name}
+            id={`${id}-panel-${i}`}
+            role="tabpanel"
+            aria-labelledby={`${id}-tab-${i}`}
+          >
+            <div class="cnt__art">
+              {inlined[i] ? (
+                <Fragment set:html={inlined[i]} />
+              ) : (
+                /* 3 Circles — restrained placeholder schematic (no approved SVG yet). */
+                <svg class="cnt__placeholder-svg" viewBox="0 0 400 320" role="img" aria-label={t.ariaLabel}>
+                  <g class="tc-emph"><circle class="tc-emph-ring" cx="266" cy="228" r="70" pathLength="1" /></g>
+                  <g class="tc-circle tc-c1"><circle cx="200" cy="92" r="66" pathLength="1" /><text x="200" y="97">God&#8217;s design</text></g>
+                  <g class="tc-circle tc-c2"><circle cx="134" cy="228" r="66" pathLength="1" /><text x="134" y="233">Brokenness</text></g>
+                  <g class="tc-circle tc-c3"><circle cx="266" cy="228" r="66" pathLength="1" /><text x="266" y="233">Gospel</text></g>
+                  <g class="tc-arrow"><path d="M168 150 C150 172 140 186 132 204" pathLength="1" /><path d="M132 204 l7 -12 M132 204 l12 4" pathLength="1" /></g>
+                  <g class="tc-arrow"><path d="M198 292 C215 300 245 300 262 293" pathLength="1" /><path d="M262 293 l-13 -1 M262 293 l-6 11" pathLength="1" /></g>
+                  <g class="tc-arrow"><path d="M300 204 C292 186 282 172 264 150" pathLength="1" /><path d="M264 150 l14 3 M264 150 l7 12" pathLength="1" /></g>
+                  <text class="tc-tag" x="200" y="312">3 Circles &middot; simple placeholder</text>
+                </svg>
+              )}
+
+              {/* --- Annotation overlays (separate layers; never edit the artwork) --- */}
+              {t.animType === 'follow-fish' && (
+                <svg class="cnt__anno" viewBox="20 12 760 608" aria-hidden="true">
+                  <path class="anno-mark anno-follow" pathLength="1" d="M40 545 C90 520 250 518 315 542 C355 557 320 600 250 606 C170 612 60 604 45 578 C38 566 40 556 52 548" />
+                  <path class="anno-mark anno-fish" pathLength="1" d="M566 548 C620 528 735 532 758 556 C772 571 742 604 668 606 C606 607 560 598 556 578 C554 566 558 556 570 550" />
+                  <path class="anno-mark anno-verse" pathLength="1" d="M214 150 C300 142 430 141 520 145 C555 147 585 150 600 154" />
+                </svg>
+              )}
+              {t.animType === 'conversation' && (
+                <div class="cnt__names" aria-hidden="true">
+                  <span class="cnt-name cnt-name--a">Alex</span>
+                  <span class="cnt-name cnt-name--b">Sam</span>
+                  <span class="cnt-name cnt-name--c">Jordan</span>
+                  <span class="cnt-pulse"></span>
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <img
+        class="cnt__crumpled"
+        src={hasCrumpled ? crumpledSrc : flatSrc}
+        width="800"
+        height="800"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+
+  <p class="cnt__live" aria-live="polite"></p>
+
+  <div class="cnt__tabs" role="tablist" aria-label="Choose a tool">
+    {tools.map((t, i) => (
+      <button
+        type="button"
+        class="cnt__tab"
+        role="tab"
+        id={`${id}-tab-${i}`}
+        aria-selected={i === 0 ? 'true' : 'false'}
+        aria-controls={`${id}-panel-${i}`}
+        tabindex={i === 0 ? 0 : -1}
+        data-index={i}
+      >
+        <span class="cnt__tab-dot" aria-hidden="true"></span>{t.name}
+      </button>
+    ))}
+  </div>
+
+  <div class="cnt__ctas">
+    {ctaOrder.map(({ t, i }) => (
+      <a
+        class:list={['button', { 'button--secondary': !t.cta.primary }, 'cnt__cta', { 'is-current': i === 0 }]}
+        data-tool={i}
+        href={t.cta.href}
+        target={t.cta.external ? '_blank' : undefined}
+        rel={t.cta.external ? 'noopener' : undefined}
+        data-ecosystem-cta
+        data-cta-level={t.cta.ctaLevel}
+        data-cta-type={t.cta.ctaType}
+        data-destination-site={t.cta.destinationSite}
+      >
+        {t.cta.label}{t.cta.external && <span class="cnt__ext" aria-hidden="true">&#8599;</span>}
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  // One controller per napkin. CSS owns the look of each phase; this owns
+  // the timeline, the play/pause conditions, and the manual tool tabs.
+  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  type Phase = { t: number; s: 'flat' | 'demo' | 'crumple' | 'reset'; d: number };
+  // ~10s two-tool loop (ms): flat .4, demo 3.2, crumple .7 per tool + .6 reset.
+  const SEQ: Phase[] = [
+    { t: 0, s: 'flat', d: 400 }, { t: 0, s: 'demo', d: 3200 }, { t: 0, s: 'crumple', d: 700 },
+    { t: 1, s: 'flat', d: 400 }, { t: 1, s: 'demo', d: 3200 }, { t: 1, s: 'crumple', d: 700 },
+    { t: 0, s: 'reset', d: 600 },
+  ];
+
+  function setupNapkin(root: HTMLElement) {
+    const stage = root.querySelector<HTMLElement>('.cnt__stage')!;
+    const viewport = root.querySelector<HTMLElement>('.cnt__viewport')!;
+    const panels = Array.from(root.querySelectorAll<HTMLElement>('.cnt__tool'));
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('.cnt__tab'));
+    const ctas = Array.from(root.querySelectorAll<HTMLElement>('.cnt__cta'));
+    const live = root.querySelector<HTMLElement>('.cnt__live');
+    const names = panels.map((p) => p.dataset.toolName || '');
+    const primary = Number(root.dataset.primary || 0);
+
+    let idx = 0;
+    let timer: number | undefined;
+    let running = false;
+    let visible = false;
+    let paused = false; // hover / focus
+
+    function setActive(t: number) {
+      panels.forEach((p, i) => p.classList.toggle('is-active', i === t));
+      tabs.forEach((tb, i) => {
+        tb.setAttribute('aria-selected', i === t ? 'true' : 'false');
+        tb.tabIndex = i === t ? 0 : -1;
+      });
+      ctas.forEach((c) => c.classList.toggle('is-current', Number(c.dataset.tool) === t));
+      if (live) live.textContent = `Showing the ${names[t]} tool`;
+    }
+
+    function applyPhase() {
+      const ph = SEQ[idx];
+      setActive(ph.t);
+      stage.dataset.state = ph.s;
+      panels.forEach((p, i) => p.classList.toggle('is-playing', i === ph.t && ph.s === 'demo'));
+    }
+
+    function tick() {
+      idx = (idx + 1) % SEQ.length;
+      applyPhase();
+      timer = window.setTimeout(tick, SEQ[idx].d);
+    }
+    function start() {
+      if (running || REDUCED) return;
+      running = true;
+      root.classList.add('is-animating');
+      applyPhase();
+      timer = window.setTimeout(tick, SEQ[idx].d);
+    }
+    function stop() {
+      running = false;
+      if (timer) window.clearTimeout(timer);
+    }
+    function evaluate() {
+      if (visible && !paused && !document.hidden) start();
+      else stop();
+    }
+
+    // Manual controls: jump to a tool's fresh reveal and keep looping from there.
+    function selectTool(i: number, focusTab = false) {
+      if (REDUCED) {
+        setActive(i);
+        stage.dataset.state = 'static';
+        if (focusTab) tabs[i].focus();
+        return;
+      }
+      stop();
+      idx = SEQ.findIndex((p) => p.t === i && p.s === 'flat');
+      applyPhase();
+      if (focusTab) tabs[i].focus();
+      running = true;
+      timer = window.setTimeout(tick, SEQ[idx].d);
+    }
+
+    tabs.forEach((tb, i) => {
+      tb.addEventListener('click', () => selectTool(i));
+      tb.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          selectTool((i + 1) % tabs.length, true);
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          selectTool((i - 1 + tabs.length) % tabs.length, true);
+        }
+      });
+    });
+
+    // Pause while the visitor is inspecting (hover / keyboard focus).
+    viewport.addEventListener('pointerenter', () => { paused = true; evaluate(); });
+    viewport.addEventListener('pointerleave', () => { paused = false; evaluate(); });
+    root.addEventListener('focusin', () => { paused = true; evaluate(); });
+    root.addEventListener('focusout', () => {
+      if (!root.contains(document.activeElement)) { paused = false; evaluate(); }
+    });
+    document.addEventListener('visibilitychange', evaluate);
+
+    if (REDUCED) {
+      // Static, tab-switchable view: show the primary tool fully revealed.
+      root.classList.add('is-static');
+      stage.dataset.state = 'static';
+      setActive(primary);
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) visible = e.isIntersecting && e.intersectionRatio >= 0.35;
+        evaluate();
+      },
+      { threshold: [0, 0.35, 0.7] }
+    );
+    io.observe(root);
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-cnt]').forEach(setupNapkin);
+</script>
+
+<style is:global>
+  /* ===== Internal SVG group reveals (targeted by namespaced id suffix) =====
+     Groups start hidden; the active tool's `.is-playing` state fades them in
+     with a staggered delay so each tool "draws" onto the napkin. Under the
+     static / no-JS / reduced-motion views everything is simply visible. */
+  .cnt__tool [id$="-before-section"],
+  .cnt__tool [id$="-jesus-center"],
+  .cnt__tool [id$="-now-section"],
+  .cnt__tool [id$="-bottom-question"],
+  .cnt__tool [id$="-top-arrows"],
+  .cnt__tool [id$="-look-back"],
+  .cnt__tool [id$="-look-up"],
+  .cnt__tool [id$="-look-forward"],
+  .cnt__tool [id$="-outer-circle"],
+  .cnt__tool [id$="-grid-lines"],
+  .cnt__tool [id*="-icon-"],
+  .cnt__tool [id$="-sign"],
+  .cnt__tool [id$="-verse"],
+  .cnt__tool [id$="-left-arrow"],
+  .cnt__tool [id$="-right-arrow"],
+  .cnt__tool [id$="-follow"],
+  .cnt__tool [id$="-fish"],
+  .cnt__tool [id$="-axes"],
+  .cnt__tool [id$="-arrowheads"],
+  .cnt__tool [id$="-casual"],
+  .cnt__tool [id$="-meaningful"],
+  .cnt__tool [id$="-discovery"],
+  .cnt__tool [id$="-spiritual"] {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  /* Reveal order + stagger, per animation type, while playing. */
+  /* 15-Second Testimony: left -> centre -> right -> question */
+  .cnt__tool.is-playing [id$="-before-section"] { opacity: 1; transition-delay: 0.15s; }
+  .cnt__tool.is-playing [id$="-jesus-center"] { opacity: 1; transition-delay: 0.6s; }
+  .cnt__tool.is-playing [id$="-now-section"] { opacity: 1; transition-delay: 1.05s; }
+  .cnt__tool.is-playing [id$="-bottom-question"] { opacity: 1; transition-delay: 1.55s; animation: cnt-pop 0.6s ease 2.3s 1; }
+
+  /* Three Thirds: arrows -> back -> up -> forward, then reinforce */
+  .cnt__tool.is-playing [id$="-top-arrows"] { opacity: 1; transition-delay: 0.15s; }
+  .cnt__tool.is-playing [id$="-look-back"] { opacity: 1; transition-delay: 0.55s; animation: cnt-pop 0.55s ease 2.1s 1; }
+  .cnt__tool.is-playing [id$="-look-up"] { opacity: 1; transition-delay: 0.95s; animation: cnt-pop 0.55s ease 2.35s 1; }
+  .cnt__tool.is-playing [id$="-look-forward"] { opacity: 1; transition-delay: 1.35s; animation: cnt-pop 0.55s ease 2.6s 1; }
+
+  /* Church Waffle: circle -> grid -> 12 icons, then emphasise two */
+  .cnt__tool.is-playing [id$="-outer-circle"] { opacity: 1; transition-delay: 0.1s; }
+  .cnt__tool.is-playing [id$="-grid-lines"] { opacity: 1; transition-delay: 0.35s; }
+  .cnt__tool.is-playing [id*="-icon-"] { opacity: 1; }
+  .cnt__tool.is-playing [id$="-icon-01"] { transition-delay: 0.6s; animation: cnt-pop 0.6s ease 2.6s 1; }
+  .cnt__tool.is-playing [id$="-icon-02"] { transition-delay: 0.72s; }
+  .cnt__tool.is-playing [id$="-icon-03"] { transition-delay: 0.84s; }
+  .cnt__tool.is-playing [id$="-icon-04"] { transition-delay: 0.96s; }
+  .cnt__tool.is-playing [id$="-icon-05"] { transition-delay: 1.08s; }
+  .cnt__tool.is-playing [id$="-icon-06"] { transition-delay: 1.2s; }
+  .cnt__tool.is-playing [id$="-icon-07"] { transition-delay: 1.32s; animation: cnt-pop 0.6s ease 2.8s 1; }
+  .cnt__tool.is-playing [id$="-icon-08"] { transition-delay: 1.44s; }
+  .cnt__tool.is-playing [id$="-icon-09"] { transition-delay: 1.56s; }
+  .cnt__tool.is-playing [id$="-icon-10"] { transition-delay: 1.68s; }
+  .cnt__tool.is-playing [id$="-icon-11"] { transition-delay: 1.8s; }
+  .cnt__tool.is-playing [id$="-icon-12"] { transition-delay: 1.92s; }
+
+  /* Follow and Fish: box -> verse -> arrows -> FOLLOW -> FISH */
+  .cnt__tool.is-playing [id$="-sign"] { opacity: 1; transition-delay: 0.1s; }
+  .cnt__tool.is-playing [id$="-verse"] { opacity: 1; transition-delay: 0.4s; }
+  .cnt__tool.is-playing [id$="-left-arrow"] { opacity: 1; transition-delay: 0.75s; }
+  .cnt__tool.is-playing [id$="-right-arrow"] { opacity: 1; transition-delay: 0.75s; }
+  .cnt__tool.is-playing [id$="-follow"] { opacity: 1; transition-delay: 1.05s; }
+  .cnt__tool.is-playing [id$="-fish"] { opacity: 1; transition-delay: 1.55s; }
+
+  /* Conversation Box: axes -> heads -> quadrant labels */
+  .cnt__tool.is-playing [id$="-axes"] { opacity: 1; transition-delay: 0.1s; }
+  .cnt__tool.is-playing [id$="-arrowheads"] { opacity: 1; transition-delay: 0.35s; }
+  .cnt__tool.is-playing [id$="-casual"] { opacity: 1; transition-delay: 0.55s; }
+  .cnt__tool.is-playing [id$="-meaningful"] { opacity: 1; transition-delay: 0.7s; }
+  .cnt__tool.is-playing [id$="-discovery"] { opacity: 1; transition-delay: 0.85s; }
+  .cnt__tool.is-playing [id$="-spiritual"] { opacity: 1; transition-delay: 1s; }
+
+  /* Static / no-JS / reduced-motion: everything visible, no motion. */
+  .cnt:not(.is-animating) .cnt__tool [id],
+  .cnt.is-static .cnt__tool [id],
+  .cnt:not(.is-animating) .cnt__tool--three-circles .tc-circle,
+  .cnt:not(.is-animating) .cnt__tool--three-circles .tc-arrow,
+  .cnt:not(.is-animating) .cnt__tool--three-circles .tc-tag,
+  .cnt.is-static .cnt__tool--three-circles .tc-circle,
+  .cnt.is-static .cnt__tool--three-circles .tc-arrow,
+  .cnt.is-static .cnt__tool--three-circles .tc-tag { opacity: 1 !important; }
+  .cnt.is-static .cnt__tool [id] { transition: none !important; animation: none !important; }
+
+  @keyframes cnt-pop {
+    0% { transform: scale(1); }
+    45% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+</style>
+
+<style>
+  /* ===== Shell ===== */
+  .cnt { width: 100%; }
+  .cnt__viewport {
+    position: relative;
+    width: 100%;
+    max-width: 30rem;
+    margin: 0 auto;
+  }
+  .cnt__stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* reserves space -> no layout shift */
+  }
+  .cnt__paper { position: absolute; inset: 0; transform-origin: 50% 55%; }
+  .cnt__napkin {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 24px rgba(31, 37, 35, 0.12));
+  }
+
+  /* Tool panels sit on the flat area of the napkin. */
+  .cnt__tool {
+    position: absolute;
+    inset: 11%;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease;
+  }
+  .cnt__tool.is-active { opacity: 1; visibility: visible; }
+  .cnt__art { position: relative; width: 100%; height: 100%; }
+  .cnt__art :global(svg) { width: 100%; height: 100%; display: block; }
+
+  /* Crumpled napkin overlay: fades in for the discard, out for the fresh sheet. */
+  .cnt__crumpled {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    pointer-events: none;
+    filter: drop-shadow(0 10px 24px rgba(31, 37, 35, 0.14));
+  }
+
+  /* Paper only transitions while crushing; snaps back instantly for a fresh sheet. */
+  .cnt__stage[data-state="crumple"] .cnt__paper {
+    transition: transform 0.6s ease, filter 0.6s ease, opacity 0.55s ease;
+    transform: scale(0.62) rotate(-7deg);
+    filter: blur(3px);
+    opacity: 0.12;
+  }
+  .cnt__stage[data-state="crumple"] .cnt__crumpled { opacity: 1; }
+  /* No dedicated crumpled asset -> crush the flat napkin copy instead. */
+  .cnt[data-has-crumpled="0"] .cnt__stage[data-state="crumple"] .cnt__crumpled {
+    transform: scale(0.66) rotate(6deg);
+    filter: blur(1px) brightness(0.94) contrast(1.05);
+  }
+
+  /* ===== Follow & Fish marker annotations (own layer, drawn on) ===== */
+  .cnt__anno { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .anno-mark {
+    fill: none;
+    stroke: var(--color-clay);
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  .cnt__tool.is-playing .anno-follow { opacity: 0.9; animation: anno-draw 0.5s ease 1.45s forwards; }
+  .cnt__tool.is-playing .anno-fish { opacity: 0.9; animation: anno-draw 0.5s ease 1.95s forwards; }
+  .cnt__tool.is-playing .anno-verse { opacity: 0.9; animation: anno-draw 0.5s ease 2.4s forwards; }
+  @keyframes anno-draw { to { stroke-dashoffset: 0; } }
+
+  /* ===== Conversation Box animated names ===== */
+  .cnt__names { position: absolute; inset: 0; pointer-events: none; }
+  .cnt-name {
+    position: absolute;
+    transform: translate(-50%, -50%) scale(0.6);
+    padding: 0.15em 0.6em;
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+    border-radius: var(--radius-pill);
+    font-size: clamp(0.6rem, 2.6vw, 0.85rem);
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0;
+  }
+  /* quadrant centres (percent of the tool box) */
+  .cnt-name--a { left: 26%; top: 24%; }   /* Alex -> Casual, later Meaningful */
+  .cnt-name--b { left: 26%; top: 74%; }   /* Sam  -> Discovery */
+  .cnt-name--c { left: 73%; top: 74%; }   /* Jordan -> Spiritual */
+  .cnt__tool.is-playing .cnt-name--a {
+    animation: cnt-name-in 0.4s ease 1.2s forwards, cnt-name-move 0.9s ease 2.4s forwards;
+  }
+  .cnt__tool.is-playing .cnt-name--b { animation: cnt-name-in 0.4s ease 1.55s forwards; }
+  .cnt__tool.is-playing .cnt-name--c { animation: cnt-name-in 0.4s ease 1.9s forwards; }
+  @keyframes cnt-name-in {
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  }
+  @keyframes cnt-name-move {
+    from { left: 26%; top: 24%; }
+    to { left: 72%; top: 24%; }   /* Casual -> Meaningful (deeper) */
+  }
+  .cnt-pulse {
+    position: absolute;
+    left: 72%; top: 24%;
+    width: 34%; height: 40%;
+    transform: translate(-50%, -50%) scale(0.5);
+    border: 2px solid var(--color-accent);
+    border-radius: 12px;
+    opacity: 0;
+  }
+  .cnt__tool.is-playing .cnt-pulse { animation: cnt-pulse 1s ease 2.7s 1; }
+  @keyframes cnt-pulse {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    40% { opacity: 0.9; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.05); }
+  }
+
+  /* ===== 3 Circles placeholder schematic ===== */
+  .cnt__placeholder-svg :global(circle) { fill: none; stroke-width: 3; }
+  .cnt__placeholder-svg .tc-circle :global(circle) { stroke: var(--color-primary); }
+  .cnt__placeholder-svg .tc-circle :global(text) {
+    fill: var(--color-primary);
+    font-size: 15px;
+    font-weight: 700;
+    text-anchor: middle;
+  }
+  .cnt__placeholder-svg .tc-arrow :global(path) { fill: none; stroke: var(--color-text-muted); stroke-width: 2.5; stroke-linecap: round; }
+  .cnt__placeholder-svg .tc-emph-ring { stroke: var(--color-clay); stroke-width: 4; }
+  .cnt__placeholder-svg .tc-tag {
+    fill: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-anchor: middle;
+    text-transform: uppercase;
+  }
+  /* placeholder reveal + emphasis */
+  .cnt__tool--three-circles.is-playing .tc-c1 { opacity: 1; transition-delay: 0.2s; }
+  .cnt__tool--three-circles.is-playing .tc-c2 { opacity: 1; transition-delay: 0.6s; }
+  .cnt__tool--three-circles.is-playing .tc-c3 { opacity: 1; transition-delay: 1s; }
+  .cnt__tool--three-circles.is-playing .tc-arrow { opacity: 1; transition-delay: 1.4s; }
+  .cnt__tool--three-circles.is-playing .tc-tag { opacity: 1; transition-delay: 1.8s; }
+  .cnt__tool--three-circles .tc-circle,
+  .cnt__tool--three-circles .tc-arrow,
+  .cnt__tool--three-circles .tc-tag { opacity: 0; transition: opacity 0.5s ease; }
+  .cnt__tool--three-circles .tc-emph-ring {
+    opacity: 0;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  .cnt__tool--three-circles.is-playing .tc-emph-ring {
+    opacity: 0.95;
+    animation: anno-draw 0.6s ease 2.2s forwards;
+  }
+
+  /* ===== Tool tabs (manual controls) ===== */
+  .cnt__live {
+    position: absolute;
+    width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  .cnt__tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.25rem auto 0;
+  }
+  .cnt__tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.4rem 0.85rem;
+    min-height: 44px;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+  .cnt__tab-dot {
+    width: 0.55rem; height: 0.55rem;
+    border-radius: 50%;
+    background: var(--color-border);
+    transition: background 0.2s ease;
+  }
+  .cnt__tab[aria-selected="true"] {
+    color: var(--color-primary);
+    border-color: var(--color-accent);
+    background: #ffffff;
+  }
+  .cnt__tab[aria-selected="true"] .cnt__tab-dot { background: var(--color-accent); }
+  .cnt__tab:hover { color: var(--color-primary); border-color: var(--color-accent); }
+
+  /* ===== CTA row (stable order, active tool highlighted) ===== */
+  .cnt__ctas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.9rem;
+  }
+  .cnt__cta {
+    transition: box-shadow 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+  }
+  .cnt__cta:not(.is-current) { opacity: 0.72; }
+  .cnt__cta.is-current { box-shadow: 0 0 0 3px var(--color-gold); }
+  .cnt__ext { margin-left: 0.35rem; font-size: 0.85em; }
+
+  @media (max-width: 860px) {
+    .cnt__viewport { max-width: 24rem; }
+  }
+  @media (max-width: 480px) {
+    .cnt__ctas { flex-direction: column; align-items: stretch; }
+    .cnt__cta { text-align: center; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cnt__crumpled { display: none; }
+    .cnt__paper { transition: none !important; transform: none !important; filter: none !important; opacity: 1 !important; }
+  }
+</style>

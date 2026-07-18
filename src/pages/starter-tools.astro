@@ -1,25 +1,26 @@
 ---
-// Start Making Disciples — the beginner pathway (napkin redesign).
+// Start Making Disciples — the beginner pathway (animated napkin redesign).
 //
 // One simple 1-2-3 pathway that puts real field tools in the visitor's
-// hands: Find people -> Share Jesus -> Make disciples. The page reads like
-// notes on a napkin, not a software product page: each move is one napkin
-// visual (blank-napkin.webp) with two hand-drawn tool SVGs layered on top.
+// hands: Find people -> Share Jesus -> Make disciples. Each move is a
+// cycling napkin: one blank napkin that reveals a tool, gets crumpled, and
+// is replaced by a fresh napkin for the second tool, on a ~10s loop
+// (CyclingNapkinTools). The ecosystem is never explained near the top;
+// coaching/community appear only once, after the first two moves.
 //
-// The ecosystem is never explained near the top — coaching/community appear
-// only once, after the first two moves. Same URL (/starter-tools/), bespoke
-// page (kingdom-ministry-training precedent), hand-indexed for search.
+// Same URL (/starter-tools/), bespoke page (kingdom-ministry-training
+// precedent), hand-indexed for search.
 //
-// Tools: tool artwork lives in /public/tools-images/ (hand-drawn SVGs on a
-// napkin base). 3 Circles has no SVG yet, so its slot renders a clearly
-// labelled placeholder card — the real CTA (/3-circles/) is still wired.
+// 3 Circles has no approved SVG yet, so its slot uses a restrained inline
+// placeholder schematic; the real CTA (/3-circles/) is still wired and the
+// slot swaps to a real /tools-images svg by giving that tool an `svgSrc`.
 //
 // Tracking (src/lib/ecosystem-tracking.js): every CTA carries
 // data-ecosystem-cta + the documented data-cta-* schema. Cross-domain links
 // (obey.tools / covo) add UTMs; same-domain anchors never get UTMs.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ThreeStepOverview from '../components/ThreeStepOverview.astro';
-import NapkinToolStage from '../components/NapkinToolStage.astro';
+import CyclingNapkinTools from '../components/CyclingNapkinTools.astro';
 import PracticeRhythmSection from '../components/PracticeRhythmSection.astro';
 import FinalActionCards from '../components/FinalActionCards.astro';
 import { COVO_COMMUNITY_URL } from '../data/site';
@@ -48,6 +49,52 @@ const steps = [
   { number: '1', heading: 'Find people', line: 'Notice who God has already placed around you.', href: '#find-people' },
   { number: '2', heading: 'Share Jesus', line: 'Tell your story and explain the gospel simply.', href: '#share-jesus' },
   { number: '3', heading: 'Make disciples', line: 'Help responsive people obey, gather, and multiply.', href: '#make-disciples' },
+];
+
+// Napkin sequence order = array order (tool shown first is index 0). The
+// `primary` flag drives the highlighted CTA + the reduced-motion default.
+const findPeopleTools = [
+  {
+    key: 'ff', name: 'Follow and Fish', animType: 'follow-fish' as const,
+    svgSrc: `${TOOLS}/Follow-and-Fish-tool.svg`,
+    ariaLabel: 'Follow and Fish: a hand-drawn Mark 1:17 sign with arrows pointing to FOLLOW and FISH.',
+    cta: { label: 'Use Follow and Fish', href: '/4-1-1/', primary: false, ctaLevel: 'tool', ctaType: 'md-tool', destinationSite: 'multiplyingdisciples' },
+  },
+  {
+    key: 'cb', name: 'Conversation Box', animType: 'conversation' as const,
+    svgSrc: `${TOOLS}/Conversation-Quadrant-tool.svg`,
+    ariaLabel: 'The Conversation Box: a quadrant of Casual, Meaningful, Discovery, and Spiritual conversations for tracking where each person is.',
+    cta: { label: 'Open the Conversation Box', href: utm(`${OBEY}/conversation-box.html`, 'cbox-find'), external: true, primary: true, ctaLevel: 'tool', ctaType: 'obeytools', destinationSite: 'obeytools' },
+  },
+];
+
+const shareJesusTools = [
+  {
+    key: 'tc', name: '3 Circles', animType: 'three-circles' as const,
+    ariaLabel: 'The 3 Circles gospel tool: God’s design, brokenness, and the gospel, connected in a cycle.',
+    cta: { label: 'Learn 3 Circles', href: '/3-circles/', primary: true, ctaLevel: 'tool', ctaType: 'md-tool', destinationSite: 'multiplyingdisciples' },
+  },
+  {
+    key: 'tt15', name: '15-Second Testimony', animType: 'testimony' as const,
+    svgSrc: `${TOOLS}/15-Second-Testimony-tool.svg`,
+    ariaLabel: 'The 15-Second Testimony: a before, Jesus, and now guide with a closing question.',
+    cta: { label: 'Build Your 15-Second Testimony', href: '/15-second-testimony-examples-ignite-your-faith/', primary: false, ctaLevel: 'tool', ctaType: 'md-tool', destinationSite: 'multiplyingdisciples' },
+  },
+];
+
+const makeDisciplesTools = [
+  {
+    key: 'th', name: 'Three Thirds', animType: 'three-thirds' as const,
+    svgSrc: `${TOOLS}/Three-Thirds-tool.svg`,
+    ariaLabel: 'The Three Thirds meeting pattern: look back, look up, and look forward.',
+    cta: { label: 'Start With Three Thirds', href: '/three-thirds/', primary: true, ctaLevel: 'tool', ctaType: 'md-tool', destinationSite: 'multiplyingdisciples' },
+  },
+  {
+    key: 'cw', name: 'Church Waffle', animType: 'church-waffle' as const,
+    svgSrc: `${TOOLS}/Church-Waffle-tool.svg`,
+    ariaLabel: 'The Church Waffle: a circular grid of the twelve practices of a healthy church.',
+    cta: { label: 'Use the Church Waffle', href: utm(`${OBEY}/church-assessment.html`, 'waffle-make'), external: true, primary: false, ctaLevel: 'tool', ctaType: 'obeytools', destinationSite: 'obeytools' },
+  },
 ];
 ---
 
@@ -82,65 +129,35 @@ const steps = [
   <!-- 2. THREE-STEP OVERVIEW — the whole page in one glance. -->
   <ThreeStepOverview steps={steps} />
 
-  <!-- 3. FIND PEOPLE — Conversation Box (action) + Follow and Fish (concept) -->
-  <NapkinToolStage
-    id="find-people"
-    number="1"
-    eyebrow="Find people"
-    heading="Start with people you already know."
-    copy="Pay attention, pray, and begin intentional spiritual conversations with the people already in your life."
-    immediateAction="Add five names."
-    primary={{
-      label: 'Open the Conversation Box',
-      href: utm(`${OBEY}/conversation-box.html`, 'cbox-find'),
-      external: true,
-      ctaLevel: 'tool',
-      ctaType: 'obeytools',
-      destinationSite: 'obeytools',
-    }}
-    secondary={{
-      label: 'Use Follow and Fish',
-      href: '/4-1-1/',
-      ctaLevel: 'tool',
-      ctaType: 'md-tool',
-      destinationSite: 'multiplyingdisciples',
-    }}
-    tools={[
-      { src: `${TOOLS}/Conversation-Quadrant-tool.svg`, name: 'Conversation Box', alt: 'The Conversation Box: a quadrant of Casual, Meaningful, Discovery, and Spiritual conversations.', role: 'dominant' },
-      { src: `${TOOLS}/Follow-and-Fish-tool.svg`, name: 'Follow and Fish', alt: 'Follow and Fish: a hand-drawn Mark 1:17 sign pointing to follow Jesus and fish for people.', role: 'support' },
-    ]}
-    variant="paper"
-  />
+  <!-- 3. FIND PEOPLE — Follow and Fish -> Conversation Box -->
+  <section class="st-stage st-stage--paper" id="find-people">
+    <div class="st-stage__inner">
+      <div class="st-stage__text">
+        <p class="st-stage__eyebrow"><span class="st-stage__num">1</span>Find people</p>
+        <h2>Start with people you already know.</h2>
+        <p class="st-stage__copy">Pay attention, pray, and begin intentional spiritual conversations with the people already in your life.</p>
+        <p class="st-stage__do">Add five names.</p>
+      </div>
+      <div class="st-stage__visual">
+        <CyclingNapkinTools id="find-people" tools={findPeopleTools} />
+      </div>
+    </div>
+  </section>
 
-  <!-- 4. SHARE JESUS — 3 Circles (placeholder) + 15-Second Testimony -->
-  <NapkinToolStage
-    id="share-jesus"
-    number="2"
-    eyebrow="Share Jesus"
-    heading="Share your story, then explain the gospel simply."
-    copy="Say what Jesus has done in your life and draw the gospel simply enough to use in a real conversation."
-    immediateAction="Practice one tool until you can use it naturally."
-    primary={{
-      label: 'Learn 3 Circles',
-      href: '/3-circles/',
-      ctaLevel: 'tool',
-      ctaType: 'md-tool',
-      destinationSite: 'multiplyingdisciples',
-    }}
-    secondary={{
-      label: 'Build Your 15-Second Testimony',
-      href: '/15-second-testimony-examples-ignite-your-faith/',
-      ctaLevel: 'tool',
-      ctaType: 'md-tool',
-      destinationSite: 'multiplyingdisciples',
-    }}
-    tools={[
-      { name: '3 Circles', role: 'dominant', placeholder: true },
-      { src: `${TOOLS}/15-Second-Testimony-tool.svg`, name: '15-Second Testimony', alt: 'The 15-Second Testimony: a hand-drawn before / how / after guide to telling your story.', role: 'support' },
-    ]}
-    variant="sage"
-    reverse={true}
-  />
+  <!-- 4. SHARE JESUS — 3 Circles -> 15-Second Testimony -->
+  <section class="st-stage st-stage--sage st-stage--reverse" id="share-jesus">
+    <div class="st-stage__inner">
+      <div class="st-stage__text">
+        <p class="st-stage__eyebrow"><span class="st-stage__num">2</span>Share Jesus</p>
+        <h2>Share your story, then explain the gospel simply.</h2>
+        <p class="st-stage__copy">Say what Jesus has done in your life and draw the gospel simply enough to use in a real conversation.</p>
+        <p class="st-stage__do">Practice one tool until you can use it naturally.</p>
+      </div>
+      <div class="st-stage__visual">
+        <CyclingNapkinTools id="share-jesus" tools={shareJesusTools} />
+      </div>
+    </div>
+  </section>
 
   <!-- 5. COACHING INTERRUPTION — practice + community appear only now. -->
   <PracticeRhythmSection
@@ -166,35 +183,20 @@ const steps = [
     ]}
   />
 
-  <!-- 6. MAKE DISCIPLES — Three Thirds (action) + Church Waffle (support) -->
-  <NapkinToolStage
-    id="make-disciples"
-    number="3"
-    eyebrow="Make disciples"
-    heading="When someone is open, meet again quickly."
-    copy="Help them obey Jesus, gather with others, and begin doing the same with the people they know."
-    immediateAction="Invite one responsive person to meet again."
-    primary={{
-      label: 'Start with Three Thirds',
-      href: '/three-thirds/',
-      ctaLevel: 'tool',
-      ctaType: 'md-tool',
-      destinationSite: 'multiplyingdisciples',
-    }}
-    secondary={{
-      label: 'Use the Church Waffle',
-      href: utm(`${OBEY}/church-assessment.html`, 'waffle-make'),
-      external: true,
-      ctaLevel: 'tool',
-      ctaType: 'obeytools',
-      destinationSite: 'obeytools',
-    }}
-    tools={[
-      { src: `${TOOLS}/Three-Thirds-tool.svg`, name: 'Three Thirds', alt: 'The Three Thirds meeting pattern: look back, look up, look forward.', role: 'dominant' },
-      { src: `${TOOLS}/Church-Waffle-tool.svg`, name: 'Church Waffle', alt: 'The Church Waffle: a circular grid of the twelve practices of a healthy church.', role: 'support' },
-    ]}
-    variant="paper"
-  />
+  <!-- 6. MAKE DISCIPLES — Three Thirds -> Church Waffle -->
+  <section class="st-stage st-stage--paper" id="make-disciples">
+    <div class="st-stage__inner">
+      <div class="st-stage__text">
+        <p class="st-stage__eyebrow"><span class="st-stage__num">3</span>Make disciples</p>
+        <h2>When someone is open, meet again quickly.</h2>
+        <p class="st-stage__copy">Help them obey Jesus, gather with others, and begin doing the same with the people they know.</p>
+        <p class="st-stage__do">Invite one responsive person to meet again.</p>
+      </div>
+      <div class="st-stage__visual">
+        <CyclingNapkinTools id="make-disciples" tools={makeDisciplesTools} />
+      </div>
+    </div>
+  </section>
 
   <!-- 7. YOUR FIRST THREE MOVES -->
   <section class="st-first" aria-labelledby="st-first-h">
@@ -251,39 +253,7 @@ const steps = [
       },
     ]}
   />
-
-  <noscript>
-    <style>
-      /* Without JS the scroll-reveal never fires — show every layer. */
-      .napkin__base, .napkin__tool { opacity: 1 !important; }
-    </style>
-  </noscript>
 </BaseLayout>
-
-<script>
-  // Once-only reveal for each napkin as it scrolls into view. Reduced
-  // motion is already handled in CSS (layers render visible); we still
-  // add the class so nothing stays hidden. No looping, no library.
-  const napkins = document.querySelectorAll<HTMLElement>('.napkin[data-reveal]');
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (reduced || !('IntersectionObserver' in window)) {
-    napkins.forEach((n) => n.classList.add('is-visible'));
-  } else {
-    const io = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.25, rootMargin: '0px 0px -8% 0px' }
-    );
-    napkins.forEach((n) => io.observe(n));
-  }
-</script>
 
 <style>
   /* --- 1. Hero --------------------------------------------------- */
@@ -309,6 +279,74 @@ const steps = [
   }
   .st-hero__cta { margin: 0; }
   .st-hero__cta .button { padding: 0.95rem 2.3rem; font-size: 1.1rem; font-weight: 700; }
+
+  /* --- 3-6. Napkin stages --------------------------------------- */
+  .st-stage { padding: 5rem 1.5rem; }
+  .st-stage--paper { background: var(--color-bg); }
+  .st-stage--sage { background: var(--color-surface); }
+  .st-stage__inner {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3.5rem;
+    align-items: center;
+  }
+  @media (min-width: 861px) {
+    .st-stage--reverse .st-stage__text { order: 2; }
+    .st-stage--reverse .st-stage__visual { order: 1; }
+  }
+  .st-stage__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0 0 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-clay-text);
+  }
+  .st-stage__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    background: var(--color-gold);
+    color: var(--color-primary);
+    font-size: 0.85rem;
+  }
+  .st-stage__text h2 {
+    margin: 0 0 1rem;
+    font-size: var(--fs-h2);
+    line-height: 1.12;
+    color: var(--color-primary);
+  }
+  .st-stage__copy {
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-ink);
+  }
+  .st-stage__do {
+    margin: 1.5rem 0 0;
+    padding: 0.7rem 1rem;
+    display: inline-block;
+    background: #ffffff;
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-button);
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+  .st-stage--sage .st-stage__do { background: var(--color-bg); }
+
+  @media (max-width: 860px) {
+    .st-stage { padding: 3.5rem 1.25rem; }
+    .st-stage__inner { grid-template-columns: 1fr; row-gap: 2rem; }
+  }
 
   /* --- 7. First three moves ------------------------------------- */
   .st-first {
