@@ -677,6 +677,16 @@ const isActive = (href: string) =>
       padding: 0.4rem 0;
     }
 
+    /* On mobile the enlarged block is the primary nav above; More
+       Resources drops back to the normal list size so only the top menu
+       items read large. (Desktop keeps More Resources h3-sized — that's
+       the drawer's lead block there.) */
+    .site-menu__section--featured .site-menu__list a {
+      font-size: 1.05rem;
+      line-height: 1.5;
+      padding: 0.55rem 0;
+    }
+
     .site-menu__lab-cta {
       display: block;
       width: 100%;
