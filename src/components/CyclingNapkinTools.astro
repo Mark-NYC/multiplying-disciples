@@ -183,11 +183,12 @@ const ctaOrder = tools
   const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   type Phase = { t: number; s: 'flat' | 'demo' | 'crumple' | 'reset'; d: number };
-  // ~10s two-tool loop (ms): flat .4, demo 3.2, crumple .7 per tool + .6 reset.
+  // ~15s two-tool loop (ms): flat .5, demo 5.0, crumple .8 per tool + 2.4 reset.
+  // The longer demo lets each tool land and be read before the napkin crumples.
   const SEQ: Phase[] = [
-    { t: 0, s: 'flat', d: 400 }, { t: 0, s: 'demo', d: 3200 }, { t: 0, s: 'crumple', d: 700 },
-    { t: 1, s: 'flat', d: 400 }, { t: 1, s: 'demo', d: 3200 }, { t: 1, s: 'crumple', d: 700 },
-    { t: 0, s: 'reset', d: 600 },
+    { t: 0, s: 'flat', d: 500 }, { t: 0, s: 'demo', d: 5000 }, { t: 0, s: 'crumple', d: 800 },
+    { t: 1, s: 'flat', d: 500 }, { t: 1, s: 'demo', d: 5000 }, { t: 1, s: 'crumple', d: 800 },
+    { t: 0, s: 'reset', d: 2400 },
   ];
 
   function setupNapkin(root: HTMLElement) {
@@ -335,51 +336,57 @@ const ctaOrder = tools
     transition: opacity 0.5s ease;
   }
 
-  /* Reveal order + stagger, per animation type, while playing. */
+  /* Reveal order + stagger, per animation type, while playing. Timings are
+     spread across the ~5s demo window so each tool lands before the crumple. */
   /* 15-Second Testimony: left -> centre -> right -> question */
-  .cnt__tool.is-playing [id$="-before-section"] { opacity: 1; transition-delay: 0.15s; }
-  .cnt__tool.is-playing [id$="-jesus-center"] { opacity: 1; transition-delay: 0.6s; }
-  .cnt__tool.is-playing [id$="-now-section"] { opacity: 1; transition-delay: 1.05s; }
-  .cnt__tool.is-playing [id$="-bottom-question"] { opacity: 1; transition-delay: 1.55s; animation: cnt-pop 0.6s ease 2.3s 1; }
+  .cnt__tool.is-playing [id$="-before-section"] { opacity: 1; transition-delay: 0.4s; }
+  .cnt__tool.is-playing [id$="-jesus-center"] { opacity: 1; transition-delay: 1.3s; }
+  .cnt__tool.is-playing [id$="-now-section"] { opacity: 1; transition-delay: 2.2s; }
+  .cnt__tool.is-playing [id$="-bottom-question"] { opacity: 1; transition-delay: 3.2s; animation: cnt-pop 0.7s ease 4.1s 1; }
 
   /* Three Thirds: arrows -> back -> up -> forward, then reinforce */
-  .cnt__tool.is-playing [id$="-top-arrows"] { opacity: 1; transition-delay: 0.15s; }
-  .cnt__tool.is-playing [id$="-look-back"] { opacity: 1; transition-delay: 0.55s; animation: cnt-pop 0.55s ease 2.1s 1; }
-  .cnt__tool.is-playing [id$="-look-up"] { opacity: 1; transition-delay: 0.95s; animation: cnt-pop 0.55s ease 2.35s 1; }
-  .cnt__tool.is-playing [id$="-look-forward"] { opacity: 1; transition-delay: 1.35s; animation: cnt-pop 0.55s ease 2.6s 1; }
+  .cnt__tool.is-playing [id$="-top-arrows"] { opacity: 1; transition-delay: 0.4s; }
+  .cnt__tool.is-playing [id$="-look-back"] { opacity: 1; transition-delay: 1.2s; animation: cnt-pop 0.6s ease 3.9s 1; }
+  .cnt__tool.is-playing [id$="-look-up"] { opacity: 1; transition-delay: 2.1s; animation: cnt-pop 0.6s ease 4.15s 1; }
+  .cnt__tool.is-playing [id$="-look-forward"] { opacity: 1; transition-delay: 3.0s; animation: cnt-pop 0.6s ease 4.4s 1; }
 
-  /* Church Waffle: circle -> grid -> 12 icons, then emphasise two */
-  .cnt__tool.is-playing [id$="-outer-circle"] { opacity: 1; transition-delay: 0.1s; }
-  .cnt__tool.is-playing [id$="-grid-lines"] { opacity: 1; transition-delay: 0.35s; }
-  .cnt__tool.is-playing [id*="-icon-"] { opacity: 1; }
-  .cnt__tool.is-playing [id$="-icon-01"] { transition-delay: 0.6s; animation: cnt-pop 0.6s ease 2.6s 1; }
-  .cnt__tool.is-playing [id$="-icon-02"] { transition-delay: 0.72s; }
-  .cnt__tool.is-playing [id$="-icon-03"] { transition-delay: 0.84s; }
-  .cnt__tool.is-playing [id$="-icon-04"] { transition-delay: 0.96s; }
-  .cnt__tool.is-playing [id$="-icon-05"] { transition-delay: 1.08s; }
-  .cnt__tool.is-playing [id$="-icon-06"] { transition-delay: 1.2s; }
-  .cnt__tool.is-playing [id$="-icon-07"] { transition-delay: 1.32s; animation: cnt-pop 0.6s ease 2.8s 1; }
-  .cnt__tool.is-playing [id$="-icon-08"] { transition-delay: 1.44s; }
-  .cnt__tool.is-playing [id$="-icon-09"] { transition-delay: 1.56s; }
-  .cnt__tool.is-playing [id$="-icon-10"] { transition-delay: 1.68s; }
-  .cnt__tool.is-playing [id$="-icon-11"] { transition-delay: 1.8s; }
-  .cnt__tool.is-playing [id$="-icon-12"] { transition-delay: 1.92s; }
+  /* Church Waffle: outer circle -> grid -> icons -> clean glow emphasis.
+     Opacity keyframes only (never transforms) so the clipped groups can't
+     bleed line fragments. For the spotlight the grid and the ten other icons
+     fade out, leaving only the two emphasised icons + their glow — the grid
+     is never visible during the emphasis. `g[...]` targets the groups, not
+     their like-named clipPath defs. */
+  .cnt__tool--church-waffle.is-playing g[id$="-outer-circle"] { animation: cw-in 0.6s ease 0.3s both; }
+  .cnt__tool--church-waffle.is-playing g[id$="-grid-lines"] { animation: cw-in 0.6s ease 0.8s both, cw-out 0.5s ease 3.7s forwards; }
+  .cnt__tool--church-waffle.is-playing g[id$="-icon-02"] { animation: cw-in 0.5s ease 1.35s both, cw-out 0.5s ease 3.7s forwards; }
+  .cnt__tool--church-waffle.is-playing g[id$="-icon-03"] { animation: cw-in 0.5s ease 1.5s both, cw-out 0.5s ease 3.7s forwards; }
+  .cnt__tool--church-waffle.is-playing g[id$="-icon-04"] { animation: cw-in 0.5s ease 1.65s both, cw-out 0.5s ease 3.7s forwards; }
+  .cnt__tool--church-waffle.is-playing g[id$="-icon-05"] { animation: cw-in 0.5s ease 1.8s both, cw-out 0.5s ease 3.7s forwards; }
+  .cnt__tool--church-waffle.is-playing g[id$="-icon-06"] { animation: cw-in 0.5s ease 1.95s both, cw-out 0.5s ease 3.7s forwards; }
+  .cnt__tool--church-waffle.is-playing g[id$="-icon-08"] { animation: cw-in 0.5s ease 2.1s both, cw-out 0.5s ease 3.7s forwards; }
+  .cnt__tool--church-waffle.is-playing g[id$="-icon-09"] { animation: cw-in 0.5s ease 2.25s both, cw-out 0.5s ease 3.7s forwards; }
+  .cnt__tool--church-waffle.is-playing g[id$="-icon-10"] { animation: cw-in 0.5s ease 2.4s both, cw-out 0.5s ease 3.7s forwards; }
+  .cnt__tool--church-waffle.is-playing g[id$="-icon-11"] { animation: cw-in 0.5s ease 2.55s both, cw-out 0.5s ease 3.7s forwards; }
+  .cnt__tool--church-waffle.is-playing g[id$="-icon-12"] { animation: cw-in 0.5s ease 2.7s both, cw-out 0.5s ease 3.7s forwards; }
+  /* the two emphasised icons stay, then glow */
+  .cnt__tool--church-waffle.is-playing g[id$="-icon-01"] { animation: cw-in 0.5s ease 1.2s both, cw-glow 1.1s ease 3.95s forwards; }
+  .cnt__tool--church-waffle.is-playing g[id$="-icon-07"] { animation: cw-in 0.5s ease 2.0s both, cw-glow 1.1s ease 4.15s forwards; }
 
   /* Follow and Fish: box -> verse -> arrows -> FOLLOW -> FISH */
-  .cnt__tool.is-playing [id$="-sign"] { opacity: 1; transition-delay: 0.1s; }
-  .cnt__tool.is-playing [id$="-verse"] { opacity: 1; transition-delay: 0.4s; }
-  .cnt__tool.is-playing [id$="-left-arrow"] { opacity: 1; transition-delay: 0.75s; }
-  .cnt__tool.is-playing [id$="-right-arrow"] { opacity: 1; transition-delay: 0.75s; }
-  .cnt__tool.is-playing [id$="-follow"] { opacity: 1; transition-delay: 1.05s; }
-  .cnt__tool.is-playing [id$="-fish"] { opacity: 1; transition-delay: 1.55s; }
+  .cnt__tool.is-playing [id$="-sign"] { opacity: 1; transition-delay: 0.4s; }
+  .cnt__tool.is-playing [id$="-verse"] { opacity: 1; transition-delay: 1s; }
+  .cnt__tool.is-playing [id$="-left-arrow"] { opacity: 1; transition-delay: 1.6s; }
+  .cnt__tool.is-playing [id$="-right-arrow"] { opacity: 1; transition-delay: 1.6s; }
+  .cnt__tool.is-playing [id$="-follow"] { opacity: 1; transition-delay: 2.3s; }
+  .cnt__tool.is-playing [id$="-fish"] { opacity: 1; transition-delay: 3.2s; }
 
   /* Conversation Box: axes -> heads -> quadrant labels */
-  .cnt__tool.is-playing [id$="-axes"] { opacity: 1; transition-delay: 0.1s; }
-  .cnt__tool.is-playing [id$="-arrowheads"] { opacity: 1; transition-delay: 0.35s; }
-  .cnt__tool.is-playing [id$="-casual"] { opacity: 1; transition-delay: 0.55s; }
-  .cnt__tool.is-playing [id$="-meaningful"] { opacity: 1; transition-delay: 0.7s; }
-  .cnt__tool.is-playing [id$="-discovery"] { opacity: 1; transition-delay: 0.85s; }
-  .cnt__tool.is-playing [id$="-spiritual"] { opacity: 1; transition-delay: 1s; }
+  .cnt__tool.is-playing [id$="-axes"] { opacity: 1; transition-delay: 0.4s; }
+  .cnt__tool.is-playing [id$="-arrowheads"] { opacity: 1; transition-delay: 0.8s; }
+  .cnt__tool.is-playing [id$="-casual"] { opacity: 1; transition-delay: 1.1s; }
+  .cnt__tool.is-playing [id$="-meaningful"] { opacity: 1; transition-delay: 1.3s; }
+  .cnt__tool.is-playing [id$="-discovery"] { opacity: 1; transition-delay: 1.5s; }
+  .cnt__tool.is-playing [id$="-spiritual"] { opacity: 1; transition-delay: 1.7s; }
 
   /* Static / no-JS / reduced-motion: everything visible, no motion. */
   .cnt:not(.is-animating) .cnt__tool [id],
@@ -396,6 +403,13 @@ const ctaOrder = tools
     0% { transform: scale(1); }
     45% { transform: scale(1.05); }
     100% { transform: scale(1); }
+  }
+  @keyframes cw-in { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes cw-out { from { opacity: 1; } to { opacity: 0; } }
+  @keyframes cw-glow {
+    0% { filter: none; }
+    30% { filter: drop-shadow(0 0 6px var(--color-gold)) drop-shadow(0 0 3px var(--color-gold)); }
+    100% { filter: drop-shadow(0 0 5px var(--color-gold)); }
   }
 </style>
 
@@ -423,16 +437,24 @@ const ctaOrder = tools
     filter: drop-shadow(0 10px 24px rgba(31, 37, 35, 0.12));
   }
 
-  /* Tool panels sit on the flat area of the napkin. */
+  /* Tool panels sit on the flat area of the napkin. Inset is tuned per tool
+     so each diagram fills the useful napkin area instead of floating small
+     and centred — the practical tools (Conversation Box, Three Thirds,
+     15-Second Testimony) get the most room. */
   .cnt__tool {
     position: absolute;
-    inset: 11%;
+    inset: 9%;
     display: grid;
     place-items: center;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.35s ease;
   }
+  .cnt__tool--conversation { inset: 4%; }
+  .cnt__tool--three-thirds { inset: 3.5%; }
+  .cnt__tool--testimony { inset: 5%; }
+  .cnt__tool--church-waffle { inset: 7%; }
+  .cnt__tool--three-circles { inset: 12%; }
   .cnt__tool.is-active { opacity: 1; visibility: visible; }
   .cnt__art { position: relative; width: 100%; height: 100%; }
   .cnt__art :global(svg) { width: 100%; height: 100%; display: block; }
@@ -476,12 +498,16 @@ const ctaOrder = tools
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
   }
-  .cnt__tool.is-playing .anno-follow { opacity: 0.9; animation: anno-draw 0.5s ease 1.45s forwards; }
-  .cnt__tool.is-playing .anno-fish { opacity: 0.9; animation: anno-draw 0.5s ease 1.95s forwards; }
-  .cnt__tool.is-playing .anno-verse { opacity: 0.9; animation: anno-draw 0.5s ease 2.4s forwards; }
+  .cnt__tool.is-playing .anno-follow { opacity: 0.9; animation: anno-draw 0.6s ease 2.9s forwards; }
+  .cnt__tool.is-playing .anno-fish { opacity: 0.9; animation: anno-draw 0.6s ease 3.8s forwards; }
+  .cnt__tool.is-playing .anno-verse { opacity: 0.9; animation: anno-draw 0.6s ease 4.4s forwards; }
   @keyframes anno-draw { to { stroke-dashoffset: 0; } }
 
-  /* ===== Conversation Box animated names ===== */
+  /* ===== Conversation Box animated names =====
+     Chips sit in the lower half of each quadrant — clear of the top-anchored
+     CASUAL/MEANINGFUL/DISCOVERY/SPIRITUAL labels and off the axis cross. Alex
+     moves from Casual into Meaningful (a deeper conversation) at a constant
+     height; the solid chip stays readable while it crosses the axis. */
   .cnt__names { position: absolute; inset: 0; pointer-events: none; }
   .cnt-name {
     position: absolute;
@@ -490,37 +516,38 @@ const ctaOrder = tools
     background: var(--color-primary);
     color: var(--color-primary-text);
     border-radius: var(--radius-pill);
-    font-size: clamp(0.6rem, 2.6vw, 0.85rem);
+    font-size: clamp(0.62rem, 2.5vw, 0.9rem);
     font-weight: 700;
     white-space: nowrap;
     opacity: 0;
+    box-shadow: 0 1px 4px rgba(31, 37, 35, 0.25);
   }
-  /* quadrant centres (percent of the tool box) */
-  .cnt-name--a { left: 26%; top: 24%; }   /* Alex -> Casual, later Meaningful */
-  .cnt-name--b { left: 26%; top: 74%; }   /* Sam  -> Discovery */
-  .cnt-name--c { left: 73%; top: 74%; }   /* Jordan -> Spiritual */
+  /* lower-quadrant safe spots (percent of the tool box) */
+  .cnt-name--a { left: 16%; top: 42%; }   /* Alex -> Casual, later Meaningful */
+  .cnt-name--b { left: 18%; top: 72%; }   /* Sam  -> Discovery */
+  .cnt-name--c { left: 68%; top: 72%; }   /* Jordan -> Spiritual */
   .cnt__tool.is-playing .cnt-name--a {
-    animation: cnt-name-in 0.4s ease 1.2s forwards, cnt-name-move 0.9s ease 2.4s forwards;
+    animation: cnt-name-in 0.4s ease 2.4s forwards, cnt-name-move 0.8s ease 3.3s forwards;
   }
-  .cnt__tool.is-playing .cnt-name--b { animation: cnt-name-in 0.4s ease 1.55s forwards; }
-  .cnt__tool.is-playing .cnt-name--c { animation: cnt-name-in 0.4s ease 1.9s forwards; }
+  .cnt__tool.is-playing .cnt-name--b { animation: cnt-name-in 0.4s ease 2.0s forwards; }
+  .cnt__tool.is-playing .cnt-name--c { animation: cnt-name-in 0.4s ease 2.8s forwards; }
   @keyframes cnt-name-in {
     to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   }
   @keyframes cnt-name-move {
-    from { left: 26%; top: 24%; }
-    to { left: 72%; top: 24%; }   /* Casual -> Meaningful (deeper) */
+    from { left: 16%; top: 42%; }
+    to { left: 68%; top: 42%; }   /* Casual -> Meaningful (deeper) */
   }
   .cnt-pulse {
     position: absolute;
-    left: 72%; top: 24%;
-    width: 34%; height: 40%;
+    left: 68%; top: 42%;
+    width: 30%; height: 26%;
     transform: translate(-50%, -50%) scale(0.5);
     border: 2px solid var(--color-accent);
     border-radius: 12px;
     opacity: 0;
   }
-  .cnt__tool.is-playing .cnt-pulse { animation: cnt-pulse 1s ease 2.7s 1; }
+  .cnt__tool.is-playing .cnt-pulse { animation: cnt-pulse 0.9s ease 4.2s 1; }
   @keyframes cnt-pulse {
     0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
     40% { opacity: 0.9; transform: translate(-50%, -50%) scale(1); }
@@ -547,11 +574,11 @@ const ctaOrder = tools
     text-transform: uppercase;
   }
   /* placeholder reveal + emphasis */
-  .cnt__tool--three-circles.is-playing .tc-c1 { opacity: 1; transition-delay: 0.2s; }
-  .cnt__tool--three-circles.is-playing .tc-c2 { opacity: 1; transition-delay: 0.6s; }
-  .cnt__tool--three-circles.is-playing .tc-c3 { opacity: 1; transition-delay: 1s; }
-  .cnt__tool--three-circles.is-playing .tc-arrow { opacity: 1; transition-delay: 1.4s; }
-  .cnt__tool--three-circles.is-playing .tc-tag { opacity: 1; transition-delay: 1.8s; }
+  .cnt__tool--three-circles.is-playing .tc-c1 { opacity: 1; transition-delay: 0.4s; }
+  .cnt__tool--three-circles.is-playing .tc-c2 { opacity: 1; transition-delay: 1.2s; }
+  .cnt__tool--three-circles.is-playing .tc-c3 { opacity: 1; transition-delay: 2s; }
+  .cnt__tool--three-circles.is-playing .tc-arrow { opacity: 1; transition-delay: 2.8s; }
+  .cnt__tool--three-circles.is-playing .tc-tag { opacity: 1; transition-delay: 3.4s; }
   .cnt__tool--three-circles .tc-circle,
   .cnt__tool--three-circles .tc-arrow,
   .cnt__tool--three-circles .tc-tag { opacity: 0; transition: opacity 0.5s ease; }
@@ -562,7 +589,7 @@ const ctaOrder = tools
   }
   .cnt__tool--three-circles.is-playing .tc-emph-ring {
     opacity: 0.95;
-    animation: anno-draw 0.6s ease 2.2s forwards;
+    animation: anno-draw 0.7s ease 4s forwards;
   }
 
   /* ===== Tool tabs (manual controls) ===== */
