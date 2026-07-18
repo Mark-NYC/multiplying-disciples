@@ -116,77 +116,87 @@ const isActive = (href: string) =>
     <label class="site-header__backdrop" for="nav-toggle" data-menu-backdrop aria-hidden="true"
     ></label>
 
-    <div class="site-menu" id="site-menu" data-menu-panel aria-label="Site menu">
-      <div class="site-menu__head">
-        <p class="site-menu__title eyebrow eyebrow--gold-text">Menu</p>
+    <div class="site-menu" id="site-menu" data-menu-panel aria-label="Site menu" tabindex="-1">
+      {/* Top bar: logo · search · close (close sits top-right on desktop,
+          drops to the foot on mobile — see CSS). */}
+      <div class="site-menu__bar">
+        <a class="site-menu__logo" href="/">
+          <img src="/images/logo.png" alt={SITE.name} width="290" height="44" />
+        </a>
+
+        {/* Real GET form to /search/ — works with no JS (query lives in
+            ?q=, read by src/pages/search/index.astro). */}
+        <form class="site-menu__search" action="/search/" method="get" role="search">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4.8-4.8" />
+          </svg>
+          <input type="search" name="q" placeholder="Search Multiplying Disciples" aria-label="Search Multiplying Disciples" />
+        </form>
+      </div>
+
+      <nav aria-label="Site menu" class="site-menu__nav">
+        {/* The large, primary destinations. */}
+        <ul class="site-menu__primary">
+          {PRIMARY_NAV.map((link) => (
+            <li>
+              <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <a class="button site-menu__cta" href="/#ch-practice">Join a Live Lab</a>
+
+        {/* Muted secondary column(s). */}
+        <div class="site-menu__resources">
+          <div class="site-menu__group">
+            <p class="eyebrow eyebrow--gold-text">More Resources</p>
+            <ul>
+              {MENU_FEATURED.map((link) => (
+                <li>
+                  <a href={link.href} rel={link.externalDomain ? 'noopener' : undefined}>
+                    {link.label}
+                    {link.externalDomain && (
+                      <span class="site-menu__external">{link.externalDomain} &#8599;</span>
+                    )}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="site-menu__group">
+            <p class="eyebrow eyebrow--gold-text">Browse Topics</p>
+            <ul>
+              {MENU_TOPICS.map((link) => (
+                <li>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))}
+              <li>
+                <a href={MENU_CONTACT.href}>{MENU_CONTACT.label}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {/* Foot: close control (bottom-left on mobile, floated top-right on
+          desktop) plus socials. */}
+      <div class="site-menu__foot">
         <label for="nav-toggle" class="site-menu__close" data-menu-fallback-close aria-label="Close menu">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
             <path d="M5 5l14 14M19 5L5 19" />
           </svg>
         </label>
         <button type="button" class="site-menu__close" data-menu-close aria-label="Close menu" hidden>
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
             <path d="M5 5l14 14M19 5L5 19" />
           </svg>
         </button>
-      </div>
 
-      <nav aria-label="More resources" class="site-menu__body">
-        {/* Primary nav repeated for small screens only, where the
-            inline header nav is hidden — first in the hierarchy per
-            the mobile menu spec. Desktop hides this block. */}
-        <div class="site-menu__primary">
-          <ul class="site-menu__list site-menu__list--primary">
-            {PRIMARY_NAV.map((link) => (
-              <li>
-                <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
-                  {link.label}
-                </a>
-              </li>
-            ))}
-            <li>
-              <a href="/search/">Search</a>
-            </li>
-          </ul>
-          <a class="button site-menu__lab-cta" href="/#ch-practice">Join a Lab</a>
-        </div>
-
-        <div class="site-menu__section site-menu__section--featured">
-          <p class="site-menu__label eyebrow eyebrow--gold-text">More Resources</p>
-          <ul class="site-menu__list">
-            {MENU_FEATURED.map((link) => (
-              <li>
-                <a href={link.href} rel={link.externalDomain ? 'noopener' : undefined}>
-                  {link.label}
-                  {link.externalDomain && (
-                    <span class="site-menu__external">{link.externalDomain} &#8599;</span>
-                  )}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div class="site-menu__section">
-          <p class="site-menu__label eyebrow eyebrow--gold-text">Browse Topics</p>
-          <ul class="site-menu__list">
-            {MENU_TOPICS.map((link) => (
-              <li>
-                <a href={link.href}>{link.label}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div class="site-menu__section site-menu__section--contact">
-          <ul class="site-menu__list">
-            <li>
-              <a href={MENU_CONTACT.href}>{MENU_CONTACT.label}</a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Socials only where the header row's own icons are hidden. */}
         <ul class="site-menu__socials">
           <li>
             <a href={SITE.social.facebook} aria-label="Multiplying Disciples on Facebook">
@@ -212,7 +222,7 @@ const isActive = (href: string) =>
             </a>
           </li>
         </ul>
-      </nav>
+      </div>
     </div>
   </div>
 </header>
@@ -244,7 +254,7 @@ const isActive = (href: string) =>
 
     function focusables(): HTMLElement[] {
       return Array.from(
-        panel!.querySelectorAll<HTMLElement>('a[href], button:not([hidden])'),
+        panel!.querySelectorAll<HTMLElement>('a[href], button:not([hidden]), input:not([disabled])'),
       ).filter((el) => el.offsetParent !== null || el === closeBtn);
     }
 
@@ -276,7 +286,10 @@ const isActive = (href: string) =>
       panel!.setAttribute('aria-modal', 'true');
       openBtn!.setAttribute('aria-expanded', 'true');
       document.documentElement.style.overflow = 'hidden';
-      closeBtn!.focus();
+      // Focus the panel itself (tabindex=-1), not a control — avoids
+      // scrolling the sheet to the foot close or popping the mobile
+      // keyboard on the search field, while the Tab trap still works.
+      panel!.focus();
       document.addEventListener('keydown', onKeydown);
     }
 
@@ -504,71 +517,199 @@ const isActive = (href: string) =>
     color: var(--color-accent-hover);
   }
 
-  /* --- Menu drawer -------------------------------------------------
-     A calm field-guide panel: Warm Paper, hairline border, mono
-     section labels, plain ink links, generous whitespace. Slides in
-     from the right at every width; full-width sheet on small
-     screens. */
+  /* --- Full-screen menu (YWAM-style layout, MD brand) --------------
+     Covers the viewport in Warm Paper: a top bar (logo · search), a
+     column of large primary links, a Join-a-Lab CTA, muted resource
+     groups, and a foot (close + socials). The close floats top-right on
+     desktop and drops to the foot on mobile. */
 
+  /* Backdrop is unused now that the menu is a full-screen sheet. */
   .site-header__backdrop {
-    position: fixed;
-    inset: 0;
-    z-index: 40;
-    background: rgba(31, 37, 35, 0.35);
-    opacity: 0;
-    visibility: hidden;
-    cursor: default;
+    display: none;
   }
 
   .site-menu {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     z-index: 50;
-    width: min(24rem, 100vw);
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
     background: var(--color-bg);
-    border-left: 1px solid var(--color-border);
-    box-shadow: -12px 0 32px rgba(31, 37, 35, 0.12);
-    padding: 1.25rem 1.75rem 2.5rem;
-    transform: translateX(100%);
+    padding: 1.1rem 1.5rem 2rem;
+    opacity: 0;
     visibility: hidden;
+    transform: translateY(-0.5rem);
   }
 
-  /* Open state — driven by JS (.is-open) or, without JS, by the
-     checkbox. */
+  .site-menu:focus {
+    outline: none;
+  }
+
+  /* Open state — driven by JS (.is-open) or, without JS, by the checkbox. */
   .site-menu.is-open,
   .site-header__toggle-input:checked ~ .site-menu {
-    transform: none;
-    visibility: visible;
-  }
-
-  .site-header__backdrop.is-open,
-  .site-header__toggle-input:checked ~ .site-header__backdrop {
     opacity: 1;
     visibility: visible;
+    transform: none;
   }
 
   @media (prefers-reduced-motion: no-preference) {
     .site-menu {
-      transition: transform 0.2s ease, visibility 0.2s;
-    }
-
-    .site-header__backdrop {
-      transition: opacity 0.2s ease, visibility 0.2s;
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
     }
   }
 
-  .site-menu__head {
+  /* --- Top bar: logo · search --- */
+  .site-menu__bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: var(--header-max-width);
+    margin: 0 auto;
+  }
+
+  .site-menu__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .site-menu__logo img {
+    height: 1.3rem;
+    width: auto;
+    border-radius: 0;
+  }
+
+  .site-menu__search {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 32rem;
+    padding: 0.65rem 1.1rem;
+    background: var(--color-surface);
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    color: var(--color-text-muted);
+  }
+
+  .site-menu__search:focus-within {
+    border-color: var(--color-accent);
+    background: #fff;
+    color: var(--color-text);
+  }
+
+  .site-menu__search svg {
+    flex-shrink: 0;
+  }
+
+  .site-menu__search input {
+    flex: 1 1 auto;
+    min-width: 0;
+    border: none;
+    background: transparent;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+
+  .site-menu__search input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .site-menu__search input:focus {
+    outline: none;
+  }
+
+  /* --- Nav body --- */
+  .site-menu__nav {
+    width: 100%;
+    max-width: var(--header-max-width);
+    margin: 2.5rem auto 0;
+    flex: 1 1 auto;
+  }
+
+  .site-menu__primary {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-menu__primary a {
+    display: inline-block;
+    padding: 0.3rem 0;
+    font-size: clamp(2.25rem, 1.5rem + 3.2vw, 4rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .site-menu__primary a:hover,
+  .site-menu__primary a[aria-current='page'] {
+    color: var(--color-accent-hover);
+  }
+
+  .site-menu__cta {
+    display: inline-flex;
+    margin-top: 1.75rem;
+  }
+
+  .site-menu__resources {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: 1.5rem 3rem;
+    max-width: 42rem;
+    margin-top: 2.75rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .site-menu__group .eyebrow {
+    margin: 0 0 0.85rem;
+  }
+
+  .site-menu__group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-menu__group a {
+    display: block;
+    padding: 0.3rem 0;
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+  }
+
+  .site-menu__group a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  /* Quiet domain hint on the one off-site resource. */
+  .site-menu__external {
+    margin-left: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  /* --- Foot: close + socials --- */
+  .site-menu__foot {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 0 1.5rem;
-  }
-
-  .site-menu__title {
-    margin: 0;
+    gap: 1rem;
+    width: 100%;
+    max-width: var(--header-max-width);
+    margin: 2.5rem auto 0;
   }
 
   .site-menu__close {
@@ -577,7 +718,7 @@ const isActive = (href: string) =>
     justify-content: center;
     width: 2.75rem;
     height: 2.75rem;
-    margin-right: -0.6rem;
+    margin-left: -0.6rem;
     background: transparent;
     border: none;
     border-radius: var(--radius-pill);
@@ -594,66 +735,40 @@ const isActive = (href: string) =>
     background: var(--color-surface);
   }
 
-  .site-menu__section {
-    padding: 1.4rem 0;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .site-menu__label {
-    margin: 0 0 0.85rem;
-  }
-
-  .site-menu__list {
+  .site-menu__socials {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  .site-menu__list a {
-    display: block;
-    padding: 0.55rem 0;
-    font-size: 1.05rem;
-    font-weight: 500;
+  .site-menu__socials a {
+    display: flex;
+    padding: 0.5rem;
     color: var(--color-text);
-    text-decoration: none;
   }
 
-  .site-menu__list a:hover {
+  .site-menu__socials a:hover {
     color: var(--color-accent-hover);
   }
 
-  .site-menu__list a[aria-current='page'] {
-    color: var(--color-accent-hover);
-    font-weight: 700;
-  }
+  /* Desktop: float the close top-right, YWAM-style, and leave room for
+     it beside the search bar. */
+  @media (min-width: 901px) {
+    .site-menu__bar {
+      padding-right: 4rem;
+    }
 
-  /* More Resources reads as the drawer's headline block — h3-sized to
-     signal that these are prominent, high-value destinations. */
-  .site-menu__section--featured .site-menu__list a {
-    font-size: var(--fs-h3);
-    line-height: 1.2;
-    padding: 0.4rem 0;
-  }
-
-  /* Quiet domain hint on the one off-site resource, so an external
-     jump never surprises. */
-  .site-menu__external {
-    margin-left: 0.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.02em;
-    color: var(--color-text-muted);
-    white-space: nowrap;
-  }
-
-  /* Primary nav inside the drawer — small screens only; the desktop
-     header keeps its inline nav, so repeating it here would be noise. */
-  .site-menu__primary {
-    display: none;
-  }
-
-  .site-menu__socials {
-    display: none;
+    .site-menu__close {
+      position: fixed;
+      top: 1.4rem;
+      right: 1.75rem;
+      margin: 0;
+      width: 3rem;
+      height: 3rem;
+    }
   }
 
   @media (max-width: 900px) {
@@ -661,54 +776,8 @@ const isActive = (href: string) =>
       display: none;
     }
 
-    .site-menu {
-      width: 100vw;
-      border-left: none;
-    }
-
-    .site-menu__primary {
-      display: block;
-      padding: 0 0 1.4rem;
-    }
-
-    .site-menu__list--primary a {
-      font-size: var(--fs-h3);
-      line-height: 1.2;
-      padding: 0.4rem 0;
-    }
-
-    /* On mobile the enlarged block is the primary nav above; More
-       Resources drops back to the normal list size so only the top menu
-       items read large. (Desktop keeps More Resources h3-sized — that's
-       the drawer's lead block there.) */
-    .site-menu__section--featured .site-menu__list a {
-      font-size: 1.05rem;
-      line-height: 1.5;
-      padding: 0.55rem 0;
-    }
-
-    .site-menu__lab-cta {
-      display: block;
-      width: 100%;
-      text-align: center;
-      margin-top: 0.75rem;
-    }
-
-    .site-menu__socials {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      list-style: none;
-      margin: 0;
-      padding: 1.4rem 0 0;
-      border-top: 1px solid var(--color-border);
-    }
-
-    .site-menu__socials a {
-      display: flex;
-      padding: 0.5rem;
-      margin: -0.5rem 0;
-      color: var(--color-text);
+    .site-menu__nav {
+      margin-top: 2rem;
     }
   }
 </style>
