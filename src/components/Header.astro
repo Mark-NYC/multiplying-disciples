@@ -1,6 +1,7 @@
 ---
 import { PRIMARY_NAV, MENU_FEATURED, MENU_TOPICS, MENU_CONTACT } from '../data/navigation';
 import { SITE } from '../data/site';
+import RotatingSeal from './RotatingSeal.astro';
 
 const currentPath = Astro.url.pathname;
 const isActive = (href: string) =>
@@ -120,9 +121,7 @@ const isActive = (href: string) =>
       {/* Top bar: logo · search · close (close sits top-right on desktop,
           drops to the foot on mobile — see CSS). */}
       <div class="site-menu__bar">
-        <a class="site-menu__logo" href="/">
-          <img src="/images/logo.png" alt={SITE.name} width="290" height="44" />
-        </a>
+        <RotatingSeal size="3.5rem" class="site-menu__seal" />
 
         {/* Real GET form to /search/ — works with no JS (query lives in
             ?q=, read by src/pages/search/index.astro). */}
@@ -310,7 +309,7 @@ const isActive = (href: string) =>
     // Following a link should close the drawer (matters for same-page
     // anchors like /#ch-practice, where no navigation event fires).
     panel.addEventListener('click', (event) => {
-      if ((event.target as Element).closest('a[href]')) close();
+      if ((event.target as Element).closest('a[href], .rotating-seal')) close();
     });
   }
 </script>
@@ -570,16 +569,8 @@ const isActive = (href: string) =>
     margin: 0 auto;
   }
 
-  .site-menu__logo {
-    display: flex;
-    align-items: center;
+  .site-menu__seal {
     flex-shrink: 0;
-  }
-
-  .site-menu__logo img {
-    height: 1.3rem;
-    width: auto;
-    border-radius: 0;
   }
 
   .site-menu__search {
