@@ -21,7 +21,7 @@ export const PRIMARY_NAV: NavLink[] = [
   { label: 'Labs', href: '/#ch-practice' },
   { label: 'Tools', href: '/starter-tools/' },
   { label: 'Articles', href: '/blog/' },
-  { label: 'About', href: '/vision/' },
+  { label: 'About', href: '/about/' },
 ];
 
 // --- Hamburger menu (see NAVIGATION_MAP.md) --------------------------
