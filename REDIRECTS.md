@@ -5,6 +5,44 @@ a planned 301 documented here before launch. This file is the single
 source of truth for redirects — do not launch with an entry still marked
 `pending`.
 
+## Redirect policy (permanent — adopted 2026-07-19)
+
+Every redirect in this repo must follow these rules. They exist because a
+Google result ("15 Second Testimony Examples") was landing on the
+`/testimony/` list hub instead of the article that answers the query.
+
+1. **Article URLs must redirect to an equivalent successor article** —
+   never to a topic/list hub.
+2. **Taxonomy URLs** (`/category/…`, `/tag/…`) **may** redirect to a
+   relevant cluster hub. Exception: when a taxonomy term maps 1:1 to a
+   single successor article (e.g. `/tag/15-second-testimony-examples/`),
+   prefer that article — it better preserves query intent.
+3. **Utility and tool URLs must redirect to an equivalent replacement**
+   (page/tool), e.g. `/training/` → `/free-training/`, sticker products →
+   `/stickers/`.
+4. **If no substantially equivalent page exists, return 410** (via
+   `api/gone.js`) — do not invent a destination.
+5. **Never redirect an article to a hub merely because they share a
+   topic.** Shared topic ≠ same search intent.
+6. **Any redirect change requires confirming** that the new destination
+   better preserves the original **query intent, title promise, and
+   content** than the old one. Future cluster/content articles must not
+   silently repoint existing redirects — a change is a deliberate,
+   documented decision, not a side effect of publishing.
+
+### Article → hub cases — resolved (owner decisions, 2026-07-19)
+
+The five flagged WordPress-post URLs were decided as follows. GSC = clicks
+/ impressions.
+
+| Old URL (WordPress post) | GSC | Decision |
+|---|---|---|
+| `/disciple-making-resources-for-churches-that-will-multiply/` | 1 / 92 | **Keep 301 → `/disciple-making/`.** Legitimate resource-index → resource-hub replacement: the old page was itself a resource index, and the `/disciple-making/` hub is that same curated resource landing, not a broad topic dump. This is the sanctioned exception to policy #1 |
+| `/discover-the-game-changing-secrets-starfish-and-the-spirit-review/` | 1 / 17 | **410** — book review, no equivalent article |
+| `/royal-priest-strategy-explodes-disciple-making-movement-worldwide/` | 0 / 55 | **410** — specific DMM story, no closer surviving article |
+| `/next-gen-local-owners-building-beachheads-of-the-kingdom/` | 0 / 4 | **410** — local-ownership theme, no closer surviving article |
+| `/disciple-making-movement-books-top-25-must-reads/` | 3 / 415 | **Restore the article** (do NOT 410). ⚠️ **Blocked:** the original content is not in this repo (never migrated to a content file; no WordPress export present), so it cannot be restored without the source text. Its existing 301 → `/church-planting-movements/` is left in place in the interim so the URL does not 404. Once the content is provided: add the article, remove this redirect, and link it from `/church-planting-movements/` |
+
 ## Content simplification (2026-07-11) — 26 article redirects, 3 retirements, 1 hub retirement
 
 Positioning shift from "disciple-making encyclopedia" to a practice-first
@@ -35,17 +73,17 @@ Vercel serverless function returning a true HTTP 410, wired via `vercel.json`
 | `/disciple-making-resources-for-churches-that-will-multiply/` | `/disciple-making/` | 301 | implemented |
 | `/equipping-your-church-for-disciple-making-movements-a-pastors-guide-to-effective-training/` | `/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/` | 301 | implemented |
 | `/breaking-the-mold-a-guide-to-shifting-your-church-to-movement-strategy/` | `/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/` | 301 | implemented |
-| `/discover-the-game-changing-secrets-starfish-and-the-spirit-review/` | `/church-planting-movements/` | 301 | implemented |
+| `/discover-the-game-changing-secrets-starfish-and-the-spirit-review/` | — (410 via `api/gone.js`) | 410 | implemented (changed from a hub 301 to a 410 on 2026-07-19 per the redirect policy — no equivalent article) |
 | `/disciple-making-movement-books-top-25-must-reads/` | `/church-planting-movements/` | 301 | implemented |
-| `/royal-priest-strategy-explodes-disciple-making-movement-worldwide/` | `/church-planting-movements/` | 301 | implemented |
+| `/royal-priest-strategy-explodes-disciple-making-movement-worldwide/` | — (410 via `api/gone.js`) | 410 | implemented (changed from a hub 301 to a 410 on 2026-07-19 per the redirect policy — no equivalent article) |
 | `/spiritual-fatherhood-peter-and-pauls-shift-from-reform-to-multiplication/` | `/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/` | 301 | implemented |
 | `/what-is-a-strategy-coordinator-their-role-framework-and-impact-in-modern-missions/` | `/movement-resources/strategy-coordinator/` | 301 | implemented |
 | `/the-hidden-power-of-bonhoeffers-discipleship-model-and-why-its-more-relevant-than-ever/` | `/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/` | 301 | implemented |
 | `/start-strengthen-sustain-core-insights-on-building-lasting-ministry/` | `/content-vs-systems-the-game-changer-for-leadership-development/` | 301 | implemented |
-| `/next-gen-local-owners-building-beachheads-of-the-kingdom/` | `/church-planting-movements/` | 301 | implemented |
+| `/next-gen-local-owners-building-beachheads-of-the-kingdom/` | — (410 via `api/gone.js`) | 410 | implemented (changed from a hub 301 to a 410 on 2026-07-19 per the redirect policy — no equivalent article) |
 | `/go-slow-to-go-fast-could-transform-your-leadership-pipeline/` | `/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/` | 301 | implemented |
 | `/filtering-unlock-this-essential-for-disciple-making-movements/` | `/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/` | 301 | implemented |
-| `/the-leadership-phase-everyone-skips-why-investment-matters/` | `/church-planting-movements/` | 301 | implemented |
+| `/the-leadership-phase-everyone-skips-why-investment-matters/` | `/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/` | 301 | implemented (repointed 2026-07-19 — see "Article removal" section and the redirect policy) |
 | `/strategy-coordinator/` (hub retired) | `/movement-resources/strategy-coordinator/` | 301 | implemented |
 | `/seven-words-of-jesus-on-the-cross/` | — (true 410 via `api/gone.js`) | 410 | implemented |
 | `/bible-passages-about-love-what-scripture-really-says/` | — (true 410 via `api/gone.js`) | 410 | implemented |
@@ -127,7 +165,7 @@ redirect target) — see `docs/archive/PHASE_6_ARCHIVE_URL_DECISION.md` section 
 | `/tag/revival/` | `/church-planting-movements/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
 | `/tag/prayer-walking/` | `/prayer/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
 | `/tag/precision-harvesting/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
-| `/tag/15-second-testimony-examples/` | `/testimony/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/tag/15-second-testimony-examples/` | `/15-second-testimony-examples-ignite-your-faith/` | 301 | Exact 1:1 successor article exists (the tag names a single article); redirect to that article, not the `/testimony/` hub, to preserve the "15 second testimony examples" query intent. Fixed 2026-07-19 after a Google result was landing on the hub | implemented |
 
 ## Pre-cutover redirect cleanup (2026-07-19) — implemented
 
@@ -231,7 +269,7 @@ rollout (not part of the 2026-07-11 content-simplification pass above).
 
 | Old URL | New URL / destination | Type | Reason | Status |
 |---|---|---|---|---|
-| `/the-leadership-phase-everyone-skips-why-investment-matters/` | `/church-planting-movements/` | 301 | Article deleted; no single surviving article fully replaces its Identify/Equip/Invest/Entrust framework, so it falls back to the hub | implemented |
+| `/the-leadership-phase-everyone-skips-why-investment-matters/` | `/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/` | 301 | Article deleted. **Repointed 2026-07-19** from the `/church-planting-movements/` hub to the article — same leadership-investment cluster, and the exact successor the two sibling redirects below already use. Under the redirect policy an article may not fall back to a hub | implemented |
 
 Two existing redirects that previously pointed *at* this now-deleted article
 were repointed to the closest surviving match (same investment/leadership-

@@ -82,17 +82,7 @@
       "statusCode": 301
     },
     {
-      "source": "/discover-the-game-changing-secrets-starfish-and-the-spirit-review/",
-      "destination": "/church-planting-movements/",
-      "statusCode": 301
-    },
-    {
       "source": "/disciple-making-movement-books-top-25-must-reads/",
-      "destination": "/church-planting-movements/",
-      "statusCode": 301
-    },
-    {
-      "source": "/royal-priest-strategy-explodes-disciple-making-movement-worldwide/",
       "destination": "/church-planting-movements/",
       "statusCode": 301
     },
@@ -117,11 +107,6 @@
       "statusCode": 301
     },
     {
-      "source": "/next-gen-local-owners-building-beachheads-of-the-kingdom/",
-      "destination": "/church-planting-movements/",
-      "statusCode": 301
-    },
-    {
       "source": "/go-slow-to-go-fast-could-transform-your-leadership-pipeline/",
       "destination": "/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/",
       "statusCode": 301
@@ -133,7 +118,7 @@
     },
     {
       "source": "/the-leadership-phase-everyone-skips-why-investment-matters/",
-      "destination": "/church-planting-movements/",
+      "destination": "/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/",
       "statusCode": 301
     },
     {
@@ -238,7 +223,7 @@
     },
     {
       "source": "/tag/15-second-testimony-examples/",
-      "destination": "/testimony/",
+      "destination": "/15-second-testimony-examples-ignite-your-faith/",
       "statusCode": 301
     },
     {
@@ -411,6 +396,18 @@
     },
     {
       "source": "/terms-and-conditions/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/discover-the-game-changing-secrets-starfish-and-the-spirit-review/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/royal-priest-strategy-explodes-disciple-making-movement-worldwide/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/next-gen-local-owners-building-beachheads-of-the-kingdom/",
       "destination": "/api/gone"
     }
   ]
