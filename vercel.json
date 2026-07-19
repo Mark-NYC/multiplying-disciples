@@ -82,17 +82,7 @@
       "statusCode": 301
     },
     {
-      "source": "/discover-the-game-changing-secrets-starfish-and-the-spirit-review/",
-      "destination": "/church-planting-movements/",
-      "statusCode": 301
-    },
-    {
       "source": "/disciple-making-movement-books-top-25-must-reads/",
-      "destination": "/church-planting-movements/",
-      "statusCode": 301
-    },
-    {
-      "source": "/royal-priest-strategy-explodes-disciple-making-movement-worldwide/",
       "destination": "/church-planting-movements/",
       "statusCode": 301
     },
@@ -114,11 +104,6 @@
     {
       "source": "/start-strengthen-sustain-core-insights-on-building-lasting-ministry/",
       "destination": "/content-vs-systems-the-game-changer-for-leadership-development/",
-      "statusCode": 301
-    },
-    {
-      "source": "/next-gen-local-owners-building-beachheads-of-the-kingdom/",
-      "destination": "/church-planting-movements/",
       "statusCode": 301
     },
     {
@@ -411,6 +396,18 @@
     },
     {
       "source": "/terms-and-conditions/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/discover-the-game-changing-secrets-starfish-and-the-spirit-review/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/royal-priest-strategy-explodes-disciple-making-movement-worldwide/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/next-gen-local-owners-building-beachheads-of-the-kingdom/",
       "destination": "/api/gone"
     }
   ]
