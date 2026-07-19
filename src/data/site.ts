@@ -48,3 +48,11 @@ export const COVO_LABS_FEED_URL =
   'https://mryjrvinzbxebzvxtggi.supabase.co/functions/v1/public-labs';
 export const COVO_SUBSCRIBE_FUNCTION_URL =
   'https://mryjrvinzbxebzvxtggi.supabase.co/functions/v1/subscribe-updates';
+
+// Connect form endpoint — our own submit-connect-form Edge Function on
+// the same Supabase project (supabase/functions/submit-connect-form).
+// The browser POSTs the /contact-us/ form here; the function validates
+// server-side and writes to connect_submissions with the service role.
+// The service-role key never leaves the server — see the Edge Function.
+export const CONNECT_SUBMIT_FUNCTION_URL =
+  'https://mryjrvinzbxebzvxtggi.supabase.co/functions/v1/submit-connect-form';

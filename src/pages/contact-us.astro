@@ -1,0 +1,618 @@
+---
+// Connect — the contact form for multiplyingdisciples.us (/contact-us/).
+//
+// Replaces the old migrated markdown article
+// (src/content/articles/contact-us.md, removed in the same change) whose
+// original Brevo form couldn't be migrated and had only a mailto:
+// fallback. Same URL. Like /stickers/ and /kingdom-ministry-training/,
+// this is a bespoke page, not a collection entry — the form needs real
+// interactive behavior. It stays out of site search the same way the
+// old article did (it was exclude_from_search: true, and search only
+// indexes the content collections, so a bespoke page is never indexed).
+//
+// The form POSTs to our submit-connect-form Edge Function, which does
+// all validation, storage (service role), and Resend emails server-side.
+// The browser never touches Supabase directly and holds no secrets.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../data/site';
+
+const title = 'Connect';
+const description =
+  'Get in touch with Multiplying Disciples — connect with local believers, get trained to make disciples, or learn more about Jesus.';
+const canonical = 'https://multiplyingdisciples.us/contact-us/';
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} type="website">
+  <section class="connect">
+    <div class="connect__inner">
+      <p class="eyebrow eyebrow--gold-text">Connect</p>
+      <h1 class="connect__title">Let’s connect</h1>
+      <p class="connect__lede">
+        Want to connect with local believers, get trained to make disciples, or learn
+        more about Jesus? Tell us a little about you and we’ll send a next step.
+      </p>
+
+      <form class="connect-form" id="connect-form" novalidate>
+        {/* Accessible error summary — focused and filled by the script. */}
+        <div class="connect-form__summary" id="form-error" role="alert" tabindex="-1" hidden></div>
+
+        {/* Honeypot: hidden from people, tempting to bots. Left blank by
+            real users; if filled, the server silently drops it. */}
+        <div class="connect-form__hp" aria-hidden="true">
+          <label for="cf-company">Company</label>
+          <input type="text" id="cf-company" name="company" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div class="connect-form__field">
+          <label for="cf-first-name">First name <span class="connect-form__req" aria-hidden="true">*</span></label>
+          <input
+            type="text"
+            id="cf-first-name"
+            name="first_name"
+            required
+            maxlength="100"
+            autocomplete="given-name"
+            aria-describedby="err-first-name"
+          />
+          <p class="connect-form__error" id="err-first-name" hidden></p>
+        </div>
+
+        <div class="connect-form__field">
+          <label for="cf-email">Email <span class="connect-form__req" aria-hidden="true">*</span></label>
+          <input
+            type="email"
+            id="cf-email"
+            name="email"
+            required
+            maxlength="254"
+            autocomplete="email"
+            inputmode="email"
+            aria-describedby="err-email"
+          />
+          <p class="connect-form__error" id="err-email" hidden></p>
+        </div>
+
+        <div class="connect-form__row">
+          <div class="connect-form__field">
+            <label for="cf-country">Country <span class="connect-form__req" aria-hidden="true">*</span></label>
+            <input
+              type="text"
+              id="cf-country"
+              name="country"
+              required
+              maxlength="100"
+              autocomplete="country-name"
+              aria-describedby="err-country"
+            />
+            <p class="connect-form__error" id="err-country" hidden></p>
+          </div>
+
+          <div class="connect-form__field">
+            <label for="cf-postal">ZIP / postal code <span class="connect-form__req" aria-hidden="true">*</span></label>
+            <input
+              type="text"
+              id="cf-postal"
+              name="postal_code"
+              required
+              maxlength="20"
+              autocomplete="postal-code"
+              aria-describedby="err-postal"
+            />
+            <p class="connect-form__error" id="err-postal" hidden></p>
+          </div>
+        </div>
+
+        <fieldset class="connect-form__field connect-form__group" aria-describedby="err-interests">
+          <legend>I am interested in… <span class="connect-form__req" aria-hidden="true">*</span></legend>
+          <p class="connect-form__hint" id="interests-hint">Choose all that apply.</p>
+          <label class="connect-form__check">
+            <input type="checkbox" name="interests" value="connecting" />
+            <span>Connecting with local believers</span>
+          </label>
+          <label class="connect-form__check">
+            <input type="checkbox" name="interests" value="training" />
+            <span>Getting trained to make disciples</span>
+          </label>
+          <label class="connect-form__check">
+            <input type="checkbox" name="interests" value="learning" />
+            <span>Learning more about Jesus</span>
+          </label>
+          <label class="connect-form__check">
+            <input type="checkbox" name="interests" value="other" id="cf-interest-other" />
+            <span>Other</span>
+          </label>
+          <p class="connect-form__error" id="err-interests" hidden></p>
+        </fieldset>
+
+        {/* Revealed only when "Other" is checked. */}
+        <div class="connect-form__field" id="cf-other-wrap" hidden>
+          <label for="cf-other">Tell us more <span class="connect-form__req" aria-hidden="true">*</span></label>
+          <textarea
+            id="cf-other"
+            name="other_interest"
+            rows="3"
+            maxlength="1000"
+            aria-describedby="err-other"
+          ></textarea>
+          <p class="connect-form__error" id="err-other" hidden></p>
+        </div>
+
+        <div class="connect-form__field">
+          <label for="cf-message">Anything else? <span class="connect-form__optional">(optional)</span></label>
+          <textarea
+            id="cf-message"
+            name="message"
+            rows="4"
+            maxlength="2000"
+            placeholder="Share any context that would help us respond well."
+          ></textarea>
+        </div>
+
+        <button type="submit" class="button connect-form__submit" id="cf-submit">
+          <span data-label-default>Send</span>
+          <span data-label-sending hidden>Sending…</span>
+        </button>
+
+        <p class="connect-form__fineprint">
+          We’ll only use your details to respond to you.
+        </p>
+      </form>
+
+      {/* Shown on success; focus moves here. */}
+      <div class="connect-form__success" id="connect-success" tabindex="-1" hidden>
+        <h2 class="connect-form__success-title">Thank you</h2>
+        <p id="connect-success-copy"></p>
+        <p class="connect-form__spam">Don’t see it? Check your spam or promotions folder.</p>
+      </div>
+
+      {/* No-JavaScript fallback: the form above needs JS to submit, so
+          offer a real email path when it isn't available. */}
+      <noscript>
+        <p class="connect-form__noscript">
+          This form needs JavaScript. You can email us directly at
+          <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>.
+        </p>
+      </noscript>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  import { CONNECT_SUBMIT_FUNCTION_URL } from '../data/site';
+
+  const form = document.getElementById('connect-form') as HTMLFormElement | null;
+  if (form) {
+    const submitBtn = document.getElementById('cf-submit') as HTMLButtonElement;
+    const labelDefault = submitBtn.querySelector('[data-label-default]') as HTMLElement;
+    const labelSending = submitBtn.querySelector('[data-label-sending]') as HTMLElement;
+    const summary = document.getElementById('form-error') as HTMLElement;
+    const successPanel = document.getElementById('connect-success') as HTMLElement;
+    const successCopy = document.getElementById('connect-success-copy') as HTMLElement;
+    const otherWrap = document.getElementById('cf-other-wrap') as HTMLElement;
+    const otherCheckbox = document.getElementById('cf-interest-other') as HTMLInputElement;
+    const otherInput = document.getElementById('cf-other') as HTMLTextAreaElement;
+
+    let submitting = false;
+
+    // Reveal / hide the "Other" explanation and toggle its required state.
+    function syncOther() {
+      const on = otherCheckbox.checked;
+      otherWrap.hidden = !on;
+      otherInput.required = on;
+      if (!on) clearFieldError('cf-other', 'err-other');
+    }
+    otherCheckbox.addEventListener('change', syncOther);
+    syncOther();
+
+    function setFieldError(inputId: string, errorId: string, message: string) {
+      const input = document.getElementById(inputId);
+      const err = document.getElementById(errorId);
+      if (input) input.setAttribute('aria-invalid', 'true');
+      if (err) {
+        err.textContent = message;
+        err.hidden = false;
+      }
+    }
+
+    function clearFieldError(inputId: string, errorId: string) {
+      const input = document.getElementById(inputId);
+      const err = document.getElementById(errorId);
+      if (input) input.removeAttribute('aria-invalid');
+      if (err) {
+        err.textContent = '';
+        err.hidden = true;
+      }
+    }
+
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Client-side mirror of the server validation. Returns a map of
+    // { firstInvalidElementId: message } used for focus + messaging.
+    function validate(): { valid: boolean; firstInvalid: string | null } {
+      const checks: Array<[string, string, () => string | null]> = [
+        [
+          'cf-first-name',
+          'err-first-name',
+          () => (value('cf-first-name') ? null : 'Please enter your first name.'),
+        ],
+        [
+          'cf-email',
+          'err-email',
+          () => {
+            const v = value('cf-email');
+            if (!v) return 'Please enter your email.';
+            return EMAIL_RE.test(v) ? null : 'Please enter a valid email address.';
+          },
+        ],
+        ['cf-country', 'err-country', () => (value('cf-country') ? null : 'Please enter your country.')],
+        [
+          'cf-postal',
+          'err-postal',
+          () => (value('cf-postal') ? null : 'Please enter your ZIP or postal code.'),
+        ],
+      ];
+
+      let firstInvalid: string | null = null;
+
+      for (const [inputId, errorId, check] of checks) {
+        const msg = check();
+        if (msg) {
+          setFieldError(inputId, errorId, msg);
+          if (!firstInvalid) firstInvalid = inputId;
+        } else {
+          clearFieldError(inputId, errorId);
+        }
+      }
+
+      // Interests: at least one.
+      if (selectedInterests().length === 0) {
+        setFieldError('cf-interest-other', 'err-interests', 'Please choose at least one option.');
+        if (!firstInvalid) firstInvalid = 'cf-interest-other';
+      } else {
+        clearFieldError('cf-interest-other', 'err-interests');
+      }
+
+      // Other requires an explanation.
+      if (otherCheckbox.checked && !value('cf-other')) {
+        setFieldError('cf-other', 'err-other', 'Please tell us a bit more.');
+        if (!firstInvalid) firstInvalid = 'cf-other';
+      } else if (!otherCheckbox.checked) {
+        clearFieldError('cf-other', 'err-other');
+      }
+
+      return { valid: firstInvalid === null, firstInvalid };
+    }
+
+    function value(id: string): string {
+      const el = document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement | null;
+      return el ? el.value.trim() : '';
+    }
+
+    function selectedInterests(): string[] {
+      return Array.from(
+        form!.querySelectorAll<HTMLInputElement>('input[name="interests"]:checked'),
+      ).map((el) => el.value);
+    }
+
+    function showSummary(message: string) {
+      summary.textContent = message;
+      summary.hidden = false;
+      summary.focus();
+    }
+
+    function hideSummary() {
+      summary.hidden = true;
+      summary.textContent = '';
+    }
+
+    function setSending(on: boolean) {
+      submitBtn.disabled = on;
+      labelDefault.hidden = on;
+      labelSending.hidden = !on;
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (submitting) return;
+
+      hideSummary();
+      const { valid } = validate();
+      if (!valid) {
+        // Move focus to the error message itself (role="alert", so it's
+        // also announced). Each invalid field is marked with aria-invalid
+        // + an inline error for sighted users.
+        showSummary('Please fix the highlighted fields and try again.');
+        return;
+      }
+
+      submitting = true;
+      setSending(true);
+
+      const params = new URLSearchParams(window.location.search);
+      const payload = {
+        first_name: value('cf-first-name'),
+        email: value('cf-email'),
+        country: value('cf-country'),
+        postal_code: value('cf-postal'),
+        interests: selectedInterests(),
+        other_interest: otherCheckbox.checked ? value('cf-other') : null,
+        message: value('cf-message') || null,
+        source_page: window.location.href,
+        referrer: document.referrer || null,
+        utm_source: params.get('utm_source'),
+        utm_medium: params.get('utm_medium'),
+        utm_campaign: params.get('utm_campaign'),
+      };
+
+      try {
+        const res = await fetch(CONNECT_SUBMIT_FUNCTION_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) {
+          // Prefer any server-provided field messages, else a generic one.
+          let message = 'Something went wrong. Please try again.';
+          try {
+            const data = await res.json();
+            if (Array.isArray(data?.errors) && data.errors.length) message = data.errors.join(' ');
+            else if (typeof data?.error === 'string') message = data.error;
+          } catch {
+            /* keep generic */
+          }
+          throw new Error(message);
+        }
+
+        // Success — swap the form for the confirmation and move focus.
+        const firstName = payload.first_name;
+        const email = payload.email;
+        successCopy.textContent = `Thanks, ${firstName}. We received your response and sent a next step to ${email}.`;
+        form.hidden = true;
+        successPanel.hidden = false;
+        successPanel.focus();
+      } catch (err) {
+        // Values are preserved (we never cleared the form). Re-enable and
+        // let them retry.
+        const message = err instanceof Error ? err.message : 'Something went wrong. Please try again.';
+        showSummary(message);
+        submitting = false;
+        setSending(false);
+      }
+    });
+
+    // Clear a field's error as the visitor corrects it.
+    for (const id of ['cf-first-name', 'cf-email', 'cf-country', 'cf-postal', 'cf-other']) {
+      const el = document.getElementById(id);
+      const errId = id === 'cf-other' ? 'err-other' : `err-${id.replace('cf-', '')}`;
+      el?.addEventListener('input', () => clearFieldError(id, errId));
+    }
+    form.querySelectorAll('input[name="interests"]').forEach((el) =>
+      el.addEventListener('change', () => {
+        if (selectedInterests().length > 0) clearFieldError('cf-interest-other', 'err-interests');
+      }),
+    );
+  }
+</script>
+
+<style>
+  /* Several form elements use display:grid/flex, which would otherwise
+     beat the [hidden] attribute's UA display:none. Keep hidden hidden. */
+  [hidden] {
+    display: none !important;
+  }
+
+  .connect {
+    padding: clamp(2.5rem, 1.5rem + 4vw, 5rem) 1.25rem clamp(3rem, 2rem + 4vw, 6rem);
+  }
+
+  .connect__inner {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+
+  .connect__title {
+    margin: 0.4rem 0 0.75rem;
+    font-size: clamp(2rem, 1.4rem + 2.6vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .connect__lede {
+    margin: 0 0 2.25rem;
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .connect-form {
+    display: grid;
+    gap: 1.4rem;
+  }
+
+  .connect-form__row {
+    display: grid;
+    gap: 1.4rem;
+  }
+
+  @media (min-width: 34rem) {
+    .connect-form__row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .connect-form__field {
+    display: grid;
+    gap: 0.4rem;
+    border: none;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+
+  .connect-form label,
+  .connect-form legend {
+    font-weight: 600;
+    font-size: 0.98rem;
+    color: var(--color-text);
+  }
+
+  .connect-form legend {
+    padding: 0;
+    margin-bottom: 0.2rem;
+  }
+
+  .connect-form__req {
+    color: var(--color-clay-text);
+  }
+
+  .connect-form__optional {
+    font-weight: 400;
+    color: var(--color-text-muted);
+  }
+
+  .connect-form input[type='text'],
+  .connect-form input[type='email'],
+  .connect-form textarea {
+    width: 100%;
+    padding: 0.7rem 0.85rem;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--color-text);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-button);
+  }
+
+  .connect-form textarea {
+    resize: vertical;
+    min-height: 3rem;
+  }
+
+  .connect-form input:focus,
+  .connect-form textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(79, 157, 105, 0.25);
+  }
+
+  .connect-form input[aria-invalid='true'],
+  .connect-form textarea[aria-invalid='true'] {
+    border-color: var(--color-clay);
+    box-shadow: 0 0 0 3px rgba(189, 90, 34, 0.18);
+  }
+
+  .connect-form__hint {
+    margin: 0 0 0.35rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+
+  .connect-form__group {
+    gap: 0.55rem;
+  }
+
+  .connect-form__check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-weight: 400;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-button);
+    background: #fff;
+    cursor: pointer;
+  }
+
+  .connect-form__check:hover {
+    border-color: var(--color-accent);
+  }
+
+  .connect-form__check input {
+    margin-top: 0.15rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+    accent-color: var(--color-accent);
+  }
+
+  .connect-form__error {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--color-clay-text);
+    font-weight: 500;
+  }
+
+  .connect-form__summary {
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-button);
+    background: #fbe9df;
+    border: 1px solid var(--color-clay);
+    color: var(--color-clay-text);
+    font-weight: 500;
+  }
+
+  .connect-form__summary:focus {
+    outline: 2px solid var(--color-clay);
+    outline-offset: 2px;
+  }
+
+  .connect-form__submit {
+    justify-self: start;
+    margin-top: 0.25rem;
+  }
+
+  .connect-form__submit[disabled] {
+    opacity: 0.7;
+    cursor: progress;
+  }
+
+  .connect-form__fineprint {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Visually hidden honeypot — offscreen, not display:none (some bots
+     skip display:none fields), and hidden from assistive tech + tab. */
+  .connect-form__hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .connect-form__success {
+    padding: 1.75rem;
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+
+  .connect-form__success:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  .connect-form__success-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  .connect-form__success p {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .connect-form__spam {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+
+  .connect-form__noscript {
+    margin-top: 1.5rem;
+    color: var(--color-text-muted);
+  }
+</style>
