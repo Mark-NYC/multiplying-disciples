@@ -63,10 +63,42 @@ const hasCrumpled = (() => {
 })();
 
 const primaryIndex = Math.max(0, tools.findIndex((t) => t.cta.primary));
+
+// Church Waffle isolation: the supplied SVG draws one merged `source-artwork`
+// path revealed through region clips, so the loose circle cutout leaks corner
+// icon/grid bits and every full-cell icon clip catches the circle arc + ~1px
+// grid slivers. We (a) inset each icon clip rect so icons never carry the grid
+// lines, and (b) inject a clean vector circle that the animation reveals for
+// the circle-only stage instead of the leaky clipped `outer-circle` group.
+function isolateWaffle(svg: string): string {
+  const M = 6; // clip inset (px) — drops grid-line slivers at cell edges
+  let out = svg.replace(
+    /<rect x="([\d.]+)" y="([\d.]+)" width="([\d.]+)" height="([\d.]+)"\s*\/>/g,
+    (_m, x, y, w, h) =>
+      `<rect x="${+x + M}" y="${+y + M}" width="${Math.max(0, +w - 2 * M)}" height="${Math.max(0, +h - 2 * M)}"/>`
+  );
+  // Confine everything the merged artwork draws (grid + icons) to an inner
+  // disc so no stroke reaches the rim — the grid/icon clips otherwise catch
+  // slivers of the circle arc where they cross it. The clean vector circle is
+  // drawn on top, outside this wrapper, so it owns the rim exclusively.
+  out = out.replace(
+    '</defs>',
+    '<clipPath id="cw-inner-disc"><circle cx="325" cy="325" r="298"/></clipPath></defs><g clip-path="url(#cw-inner-disc)">'
+  );
+  const cleanCircle =
+    '<circle class="cw-clean-circle" cx="325" cy="325" r="301" fill="none" ' +
+    'stroke="#1F2523" stroke-width="3.4" stroke-linejoin="round" pathLength="1"/>';
+  return out.replace('</svg>', `</g>${cleanCircle}</svg>`);
+}
+
 // Inline + namespace each real tool SVG. Placeholder tools (3 Circles) get
 // a restrained inline schematic instead — swap in a real /tools-images svg
 // later by giving that tool an svgSrc.
-const inlined = tools.map((t) => (t.svgSrc ? loadInlineSvg(t.svgSrc, `${id}-${t.key}`) : ''));
+const inlined = tools.map((t) => {
+  if (!t.svgSrc) return '';
+  const svg = loadInlineSvg(t.svgSrc, `${id}-${t.key}`);
+  return t.animType === 'church-waffle' ? isolateWaffle(svg) : svg;
+});
 
 // CTA render order is stable (primary first); tabs follow napkin sequence.
 const ctaOrder = tools
@@ -356,21 +388,26 @@ const ctaOrder = tools
      fade out, leaving only the two emphasised icons + their glow — the grid
      is never visible during the emphasis. `g[...]` targets the groups, not
      their like-named clipPath defs. */
-  .cnt__tool--church-waffle.is-playing g[id$="-outer-circle"] { animation: cw-in 0.6s ease 0.3s both; }
+  /* Circle stage uses a clean injected vector circle (never the leaky
+     clipped `outer-circle` group), so the empty circle has zero stray bits. */
+  .cnt__tool--church-waffle .cw-clean-circle { opacity: 0; }
+  .cnt__tool--church-waffle.is-playing .cw-clean-circle { animation: cw-in 0.6s ease 0.3s both; }
   .cnt__tool--church-waffle.is-playing g[id$="-grid-lines"] { animation: cw-in 0.6s ease 0.8s both, cw-out 0.5s ease 3.7s forwards; }
+  /* ten non-emphasis icons: fade in on stagger, fade out for the spotlight */
+  .cnt__tool--church-waffle.is-playing g[id$="-icon-01"] { animation: cw-in 0.5s ease 1.2s both, cw-out 0.5s ease 3.7s forwards; }
   .cnt__tool--church-waffle.is-playing g[id$="-icon-02"] { animation: cw-in 0.5s ease 1.35s both, cw-out 0.5s ease 3.7s forwards; }
   .cnt__tool--church-waffle.is-playing g[id$="-icon-03"] { animation: cw-in 0.5s ease 1.5s both, cw-out 0.5s ease 3.7s forwards; }
   .cnt__tool--church-waffle.is-playing g[id$="-icon-04"] { animation: cw-in 0.5s ease 1.65s both, cw-out 0.5s ease 3.7s forwards; }
   .cnt__tool--church-waffle.is-playing g[id$="-icon-05"] { animation: cw-in 0.5s ease 1.8s both, cw-out 0.5s ease 3.7s forwards; }
-  .cnt__tool--church-waffle.is-playing g[id$="-icon-06"] { animation: cw-in 0.5s ease 1.95s both, cw-out 0.5s ease 3.7s forwards; }
   .cnt__tool--church-waffle.is-playing g[id$="-icon-08"] { animation: cw-in 0.5s ease 2.1s both, cw-out 0.5s ease 3.7s forwards; }
   .cnt__tool--church-waffle.is-playing g[id$="-icon-09"] { animation: cw-in 0.5s ease 2.25s both, cw-out 0.5s ease 3.7s forwards; }
   .cnt__tool--church-waffle.is-playing g[id$="-icon-10"] { animation: cw-in 0.5s ease 2.4s both, cw-out 0.5s ease 3.7s forwards; }
   .cnt__tool--church-waffle.is-playing g[id$="-icon-11"] { animation: cw-in 0.5s ease 2.55s both, cw-out 0.5s ease 3.7s forwards; }
   .cnt__tool--church-waffle.is-playing g[id$="-icon-12"] { animation: cw-in 0.5s ease 2.7s both, cw-out 0.5s ease 3.7s forwards; }
-  /* the two emphasised icons stay, then glow */
-  .cnt__tool--church-waffle.is-playing g[id$="-icon-01"] { animation: cw-in 0.5s ease 1.2s both, cw-glow 1.1s ease 3.95s forwards; }
-  .cnt__tool--church-waffle.is-playing g[id$="-icon-07"] { animation: cw-in 0.5s ease 2.0s both, cw-glow 1.1s ease 4.15s forwards; }
+  /* the two emphasised icons are interior cells (no circle arc); they stay
+     while the grid + other icons clear, then glow — a clean icon-only state */
+  .cnt__tool--church-waffle.is-playing g[id$="-icon-06"] { animation: cw-in 0.5s ease 1.95s both, cw-glow 1.1s ease 3.95s forwards; }
+  .cnt__tool--church-waffle.is-playing g[id$="-icon-07"] { animation: cw-in 0.5s ease 2.1s both, cw-glow 1.1s ease 4.15s forwards; }
 
   /* Follow and Fish: box -> verse -> arrows -> FOLLOW -> FISH */
   .cnt__tool.is-playing [id$="-sign"] { opacity: 1; transition-delay: 0.4s; }
