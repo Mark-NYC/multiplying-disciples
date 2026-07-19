@@ -8,22 +8,8 @@ import {
   INTEREST_KEYS,
   type InterestKey,
   LIMITS,
-} from './shared.ts';
-
-export interface NormalizedSubmission {
-  first_name: string;
-  email: string;
-  country: string;
-  postal_code: string;
-  interests: InterestKey[];
-  other_interest: string | null;
-  message: string | null;
-  source_page: string | null;
-  referrer: string | null;
-  utm_source: string | null;
-  utm_medium: string | null;
-  utm_campaign: string | null;
-}
+  type NormalizedSubmission,
+} from '../_shared/model.ts';
 
 export type ValidationResult =
   | { ok: true; data: NormalizedSubmission }

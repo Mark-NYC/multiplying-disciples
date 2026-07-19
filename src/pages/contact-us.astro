@@ -162,7 +162,7 @@ const canonical = 'https://multiplyingdisciples.us/contact-us/';
       <div class="connect-form__success" id="connect-success" tabindex="-1" hidden>
         <h2 class="connect-form__success-title">Thank you</h2>
         <p id="connect-success-copy"></p>
-        <p class="connect-form__spam">Don’t see it? Check your spam or promotions folder.</p>
+        <p class="connect-form__spam" id="connect-spam-note">Don’t see it? Check your spam or promotions folder.</p>
       </div>
 
       {/* No-JavaScript fallback: the form above needs JS to submit, so
@@ -188,11 +188,31 @@ const canonical = 'https://multiplyingdisciples.us/contact-us/';
     const summary = document.getElementById('form-error') as HTMLElement;
     const successPanel = document.getElementById('connect-success') as HTMLElement;
     const successCopy = document.getElementById('connect-success-copy') as HTMLElement;
+    const spamNote = document.getElementById('connect-spam-note') as HTMLElement;
     const otherWrap = document.getElementById('cf-other-wrap') as HTMLElement;
     const otherCheckbox = document.getElementById('cf-interest-other') as HTMLInputElement;
     const otherInput = document.getElementById('cf-other') as HTMLTextAreaElement;
 
     let submitting = false;
+
+    // Idempotency: one key per submission attempt. It's kept across
+    // retries (a timed-out POST that actually saved won't create a
+    // duplicate when retried), and only regenerated after a completed
+    // submission. crypto.randomUUID needs a secure context (https or
+    // localhost); fall back to getRandomValues otherwise.
+    let idempotencyKey: string | null = null;
+    function ensureIdemKey(): string {
+      if (!idempotencyKey) idempotencyKey = newUuid();
+      return idempotencyKey;
+    }
+    function newUuid(): string {
+      if (crypto.randomUUID) return crypto.randomUUID();
+      const b = crypto.getRandomValues(new Uint8Array(16));
+      b[6] = (b[6] & 0x0f) | 0x40;
+      b[8] = (b[8] & 0x3f) | 0x80;
+      const h = [...b].map((x) => x.toString(16).padStart(2, '0'));
+      return `${h[0]}${h[1]}${h[2]}${h[3]}-${h[4]}${h[5]}-${h[6]}${h[7]}-${h[8]}${h[9]}-${h[10]}${h[11]}${h[12]}${h[13]}${h[14]}${h[15]}`;
+    }
 
     // Reveal / hide the "Other" explanation and toggle its required state.
     function syncOther() {
@@ -330,6 +350,7 @@ const canonical = 'https://multiplyingdisciples.us/contact-us/';
 
       const params = new URLSearchParams(window.location.search);
       const payload = {
+        idempotency_key: ensureIdemKey(),
         first_name: value('cf-first-name'),
         email: value('cf-email'),
         country: value('cf-country'),
@@ -364,10 +385,27 @@ const canonical = 'https://multiplyingdisciples.us/contact-us/';
           throw new Error(message);
         }
 
-        // Success — swap the form for the confirmation and move focus.
+        // Accepted (saved). The response tells us whether the follow-up
+        // email actually went out; the copy must not claim we emailed
+        // them if it didn't. Either way this is a success, never a
+        // "please resubmit".
+        let emailSent = true;
+        try {
+          const data = await res.json();
+          if (typeof data?.email_sent === 'boolean') emailSent = data.email_sent;
+        } catch {
+          /* assume sent; the record is saved regardless */
+        }
+
         const firstName = payload.first_name;
         const email = payload.email;
-        successCopy.textContent = `Thanks, ${firstName}. We received your response and sent a next step to ${email}.`;
+        successCopy.textContent = emailSent
+          ? `Thanks, ${firstName}. We received your response and sent a next step to ${email}.`
+          : `Thanks, ${firstName}. We received your response and someone will follow up with you personally.`;
+        spamNote.hidden = !emailSent;
+
+        // The submission completed — start a fresh key for any future one.
+        idempotencyKey = null;
         form.hidden = true;
         successPanel.hidden = false;
         successPanel.focus();
