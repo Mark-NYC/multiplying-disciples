@@ -5,6 +5,46 @@ a planned 301 documented here before launch. This file is the single
 source of truth for redirects — do not launch with an entry still marked
 `pending`.
 
+## Redirect policy (permanent — adopted 2026-07-19)
+
+Every redirect in this repo must follow these rules. They exist because a
+Google result ("15 Second Testimony Examples") was landing on the
+`/testimony/` list hub instead of the article that answers the query.
+
+1. **Article URLs must redirect to an equivalent successor article** —
+   never to a topic/list hub.
+2. **Taxonomy URLs** (`/category/…`, `/tag/…`) **may** redirect to a
+   relevant cluster hub. Exception: when a taxonomy term maps 1:1 to a
+   single successor article (e.g. `/tag/15-second-testimony-examples/`),
+   prefer that article — it better preserves query intent.
+3. **Utility and tool URLs must redirect to an equivalent replacement**
+   (page/tool), e.g. `/training/` → `/free-training/`, sticker products →
+   `/stickers/`.
+4. **If no substantially equivalent page exists, return 410** (via
+   `api/gone.js`) — do not invent a destination.
+5. **Never redirect an article to a hub merely because they share a
+   topic.** Shared topic ≠ same search intent.
+6. **Any redirect change requires confirming** that the new destination
+   better preserves the original **query intent, title promise, and
+   content** than the old one. Future cluster/content articles must not
+   silently repoint existing redirects — a change is a deliberate,
+   documented decision, not a side effect of publishing.
+
+### Flagged for review — article → hub (policy #1/#5), awaiting a decision
+
+These five WordPress-post URLs still point at a topic hub and were **not**
+changed unilaterally (policy #6). Each needs an owner decision: 301 to a
+specific successor article, or 410 if none substantially exists. My
+recommendation is in the last column. GSC = clicks / impressions.
+
+| Old URL (WordPress post) | Currently → | GSC | Recommendation |
+|---|---|---|---|
+| `/disciple-making-resources-for-churches-that-will-multiply/` | `/disciple-making/` | 1 / 92 | **Keep** — it was itself a resource index, and the resource hub is its genuine equivalent (a rare legitimate article→hub) |
+| `/disciple-making-movement-books-top-25-must-reads/` | `/church-planting-movements/` | 3 / 415 | **410** — book list, no equivalent article. Flagged: highest impressions of the group, so confirm you're OK losing them vs. keeping the hub |
+| `/discover-the-game-changing-secrets-starfish-and-the-spirit-review/` | `/church-planting-movements/` | 1 / 17 | **410** — book review, no equivalent article |
+| `/royal-priest-strategy-explodes-disciple-making-movement-worldwide/` | `/church-planting-movements/` | 0 / 55 | **410** — specific DMM story, no closer surviving article |
+| `/next-gen-local-owners-building-beachheads-of-the-kingdom/` | `/church-planting-movements/` | 0 / 4 | **410** — local-ownership theme, no closer surviving article |
+
 ## Content simplification (2026-07-11) — 26 article redirects, 3 retirements, 1 hub retirement
 
 Positioning shift from "disciple-making encyclopedia" to a practice-first
@@ -45,7 +85,7 @@ Vercel serverless function returning a true HTTP 410, wired via `vercel.json`
 | `/next-gen-local-owners-building-beachheads-of-the-kingdom/` | `/church-planting-movements/` | 301 | implemented |
 | `/go-slow-to-go-fast-could-transform-your-leadership-pipeline/` | `/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/` | 301 | implemented |
 | `/filtering-unlock-this-essential-for-disciple-making-movements/` | `/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/` | 301 | implemented |
-| `/the-leadership-phase-everyone-skips-why-investment-matters/` | `/church-planting-movements/` | 301 | implemented |
+| `/the-leadership-phase-everyone-skips-why-investment-matters/` | `/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/` | 301 | implemented (repointed 2026-07-19 — see "Article removal" section and the redirect policy) |
 | `/strategy-coordinator/` (hub retired) | `/movement-resources/strategy-coordinator/` | 301 | implemented |
 | `/seven-words-of-jesus-on-the-cross/` | — (true 410 via `api/gone.js`) | 410 | implemented |
 | `/bible-passages-about-love-what-scripture-really-says/` | — (true 410 via `api/gone.js`) | 410 | implemented |
@@ -127,7 +167,7 @@ redirect target) — see `docs/archive/PHASE_6_ARCHIVE_URL_DECISION.md` section 
 | `/tag/revival/` | `/church-planting-movements/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
 | `/tag/prayer-walking/` | `/prayer/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
 | `/tag/precision-harvesting/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
-| `/tag/15-second-testimony-examples/` | `/testimony/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/tag/15-second-testimony-examples/` | `/15-second-testimony-examples-ignite-your-faith/` | 301 | Exact 1:1 successor article exists (the tag names a single article); redirect to that article, not the `/testimony/` hub, to preserve the "15 second testimony examples" query intent. Fixed 2026-07-19 after a Google result was landing on the hub | implemented |
 
 ## Pre-cutover redirect cleanup (2026-07-19) — implemented
 
@@ -231,7 +271,7 @@ rollout (not part of the 2026-07-11 content-simplification pass above).
 
 | Old URL | New URL / destination | Type | Reason | Status |
 |---|---|---|---|---|
-| `/the-leadership-phase-everyone-skips-why-investment-matters/` | `/church-planting-movements/` | 301 | Article deleted; no single surviving article fully replaces its Identify/Equip/Invest/Entrust framework, so it falls back to the hub | implemented |
+| `/the-leadership-phase-everyone-skips-why-investment-matters/` | `/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/` | 301 | Article deleted. **Repointed 2026-07-19** from the `/church-planting-movements/` hub to the article — same leadership-investment cluster, and the exact successor the two sibling redirects below already use. Under the redirect policy an article may not fall back to a hub | implemented |
 
 Two existing redirects that previously pointed *at* this now-deleted article
 were repointed to the closest surviving match (same investment/leadership-
