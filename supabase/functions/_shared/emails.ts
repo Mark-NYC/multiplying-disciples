@@ -5,15 +5,18 @@
 //      set to the visitor so a reply goes straight back to them).
 //   2. One tailored, warm follow-up to the visitor combining a section
 //      per selected interest (never multiple emails).
+//
+// NOTE: a successful send here means Resend ACCEPTED the request, not
+// that the message reached the inbox — no delivery webhooks are consumed.
 
 import {
   INTEREST_KEYS,
   INTEREST_LABELS,
   type InterestKey,
   JESUS_URL,
+  type NormalizedSubmission,
   TRAINING_URL,
-} from './shared.ts';
-import type { NormalizedSubmission } from './validation.ts';
+} from './model.ts';
 
 const RESEND_ENDPOINT = 'https://api.resend.com/emails';
 

@@ -6,34 +6,33 @@
 // (an internal notification and a tailored visitor follow-up). It is the
 // only writer of public.connect_submissions.
 //
-// Deploy WITHOUT JWT verification (it is called from the public site
-// with no auth header, exactly like the existing subscribe-updates
-// function):  supabase functions deploy submit-connect-form --no-verify-jwt
+// Once the row is saved the submission is ACCEPTED: email problems never
+// turn into a client-visible failure (which would invite a resubmit).
+// The response reports { saved, email_sent } and the browser messages
+// accordingly.
+//
+// Spam/abuse controls: a hidden honeypot + durable, DB-backed rate
+// limiting keyed by a salted hash of the client IP (counts recent rows,
+// so it holds across ephemeral instances). Idempotency: the client sends
+// a per-submission key stored under a unique constraint; a replayed key
+// returns the existing row instead of inserting a duplicate or
+// re-emailing.
+//
+// Deploy WITHOUT JWT verification (called from the public site with no
+// auth header, like subscribe-updates):
+//   supabase functions deploy submit-connect-form --no-verify-jwt
 //
 // Required env (Supabase auto-injects SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY):
 //   RESEND_API_KEY, CONNECT_FROM_EMAIL, CONNECT_REPLY_TO_EMAIL,
-//   CONNECT_NOTIFICATION_EMAIL, (optional) CONNECT_ALLOWED_ORIGINS
+//   CONNECT_NOTIFICATION_EMAIL,
+//   (optional) CONNECT_ALLOWED_ORIGINS, CONNECT_IP_HASH_SALT
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { corsHeaders } from './cors.ts';
 import { validate } from './validation.ts';
-import { buildFollowUpEmail, buildInternalEmail, sendEmail } from './emails.ts';
-
-// Best-effort per-instance rate limiting. Edge instances are ephemeral
-// and not shared, so this is a coarse first line of defence (paired with
-// the honeypot), not a hard global limit: at most RATE_MAX submissions
-// per IP within RATE_WINDOW_MS on a given instance.
-const RATE_WINDOW_MS = 60_000;
-const RATE_MAX = 5;
-const hits = new Map<string, number[]>();
-
-function rateLimited(ip: string): boolean {
-  const now = Date.now();
-  const recent = (hits.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS);
-  recent.push(now);
-  hits.set(ip, recent);
-  return recent.length > RATE_MAX;
-}
+import { LIMITS, RATE_MAX, RATE_WINDOW_SECONDS } from '../_shared/model.ts';
+import { buildFollowUpEmail, buildInternalEmail, sendEmail } from '../_shared/emails.ts';
+import { clientIp, hashIp } from '../_shared/security.ts';
 
 function json(
   body: unknown,
@@ -47,6 +46,23 @@ function json(
   });
 }
 
+// Safe visitor-facing "we got it" response. Never leaks internals; never
+// implies the submission needs retrying.
+function accepted(req: Request, emailSent: boolean): Response {
+  return json(
+    {
+      ok: true,
+      saved: true,
+      email_sent: emailSent,
+      message: emailSent
+        ? 'Thanks — we received your response and sent a next step to your email.'
+        : 'Thanks — we received your response and someone will follow up with you personally.',
+    },
+    200,
+    req,
+  );
+}
+
 Deno.serve(async (req) => {
   // CORS preflight.
   if (req.method === 'OPTIONS') {
@@ -54,14 +70,6 @@ Deno.serve(async (req) => {
   }
   if (req.method !== 'POST') {
     return json({ ok: false, error: 'Method not allowed.' }, 405, req, { Allow: 'POST' });
-  }
-
-  const ip =
-    req.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
-    req.headers.get('cf-connecting-ip') ||
-    'unknown';
-  if (rateLimited(ip)) {
-    return json({ ok: false, error: 'Too many requests. Please try again shortly.' }, 429, req);
   }
 
   let body: Record<string, unknown>;
@@ -75,7 +83,7 @@ Deno.serve(async (req) => {
   // present, pretend everything worked so bots get no signal — but store
   // and email nothing.
   if (typeof body.company === 'string' && body.company.trim() !== '') {
-    return json({ ok: true }, 200, req);
+    return accepted(req, true);
   }
 
   const result = validate(body);
@@ -84,8 +92,12 @@ Deno.serve(async (req) => {
   }
   const data = result.data;
 
-  // --- Persist first: the DB save must succeed even if Resend later
-  // fails, so we never lose a submission or push someone to resubmit.
+  // Idempotency key: one per submission attempt. Use the client's if
+  // present and sane, else generate one so every row has a unique key.
+  const rawKey = typeof body.idempotency_key === 'string' ? body.idempotency_key.trim() : '';
+  const idempotencyKey =
+    rawKey && rawKey.length <= LIMITS.idempotencyKey ? rawKey : crypto.randomUUID();
+
   const supabaseUrl = Deno.env.get('SUPABASE_URL');
   const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
   if (!supabaseUrl || !serviceKey) {
@@ -96,10 +108,41 @@ Deno.serve(async (req) => {
     auth: { persistSession: false },
   });
 
+  // Replay: same key already stored → return the existing accepted
+  // result. No duplicate row, no duplicate emails.
+  {
+    const { data: existing } = await supabase
+      .from('connect_submissions')
+      .select('follow_up_email_id')
+      .eq('idempotency_key', idempotencyKey)
+      .maybeSingle();
+    if (existing) {
+      return accepted(req, existing.follow_up_email_id !== null);
+    }
+  }
+
+  // Durable rate limiting: count this IP's saved submissions in the
+  // window. Holds across instances because it reads the table.
+  const ipHash = await hashIp(clientIp(req), Deno.env.get('CONNECT_IP_HASH_SALT') ?? '');
+  {
+    const since = new Date(Date.now() - RATE_WINDOW_SECONDS * 1000).toISOString();
+    const { count } = await supabase
+      .from('connect_submissions')
+      .select('id', { count: 'exact', head: true })
+      .eq('ip_hash', ipHash)
+      .gte('created_at', since);
+    if ((count ?? 0) >= RATE_MAX) {
+      return json({ ok: false, error: 'Too many requests. Please try again shortly.' }, 429, req);
+    }
+  }
+
+  // --- Persist first: the DB save must succeed even if Resend later
+  // fails, so we never lose a submission or push someone to resubmit.
   const submittedAt = new Date();
   const { data: inserted, error: insertError } = await supabase
     .from('connect_submissions')
     .insert({
+      idempotency_key: idempotencyKey,
       first_name: data.first_name,
       email: data.email,
       country: data.country,
@@ -112,6 +155,7 @@ Deno.serve(async (req) => {
       utm_source: data.utm_source,
       utm_medium: data.utm_medium,
       utm_campaign: data.utm_campaign,
+      ip_hash: ipHash,
       created_at: submittedAt.toISOString(),
       email_delivery_status: 'pending',
     })
@@ -119,13 +163,24 @@ Deno.serve(async (req) => {
     .single();
 
   if (insertError || !inserted) {
+    // Unique-violation on idempotency_key: a concurrent request with the
+    // same key won the race. Treat it as a replay, not a failure.
+    if (insertError?.code === '23505') {
+      const { data: existing } = await supabase
+        .from('connect_submissions')
+        .select('follow_up_email_id')
+        .eq('idempotency_key', idempotencyKey)
+        .maybeSingle();
+      return accepted(req, existing ? existing.follow_up_email_id !== null : false);
+    }
     console.error('submit-connect-form: insert failed', insertError);
     return json({ ok: false, error: 'We couldn’t save your response. Please try again.' }, 500, req);
   }
   const submissionId = inserted.id as string;
 
-  // --- Emails: best-effort. Failures are logged and recorded, never
-  // surfaced as a request failure (which would invite a resubmit).
+  // --- Emails: best-effort. "Sent" here means Resend accepted the send,
+  // not confirmed delivery. Failures are logged and recorded, never
+  // surfaced as a request failure.
   const resendKey = Deno.env.get('RESEND_API_KEY');
   const fromEmail = Deno.env.get('CONNECT_FROM_EMAIL');
   const replyTo = Deno.env.get('CONNECT_REPLY_TO_EMAIL');
@@ -185,7 +240,8 @@ Deno.serve(async (req) => {
     console.error('submit-connect-form: delivery-status update failed', updateError);
   }
 
-  // Safe success: no internal details, no submission id, regardless of
-  // email outcome — the record is saved.
-  return json({ ok: true }, 200, req);
+  // Accepted. email_sent reflects the visitor follow-up specifically —
+  // that's what the on-page copy references. A failed internal
+  // notification is an owner-side issue handled by the retry path.
+  return accepted(req, followUpOk);
 });
