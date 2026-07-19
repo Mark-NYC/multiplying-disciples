@@ -19,6 +19,7 @@ key_articles:
   - "/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/"
   - "/how-to-spot-a-lone-wolf-and-not-become-one/"
   - "/setting-the-stage-jesus-as-the-model-for-muddy-boots-church-planting/"
+  - "/disciple-making-movement-books-top-25-must-reads/"
 related_tools: []
 next_step:
   label: "See the 4 stages of movement"
