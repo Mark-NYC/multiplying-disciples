@@ -140,6 +140,196 @@
       "source": "/strategy-coordinator/",
       "destination": "/movement-resources/strategy-coordinator/",
       "statusCode": 301
+    },
+    {
+      "source": "/category/movements/",
+      "destination": "/church-planting-movements/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/four-fields-training/",
+      "destination": "/four-fields/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/entry-strategies/",
+      "destination": "/share-the-gospel/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/discipleship-tools/",
+      "destination": "/disciple-making/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/missionary-strategies/",
+      "destination": "/movement-resources/strategy-coordinator/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/spiritual-gifts/",
+      "destination": "/jesus-and-the-twelve/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/great-commission/",
+      "destination": "/share-the-gospel/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/apostle/",
+      "destination": "/jesus-and-the-twelve/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/conversation-quadrant/",
+      "destination": "/share-the-gospel/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/disciple-making-movement/",
+      "destination": "/church-planting-movements/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/sustainable-disciple-making/",
+      "destination": "/disciple-making/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/oikos-mapping/",
+      "destination": "/share-the-gospel/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/disciple-making/",
+      "destination": "/disciple-making/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/community/",
+      "destination": "/simple-church/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/apostolic/",
+      "destination": "/jesus-and-the-twelve/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/hybrid-model/",
+      "destination": "/simple-church/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/revival/",
+      "destination": "/church-planting-movements/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/prayer-walking/",
+      "destination": "/prayer/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/precision-harvesting/",
+      "destination": "/share-the-gospel/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/15-second-testimony-examples/",
+      "destination": "/testimony/",
+      "statusCode": 301
+    },
+    {
+      "source": "/about-us/",
+      "destination": "/about/",
+      "statusCode": 301
+    },
+    {
+      "source": "/start/",
+      "destination": "/start-here/",
+      "statusCode": 301
+    },
+    {
+      "source": "/start-here-2/",
+      "destination": "/start-here/",
+      "statusCode": 301
+    },
+    {
+      "source": "/training/",
+      "destination": "/free-training/",
+      "statusCode": 301
+    },
+    {
+      "source": "/kingdom-ministry-catalyst-training/",
+      "destination": "/kingdom-ministry-training/",
+      "statusCode": 301
+    },
+    {
+      "source": "/4-fields/",
+      "destination": "/four-fields/",
+      "statusCode": 301
+    },
+    {
+      "source": "/neighborhood-prayer-walking-guide-ignite-your-faith/",
+      "destination": "/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/",
+      "statusCode": 301
+    },
+    {
+      "source": "/discipleship-habit-formation-guide/",
+      "destination": "/the-3-core-habits-of-a-disciple/",
+      "statusCode": 301
+    },
+    {
+      "source": "/how-to-share-the-gospel-with-friends-and-family-members/",
+      "destination": "/how-to-evangelize-ultimate-step-by-step-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/unleashing-the-power-of-pauls-methods-how-to-multiply-apostolic-leaders-in-the-modern-church/",
+      "destination": "/unleashing-the-movement-how-paul-catalyzed-a-disciple-making-movement-in-ephesus-lessons-for-todays-church/",
+      "statusCode": 301
+    },
+    {
+      "source": "/what-is-a-disciple-making-movement-and-why-does-it-matter/",
+      "destination": "/disciple-making-movement-dmm-key-characteristics-and-definition/",
+      "statusCode": 301
+    },
+    {
+      "source": "/are-disciple-making-movements-anti-institutional/",
+      "destination": "/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/",
+      "statusCode": 301
+    },
+    {
+      "source": "/the-four-fields-sticker-simple/",
+      "destination": "/the-four-fields-sticker-simple-2x2/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2-kingdoms-stickers/",
+      "destination": "/stickers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/3-circles-stickers-2x2/",
+      "destination": "/stickers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/3-circles-stickers-with-qr-code/",
+      "destination": "/stickers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/the-church-circle-10-sticker/",
+      "destination": "/stickers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/get-coaching/",
+      "destination": "/contact-us/",
+      "statusCode": 301
     }
   ],
   "rewrites": [
@@ -153,6 +343,74 @@
     },
     {
       "source": "/5-insightful-keys-into-the-biblical-jesus/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/how-to-revitalize-christian-revival-with-disciple-making/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/empowering-transformation-unleashing-the-power-of-making-disciples/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/how-leaders-make-decisions-in-uncertainty/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/how-to-overcome-the-effects-of-movement-method-inoculation/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/strategic-persistence-how-to-plan-for-decades-and-live-for-today/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/is-your-strategy-blinding-you-to-gods-harvest/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/cart/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/checkout/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/my-account/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/1-hour-training-seat-saved/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/10321-2/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/links/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/2025-family-wall-calendar/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/christ-clothing/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/christian-clothing-apparel/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/return-policy/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/terms-and-conditions/",
       "destination": "/api/gone"
     }
   ]
