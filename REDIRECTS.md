@@ -41,7 +41,7 @@ The five flagged WordPress-post URLs were decided as follows. GSC = clicks
 | `/discover-the-game-changing-secrets-starfish-and-the-spirit-review/` | 1 / 17 | **410** — book review, no equivalent article |
 | `/royal-priest-strategy-explodes-disciple-making-movement-worldwide/` | 0 / 55 | **410** — specific DMM story, no closer surviving article |
 | `/next-gen-local-owners-building-beachheads-of-the-kingdom/` | 0 / 4 | **410** — local-ownership theme, no closer surviving article |
-| `/disciple-making-movement-books-top-25-must-reads/` | 3 / 415 | **Restore the article** (do NOT 410). ⚠️ **Blocked:** the original content is not in this repo (never migrated to a content file; no WordPress export present), so it cannot be restored without the source text. Its existing 301 → `/church-planting-movements/` is left in place in the interim so the URL does not 404. Once the content is provided: add the article, remove this redirect, and link it from `/church-planting-movements/` |
+| `/disciple-making-movement-books-top-25-must-reads/` | 3 / 415 | **Restored as an article (2026-07-19).** Owner supplied the content; recreated at `src/content/articles/disciple-making-movement-books-top-25-must-reads.mdx` (200, self-canonical, in the sitemap, no noindex, hero reuses `books.jpeg`), relinked from the `/church-planting-movements/` hub `key_articles`, and its 301 removed from `vercel.json`. No longer a redirect or 410 |
 
 ## Content simplification (2026-07-11) — 26 article redirects, 3 retirements, 1 hub retirement
 
