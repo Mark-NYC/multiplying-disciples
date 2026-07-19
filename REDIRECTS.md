@@ -74,19 +74,19 @@ of the 91 migrated content files have a slug that differs from its
 own `original_url` path, so no *new* redirects are needed for any
 migrated page (Tier 1, 2, or 3) — every exact original WordPress path
 was preserved throughout. See `docs/archive/PHASE_8_FULL_SITE_AUDIT.md` §8 for the
-full breakdown. Still `pending` — not implemented anywhere.
+full breakdown. **Implemented** as 301s in `vercel.json` during the
+pre-cutover redirect cleanup (2026-07-19).
 
 ## Status as of Phase 6
 
-**20 redirects proposed (not yet implemented anywhere)** — all 7
+**20 redirects — now implemented as 301s in `vercel.json`** — all 7
 WordPress category archives and all 13 tag archives, each 301'd to
 its closest matching hub page. See `docs/archive/PHASE_6_ARCHIVE_URL_DECISION.md`
 for the full evidence and per-URL reasoning (all 20 have 0 GSC clicks
 despite having impressions — the classic thin-taxonomy-page signature
 — and a stronger, curated hub replacement already exists for every
-topic). These are added below as `pending` rows: identified and
-documented, but no hosting/redirect config exists yet to implement
-them in (see "Hosting note" below, unchanged from earlier phases).
+topic). These are the rows below, implemented in `vercel.json` during
+the pre-cutover redirect cleanup (2026-07-19).
 
 Author and date archive URLs were checked (GSC export, WordPress
 export, live sitemap index) and found to have **zero presence in any
@@ -104,30 +104,92 @@ their exact existing URLs. No redirect involved.
 `/blog/` is recommended to become a real Astro index page (not a
 redirect target) — see `docs/archive/PHASE_6_ARCHIVE_URL_DECISION.md` section 5.
 
-### Proposed archive redirects (pending)
+### Archive (taxonomy) redirects (implemented)
 
 | Old URL | New URL / destination | Type | Reason | Status |
 |---|---|---|---|---|
-| `/category/movements/` | `/church-planting-movements/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/category/four-fields-training/` | `/four-fields/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/category/entry-strategies/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/category/discipleship-tools/` | `/disciple-making/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/category/missionary-strategies/` | `/strategy-coordinator/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/category/spiritual-gifts/` | `/jesus-and-the-twelve/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/category/great-commission/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/tag/apostle/` | `/jesus-and-the-twelve/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/tag/conversation-quadrant/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/tag/disciple-making-movement/` | `/church-planting-movements/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/tag/sustainable-disciple-making/` | `/disciple-making/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/tag/oikos-mapping/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/tag/disciple-making/` | `/disciple-making/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/tag/community/` | `/simple-church/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/tag/apostolic/` | `/jesus-and-the-twelve/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/tag/hybrid-model/` | `/simple-church/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/tag/revival/` | `/church-planting-movements/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/tag/prayer-walking/` | `/prayer/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/tag/precision-harvesting/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
-| `/tag/15-second-testimony-examples/` | `/testimony/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | pending |
+| `/category/movements/` | `/church-planting-movements/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/category/four-fields-training/` | `/four-fields/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/category/entry-strategies/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/category/discipleship-tools/` | `/disciple-making/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/category/missionary-strategies/` | `/movement-resources/strategy-coordinator/` | 301 | Taxonomy archive, 0 clicks; retargeted to the live resource page (the old `/strategy-coordinator/` hub is itself 301'd, so this avoids a chain) | implemented |
+| `/category/spiritual-gifts/` | `/jesus-and-the-twelve/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/category/great-commission/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/tag/apostle/` | `/jesus-and-the-twelve/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/tag/conversation-quadrant/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/tag/disciple-making-movement/` | `/church-planting-movements/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/tag/sustainable-disciple-making/` | `/disciple-making/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/tag/oikos-mapping/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/tag/disciple-making/` | `/disciple-making/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/tag/community/` | `/simple-church/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/tag/apostolic/` | `/jesus-and-the-twelve/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/tag/hybrid-model/` | `/simple-church/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/tag/revival/` | `/church-planting-movements/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/tag/prayer-walking/` | `/prayer/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/tag/precision-harvesting/` | `/share-the-gospel/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+| `/tag/15-second-testimony-examples/` | `/testimony/` | 301 | Taxonomy archive, 0 clicks, stronger hub replacement exists | implemented |
+
+## Pre-cutover redirect cleanup (2026-07-19) — implemented
+
+Final disposition for every remaining old URL that had neither a
+same-path page nor a redirect (all 35 were 0 clicks / 0 impressions in
+GSC). All rows below are **implemented** in `vercel.json`: 301s in the
+`redirects` array (explicit `statusCode: 301`), 410s via the `rewrites`
+array pointing at `api/gone.js`. Audited: no chains, no loops, every
+301 target is a built 200 page, no redirect points at the homepage.
+
+### Clear 1:1 renames — 301
+
+| Old URL | New URL | Type | Status |
+|---|---|---|---|
+| `/about-us/` | `/about/` | 301 | implemented |
+| `/start/` | `/start-here/` | 301 | implemented |
+| `/start-here-2/` | `/start-here/` | 301 | implemented |
+| `/training/` | `/free-training/` | 301 | implemented |
+| `/kingdom-ministry-catalyst-training/` | `/kingdom-ministry-training/` | 301 | implemented |
+| `/4-fields/` | `/four-fields/` | 301 | implemented |
+| `/neighborhood-prayer-walking-guide-ignite-your-faith/` | `/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/` | 301 | implemented |
+| `/discipleship-habit-formation-guide/` | `/the-3-core-habits-of-a-disciple/` | 301 | implemented |
+
+### Legacy articles — 301 only where a surviving page substantially answers the same intent; else 410
+
+| Old URL | Disposition | Rationale |
+|---|---|---|
+| `/how-to-share-the-gospel-with-friends-and-family-members/` | 301 → `/how-to-evangelize-ultimate-step-by-step-guide/` | Same how-to-share-the-gospel intent |
+| `/unleashing-the-power-of-pauls-methods-how-to-multiply-apostolic-leaders-in-the-modern-church/` | 301 → `/unleashing-the-movement-how-paul-catalyzed-a-disciple-making-movement-in-ephesus-lessons-for-todays-church/` | Same Paul's-multiplication-method intent |
+| `/what-is-a-disciple-making-movement-and-why-does-it-matter/` | 301 → `/disciple-making-movement-dmm-key-characteristics-and-definition/` | Same DMM-definition intent |
+| `/are-disciple-making-movements-anti-institutional/` | 301 → `/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/` | "Anti-institutional" is one of the objections this page answers |
+| `/how-to-revitalize-christian-revival-with-disciple-making/` | 410 | No surviving page substantially covers "revival"; no vague-hub redirect |
+| `/empowering-transformation-unleashing-the-power-of-making-disciples/` | 410 | Generic; no specific surviving equivalent |
+| `/how-leaders-make-decisions-in-uncertainty/` | 410 | Decision-making-under-uncertainty not covered by any surviving page |
+| `/how-to-overcome-the-effects-of-movement-method-inoculation/` | 410 | Niche "method inoculation" topic; no equivalent |
+| `/strategic-persistence-how-to-plan-for-decades-and-live-for-today/` | 410 | No specific surviving equivalent |
+| `/is-your-strategy-blinding-you-to-gods-harvest/` | 410 | Reflective piece; no page substantially answers the framing |
+
+### Retired sticker products — 301 (category `/stickers/` survives)
+
+| Old URL | New URL | Status |
+|---|---|---|
+| `/the-four-fields-sticker-simple/` | `/the-four-fields-sticker-simple-2x2/` | implemented (specific surviving product) |
+| `/2-kingdoms-stickers/` | `/stickers/` | implemented |
+| `/3-circles-stickers-2x2/` | `/stickers/` | implemented |
+| `/3-circles-stickers-with-qr-code/` | `/stickers/` | implemented |
+| `/the-church-circle-10-sticker/` | `/stickers/` | implemented |
+
+### `/get-coaching/` — evaluated separately → 301
+
+`/get-coaching/` → `/contact-us/` (301). The Connect page collects
+"Getting trained to make disciples" interest plus a free-text message and
+promises a personal follow-up, which genuinely supports a coaching
+request — so a redirect is appropriate rather than a 410.
+
+### Retired transactional / utility / merch — 410 (no real replacement)
+
+`/cart/`, `/checkout/`, `/my-account/`, `/1-hour-training-seat-saved/`,
+`/10321-2/`, `/links/`, `/2025-family-wall-calendar/`, `/christ-clothing/`,
+`/christian-clothing-apparel/`, `/return-policy/`, `/terms-and-conditions/`
+— all 410 via `api/gone.js`. No current equivalent exists for any of
+these (the site has a `/privacy-policy/` but no return/terms page).
 
 ## Status as of Phase 5
 
