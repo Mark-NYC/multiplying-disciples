@@ -703,7 +703,15 @@ article tbody tr:nth-child(even) td {
      any other card on the homepage. */
   padding: clamp(2.5rem, 5vw, 4rem);
 }
-
+@media (min-width: 861px) {
+  .featured-lab:not(.featured-lab--loading):not(.featured-lab--empty) {
+    background-color: #ffffff;
+    background-image: url('/images/men-making-disciples.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
 @media (max-width: 860px) {
   .featured-lab {
     grid-template-columns: 1fr;
