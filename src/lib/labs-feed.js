@@ -230,7 +230,7 @@ function featuredFormHtml(lab) {
       <div class="featured-lab__form-card">
         <h3 class="featured-lab__form-heading">Reserve Your Seat</h3>
         <p class="featured-lab__form-invite">Join practitioners from across North America taking real disciple-making steps.</p>
-        <p class="featured-lab__form-meta">${escapeHtml(freeNote)} &middot; ${escapeHtml(seatsLabel(lab))}</p>
+
         <div class="featured-lab__widget" id="featured-lab-widget" aria-live="polite"></div>
       </div>
     </div>
