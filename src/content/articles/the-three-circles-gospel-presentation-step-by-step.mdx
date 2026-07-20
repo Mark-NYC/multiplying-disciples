@@ -91,41 +91,6 @@ import ArticleImage from '../../components/article/ArticleImage.astro';
 import PracticeCard from '../../components/article/PracticeCard.astro';
 import InsightCard from '../../components/article/InsightCard.astro';
 
-const languageVideos = [
-  ['🇸🇦 Arabic – ٣ دوائر', 'https://youtu.be/cxqmFSacr5k'],
-  ['🇦🇿 Azeri – Üç dairə', 'https://youtu.be/-yQvLQXG9BU'],
-  ['🇨🇿 Czech – 3 Kruhy', 'https://youtu.be/6dT9G_VVpj8'],
-  ['🇩🇪 Deutsch – 3 Kreise', 'https://youtu.be/quZN8PBxXok'],
-  ['🇺🇸 English – 3 Circles', 'https://youtu.be/2eGXgEe7esk'],
-  ['🇪🇸 Español – 3 Círculos', 'https://youtu.be/i3Ken_7k4xI'],
-  ['🇮🇷 Farsi – سه دایره', 'https://youtu.be/XNI4AIUg9sM'],
-  ['🇫🇮 Finnish – Kolme Ympyrää', 'https://youtu.be/kR4IiL8Asac'],
-  ['🇫🇷 Français – 3 Cercles', 'https://youtu.be/kDnKU_hKz2M'],
-  ['🇬🇷 Greek – 3 κύκλοι', 'https://youtu.be/SGsT6l8cl1I'],
-  ['🇮🇳 Gujarati – ૩ વૃત્તો', 'https://youtu.be/KFI5HPGl6E4'],
-  ['🇮🇳 Hindi – तीन गोले', 'https://youtu.be/mIQy_akRkBA'],
-  ['🇮🇩 Indonesian (Bahasa) – 3 Lingkaran', 'https://youtu.be/6ngRFPDbVR8'],
-  ['🇯🇵 Japanese – 3 つの円', 'https://youtu.be/w_2qHO9sKY8'],
-  ['🇮🇳 Kannada – ಮೂರು ವಲಯಗಳು', 'https://youtu.be/ONOuuBDStnE'],
-  ['🇰🇭 Khmer – ៣ រង្វង់', 'https://youtu.be/xMc_ROiuY0Q'],
-  ['🇨🇳 Mandarin – 三圈福音', 'https://youtu.be/GvkKJCEmNiM'],
-  ['🇳🇵 Nepali – तीन सर्कल', 'https://youtu.be/oVnUiPR59U0'],
-  ['🇸🇸 Nuer – 3 Circles', 'https://youtu.be/doJFJ_fts-Q'],
-  ['🇮🇳 Oriya – ତିନି ବୃତ୍ତ', 'https://youtu.be/jwVkLmCef60'],
-  ['🇵🇱 Polish – 3 Okręgi', 'https://youtu.be/3V8U7T5vElU'],
-  ['🇵🇹 Portuguese – 3 Círculos', 'https://youtu.be/nNhCy-QBiis'],
-  ['🇷🇴 Română – 3 Cercuri', 'https://youtu.be/BbvJS-AxqEI'],
-  ['🇷🇺 Russian – Три круга', 'https://youtu.be/Iqfy4YvVbp8'],
-  ['🇷🇸 Serbian – 3 Kruga', 'https://youtu.be/-srCkSEx8vI'],
-  ['🇵🇭 Tagalog – Tatlong Sirkulo', 'https://youtu.be/O2RTjStCE5g'],
-  ['🇮🇳 Tamil – மூன்று வட்டங்கள்', 'https://youtu.be/PJOc220tA0s'],
-  ['🇰🇭 Tampuan – 3 Circles', 'https://youtu.be/WWsw4zqu-NI'],
-  ['🇮🇳 Telugu – మూడు 3 Circles', 'https://youtu.be/8Hu_nsY9XHI'],
-  ['🇹🇷 Turkish – Üç Daire', 'https://youtu.be/5bTD46Onb-E'],
-  ['🇵🇰 Urdu – تین حلقے', 'https://youtu.be/4W-Wfs7x0lk'],
-  ['🇻🇳 Vietnamese – 3 Vòng tròn', 'https://youtu.be/vHTKavU63K8']
-];
-
 {/*
   TODO (Field Note): once a real, approved story of someone actually
   using the 3 Circles exists in src/content/field-notes/, add:
@@ -306,30 +271,38 @@ With just a piece of paper and a pen, you can help others understand the fundame
     marginBottom: '28px'
   }}
 >
-  {languageVideos.map(([label, url]) => (
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        minHeight: '44px',
-        padding: '10px 17px',
-        border: '1px solid rgba(31, 37, 35, 0.08)',
-        borderRadius: '999px',
-        background: '#ffffff',
-        boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)',
-        color: '#1F2523',
-        fontSize: '0.95rem',
-        fontWeight: 600,
-        lineHeight: 1.25,
-        textDecoration: 'none'
-      }}
-    >
-      {label}
-    </a>
-  ))}
+  <a href="https://youtu.be/cxqmFSacr5k" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇸🇦 Arabic – ٣ دوائر</a>
+  <a href="https://youtu.be/-yQvLQXG9BU" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇦🇿 Azeri – Üç dairə</a>
+  <a href="https://youtu.be/6dT9G_VVpj8" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇨🇿 Czech – 3 Kruhy</a>
+  <a href="https://youtu.be/quZN8PBxXok" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇩🇪 Deutsch – 3 Kreise</a>
+  <a href="https://youtu.be/2eGXgEe7esk" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇺🇸 English – 3 Circles</a>
+  <a href="https://youtu.be/i3Ken_7k4xI" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇪🇸 Español – 3 Círculos</a>
+  <a href="https://youtu.be/XNI4AIUg9sM" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇮🇷 Farsi – سه دایره</a>
+  <a href="https://youtu.be/kR4IiL8Asac" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇫🇮 Finnish – Kolme Ympyrää</a>
+  <a href="https://youtu.be/kDnKU_hKz2M" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇫🇷 Français – 3 Cercles</a>
+  <a href="https://youtu.be/SGsT6l8cl1I" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇬🇷 Greek – 3 κύκλοι</a>
+  <a href="https://youtu.be/KFI5HPGl6E4" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇮🇳 Gujarati – ૩ વૃત્તો</a>
+  <a href="https://youtu.be/mIQy_akRkBA" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇮🇳 Hindi – तीन गोले</a>
+  <a href="https://youtu.be/6ngRFPDbVR8" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇮🇩 Indonesian (Bahasa) – 3 Lingkaran</a>
+  <a href="https://youtu.be/w_2qHO9sKY8" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇯🇵 Japanese – 3 つの円</a>
+  <a href="https://youtu.be/ONOuuBDStnE" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇮🇳 Kannada – ಮೂರು ವಲಯಗಳು</a>
+  <a href="https://youtu.be/xMc_ROiuY0Q" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇰🇭 Khmer – ៣ រង្វង់</a>
+  <a href="https://youtu.be/GvkKJCEmNiM" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇨🇳 Mandarin – 三圈福音</a>
+  <a href="https://youtu.be/oVnUiPR59U0" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇳🇵 Nepali – तीन सर्कल</a>
+  <a href="https://youtu.be/doJFJ_fts-Q" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇸🇸 Nuer – 3 Circles</a>
+  <a href="https://youtu.be/jwVkLmCef60" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇮🇳 Oriya – ତିନି ବୃତ୍ତ</a>
+  <a href="https://youtu.be/3V8U7T5vElU" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇵🇱 Polish – 3 Okręgi</a>
+  <a href="https://youtu.be/nNhCy-QBiis" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇵🇹 Portuguese – 3 Círculos</a>
+  <a href="https://youtu.be/BbvJS-AxqEI" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇷🇴 Română – 3 Cercuri</a>
+  <a href="https://youtu.be/Iqfy4YvVbp8" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇷🇺 Russian – Три круга</a>
+  <a href="https://youtu.be/-srCkSEx8vI" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇷🇸 Serbian – 3 Kruga</a>
+  <a href="https://youtu.be/O2RTjStCE5g" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇵🇭 Tagalog – Tatlong Sirkulo</a>
+  <a href="https://youtu.be/PJOc220tA0s" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇮🇳 Tamil – மூன்று வட்டங்கள்</a>
+  <a href="https://youtu.be/WWsw4zqu-NI" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇰🇭 Tampuan – 3 Circles</a>
+  <a href="https://youtu.be/8Hu_nsY9XHI" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇮🇳 Telugu – మూడు 3 Circles</a>
+  <a href="https://youtu.be/5bTD46Onb-E" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇹🇷 Turkish – Üç Daire</a>
+  <a href="https://youtu.be/4W-Wfs7x0lk" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇵🇰 Urdu – تین حلقے</a>
+  <a href="https://youtu.be/vHTKavU63K8" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 17px', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: '0.95rem', fontWeight: 600, lineHeight: 1.25, textDecoration: 'none' }}>🇻🇳 Vietnamese – 3 Vòng tròn</a>
 </div>
 
 ## Frequently Asked Questions
@@ -372,3 +345,5 @@ In the context of the 3 Circles gospel sharing method, hindrances to turning and
 </InsightCard>
 
 Recognizing these different types of "soil" can help us understand how to highlight and exhort the listener to turn from the barriers in their life.
+
+[Listen to the related episode on Spotify](https://open.spotify.com/episode/60UpURTbj6LkX2m901WEAJ)
