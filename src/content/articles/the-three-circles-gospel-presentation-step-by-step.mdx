@@ -91,6 +91,41 @@ import ArticleImage from '../../components/article/ArticleImage.astro';
 import PracticeCard from '../../components/article/PracticeCard.astro';
 import InsightCard from '../../components/article/InsightCard.astro';
 
+const languageVideos = [
+  ['🇸🇦 Arabic – ٣ دوائر', 'https://youtu.be/cxqmFSacr5k'],
+  ['🇦🇿 Azeri – Üç dairə', 'https://youtu.be/-yQvLQXG9BU'],
+  ['🇨🇿 Czech – 3 Kruhy', 'https://youtu.be/6dT9G_VVpj8'],
+  ['🇩🇪 Deutsch – 3 Kreise', 'https://youtu.be/quZN8PBxXok'],
+  ['🇺🇸 English – 3 Circles', 'https://youtu.be/2eGXgEe7esk'],
+  ['🇪🇸 Español – 3 Círculos', 'https://youtu.be/i3Ken_7k4xI'],
+  ['🇮🇷 Farsi – سه دایره', 'https://youtu.be/XNI4AIUg9sM'],
+  ['🇫🇮 Finnish – Kolme Ympyrää', 'https://youtu.be/kR4IiL8Asac'],
+  ['🇫🇷 Français – 3 Cercles', 'https://youtu.be/kDnKU_hKz2M'],
+  ['🇬🇷 Greek – 3 κύκλοι', 'https://youtu.be/SGsT6l8cl1I'],
+  ['🇮🇳 Gujarati – ૩ વૃત્તો', 'https://youtu.be/KFI5HPGl6E4'],
+  ['🇮🇳 Hindi – तीन गोले', 'https://youtu.be/mIQy_akRkBA'],
+  ['🇮🇩 Indonesian (Bahasa) – 3 Lingkaran', 'https://youtu.be/6ngRFPDbVR8'],
+  ['🇯🇵 Japanese – 3 つの円', 'https://youtu.be/w_2qHO9sKY8'],
+  ['🇮🇳 Kannada – ಮೂರು ವಲಯಗಳು', 'https://youtu.be/ONOuuBDStnE'],
+  ['🇰🇭 Khmer – ៣ រង្វង់', 'https://youtu.be/xMc_ROiuY0Q'],
+  ['🇨🇳 Mandarin – 三圈福音', 'https://youtu.be/GvkKJCEmNiM'],
+  ['🇳🇵 Nepali – तीन सर्कल', 'https://youtu.be/oVnUiPR59U0'],
+  ['🇸🇸 Nuer – 3 Circles', 'https://youtu.be/doJFJ_fts-Q'],
+  ['🇮🇳 Oriya – ତିନି ବୃତ୍ତ', 'https://youtu.be/jwVkLmCef60'],
+  ['🇵🇱 Polish – 3 Okręgi', 'https://youtu.be/3V8U7T5vElU'],
+  ['🇵🇹 Portuguese – 3 Círculos', 'https://youtu.be/nNhCy-QBiis'],
+  ['🇷🇴 Română – 3 Cercuri', 'https://youtu.be/BbvJS-AxqEI'],
+  ['🇷🇺 Russian – Три круга', 'https://youtu.be/Iqfy4YvVbp8'],
+  ['🇷🇸 Serbian – 3 Kruga', 'https://youtu.be/-srCkSEx8vI'],
+  ['🇵🇭 Tagalog – Tatlong Sirkulo', 'https://youtu.be/O2RTjStCE5g'],
+  ['🇮🇳 Tamil – மூன்று வட்டங்கள்', 'https://youtu.be/PJOc220tA0s'],
+  ['🇰🇭 Tampuan – 3 Circles', 'https://youtu.be/WWsw4zqu-NI'],
+  ['🇮🇳 Telugu – మూడు 3 Circles', 'https://youtu.be/8Hu_nsY9XHI'],
+  ['🇹🇷 Turkish – Üç Daire', 'https://youtu.be/5bTD46Onb-E'],
+  ['🇵🇰 Urdu – تین حلقے', 'https://youtu.be/4W-Wfs7x0lk'],
+  ['🇻🇳 Vietnamese – 3 Vòng tròn', 'https://youtu.be/vHTKavU63K8']
+];
+
 {/*
   TODO (Field Note): once a real, approved story of someone actually
   using the 3 Circles exists in src/content/field-notes/, add:
@@ -262,38 +297,40 @@ With just a piece of paper and a pen, you can help others understand the fundame
 
 ### Select Language
 
-[🇸🇦 Arabic – ٣ دوائر](https://youtu.be/cxqmFSacr5k)
-[🇦🇿 Azeri – Üç dairə](https://youtu.be/-yQvLQXG9BU)
-[🇨🇿 Czech – 3 Kruhy](https://youtu.be/6dT9G_VVpj8)
-[🇩🇪 Deutsch – 3 Kreise](https://youtu.be/quZN8PBxXok)
-[🇺🇸 English – 3 Circles](https://youtu.be/2eGXgEe7esk)
-[🇪🇸 Español – 3 Círculos](https://youtu.be/i3Ken_7k4xI)
-[🇮🇷 Farsi – سه دایره](https://youtu.be/XNI4AIUg9sM)
-[🇫🇮 Finnish – Kolme Ympyrää](https://youtu.be/kR4IiL8Asac)
-[🇫🇷 Français – 3 Cercles](https://youtu.be/kDnKU_hKz2M)
-[🇬🇷 Greek – 3 κύκλοι](https://youtu.be/SGsT6l8cl1I)
-[🇮🇳 Gujarati – ૩ વૃત્તો](https://youtu.be/KFI5HPGl6E4)
-[🇮🇳 Hindi – तीन गोले](https://youtu.be/mIQy_akRkBA)
-[🇮🇩 Indonesian (Bahasa) – 3 Lingkaran](https://youtu.be/6ngRFPDbVR8)
-[🇯🇵 Japanese – 3 つの円](https://youtu.be/w_2qHO9sKY8)
-[🇮🇳 Kannada – ಮೂರು ವಲಯಗಳು](https://youtu.be/ONOuuBDStnE)
-[🇰🇭 Khmer – ៣ រង្វង់](https://youtu.be/xMc_ROiuY0Q)
-[🇨🇳 Mandarin – 三圈福音](https://youtu.be/GvkKJCEmNiM)
-[🇳🇵 Nepali – तीन सर्कल](https://youtu.be/oVnUiPR59U0)
-[🇸🇸 Nuer – 3 Circles](https://youtu.be/doJFJ_fts-Q)
-[🇮🇳 Oriya – ତିନି ବୃତ୍ତ](https://youtu.be/jwVkLmCef60)
-[🇵🇱 Polish – 3 Okręgi](https://youtu.be/3V8U7T5vElU)
-[🇵🇹 Portuguese – 3 Círculos](https://youtu.be/nNhCy-QBiis)
-[🇷🇴 Română – 3 Cercuri](https://youtu.be/BbvJS-AxqEI)
-[🇷🇺 Russian – Три круга](https://youtu.be/Iqfy4YvVbp8)
-[🇷🇸 Serbian – 3 Kruga](https://youtu.be/-srCkSEx8vI)
-[🇵🇭 Tagalog – Tatlong Sirkulo](https://youtu.be/O2RTjStCE5g)
-[🇮🇳 Tamil – மூன்று வட்டங்கள்](https://youtu.be/PJOc220tA0s)
-[🇰🇭 Tampuan – 3 Circles](https://youtu.be/WWsw4zqu-NI)
-[🇮🇳 Telugu – మూడు 3 Circles](https://youtu.be/8Hu_nsY9XHI)
-[🇹🇷 Turkish – Üç Daire](https://youtu.be/5bTD46Onb-E)
-[🇵🇰 Urdu – تین حلقے](https://youtu.be/4W-Wfs7x0lk)
-[🇻🇳 Vietnamese – 3 Vòng tròn](https://youtu.be/vHTKavU63K8)
+<div
+  style={{
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '12px',
+    marginTop: '20px',
+    marginBottom: '28px'
+  }}
+>
+  {languageVideos.map(([label, url]) => (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        minHeight: '44px',
+        padding: '10px 17px',
+        border: '1px solid rgba(31, 37, 35, 0.08)',
+        borderRadius: '999px',
+        background: '#ffffff',
+        boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)',
+        color: '#1F2523',
+        fontSize: '0.95rem',
+        fontWeight: 600,
+        lineHeight: 1.25,
+        textDecoration: 'none'
+      }}
+    >
+      {label}
+    </a>
+  ))}
+</div>
 
 ## Frequently Asked Questions
 
@@ -335,5 +372,3 @@ In the context of the 3 Circles gospel sharing method, hindrances to turning and
 </InsightCard>
 
 Recognizing these different types of "soil" can help us understand how to highlight and exhort the listener to turn from the barriers in their life.
-
-[Listen to the related episode on Spotify](https://open.spotify.com/episode/60UpURTbj6LkX2m901WEAJ)
