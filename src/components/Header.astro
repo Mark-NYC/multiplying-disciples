@@ -8,7 +8,7 @@ const isActive = (href: string) =>
   href === '/' ? currentPath === '/' : href !== '' && currentPath.startsWith(href);
 ---
 
-<header class="site-header">
+<header class:list={['site-header', { 'site-header--home': currentPath === '/' }]}>
   <div class="site-header__inner">
     <a class="site-header__logo" href="/">
       <img src="/images/logo.png" alt={SITE.name} width="290" height="44" />
@@ -317,6 +317,12 @@ const isActive = (href: string) =>
 <style>
   .site-header {
     border-bottom: 1px solid var(--color-border);
+  }
+
+  /* Home page only: white bar with no divider under it. */
+  .site-header--home {
+    background-color: #fff;
+    border-bottom-color: transparent;
   }
 
   .site-header__inner {
