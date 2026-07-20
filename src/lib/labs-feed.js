@@ -228,7 +228,7 @@ function featuredFormHtml(lab) {
   return `
     <div class="featured-lab__col featured-lab__col--form">
       <div class="featured-lab__form-card">
-        <h3 class="featured-lab__form-heading">Reserve Your Seat</h3>
+        <h3 class="featured-lab__form-heading">Reserve Your Seat - FREE</h3>
         <p class="featured-lab__form-invite">Join practitioners from across North America taking real disciple-making steps.</p>
 
         <div class="featured-lab__widget" id="featured-lab-widget" aria-live="polite"></div>
