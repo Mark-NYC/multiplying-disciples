@@ -706,16 +706,16 @@ article tbody tr:nth-child(even) td {
 @media (min-width: 861px) {
   .featured-lab:not(.featured-lab--loading):not(.featured-lab--empty) {
     background-color: #ffffff;
-    background-image:
-      linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 1) 42%,
-        rgba(255, 255, 255, 0.94) 55%,
-        rgba(255, 255, 255, 0.55) 66%,
-        rgba(255, 255, 255, 0) 78%
-      ),
-      url('/images/men-making-disciples.webp');
+background-image:
+  linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 44%,
+    rgba(255, 255, 255, 0.88) 52%,
+    rgba(255, 255, 255, 0.25) 63%,
+    rgba(255, 255, 255, 0) 72%
+  ),
+  url('/images/men-making-disciples.webp');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
