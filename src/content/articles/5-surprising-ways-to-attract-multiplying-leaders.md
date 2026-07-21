@@ -6,7 +6,7 @@ canonical: "https://multiplyingdisciples.us/5-surprising-ways-to-attract-multipl
 hub: "four-fields"
 related_articles:
   - "/the-secret-ingredient-of-trustworthy-leaders-what-paul-knew-about-diligence/"
-  - "/the-clear-pathway-of-jesus-a-biblical-model-for-disciple-making/"
+  - "/four-fields-of-kingdom-growth/"
   - "/how-to-get-started-in-four-fields-training/"
   - "/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/"
 related_tools: []

@@ -290,7 +290,7 @@ Also removed as a `related_articles`/`key_articles` entry from: the
 
 | Old URL | New URL / destination | Type | Reason | Status |
 |---|---|---|---|---|
-| _(none yet)_ | | 301 | | pending / implemented / verified |
+| `/the-clear-pathway-of-jesus-a-biblical-model-for-disciple-making/` | `/four-fields-of-kingdom-growth/` | 301 | overlapping Four Fields article consolidated into the definitive video companion | implemented |
 
 - **Type**: almost always `301` (permanent). Never use a 302 for a
   permanent content move.

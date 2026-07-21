@@ -11,10 +11,9 @@ secondary_keywords:
   - "NoPlaceLeft"
 hub: "four-fields"
 related_articles:
+  - "/four-fields-of-kingdom-growth/"
   - "/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/"
   - "/three-thirds/"
-  - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
-  - "/how-to-evangelize-ultimate-step-by-step-guide/"
 related_tools: []
 external_links: []
 og_image: "/wp-content/uploads/2023/05/Screenshot-2023-05-06-at-10.05.09-AM.jpg"

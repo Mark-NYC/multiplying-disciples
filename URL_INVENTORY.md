@@ -405,7 +405,7 @@ Sorted by impressions (real GSC data where available).
 | `/unlock-biblical-principles-for-multiplying-disciples/` | article | migrated | 1 | 52 | tier-3 |
 | `/5-insightful-keys-into-the-biblical-jesus/` | article | migrated | 0 | 49 | tier-3 |
 | `/missionary-verses-in-the-bible-reveal-gods-heart/` | article | migrated | 0 | 48 | tier-3 |
-| `/the-clear-pathway-of-jesus-a-biblical-model-for-disciple-making/` | article | migrated | 0 | 46 | tier-3 |
+| `/the-clear-pathway-of-jesus-a-biblical-model-for-disciple-making/` | article | 301 → `/four-fields-of-kingdom-growth/` | 0 | 46 | tier-3 |
 | `/7-surprising-disciple-making-movement-examples/` | article | migrated | 1 | 43 | tier-3 |
 | `/the-hidden-power-of-bonhoeffers-discipleship-model-and-why-its-more-relevant-than-ever/` | article | migrated | 0 | 42 | tier-3 |
 | `/bible-passages-about-love-what-scripture-really-says/` | article | migrated | 0 | 41 | tier-3 |
