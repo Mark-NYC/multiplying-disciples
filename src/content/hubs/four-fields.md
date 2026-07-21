@@ -8,9 +8,9 @@ intro: >
   disciple-making process, from empty field to reproducing church. Start
   here to learn it and train your team.
 key_articles:
+  - "/four-fields-of-kingdom-growth/"
   - "/four-fields-of-kingdom-growth-starting-and-releasing-healthy-churches-by-nathan-and-kari-shank/"
   - "/how-to-get-started-in-four-fields-training/"
-  - "/the-clear-pathway-of-jesus-a-biblical-model-for-disciple-making/"
   - "/5-surprising-ways-to-attract-multiplying-leaders/"
 related_tools: []
 next_step:

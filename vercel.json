@@ -2,6 +2,11 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
+      "source": "/the-clear-pathway-of-jesus-a-biblical-model-for-disciple-making/",
+      "destination": "/four-fields-of-kingdom-growth/",
+      "statusCode": 301
+    },
+    {
       "source": "/missionary-verses-in-the-bible-reveal-gods-heart/",
       "destination": "/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/",
       "statusCode": 301

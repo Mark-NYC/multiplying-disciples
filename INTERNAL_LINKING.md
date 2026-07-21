@@ -177,7 +177,7 @@ Add to `vercel.json` (see REDIRECTS.md conventions):
 1. `/start-here/` → `/starter-tools/` (duplicate intent, zero inbound).
 2. `/elementor-10714/` → `/free-training/` (expired event page).
 3. `/setting-the-stage-jesus-as-the-model-for-muddy-boots-church-planting/`
-   → `/the-clear-pathway-of-jesus-a-biblical-model-for-disciple-making/`
+   → `/four-fields-of-kingdom-growth/`
    — **after** the merge pass, not before.
 4. Optional: `/action-plan/` → `/free-training/`; the two sticker
    product pages → `/stickers/` (or fix + link them instead).
