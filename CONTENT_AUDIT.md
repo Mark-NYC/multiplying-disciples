@@ -55,6 +55,7 @@ Utility (not part of cluster strategy).
 | Setting the Stage: Muddy Boots | /setting-the-stage-jesus-as-the-model-for-muddy-boots-church-planting/ | Making Disciples | Thin (551 words) | T3 | Jesus' model | **Merge** | Merge into The Clear Pathway of Jesus (same thesis, stronger page); redirect after merging. |
 | 5 Surprising Ways to Attract Multiplying Leaders | /5-surprising-ways-to-attract-multiplying-leaders/ | Leadership & Multiplication | Adequate | T3 (2c / 20i) | Practical: finding leaders | **Keep** | |
 | 4 Responses to the Gospel | /4-responses-to-the-gospel/ | Sharing the Gospel | Thin (37 words) | T3 | Tool stub | **Improve** | A named starter tool with no article behind it — expand into a real explainer (parable of the soils / filtering). |
+| Biblical Fasting and Prayer | /biblical-fasting-and-prayer/ | Prayer & the Field | Strong | U (new) | Informational: "why Christians fast" | **Keep** | New definitive companion article built on Mark Goering's fasting-and-prayer YouTube teaching (created 2026-07-21); added as the fourth key article in the Prayer hub. |
 | 5 T's Strategy Coordinator Overview | /movement-resources/strategy-coordinator/ | — | Adequate | U | Niche practitioner role | **Not part of cluster strategy** | Per direction, Strategy Coordinator content stays out of the cluster/menu architecture. Keep the URL live as a quiet resource; no inbound cluster links. |
 
 ## Utility, tool, and legal pages (not part of the cluster strategy)

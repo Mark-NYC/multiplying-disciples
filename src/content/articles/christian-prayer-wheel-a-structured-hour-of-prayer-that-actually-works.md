@@ -5,6 +5,7 @@ slug: "/christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/"
 canonical: "https://multiplyingdisciples.us/christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/"
 hub: "prayer"
 related_articles:
+  - "/biblical-fasting-and-prayer/"
   - "/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/"
   - "/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/"
   - "/stickers/"
