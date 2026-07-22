@@ -74,4 +74,12 @@ Welcome to Multiplying Disciples ("us," "we," or "our"). This Privacy Policy exp
 
    We may update this Privacy Policy from time to time. The most current version will be posted on our website, and it is your responsibility to review it periodically. Your continued use of our website signifies your acceptance of any updates or changes.
 
+10. **Website Security and Cloudflare Turnstile**
+
+    To help keep our forms and website safe, we use Cloudflare Turnstile, a security service provided by Cloudflare, Inc. Turnstile allows us to tell genuine visitors apart from automated traffic so we can protect our site from spam, bots, and abuse — and it does this quietly in the background, without asking you to solve traditional puzzle-style CAPTCHAs.
+
+    When Turnstile runs, it may process a limited amount of technical information about your visit, such as your IP address, characteristics of your browser and device, general behavioral and security signals, and related technical metadata. Cloudflare uses this information only to distinguish human visitors from automated bots. This processing is carried out solely for the purposes of website security and fraud prevention. It is not used to identify you personally, to build advertising profiles, or to track you across other websites.
+
+    Because this protection is powered by Cloudflare, information processed through Turnstile is also handled in accordance with Cloudflare's privacy terms. You can learn more in the [Cloudflare Turnstile Privacy Addendum](https://www.cloudflare.com/turnstile-privacy-policy/) and the [Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/).
+
 If you have any questions or concerns about this Privacy Policy, please contact us at [contact@multiplyingdisciples.us](mailto:contact@multiplyingdisciples.us).
