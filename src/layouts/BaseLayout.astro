@@ -10,13 +10,27 @@ interface Props {
   canonical: string;
   ogImage?: string;
   type?: 'website' | 'article';
+  author?: { name: string; url: string };
+  ogImageAlt?: string;
+  schemaImages?: string[];
   publishedDate?: Date;
   updatedDate?: Date;
   noindex?: boolean;
 }
 
-const { title, description, canonical, ogImage, type, publishedDate, updatedDate, noindex } =
-  Astro.props;
+const {
+  title,
+  description,
+  canonical,
+  ogImage,
+  type,
+  author,
+  ogImageAlt,
+  schemaImages,
+  publishedDate,
+  updatedDate,
+  noindex,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -36,6 +50,9 @@ const { title, description, canonical, ogImage, type, publishedDate, updatedDate
       canonical={canonical}
       ogImage={ogImage}
       type={type}
+      author={author}
+      ogImageAlt={ogImageAlt}
+      schemaImages={schemaImages}
       publishedDate={publishedDate}
       updatedDate={updatedDate}
       noindex={noindex}

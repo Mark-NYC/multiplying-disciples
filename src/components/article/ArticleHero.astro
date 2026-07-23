@@ -14,6 +14,7 @@ interface Props {
   eyebrow?: string;
   title: string;
   subheading?: string;
+  author?: { name: string; url: string };
   date?: Date;
   updatedDate?: Date;
   readingTime?: string;
@@ -24,8 +25,18 @@ interface Props {
 
 import { imageDimensions } from '../../lib/image-dimensions.mjs';
 
-const { eyebrow, title, subheading, date, updatedDate, readingTime, image, imageAlt, imageCaption } =
-  Astro.props;
+const {
+  eyebrow,
+  title,
+  subheading,
+  author,
+  date,
+  updatedDate,
+  readingTime,
+  image,
+  imageAlt,
+  imageCaption,
+} = Astro.props;
 
 // Real intrinsic dimensions (when the file lives in public/) so the
 // hero never causes layout shift under the reader.
@@ -54,7 +65,22 @@ const metaParts = [
   {eyebrow && <p class="fm-hero__eyebrow eyebrow eyebrow--gold-text">{eyebrow}</p>}
   <h1 class="fm-hero__headline">{title}</h1>
   {subheading && <p class="fm-hero__subhead">{subheading}</p>}
-  {metaParts.length > 0 && <p class="fm-hero__meta">{metaParts.join(' · ')}</p>}
+  {
+    (author || metaParts.length > 0) && (
+      <p class="fm-hero__meta">
+        {author && (
+          <>
+            By{' '}
+            <a class="fm-hero__author" href={author.url}>
+              {author.name}
+            </a>
+            {metaParts.length > 0 && ' · '}
+          </>
+        )}
+        {metaParts.join(' · ')}
+      </p>
+    )
+  }
 </header>
 
 {
@@ -73,3 +99,13 @@ const metaParts = [
     </figure>
   )
 }
+
+<style>
+  /* Keep the byline inside the quiet meta line: inherit its muted
+     color, just add an underline so the link is distinguishable
+     without relying on color alone. */
+  .fm-hero__author {
+    color: inherit;
+    text-decoration: underline;
+  }
+</style>

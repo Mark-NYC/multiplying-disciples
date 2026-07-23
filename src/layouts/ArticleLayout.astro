@@ -101,6 +101,9 @@ const ctaContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__article-c
   canonical={data.canonical}
   ogImage={data.og_image ?? data.hero_image}
   type="article"
+  author={data.author}
+  ogImageAlt={data.og_image_alt}
+  schemaImages={data.schema_images}
   publishedDate={data.date}
   updatedDate={data.updated}
   noindex={data.status === 'source-pending'}
@@ -134,6 +137,7 @@ const ctaContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__article-c
         eyebrow={data.hero_eyebrow}
         title={data.display_title ?? data.title}
         subheading={data.hero_subheading}
+        author={data.author}
         date={data.date}
         updatedDate={data.updated}
         readingTime={readingTime}

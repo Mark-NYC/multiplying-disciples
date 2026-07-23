@@ -84,12 +84,34 @@ const articles = defineCollection({
     primary_keyword: z.string().optional(),
     secondary_keywords: z.array(z.string()).default([]),
     category: z.string().optional(),
+    // Optional per-article author. Omit it and the article shows no
+    // byline (the site default) and no Person in its Article schema —
+    // there is deliberately no global/hardcoded author. When set, both
+    // fields are required: `name` renders a linked byline in the hero
+    // meta line and becomes a schema.org Person; `url` is the byline
+    // link (a site-relative path like "/about/", resolved to an
+    // absolute URL in the JSON-LD).
+    author: z
+      .object({
+        name: z.string(),
+        url: z.string(),
+      })
+      .optional(),
     // Slug of a hub in src/content/hubs/, e.g. "testimony".
     hub: z.string().optional(),
     related_articles: z.array(z.string()).default([]),
     related_tools: z.array(z.string()).default([]),
     external_links: z.array(externalLink).default([]),
     og_image: z.string().optional(),
+    // Alt text for the social (og/twitter) image. When set, the SEO
+    // component also emits og:image width/height/type/alt (dimensions
+    // read from the real file) — opt-in, so pages without it are
+    // unchanged.
+    og_image_alt: z.string().optional(),
+    // Explicit, ordered list of representative image paths for the
+    // Article JSON-LD `image` array (e.g. the 16:9 social card first,
+    // a 4:3 photo second). Falls back to the single og_image when empty.
+    schema_images: z.array(z.string()).default([]),
     // True for utility/legal pages (e.g. /privacy-policy/) that should
     // exist as a real page but not appear in the /blog/ article index.
     // Utility pages also skip the share row, reading meta, and the
