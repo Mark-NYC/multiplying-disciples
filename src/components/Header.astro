@@ -6,6 +6,13 @@ import RotatingSeal from './RotatingSeal.astro';
 const currentPath = Astro.url.pathname;
 const isActive = (href: string) =>
   href === '/' ? currentPath === '/' : href !== '' && currentPath.startsWith(href);
+
+// Desktop header nav drops "About" — it stays in the hamburger menu,
+// which renders the full PRIMARY_NAV.
+const HEADER_NAV = PRIMARY_NAV.filter((link) => link.label !== 'About');
+// The header's own "Join a Lab" button is redundant on the homepage
+// (the hero already leads with the lab CTA), so hide it there.
+const isHome = currentPath === '/';
 ---
 
 <header class="site-header">
@@ -17,7 +24,7 @@ const isActive = (href: string) =>
     <nav aria-label="Primary" class="site-header__nav-wrap">
       <ul class="site-header__nav">
         {
-          PRIMARY_NAV.map((link) =>
+          HEADER_NAV.map((link) =>
             link.children ? (
               <li class="site-header__dropdown">
                 <details>
@@ -61,7 +68,7 @@ const isActive = (href: string) =>
             <path d="M21 21l-4.8-4.8" />
           </svg>
         </a>
-        <a class="button button--small" href="/#ch-practice">Join a Lab</a>
+        {!isHome && <a class="button button--small" href="/#ch-practice">Join a Lab</a>}
         <ul class="site-header__socials">
           <li>
             <a href={SITE.social.facebook} aria-label="Multiplying Disciples on Facebook">
