@@ -221,8 +221,10 @@ Full reference: CTA_GUIDE.md.
   attributes and cross-domain UTM tagging (`utm_content =
   <page-slug>__<level>__<placement>`); components add these — never strip
   them. **No UTMs on same-domain internal links.**
-- Each CTA type has one fixed real-photo lead image, standardized sitewide —
-  not configurable per article.
+- Each CTA type has one fixed real-photo lead image, standardized sitewide.
+  A single article may override that default via `article_cta.image` +
+  `image_alt` (both together) when the standard image doesn't fit its
+  destination — kept rare and documented in CTA_GUIDE.md.
 
 ## 8. SEO guardrails
 

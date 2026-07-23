@@ -27,6 +27,8 @@ interface ArticleCtaData {
   type?: 'lab' | 'tool' | 'community' | 'none';
   stakes_headline?: string;
   bridge_copy?: string;
+  image?: string;
+  image_alt?: string;
   destination?: Destination;
 }
 
@@ -48,11 +50,13 @@ const eyebrow = 'TAKE THE NEXT STEP';
 // Stable per-page id — there is only ever one ArticleCTA per article.
 const labContainerId = 'article-cta-lab';
 
-// One fixed, type-mapped lead image per CTA type — standardized here,
-// not configured per article (no `image` field on `article_cta`;
-// don't add one). Real photos, not stock — see the alt text for what's
-// actually shown. Swap the file to change the image sitewide for that
-// type, in one place.
+// One fixed, type-mapped lead image per CTA type — the standardized
+// default, in one place. Real photos, not stock — see the alt text for
+// what's actually shown. Swap the file to change the image sitewide for
+// that type. An individual article may override this default via
+// `article_cta.image` + `article_cta.image_alt` (both required
+// together) when the standardized image doesn't fit its specific
+// destination — see CTA_GUIDE.md. Keep that override rare.
 const CTA_IMAGES: Record<'lab' | 'tool' | 'community', { src: string; alt: string }> = {
   lab: {
     src: '/images/CTA-Article-Images/Join a Lab.webp',
@@ -67,7 +71,11 @@ const CTA_IMAGES: Record<'lab' | 'tool' | 'community', { src: string; alt: strin
     alt: 'Four people gathered around a café table with laptops open, meeting together to practice.',
   },
 };
-const ctaImage = type !== 'none' ? CTA_IMAGES[type] : undefined;
+const overrideImage =
+  articleCta?.image && articleCta?.image_alt
+    ? { src: articleCta.image, alt: articleCta.image_alt }
+    : undefined;
+const ctaImage = type !== 'none' ? (overrideImage ?? CTA_IMAGES[type]) : undefined;
 const ctaImageDims = ctaImage ? imageDimensions(ctaImage.src) : undefined;
 ---
 

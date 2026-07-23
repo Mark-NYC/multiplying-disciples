@@ -44,6 +44,15 @@ const articleCta = z
     type: z.enum(['lab', 'tool', 'community', 'none']).default('lab'),
     stakes_headline: z.string().optional(),
     bridge_copy: z.string().optional(),
+    // Optional per-article override for the CTA lead image. Each CTA
+    // type has a standardized, type-mapped default image (in
+    // ArticleCTA.astro); leave these off to use it. Set both together
+    // only when the standardized image genuinely doesn't fit the
+    // article's specific destination — e.g. a tool CTA that points at
+    // the testimony exercise rather than the default Conversation Box.
+    // See CTA_GUIDE.md.
+    image: z.string().optional(),
+    image_alt: z.string().optional(),
     destination: z
       .object({
         label: z.string(),

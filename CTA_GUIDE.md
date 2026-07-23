@@ -89,7 +89,12 @@ defaults undefined input to the Lab CTA.
 - No urgency theater, no invented scarcity, no exclamation marks.
   Seat counts shown in lab cards are live data, never fabricated.
 - Each type has one fixed lead image, mapped in ArticleCTA — real
-  photos, standardized sitewide, not configurable per article.
+  photos, standardized sitewide. An article may override that default
+  with `article_cta.image` (a site-relative path) plus `article_cta.image_alt`
+  (both required together) when the standardized image doesn't fit its
+  specific destination — e.g. a `tool` CTA that points at the testimony
+  exercise rather than the default Conversation Box. Keep this override
+  rare; leave both fields off to use the standard image for the type.
 
 ## How to assign a CTA to an article
 
