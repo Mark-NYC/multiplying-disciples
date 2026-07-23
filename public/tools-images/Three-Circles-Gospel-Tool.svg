@@ -12,33 +12,30 @@
       <rect x="840" y="85" width="555" height="420"/>
     </clipPath>
 
-    <clipPath id="clip-sin-arrow" clip-rule="evenodd">
-      <path fill-rule="evenodd" d="M500 25H720V205H500Z M465 205H835V335H465Z M585 252H690V335H585Z"/>
+    <clipPath id="clip-sin-arrow">
+      <path d="M500 25H720V205H500Z M465 205H835V340H465Z"/>
     </clipPath>
 
-    <clipPath id="clip-jesus" clip-rule="evenodd">
-      <path fill-rule="evenodd" d="M450 565H860V1055H450Z M575 690H715V785H575Z"/>
+    <clipPath id="clip-jesus">
+      <rect x="450" y="565" width="410" height="490"/>
     </clipPath>
 
-    <clipPath id="clip-repent-believe" clip-rule="evenodd">
-      <path fill-rule="evenodd" d="M1030 570H1260V990H1030Z M1025 795H1260V990H1025Z"/>
+    <clipPath id="clip-repent-believe">
+      <path d="M1080 570H1210V790H1080Z M1020 795H1260V1000H1020Z"/>
     </clipPath>
 
     <clipPath id="clip-recover-pursue">
-      <path d="M240 500H475V835H240Z"/>
+      <path d="M235 500H455V835H235Z"/>
     </clipPath>
 
-    <clipPath id="clip-new-creation" clip-rule="evenodd">
-      <path fill-rule="evenodd" d="M35 505H255V990H35Z M35 790H255V990H35Z"/>
+    <clipPath id="clip-new-creation">
+      <rect x="35" y="505" width="220" height="495"/>
     </clipPath>
 
     <clipPath id="clip-connecting-arrows">
       <path d="M845 495H1045V845H845Z"/>
     </clipPath>
 
-    <clipPath id="clip-labels-and-accents">
-      <path d="M575 245H700V340H575Z M570 685H720V790H570Z M35 785H260V1000H35Z M1020 785H1270V1000H1020Z"/>
-    </clipPath>
   </defs>
 
   <g id="gods-design" clip-path="url(#clip-gods-design)"><use href="#master-artwork" xlink:href="#master-artwork"/></g>
@@ -49,5 +46,5 @@
   <g id="recover-pursue" clip-path="url(#clip-recover-pursue)"><use href="#master-artwork" xlink:href="#master-artwork"/></g>
   <g id="new-creation" clip-path="url(#clip-new-creation)"><use href="#master-artwork" xlink:href="#master-artwork"/></g>
   <g id="connecting-arrows" clip-path="url(#clip-connecting-arrows)"><use href="#master-artwork" xlink:href="#master-artwork"/></g>
-  <g id="labels-and-accents" clip-path="url(#clip-labels-and-accents)"><use href="#master-artwork" xlink:href="#master-artwork"/></g>
+  <g id="labels-and-accents"/>
 </svg>
