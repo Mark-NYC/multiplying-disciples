@@ -135,21 +135,22 @@ const isActive = (href: string) =>
       </div>
 
       <nav aria-label="Site menu" class="site-menu__nav">
-        {/* The large, primary destinations. */}
-        <ul class="site-menu__primary">
-          {PRIMARY_NAV.map((link) => (
-            <li>
-              <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        {/* Column 1 — the large primary destinations + CTA. */}
+        <div class="site-menu__col site-menu__col--lead">
+          <ul class="site-menu__primary">
+            {PRIMARY_NAV.map((link) => (
+              <li>
+                <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a class="button site-menu__cta" href="/#ch-practice">Join a Live Lab</a>
+        </div>
 
-        <a class="button site-menu__cta" href="/#ch-practice">Join a Live Lab</a>
-
-        {/* Muted secondary column(s). */}
-        <div class="site-menu__resources">
+        {/* Column 2 — muted secondary lists. */}
+        <div class="site-menu__col site-menu__resources">
           <div class="site-menu__group">
             <p class="eyebrow eyebrow--gold-text">More Resources</p>
             <ul>
@@ -179,6 +180,35 @@ const isActive = (href: string) =>
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* Column 3 — a featured sticker (to the sticker shop) and the
+            featured article. Desktop only; the mobile sheet stays lean. */}
+        <div class="site-menu__col site-menu__featured">
+          <a class="site-menu__sticker" href="/stickers/" aria-label="Free 3 Circles gospel stickers">
+            <img
+              src="/wp-content/uploads/2025/10/3-circles-sticker-cheap-1024x792.webp"
+              alt="3 Circles gospel presentation sticker"
+              width="1024"
+              height="792"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="site-menu__sticker-caption">Order free stickers &#8599;</span>
+          </a>
+
+          <a class="site-menu__article" href="/the-three-circles-gospel-presentation-step-by-step/">
+            <span class="eyebrow eyebrow--gold-text">Featured Article</span>
+            <img
+              src="/wp-content/uploads/2023/05/3-Circles-Gospel-Presentation-1-1024x576.webp"
+              alt=""
+              width="1024"
+              height="576"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="site-menu__article-title">The 3 Circles Gospel Presentation</span>
+          </a>
         </div>
       </nav>
 
@@ -651,10 +681,9 @@ const isActive = (href: string) =>
   }
 
   .site-menu__resources {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-    gap: 1.5rem 3rem;
-    max-width: 42rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
     margin-top: 2.75rem;
     padding-top: 1.75rem;
     border-top: 1px solid var(--color-border);
@@ -690,6 +719,68 @@ const isActive = (href: string) =>
     letter-spacing: 0.02em;
     color: var(--color-text-muted);
     white-space: nowrap;
+  }
+
+  /* --- Featured column (sticker + article) — desktop only --- */
+  .site-menu__featured {
+    display: none;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .site-menu__sticker {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text-muted);
+  }
+
+  .site-menu__sticker img {
+    display: block;
+    width: 100%;
+    border-radius: var(--radius-card);
+  }
+
+  .site-menu__sticker-caption {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+  }
+
+  .site-menu__sticker:hover .site-menu__sticker-caption {
+    color: var(--color-accent-hover);
+  }
+
+  .site-menu__article {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .site-menu__article .eyebrow {
+    display: block;
+    margin: 0 0 0.75rem;
+  }
+
+  .site-menu__article img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+  }
+
+  .site-menu__article-title {
+    display: block;
+    margin-top: 0.7rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .site-menu__article:hover .site-menu__article-title {
+    color: var(--color-accent-hover);
   }
 
   /* --- Foot: close + socials --- */
@@ -759,6 +850,27 @@ const isActive = (href: string) =>
       margin: 0;
       width: 3rem;
       height: 3rem;
+    }
+
+    /* Three columns: large nav + CTA · resource lists · featured. */
+    .site-menu__nav {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.95fr) minmax(0, 1fr);
+      gap: 2.5rem 3.5rem;
+      align-items: start;
+      max-width: 78rem;
+    }
+
+    /* Each column stands alone — drop the mobile separator above the
+       resource lists. */
+    .site-menu__resources {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .site-menu__featured {
+      display: flex;
     }
   }
 
