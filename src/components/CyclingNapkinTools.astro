@@ -363,7 +363,16 @@ const ctaOrder = tools
   .cnt__tool [id$="-casual"],
   .cnt__tool [id$="-meaningful"],
   .cnt__tool [id$="-discovery"],
-  .cnt__tool [id$="-spiritual"] {
+  .cnt__tool [id$="-spiritual"],
+  .cnt__tool [id$="-gods-design"],
+  .cnt__tool [id$="-brokenness"],
+  .cnt__tool [id$="-sin-arrow"],
+  .cnt__tool [id$="-jesus"],
+  .cnt__tool [id$="-repent-believe"],
+  .cnt__tool [id$="-recover-pursue"],
+  .cnt__tool [id$="-new-creation"],
+  .cnt__tool [id$="-connecting-arrows"],
+  .cnt__tool [id$="-labels-and-accents"] {
     opacity: 0;
     transition: opacity 0.5s ease;
   }
@@ -424,6 +433,20 @@ const ctaOrder = tools
   .cnt__tool.is-playing [id$="-meaningful"] { opacity: 1; transition-delay: 1.3s; }
   .cnt__tool.is-playing [id$="-discovery"] { opacity: 1; transition-delay: 1.5s; }
   .cnt__tool.is-playing [id$="-spiritual"] { opacity: 1; transition-delay: 1.7s; }
+
+  /* 3 Circles gospel tool: design -> brokenness -> sin arrow -> Jesus ->
+     repent/believe -> recover/pursue -> new creation -> arrows -> labels,
+     then a gold glow on the response (repent & believe). Opacity + filter
+     only (no transforms on the clipped groups) so nothing bleeds. */
+  .cnt__tool--three-circles.is-playing [id$="-gods-design"] { opacity: 1; transition-delay: 0.3s; }
+  .cnt__tool--three-circles.is-playing [id$="-brokenness"] { opacity: 1; transition-delay: 0.8s; }
+  .cnt__tool--three-circles.is-playing [id$="-sin-arrow"] { opacity: 1; transition-delay: 1.2s; }
+  .cnt__tool--three-circles.is-playing [id$="-jesus"] { opacity: 1; transition-delay: 1.7s; }
+  .cnt__tool--three-circles.is-playing [id$="-repent-believe"] { opacity: 1; transition-delay: 2.2s; animation: cw-glow 1.2s ease 4.3s forwards; }
+  .cnt__tool--three-circles.is-playing [id$="-recover-pursue"] { opacity: 1; transition-delay: 2.6s; }
+  .cnt__tool--three-circles.is-playing [id$="-new-creation"] { opacity: 1; transition-delay: 3s; }
+  .cnt__tool--three-circles.is-playing [id$="-connecting-arrows"] { opacity: 1; transition-delay: 3.4s; }
+  .cnt__tool--three-circles.is-playing [id$="-labels-and-accents"] { opacity: 1; transition-delay: 3.8s; }
 
   /* Static / no-JS / reduced-motion: everything visible, no motion. */
   .cnt:not(.is-animating) .cnt__tool [id],
@@ -491,7 +514,7 @@ const ctaOrder = tools
   .cnt__tool--three-thirds { inset: 3.5%; }
   .cnt__tool--testimony { inset: 5%; }
   .cnt__tool--church-waffle { inset: 7%; }
-  .cnt__tool--three-circles { inset: 12%; }
+  .cnt__tool--three-circles { inset: 5%; }
   .cnt__tool.is-active { opacity: 1; visibility: visible; }
   .cnt__art { position: relative; width: 100%; height: 100%; }
   .cnt__art :global(svg) { width: 100%; height: 100%; display: block; }
