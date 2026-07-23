@@ -147,6 +147,32 @@ const isActive = (href: string) =>
             ))}
           </ul>
           <a class="button site-menu__cta" href="/#ch-practice">Join a Live Lab</a>
+
+          <ul class="site-menu__socials">
+            <li>
+              <a href={SITE.social.facebook} aria-label="Multiplying Disciples on Facebook">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                  <path d="M13.5 21v-7.5h2.5l.5-3h-3V8.5c0-.9.25-1.5 1.55-1.5H16.5V4.3C16.2 4.26 15.2 4.17 14 4.17c-2.4 0-4 1.46-4 4.15V10.5H7.5v3H10V21h3.5z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href={SITE.social.instagram} aria-label="Multiplying Disciples on Instagram">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href={SITE.social.youtube} aria-label="Multiplying Disciples on YouTube">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                  <path d="M21.6 7.5c-.25-1-1-1.75-2-2C17.9 5 12 5 12 5s-5.9 0-7.6.5c-1 .25-1.75 1-2 2C2 9.2 2 12 2 12s0 2.8.4 4.5c.25 1 1 1.75 2 2C6.1 19 12 19 12 19s5.9 0 7.6-.5c1-.25 1.75-1 2-2 .4-1.7.4-4.5.4-4.5s0-2.8-.4-4.5zM10 15V9l5.2 3-5.2 3z" />
+                </svg>
+              </a>
+            </li>
+          </ul>
         </div>
 
         {/* Column 2 — muted secondary lists. */}
@@ -225,32 +251,6 @@ const isActive = (href: string) =>
             <path d="M5 5l14 14M19 5L5 19" />
           </svg>
         </button>
-
-        <ul class="site-menu__socials">
-          <li>
-            <a href={SITE.social.facebook} aria-label="Multiplying Disciples on Facebook">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
-                <path d="M13.5 21v-7.5h2.5l.5-3h-3V8.5c0-.9.25-1.5 1.55-1.5H16.5V4.3C16.2 4.26 15.2 4.17 14 4.17c-2.4 0-4 1.46-4 4.15V10.5H7.5v3H10V21h3.5z" />
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href={SITE.social.instagram} aria-label="Multiplying Disciples on Instagram">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
-                <circle cx="12" cy="12" r="4" />
-                <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href={SITE.social.youtube} aria-label="Multiplying Disciples on YouTube">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
-                <path d="M21.6 7.5c-.25-1-1-1.75-2-2C17.9 5 12 5 12 5s-5.9 0-7.6.5c-1 .25-1.75 1-2 2C2 9.2 2 12 2 12s0 2.8.4 4.5c.25 1 1 1.75 2 2C6.1 19 12 19 12 19s5.9 0 7.6-.5c1-.25 1.75-1 2-2 .4-1.7.4-4.5.4-4.5s0-2.8-.4-4.5zM10 15V9l5.2 3-5.2 3z" />
-              </svg>
-            </a>
-          </li>
-        </ul>
       </div>
     </div>
   </div>
@@ -742,7 +742,8 @@ const isActive = (href: string) =>
 
   .site-menu__sticker img {
     display: block;
-    width: 100%;
+    /* 66% of the column so the sticker reads as an accent, not a hero. */
+    width: 66%;
     border-radius: var(--radius-card);
   }
 
@@ -823,18 +824,20 @@ const isActive = (href: string) =>
     background: var(--color-surface);
   }
 
+  /* Socials now sit under the primary items + CTA in the first column. */
   .site-menu__socials {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
     list-style: none;
-    margin: 0;
+    margin: 1.75rem 0 0;
     padding: 0;
   }
 
   .site-menu__socials a {
     display: flex;
     padding: 0.5rem;
+    margin: -0.5rem 0;
     color: var(--color-text);
   }
 
