@@ -1,5 +1,6 @@
 ---
 import { SITE } from '../data/site';
+import { imageDimensions } from '../lib/image-dimensions.mjs';
 
 interface Props {
   title: string;
@@ -7,6 +8,16 @@ interface Props {
   canonical: string;
   ogImage?: string;
   type?: 'website' | 'article';
+  author?: { name: string; url: string };
+  // Opt-in per page (via an article's `og_image_alt`): when set, the
+  // social image gets width/height/type/alt tags. Dimensions come from
+  // the real file, type from the extension — nothing hardcoded, and
+  // pages that don't set it are untouched.
+  ogImageAlt?: string;
+  // Explicit, ordered image list for the Article JSON-LD `image` array
+  // (site-relative paths, resolved to absolute here). Falls back to the
+  // single social image when empty.
+  schemaImages?: string[];
   publishedDate?: Date;
   updatedDate?: Date;
   noindex?: boolean;
@@ -18,6 +29,9 @@ const {
   canonical,
   ogImage,
   type = 'website',
+  author,
+  ogImageAlt,
+  schemaImages = [],
   publishedDate,
   updatedDate,
   noindex = false,
@@ -27,6 +41,34 @@ const pageTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
 const resolvedImage = ogImage
   ? new URL(ogImage, SITE.url).toString()
   : undefined;
+
+const MIME_BY_EXT: Record<string, string> = {
+  webp: 'image/webp',
+  png: 'image/png',
+  jpg: 'image/jpeg',
+  jpeg: 'image/jpeg',
+  gif: 'image/gif',
+};
+
+// Enhanced social-image metadata, derived (not hardcoded) from the
+// image file itself; only produced when the page opts in with an alt.
+const ogImageMeta =
+  ogImage && ogImageAlt
+    ? {
+        ...imageDimensions(ogImage),
+        type: MIME_BY_EXT[ogImage.split('.').pop()?.toLowerCase() ?? ''],
+        alt: ogImageAlt,
+      }
+    : undefined;
+
+// Article schema image array: the explicit ordered list when provided,
+// otherwise the single social image (prior behavior).
+const schemaImageUrls =
+  schemaImages.length > 0
+    ? schemaImages.map((src) => new URL(src, SITE.url).toString())
+    : resolvedImage
+      ? [resolvedImage]
+      : [];
 
 const jsonLd =
   type === 'article'
@@ -39,7 +81,16 @@ const jsonLd =
         url: canonical,
         ...(publishedDate ? { datePublished: publishedDate.toISOString() } : {}),
         ...(updatedDate ? { dateModified: updatedDate.toISOString() } : {}),
-        ...(resolvedImage ? { image: [resolvedImage] } : {}),
+        ...(schemaImageUrls.length ? { image: schemaImageUrls } : {}),
+        ...(author
+          ? {
+              author: {
+                '@type': 'Person',
+                name: author.name,
+                url: new URL(author.url, SITE.url).toString(),
+              },
+            }
+          : {}),
         publisher: {
           '@type': 'Organization',
           name: SITE.name,
@@ -66,10 +117,15 @@ const jsonLd =
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
 {resolvedImage && <meta property="og:image" content={resolvedImage} />}
+{ogImageMeta?.width && <meta property="og:image:width" content={String(ogImageMeta.width)} />}
+{ogImageMeta?.height && <meta property="og:image:height" content={String(ogImageMeta.height)} />}
+{ogImageMeta?.type && <meta property="og:image:type" content={ogImageMeta.type} />}
+{ogImageMeta?.alt && <meta property="og:image:alt" content={ogImageMeta.alt} />}
 
 <meta name="twitter:card" content={resolvedImage ? 'summary_large_image' : 'summary'} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 {resolvedImage && <meta name="twitter:image" content={resolvedImage} />}
+{ogImageMeta?.alt && <meta name="twitter:image:alt" content={ogImageMeta.alt} />}
 
 <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
