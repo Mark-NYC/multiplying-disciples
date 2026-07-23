@@ -56,9 +56,10 @@ but marked Improve in CONTENT_AUDIT.md.
   "testimony examples" (GSC-validated query family — see
   ECOSYSTEM_GROWTH_STRATEGY.md Cluster 1).
 - **Hub:** `/testimony/`.
-- **Pillar:** ☆ **How to Share Your Christian Testimony** — the head
-  term the cluster currently lacks; existing pages rank for fragments
-  of it.
+- **Pillar:** ★ **How to Share Your Christian Testimony**
+  (`/how-to-share-your-testimony/`, shipped 2026-07-23) — the head
+  term the cluster previously lacked; existing pages ranked only for
+  fragments of it.
 - **Supporting:** ★ Simple 15-Second Testimony Examples · ★ Testimony
   in the Bible: 20 Verses (also covers "Bible verses about testimony"
   — no separate verses article) · ★ 7 Biblical Reasons You Can't Stay
@@ -307,8 +308,11 @@ Ordered by (proven impressions × conversion proximity):
    impressions, 2 clicks).
 3. **How to Evangelize CTR pass** (1.8k impressions, 0 clicks).
 4. **Apostles Meaning CTR pass** (2.4k impressions, 0 clicks).
-5. ☆ How to Share Your Christian Testimony (pillar — cluster already
-   ranks around the hole).
+5. ~~☆ How to Share Your Christian Testimony (pillar)~~ ✅ shipped
+   2026-07-23 as `/how-to-share-your-testimony/` — the Testimony
+   cluster pillar (head term the cluster only ranked fragments of).
+   Added as the first key article in the Testimony hub and
+   cross-linked from the three sibling testimony articles.
 6. ☆ Short Christian Testimony Examples (GSC-validated queries).
 7. ☆ How to Write Your Testimony.
 8. ☆ How to Make Disciples (pillar).
