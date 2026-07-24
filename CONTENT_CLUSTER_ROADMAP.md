@@ -63,8 +63,8 @@ but marked Improve in CONTENT_AUDIT.md.
 - **Supporting:** ★ Simple 15-Second Testimony Examples · ★ Testimony
   in the Bible: 20 Verses (also covers "Bible verses about testimony"
   — no separate verses article) · ★ 7 Biblical Reasons You Can't Stay
-  Silent · ☆ Short Christian Testimony Examples (GSC-validated —
-  intent now owned by the 15-Second Examples page, no separate URL) ·
+  Silent · Short Christian Testimony Examples ✅ (intent owned by the
+  ★ 15-Second Examples page — do not create a separate URL) ·
   ★ How to Write Your Testimony (`/how-to-write-your-testimony/`,
   shipped 2026-07-24; the before/turn/after writing template) · ☆
   Three-Minute Testimony · ☆ Sharing Your Testimony at
@@ -316,14 +316,12 @@ Ordered by (proven impressions × conversion proximity):
    cluster pillar (head term the cluster only ranked fragments of).
    Added as the first key article in the Testimony hub and
    cross-linked from the three sibling testimony articles.
-6. ☆ Short Christian Testimony Examples (GSC-validated queries).
-   ⚠ Not built as a separate page: its primary intent ("short
-   christian testimony examples") is already owned by the tier-1
-   `/15-second-testimony-examples-ignite-your-faith/` page, whose
-   `primary_keyword` is literally that term (Strong / Keep in
-   CONTENT_AUDIT.md). A competing page would cannibalize it, so this
-   line is considered satisfied by the existing page rather than a new
-   URL. Fold any additional "short examples" queries into that page.
+6. ~~☆ Short Christian Testimony Examples~~ ✅ Intent already owned by
+   `/15-second-testimony-examples-ignite-your-faith/` (its literal
+   `primary_keyword`; Strong / Keep in CONTENT_AUDIT.md). Do not create
+   a separate page because it would cannibalize the existing T1 article.
+   This item is fulfilled by that existing page — not an unfinished
+   gap. Fold any additional "short examples" queries into that page.
 7. ~~☆ How to Write Your Testimony~~ ✅ shipped 2026-07-24 as
    `/how-to-write-your-testimony/` — the Testimony cluster's writing
    guide (the "how to write your testimony" query family, unowned at
