@@ -1,0 +1,58 @@
+---
+// FieldNoteImage: an inline photo presented as a field-note record.
+// a real photograph from disciple-making work with a compact
+// "FIELD NOTE · LOCATION" record line and a plain descriptive sentence
+// beneath it, set off by a thin green rule so it reads as evidence
+// rather than a decorative image.
+//
+// This is deliberately SEPARATE from FieldNote.astro, and not a
+// duplicate of it: FieldNote renders an approved story from the
+// `fieldNotes` content collection by id (gated by `approved`), while
+// this is a presentational figure for an owner-supplied evidence photo
+// authored inline in the article body. Use FieldNote for a real
+// approved story block; use this when a single photo, with the real
+// location and a one-line factual description, is the record itself.
+// Never invent a location, outcome, quotation, date, or response. Pass
+// only details the article owner has confirmed about the photo.
+//
+// Usage (inside an .mdx article body):
+//   <FieldNoteImage
+//     src="/images/.../photo.webp"
+//     alt="What the photo actually shows"
+//     location="Queens, NYC"
+//     caption="One factual sentence about what is happening."
+//   />
+interface Props {
+  src: string;
+  alt: string;
+  location: string;
+  caption: string;
+  date?: string;
+  credit?: string;
+}
+
+import { imageDimensions } from '../../lib/image-dimensions.mjs';
+
+const { src, alt, location, caption, date, credit } = Astro.props;
+
+const dims = imageDimensions(src);
+---
+
+<figure class="fm-field-photo">
+  <img
+    class="fm-field-photo__img"
+    src={src}
+    alt={alt}
+    loading="lazy"
+    decoding="async"
+    width={dims?.width}
+    height={dims?.height}
+  />
+  <figcaption class="fm-field-photo__record">
+    <p class="fm-field-photo__meta">
+      Field Note &middot; {location}{date && <> &middot; {date}</>}
+    </p>
+    <p class="fm-field-photo__text">{caption}</p>
+    {credit && <p class="fm-field-photo__credit">{credit}</p>}
+  </figcaption>
+</figure>

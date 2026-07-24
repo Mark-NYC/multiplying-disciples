@@ -755,6 +755,57 @@
   font-weight: 600;
 }
 
+/* --- Field Note photo ---------------------------------------
+   An inline photo presented as a field record (see
+   FieldNoteImage.astro): a full-width real photo, then a compact
+   record line and a plain descriptive sentence set off by a thin
+   green rule. No card, no wash, no shadow, no overlay; the photo is
+   the evidence and the rule just marks it as a field note. */
+
+.fm-field-photo {
+  margin: 3rem 0;
+}
+
+.fm-field-photo__img {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border-radius: var(--radius-image);
+}
+
+.fm-field-photo__record {
+  margin: 1.1rem 0 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--color-primary);
+  background: transparent;
+}
+
+.fm-field-photo__meta {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-style: normal;
+  color: var(--color-primary);
+}
+
+.fm-field-photo__text {
+  margin: 0.45rem 0 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-style: normal;
+  color: var(--color-text);
+}
+
+.fm-field-photo__credit {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  font-style: normal;
+  color: var(--color-text-muted);
+}
+
 /* --- End CTA -------------------------------------------------
    One CTA per article. Warm-paper container (not a dark band) per
    the end-of-article CTA system in CTA_GUIDE.md — the
