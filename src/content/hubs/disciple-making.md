@@ -8,6 +8,7 @@ intro: >
   front door to our full library: what it means, why it costs something,
   and how to actually start.
 key_articles:
+  - "/how-to-make-disciples/"
   - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
   - "/unlock-the-power-of-friendly-accountability/"
   - "/the-3-core-habits-of-a-disciple/"
