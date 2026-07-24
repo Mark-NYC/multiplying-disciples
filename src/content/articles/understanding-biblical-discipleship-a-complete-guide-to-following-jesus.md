@@ -13,6 +13,7 @@ secondary_keywords:
   - "cost of discipleship"
 hub: "disciple-making"
 related_articles:
+  - "/how-to-make-disciples/"
   - "/discover-the-12-disciples-of-jesus-christ/"
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/three-thirds/"

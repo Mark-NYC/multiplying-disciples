@@ -118,7 +118,8 @@ but marked Improve in CONTENT_AUDIT.md.
 - **Primary intent:** how-to + definitional ("how to make disciples",
   "what is a disciple", "biblical discipleship").
 - **Hub:** `/disciple-making/`.
-- **Pillar:** ☆ **How to Make Disciples** — the head term; four
+- **Pillar:** ★ **How to Make Disciples**
+  (`/how-to-make-disciples/`, shipped 2026-07-24) — the head term; four
   redirected legacy URLs prove the site has ranked in this family
   before ("ridiculously simple 3 ways to make disciples" etc.).
 - **Supporting:** ★ Understanding Biblical Discipleship (I) · ★ The 3
@@ -315,7 +316,14 @@ Ordered by (proven impressions × conversion proximity):
    cross-linked from the three sibling testimony articles.
 6. ☆ Short Christian Testimony Examples (GSC-validated queries).
 7. ☆ How to Write Your Testimony.
-8. ☆ How to Make Disciples (pillar).
+8. ~~☆ How to Make Disciples (pillar)~~ ✅ shipped 2026-07-24 as
+   `/how-to-make-disciples/` — the Making Disciples cluster pillar (the
+   head term the site's namesake cluster lacked; the disciple-making hub
+   had no pillar). Added as the first key article in the disciple-making
+   hub and cross-linked from the 3 Core Habits and Understanding Biblical
+   Discipleship siblings. Lab CTA. (Re-pointing the four legacy
+   make-disciples redirects to this pillar is left as a GSC-aware
+   decision for Mark.)
 9. ☆ What Is a Disciple?
 10. ☆ How to Share the Gospel (pillar).
 11. ☆ What Is the Gospel?

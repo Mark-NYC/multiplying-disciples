@@ -5,6 +5,7 @@ slug: "/the-3-core-habits-of-a-disciple/"
 canonical: "https://multiplyingdisciples.us/the-3-core-habits-of-a-disciple/"
 hub: "disciple-making"
 related_articles:
+  - "/how-to-make-disciples/"
   - "/15-second-testimony-examples-ignite-your-faith/"
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
