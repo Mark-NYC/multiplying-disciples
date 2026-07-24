@@ -63,9 +63,11 @@ but marked Improve in CONTENT_AUDIT.md.
 - **Supporting:** ★ Simple 15-Second Testimony Examples · ★ Testimony
   in the Bible: 20 Verses (also covers "Bible verses about testimony"
   — no separate verses article) · ★ 7 Biblical Reasons You Can't Stay
-  Silent · ☆ Short Christian Testimony Examples (GSC-validated) · ☆
-  How to Write Your Testimony (with the before/exchange/after
-  structure) · ☆ Three-Minute Testimony · ☆ Sharing Your Testimony at
+  Silent · ☆ Short Christian Testimony Examples (GSC-validated —
+  intent now owned by the 15-Second Examples page, no separate URL) ·
+  ★ How to Write Your Testimony (`/how-to-write-your-testimony/`,
+  shipped 2026-07-24; the before/turn/after writing template) · ☆
+  Three-Minute Testimony · ☆ Sharing Your Testimony at
   Work or in Church (`hypothesis`) · ☆ Testimony vs. Gospel: What's
   the Difference (bridge to Cluster 2).
 - **Linking:** every supporting article links up to the pillar and
@@ -315,7 +317,23 @@ Ordered by (proven impressions × conversion proximity):
    Added as the first key article in the Testimony hub and
    cross-linked from the three sibling testimony articles.
 6. ☆ Short Christian Testimony Examples (GSC-validated queries).
-7. ☆ How to Write Your Testimony.
+   ⚠ Not built as a separate page: its primary intent ("short
+   christian testimony examples") is already owned by the tier-1
+   `/15-second-testimony-examples-ignite-your-faith/` page, whose
+   `primary_keyword` is literally that term (Strong / Keep in
+   CONTENT_AUDIT.md). A competing page would cannibalize it, so this
+   line is considered satisfied by the existing page rather than a new
+   URL. Fold any additional "short examples" queries into that page.
+7. ~~☆ How to Write Your Testimony~~ ✅ shipped 2026-07-24 as
+   `/how-to-write-your-testimony/` — the Testimony cluster's writing
+   guide (the "how to write your testimony" query family, unowned at
+   the primary-keyword level: the pillar owns "how to share", the
+   15-second page owns "short examples"). Scoped to the composition
+   process and the before/turn/after template; hands off to the pillar
+   for sharing aloud and to the 15-second exercise for the short
+   version, completing the practice triangle. Added after the pillar in
+   the Testimony hub key_articles and cross-linked from the pillar's
+   writing section. Practice (tool) CTA to the 15-second exercise.
 8. ~~☆ How to Make Disciples (pillar)~~ ✅ shipped 2026-07-24 as
    `/how-to-make-disciples/` — the Making Disciples cluster pillar (the
    head term the site's namesake cluster lacked; the disciple-making hub
