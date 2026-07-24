@@ -1,113 +1,28 @@
 ---
-// ChurchWaffle: the 12-practice Church Waffle shown as four columns by
-// three rows, in the exact icon set and order used by the obey.tools
-// church-assessment source (gospel, repent, baptism, holy-spirit / word,
-// love, lords-supper, pray / signs-and-wonders, give, worship, go-make-
-// disciples). Icons were copied into /images/church-waffle/, never
-// hotlinked from obey.tools.
+// ChurchWaffle: shows the existing hand-drawn Church Waffle napkin with
+// the middle row (apostles' teaching, fellowship, breaking bread,
+// prayer) highlighted, like someone ran a marker over that row on a real
+// napkin. Article-specific.
 //
-// This is article-specific (like DiscipleCard): the disciple-making
-// guide emphasizes the MIDDLE ROW (the Acts 2:42 rhythms of apostles'
-// teaching, fellowship, breaking bread, prayer) and shows the other
-// eight only as context. The middle row is highlighted with the brand
-// greens and carries a short practice + Scripture refs beneath the grid;
-// the outer rows are muted but keep readable labels.
-//
-// Icons are decorative: each label is present in adjacent text, so the
-// images use alt="" per the accessibility rules.
-const ICON_BASE = '/images/church-waffle';
-
-const rows = [
-  [
-    { icon: 'gospel-icon', label: 'Gospel' },
-    { icon: 'repent-icon', label: 'Repent & Believe' },
-    { icon: 'baptism-icon', label: 'Be Baptized' },
-    { icon: 'holy-spirit-icon', label: 'Holy Spirit' },
-  ],
-  [
-    { icon: 'word-icon', label: "Apostles' Teaching" },
-    { icon: 'love-icon', label: 'Fellowship' },
-    { icon: 'lords-supper-icon', label: 'Breaking Bread' },
-    { icon: 'pray-icon', label: 'Prayer' },
-  ],
-  [
-    { icon: 'signs-and-wonders-icon', label: 'Signs & Wonders' },
-    { icon: 'give-icon', label: 'Generosity' },
-    { icon: 'worship-icon', label: 'Worship' },
-    { icon: 'go-make-disciples-icon', label: 'Go, Make Disciples' },
-  ],
-];
-
-const middleDetails = [
-  {
-    label: "Apostles' Teaching",
-    practice: 'Read Scripture, obey Jesus, and teach others to do the same.',
-    verses: 'Acts 2:42; Matthew 28:20',
-  },
-  {
-    label: 'Fellowship',
-    practice: 'Share life, care for one another, and practice loving accountability.',
-    verses: 'Acts 2:42; Hebrews 10:24-25',
-  },
-  {
-    label: 'Breaking Bread',
-    practice: 'Eat together and remember Jesus.',
-    verses: 'Acts 2:42; 1 Corinthians 11:23-26',
-  },
-  {
-    label: 'Prayer',
-    practice: 'Depend on God together and pray for courage and open doors.',
-    verses: 'Acts 2:42; Acts 4:29-31',
-  },
-];
-
+// The artwork is an article-specific derivative of the shared napkin
+// (public/tools-images/Church-Waffle-tool.svg, used by /starter-tools/).
+// The derivative (Church-Waffle-tool-middle-row.svg) only ADDS a
+// highlighter band behind the middle row; the underlying waffle, icons,
+// labels, texture, proportions, and transparent background are
+// unchanged, and the shared file is left untouched.
+const src = '/tools-images/Church-Waffle-tool-middle-row.svg';
+const alt =
+  "The Church Waffle: a hand-drawn circle of twelve church practices in three rows of four, with the middle row highlighted in gold marker: apostles' teaching, fellowship, breaking bread, and prayer.";
 const fullWaffleHref = '/movement-resources/12-practice-church-circle/';
 ---
 
-<figure
-  class="fm-waffle"
-  role="group"
-  aria-label="The Church Waffle: twelve rhythms of church in four columns and three rows, with the middle row of apostles' teaching, fellowship, breaking bread, and prayer highlighted"
->
-  <div class="fm-waffle__grid">
-    {
-      rows.map((row, r) =>
-        row.map((cell) => (
-          <div class:list={['fm-waffle__cell', r === 1 && 'fm-waffle__cell--focus']}>
-            <img
-              class="fm-waffle__icon"
-              src={`${ICON_BASE}/${cell.icon}.webp`}
-              alt=""
-              loading="lazy"
-              decoding="async"
-              width="200"
-              height="200"
-            />
-            <span class="fm-waffle__label">{cell.label}</span>
-          </div>
-        ))
-      )
-    }
-  </div>
-
-  <div class="fm-waffle__details">
-    {
-      middleDetails.map((d) => (
-        <div class="fm-waffle__detail">
-          <p class="fm-waffle__detail-label">{d.label}</p>
-          <p class="fm-waffle__detail-practice">{d.practice}</p>
-          <p class="fm-waffle__detail-verses">{d.verses}</p>
-        </div>
-      ))
-    }
-  </div>
-
-  <p class="fm-waffle__note">
-    Fellowship and breaking bread come together in this guide as with-ness: sharing ordinary
-    life while learning to obey Jesus together.
-  </p>
-
-  <p class="fm-waffle__more">
-    <a href={fullWaffleHref}>See the full Church Waffle</a>
+<figure class="fm-napkin">
+  <img src={src} alt={alt} width="650" height="650" loading="lazy" decoding="async" />
+  <figcaption>
+    This guide focuses on the middle row: apostles' teaching, fellowship, breaking bread, and
+    prayer.
+  </figcaption>
+  <p class="fm-napkin__more">
+    <a href={fullWaffleHref}>Explore the full Church Waffle</a>
   </p>
 </figure>
