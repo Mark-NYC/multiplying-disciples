@@ -43,6 +43,7 @@ Current inventory after the 2026-07 sitewide consistency pass.
 | `ScriptureBlock.astro` | verbatim Scripture, serif | gold rule |
 | `PullQuote.astro` | large serif pulled sentence | no box |
 | `FieldNote.astro` | real approved field story by id; renders nothing otherwise | backed by `src/content/field-notes/` |
+| `FieldNoteImage.astro` | inline photo shown as a field record: full-width photo, mono `FIELD NOTE · LOCATION` line, plain sentence, thin green left rule (no card/wash/shadow) | presentational (props `src`/`alt`/`location`/`caption`, optional `date`/`credit`); distinct from `FieldNote` (collection-backed by id) — owner-confirmed photos only, never invented details; auto width/height + lazy |
 | `RelatedArticles.astro` | thin wrapper capping the shared box at 3 links | used by ArticleLayout |
 | `ArticleCTA.astro` | the one end-of-article CTA (tool/lab/community/none) | see CTA_GUIDE.md |
 | `DiscipleCard.astro` | per-disciple card (12-disciples article only) | article-specific |

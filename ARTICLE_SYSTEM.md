@@ -76,6 +76,7 @@ global.css); both belong to the same visual family.
 | `ScriptureBlock` | verbatim Scripture only, with `reference` | paraphrase stays a plain blockquote |
 | `PullQuote` | one memorable sentence from the article's own text | 1 (2 in a very long article) |
 | `FieldNote` | a real, approved field story by id | see "Field Notes" below |
+| `FieldNoteImage` | a real ministry photo shown as a field record: mono `FIELD NOTE · LOCATION` line plus one plain sentence, thin green rule | 0–1 per article; owner-confirmed photo, real `location`, factual `caption` only — never invented details. See "Field Notes" below |
 | `RelatedArticles` | rendered by the layout — don't place manually | — |
 | `ArticleCTA` | rendered by the layout — don't place manually | — |
 | `DiscipleCard`, `RoleFact` | article-specific patterns (12-disciples, APEST) | not general-purpose |
@@ -94,6 +95,36 @@ invented, never placeholdered.
   needed when a real note arrives later.
 - MDX comments in several articles mark the best insertion point for a
   future note; leave those comments in place.
+
+There are two distinct "field note" elements, for two different jobs:
+
+- `FieldNote` (above) renders a **written story** from the
+  `fieldNotes` collection, gated by `approved`. Use it when the record
+  is a short narrative someone has approved for publication.
+- `FieldNoteImage` renders a **photo as the record**: a real ministry
+  photograph with a `FIELD NOTE · LOCATION` line and one plain factual
+  sentence beneath it. It is authored inline (not collection-backed and
+  not `approved`-gated), so it carries the same integrity bar directly:
+  use it only for an owner-confirmed real photo with a real `location`
+  and a factual `caption`, never invented people, outcomes, quotes, or
+  dates. It is the right choice when the photograph itself is the
+  evidence and a one-line caption is all the story there is.
+
+```mdx
+import FieldNoteImage from '../../components/article/FieldNoteImage.astro';
+
+<FieldNoteImage
+  src="/images/<article-slug>/<photo>.webp"
+  alt="What the photo actually shows (not the caption reworded)"
+  location="Queens, NYC"
+  caption="One factual sentence about what is happening in the photo."
+/>
+```
+
+`src`, `alt`, `location`, and `caption` are required; `date` and
+`credit` are optional. The image lives under `public/` (e.g.
+`public/images/<article-slug>/`) so the rehype pipeline can add its
+intrinsic `width`/`height` for zero layout shift.
 
 ## CTA behavior and fallback
 

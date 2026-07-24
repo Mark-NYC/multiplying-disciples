@@ -4,6 +4,12 @@ Copy this into a new file at `src/content/field-notes/<your-id>.md`,
 fill it in, and reference it from an article with
 `<FieldNote id="your-id" />` (see `ARTICLE_SYSTEM.md`).
 
+This template is for a written, approved **field story**. If the record
+is a **photo** instead of a narrative (a real ministry photograph with
+one factual caption line), use the inline `FieldNoteImage` component
+rather than this collection, and confirm the details before publishing
+the same way. See the "Field Notes" section of `ARTICLE_SYSTEM.md`.
+
 The filename (without `.md`) is the id. Use something short and
 descriptive, e.g. `queens-conversation-box-01.md`.
 
