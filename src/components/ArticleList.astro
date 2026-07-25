@@ -3,42 +3,30 @@
 // the /blog/ index and every hub page so both surfaces read as the
 // same visual family. As of the 2026-07 thumbnail redesign this is an
 // image-led card grid (3-up desktop, 2-up tablet, 1-up full-width
-// mobile): the article's og_image/hero_image caps each card, then the
-// hub label, title, description, and — when the article curates any —
+// mobile): the article's og_image/hero_image caps each card, then a
+// quiet date, title, description, and — when the article curates any —
 // a row of tappable question pills that deep-link into the article at
 // the heading that answers them. Articles without an image render as
 // clean text cards; articles without questions simply omit the pill
 // row. See blog/index.astro and HubLayout.astro.
 import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
 import { imageDimensions } from '../lib/image-dimensions.mjs';
 
 interface Props {
   entries: CollectionEntry<'articles'>[];
-  // Hide the per-card hub link (used on hub pages, where every card
-  // belongs to the hub the visitor is already on).
-  showHub?: boolean;
   // 'h2' on the blog index (cards sit directly under the page H1);
   // 'h3' on hub pages, where the cards sit under a "Key Articles" H2.
   titleHeading?: 'h2' | 'h3';
 }
 
-const { entries, showHub = true, titleHeading = 'h2' } = Astro.props;
+const { entries, titleHeading = 'h2' } = Astro.props;
 const TitleTag = titleHeading;
-
-const hubs = showHub ? await getCollection('hubs') : [];
 
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
-
-function hubFor(entry: CollectionEntry<'articles'>) {
-  if (!entry.data.hub) return undefined;
-  // Hub entry ids are their frontmatter `slug`, not the bare filename.
-  return hubs.find((hub) => hub.id === `/${entry.data.hub}/`);
-}
 
 function bestDate(entry: CollectionEntry<'articles'>): Date | undefined {
   return entry.data.updated ?? entry.data.date;
@@ -47,7 +35,6 @@ function bestDate(entry: CollectionEntry<'articles'>): Date | undefined {
 
 <ul class="article-grid">
   {entries.map((entry) => {
-    const hub = showHub ? hubFor(entry) : undefined;
     const date = bestDate(entry);
     const thumb = entry.data.og_image ?? entry.data.hero_image;
     const thumbDims = thumb ? imageDimensions(thumb) : undefined;
@@ -68,11 +55,9 @@ function bestDate(entry: CollectionEntry<'articles'>): Date | undefined {
           </a>
         )}
         <div class="article-card__body">
-          {(hub || date) && (
+          {date && (
             <p class="article-card__eyebrow">
-              {hub && <a href={hub.data.slug} class="article-card__hub">{hub.data.title}</a>}
-              {hub && date && <span aria-hidden="true"> &middot; </span>}
-              {date && <time datetime={date.toISOString()}>{dateFormatter.format(date)}</time>}
+              <time datetime={date.toISOString()}>{dateFormatter.format(date)}</time>
             </p>
           )}
           <TitleTag class="article-card__title">
@@ -184,17 +169,6 @@ function bestDate(entry: CollectionEntry<'articles'>): Date | undefined {
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--color-text-muted);
-  }
-
-  .article-card__hub {
-    color: var(--color-gold-text);
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  .article-card__hub:hover {
-    text-decoration: underline;
-    text-underline-offset: 2px;
   }
 
   .article-card__title {
