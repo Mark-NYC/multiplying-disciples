@@ -9,7 +9,9 @@
 import { getCollection } from 'astro:content';
 
 interface Props {
-  // Optional heading/prompt above the box.
+  // Optional gold prompt/eyebrow above the box. Pass an empty string to
+  // render no prompt (used on the blog index, which keeps its heading
+  // area clean).
   prompt?: string;
 }
 
@@ -41,7 +43,7 @@ const uid = `qs-${Math.random().toString(36).slice(2, 9)}`;
 ---
 
 <div class="qs" id={uid} data-question-search>
-  <p class="qs__prompt">{prompt}</p>
+  {prompt && <p class="qs__prompt">{prompt}</p>}
   <form class="qs__form" role="search" action="/search/" method="get">
     <div class="qs__row">
       <svg class="qs__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">

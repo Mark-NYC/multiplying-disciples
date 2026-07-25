@@ -108,19 +108,17 @@ const featuredCards = featured.map((entry, index) => {
   <div class="page-container page-container--wide">
     <Breadcrumbs items={breadcrumbItems} />
 
-    <p class="eyebrow eyebrow--gold-text">Field Manual &middot; Full Index</p>
     <h1>Blog</h1>
     <p class="blog-intro">
       Every article we've published on evangelism, discipleship, prayer, and church planting
       movements — in one place.
     </p>
 
-    <QuestionSearch />
+    <QuestionSearch prompt="" />
 
     {
       hubPills.length > 0 && (
         <nav class="blog-topics" aria-label="Browse by topic">
-          <p class="blog-topics__label eyebrow eyebrow--gold-text">Browse by Topic</p>
           <div class="blog-topics__scroller" data-topics-scroller>
             <button
               class="blog-topics__arrow blog-topics__arrow--prev"
@@ -172,7 +170,6 @@ const featuredCards = featured.map((entry, index) => {
     }
 
     <section class="blog-featured" aria-label="Featured articles">
-      <p class="blog-featured__label eyebrow eyebrow--gold-text">Featured</p>
       <div class="blog-featured__grid">
         {featuredCards.map((card) => (
           <article class:list={['blog-featured__card', { 'blog-featured__card--lead': card.lead }]}>
@@ -212,7 +209,6 @@ const featuredCards = featured.map((entry, index) => {
       </div>
     </section>
 
-    <p class="blog-all-label eyebrow eyebrow--gold-text">All Articles</p>
     <ArticleList entries={listEntries} />
   </div>
 </BaseLayout>
@@ -237,10 +233,6 @@ const featuredCards = featured.map((entry, index) => {
     margin-bottom: 2.5rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--color-border);
-  }
-
-  .blog-topics__label {
-    margin: 0 0 0.85rem;
   }
 
   /* Single-row horizontal scroller instead of a wrapping cloud — the
@@ -501,10 +493,6 @@ const featuredCards = featured.map((entry, index) => {
     border-bottom: 1px solid var(--color-border);
   }
 
-  .blog-featured__label {
-    margin: 0 0 1rem;
-  }
-
   .blog-featured__grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -675,10 +663,6 @@ const featuredCards = featured.map((entry, index) => {
     .qpill:hover {
       transform: translateY(-1px);
     }
-  }
-
-  .blog-all-label {
-    margin: 0 0 0.5rem;
   }
 </style>
 
