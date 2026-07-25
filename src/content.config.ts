@@ -99,6 +99,22 @@ const articles = defineCollection({
       .optional(),
     // Slug of a hub in src/content/hubs/, e.g. "testimony".
     hub: z.string().optional(),
+    // Curated "people also ask" questions this article answers. Each
+    // becomes a tappable pill in the article's card on the /blog/ index
+    // and hub pages, and a suggestion in the ask-a-question search box.
+    // `anchor` is the id of the heading that answers it — the same slug
+    // Astro generates for that H2/H3 (github-slugger: lowercase, drop
+    // punctuation, spaces → hyphens), so a pill deep-links straight to
+    // /this-article/#anchor. Keep it to 2–3 per article; omit the field
+    // and no pill row renders. See the blog thumbnail/question design.
+    questions: z
+      .array(
+        z.object({
+          q: z.string(),
+          anchor: z.string(),
+        }),
+      )
+      .default([]),
     related_articles: z.array(z.string()).default([]),
     related_tools: z.array(z.string()).default([]),
     external_links: z.array(externalLink).default([]),
