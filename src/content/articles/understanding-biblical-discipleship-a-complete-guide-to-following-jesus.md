@@ -89,7 +89,7 @@ Are you ready to discover the transformative power of biblical **discipleship**?
 
 ![A disciple-making leader teaching a small group.](/wp-content/uploads/2025/01/disciple-making-leader.webp)
 
-The **definition of discipleship** emerges from Jesus's revolutionary approach to spiritual formation. At its core, **discipleship** means intentionally following Jesus Christ, learning His ways, and becoming transformed into His image.
+The **definition of discipleship** emerges from Jesus's revolutionary approach to spiritual formation. At its core, **discipleship** means intentionally following Jesus Christ, learning His ways, and becoming transformed into His image. Discipleship is what happens once you grasp [what a disciple is](/what-is-a-disciple/): it is that following, lived out over a lifetime.
 
 This transformative journey extends far beyond mere religious education – it encompasses a complete lifestyle of devotion, learning, and replication.
 
