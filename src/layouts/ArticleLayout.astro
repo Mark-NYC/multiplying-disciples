@@ -41,12 +41,17 @@ const hubs = data.hub ? await getCollection('hubs') : [];
 // the `slug` field automatically.
 const parentHub = hubs.find((hub) => hub.id === `/${data.hub}/`);
 
-// Short breadcrumb only: Home, then the article's hub/category if it
-// has one — never the article's own title (that's what the H1 right
-// below is for).
+// Breadcrumb trail: Home, then the article's hub if it has one, then
+// the current article itself as the final crumb. The Breadcrumbs
+// component renders its last item as the non-link "current page," so
+// listing the article last is what makes the hub a link and the
+// article the current step (both in the visible trail and the
+// BreadcrumbList schema). Uses display_title, falling back to the SEO
+// title, to keep the final crumb short and human.
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   ...(parentHub ? [{ label: parentHub.data.title, href: parentHub.data.slug }] : []),
+  { label: data.display_title ?? data.title, href: data.slug },
 ];
 
 // Utility/legal/landing pages (privacy policy, contact, sticker pages…)
@@ -118,9 +123,8 @@ const ctaContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__article-c
   </Fragment>
 
   <div class="page-container">
-    {/* Home-only (no hub) isn't a useful trail on its own — the shared
-        Breadcrumbs component always renders its last item as the
-        non-link "current page," which would make Home unclickable. */}
+    {/* Always at least Home plus the current article, so the trail
+        renders on every article and Home stays a clickable link. */}
     {breadcrumbItems.length > 1 && <Breadcrumbs items={breadcrumbItems} />}
 
     {
