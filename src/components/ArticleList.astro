@@ -98,31 +98,37 @@ function bestDate(entry: CollectionEntry<'articles'>): Date | undefined {
 </ul>
 
 <style>
+  /* Masonry via CSS multi-column: cards keep their natural height (see
+     the media rule below) and stagger into columns instead of snapping
+     to a shared row baseline. Column-major order — items fill column 1,
+     then 2, then 3 — which is fine for a browse grid where the editorial
+     lead already lives in the featured band above. */
   .article-grid {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.75rem 1.5rem;
+    column-count: 3;
+    column-gap: 1.5rem;
   }
 
   @media (max-width: 900px) {
     .article-grid {
-      grid-template-columns: repeat(2, 1fr);
+      column-count: 2;
     }
   }
 
   @media (max-width: 600px) {
     .article-grid {
-      grid-template-columns: 1fr;
-      gap: 1.75rem;
+      column-count: 1;
     }
   }
 
   .article-card {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    /* Vertical rhythm between stacked cards (column-gap only spaces
+       columns horizontally) and never let a card split across columns. */
+    margin: 0 0 1.5rem;
+    break-inside: avoid;
     background: #ffffff;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
@@ -150,28 +156,24 @@ function bestDate(entry: CollectionEntry<'articles'>): Date | undefined {
     }
   }
 
-  /* Image caps the card. 3:2 keeps the desktop shape that avoids
-     chopping the wording out of text-heavy social graphics — the same
-     reason the old list rows used 3:2. On mobile the single column
-     runs the image full-bleed to the card edges. */
+  /* Image caps the card and flexes to the thumbnail's own aspect ratio
+     — no forced crop, so nothing gets chopped and the varied shapes are
+     what give the masonry grid its stagger. The width/height attributes
+     (real intrinsic dimensions) reserve the right space, so there's no
+     layout shift as each image loads. */
   .article-card__media {
     display: block;
-    aspect-ratio: 3 / 2;
     overflow: hidden;
     background: var(--color-surface);
   }
 
   .article-card__media img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     display: block;
   }
 
   .article-card__body {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
     padding: 1.1rem 1.15rem 1.2rem;
   }
 
@@ -224,7 +226,7 @@ function bestDate(entry: CollectionEntry<'articles'>): Date | undefined {
      a quiet dashed rule. Each links to /article/#answer-heading. */
   .article-card__questions {
     list-style: none;
-    margin: auto 0 0;
+    margin: 0;
     padding: 0.85rem 0 0;
     border-top: 1px dashed var(--color-border);
     display: flex;
