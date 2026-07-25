@@ -127,8 +127,9 @@ but marked Improve in CONTENT_AUDIT.md.
 - **Supporting:** ★ Understanding Biblical Discipleship (I) · ★ The 3
   Core Habits of a Disciple · ★ Unlock the Power of Friendly
   Accountability · ★ The Clear Pathway of Jesus (absorbs Muddy Boots
-  merge) · ★ Three Thirds [shared with Simple Church] · ☆ What Is a
-  Disciple? (definitional cornerstone) · ☆ One-on-One Discipleship:
+  merge) · ★ Three Thirds [shared with Simple Church] · ★ What Is a
+  Disciple? (`/what-is-a-disciple/`, shipped 2026-07-25; definitional
+  cornerstone) · ☆ One-on-One Discipleship:
   A Simple Plan · ☆ New Believer Follow-Up: The First 30 Days · ☆
   Obedience-Based Discipleship (carries the "love and obedience"
   legacy equity) · ☆ Discipleship Questions That Actually Go Somewhere
@@ -340,7 +341,20 @@ Ordered by (proven impressions × conversion proximity):
    Discipleship siblings. Lab CTA. (Re-pointing the four legacy
    make-disciples redirects to this pillar is left as a GSC-aware
    decision for Mark.)
-9. ☆ What Is a Disciple?
+9. ~~☆ What Is a Disciple?~~ ✅ shipped 2026-07-25 as
+   `/what-is-a-disciple/` — the Making Disciples cluster's definitional
+   cornerstone (the head "what is a disciple" query family, unowned at
+   the primary-keyword level: Understanding Biblical Discipleship targets
+   "biblical discipleship" and How to Make Disciples is the how-to
+   pillar). Scoped to the definition itself (what the word means, what
+   Jesus said marks a disciple, disciple vs. believer/Christian, disciple
+   vs. apostle) and hands off to the How to Make Disciples pillar for the
+   how-to. Added after the pillar in the disciple-making hub key_articles
+   and cross-linked inbound from the pillar's "A disciple is someone..."
+   sentence. Lab CTA per the Making Disciples cluster. Re-pointing the
+   `/discovering-the-disciple-meaning.../` redirect (currently → Under-
+   standing Biblical Discipleship) to this page is a GSC-aware decision
+   left for Mark.
 10. ☆ How to Share the Gospel (pillar).
 11. ☆ What Is the Gospel?
 12. ☆ Disciple Training pillar + **new `/disciple-training/` hub**.
