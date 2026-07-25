@@ -112,7 +112,8 @@ going forward:
   ground an existing doc owns.** Extend the existing doc. (This includes
   suggested-but-redundant filenames: there is no SEO_STRATEGY.md because SEO
   rules live in ARTICLE_SYSTEM.md + URL_INVENTORY.md + REDIRECTS.md + the
-  roadmap; no COPY_GUIDE.md because voice rules live here and in
+  roadmap; no COPY_GUIDE.md because voice rules live in EDITORIAL_VOICE.md
+  (the single source of truth for voice) and CTA-specific copy in
   CTA_GUIDE.md; and so on.)
 - **When you change a system, update its doc in the same branch.** The docs
   describe current reality, not history.
@@ -262,20 +263,24 @@ Full reference: CTA_GUIDE.md.
 
 ## 9. Copy and voice rules
 
-- Plain, warm, direct, second person. Short sentences. Practice-first: every
-  page moves toward something the reader *does*. No corporate ministry
-  language.
-- Headlines are human, not keyword strings — that's what
-  `display_title` exists for. Answer the search intent fast (definition or
-  answer above the fold), then deepen.
-- Honest stakes, never hype: "Without a rhythm of practice, groups become
-  Bible studies that never multiply" — not "Don't miss out!"
-- Obedience language is the brand's spine ("obey Jesus," "next obedient
-  step") — keep it.
-- Don't repeat the H1 as the first body heading (a whole cleanup pass removed
-  these). Body headings start at `##`, no skipped levels.
-- Broad Bible-curiosity pages (12 Disciples, apostle meaning) get *soft*
-  CTAs: route to practical disciple-making articles first, heavy asks never.
+- **EDITORIAL_VOICE.md is the single source of truth for voice, and reading
+  it is mandatory before drafting or substantially editing any public-facing
+  prose** — articles, hubs, landing pages, resources, CTA copy, email. It
+  owns tone, diction, rhythm, the AI-pattern blocklist, and the
+  before-publishing check. Do not restate its rules here or in any other doc;
+  when voice guidance disagrees with it, EDITORIAL_VOICE.md wins and the fix
+  is to update EDITORIAL_VOICE.md, not to fork a second copy.
+- Site-specific mechanics that *support* the voice but are not covered in
+  EDITORIAL_VOICE.md, and so stay here:
+  - Headlines are human, not keyword strings — that's what `display_title`
+    exists for. Answer the search intent fast (definition or answer above the
+    fold), then deepen.
+  - Don't repeat the H1 as the first body heading (a whole cleanup pass
+    removed these). Body headings start at `##`, no skipped levels.
+  - Broad Bible-curiosity pages (12 Disciples, apostle meaning) get *soft*
+    CTAs: route to practical disciple-making articles first, heavy asks never.
+- CTA copy (`stakes_headline`, bridge copy) follows EDITORIAL_VOICE.md for
+  voice; its CTA-specific mechanics live in CTA_GUIDE.md.
 
 ## 10. Component and engineering rules
 
@@ -335,6 +340,8 @@ Full reference: NAVIGATION_MAP.md.
    whatever you're touching. Check CONTENT_CLUSTER_ROADMAP.md — both its
    phases and its "Open editorial & technical debt" section — before
    proposing work; it may already be queued or deliberately rejected.
+   **Before drafting or substantially editing any public-facing prose, read
+   EDITORIAL_VOICE.md first** — it governs how the writing sounds.
 2. **Small, reviewable increments.** The history is dozens of focused PRs
    with descriptive commit subjects, frequently refined over several rounds
    of Mark's feedback. Match that: one concern per branch, plain-language
@@ -359,6 +366,8 @@ Full reference: NAVIGATION_MAP.md.
          375/390/430/768/1024/1440 — no horizontal overflow, no console
          errors;
    - [ ] any slug/URL change logged in REDIRECTS.md first;
+   - [ ] any drafted or substantially edited prose was checked against
+         EDITORIAL_VOICE.md (including its before-publishing list);
    - [ ] new/edited articles pass ARTICLE_SYSTEM.md's pre-publish checklist;
    - [ ] the owning doc(s) updated in the same branch (§4);
    - [ ] editorial copy changes called out in the commit/PR for Mark's

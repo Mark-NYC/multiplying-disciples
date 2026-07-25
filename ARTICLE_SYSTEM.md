@@ -10,6 +10,12 @@ frontmatter flag no longer exists.
 Historical design rationale lives in docs/archive/ARTICLE_DESIGN_SYSTEM.md; this
 file is the current authoring reference.
 
+**Read EDITORIAL_VOICE.md before you draft or substantially edit any
+article.** It is the single source of truth for how the writing sounds. This
+document covers structure, frontmatter, and workflow; EDITORIAL_VOICE.md
+covers voice, and its before-publishing check is part of the pre-publish
+checklist below.
+
 ## Article structure (top to bottom)
 
 1. **Breadcrumb** — `Home / <Hub>` only. Never the article's own title.
@@ -194,9 +200,10 @@ How an article moves from idea to published:
    CONTENT_CLUSTER_ROADMAP.md with a cluster, pillar relationship,
    and CTA already decided. Don't write pages that aren't on the
    roadmap without adding them there first.
-2. **Draft** — authored per this document; frontmatter `status`
-   stays `migrated-draft` (or `migrated` for touched legacy pages)
-   while in review.
+2. **Draft** — read EDITORIAL_VOICE.md first, then author per this
+   document; the writing follows EDITORIAL_VOICE.md for voice.
+   Frontmatter `status` stays `migrated-draft` (or `migrated` for
+   touched legacy pages) while in review.
 3. **Review** — Mark approves copy. Field Notes require the
    subject's approval before `approved: true` is ever set (see
    FIELD_NOTE_TEMPLATE.md); testimonial-style claims are never
@@ -211,6 +218,9 @@ How an article moves from idea to published:
 
 Per page, before `status` moves to `published`:
 
+- [ ] Voice checked against EDITORIAL_VOICE.md — read it before drafting
+      or substantially editing, and run its before-publishing list on the
+      final draft.
 - [ ] `title` ≤ ~60 chars where possible; `display_title` set when
       the SEO title isn't a human headline.
 - [ ] `description` unique, ≤ ~155 chars.

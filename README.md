@@ -39,6 +39,7 @@ table remain the source of truth for their topics.
 | Topic | Document |
 | --- | --- |
 | Design system (colors, type, spacing, imagery, a11y) | [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md) |
+| Editorial voice (how all public-facing prose sounds) | [EDITORIAL_VOICE.md](EDITORIAL_VOICE.md) |
 | Article system, frontmatter, editorial workflow, pre-publish checklist | [ARTICLE_SYSTEM.md](ARTICLE_SYSTEM.md) |
 | Field Note authoring template | [FIELD_NOTE_TEMPLATE.md](FIELD_NOTE_TEMPLATE.md) |
 | End-of-article CTAs (Practice / Lab / Tribe) | [CTA_GUIDE.md](CTA_GUIDE.md) |
