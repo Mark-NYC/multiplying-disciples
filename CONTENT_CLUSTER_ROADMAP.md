@@ -347,9 +347,10 @@ Ordered by (proven impressions × conversion proximity):
    the primary-keyword level: Understanding Biblical Discipleship targets
    "biblical discipleship" and How to Make Disciples is the how-to
    pillar). Scoped to the definition itself (what the word means, what
-   Jesus said marks a disciple, disciple vs. believer/Christian, disciple
-   vs. apostle) and hands off to the How to Make Disciples pillar for the
-   how-to. Added after the pillar in the disciple-making hub key_articles
+   Jesus said marks a disciple, the three-legged stool of
+   knowledge/obedience/sharing grown by reps, disciple vs.
+   believer/Christian, disciple vs. apostle) and hands off to the How to
+   Make Disciples pillar for the how-to. Added after the pillar in the disciple-making hub key_articles
    and cross-linked inbound from the pillar's "A disciple is someone..."
    sentence. Lab CTA per the Making Disciples cluster. Re-pointing the
    `/discovering-the-disciple-meaning.../` redirect (currently → Under-
