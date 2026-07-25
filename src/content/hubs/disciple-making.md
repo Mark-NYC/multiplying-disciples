@@ -9,6 +9,7 @@ intro: >
   and how to actually start.
 key_articles:
   - "/how-to-make-disciples/"
+  - "/what-is-a-disciple/"
   - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
   - "/unlock-the-power-of-friendly-accountability/"
   - "/the-3-core-habits-of-a-disciple/"
