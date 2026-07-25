@@ -121,19 +121,39 @@ const featuredCards = featured.map((entry, index) => {
       hubPills.length > 0 && (
         <nav class="blog-topics" aria-label="Browse by topic">
           <p class="blog-topics__label eyebrow eyebrow--gold-text">Browse by Topic</p>
-          <ul class="blog-topics__list">
-            {hubPills.map((hub) => (
-              <li>
-                <a class="blog-topics__pill" href={hub.slug}>
-                  <span class="blog-topics__name">{hub.title}</span>
-                  <span class="blog-topics__count" aria-hidden="true">{hub.count}</span>
-                  <span class="sr-only">
-                    &nbsp;— {hub.count} article{hub.count === 1 ? '' : 's'}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div class="blog-topics__scroller" data-topics-scroller>
+            <button
+              class="blog-topics__arrow blog-topics__arrow--prev"
+              type="button"
+              aria-label="Scroll topics left"
+              data-topics-prev
+              hidden
+            >
+              <span aria-hidden="true">&lsaquo;</span>
+            </button>
+            <ul class="blog-topics__list" data-topics-list>
+              {hubPills.map((hub) => (
+                <li>
+                  <a class="blog-topics__pill" href={hub.slug}>
+                    <span class="blog-topics__name">{hub.title}</span>
+                    <span class="blog-topics__count" aria-hidden="true">{hub.count}</span>
+                    <span class="sr-only">
+                      &nbsp;— {hub.count} article{hub.count === 1 ? '' : 's'}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <button
+              class="blog-topics__arrow blog-topics__arrow--next"
+              type="button"
+              aria-label="Scroll topics right"
+              data-topics-next
+              hidden
+            >
+              <span aria-hidden="true">&rsaquo;</span>
+            </button>
+          </div>
         </nav>
       )
     }
@@ -210,16 +230,132 @@ const featuredCards = featured.map((entry, index) => {
     margin: 0 0 0.85rem;
   }
 
+  /* Single-row horizontal scroller instead of a wrapping cloud — the
+     row slides left/right (arrows on desktop, swipe/trackpad on touch)
+     so the topic list stays one line tall. */
+  .blog-topics__scroller {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
   .blog-topics__list {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 0.6rem;
     list-style: none;
     margin: 0;
+    padding: 0.15rem 0.1rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+    /* Hide the scrollbar; the arrows + edge fades signal scrollability. */
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .blog-topics__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Fade the edges when there's more to scroll, toggled by JS via the
+     is-start / is-end classes. Default (no JS): both fades, since the
+     row may overflow either way. */
+  .blog-topics__scroller::before,
+  .blog-topics__scroller::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2.25rem;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.15s ease;
+  }
+
+  .blog-topics__scroller::before {
+    left: 0;
+    background: linear-gradient(to right, var(--color-bg), transparent);
+  }
+
+  .blog-topics__scroller::after {
+    right: 0;
+    background: linear-gradient(to left, var(--color-bg), transparent);
+  }
+
+  .blog-topics__scroller.is-start::before {
+    opacity: 0;
+  }
+
+  .blog-topics__scroller.is-end::after {
+    opacity: 0;
+  }
+
+  .blog-topics__arrow {
+    flex-shrink: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.1rem;
+    height: 2.1rem;
     padding: 0;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--color-primary);
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    box-shadow: 0 1px 3px rgba(31, 37, 35, 0.06);
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  /* Shown only when JS confirms the row overflows (it un-hides the
+     buttons and the .blog-topics__scroller--scrollable flag). */
+  .blog-topics__scroller--scrollable .blog-topics__arrow:not([hidden]) {
+    display: inline-flex;
+  }
+
+  .blog-topics__arrow--prev {
+    margin-right: 0.4rem;
+  }
+
+  .blog-topics__arrow--next {
+    margin-left: 0.4rem;
+  }
+
+  .blog-topics__arrow:hover {
+    border-color: var(--color-accent);
+    color: var(--color-primary-hover);
+  }
+
+  .blog-topics__arrow:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* At an end of the row: keep the button in place (no width shift) but
+     dim it and drop the hover affordance. */
+  .blog-topics__arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  .blog-topics__arrow:disabled:hover {
+    border-color: var(--color-border);
+    color: var(--color-primary);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blog-topics__list {
+      scroll-behavior: auto;
+    }
   }
 
   .blog-topics__pill {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
@@ -233,6 +369,7 @@ const featuredCards = featured.map((entry, index) => {
     font-weight: 600;
     font-size: 0.95rem;
     line-height: 1.2;
+    white-space: nowrap;
     text-decoration: none;
   }
 
@@ -480,3 +617,63 @@ const featuredCards = featured.map((entry, index) => {
     margin: 0 0 0.5rem;
   }
 </style>
+
+<script>
+  // Browse-by-topic row: a horizontal scroller. Reveal the prev/next
+  // arrows only when the row actually overflows, disable each at its end,
+  // and toggle the edge fades. Progressive enhancement — with JS off the
+  // row still scrolls natively (trackpad/touch) and the arrows stay
+  // hidden.
+  const scroller = document.querySelector('[data-topics-scroller]');
+  const list = scroller?.querySelector('[data-topics-list]');
+  const prev = scroller?.querySelector('[data-topics-prev]');
+  const next = scroller?.querySelector('[data-topics-next]');
+
+  if (
+    scroller &&
+    list instanceof HTMLElement &&
+    prev instanceof HTMLButtonElement &&
+    next instanceof HTMLButtonElement
+  ) {
+    const update = () => {
+      const overflow = list.scrollWidth - list.clientWidth > 2;
+      scroller.classList.toggle('blog-topics__scroller--scrollable', overflow);
+      if (!overflow) {
+        prev.hidden = true;
+        next.hidden = true;
+        scroller.classList.add('is-start', 'is-end');
+        return;
+      }
+      const atStart = list.scrollLeft <= 1;
+      const atEnd = list.scrollLeft + list.clientWidth >= list.scrollWidth - 1;
+      prev.hidden = false;
+      next.hidden = false;
+      prev.disabled = atStart;
+      next.disabled = atEnd;
+      scroller.classList.toggle('is-start', atStart);
+      scroller.classList.toggle('is-end', atEnd);
+    };
+
+    const nudge = (dir: number) => {
+      list.scrollBy({ left: dir * list.clientWidth * 0.8, behavior: 'smooth' });
+    };
+
+    prev.addEventListener('click', () => nudge(-1));
+    next.addEventListener('click', () => nudge(1));
+    let ticking = false;
+    list.addEventListener(
+      'scroll',
+      () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          update();
+          ticking = false;
+        });
+      },
+      { passive: true },
+    );
+    window.addEventListener('resize', update);
+    update();
+  }
+</script>
