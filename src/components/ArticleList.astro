@@ -1,20 +1,25 @@
 ---
 // ArticleList — the one shared "list of articles" treatment, used by
 // the /blog/ index and every hub page so both surfaces read as the
-// same visual family: small thumbnail, title, description, quiet
-// mono meta line (hub · date). Thumbnails come from each article's
-// og_image; articles without one simply render text-only rows.
+// same visual family. As of the 2026-07 thumbnail redesign this is an
+// image-led card grid (3-up desktop, 2-up tablet, 1-up full-width
+// mobile): the article's og_image/hero_image caps each card, then the
+// hub label, title, description, and — when the article curates any —
+// a row of tappable question pills that deep-link into the article at
+// the heading that answers them. Articles without an image render as
+// clean text cards; articles without questions simply omit the pill
+// row. See blog/index.astro and HubLayout.astro.
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import { imageDimensions } from '../lib/image-dimensions.mjs';
 
 interface Props {
   entries: CollectionEntry<'articles'>[];
-  // Hide the per-row hub link (used on hub pages, where every row
+  // Hide the per-card hub link (used on hub pages, where every card
   // belongs to the hub the visitor is already on).
   showHub?: boolean;
-  // 'h2' on the blog index (rows sit directly under the page H1);
-  // 'h3' on hub pages, where the rows sit under a "Key Articles" H2.
+  // 'h2' on the blog index (cards sit directly under the page H1);
+  // 'h3' on hub pages, where the cards sit under a "Key Articles" H2.
   titleHeading?: 'h2' | 'h3';
 }
 
@@ -40,41 +45,51 @@ function bestDate(entry: CollectionEntry<'articles'>): Date | undefined {
 }
 ---
 
-<ul class="article-list">
+<ul class="article-grid">
   {entries.map((entry) => {
     const hub = showHub ? hubFor(entry) : undefined;
     const date = bestDate(entry);
     const thumb = entry.data.og_image ?? entry.data.hero_image;
     const thumbDims = thumb ? imageDimensions(thumb) : undefined;
+    const slug = entry.data.slug;
+    const questions = entry.data.questions.slice(0, 3);
     return (
-      <li class="article-list__item">
+      <li class="article-card">
         {thumb && (
-          <a href={entry.data.slug} class="article-list__thumbnail" aria-hidden="true" tabindex="-1">
+          <a href={slug} class="article-card__media" aria-hidden="true" tabindex="-1">
             <img
               src={thumb}
               alt=""
               loading="lazy"
               decoding="async"
-              width={thumbDims?.width ?? 150}
-              height={thumbDims?.height ?? 100}
+              width={thumbDims?.width ?? 1200}
+              height={thumbDims?.height ?? 800}
             />
           </a>
         )}
-        <div class="article-list__content">
-          <TitleTag class="article-list__title">
-            <a href={entry.data.slug}>{entry.data.display_title ?? entry.data.title}</a>
-          </TitleTag>
-          <p class="article-list__description">{entry.data.description}</p>
+        <div class="article-card__body">
           {(hub || date) && (
-            <p class="article-list__meta">
-              {hub && (
-                <>
-                  <a href={hub.data.slug}>{hub.data.title}</a>
-                  {date && <span aria-hidden="true"> &middot; </span>}
-                </>
-              )}
+            <p class="article-card__eyebrow">
+              {hub && <a href={hub.data.slug} class="article-card__hub">{hub.data.title}</a>}
+              {hub && date && <span aria-hidden="true"> &middot; </span>}
               {date && <time datetime={date.toISOString()}>{dateFormatter.format(date)}</time>}
             </p>
+          )}
+          <TitleTag class="article-card__title">
+            <a href={slug}>{entry.data.display_title ?? entry.data.title}</a>
+          </TitleTag>
+          <p class="article-card__desc">{entry.data.description}</p>
+          {questions.length > 0 && (
+            <ul class="article-card__questions" aria-label="Questions this article answers">
+              {questions.map((question) => (
+                <li>
+                  <a class="qpill" href={`${slug}#${question.anchor}`}>
+                    <span>{question.q}</span>
+                    <span class="qpill__arrow" aria-hidden="true">&rarr;</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           )}
         </div>
       </li>
@@ -83,76 +98,172 @@ function bestDate(entry: CollectionEntry<'articles'>): Date | undefined {
 </ul>
 
 <style>
-  .article-list {
+  .article-grid {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem 1.5rem;
   }
 
-  .article-list__item {
+  @media (max-width: 900px) {
+    .article-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .article-grid {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+  }
+
+  .article-card {
     display: flex;
-    gap: 1.25rem;
-    padding: 1.75rem 0;
-    border-bottom: 1px solid var(--color-border);
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(31, 37, 35, 0.05);
   }
 
-  .article-list__thumbnail {
-    flex-shrink: 0;
+  .article-card:hover {
+    border-color: var(--color-accent);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .article-card {
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+    .article-card:hover {
+      box-shadow: 0 8px 24px rgba(23, 76, 60, 0.12);
+      transform: translateY(-2px);
+    }
+    .article-card__media img {
+      transition: transform 0.35s ease;
+    }
+    .article-card:hover .article-card__media img {
+      transform: scale(1.03);
+    }
+  }
+
+  /* Image caps the card. 3:2 keeps the desktop shape that avoids
+     chopping the wording out of text-heavy social graphics — the same
+     reason the old list rows used 3:2. On mobile the single column
+     runs the image full-bleed to the card edges. */
+  .article-card__media {
     display: block;
-    width: 150px;
-    height: 100px;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--color-surface);
   }
 
-  .article-list__thumbnail img {
-    width: 150px;
-    height: 100px;
+  .article-card__media img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    display: block;
   }
 
-  .article-list__content {
-    min-width: 0;
+  .article-card__body {
+    display: flex;
+    flex-direction: column;
     flex: 1;
+    padding: 1.1rem 1.15rem 1.2rem;
   }
 
-  @media (max-width: 540px) {
-    .article-list__item {
-      gap: 1rem;
-    }
-
-    /* Keep the desktop 3:2 shape on mobile — a square crop chops the
-       wording out of text-heavy social graphics (e.g. the "7 Stories
-       of Hope" card). */
-    .article-list__thumbnail,
-    .article-list__thumbnail img {
-      width: 88px;
-      height: 59px;
-    }
-  }
-
-  .article-list__title {
-    margin: 0 0 0.4rem;
-    font-size: 1.15rem;
-  }
-
-  .article-list__title a:hover {
-    color: var(--color-accent-hover);
-  }
-
-  .article-list__description {
+  .article-card__eyebrow {
     margin: 0 0 0.5rem;
-    color: var(--color-text-muted);
-    font-size: 0.98rem;
-  }
-
-  .article-list__meta {
-    margin: 0;
     font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.02em;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     color: var(--color-text-muted);
   }
 
-  .article-list__meta a {
-    color: var(--color-accent-hover);
+  .article-card__hub {
+    color: var(--color-gold-text);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .article-card__hub:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .article-card__title {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+    line-height: 1.3;
+  }
+
+  .article-card__title a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .article-card__title a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+  }
+
+  .article-card__desc {
+    margin: 0 0 1rem;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  /* Question pills — pushed to the bottom of the card (margin-top:auto)
+     so they line up across a row of unequal-length cards, separated by
+     a quiet dashed rule. Each links to /article/#answer-heading. */
+  .article-card__questions {
+    list-style: none;
+    margin: auto 0 0;
+    padding: 0.85rem 0 0;
+    border-top: 1px dashed var(--color-border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .qpill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.7rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+  }
+
+  .qpill__arrow {
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .qpill:hover {
+    border-color: var(--color-accent);
+    background: #ffffff;
+    color: var(--color-primary-hover);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .qpill {
+      transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+    }
+    .qpill:hover {
+      transform: translateY(-1px);
+    }
   }
 </style>

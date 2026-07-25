@@ -1,0 +1,222 @@
+---
+// QuestionSearch — the "ask a question" box shown at the top of the
+// /blog/ index and every hub page. A combobox that suggests the
+// curated questions authored across all articles (each deep-links to
+// /article/#answer-heading) plus live matches from the site search
+// index. Progressive enhancement: it is a real search form, so with
+// JavaScript off Enter still GETs the full /search/ page. The
+// typeahead behaviour lives in ../lib/question-search.js.
+import { getCollection } from 'astro:content';
+
+interface Props {
+  // Optional heading/prompt above the box.
+  prompt?: string;
+}
+
+const { prompt = 'Have a question? Start typing.' } = Astro.props;
+
+const articles = await getCollection('articles');
+
+// Flatten every article's curated questions into the suggestion pool.
+// Utility pages (exclude_from_blog) and source-pending placeholders are
+// never surfaced. Each becomes { q, href, title }.
+const questions = articles
+  .filter((entry) => !entry.data.exclude_from_blog && entry.data.status !== 'source-pending')
+  .flatMap((entry) => {
+    const title = entry.data.display_title ?? entry.data.title;
+    return entry.data.questions.map((question) => ({
+      q: question.q,
+      href: `${entry.data.slug}#${question.anchor}`,
+      title,
+    }));
+  });
+
+// Safe to embed in a <script type="application/json"> — escape the only
+// sequence that could close the tag early.
+const questionsJson = JSON.stringify(questions).replace(/</g, '\\u003c');
+
+// Unique per instance so multiple boxes on a page (there is one today,
+// but be safe) never collide on element ids.
+const uid = `qs-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<div class="qs" id={uid} data-question-search>
+  <p class="qs__prompt">{prompt}</p>
+  <form class="qs__form" role="search" action="/search/" method="get">
+    <div class="qs__row">
+      <svg class="qs__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2" />
+        <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+      <input
+        id={`${uid}-input`}
+        class="qs__input"
+        type="search"
+        name="q"
+        role="combobox"
+        aria-expanded="false"
+        aria-controls={`${uid}-list`}
+        aria-autocomplete="list"
+        aria-label="Ask a question"
+        placeholder="Ask a question — e.g. what is a person of peace?"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button class="qs__clear" type="button" aria-label="Clear" hidden>Clear</button>
+    </div>
+    <ul id={`${uid}-list`} class="qs__listbox" role="listbox" aria-label="Suggested questions" hidden></ul>
+  </form>
+  <script type="application/json" data-question-data set:html={questionsJson}></script>
+</div>
+
+<script>
+  import { initQuestionSearch } from '../lib/question-search.js';
+
+  document.querySelectorAll('[data-question-search]').forEach((root) => {
+    if (root.getAttribute('data-qs-init')) return;
+    root.setAttribute('data-qs-init', '1');
+    const input = root.querySelector('.qs__input');
+    const listbox = root.querySelector('.qs__listbox');
+    const clear = root.querySelector('.qs__clear');
+    const dataEl = root.querySelector('[data-question-data]');
+    let questions = [];
+    try {
+      questions = JSON.parse(dataEl?.textContent || '[]');
+    } catch {
+      questions = [];
+    }
+    initQuestionSearch({ root, input, listbox, clear, questions });
+  });
+</script>
+
+<style>
+  .qs {
+    position: relative;
+    margin: 0 0 2.5rem;
+    max-width: 40rem;
+  }
+
+  .qs__prompt {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-gold-text);
+  }
+
+  .qs__form {
+    margin: 0;
+  }
+
+  .qs__row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.15rem 0.6rem 0.15rem 0.85rem;
+    background: #ffffff;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    box-shadow: 0 1px 3px rgba(31, 37, 35, 0.05);
+  }
+
+  .qs__row:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 3px 12px rgba(23, 76, 60, 0.12);
+  }
+
+  .qs__icon {
+    flex-shrink: 0;
+    width: 1.15rem;
+    height: 1.15rem;
+    color: var(--color-text-muted);
+  }
+
+  .qs__input {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0.7rem 0;
+    font-size: 1.02rem;
+    font-family: inherit;
+    color: var(--color-text);
+    background: transparent;
+    border: 0;
+  }
+
+  .qs__input:focus {
+    outline: none;
+  }
+
+  .qs__input::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  .qs__clear {
+    flex-shrink: 0;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--color-text-muted);
+    background: transparent;
+    border: 0;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+  }
+
+  .qs__clear:hover {
+    color: var(--color-text);
+    background: var(--color-surface);
+  }
+
+  /* Dropdown */
+  .qs__listbox {
+    position: absolute;
+    z-index: 30;
+    left: 0;
+    right: 0;
+    margin: 0.4rem 0 0;
+    padding: 0.35rem;
+    list-style: none;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: 0 12px 32px rgba(31, 37, 35, 0.14);
+    max-height: 22rem;
+    overflow-y: auto;
+  }
+
+  .qs__listbox :global(.qs-option) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--radius-button);
+    cursor: pointer;
+  }
+
+  .qs__listbox :global(.qs-option[aria-selected='true']) {
+    background: var(--color-surface);
+  }
+
+  .qs__listbox :global(.qs-option__label) {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    line-height: 1.3;
+  }
+
+  .qs__listbox :global(.qs-option__sub) {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 600px) {
+    .qs {
+      max-width: none;
+    }
+  }
+</style>
