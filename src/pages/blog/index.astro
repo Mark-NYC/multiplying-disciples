@@ -154,6 +154,19 @@ const featuredCards = featured.map((entry, index) => {
               <span aria-hidden="true">&rsaquo;</span>
             </button>
           </div>
+
+          {/* Mobile only: the same topics as a native dropdown. */}
+          <div class="blog-topics__select-wrap">
+            <select class="blog-topics__select" data-topics-select aria-label="Browse by topic">
+              <option value="" selected>Choose a topic&hellip;</option>
+              {hubPills.map((hub) => (
+                <option value={hub.slug}>
+                  {hub.title} ({hub.count})
+                </option>
+              ))}
+            </select>
+            <span class="blog-topics__select-caret" aria-hidden="true">&rsaquo;</span>
+          </div>
         </nav>
       )
     }
@@ -350,6 +363,57 @@ const featuredCards = featured.map((entry, index) => {
   @media (prefers-reduced-motion: reduce) {
     .blog-topics__list {
       scroll-behavior: auto;
+    }
+  }
+
+  /* Mobile-only native dropdown. Hidden on desktop, where the slider
+     above is shown instead. */
+  .blog-topics__select-wrap {
+    display: none;
+    position: relative;
+  }
+
+  .blog-topics__select {
+    width: 100%;
+    min-height: 2.9rem;
+    padding: 0.6rem 2.75rem 0.6rem 1.1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    box-shadow: 0 1px 3px rgba(31, 37, 35, 0.05);
+    /* Custom caret via the sibling span, so drop the native one. */
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .blog-topics__select:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 1px;
+    border-color: var(--color-primary);
+  }
+
+  .blog-topics__select-caret {
+    position: absolute;
+    top: 50%;
+    right: 1.1rem;
+    transform: translateY(-50%) rotate(90deg);
+    color: var(--color-primary);
+    font-size: 1.35rem;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  @media (max-width: 600px) {
+    .blog-topics__scroller {
+      display: none;
+    }
+
+    .blog-topics__select-wrap {
+      display: block;
     }
   }
 
@@ -675,5 +739,14 @@ const featuredCards = featured.map((entry, index) => {
     );
     window.addEventListener('resize', update);
     update();
+  }
+
+  // Mobile dropdown: navigate to the chosen topic. The slider and this
+  // select carry the same links; CSS shows only one at a time.
+  const topicSelect = document.querySelector('[data-topics-select]');
+  if (topicSelect instanceof HTMLSelectElement) {
+    topicSelect.addEventListener('change', () => {
+      if (topicSelect.value) window.location.href = topicSelect.value;
+    });
   }
 </script>
