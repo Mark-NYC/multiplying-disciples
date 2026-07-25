@@ -50,6 +50,7 @@ Common optional fields:
 | `og_image` | social-card image; also the thumbnail on /blog/ and hub lists |
 | `date` / `updated` | drive the meta line and list sorting |
 | `hub` | hub filename slug, e.g. `testimony` — drives breadcrumb + hub link |
+| `questions` | 2–3 "people also ask" questions this article answers, each `{ q, anchor }` — rendered as tappable pills on the article's /blog/ and hub card and fed to the ask-a-question search. Opt-in and selective; see "Question pills" below. |
 | `related_articles` | slug paths; first 3 render in the Related box |
 | `related_tools` | tool titles for the "Tools for this" box |
 | `hide_toc` | suppress the automatic contents box |
@@ -192,6 +193,66 @@ yet); when an article is published, add it to its hub's
 section (NAVIGATION_MAP.md); the other five are reached from /blog/'s
 topic pills and article breadcrumbs.
 
+## Question pills ("people also ask")
+
+Some articles carry 2–3 tappable question pills on their /blog/ and hub
+cards; most don't. That selectivity is the point — pills mean "this page
+answers a few discrete questions you can jump straight to," so they only
+earn their place on the pages where that's true. They are opt-in: an
+article gets pills only if it has a `questions` array. No field, no
+pills — the default is off, and that's deliberate.
+
+The `questions` field is a list of `{ q, anchor }`:
+
+```yaml
+questions:
+  - q: "What is a person of peace?"
+    anchor: "what-is-a-person-of-peace"     # id of the H2/H3 that answers it
+  - q: "How do I recognize one?"
+    anchor: "how-to-identify-a-person-of-peace"
+```
+
+Each pill deep-links to `/this-article/#anchor`. The same list also
+feeds the ask-a-question search box (curated questions rank above raw
+full-text matches), so a good question does double duty.
+
+**Add pills only when all three are true:**
+
+1. **Question intent** — readers arrive asking something specific: the
+   title is a "what is / how to / why" explainer, or the page is a hub
+   pillar / `key_article` that's a common landing point.
+2. **Decomposable structure** — there are 2–3 distinct sections (ideally
+   a real FAQ block, or question-shaped H2/H3s) with stable headings to
+   anchor to.
+3. **Worth the jump** — the article is long/scannable enough (~1,000+
+   words, several sections) that a deep-link saves real scrolling.
+
+**Skip pills when** the piece is narrative or devotional and read
+start-to-finish (most Field Notes, testimony stories); it's short or
+single-idea (the whole article is one answer — nowhere meaningful to
+jump); or it has no stable question-shaped sections (don't invent
+anchors just to have pills). Utility pages (`exclude_from_blog`) never
+get them.
+
+**When you do add them:**
+
+- 2–3 per article, never more — the card stays tidy and the design
+  assumes at most three.
+- Phrase each pill as a short, natural reader question, not the SEO
+  heading — "How do I recognize one?" not "How to Identify a Person of
+  Peace in the North American Context."
+- Lead with the question people most arrive with.
+- `anchor` must be a real heading id — the github-slugger form of the
+  H2/H3 text (lowercase, punctuation dropped, spaces → hyphens). Confirm
+  it resolves (build and open `/slug/#anchor`); a stale anchor lands the
+  reader at the top of the page instead of the section.
+- If you later rename a heading, update the matching `anchor`.
+
+**Where to spend the effort first:** the articles with real FAQ sections
+already have the questions written as H3s (seed those first), then hub
+`key_articles` / cluster pillars, then high-intent explainers. Coverage
+is meant to grow gradually, not reach 100%.
+
 ## Editorial workflow
 
 How an article moves from idea to published:
@@ -233,6 +294,10 @@ Per page, before `status` moves to `published`:
       with no skipped levels.
 - [ ] `hub` set; 3–5 `related_articles`; related tools where
       relevant; one clear next step (the CTA).
+- [ ] `questions` added only if the article meets the "Question pills"
+      test (question intent + 2–3 anchorable sections + worth the jump);
+      if added, each `anchor` resolves to a real heading id. Most
+      articles should have no `questions` — that's expected.
 - [ ] All internal links are plain `<a href>` (true by construction —
       see INTERNAL_LINKING_PLAN.md's crawlability rule).
 - [ ] Any referenced media resolves at its preserved path.
