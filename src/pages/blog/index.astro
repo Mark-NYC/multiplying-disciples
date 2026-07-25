@@ -79,18 +79,12 @@ const featured = [
 const featuredIds = new Set(featured.map((entry) => entry.id));
 const listEntries = sorted.filter((entry) => !featuredIds.has(entry.id));
 
-function hubTitleFor(entry: CollectionEntry<'articles'>): string | undefined {
-  if (!entry.data.hub) return undefined;
-  return hubs.find((hub) => hub.id === `/${entry.data.hub}/`)?.data.title;
-}
-
 const featuredCards = featured.map((entry, index) => {
   const image = entry.data.og_image ?? entry.data.hero_image;
   return {
     href: entry.data.slug,
     title: entry.data.display_title ?? entry.data.title,
     description: entry.data.description,
-    hubTitle: hubTitleFor(entry),
     image,
     dims: image ? imageDimensions(image) : undefined,
     questions: entry.data.questions.slice(0, 3),
@@ -186,7 +180,6 @@ const featuredCards = featured.map((entry, index) => {
               </a>
             )}
             <div class="blog-featured__body">
-              {card.hubTitle && <p class="blog-featured__hub">{card.hubTitle}</p>}
               <h2 class="blog-featured__title">
                 <a href={card.href}>{card.title}</a>
               </h2>
@@ -560,16 +553,6 @@ const featuredCards = featured.map((entry, index) => {
     flex-direction: column;
     flex: 1;
     padding: 1.1rem 1.15rem 1.2rem;
-  }
-
-  .blog-featured__hub {
-    margin: 0 0 0.4rem;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-gold-text);
   }
 
   .blog-featured__title {
