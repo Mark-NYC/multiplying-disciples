@@ -1,11 +1,14 @@
 ---
 // QuestionSearch — the "ask a question" box shown at the top of the
-// /blog/ index and every hub page. A combobox that suggests the
-// curated questions authored across all articles (each deep-links to
-// /article/#answer-heading) plus live matches from the site search
-// index. Progressive enhancement: it is a real search form, so with
-// JavaScript off Enter still GETs the full /search/ page. The
-// typeahead behaviour lives in ../lib/question-search.js.
+// /blog/ index and every hub page. A combobox that suggests only the
+// curated fill-in-the-blank questions (Google-autocomplete style): no
+// article titles, no live full-text matches — just the questions, each
+// deep-linking to /article/#answer-heading. On the blog index it pools
+// questions from every article; on a hub page pass `hub` to scope the
+// suggestions to that hub's cluster. Progressive enhancement: it is a
+// real search form, so with JavaScript off Enter still GETs the full
+// /search/ page. The typeahead behaviour lives in
+// ../lib/question-search.js.
 import { getCollection } from 'astro:content';
 
 interface Props {
@@ -13,25 +16,33 @@ interface Props {
   // render no prompt (used on the blog index, which keeps its heading
   // area clean).
   prompt?: string;
+  // Restrict suggestions to one hub's cluster. Value is a hub's slug
+  // without slashes (e.g. "testimony", "3-circles-guide") — the same
+  // key an article's `hub` frontmatter field carries. Omit on the blog
+  // index to pool questions across every article.
+  hub?: string;
 }
 
-const { prompt = 'Have a question? Start typing.' } = Astro.props;
+const { prompt = 'Have a question? Start typing.', hub } = Astro.props;
 
 const articles = await getCollection('articles');
 
-// Flatten every article's curated questions into the suggestion pool.
-// Utility pages (exclude_from_blog) and source-pending placeholders are
-// never surfaced. Each becomes { q, href, title }.
+// Flatten the curated questions into the suggestion pool. Utility pages
+// (exclude_from_blog) and source-pending placeholders are never
+// surfaced; when `hub` is set, only that hub's articles contribute, so
+// each hub page suggests its own cluster's questions. Each becomes
+// { q, href } — the question uses its self-contained `search_q`
+// phrasing when set, else `q`; the article title is deliberately not
+// carried, so the dropdown shows questions only.
 const questions = articles
   .filter((entry) => !entry.data.exclude_from_blog && entry.data.status !== 'source-pending')
-  .flatMap((entry) => {
-    const title = entry.data.display_title ?? entry.data.title;
-    return entry.data.questions.map((question) => ({
-      q: question.q,
+  .filter((entry) => !hub || entry.data.hub === hub)
+  .flatMap((entry) =>
+    entry.data.questions.map((question) => ({
+      q: question.search_q ?? question.q,
       href: `${entry.data.slug}#${question.anchor}`,
-      title,
-    }));
-  });
+    })),
+  );
 
 // Safe to embed in a <script type="application/json"> — escape the only
 // sequence that could close the tag early.
@@ -191,8 +202,7 @@ const uid = `qs-${Math.random().toString(36).slice(2, 9)}`;
 
   .qs__listbox :global(.qs-option) {
     display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
+    align-items: center;
     padding: 0.6rem 0.75rem;
     border-radius: var(--radius-button);
     cursor: pointer;
@@ -207,13 +217,6 @@ const uid = `qs-${Math.random().toString(36).slice(2, 9)}`;
     font-weight: 600;
     color: var(--color-primary);
     line-height: 1.3;
-  }
-
-  .qs__listbox :global(.qs-option__sub) {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.02em;
-    color: var(--color-text-muted);
   }
 
   @media (max-width: 600px) {

@@ -112,6 +112,15 @@ const articles = defineCollection({
         z.object({
           q: z.string(),
           anchor: z.string(),
+          // Optional self-contained rephrasing used only in the
+          // ask-a-question search box, where the article title is not
+          // shown to supply context. The card pill always uses `q`
+          // (kept terse because the card title sits right above it);
+          // the search box uses `search_q` when set, otherwise falls
+          // back to `q`. Set this whenever `q` only reads clearly next
+          // to its title — e.g. q "How do I recognize one?" needs
+          // search_q "How do I recognize a person of peace?".
+          search_q: z.string().optional(),
         }),
       )
       .default([]),

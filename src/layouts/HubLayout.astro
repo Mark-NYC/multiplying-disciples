@@ -52,7 +52,10 @@ const keyArticles = data.key_articles
     <h1>{data.title}</h1>
     <p class="hub-intro">{data.intro}</p>
 
-    <QuestionSearch prompt={`Have a question about ${data.title.toLowerCase()}?`} />
+    <QuestionSearch
+      prompt={`Have a question about ${data.title.toLowerCase()}?`}
+      hub={data.slug.replace(/^\/|\/$/g, '')}
+    />
 
     {
       keyArticles.length > 0 && (
