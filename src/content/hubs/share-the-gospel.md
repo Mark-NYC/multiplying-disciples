@@ -8,6 +8,7 @@ intro: >
   simplest, most repeatable tools for starting a spiritual conversation and
   actually finishing it.
 key_articles:
+  - "/how-to-share-the-gospel/"
   - "/how-to-evangelize-ultimate-step-by-step-guide/"
   - "/bible-verse-about-spreading-the-gospel-complete-guide-for-sharing-your-faith/"
   - "/the-three-circles-gospel-presentation-step-by-step/"

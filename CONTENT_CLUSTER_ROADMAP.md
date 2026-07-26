@@ -356,7 +356,22 @@ Ordered by (proven impressions × conversion proximity):
    `/discovering-the-disciple-meaning.../` redirect (currently → Under-
    standing Biblical Discipleship) to this page is a GSC-aware decision
    left for Mark.
-10. ☆ How to Share the Gospel (pillar).
+10. ~~☆ How to Share the Gospel (pillar)~~ ✅ shipped 2026-07-26 as
+    `/how-to-share-the-gospel/` — the Sharing the Gospel cluster pillar
+    (the head "how to share the gospel" query family, distinct from "how
+    to evangelize", which the existing How to Evangelize page owns along
+    with the Conversation Quadrant mechanics; both GSC-evidenced as
+    separate families). Built as the head-term overview that states the
+    gospel plainly and routes to the method tools (3 Circles, testimony,
+    the Conversation Quadrant via How to Evangelize, 7 Stories of Hope, 4
+    Responses) rather than duplicating them. Added as the first key
+    article in the share-the-gospel hub (pillar first, ahead of How to
+    Evangelize) and cross-linked inbound from the How to Evangelize
+    sibling. Lab CTA per the cluster. Forward bridge to the How to Make
+    Disciples pillar. Deliberately does not link a `/what-is-the-gospel/`
+    page (item 11, not built yet) — the gospel message is stated in-page
+    instead; wire that link when item 11 ships. Hero/social image pending
+    from Mark (renders cleanly without one).
 11. ☆ What Is the Gospel?
 12. ☆ Disciple Training pillar + **new `/disciple-training/` hub**.
 13. ~~**Kingdom Ministry Training page upgrade**~~ ✅ shipped 2026-07
