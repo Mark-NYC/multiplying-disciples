@@ -112,10 +112,8 @@ export const GET: APIRoute = async () => {
   // 'Tool' (they're training/tool landings, not articles). Keep each in
   // sync with its page's source data.
 
-  // /kingdom-ministry-training/ is intentionally NOT indexed for search
-  // (per Mark's direction, 2026-07-27: KMT is not to be linked or
-  // surfaced anywhere on the site). The page still exists at its URL but
-  // is deliberately unlinked and unsearchable.
+  // (One bespoke landing page is intentionally left out of the search
+  // index per direction, so it stays unlinked and unsearchable.)
 
   // /starter-tools/ — the beginner disciple-making tutorial (bespoke
   // page, was an articles-collection entry before the tutorial rebuild).

@@ -24,10 +24,9 @@ notes: >
   (Phase 1, roadmap item 12) — the only major cluster that lacked a hub.
   Pillar first in key_articles (/how-to-train-disciples/), then the
   existing training-cluster supports in journey order. Per Mark's
-  direction (2026-07-27), Kingdom Ministry Training is deliberately NOT
-  referenced or linked from this cluster, overriding the roadmap /
-  INTERNAL_LINKING_PLAN.md CTA-flow table (which named KMT as the primary
-  CTA destination); the cluster CTA is a Lab instead, and this hub's
+  direction (2026-07-27), the training-landing page the roadmap had named
+  as this cluster's primary CTA is deliberately not referenced or linked
+  from the cluster; the cluster CTA is a Lab instead, and this hub's
   next_step points at a concrete in-cluster starting point (Four Fields
   training). Not added to the nav menu (menu changes are a separate,
   justified decision per NAVIGATION_MAP.md); reached via breadcrumbs and
