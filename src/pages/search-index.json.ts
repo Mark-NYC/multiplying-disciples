@@ -112,8 +112,20 @@ export const GET: APIRoute = async () => {
   // 'Tool' (they're training/tool landings, not articles). Keep each in
   // sync with its page's source data.
 
-  // (One bespoke landing page is intentionally left out of the search
-  // index per direction, so it stays unlinked and unsearchable.)
+  // /kingdom-ministry-training/ — keep in sync with that page's
+  // SESSIONS list.
+  docs.push({
+    id: '/kingdom-ministry-training/',
+    url: '/kingdom-ministry-training/',
+    title: 'Kingdom Ministry Training',
+    description:
+      'Bridging the theology and practice of spiritual gifts through hands-on training — hearing God, prophecy, healing prayer, and power evangelism.',
+    headings:
+      'Hearing God for Self · Practicing Prophecy · Building a Community of Practice · Simple 5-Step Healing Prayer Model (GAPAP) · Power Evangelism · Build a healthy Kingdom Ministry learning community',
+    body:
+      'Do what Jesus did. Jesus proclaimed and demonstrated the gospel of the Kingdom. Jesus not only shared the good news — He also demonstrated it in the power of the Holy Spirit (Matthew 4:23). Five sessions with teaching, tools, and activations: hearing God, prophecy, healing prayer (GAPAP, adapted from John Wimber’s 5-Step Model), power evangelism, and building a community of practice, including how to lead and start a 1 Corinthians 14 meeting. Discipleship packet: a regular equipping and self-correcting rhythm for emerging and established networks.',
+    type: 'Tool',
+  });
 
   // /starter-tools/ — the beginner disciple-making tutorial (bespoke
   // page, was an articles-collection entry before the tutorial rebuild).
