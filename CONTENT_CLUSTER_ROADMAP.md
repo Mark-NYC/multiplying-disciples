@@ -356,8 +356,39 @@ Ordered by (proven impressions × conversion proximity):
    `/discovering-the-disciple-meaning.../` redirect (currently → Under-
    standing Biblical Discipleship) to this page is a GSC-aware decision
    left for Mark.
-10. ☆ How to Share the Gospel (pillar).
-11. ☆ What Is the Gospel?
+10. ~~☆ How to Share the Gospel (pillar)~~ ✅ shipped 2026-07-26 as
+    `/how-to-share-the-gospel/` — the Sharing the Gospel cluster pillar
+    (the head "how to share the gospel" query family, distinct from "how
+    to evangelize", which the existing How to Evangelize page owns along
+    with the Conversation Quadrant mechanics; both GSC-evidenced as
+    separate families). Built as the head-term overview that states the
+    gospel plainly and routes to the method tools (3 Circles, testimony,
+    the Conversation Quadrant via How to Evangelize, 7 Stories of Hope, 4
+    Responses) rather than duplicating them. Added as the first key
+    article in the share-the-gospel hub (pillar first, ahead of How to
+    Evangelize) and cross-linked inbound from the How to Evangelize
+    sibling. Lab CTA per the cluster. Forward bridge to the How to Make
+    Disciples pillar. Deliberately does not link a `/what-is-the-gospel/`
+    page (item 11, not built yet) — the gospel message is stated in-page
+    instead; wire that link when item 11 ships. Hero/social image pending
+    from Mark (renders cleanly without one).
+11. ~~☆ What Is the Gospel?~~ ✅ shipped 2026-07-26 as
+    `/what-is-the-gospel/` — the Sharing the Gospel cluster's definitional
+    cornerstone (the head "what is the gospel" query family, unowned at
+    the primary-keyword level: How to Share the Gospel is the how-to
+    pillar, 3 Circles is a method/tool page, and Bible Verses About
+    Spreading the Gospel is a verses list). Scoped to the definition
+    (the word euangelion / "good news", the 1 Cor 15:3-4 core, the four
+    movements God-sin-Jesus-response, why it is good news, the
+    kingdom/Lordship emphasis already established across the cluster, how
+    to respond, and what the gospel is not); hands off to the How to
+    Share the Gospel pillar for the how-to. This is the anchor
+    INTERNAL_LINKING_PLAN.md says every gospel article's first section
+    links back to: wired inbound from the pillar's first gospel section
+    and from Bible Verses About Spreading the Gospel, and added to the
+    share-the-gospel hub key_articles after the pillar. Lab CTA per the
+    cluster. Hero/social image pending from Mark (renders cleanly without
+    one).
 12. ☆ Disciple Training pillar + **new `/disciple-training/` hub**.
 13. ~~**Kingdom Ministry Training page upgrade**~~ ✅ shipped 2026-07
     (business priority; every Training CTA lands here — rebuilt as a
