@@ -389,7 +389,27 @@ Ordered by (proven impressions × conversion proximity):
     share-the-gospel hub key_articles after the pillar. Lab CTA per the
     cluster. Hero/social image pending from Mark (renders cleanly without
     one).
-12. ☆ Disciple Training pillar + **new `/disciple-training/` hub**.
+12. ~~☆ Disciple Training pillar + **new `/disciple-training/` hub**~~ ✅
+    shipped 2026-07-27. Pillar `/how-to-train-disciples/` (head term "how
+    to train disciples" / "disciple training" / "discipleship training",
+    unowned at the primary-keyword level: How to Make Disciples is the
+    making pillar, How to Get Started in Four Fields Training targets the
+    specific framework, Content vs. Systems is a philosophy piece, and
+    Kingdom Ministry Training is the destination landing page). Scoped to
+    the training/equipping layer above making disciples: what training is,
+    why it is the missing step, the MAWL pattern (model/assist/watch/leave,
+    framed as how Jesus trained rather than a command by name),
+    reproducibility, character/FATR, ongoing coaching, and multiplication.
+    New hub `/disciple-training/` created with the pillar first in
+    key_articles, then the existing training supports (Four Fields
+    training, Content vs. Systems, Jesus the Leader); its `next_step`
+    points at Kingdom Ministry Training. Tool CTA to
+    `/kingdom-ministry-training/` per the cluster (Lab secondary). Forward
+    bridge to the Simple Church pillar; cross-linked inbound from the How
+    to Make Disciples pillar. Not added to the nav menu (a separate
+    decision for Mark). Hero/social image pending from Mark. Reassigning
+    the three existing training articles' breadcrumb `hub` to
+    disciple-training is a small follow-up left for Mark.
 13. ~~**Kingdom Ministry Training page upgrade**~~ ✅ shipped 2026-07
     (business priority; every Training CTA lands here — rebuilt as a
     bespoke landing page, `src/pages/kingdom-ministry-training.astro`).
