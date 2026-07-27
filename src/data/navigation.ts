@@ -39,6 +39,7 @@ export const MENU_FEATURED: NavLink[] = [
   { label: 'Stickers', href: '/stickers/' },
   { label: '7 Stories of Hope', href: '/movement-resources/7-stories-of-hope-complete-facilitation-guide/' },
   { label: 'Commands of Christ', href: 'https://obey.tools/commands-of-christ.html', externalDomain: 'obey.tools' },
+  { label: 'Kingdom Ministry Training', href: '/kingdom-ministry-training/' },
 ];
 
 // The strongest topic hubs only (plus the full index) — labels match

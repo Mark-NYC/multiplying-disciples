@@ -34,8 +34,8 @@ notes: >
   referenced. 1 image (Screenshot-2025-01-20-at-1.13.20 PM.webp) is
   present but its filename uses a Unicode narrow no-break space
   (U+202F) rather than a regular space — same encoding pattern found
-  and fixed in Phase 8's /kingdom-ministry-training/ bug — referenced
-  here with the correct %E2%80%AF encoding from the start.
+  and fixed in a Phase 8 bug — referenced here with the correct
+  %E2%80%AF encoding from the start.
   Phase 10B: wrapped both "Save My FREE Seat" links in a .button-row
   div so they render as pill buttons, matching the reference
   WordPress design, per PHASE_10B_VISUAL_POLISH.md. No link/label
