@@ -402,14 +402,21 @@ Ordered by (proven impressions × conversion proximity):
     reproducibility, character/FATR, ongoing coaching, and multiplication.
     New hub `/disciple-training/` created with the pillar first in
     key_articles, then the existing training supports (Four Fields
-    training, Content vs. Systems, Jesus the Leader); its `next_step`
-    points at Kingdom Ministry Training. Tool CTA to
-    `/kingdom-ministry-training/` per the cluster (Lab secondary). Forward
-    bridge to the Simple Church pillar; cross-linked inbound from the How
-    to Make Disciples pillar. Not added to the nav menu (a separate
+    training, Content vs. Systems, Jesus the Leader). Lab CTA. **Per
+    Mark's direction (2026-07-27), Kingdom Ministry Training is not
+    referenced or linked from this cluster**, which overrides the
+    roadmap / INTERNAL_LINKING_PLAN.md "KMT is the Disciple Training
+    primary CTA" line: the cluster CTA is a Lab (the documented
+    secondary), and the hub `next_step` points at Four Fields training.
+    Forward bridge to the Simple Church pillar; cross-linked inbound from
+    the How to Make Disciples pillar (whose earlier KMT reference was
+    removed at the same time). Not added to the nav menu (a separate
     decision for Mark). Hero/social image pending from Mark. Reassigning
     the three existing training articles' breadcrumb `hub` to
-    disciple-training is a small follow-up left for Mark.
+    disciple-training is a small follow-up left for Mark. (Whether to
+    scrub KMT references elsewhere on the site — Content vs. Systems,
+    /free-training/, the bespoke `/kingdom-ministry-training/` page — is
+    an open question for Mark; only this cluster was changed.)
 13. ~~**Kingdom Ministry Training page upgrade**~~ ✅ shipped 2026-07
     (business priority; every Training CTA lands here — rebuilt as a
     bespoke landing page, `src/pages/kingdom-ministry-training.astro`).

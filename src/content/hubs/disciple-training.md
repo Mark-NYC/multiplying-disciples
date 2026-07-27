@@ -15,24 +15,23 @@ key_articles:
   - "/jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark/"
 related_tools: []
 next_step:
-  label: "Explore Kingdom Ministry Training"
-  href: "/kingdom-ministry-training/"
+  label: "Get started in Four Fields training"
+  href: "/how-to-get-started-in-four-fields-training/"
 status: "published"
 migration_priority: "unknown"
 notes: >
   New hub page (no WordPress original) for the Disciple Training cluster
   (Phase 1, roadmap item 12) — the only major cluster that lacked a hub.
   Pillar first in key_articles (/how-to-train-disciples/), then the
-  existing training-cluster supports in journey order. next_step points
-  at the cluster's primary CTA destination, the bespoke Kingdom Ministry
-  Training landing page (/kingdom-ministry-training/), per the
-  INTERNAL_LINKING_PLAN.md CTA-flow table. KMT is intentionally NOT in
-  key_articles because HubLayout resolves key_articles against the
-  articles collection and silently drops any slug that is not a content
-  entry (KMT is a bespoke src/pages page); it is surfaced via next_step
-  and in-prose links instead. Not added to the nav menu (menu changes are
-  a separate, justified decision per NAVIGATION_MAP.md); reached via
-  breadcrumbs and /blog/ topic pills. Verify before launch that
+  existing training-cluster supports in journey order. Per Mark's
+  direction (2026-07-27), Kingdom Ministry Training is deliberately NOT
+  referenced or linked from this cluster, overriding the roadmap /
+  INTERNAL_LINKING_PLAN.md CTA-flow table (which named KMT as the primary
+  CTA destination); the cluster CTA is a Lab instead, and this hub's
+  next_step points at a concrete in-cluster starting point (Four Fields
+  training). Not added to the nav menu (menu changes are a separate,
+  justified decision per NAVIGATION_MAP.md); reached via breadcrumbs and
+  /blog/ topic pills. Verify before launch that
   /disciple-training/ does not collide with an existing WordPress
   category/tag archive URL.
 ---
