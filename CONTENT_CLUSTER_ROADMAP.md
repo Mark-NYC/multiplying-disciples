@@ -66,10 +66,12 @@ but marked Improve in CONTENT_AUDIT.md.
   Silent · Short Christian Testimony Examples ✅ (intent owned by the
   ★ 15-Second Examples page — do not create a separate URL) ·
   ★ How to Write Your Testimony (`/how-to-write-your-testimony/`,
-  shipped 2026-07-24; the before/turn/after writing template) · ☆
-  Three-Minute Testimony · ☆ Sharing Your Testimony at
-  Work or in Church (`hypothesis`) · ☆ Testimony vs. Gospel: What's
-  the Difference (bridge to Cluster 2).
+  shipped 2026-07-24; the before/turn/after writing template) · ★
+  Three-Minute Testimony (`/three-minute-testimony/`, shipped
+  2026-07-28; the longer format for baptisms/small groups, completing
+  the 15-second → three-minute → written practice ladder) · ☆ Sharing
+  Your Testimony at Work or in Church (`hypothesis`) · ☆ Testimony vs.
+  Gospel: What's the Difference (bridge to Cluster 2).
 - **Linking:** every supporting article links up to the pillar and
   sideways to the 15-Second tool; pillar links forward to How to
   Share the Gospel.
@@ -79,7 +81,7 @@ but marked Improve in CONTENT_AUDIT.md.
   completing it is cheap and compounding.
 - **Business value:** Very high — proven impressions, lowest-friction
   practice step, direct lab feeder.
-- **Size:** 9 articles (4★ / 5☆).
+- **Size:** 9 articles (5★ / 4☆).
 
 ## Cluster 2 — Sharing the Gospel
 
@@ -288,14 +290,14 @@ but marked Improve in CONTENT_AUDIT.md.
 | Cluster | Existing | New | Total |
 |---|---:|---:|---:|
 | 0 Meet Jesus | 3 | 3 | 6 |
-| 1 Testimony | 4 | 5 | 9 |
+| 1 Testimony | 5 | 4 | 9 |
 | 2 Sharing the Gospel | 5 | 7 | 12 |
 | 3 Making Disciples | 5 | 5 | 10 |
 | 4 Disciple Training | 4 | 5 | 9 (+ new hub) |
 | 5 Simple Church | 3 | 7 | 10 |
 | 6 Prayer & the Field | 4 | 4 | 8 |
 | 7 Leadership & Multiplication | 14 | 3 | 17 |
-| **Total** | **42\*** | **39** | **~76** |
+| **Total** | **43\*** | **38** | **~76** |
 
 \* 38 unique existing articles; Three Thirds, Four Fields training,
 Jesus the Leader, and 7 Stories each serve two clusters.
@@ -433,8 +435,31 @@ Ordered by (proven impressions × conversion proximity):
     share-the-gospel hub for now; reassigning it to the Prayer & the
     Field cluster (Cluster 6, where the roadmap lists it as a co-anchor
     with a Practice/tool CTA) is a positioning decision left for Mark.
-15. ☆ What Are the Commands of Christ? (bridge; the menu now points
-    at obey.tools — this article gives search a reason to arrive).
+15. ~~☆ What Are the Commands of Christ?~~ ✅ shipped 2026-07-28 as
+    `/what-are-the-commands-of-christ/` — the Simple Church cluster bridge
+    / definitional article (the "commands of christ" / "what did jesus
+    command" query family, unowned at the primary-keyword level: the
+    Church Waffle at `/movement-resources/12-practice-church-circle/` is a
+    practice/tool page whose primary_keyword is "church waffle", and the
+    full per-command teaching lives on obey.tools by design). Answers the
+    intent fast, orients readers with a compact twelve-command starter set
+    (the CommandsWaffle component, matching the Obey.Tools order,
+    references, and icons), and routes depth to obey.tools rather than
+    growing a rival on-site set (playbook). Honest framing kept: the Bible
+    never numbers the commands, so the starter set is flagged as a
+    reproducible discipleship tool, not an official canon (WarningCard).
+    Tool CTA to obey.tools/commands-of-christ.html per the Simple Church
+    CTA flow. Added after the Church Waffle in the simple-church hub
+    key_articles (pillar still first) and cross-linked inbound from the
+    Church Waffle article's intro. hub: simple-church (Cluster 5); also
+    serves Cluster 0 via the 12 Disciples front door. No hero/social image
+    set (renders cleanly without one, matching the what-is-the-gospel /
+    what-is-a-disciple cornerstone precedent); image pending from Mark.
+    (The article body, CommandsWaffle component, and icons were drafted and
+    committed in an earlier session; this pass completed the publish wiring
+    that draft had left undone — the simple-church hub key_articles entry,
+    the inbound sibling link from the Church Waffle article, and the
+    roadmap/audit status — so the page is no longer an orphan.)
 
 Why this order: items 1–4 are pure CTR arbitrage on impressions the
 site already earns (fastest possible wins, no new content); 5–11
@@ -443,7 +468,8 @@ authority; 12–13 build the highest-converting cluster; 14–15 are
 head-term/bridge singles with outsized strategic value.
 
 ### Phase 2 — ~25 articles
-Finish Testimony (3-minute, at-work, testimony-vs-gospel), the Gospel
+Finish Testimony (~~3-minute~~ ✅ shipped 2026-07-28 as
+`/three-minute-testimony/`; at-work, testimony-vs-gospel still open), the Gospel
 situational set (work, family, questions, introverts, 4 Responses
 expansion), Making Disciples support (one-on-one, follow-up,
 obedience-based, questions), Training support (curriculum, Jesus
