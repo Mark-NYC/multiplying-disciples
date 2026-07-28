@@ -1,0 +1,177 @@
+---
+// CommandsWaffle — the twelve Commands of Christ, matching the titles,
+// order, references, and icons on Obey.Tools (the ecosystem's home for the
+// commands), followed by the full Church Waffle shown on a napkin.
+// Article-specific (used by /what-are-the-commands-of-christ/).
+//
+// The per-command icons are the Obey.Tools command icons, copied into
+// public/images/commands-of-christ/ so this list matches the source of
+// truth exactly rather than re-deriving them from the Church Waffle
+// artwork (whose icon choices differ for a few commands). The napkin below
+// keeps the site's own Church Waffle SVG, which is a distinct ecosystem
+// tool with its own art. No client-side JS.
+import { imageDimensions } from '../../lib/image-dimensions.mjs';
+
+const COMMANDS: { n: string; ref: string; icon: string }[] = [
+  { n: 'Repent & Believe', ref: 'Mark 1:15', icon: 'repent-icon' },
+  { n: 'Be Baptized', ref: 'Matthew 28:19', icon: 'baptism-icon' },
+  { n: 'Holy Spirit', ref: 'Acts 4:27-31', icon: 'holy-spirit-icon' },
+  { n: 'The Word of God', ref: 'John 8:31-32', icon: 'word-icon' },
+  { n: 'Love One Another', ref: 'John 15:12', icon: 'love-icon' },
+  { n: 'Lord’s Supper', ref: 'Luke 22:19-20', icon: 'lords-supper-icon' },
+  { n: 'Pray', ref: 'Matthew 6:9', icon: 'pray-icon' },
+  { n: 'Signs & Wonders', ref: 'John 14:6-14', icon: 'signs-and-wonders-icon' },
+  { n: 'Generosity', ref: 'Matthew 6:1-4', icon: 'give-icon' },
+  { n: 'Worship', ref: 'Mark 12:28-34', icon: 'worship-icon' },
+  { n: 'Go…Make Disciples', ref: 'Matthew 28:18-20', icon: 'go-make-disciples-icon' },
+  { n: 'Gather', ref: 'Hebrews 10:24-25', icon: 'gather-icon' },
+];
+
+const iconSrc = (i: string) => `/images/commands-of-christ/${i}.webp`;
+const dims: Record<string, { width: number; height: number } | undefined> = Object.fromEntries(
+  COMMANDS.map((c) => [c.icon, imageDimensions(iconSrc(c.icon))]),
+);
+
+const waffleHref = '/movement-resources/12-practice-church-circle/';
+---
+
+<div class="cwl">
+  <ol class="cwl__list">
+    {
+      COMMANDS.map((c) => (
+        <li class="cwl__item">
+          <img
+            class="cwl__icon"
+            src={iconSrc(c.icon)}
+            width={dims[c.icon]?.width}
+            height={dims[c.icon]?.height}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="cwl__text">
+            <strong>{c.n}</strong>
+            <span class="cwl__ref">{c.ref}</span>
+          </span>
+        </li>
+      ))
+    }
+  </ol>
+
+  <figure class="cwl__napkin">
+    <div class="cwl__paper">
+      <img
+        class="cwl__napkin-bg"
+        src="/tools-images/blank-napkin.webp"
+        width="800"
+        height="800"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+      />
+      <img
+        class="cwl__waffle"
+        src="/tools-images/Church-Waffle-tool.svg"
+        width="650"
+        height="650"
+        alt="The Church Waffle: the same twelve commands and practices drawn as a circle in three rows of four, with the Word, love, the Lord's Supper, and prayer in the middle row."
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+    <figcaption>The same twelve, drawn as one circle. Practiced together by a group, they are the shape of a healthy church.</figcaption>
+    <p class="cwl__more"><a href={waffleHref}>Explore the full Church Waffle</a></p>
+  </figure>
+</div>
+
+<style>
+  .cwl {
+    margin: 1.7rem 0;
+  }
+
+  .cwl__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.2rem 1.5rem;
+  }
+  .cwl__item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .cwl__icon {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+  }
+  .cwl__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+    min-width: 0;
+  }
+  .cwl__text strong {
+    font-weight: 650;
+  }
+  .cwl__ref {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    margin-top: 0.1rem;
+  }
+
+  /* The full waffle on a napkin. */
+  .cwl__napkin {
+    margin: 2.1rem auto 0;
+    max-width: 460px;
+    text-align: center;
+  }
+  .cwl__paper {
+    position: relative;
+    aspect-ratio: 1 / 1;
+  }
+  .cwl__napkin-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 24px rgba(31, 37, 35, 0.12));
+  }
+  .cwl__waffle {
+    position: absolute;
+    top: 12%;
+    left: 12%;
+    width: 76%;
+    height: 76%;
+    object-fit: contain;
+  }
+  .cwl__napkin figcaption {
+    margin: 1rem auto 0;
+    max-width: 34rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+  .cwl__more {
+    margin: 0.7rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 540px) {
+    .cwl__list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
