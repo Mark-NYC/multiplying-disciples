@@ -433,8 +433,31 @@ Ordered by (proven impressions × conversion proximity):
     share-the-gospel hub for now; reassigning it to the Prayer & the
     Field cluster (Cluster 6, where the roadmap lists it as a co-anchor
     with a Practice/tool CTA) is a positioning decision left for Mark.
-15. ☆ What Are the Commands of Christ? (bridge; the menu now points
-    at obey.tools — this article gives search a reason to arrive).
+15. ~~☆ What Are the Commands of Christ?~~ ✅ shipped 2026-07-28 as
+    `/what-are-the-commands-of-christ/` — the Simple Church cluster bridge
+    / definitional article (the "commands of christ" / "what did jesus
+    command" query family, unowned at the primary-keyword level: the
+    Church Waffle at `/movement-resources/12-practice-church-circle/` is a
+    practice/tool page whose primary_keyword is "church waffle", and the
+    full per-command teaching lives on obey.tools by design). Answers the
+    intent fast, orients readers with a compact twelve-command starter set
+    (the CommandsWaffle component, matching the Obey.Tools order,
+    references, and icons), and routes depth to obey.tools rather than
+    growing a rival on-site set (playbook). Honest framing kept: the Bible
+    never numbers the commands, so the starter set is flagged as a
+    reproducible discipleship tool, not an official canon (WarningCard).
+    Tool CTA to obey.tools/commands-of-christ.html per the Simple Church
+    CTA flow. Added after the Church Waffle in the simple-church hub
+    key_articles (pillar still first) and cross-linked inbound from the
+    Church Waffle article's intro. hub: simple-church (Cluster 5); also
+    serves Cluster 0 via the 12 Disciples front door. No hero/social image
+    set (renders cleanly without one, matching the what-is-the-gospel /
+    what-is-a-disciple cornerstone precedent); image pending from Mark.
+    (The article body, CommandsWaffle component, and icons were drafted and
+    committed in an earlier session; this pass completed the publish wiring
+    that draft had left undone — the simple-church hub key_articles entry,
+    the inbound sibling link from the Church Waffle article, and the
+    roadmap/audit status — so the page is no longer an orphan.)
 
 Why this order: items 1–4 are pure CTR arbitrage on impressions the
 site already earns (fastest possible wins, no new content); 5–11

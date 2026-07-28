@@ -10,6 +10,7 @@ intro: >
 key_articles:
   - "/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/"
   - "/movement-resources/12-practice-church-circle/"
+  - "/what-are-the-commands-of-christ/"
   - "/three-thirds/"
   - "/4-responses-to-the-gospel/"
 related_tools: []
