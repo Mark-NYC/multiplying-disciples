@@ -420,7 +420,19 @@ Ordered by (proven impressions × conversion proximity):
 13. ~~**Kingdom Ministry Training page upgrade**~~ ✅ shipped 2026-07
     (business priority; every Training CTA lands here — rebuilt as a
     bespoke landing page, `src/pages/kingdom-ministry-training.astro`).
-14. **Person of Peace expansion** (head term, existing thin page).
+14. ~~**Person of Peace expansion**~~ ✅ shipped 2026-07-27 — expanded the
+    existing thin `/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/`
+    page (~700 words, tier-3, the head-term Improve in CONTENT_AUDIT.md)
+    to roughly double the depth and rewrote it in voice. Kept the URL,
+    the Luke 10:5-6 block, the Messenger/Message/Mission frame, and the
+    four-step practice; added the Luke 10 sending pattern, biblical
+    examples (woman at the well, Cornelius, Lydia, the Gerasene man), a
+    recognition section, a "what a person of peace is not" warning, and a
+    forward bridge to the How to Share the Gospel pillar (bidirectional:
+    the pillar already links back to it). Lab CTA kept. Left in the
+    share-the-gospel hub for now; reassigning it to the Prayer & the
+    Field cluster (Cluster 6, where the roadmap lists it as a co-anchor
+    with a Practice/tool CTA) is a positioning decision left for Mark.
 15. ☆ What Are the Commands of Christ? (bridge; the menu now points
     at obey.tools — this article gives search a reason to arrive).
 
