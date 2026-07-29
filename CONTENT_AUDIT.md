@@ -64,6 +64,7 @@ Utility (not part of cluster strategy).
 | What Is the Gospel? | /what-is-the-gospel/ | Sharing the Gospel | Strong | U (new) | Definitional: "what is the gospel" | **Keep** | New Sharing the Gospel-cluster definitional cornerstone created 2026-07-26 (Phase 1, roadmap item 11) — the head "what is the gospel" query family, unowned at the primary-keyword level (How to Share the Gospel is the how-to pillar; 3 Circles is a method/tool page; Bible Verses About Spreading the Gospel is a verses list). Scoped to the definition (the word euangelion/"good news", the 1 Cor 15:3-4 core, the four movements God/sin/Jesus/response, why it is good news, the kingdom/Lordship emphasis established across the cluster, how to respond, and what the gospel is not); hands off to the How to Share the Gospel pillar for the how-to. The anchor INTERNAL_LINKING_PLAN.md says every gospel article links back to: wired inbound from the How to Share the Gospel pillar's first gospel section and from Bible Verses About Spreading the Gospel, and added to the share-the-gospel hub key_articles after the pillar. Lab CTA per the cluster (matches the parallel what-is-a-disciple cornerstone precedent). Hero/social image pending from Mark (renders cleanly without one). |
 | How to Train Disciples | /how-to-train-disciples/ | Disciple Training | Strong | U (new) | How-to: "how to train disciples" / "disciple training" | **Keep** | New Disciple Training-cluster pillar created 2026-07-27 (Phase 1, roadmap item 12), shipped with the new `/disciple-training/` hub (the only major cluster that lacked one). Head "how to train disciples" / "disciple training" / "discipleship training" family, unowned at the primary-keyword level (How to Make Disciples is the making pillar; How to Get Started in Four Fields Training targets the specific framework; Content vs. Systems is a philosophy piece; Kingdom Ministry Training is the destination landing page). Scoped to the training/equipping layer above making disciples: what training is, why it is the missing step, the MAWL pattern (framed as how Jesus trained, not a command by name), reproducibility, character/FATR, ongoing coaching, and multiplication. Lab CTA. Per Mark's direction (2026-07-27), Kingdom Ministry Training is deliberately not referenced or linked from this cluster (overriding the roadmap/INTERNAL_LINKING_PLAN "KMT is the primary CTA" line); the hub `next_step` points at Four Fields training instead. Forward bridge to the Simple Church pillar; cross-linked inbound from the How to Make Disciples pillar (its earlier KMT reference was removed too). Added first in the disciple-training hub key_articles. Hero/social image pending from Mark (renders cleanly without one). |
 | Your Testimony at Work and at Church | /sharing-your-testimony-at-work-or-in-church/ | Testimony | Strong | U (new) | Situational: "sharing your testimony at work", "testimony in church example" | **Keep** | New Testimony-cluster situational article created 2026-07-29 (Phase 2, Cluster 1 "Sharing Your Testimony at Work or in Church", `hypothesis`) — owns the two-settings situational intent no sibling covers (the pillar is general delivery, How to Write is composition, and the 15-second/three-minute pages are the two lengths). Covers the workplace (unsolicited, relational, keep it short: Col 4:5-6) and church (invited, prepared, aim it at the room: Ps 66:16) settings separately, plus the "testimony in church example" GSC query theme from the situational-long-tail gap. Practice (tool) CTA to the 15-second exercise (cluster primary CTA; readiness is the honest next step for the unpredictable work setting). Added after the three-minute page in the Testimony hub key_articles and given inbound links from the pillar and the three-minute article. No verified personal story exists, so no Field Note; biblical examples only. Hero/social image pending from Mark (renders cleanly without one). |
+| Testimony vs. Gospel | /testimony-vs-gospel/ | Testimony (bridge to Sharing the Gospel) | Strong | U (new) | Definitional/bridge: "testimony vs gospel", "difference between testimony and gospel" | **Keep** | New Testimony-cluster bridge article created 2026-07-29 (Phase 2, first open Cluster 1 item) — owns the "testimony vs gospel" distinction the pillar only touches in one section. Authored under the new-article protocol (frontmatter `intro` above the TOC; inline Lab CTA at the story→gospel pivot). Scoped to the difference (your story vs. God's news about Jesus, John 9:25 vs. 1 Cor 15:3-4), why conflating them costs you, how they work together, and the one-sentence handoff from testimony to gospel; hands off to the pillar for sharing testimony and to What Is the Gospel / How to Share the Gospel for the message. Added to the Testimony hub key_articles after the at-work article and cross-linked inbound from the pillar's "Testimony and gospel are not the same thing" section. Lab CTA (the honest next step is practicing the handoff with people; also the cluster's secondary and the gospel cluster's primary). Completes Cluster 1. Copy pending Mark's review; hero/social image pending. |
 | The Three-Minute Testimony | /three-minute-testimony/ | Testimony | Strong | U (new) | How-to: "three minute testimony", "3 minute testimony" | **Keep** | New Testimony-cluster supporting article created 2026-07-28 (Phase 2, Cluster 1 "Three-Minute Testimony"; first unbuilt Phase 2 item by documented order) — owns the "three minute testimony" / "3 minute testimony" query family, distinct at the primary-keyword level from the pillar ("how to share your testimony"), How to Write ("how to write your testimony"), and the 15-second page ("short christian testimony examples"). Scoped to the specific length people are asked to prepare (baptism, small group, mission team): the before/turn/after shape with a rough time budget, expanding from the 15-second version without padding, a timed illustrative outline, and the mistakes that make it run long. Completes the 15-second → three-minute → written practice ladder. Practice (tool) CTA to the 15-second exercise (cluster primary CTA; reuses the How to Write CTA image override). Added after the 15-second page in the Testimony hub key_articles and given inbound links from the pillar's "full version" line and How to Write's "write two lengths" section. No verified personal story exists, so no Field Note / story section; the worked outline is an illustrative model, not a claimed real person's story. Hero/social image pending from Mark (renders cleanly without one). |
 | What Are the Commands of Christ? | /what-are-the-commands-of-christ/ | Simple Church (also serves Meet Jesus) | Strong | U (new) | Definitional/bridge: "commands of christ", "what did jesus command" | **Keep** | New Simple Church-cluster bridge/definitional article created 2026-07-28 (Phase 1, roadmap item 15) — the "commands of christ" / "what did jesus command" query family, unowned at the primary-keyword level (the Church Waffle is a practice/tool page whose primary_keyword is "church waffle"; the full per-command teaching lives on obey.tools by design). Answers the intent fast, orients readers with a compact twelve-command starter set (the CommandsWaffle component, matching the Obey.Tools order/references/icons), and routes depth to obey.tools rather than growing a rival on-site set. Honest framing: the Bible never numbers the commands, so the starter set is flagged as a reproducible tool, not an official canon (WarningCard). Tool CTA to obey.tools/commands-of-christ.html per the Simple Church CTA flow. Added after the Church Waffle in the simple-church hub key_articles (pillar first) and cross-linked inbound from the Church Waffle article's intro. Hero/social image pending from Mark (renders cleanly without one). The article body/component/icons shipped in an earlier commit; the publish wiring (hub entry, inbound link, roadmap/audit) was completed 2026-07-28. |
 | 5 T's Strategy Coordinator Overview | /movement-resources/strategy-coordinator/ | — | Adequate | U | Niche practitioner role | **Not part of cluster strategy** | Per direction, Strategy Coordinator content stays out of the cluster/menu architecture. Keep the URL live as a quiet resource; no inbound cluster links. |
@@ -113,3 +114,65 @@ cluster (see CONTENT_CLUSTER_ROADMAP.md). The **Disciple Training** hub
 hub and bringing the total to eleven; `/jesus-and-the-twelve/`,
 `/stories-of-hope/`, `/3-circles-guide/`, and `/four-fields/` remain as
 sub-hubs feeding larger clusters.
+
+## 2026-07 field-manual layout pass (intro-above-TOC + mid-article CTA)
+
+A consistency pass rolling out two layout tweaks across the editorial
+articles (mechanism in ARTICLE_SYSTEM.md and CTA_GUIDE.md):
+
+1. **Intro above the TOC** — the opening search-intent paragraph moved to
+   the frontmatter `intro` field so the layout renders it *above* the
+   table of contents.
+2. **Mid-article CTA** — `article_cta.placement: inline` +
+   `<ArticleCTAInline>` moves an article's single CTA up into the reading
+   flow (at its concept→practice pivot) instead of leaving it at the end.
+
+**Done (28 articles carry an inline CTA; 21 carry a frontmatter intro).**
+Every well-structured `.mdx` article that opens with a real search-intent
+answer got both tweaks: the Testimony, Sharing the Gospel, Making
+Disciples, Prayer, Simple Church, Four Fields, Leadership &
+Multiplication, Disciple Training, and Stories of Hope clusters. Four
+no-intro `.mdx` articles (jesus-the-leader, apostles-meaning,
+unlocking-the-power-of-apest, content-vs-systems, the-secret-ingredient)
+got the inline CTA only. `christian-prayer-wheel` (`.md`) got the intro
+tweak (its CTA stays at the end — see below).
+
+**Judgment rules applied**, so the exceptions are principled:
+- Intro contains an inline link or a bold keyword → kept as an inline
+  `<ArticleIntro>` (a plain frontmatter string can't render either):
+  `15-second-testimony-examples`, `7-stories-of-hope`.
+- Opening is a narrative hook or preamble, not a clean answer → CTA moved
+  but no frontmatter intro fabricated; flagged for a voice pass:
+  `testimony-in-the-bible`, `bible-verse-about-spreading`, the four
+  no-intro `.mdx` above. One exception: `how-to-evangelize`'s opening
+  answered nothing ("In this article we will unpack…"), so a real
+  search-intent intro was written for it — **review the new wording.**
+- Numbered listicle / long reference list → CTA placed *after* the list
+  at its action pivot (Mark's call), not mid-sequence:
+  `the-power-of-sharing`, `testimony-in-the-bible`,
+  `bible-verse-about-spreading`.
+
+**Deferred (still to do), with reasons:**
+- **`discover-12-disciples`** (the #1 asset): left untouched on purpose.
+  Its documented need is internal links out + CTR, not CTA position, and
+  its "12-in-order" list + bold keyword intro deserve a deliberate hand,
+  not a mechanical pass.
+- **Editorial `.md` articles** — the inline CTA is an MDX component, so a
+  `.md` file cannot host it without a `.md`→`.mdx` conversion. `.md`
+  articles can still take the intro tweak (frontmatter), but most legacy
+  `.md` openings are preamble/hype (`how-to-get-started-in-four-fields`,
+  `prayer-is-essential`) or bold+link (`the-3-core-habits`,
+  `understanding-biblical-discipleship`) and need a rewrite, not a move.
+  Decision pending: convert the substantial ones to `.mdx` for the CTA
+  tweak, or fold that into their existing "Improve" work.
+- **0-H2 legacy `.md` articles** (`10-qualities`, `4-stages`,
+  `breaking-down-barriers`, `disciple-making-movement-dmm`,
+  `how-to-spot-a-lone-wolf`, `the-power-of-multiplication`,
+  `setting-the-stage`, `5-surprising`): no H2 headings means no TOC and
+  no CTA pivot — both tweaks are moot until the articles get real
+  section structure (a deeper edit).
+- **`disciple-making-movement-books`** (`.mdx`, no CTA block, no imports)
+  and **`what-is-a-simple-church`** / **`12-practice-church-circle`**
+  (0 H2): low-value edge cases skipped this pass.
+- **`4-responses-to-the-gospel`**: 37-word stub — expand first (already
+  an Improve item).

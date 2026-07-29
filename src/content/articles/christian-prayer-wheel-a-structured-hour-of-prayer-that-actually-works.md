@@ -10,6 +10,14 @@ related_articles:
   - "/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/"
   - "/stickers/"
 related_tools: []
+intro: >-
+  The Christian Prayer Wheel is a clock-based tool that solves the
+  biggest problem most believers face: hitting a wall 15 minutes into
+  prayer. Your mind wanders. You repeat yourself. You run out of things
+  to say. The Christian Prayer Wheel breaks prayer into 12 focused
+  segments—5 minutes each—giving you a battle-tested framework that's
+  been multiplying disciples across the fastest-growing church movements
+  in the world.
 og_image: "/wp-content/uploads/2025/12/Christian-Prayer-Wheel-diagram-showing-12-prayer-segments.webp"
 hero_image: "/wp-content/uploads/2025/12/Christian-Prayer-Wheel-diagram-showing-12-prayer-segments.webp"
 status: "migrated"
@@ -42,8 +50,6 @@ notes: >
   Prayer hub's 3rd and final key-article slot alongside the prayer-
   walking guide and "Prayer is Essential."
 ---
-
-The **Christian Prayer Wheel** is a clock-based tool that solves the biggest problem most believers face: hitting a wall 15 minutes into prayer. Your mind wanders. You repeat yourself. You run out of things to say. The **Christian Prayer Wheel** breaks prayer into 12 focused segments—5 minutes each—giving you a battle-tested framework that's been multiplying disciples across the fastest-growing church movements in the world.
 
 ## What Is the Christian Prayer Wheel?
 

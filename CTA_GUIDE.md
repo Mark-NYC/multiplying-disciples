@@ -161,4 +161,13 @@ defaults undefined input to the Lab CTA.
 2. Add the `article_cta` block to the article's frontmatter (examples
    above).
 3. Write the stakes headline from the article's own argument.
-4. Leave the block off entirely if the default Lab CTA fits.
+4. **Place it inline by default** (new-article protocol): set
+   `placement: inline` and drop `<ArticleCTAInline frontmatter={frontmatter} />`
+   at the article's pivot — see "Placement" above. Use `placement: end`
+   only where mid-article reads awkwardly (a short single-idea piece, or
+   a listicle where the CTA belongs after the list).
+5. You still can't leave the block off *and* get an inline CTA: the
+   default-when-absent behavior renders the Lab CTA at the **end**. If
+   the default Lab type fits but you want it inline, add a minimal block
+   — `article_cta:` with just `placement: inline` — and place the
+   component.
