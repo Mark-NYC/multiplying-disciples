@@ -67,9 +67,10 @@ loads. Rules:
 - **Plain text.** The field is a string, so it can't carry inline
   links. When the opening genuinely needs a link, keep the inline
   `<ArticleIntro>` component (it renders just below the TOC) instead.
-- **New articles use the field**; legacy articles are migrated to it
-  article-by-article during the content audit. An un-migrated article
-  keeps its inline `<ArticleIntro>` and is unaffected.
+- **New articles must use the field** — it is part of the new-article
+  protocol (see "Adding a new article"). Legacy articles are migrated to
+  it article-by-article; an un-migrated article keeps its inline
+  `<ArticleIntro>` and is unaffected until touched.
 
 ## Frontmatter options
 
@@ -175,11 +176,18 @@ intrinsic `width`/`height` for zero layout shift.
 ## CTA behavior and fallback
 
 See CTA_GUIDE.md. Summary: `article_cta` picks one of three types
-(`tool` = Practice, `lab` = Lab, `community` = Tribe) or `none`.
-No block at all → editorial articles get the default Lab CTA; utility
-pages get none.
+(`tool` = Practice, `lab` = Lab, `community` = Tribe) or `none`, and a
+`placement` (`inline` for new articles, `end` for the fallback). No block
+at all → editorial articles get the default Lab CTA at the end; utility
+pages get none. New articles set `placement: inline` and place
+`<ArticleCTAInline>` in the body (see "Adding a new article").
 
 ## Adding a new article — example
+
+**New editorial articles are authored as `.mdx`** (so they can carry the
+mid-article CTA) and follow the two layout defaults below: the opening
+answer lives in the frontmatter `intro`, and the CTA is placed inline in
+the body. See "New-article protocol" at the end of this section.
 
 ```yaml
 ---
@@ -194,10 +202,15 @@ hero_subheading: "One sentence that frames why this matters."
 hero_image: "/images/my-photo.webp"
 hero_image_alt: "What the photo actually shows"
 hero_image_caption: "Context that adds credibility."
+intro: >-
+  The one opening paragraph that answers the reader's main search intent
+  in the first sentence. The layout renders it above the table of
+  contents.
 related_articles:
   - "/an-existing-article/"
 article_cta:
   type: lab
+  placement: inline
   stakes_headline: "What it costs the reader to stop at reading."
   bridge_copy: "One sentence bridging the article to practice."
 status: "published"
@@ -205,9 +218,47 @@ migration_priority: "unknown"
 ---
 ```
 
-Body starts with an `ArticleIntro` (or a strong plain paragraph in
-`.md`), then `##` sections. Images get real alt text; the rehype
-pipeline adds dimensions and lazy loading automatically.
+The body imports the inline CTA and drops it at the article's pivot —
+there is no opening `ArticleIntro`, because the frontmatter `intro`
+already carries the answer above the TOC:
+
+```mdx
+import ArticleCTAInline from '../../components/article/ArticleCTAInline.astro';
+
+The article opens straight into its content and first `##` sections.
+
+## First section
+
+…enough for the reader to know what to do…
+
+<ArticleCTAInline frontmatter={frontmatter} />
+
+## The section where it turns to practice
+
+…
+```
+
+Images get real alt text; the rehype pipeline adds dimensions and lazy
+loading automatically.
+
+### New-article protocol (both are the default)
+
+1. **Intro in frontmatter, not inline.** Put the opening search-intent
+   paragraph in `intro` so it renders above the TOC. Fall back to an
+   inline `<ArticleIntro>` *only* when that opening genuinely needs an
+   inline link or bold (a plain string can't carry either).
+2. **CTA inline, at the pivot.** Set `article_cta.placement: inline` and
+   place `<ArticleCTAInline frontmatter={frontmatter} />` where the
+   article turns from "what/why" to "how/now" (often a third to halfway
+   down). Keep `placement: end` only where mid-article reads awkwardly —
+   a short single-idea piece, or a numbered listicle where the CTA
+   belongs after the list. See CTA_GUIDE.md, "Placement".
+
+(The `placement` schema default stays `end` so the many pre-protocol
+articles that have no inline CTA in their body keep rendering one at the
+end. "Inline by default" is an authoring convention for new pages, not a
+schema default — setting `inline` without placing the component would
+leave a page with no CTA.)
 
 ## Hub pages
 
@@ -301,9 +352,11 @@ How an article moves from idea to published:
    and CTA already decided. Don't write pages that aren't on the
    roadmap without adding them there first.
 2. **Draft** — read EDITORIAL_VOICE.md first, then author per this
-   document; the writing follows EDITORIAL_VOICE.md for voice.
-   Frontmatter `status` stays `migrated-draft` (or `migrated` for
-   touched legacy pages) while in review.
+   document as an `.mdx` file, following the new-article protocol (intro
+   in frontmatter, CTA placed inline — see "Adding a new article"); the
+   writing follows EDITORIAL_VOICE.md for voice. Frontmatter `status`
+   stays `migrated-draft` (or `migrated` for touched legacy pages) while
+   in review.
 3. **Review** — Mark approves copy. Field Notes require the
    subject's approval before `approved: true` is ever set (see
    FIELD_NOTE_TEMPLATE.md); testimonial-style claims are never
@@ -333,6 +386,14 @@ Per page, before `status` moves to `published`:
       with no skipped levels.
 - [ ] `hub` set; 3–5 `related_articles`; related tools where
       relevant; one clear next step (the CTA).
+- [ ] **Intro in frontmatter** — the opening search-intent paragraph is
+      in the `intro` field (renders above the TOC), not an inline
+      `<ArticleIntro>`. Inline is allowed only when the opening needs a
+      link/bold; never set both.
+- [ ] **CTA placed inline** — `article_cta.placement: inline` with
+      `<ArticleCTAInline frontmatter={frontmatter} />` at the article's
+      pivot, so exactly one CTA renders mid-flow. `placement: end` only
+      for a short single-idea piece or a listicle (CTA after the list).
 - [ ] `questions` added only if the article meets the "Question pills"
       test (question intent + 2–3 anchorable sections + worth the jump);
       if added, each `anchor` resolves to a real heading id. Most
