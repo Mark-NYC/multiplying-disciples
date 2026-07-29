@@ -113,3 +113,65 @@ cluster (see CONTENT_CLUSTER_ROADMAP.md). The **Disciple Training** hub
 hub and bringing the total to eleven; `/jesus-and-the-twelve/`,
 `/stories-of-hope/`, `/3-circles-guide/`, and `/four-fields/` remain as
 sub-hubs feeding larger clusters.
+
+## 2026-07 field-manual layout pass (intro-above-TOC + mid-article CTA)
+
+A consistency pass rolling out two layout tweaks across the editorial
+articles (mechanism in ARTICLE_SYSTEM.md and CTA_GUIDE.md):
+
+1. **Intro above the TOC** — the opening search-intent paragraph moved to
+   the frontmatter `intro` field so the layout renders it *above* the
+   table of contents.
+2. **Mid-article CTA** — `article_cta.placement: inline` +
+   `<ArticleCTAInline>` moves an article's single CTA up into the reading
+   flow (at its concept→practice pivot) instead of leaving it at the end.
+
+**Done (28 articles carry an inline CTA; 21 carry a frontmatter intro).**
+Every well-structured `.mdx` article that opens with a real search-intent
+answer got both tweaks: the Testimony, Sharing the Gospel, Making
+Disciples, Prayer, Simple Church, Four Fields, Leadership &
+Multiplication, Disciple Training, and Stories of Hope clusters. Four
+no-intro `.mdx` articles (jesus-the-leader, apostles-meaning,
+unlocking-the-power-of-apest, content-vs-systems, the-secret-ingredient)
+got the inline CTA only. `christian-prayer-wheel` (`.md`) got the intro
+tweak (its CTA stays at the end — see below).
+
+**Judgment rules applied**, so the exceptions are principled:
+- Intro contains an inline link or a bold keyword → kept as an inline
+  `<ArticleIntro>` (a plain frontmatter string can't render either):
+  `15-second-testimony-examples`, `7-stories-of-hope`.
+- Opening is a narrative hook or preamble, not a clean answer → CTA moved
+  but no frontmatter intro fabricated; flagged for a voice pass:
+  `testimony-in-the-bible`, `bible-verse-about-spreading`, the four
+  no-intro `.mdx` above. One exception: `how-to-evangelize`'s opening
+  answered nothing ("In this article we will unpack…"), so a real
+  search-intent intro was written for it — **review the new wording.**
+- Numbered listicle / long reference list → CTA placed *after* the list
+  at its action pivot (Mark's call), not mid-sequence:
+  `the-power-of-sharing`, `testimony-in-the-bible`,
+  `bible-verse-about-spreading`.
+
+**Deferred (still to do), with reasons:**
+- **`discover-12-disciples`** (the #1 asset): left untouched on purpose.
+  Its documented need is internal links out + CTR, not CTA position, and
+  its "12-in-order" list + bold keyword intro deserve a deliberate hand,
+  not a mechanical pass.
+- **Editorial `.md` articles** — the inline CTA is an MDX component, so a
+  `.md` file cannot host it without a `.md`→`.mdx` conversion. `.md`
+  articles can still take the intro tweak (frontmatter), but most legacy
+  `.md` openings are preamble/hype (`how-to-get-started-in-four-fields`,
+  `prayer-is-essential`) or bold+link (`the-3-core-habits`,
+  `understanding-biblical-discipleship`) and need a rewrite, not a move.
+  Decision pending: convert the substantial ones to `.mdx` for the CTA
+  tweak, or fold that into their existing "Improve" work.
+- **0-H2 legacy `.md` articles** (`10-qualities`, `4-stages`,
+  `breaking-down-barriers`, `disciple-making-movement-dmm`,
+  `how-to-spot-a-lone-wolf`, `the-power-of-multiplication`,
+  `setting-the-stage`, `5-surprising`): no H2 headings means no TOC and
+  no CTA pivot — both tweaks are moot until the articles get real
+  section structure (a deeper edit).
+- **`disciple-making-movement-books`** (`.mdx`, no CTA block, no imports)
+  and **`what-is-a-simple-church`** / **`12-practice-church-circle`**
+  (0 H2): low-value edge cases skipped this pass.
+- **`4-responses-to-the-gospel`**: 37-word stub — expand first (already
+  an Improve item).
