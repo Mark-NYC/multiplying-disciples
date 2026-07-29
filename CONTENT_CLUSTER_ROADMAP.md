@@ -69,9 +69,11 @@ but marked Improve in CONTENT_AUDIT.md.
   shipped 2026-07-24; the before/turn/after writing template) · ★
   Three-Minute Testimony (`/three-minute-testimony/`, shipped
   2026-07-28; the longer format for baptisms/small groups, completing
-  the 15-second → three-minute → written practice ladder) · ☆ Sharing
-  Your Testimony at Work or in Church (`hypothesis`) · ☆ Testimony vs.
-  Gospel: What's the Difference (bridge to Cluster 2).
+  the 15-second → three-minute → written practice ladder) · ★ Sharing
+  Your Testimony at Work or in Church
+  (`/sharing-your-testimony-at-work-or-in-church/`, shipped 2026-07-29;
+  the situational guide to the two settings people ask about) · ☆
+  Testimony vs. Gospel: What's the Difference (bridge to Cluster 2).
 - **Linking:** every supporting article links up to the pillar and
   sideways to the 15-Second tool; pillar links forward to How to
   Share the Gospel.
@@ -81,7 +83,7 @@ but marked Improve in CONTENT_AUDIT.md.
   completing it is cheap and compounding.
 - **Business value:** Very high — proven impressions, lowest-friction
   practice step, direct lab feeder.
-- **Size:** 9 articles (5★ / 4☆).
+- **Size:** 9 articles (6★ / 3☆).
 
 ## Cluster 2 — Sharing the Gospel
 
@@ -290,14 +292,14 @@ but marked Improve in CONTENT_AUDIT.md.
 | Cluster | Existing | New | Total |
 |---|---:|---:|---:|
 | 0 Meet Jesus | 3 | 3 | 6 |
-| 1 Testimony | 5 | 4 | 9 |
+| 1 Testimony | 6 | 3 | 9 |
 | 2 Sharing the Gospel | 5 | 7 | 12 |
 | 3 Making Disciples | 5 | 5 | 10 |
 | 4 Disciple Training | 4 | 5 | 9 (+ new hub) |
 | 5 Simple Church | 3 | 7 | 10 |
 | 6 Prayer & the Field | 4 | 4 | 8 |
 | 7 Leadership & Multiplication | 14 | 3 | 17 |
-| **Total** | **43\*** | **38** | **~76** |
+| **Total** | **44\*** | **37** | **~76** |
 
 \* 38 unique existing articles; Three Thirds, Four Fields training,
 Jesus the Leader, and 7 Stories each serve two clusters.
@@ -469,7 +471,9 @@ head-term/bridge singles with outsized strategic value.
 
 ### Phase 2 — ~25 articles
 Finish Testimony (~~3-minute~~ ✅ shipped 2026-07-28 as
-`/three-minute-testimony/`; at-work, testimony-vs-gospel still open), the Gospel
+`/three-minute-testimony/`; ~~at-work~~ ✅ shipped 2026-07-29 as
+`/sharing-your-testimony-at-work-or-in-church/`; testimony-vs-gospel still
+open), the Gospel
 situational set (work, family, questions, introverts, 4 Responses
 expansion), Making Disciples support (one-on-one, follow-up,
 obedience-based, questions), Training support (curriculum, Jesus

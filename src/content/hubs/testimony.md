@@ -12,6 +12,7 @@ key_articles:
   - "/how-to-write-your-testimony/"
   - "/15-second-testimony-examples-ignite-your-faith/"
   - "/three-minute-testimony/"
+  - "/sharing-your-testimony-at-work-or-in-church/"
   - "/testimony-in-the-bible-20-verses-to-ignite-your-faith/"
   - "/the-power-of-sharing-your-testimony-scripture-7-biblical-reasons-you-cant-stay-silent/"
   - "/3-circles/"
