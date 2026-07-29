@@ -29,6 +29,7 @@ hero_image: "/wp-content/uploads/2025/11/two-young-men-sharing-their-faith-in-Je
 hero_image_alt: "Two young men in conversation over coffee, one gesturing as he talks"
 article_cta:
   type: lab
+  placement: inline
   stakes_headline: "Twenty verses memorized won't get you to say a single word out loud on their own."
   bridge_copy: "Knowing these verses doesn't make you fluent in using them. A lab is where that knowledge turns into skill, through shared practice."
 notes: >
@@ -83,6 +84,7 @@ notes: >
 ---
 
 import ScriptureBlock from '../../components/article/ScriptureBlock.astro';
+import ArticleCTAInline from '../../components/article/ArticleCTAInline.astro';
 import ArticleImage from '../../components/article/ArticleImage.astro';
 import PracticeCard from '../../components/article/PracticeCard.astro';
 
@@ -337,6 +339,8 @@ You can use this verse when: you're weighing the cost of public acknowledgment o
 David's psalm of thanksgiving commands us to broadcast God's deeds — not keep them private. Testimony in the Bible is how the nations learn what the Lord has done.
 
 You can use this verse when: sharing testimony for the purpose of mobilizing others for mission, reminding them that your story can spark movement.
+
+<ArticleCTAInline frontmatter={frontmatter} />
 
 ## The Power of Your Personal Testimony Today
 
