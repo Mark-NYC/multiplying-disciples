@@ -72,8 +72,10 @@ but marked Improve in CONTENT_AUDIT.md.
   the 15-second → three-minute → written practice ladder) · ★ Sharing
   Your Testimony at Work or in Church
   (`/sharing-your-testimony-at-work-or-in-church/`, shipped 2026-07-29;
-  the situational guide to the two settings people ask about) · ☆
-  Testimony vs. Gospel: What's the Difference (bridge to Cluster 2).
+  the situational guide to the two settings people ask about) · ★
+  Testimony vs. Gospel (`/testimony-vs-gospel/`, shipped 2026-07-29; the
+  bridge to Cluster 2 — owns "testimony vs gospel" / "difference between
+  testimony and gospel", the distinction the pillar only touches briefly).
 - **Linking:** every supporting article links up to the pillar and
   sideways to the 15-Second tool; pillar links forward to How to
   Share the Gospel.
@@ -472,8 +474,9 @@ head-term/bridge singles with outsized strategic value.
 ### Phase 2 — ~25 articles
 Finish Testimony (~~3-minute~~ ✅ shipped 2026-07-28 as
 `/three-minute-testimony/`; ~~at-work~~ ✅ shipped 2026-07-29 as
-`/sharing-your-testimony-at-work-or-in-church/`; testimony-vs-gospel still
-open), the Gospel
+`/sharing-your-testimony-at-work-or-in-church/`; ~~testimony-vs-gospel~~
+✅ shipped 2026-07-29 as `/testimony-vs-gospel/` — Cluster 1 is now
+complete), the Gospel
 situational set (work, family, questions, introverts, 4 Responses
 expansion), Making Disciples support (one-on-one, follow-up,
 obedience-based, questions), Training support (curriculum, Jesus
