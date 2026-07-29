@@ -58,6 +58,64 @@ article_cta:
 ### Opting out — `type: none`
 Renders nothing. Use for pages whose body already is the CTA.
 
+## Placement — end (default) or inline
+
+A CTA can render in one of two places, controlled by
+`article_cta.placement`:
+
+- **`end`** (default) — the layout renders the CTA after the body,
+  below the Related Articles / Tools closing boxes. This is the
+  historical position; every article that doesn't set `placement` keeps
+  it, unchanged.
+- **`inline`** — the CTA moves **up into the reading flow**, so more
+  readers see it before they stop scrolling. The layout renders **no**
+  end CTA; instead you place the CTA in the body yourself. It is still
+  exactly one CTA per article.
+
+There is still only ever one CTA. `placement: inline` and `end` are
+mutually exclusive by construction: the flag tells the layout whether to
+render the end CTA, and the inline component renders the in-body one.
+
+### How to place an inline CTA (`.mdx` only)
+
+1. In frontmatter, set `placement: inline` inside the `article_cta`
+   block:
+
+   ```yaml
+   article_cta:
+     type: lab
+     placement: inline
+     stakes_headline: "…"
+     bridge_copy: "…"
+   ```
+
+2. In the body, import the inline component and drop it at the spot you
+   want the CTA — a natural pause between sections, ideally after the
+   reader has enough context to act (often a third to halfway down,
+   where the article pivots from "what/why" to "how/now"):
+
+   ```mdx
+   import ArticleCTAInline from '../../components/article/ArticleCTAInline.astro';
+
+   …first sections…
+
+   <ArticleCTAInline frontmatter={frontmatter} />
+
+   …rest of the article…
+   ```
+
+`frontmatter` is Astro's built-in MDX variable, so the component reads
+the article's own `article_cta` block and `slug` — no CTA copy is
+duplicated in the body, and the UTM content tag is identical to what the
+end CTA would emit. All the type/copy/image rules above apply unchanged;
+only the position moves.
+
+**Two things to keep in sync** (they sit right next to each other, so
+this is easy): setting `placement: inline` without placing
+`<ArticleCTAInline>` leaves the article with **no** CTA; placing the
+component without the flag renders **two**. The default `end` behavior
+needs neither.
+
 ## Fallback logic (no `article_cta` block at all)
 
 - Editorial article → **Lab CTA** with default copy

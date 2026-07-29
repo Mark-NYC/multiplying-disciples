@@ -26,13 +26,50 @@ checklist below.
    Calm and person-first: no tag stacks, no category pills, no SEO
    clutter.
 3. **Share row** — small icon links (skipped on utility pages).
-4. **Table of contents** — automatic for 3+ H2s; opt out per-article
+4. **Article intro** — the one visibly-larger opening paragraph that
+   answers the article's main search intent. Author it in the
+   frontmatter `intro` field and the layout renders it **above** the
+   table of contents, so the answer the reader came for sits before the
+   contents box. (Legacy fallback: an inline `<ArticleIntro>` at the top
+   of the body still works and renders just *below* the TOC — use it
+   only when the opening needs inline links. See "Article intro" below.)
+5. **Table of contents** — automatic for 3+ H2s; opt out per-article
    with `hide_toc: true`.
-5. **Body** — 44rem reading column; markdown/MDX. Body headings start
-   at `##`.
-6. **Hub link, Related Articles (max 3), Tools for this** — quiet
+6. **Body** — 44rem reading column; markdown/MDX. Body headings start
+   at `##`. An article can place its single CTA here, up in the reading
+   flow, with `article_cta.placement: inline` + `<ArticleCTAInline>`
+   (see CTA_GUIDE.md, "Placement") instead of leaving it at the end.
+7. **Hub link, Related Articles (max 3), Tools for this** — quiet
    closing boxes, only when configured in frontmatter.
-7. **One ArticleCTA** — see CTA_GUIDE.md. Never more than one.
+8. **One ArticleCTA** — see CTA_GUIDE.md. Never more than one. Renders
+   here at the end by default; with `placement: inline` it moves up into
+   the body (step 6) and nothing renders here.
+
+## Article intro
+
+Every article opens with one visibly-larger paragraph that answers the
+main thing the reader searched for. Author it in the frontmatter `intro`
+field:
+
+```yaml
+intro: >-
+  One paragraph, plain text, that answers the article's main search
+  intent in the first few sentences.
+```
+
+The layout renders it **above** the table of contents, so the answer
+sits before the contents box and a reader sees it the moment the page
+loads. Rules:
+
+- **Exactly one, and pick one authoring path.** Set the frontmatter
+  `intro` *or* keep an inline `<ArticleIntro>` in the body — never both
+  (that renders two intros).
+- **Plain text.** The field is a string, so it can't carry inline
+  links. When the opening genuinely needs a link, keep the inline
+  `<ArticleIntro>` component (it renders just below the TOC) instead.
+- **New articles use the field**; legacy articles are migrated to it
+  article-by-article during the content audit. An un-migrated article
+  keeps its inline `<ArticleIntro>` and is unaffected.
 
 ## Frontmatter options
 
@@ -47,6 +84,7 @@ Common optional fields:
 | `hero_eyebrow` | rare — only when it adds context the breadcrumb/H1 don't ("Field Guide", "Case Study") |
 | `hero_subheading` | one supporting sentence under the H1 |
 | `hero_image` / `hero_image_alt` / `hero_image_caption` | the lead visual; the ONLY source of the hero image (og_image is metadata-only) |
+| `intro` | the opening search-intent paragraph, rendered by the layout **above** the table of contents. Plain text, one paragraph. Preferred over the inline `<ArticleIntro>` for new articles; see "Article intro" |
 | `og_image` | social-card image; also the thumbnail on /blog/ and hub lists |
 | `date` / `updated` | drive the meta line and list sorting |
 | `hub` | hub filename slug, e.g. `testimony` — drives breadcrumb + hub link |
@@ -75,7 +113,8 @@ global.css); both belong to the same visual family.
 
 | Component | Use for | Restraint rule |
 | --- | --- | --- |
-| `ArticleIntro` | the one visibly-larger opening paragraph | exactly 1, immediately after the hero |
+| `ArticleIntro` | the one visibly-larger opening paragraph, rendered *below* the TOC | legacy/inline option; prefer the frontmatter `intro` field (renders above the TOC). Use this only when the opening needs inline links. Exactly 1; never combine with a frontmatter `intro` |
+| `ArticleCTAInline` | places the article's single CTA mid-body, in the reading flow | requires `article_cta.placement: inline`; see CTA_GUIDE.md |
 | `ArticleImage` | a supporting image + relevance caption (`wide` for a desktop breakout) | captions explain relevance, never invent specifics |
 | `InsightCard` | key idea, definition, framework, summary (required `label`; optional `accent`/`icon` for parallel named categories) | 0–2 per normal article, ~1 per 600–900 words max |
 | `PracticeCard` | one concrete action for the reader | 0–1 per article |

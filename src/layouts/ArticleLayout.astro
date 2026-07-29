@@ -19,6 +19,8 @@ import TableOfContents from '../components/TableOfContents.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import ArticleHero from '../components/article/ArticleHero.astro';
 import ArticleCTA from '../components/article/ArticleCTA.astro';
+import ArticleIntro from '../components/article/ArticleIntro.astro';
+import { ctaContentTag } from '../lib/cta';
 import '../styles/article.css';
 
 interface Heading {
@@ -96,8 +98,15 @@ const articleCta = data.article_cta ?? (isUtilityPage ? { type: 'none' as const 
 
 // utm_content tag for the end-of-article CTA's lab link, following the
 // "page-slug__cta-level__placement" convention in
-// ECOSYSTEM_GROWTH_STRATEGY.md.
-const ctaContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__article-cta`;
+// ECOSYSTEM_GROWTH_STRATEGY.md. Shared with the inline CTA
+// (ArticleCTAInline) so an in-flow CTA tracks identically.
+const ctaTag = ctaContentTag(data.slug);
+
+// CTA placement: an article can move its single CTA up into the reading
+// flow by setting `article_cta.placement: inline` and dropping an
+// <ArticleCTAInline> in the body (see CTA_GUIDE.md). When it does, the
+// layout renders no end-of-article CTA — there is still exactly one.
+const ctaPlacement = (articleCta && 'placement' in articleCta ? articleCta.placement : undefined) ?? 'end';
 ---
 
 <BaseLayout
@@ -152,6 +161,7 @@ const ctaContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__article-c
 
       <div class="fm-article">
         {!isUtilityPage && <ShareButtons url={data.canonical} title={data.title} />}
+        {data.intro && <ArticleIntro>{data.intro}</ArticleIntro>}
         {!data.hide_toc && <TableOfContents headings={headings} />}
         <slot />
       </div>
@@ -168,7 +178,7 @@ const ctaContentTag = `${data.slug.replace(/^\/|\/$/g, '')}__training__article-c
       {data.related_tools.length > 0 && <ToolCTA tools={data.related_tools} />}
     </div>
 
-    <ArticleCTA articleCta={articleCta} contentTag={ctaContentTag} />
+    {ctaPlacement !== 'inline' && <ArticleCTA articleCta={articleCta} contentTag={ctaTag} />}
   </div>
 </BaseLayout>
 

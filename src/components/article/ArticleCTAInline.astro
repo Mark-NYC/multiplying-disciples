@@ -1,0 +1,36 @@
+---
+// ArticleCTAInline — the same canonical CTA as ArticleCTA, placed
+// mid-article in the reading flow instead of at the very end, so more
+// readers see it. See CTA_GUIDE.md ("Placement").
+//
+// Use it ONLY together with `article_cta.placement: inline` in the
+// article's frontmatter: that flag tells the layout to skip the
+// end-of-article CTA, so the one it renders here stays the article's
+// single CTA. Setting the flag without placing this component leaves
+// the article with no CTA; placing this without the flag renders two.
+//
+// Authoring (in an .mdx body, at the spot you want the CTA — a natural
+// pause between sections works best):
+//
+//   import ArticleCTAInline from '../../components/article/ArticleCTAInline.astro';
+//
+//   <ArticleCTAInline frontmatter={frontmatter} />
+//
+// `frontmatter` is Astro's built-in MDX variable, so the component
+// reads the article's own `article_cta` block and `slug` — no CTA
+// config is duplicated in the body, and the UTM content tag matches
+// exactly what an end CTA would emit.
+import ArticleCTA from './ArticleCTA.astro';
+import { ctaContentTag } from '../../lib/cta';
+
+interface Props {
+  frontmatter: {
+    slug: string;
+    article_cta?: Parameters<typeof ArticleCTA>[0]['articleCta'];
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<ArticleCTA articleCta={frontmatter.article_cta} contentTag={ctaContentTag(frontmatter.slug)} />
