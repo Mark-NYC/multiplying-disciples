@@ -39,8 +39,14 @@ schema_images:
   - "/images/how-to-share-your-testimony/how-to-share-your-testimony.webp"
   - "/images/how-to-share-your-testimony/share-your-testimony-two-men-talking.webp"
 hero_subheading: "Your story is one of the simplest tools you have for starting a spiritual conversation. Here is how to shape it and say it out loud."
+intro: >-
+  Sharing your testimony means telling the story of what your life was
+  like before you followed Jesus, how you met Him, and what has changed
+  since, told in your own words and short enough to fit inside a normal
+  conversation.
 article_cta:
   type: tool
+  placement: inline
   stakes_headline: "Practice your testimony now so you are ready when the conversation opens."
   bridge_copy: "The 15-second testimony gives you a short, repeatable version of your story that you can practice until it feels natural, so you are not searching for words in the moment."
   image: "/wp-content/uploads/2025/11/short-christian-testimony-examples.webp"
@@ -64,15 +70,13 @@ notes: >
   override (see CTA_GUIDE.md).
 ---
 
-import ArticleIntro from '../../components/article/ArticleIntro.astro';
+import ArticleCTAInline from '../../components/article/ArticleCTAInline.astro';
 import InsightCard from '../../components/article/InsightCard.astro';
 import PracticeCard from '../../components/article/PracticeCard.astro';
 import WarningCard from '../../components/article/WarningCard.astro';
 import ScriptureBlock from '../../components/article/ScriptureBlock.astro';
 import PullQuote from '../../components/article/PullQuote.astro';
 import FieldNoteImage from '../../components/article/FieldNoteImage.astro';
-
-<ArticleIntro>Sharing your testimony means telling the story of what your life was like before you followed Jesus, how you met Him, and what has changed since, told in your own words and short enough to fit inside a normal conversation.</ArticleIntro>
 
 If you remember one thing from this page, remember the shape: **before, how you met Jesus, and after.** Three movements, in that order, ending with a question that hands the conversation back to the other person.
 
@@ -149,6 +153,8 @@ The man Jesus freed from a legion of demons wanted to leave everything and follo
 </ScriptureBlock>
 
 Notice the center of gravity: *how much the Lord has done for you.* That's the through-line. Keep the focus on what Jesus has done.
+
+<ArticleCTAInline frontmatter={frontmatter} />
 
 ## Say it out loud: where and how to share it
 

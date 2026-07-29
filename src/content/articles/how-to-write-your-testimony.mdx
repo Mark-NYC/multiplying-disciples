@@ -30,8 +30,16 @@ schema_images:
   - "/images/how-to-write-your-testimony/how-to-write-your-testimony.webp"
   - "/images/how-to-write-your-testimony/man-sharing-his-testimony-in-the-park.webp"
 hero_subheading: "Getting your story onto paper is the part most people skip. Here is a simple way to write it in three parts, one line at a time."
+intro: >-
+  To write your testimony, tell your story in three parts: what your
+  life was like before you followed Jesus, how you met Him, and what has
+  changed since. Write two or three honest sentences for each part, and
+  keep it short enough to say in a normal conversation. If you plan to
+  share it in a conversation, prepare a simple question that gives the
+  other person room to respond.
 article_cta:
   type: tool
+  placement: inline
   stakes_headline: "A testimony that stays on the page never opens a single conversation."
   bridge_copy: "The 15-second testimony turns the draft you just wrote into a short version you can practice out loud until it feels natural."
   image: "/wp-content/uploads/2025/11/short-christian-testimony-examples.webp"
@@ -64,7 +72,7 @@ notes: >
   would cannibalize it.
 ---
 
-import ArticleIntro from '../../components/article/ArticleIntro.astro';
+import ArticleCTAInline from '../../components/article/ArticleCTAInline.astro';
 import FieldNoteImage from '../../components/article/FieldNoteImage.astro';
 import InsightCard from '../../components/article/InsightCard.astro';
 import PracticeCard from '../../components/article/PracticeCard.astro';
@@ -78,8 +86,6 @@ import PullQuote from '../../components/article/PullQuote.astro';
   testimony out for the first time would fit well after the "Write it
   in five steps" section. Do not invent one; see FIELD_NOTE_TEMPLATE.md.
 */}
-
-<ArticleIntro>To write your testimony, tell your story in three parts: what your life was like before you followed Jesus, how you met Him, and what has changed since. Write two or three honest sentences for each part, and keep it short enough to say in a normal conversation. If you plan to share it in a conversation, prepare a simple question that gives the other person room to respond.</ArticleIntro>
 
 That is the whole framework. The rest of this page is just how to fill it in, one line at a time, and what to cut.
 
@@ -138,6 +144,8 @@ Here is an illustrative draft showing how the three parts can fit together. Your
 Notice how short the "before" is. It gives just enough to make the change believable and then moves on. The most words land on the turn and the after. This draft ends with a question, which is one possible conversational bridge rather than a required part of the testimony. That's the balance you're aiming for.
 
 For more patterns to imitate, the [testimonies recorded in Scripture](/testimony-in-the-bible-20-verses-to-ignite-your-faith/) are worth reading with your own draft open beside them.
+
+<ArticleCTAInline frontmatter={frontmatter} />
 
 ## Common mistakes to edit out
 
