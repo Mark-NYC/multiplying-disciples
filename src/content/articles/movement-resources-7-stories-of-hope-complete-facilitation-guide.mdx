@@ -30,6 +30,7 @@ hero_image_alt: "Infographic listing all seven Stories of Hope in numbered order
 hero_image_caption: "The seven stories, in order, with their Bible references — the whole process at a glance."
 article_cta:
   type: lab
+  placement: inline
   stakes_headline: "Knowing all seven stories won't help if you never sit down and lead someone through them."
   bridge_copy: "Understanding a process on paper and actually facilitating it with a real person are two different skills. A lab is where the second one gets built, through practice with other people."
 notes: >
@@ -127,6 +128,7 @@ notes: >
 ---
 
 import ArticleIntro from '../../components/article/ArticleIntro.astro';
+import ArticleCTAInline from '../../components/article/ArticleCTAInline.astro';
 import ArticleImage from '../../components/article/ArticleImage.astro';
 import InsightCard from '../../components/article/InsightCard.astro';
 import WarningCard from '../../components/article/WarningCard.astro';
@@ -386,6 +388,8 @@ Use this session to help people **repent and turn to Jesus in faith**.
 Include a solid Gospel presentation asking people to make a decision to follow Jesus. This is where you ask: "Are you the younger brother who needs to come home? Are you the older brother who's been close but resentful? Either way—will you surrender your life to Jesus today?"
 
 This is typically included when you ask "What do you need to do this week?" The answer should be: "Repent and believe in Jesus."
+
+<ArticleCTAInline frontmatter={frontmatter} />
 
 ## Critical Success Factors
 
