@@ -42,6 +42,16 @@ const externalLink = z.object({
 const articleCta = z
   .object({
     type: z.enum(['lab', 'tool', 'community', 'none']).default('lab'),
+    // Where the CTA renders in the article:
+    //   - "end" (default): the layout renders it after the body, above
+    //     the Related Articles / Tools closing boxes — the historical
+    //     position, unchanged for every article that doesn't set this.
+    //   - "inline": the layout does NOT render an end CTA; the author
+    //     places one mid-article, in the reading flow, with
+    //     <ArticleCTAInline frontmatter={frontmatter} />. Higher on the
+    //     page means more readers see it. Still exactly one CTA per
+    //     article — see CTA_GUIDE.md ("Placement").
+    placement: z.enum(['end', 'inline']).default('end'),
     stakes_headline: z.string().optional(),
     bridge_copy: z.string().optional(),
     // Optional per-article override for the CTA lead image. Each CTA
@@ -161,6 +171,15 @@ const articles = defineCollection({
     hero_image: z.string().optional(),
     hero_image_alt: z.string().optional(),
     hero_image_caption: z.string().optional(),
+    // The one visibly-larger opening paragraph that answers the
+    // article's main search intent (the "ArticleIntro" paragraph). When
+    // set here, the layout renders it ABOVE the table of contents, so
+    // the answer a reader came for sits before the contents box — see
+    // ArticleLayout.astro. Plain text (one paragraph); when the opening
+    // needs inline links, keep the inline <ArticleIntro> component in
+    // the body instead of this field. Don't set both — that renders two
+    // intros. See ARTICLE_SYSTEM.md ("Article intro").
+    intro: z.string().optional(),
     // Opt out of the automatic "In This Article" table of contents that
     // ArticleLayout otherwise renders for any article with 3+ H2s.
     // Off (TOC shows) by default everywhere; only set true when an
