@@ -2,7 +2,7 @@
 location: "Fort Leonard Wood, Missouri"
 headline: "A workout struck up a conversation about Jesus"
 related_article: "/movement-resources/7-stories-of-hope-complete-facilitation-guide/"
-approved: false
+approved: true
 ---
 
 Two veterans crossed paths while exercising, and a lighthearted exchange
