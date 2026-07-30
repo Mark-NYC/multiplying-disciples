@@ -113,16 +113,7 @@ import ArticleImage from '../../components/article/ArticleImage.astro';
 import PracticeCard from '../../components/article/PracticeCard.astro';
 import InsightCard from '../../components/article/InsightCard.astro';
 import PullQuote from '../../components/article/PullQuote.astro';
-
-{/*
-  TODO (Field Note): once a real, approved testimony story exists in
-  src/content/field-notes/, add:
-    import FieldNote from '../../components/article/FieldNote.astro';
-  and place <FieldNote id="your-id" /> after the "Quick List" section
-  below, before the FAQ â€” this is the best Field-Note fit on the whole
-  site (a real testimony, on the testimony article). Do not invent one
-  in the meantime; see FIELD_NOTE_TEMPLATE.md.
-*/}
+import FieldNote from '../../components/article/FieldNote.astro';
 
 <ArticleIntro>Learn how to share what Jesus has done in your life through a short testimony that is [biblical](/testimony-in-the-bible-20-verses-to-ignite-your-faith/), clear, and easy to reproduce. Then use the examples below to write your own.</ArticleIntro>
 
@@ -174,6 +165,8 @@ Here are some examples of a short 15 second testimony format that model **commun
 > When life crumbled around me, I felt helpless and alone. But God's presence became my refuge, giving me strength to face every trial. I surrendered my life to Jesus. Now, I walk with unwavering faith, knowing He is with me.
 
 [Watch this testimony example on YouTube](https://www.youtube.com/watch?v=TOjV3B8vEJo)
+
+<FieldNote id="fort-leonard-wood-veterans-01" />
 
 <ArticleCTAInline frontmatter={frontmatter} />
 
