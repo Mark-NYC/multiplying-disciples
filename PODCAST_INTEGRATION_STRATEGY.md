@@ -33,9 +33,15 @@ Consequence, stated plainly so nothing here is mistaken for guesswork:
 | Evergreen **scoring model** (Step 4) | **Complete** | Method, not data |
 | Tiered roadmap (Step 6) | **Complete** | Infra + article-side |
 | Per-article reception plan (Steps 8, 9) | **Complete** | Built from the repo |
-| Per-**episode** classification (Step 2) | **Scaffolded — needs feed** | Requires all ~223+ show notes |
-| **Top-20 evergreen** list (Step 4) | **Scaffolded — needs feed** | Requires scoring every episode |
-| Master-matrix **episode column** (Step 7) | **Scaffolded — needs feed** | Requires per-episode data |
+| Per-**episode** classification (Step 2) | **Done for recent 25 → PODCAST_EPISODE_MAP.md**; back-catalog needs full feed | rss.app export gave the last 25; anchor.fm serves all ~257 |
+| **Top-20 evergreen** list (Step 4) | **Scored for recent 25**; full Top-20 needs full feed | Same |
+| Master-matrix **episode column** (Step 7) | **Populated for recent 25** | Same |
+
+> **Update:** the recent 25 episodes have now been classified, scored,
+> and mapped from **real feed data** — see **PODCAST_EPISODE_MAP.md**.
+> The rss.app feed truncates to a recent window; capturing the full
+> ~257-episode archive needs the anchor.fm feed via the CI-cache Action
+> (§6, items 1–2).
 
 The catalog is **~223–257 episodes** (search results disagree; the RSS
 `<item>` count is authoritative), weekly, hosted by **Mark & Dave**
