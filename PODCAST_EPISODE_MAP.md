@@ -1,253 +1,215 @@
 # PODCAST_EPISODE_MAP.md
 
 The populated companion to PODCAST_INTEGRATION_STRATEGY.md — the rubric
-(§2), scoring model (§4), and master matrix (§7) from that doc, **run
-against real episode data**.
+(§2), scoring model (§4), and master matrix (§7) from that doc, run
+against the **full H3X catalog**.
 
 ## Data provenance & scope
 
-Source: the H3X rss.app feed export (`H3X__RSS_Viewer.pdf`), text
-extracted verbatim — **no episode content is guessed**. This export
-carries the **most recent 25 episodes** (≈"1 day ago" → "5 months
-ago"). rss.app's free feed truncates to a recent window; it is **not**
-the full ~257-episode archive. The remaining ~232 episodes (including
-#230 "Take or Toss," the testimony/field-story episodes, and the
-Four-Fields teaching episodes referenced elsewhere) need the full
-**anchor.fm** feed — the CI-cache Action in PODCAST_INTEGRATION_STRATEGY
-§6 is how we capture all of them.
+Source: the complete anchor.fm RSS feed, captured to the repo by the
+`Cache H3X Podcast Feed` GitHub Action (in `covo-multipliers`) and copied
+here as **`imports/h3x-feed.json`** for reproducibility. **261 items**
+(≈257 episodes + a trailer and a couple of intros), spanning **11 Apr
+2021 → 28 Jul 2026**. No episode content is guessed — descriptions are
+verbatim from the feed.
 
-Hosts observed: **Mark** and **Dave**, with recurring guests **Marcus**,
-**Chuck Wood**, **Dave Miller** (E-E-A-T signal — real practitioners).
+Per-episode data for **all 261** lives in **`PODCAST_EPISODE_CATALOG.csv`**
+(title, date, word count, voice, cluster, disposition, the seven
+dimension scores, IPS, tier, and a description excerpt). That CSV is the
+"spreadsheet-style master matrix" (Step 7) at full scale; this document
+is the editorial layer on top of it.
 
-### What this real sample confirms about the thesis
-
-Of 25 episodes, **23 are dispositions A/B/D** (embed / improve / split
-into existing articles) and only **2 are (C) new-article candidates**;
-**1** trends toward (E) podcast-only. That is the strategy's core claim,
-now evidenced: **the podcast overwhelmingly deepens existing articles —
-it does not justify one new page per episode.**
-
----
-
-## 1. Per-episode classification (Step 2, populated)
-
-Legend: **Disp.** = A embed · B improve · C new article · D split · E
-podcast-only. **Outputs**: 🔊 embed · ❓ FAQ entry · 📝 Field Note.
-
-| # | Episode (recency) | Disp. | Home article(s) — real slugs | Search intent supported | Outputs |
-|--|--|--|--|--|--|
-| 1 | **You Can't Recruit the Leaders You Need** (1d) | B | `5-surprising-ways-to-attract-multiplying-leaders`, `jesus-the-leader-...` | "how to raise up / find leaders" | 🔊❓ |
-| 2 | **If You Don't Know When to Stop, You Don't Understand the Work** (1w) | B | `how-to-train-disciples` (the "Leave" of MAWL), `how-to-make-disciples` | "when is a disciple ready to lead" | 🔊❓ |
-| 3 | **Charisma Can Fill a Room. Faithfulness Carries a Movement.** (2w) | B | `the-secret-ingredient-of-trustworthy-leaders`, CPM pillar / `the-power-of-multiplication-...` | "faithful vs charismatic leaders" | 🔊❓ |
-| 4 | **Why "Just Make Disciples" Isn't Enough** (3w) | D | `how-to-make-disciples` + `what-is-a-simple-church-...` + `four-fields-of-kingdom-growth` | "disciple-making vs church planting" | 🔊❓ |
-| 5 | **The Genius of The Two Church Model** (≈3w) | B | `what-is-a-simple-church-...`, `how-to-train-disciples` | "how to learn church by doing" | 🔊 |
-| 6 | **We Are Reading The New Testament Backwards** (4w) | B | `understanding-biblical-discipleship-...`, `unleashing-the-movement-...` (Paul/Ephesus) | "read NT as a movement story" | 🔊 |
-| 7 | **Leaders Grow Through Time With in The Boat** (1mo) | A | `how-to-train-disciples` (withness) | "learning ministry by doing it together" | 🔊📝 |
-| 8 | **The Rhythms of a Multiplier Can't Be Hacked** (1mo) | B | `the-3-core-habits-of-a-disciple`, `how-to-make-disciples` | "daily rhythms/habits of a disciple-maker" | 🔊📝 |
-| 9 | **Why We Do Scripture Deep Dives (And How to Run One)** (1mo) | B | `three-thirds` (the Word third), `understanding-biblical-discipleship-...` | "how to run a discovery Bible study / deep dive" | 🔊❓ |
-| 10 | **The 12 Habits of Highly Effective Disciples** (1mo) | B | `the-3-core-habits-of-a-disciple` (exact-fit), `understanding-biblical-discipleship-...` | "habits of a disciple" (Acts 2:36–47) | 🔊❓ |
-| 11 | **You Want Lost to Leader. But What's the Path?** (2mo) | **C** | *(new)* "The Lost-to-Leader Pathway" + interim: `how-to-make-disciples`, Clear Pathway | "how someone goes from lost to leader" | 🔊❓ |
-| 12 | **Disciple Making Collapses When Scripture Stops Being Foundational** (2mo) | B | `understanding-biblical-discipleship-...`, `what-are-the-commands-of-christ` | "role of Scripture in discipleship" | 🔊❓ |
-| 13 | **Are You Innovating Your Way Out of Disciple-Making Success?** (2mo) | B | `understanding-biblical-discipleship-...` / `how-to-make-disciples` | "what does disciple-making success look like" | 🔊❓ |
-| 14 | **Your Job is Not in The Way of Your Calling** (2mo) | **C** | *(new)* "Co-Vocational / Marketplace Disciple-Making" + `sharing-your-testimony-at-work-or-in-church` | "faith and work / marketplace ministry" | 🔊❓ |
-| 15 | **The Missing Piece Between Good Tools and Real Multiplication** (3mo) | A | `content-vs-systems-...` | "why training doesn't produce multiplication" | 🔊📝 |
-| 16 | **You Cannot Follow What You Cannot See** (3mo) | B | `how-to-train-disciples` (model/withness) | "why modeling beats explanation" | 🔊 |
-| 17 | **Movement or Movements? The Question That Exposes Your Heart** (4mo) | A | `breaking-down-barriers-...-objections` / CPM pillar | "burnout in movement work" | 🔊📝 |
-| 18 | **The NYPD Chief Who Jumped the Fence** (4mo) | A | `setting-the-stage-...-muddy-boots-...` ⚠️ *(merge candidate → Clear Pathway; confirm before embedding)*, `the-secret-ingredient-of-trustworthy-leaders` | "leaders fall to the level of their habits" | 🔊📝 |
-| 19 | **You're Overestimating This Year. Underestimating the Next Three.** (4mo) | B | `the-3-core-habits-of-a-disciple`, `4-stages-of-movement-...` | "realistic multiplication timeline" | 🔊 |
-| 20 | **Tribes: A Too Often Missing Layer in Movements** (4mo) | D | CPM pillar + `what-is-a-simple-church-...` + `discover-the-12-disciples-...` (Jesus formed a tribe in the Twelve) | "tribe / oikos layer in movements" | 🔊❓ |
-| 21 | **The Two Barriers Quietly Killing Your Momentum** (4mo) | B | `how-to-spot-a-lone-wolf-...`, `finding-persons-of-peace-...` | "stewarding networks vs chasing opportunities" | 🔊 |
-| 22 | **You Don't Have a Vision Problem. You Have a Habit Problem.** (5mo) | B | `the-3-core-habits-of-a-disciple` | "why vision fails without habits" | 🔊❓ |
-| 23 | **Gen Z. They'll Talk About Jesus. Then They Ghost You.** (5mo) | A | `finding-persons-of-peace-...`, `how-to-evangelize-...` | "following up with spiritually open people" | 🔊📝 |
-| 24 | **How to Actually Have Spiritual Conversations** (5mo) | B | `how-to-evangelize-...`, `how-to-share-the-gospel`, `the-three-circles-...` | "how to start a gospel conversation" | 🔊 + **tool** |
-| 25 | **19 Minutes to Stop Guessing What Matters Most in 2026** (5mo) | E→A | `action-plan` / `4-1-1` (if kept) | "focus on the right activity by phase" | (link only) |
-
-**Note on episode 24 — a tool gap it exposes:** the episode teaches the
-**Conversation Box** at `conversationquadrant.com` — a live CoVo tool
-**not featured anywhere on the Multiplying Disciples site.** Add it to
-the gospel cluster's tool set (it pairs naturally with 3 Circles) and to
-`/starter-tools/`. This is a "podcast reveals a missing asset" find, per
-strategy §3.
+**On the scores:** the CSV's IPS is a **transparent algorithmic
+first-pass** — each dimension is a keyword/signal proxy over the cleaned
+show notes (see `scratchpad/analyze.py` logic, summarized in §4 of the
+strategy doc). It is a *ranking aid, not a verdict*: scores compress
+(4.25–7.2) because every episode is competently produced. The Top-20
+below is **hand-curated** from the high-IPS candidates with real
+editorial judgment, not lifted raw from the sort.
 
 ---
 
-## 2. Evergreen scoring (Step 4, populated)
+## 1. Full-catalog shape (Step 1 / Step 3)
 
-`IPS = 0.20·Evergreen + 0.20·Search + 0.15·AI-cite + 0.15·OrigExp +
-0.10·Story + 0.10·Practical + 0.10·Strengthens`. Sorted high → low.
+**Voice:** 221 host episodes · **38 named-guest interviews** · 2 solo.
 
-| Rank | # | Episode | Ev | Se | AI | OE | St | Pr | Str | **IPS** | Tier |
-|--|--|--|--|--|--|--|--|--|--|--|--|
-| 1 | 8 | Rhythms of a Multiplier | 9 | 7 | 7 | 8 | 7 | 8 | 9 | **7.85** | T1 |
-| 2 | 10 | 12 Habits of Highly Effective Disciples | 9 | 8 | 8 | 7 | 4 | 8 | 9 | **7.75** | T1 |
-| 3 | 11 | Lost to Leader — What's the Path? | 9 | 8 | 7 | 8 | 4 | 8 | 8 | **7.65** | T1 |
-| 4 | 24 | How to Actually Have Spiritual Conversations | 9 | 8 | 7 | 7 | 4 | 9 | 8 | **7.60** | T1 |
-| 5 | 20 | Tribes: The Missing Layer | 9 | 7 | 8 | 8 | 5 | 6 | 7 | **7.40** | T1 |
-| 6 | 14 | Your Job Is Not in the Way of Your Calling | 9 | 8 | 7 | 8 | 4 | 6 | 6 | **7.25** | T1 |
-| 7 | 1 | You Can't Recruit the Leaders You Need | 8 | 7 | 7 | 8 | 4 | 7 | 8 | **7.15** | T1 |
-| 8 | 3 | Charisma vs Faithfulness | 9 | 6 | 8 | 7 | 4 | 6 | 8 | **7.05** | T1 |
-| 9 | 7 | Leaders Grow in the Boat | 7 | 5 | 6 | 9 | 9 | 7 | 7 | **6.95** | T2 |
-| 10 | 4 | Why "Just Make Disciples" Isn't Enough | 8 | 7 | 7 | 7 | 3 | 7 | 8 | **6.90** | T2 |
-| 11 | 17 | Movement or Movements? | 8 | 5 | 7 | 9 | 7 | 5 | 6 | **6.80** | T2 |
-| 12 | 9 | Scripture Deep Dives | 8 | 6 | 6 | 7 | 4 | 9 | 7 | **6.75** | T2 |
-| 13 | 2 | If You Don't Know When to Stop | 8 | 6 | 7 | 7 | 3 | 7 | 8 | **6.70** | T2 |
-| 14 | 22 | Vision Problem vs Habit Problem | 8 | 6 | 7 | 6 | 3 | 7 | 8 | **6.55** | T2 |
-| 15 | 5 | The Genius of the Two Church Model | 7 | 6 | 6 | 7 | 4 | 8 | 7 | **6.45** | T2 |
-| 16 | 15 | The Missing Piece (immersion debrief) | 7 | 5 | 6 | 8 | 6 | 6 | 7 | **6.40** | T2 |
-| 17 | 12 | Scripture Stops Being Foundational | 8 | 6 | 7 | 6 | 3 | 6 | 7 | **6.35** | T2 |
-| 18 | 23 | Gen Z Will Ghost You | 6 | 6 | 6 | 8 | 5 | 6 | 6 | **6.20** | T2 |
-| 19 | 18 | NYPD Chief / Muddy Boots | 6 | 5 | 6 | 6 | 8 | 6 | 6 | **6.00** | T2 |
-| 20 | 16 | You Cannot Follow What You Cannot See | 7 | 5 | 6 | 7 | 4 | 6 | 6 | **5.95** | T3 |
-| 21 | 13 | Innovating Out of Success | 7 | 5 | 7 | 7 | 3 | 5 | 6 | **5.90** | T3 |
-| 22 | 19 | Overestimate the Year | 7 | 5 | 6 | 6 | 3 | 6 | 6 | **5.70** | T3 |
-| 22 | 21 | The Two Barriers | 7 | 5 | 6 | 6 | 3 | 6 | 6 | **5.70** | T3 |
-| 24 | 6 | Reading the NT Backwards | 7 | 5 | 6 | 6 | 3 | 5 | 6 | **5.60** | T3 |
-| 25 | 25 | 19 Minutes for 2026 | 4 | 4 | 5 | 5 | 2 | 6 | 4 | **4.30** | E |
+**Primary cluster (heuristic tag; `cpm_leadership` is over-weighted by
+its large keyword set, but the direction is real):**
 
-**Top of the recent catalog (would be Top-20 candidates once the full
-archive is scored):** episodes 8, 10, 11, 24, 20, 14, 1, 3 — all IPS ≥
-7.0. They cluster hard around **habits/rhythms**, the **lost-to-leader
-pathway**, **leadership formation**, and **gospel conversations** — a
-map of where the podcast is strongest right now.
+| Cluster | Episodes | Site traffic rank |
+|---|--:|---|
+| CPM / Leadership / Movement | ~144 | #4 (deepest library, no center) |
+| Making Disciples | ~45 | #6 |
+| Disciple Training | ~38 | #8 (weakest, business-critical) |
+| Sharing the Gospel | ~17 | #1 (best CTR) |
+| Prayer & the Field (incl. co-vocational) | ~12 | #7 |
+| Simple Church | ~5 | #3 |
+| **Testimony** | **~0** | **#2 (17.5k impr., model cluster)** |
+| **Meet Jesus (12 Disciples etc.)** | **~0** | **#5 (116k impr., the front door)** |
+
+### The single most important finding: catalog ↔ traffic mismatch
+
+**The podcast is strongest exactly where the site is weakest for
+traffic, and silent exactly where the site's traffic lives.**
+
+- **~55% of the catalog is CPM/leadership/movement** — the site's
+  deepest but *centerless, low-per-page-traffic* library. The audio to
+  finally build the **CPM pillar** and make MD the most authoritative,
+  practitioner-backed CPM site on the web is already recorded, many
+  times over. This is the biggest consolidation opportunity on the site.
+- **The two biggest traffic assets have no matching episode.** 12
+  Disciples (116k impr.) and the Testimony triangle (17.5k impr.) can't
+  be "deepened by the matching episode" — there basically isn't one.
+  **Do not wait on the podcast to fix their CTR/conversion; that's an
+  on-page job** (title/meta pass, Field Notes), per TOPICAL_AUTHORITY.md.
+- **Testimony is a genuine content gap in the catalog, not just the
+  site.** Worth a prompt: record 1–2 testimony-teaching episodes (or
+  mine the field-story episodes below as testimony *examples*).
 
 ---
 
-## 3. Cross-cutting strategic findings (Step 3, from real data)
+## 2. Top-20 Evergreen Episodes (Step 4, hand-curated)
 
-1. **A cornerstone is missing: "The Lost-to-Leader Pathway."** The theme
-   recurs across episodes 11, 1, 3, 8, 16 and CoVo already ships
-   `from-lost-to-leader.html`. There is **no** MD article owning this
-   pathway. This is the single highest-value **(C) new article** the
-   recent catalog reveals — build it as the spine that connects
-   evangelism → discipleship → training → leadership, with 4–5 episodes
-   embedded along its stages. Highest ROI new page.
+Chosen for evergreen value **and** a clear article home, deliberately
+spread across clusters (not stacked on the biggest vein). Disposition:
+A embed · B improve · C new article · D split; 📝 = also a Field Note.
 
-2. **"Habits/rhythms of a disciple" is a pillar waiting to happen.**
-   Episodes 8, 10, 19, 22 all press the same evergreen head term.
-   `the-3-core-habits-of-a-disciple` should be promoted to pillar-grade
-   and become the anchor for all four embeds + an FAQ block. Cheap,
-   high-authority consolidation.
-
-3. **The weakest cluster (Disciple Training) gets rich real support.**
-   Episodes 2, 5, 7, 15, 16 are all "withness / MAWL / see-it-lived"
-   teaching — exactly the Training cluster's query family. This is the
-   audio that finally lets the Training hub + pillar (strategy §6 item
-   4) launch with practitioner evidence instead of theory.
-
-4. **A second (C) candidate: Co-Vocational / Marketplace disciple-
-   making** (episode 14, plus the recurring "co-vocational lifestyle"
-   framing throughout). No MD home; real search demand ("faith and
-   work"); on-brand for CoVo. Pair with
-   `sharing-your-testimony-at-work-or-in-church`.
-
-5. **Tool gap — the Conversation Box** (`conversationquadrant.com`,
-   episode 24) is live but absent from the MD site. Add to the gospel
-   cluster and `/starter-tools/`.
-
-6. **Field-Note harvest (approve, then wire in):** episode 7 (the "in
-   the boat" NYC→CT trip), 15 (NY Covo Immersion), 17 (three leaders'
-   burnout stories), 23 (Gen Z on the ground in NY/OKC), 18 (NYPD chief
-   illustration). Five real stories → five Field Notes for the
-   currently-empty Field-Note column of the heatmap.
-
-7. **Merge dependency:** episode 18's best home is the Muddy Boots
-   article, which is slated to **merge into Clear Pathway**
-   (CONTENT_GRAPH.md). Resolve that merge *before* embedding, or the
-   embed lands on a disappearing page.
+| # | Episode | Disp. | Home (real slug) | Why it's Top-20 |
+|--:|--|--|--|--|
+| 1 | **The One Hebrew Word That Will Change How You See Work** | C | *(new)* Co-Vocational Disciple-Making | Definitional, AI-citable anchor for the co-vocational cornerstone |
+| 2 | **Cookies, Clinics, and Calling: A CoVocational Kingdom Story** | A📝 | *(new)* Co-Vocational + `finding-persons-of-peace-...` | Flagship co-vocational field story |
+| 3 | **The Rise of Covo Multipliers: Priscilla & Aquila Blueprint** | B | *(new)* Co-Vocational (pairs w/ CoVo `aquila-and-priscilla-pattern.html`) | Names the biblical pattern the whole brand is built on |
+| 4 | **How to Host a Lost and Found Party** | B | `how-to-evangelize-...`, `how-to-share-the-gospel` | Reproducible hospitality→outreach; evergreen + practical |
+| 5 | **The Rhythms of a Multiplier Can't Be Hacked** | B📝 | `the-3-core-habits-of-a-disciple` | Habits-pillar anchor; Topgolf-prayer story |
+| 6 | **The 12 Habits of Highly Effective Disciples** | B | `the-3-core-habits-of-a-disciple` | Acts 2 exegesis → FAQ + pull-quote |
+| 7 | **Why We Do Scripture Deep Dives (And How to Run One)** | B | `three-thirds`, `understanding-biblical-discipleship-...` | The Discovery-Bible-Study method, practical |
+| 8 | **We Are Reading The New Testament Backwards** | B | `understanding-biblical-discipleship-...` | Paradigm frame; high AI-citation |
+| 9 | **Charisma Can Fill a Room. Faithfulness Carries a Movement.** | B | `the-secret-ingredient-of-trustworthy-leaders` | "Leaders are the missing link" pull-quote |
+| 10 | **Acts And The Movement of God — with Steve Addison** | B | `disciple-making-movement-dmm-...` / CPM pillar | **E-E-A-T**: a leading DMM author on the record |
+| 11 | **What Actually Starts Movements — with Emmanuel Prinz** | B | `disciple-making-movement-dmm-...` | **E-E-A-T**: movement *researcher* → citable |
+| 12 | **Tribe Is the Model** (+ "Tribes: A Missing Layer") | D | CPM pillar + `what-is-a-simple-church-...` + oikos gap | Original framework; feeds the missing oikos triangle |
+| 13 | **Jesus: a Master Class in Leadership Development** | B | `jesus-the-leader-...` | The best fit for the Meet-Jesus cluster |
+| 14 | **What Paul Did Daily for Two Years in Asia Minor** | B | `unleashing-the-movement-...` (Paul/Ephesus) | Direct match to the Ephesus article |
+| 15 | **The Apostolic Challenge: Start, Strengthen, Sustain** | B | `apostles-meaning-...`, `unlocking-the-power-of-apest` | Reproducible apostolic framework |
+| 16 | **What is a Strategy Coordinator?** (+ "Stewarding Multiplication as an SC") | B | `movement-resources-strategy-coordinator` | That page already links episodes — upgrade to embeds |
+| 17 | **How Jesus Multiplied Muddy Boots Leaders** | D | Muddy Boots ⚠️→ Clear Pathway | Resolve the merge first (CONTENT_GRAPH.md) |
+| 18 | **Leaders Grow Through Time With in The Boat** | A📝 | `how-to-train-disciples` (withness/MAWL) | NYC→CT trip story; training cluster |
+| 19 | **How Prophecy & Healing Led Me to the Mission Field — David Campbell** | A📝 | Testimony cluster + `finding-persons-of-peace-...` | Flagship field testimony (Berlin/Muslims) |
+| 20 | **Strategic Persistence: Plan for Decades, Live for Today** | B | `4-stages-of-movement-...` | Long-obedience frame for the movement timeline |
 
 ---
 
-## 4. Master matrix rows (Step 7, populated for the recent 25)
+## 3. Proven veins & how to consolidate them (Step 3 / Step 6)
 
-Episode · Existing Article (real slug) · New Article? · Hub · Cluster ·
-CTA · Embed Priority · Evergreen (IPS) · Notes.
+1. **Co-Vocational / Marketplace — the #1 new-content signal (17+
+   episodes).** One Hebrew Word · Cookies, Clinics & Calling · Margin Is
+   Your Superpower · Your Job Is Not in the Way · The Priscilla & Aquila
+   Pattern · Rise of Covo Multipliers · Reproducing Business Modeling
+   CoVo · Redeeming Time Through Hubs · Urban Rebar (Live/Work/Play).
+   The site has **no** article; CoVo already ships
+   `aquila-and-priscilla-pattern.html`; the brand is literally
+   *co-vocational*. **Build the "Co-Vocational / Marketplace
+   Disciple-Making" cornerstone** and embed 4–6 of these across its
+   sections. Highest-ROI new page in the catalog.
 
-| Episode | Existing Article | New? | Hub / Cluster | CTA today | Priority | IPS | Notes |
-|--|--|--|--|--|--|--|--|
-| Rhythms of a Multiplier | `the-3-core-habits-of-a-disciple` | no | disciple-making | lab | **P1** | 7.85 | Topgolf-prayer story → Field Note |
-| 12 Habits | `the-3-core-habits-of-a-disciple` | no | disciple-making | lab | **P1** | 7.75 | Acts 2 exegesis → FAQ + PullQuote |
-| Lost to Leader | *(build)* Lost-to-Leader Pathway | **yes** | disciple-training | tool→KMT | **P1** | 7.65 | New cornerstone; embed across stages |
-| Spiritual Conversations | `how-to-evangelize-...` | no | share-the-gospel | tool | **P1** | 7.60 | Adds Conversation Box tool |
-| Tribes | CPM pillar + `what-is-a-simple-church-...` | no | CPM / simple-church | community | **P1** | 7.40 | Feeds the oikos gap |
-| Your Job / Calling | *(build)* Co-Vocational Disciple-Making | **yes** | disciple-making | lab | **P1** | 7.25 | On-brand for CoVo |
-| Recruit Leaders | `5-surprising-ways-to-attract-multiplying-leaders` | no | CPM | community | **P1** | 7.15 | Answers "how do people discover they're leaders" |
-| Charisma vs Faithfulness | `the-secret-ingredient-of-trustworthy-leaders` | no | CPM | community | P2 | 7.05 | "Leaders = missing link" pull-quote |
-| Leaders in the Boat | `how-to-train-disciples` | no | disciple-training | lab | P2 | 6.95 | Story → Field Note |
-| Just Make Disciples | split: make-disciples / simple-church / four-fields | no | multiple | lab | P2 | 6.90 | Split (D) |
-| Movement or Movements | `breaking-down-barriers-...-objections` | no | CPM | community | P2 | 6.80 | Burnout stories → Field Note |
-| Scripture Deep Dives | `three-thirds` | no | simple-church | lab | P2 | 6.75 | "How to run one" → FAQ |
-| When to Stop | `how-to-train-disciples` | no | disciple-training | lab | P2 | 6.70 | MAWL "Leave" → FAQ |
-| Vision vs Habit | `the-3-core-habits-of-a-disciple` | no | disciple-making | lab | P2 | 6.55 | 3rd embed on the habits pillar |
-| Two Church Model | `what-is-a-simple-church-...` | no | simple-church | community | P2 | 6.45 | |
-| Missing Piece / Immersion | `content-vs-systems-...` | no | disciple-training | lab | P2 | 6.40 | Immersion → Field Note |
-| Scripture Foundational | `understanding-biblical-discipleship-...` | no | disciple-making | lab | P2 | 6.35 | Wesleyan Quadrilateral → FAQ |
-| Gen Z Ghosts You | `finding-persons-of-peace-...` | no | share-the-gospel | tool | P2 | 6.20 | Ground story → Field Note |
-| NYPD Chief | Muddy Boots ⚠️/Clear Pathway | no | four-fields | lab | P3 | 6.00 | Resolve merge first |
-| Cannot Follow / See | `how-to-train-disciples` | no | disciple-training | lab | P3 | 5.95 | |
-| Innovating Out of Success | `understanding-biblical-discipleship-...` | no | disciple-making | lab | P3 | 5.90 | Reframe → FAQ |
-| Overestimate the Year | `4-stages-of-movement-...` | no | CPM | community | P3 | 5.70 | |
-| Two Barriers | `how-to-spot-a-lone-wolf-...` | no | CPM | community | P3 | 5.70 | |
-| NT Backwards | `unleashing-the-movement-...` (Paul) | no | CPM | community | P3 | 5.60 | |
-| 19 Minutes for 2026 | `action-plan` | no | utility | none | E | 4.30 | Podcast-only; date-bound |
+2. **The CPM library finally gets its center.** ~144 movement/leadership
+   episodes, plus named-expert interviews (Addison ×2, Prinz, Don Dent,
+   Broodryk), are the evidence base for the **missing CPM pillar**
+   (TOPICAL_AUTHORITY.md #4). Write the pillar; roll the movement
+   articles up to it; embed the expert interviews for E-E-A-T.
+
+3. **E-E-A-T reservoir — 32+ named-guest interviews.** Steve Addison
+   (movements.net), Emmanuel Prinz (researcher), Don Dent (apostolic
+   scholar), David Campbell (Berlin), David Broodryk, Bud Houston, Guy
+   Caskey, Rodger Shull, Haylee Belcher, and a recurring cast (Nate,
+   Marcus, Chuck Wood, Dave Miller). None appear on the site today.
+   These make MD's movement content *citable*; prioritize them as embeds
+   and Field-Note sources.
+
+4. **"From Addition to Multiplication" — an 8-part teaching series**
+   (Broken Image · Glory of God in the Gospel · Jesus Is the Center ·
+   The Emmaus Road · Glory Chasers · Global Phenomenon · The Simple
+   Question · You Don't Have to Save the World). Individually low IPS,
+   but **as a set** it's a natural multi-embed for
+   `the-power-of-multiplication-...` or a short evergreen "Addition to
+   Multiplication" explainer with the series embedded in order.
+
+5. **Direct 1:1 matches to existing articles** (upgrade links →
+   embeds): "5 Ways to Attract Multiplying Leaders with Mark" →
+   `5-surprising-ways-to-attract-multiplying-leaders`; "Muddy Boots
+   Leadership" → Muddy Boots/Clear Pathway; "What is a Strategy
+   Coordinator?" → `movement-resources-strategy-coordinator` (already
+   links bit.ly episodes).
+
+6. **Field-Note harvest (approve, then wire in):** David Campbell
+   (Berlin), Cookies/Clinics/Calling, Leaders in the Boat (NYC→CT),
+   NYPD Chief, the immersion debriefs, Rodger Shull "byways," and the
+   many "Reaching [city/people]" interviews — dozens of real,
+   approvable proof-of-practice stories for the currently-empty
+   Field-Note column.
 
 ---
 
-## 5. Suggested embed intros (Step 2 field) — the P1 set
+## 4. Coverage heatmap (Step 5, full-catalog counts)
 
-Drop-in copy for the `PodcastEmbed` once it exists (strategy §1a).
-Written in the site's editorial voice: no hype, names the payoff.
+`A`=Article `P`=Podcast supply in catalog `T`=Tool `L`=Lab `F`=Field
+Note `V`=Video. 🟩 strong · 🟨 partial · 🟥 weak/none.
 
-- **`the-3-core-habits-of-a-disciple` (Rhythms of a Multiplier):**
-  "The habits below aren't a checklist to add to a busy week. In this
-  episode, Mark and Dave trace how multiplying rhythms actually get
-  *caught* — through Levi's table, a delivery route, and prayer at a
-  Topgolf — and why classroom teaching alone never forms a disciple-
-  maker."
+| Topic | A | P (catalog) | T | L | F | V | Priority |
+|---|--|--|--|--|--|--|--|
+| CPM / Leadership | 🟩 | 🟩 **~144 eps** | 🟩 | 🟨 | 🟥 | 🟥 | **P1** — build pillar, consolidate |
+| Making Disciples | 🟨 | 🟩 ~45 | 🟩 | 🟩 | 🟥 | 🟥 | **P1** — habits pillar |
+| Disciple Training | 🟥 | 🟩 ~38 | 🟨 | 🟨 | 🟥 | 🟥 | **P1** — hub+pillar, business-critical |
+| Sharing the Gospel | 🟩 | 🟨 ~17 | 🟩 | 🟩 | 🟥 | 🟥 | P2 — add Conversation Box tool |
+| Co-Vocational / Field | 🟥 | 🟩 ~17 | 🟨 | 🟨 | 🟥 | 🟥 | **P1** — new cornerstone |
+| Simple Church | 🟨 | 🟨 ~5 | 🟩 | 🟨 | 🟥 | 🟥 | P2 |
+| Testimony | 🟩 | 🟥 **~0** | 🟩 | 🟩 | 🟨 | 🟥 | on-page fix; consider recording |
+| Meet Jesus | 🟩 | 🟥 **~0 (12-Disciples); 🟨 leadership-of-Jesus** | 🟨 | 🟥 | 🟥 | 🟥 | on-page CTR fix |
 
-- **`the-3-core-habits-of-a-disciple` (12 Habits):**
-  "Walking through Acts 2:36–47, this episode reframes the question from
-  *what should I do?* to *who am I becoming?* — the identity-devotion-
-  overflow pattern that turned the first believers into a multiplying
-  church."
+---
 
-- **Lost-to-Leader Pathway (new article, episode 11):**
-  "Most leaders want to see lost people become disciple-makers but lose
-  the thread between desire and next step. Here Mark and Dave name the
-  two barriers — not knowing where to start, and not knowing what to do
-  next — and answer the fear that a pathway is 'too mechanical.'"
+## 5. Suggested embed intros — the new-cornerstone + habits set
 
-- **`how-to-evangelize-...` (Spiritual Conversations):**
-  "If your honest blocker isn't belief but *starting the conversation*,
-  this episode walks through the Conversation Box — a repeatable way to
-  move from small talk to a gospel conversation without needing to be a
-  natural evangelist."
+Drop-in copy for the `PodcastEmbed` once it exists (strategy §1a),
+site voice, no hype.
 
-- **CPM pillar / `what-is-a-simple-church-...` (Tribes):**
-  "Between personal faith and citywide mission sits a layer most
-  movements skip: the tribe. This episode unpacks the biblical and
-  sociological pattern — Jesus forming the Twelve, the early church
-  meeting house to house — behind movements that actually take root."
+- **Co-Vocational cornerstone (One Hebrew Word):** "Before 'work' and
+  'ministry' were ever two categories, Scripture used one word for both.
+  This episode traces how recovering that single idea reframes your job
+  from an obstacle to your calling into the main field God has already
+  given you."
 
-- **`5-surprising-ways-to-attract-multiplying-leaders` (Recruit
-  Leaders):** "You can't recruit the leaders you need — Jesus didn't.
-  This episode shows the harder, more durable path: do the work, open
-  your life, and let the right people recognize themselves in it."
+- **Co-Vocational cornerstone (Priscilla & Aquila):** "The pattern
+  underneath 'co-vocational' isn't new — it's Priscilla and Aquila:
+  tentmakers whose business, home, and mission were one life. Here's why
+  that blueprint scales when programs don't."
+
+- **`the-3-core-habits-of-a-disciple` (Rhythms of a Multiplier):** "The
+  habits below aren't a checklist to add to a busy week. Mark and Dave
+  trace how multiplying rhythms get *caught* — Levi's table, a delivery
+  route, prayer at a Topgolf — and why classroom teaching alone never
+  forms a disciple-maker."
+
+- **`disciple-making-movement-dmm-...` (Steve Addison / Emmanuel
+  Prinz):** "We put the movement research to practitioners who live it.
+  {Addison / Prinz} on what actually starts a movement — and the quiet
+  things that stop one."
 
 ---
 
 ## 6. Immediate next actions
 
-1. **Get the full archive.** Ship the anchor.fm CI-cache Action
-   (strategy §6 item 1–2); rss.app only gave us the last 25. Re-run this
-   map against all ~257 → full Top-20 + complete matrix.
-2. **Build the `PodcastEmbed` mechanism** — still the one hard blocker
-   on every 🔊 above.
-3. **Two new cornerstones:** Lost-to-Leader Pathway; Co-Vocational
-   Disciple-Making.
-4. **Promote `the-3-core-habits-of-a-disciple` to a habits pillar** and
-   wire in the four habits/rhythms embeds + FAQ.
-5. **Approve 5 Field Notes** (episodes 7, 15, 17, 18, 23).
-6. **Add the Conversation Box tool** to the gospel cluster and
-   `/starter-tools/`.
-7. **Resolve the Muddy Boots → Clear Pathway merge** before embedding
-   episode 18.
+1. **Build the `PodcastEmbed` mechanism** (strategy §1a) — still the one
+   hard blocker on every embed above.
+2. **Two new cornerstones, evidence-backed:** Co-Vocational /
+   Marketplace Disciple-Making (17+ eps); the CPM pillar (~144 eps).
+3. **Promote `the-3-core-habits-of-a-disciple` to a habits pillar** and
+   wire in the rhythms/habits embeds + FAQ.
+4. **Wire the Top-20 into their homes**, expert interviews first
+   (E-E-A-T), starting with the direct 1:1 matches in §3.5.
+5. **Approve the first wave of Field Notes** from §3.6.
+6. **Add the Conversation Box tool** (`conversationquadrant.com`) to the
+   gospel cluster and `/starter-tools/`.
+7. **Editorial review of `PODCAST_EPISODE_CATALOG.csv`** — the
+   first-pass scores/dispositions for all 261 are a starting point;
+   promote/demote as you confirm.
