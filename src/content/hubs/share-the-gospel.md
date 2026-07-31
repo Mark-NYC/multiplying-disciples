@@ -15,6 +15,7 @@ key_articles:
   - "/the-three-circles-gospel-presentation-step-by-step/"
   - "/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/"
   - "/how-to-share-the-gospel-at-work/"
+  - "/how-to-share-the-gospel-with-family/"
   - "/how-to-share-your-testimony/"
   - "/3-circles/"
   - "/movement-resources/7-stories-of-hope-complete-facilitation-guide/"

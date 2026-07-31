@@ -108,8 +108,10 @@ but marked Improve in CONTENT_AUDIT.md.
   situational gospel guide — distinct from the Testimony cluster's
   at-work page and cross-linked with it: this one is the gospel message
   plus workplace constraints, keyword "how to share the gospel at work")
-  · ☆ How to Share the Gospel with Family
-  (`hypothesis`) · ☆ 20 Questions That Open Spiritual Conversations ·
+  · ★ How to Share the Gospel with Family
+  (`/how-to-share-the-gospel-with-family/`, shipped 2026-07-29; situational
+  sibling to the at-work page, on the same "we never earn a hearing"
+  footing) · ☆ 20 Questions That Open Spiritual Conversations ·
   ☆ Evangelism for Introverts (`hypothesis`, strong brand fit).
 - **Linking:** pillar ↔ every supporting; 3 Circles article ↔ 3
   Circles tool page; What Is the Gospel links back from every gospel
