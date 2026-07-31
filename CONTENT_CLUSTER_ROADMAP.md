@@ -151,8 +151,11 @@ but marked Improve in CONTENT_AUDIT.md.
   Accountability · ★ The Clear Pathway of Jesus (absorbs Muddy Boots
   merge) · ★ Three Thirds [shared with Simple Church] · ★ What Is a
   Disciple? (`/what-is-a-disciple/`, shipped 2026-07-25; definitional
-  cornerstone) · ☆ One-on-One Discipleship:
-  A Simple Plan · ☆ New Believer Follow-Up: The First 30 Days · ☆
+  cornerstone) · ★ One-on-One Discipleship:
+  A Simple Plan (`/one-on-one-discipleship/`, shipped 2026-07-29; Mark's
+  reproducible pathway — Conversation Box + 4-1-1 → gather oikos + 7
+  Stories of Hope → as they believe, commands of Christ + Church Waffle,
+  then they repeat with their own oikos; tools at obey.tools) · ☆ New Believer Follow-Up: The First 30 Days · ☆
   Obedience-Based Discipleship (carries the "love and obedience"
   legacy equity) · ☆ Discipleship Questions That Actually Go Somewhere
   (`hypothesis`).
