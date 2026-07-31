@@ -101,10 +101,12 @@ but marked Improve in CONTENT_AUDIT.md.
 - **Supporting:** ★ How to Evangelize: 5 Simple Steps (I) · ★ The 3
   Circles Gospel Presentation · ★ Bible Verses About Spreading the
   Gospel (I) · ★ 7 Stories of Hope to Read With a Seeker · ★ 4
-  Responses to the Gospel (`/4-responses-to-the-gospel/`, expanded
+  Responses to the Gospel (`/4-responses-to-the-gospel/`, built
   2026-07-29 from a mislabeled church-circle slide stub into the real
-  parable-of-the-soils explainer; hub reassigned simple-church →
-  share-the-gospel) · ☆ What Is the Gospel?
+  Acts 17:32-34 traffic-light tool: green/yes → 4-1-1 + commands,
+  yellow/maybe → 7 Stories of Hope, red/no → bless and move on, plus the
+  existing-believer response → 4-1-1 + commands training; hub reassigned
+  simple-church → share-the-gospel) · ☆ What Is the Gospel?
   (definitional cornerstone) · ☆ Gospel Conversations: How to Start
   One (Conversation Box / quadrant) · ★ How to Share the Gospel at
   Work (`/how-to-share-the-gospel-at-work/`, shipped 2026-07-29; the
