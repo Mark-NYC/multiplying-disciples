@@ -111,7 +111,10 @@ but marked Improve in CONTENT_AUDIT.md.
   · ★ How to Share the Gospel with Family
   (`/how-to-share-the-gospel-with-family/`, shipped 2026-07-29; situational
   sibling to the at-work page, on the same "we never earn a hearing"
-  footing) · ☆ 20 Questions That Open Spiritual Conversations ·
+  footing) · ★ 20 Questions That Open Spiritual Conversations
+  (`/questions-to-start-spiritual-conversations/`, shipped 2026-07-29; the
+  question-bank resource, complements the Conversation Quadrant framework
+  in How to Evangelize rather than duplicating it) ·
   ☆ Evangelism for Introverts (`hypothesis`, strong brand fit).
 - **Linking:** pillar ↔ every supporting; 3 Circles article ↔ 3
   Circles tool page; What Is the Gospel links back from every gospel
