@@ -1,0 +1,122 @@
+---
+// ConversationBox — a generated diagram of the four levels of the
+// Conversation Box (the No Place Left / Obey.Tools conversation tool):
+// a normal conversation moves one honest step deeper, from casual small
+// talk to discovering Jesus together. Labels use Mark's topic-pair
+// mnemonics. Generated art (obey.tools builds the box interactively and
+// has no single image to reuse), theme-aware via the site's tokens.
+//
+// Used by /one-on-one-discipleship/ and the gospel cluster.
+const LEVELS = [
+  { name: 'Casual', topics: 'Food & fun', step: 1 },
+  { name: 'Meaningful', topics: 'Family & festivals', step: 2 },
+  { name: 'Spiritual', topics: 'Faith & future', step: 3 },
+  { name: 'Discovery', topics: 'Looking at Jesus together', step: 4 },
+];
+---
+
+<figure
+  class="cbox"
+  role="img"
+  aria-label="The Conversation Box: four levels that move a conversation one step deeper — Casual (food and fun), Meaningful (family and festivals), Spiritual (faith and future), and Discovery (looking at Jesus together)."
+>
+  <p class="cbox__title">The Conversation Box</p>
+  <ol class="cbox__levels">
+    {
+      LEVELS.map((l) => (
+        <li class={`cbox__level cbox__level--${l.step}`}>
+          <span class="cbox__name">{l.name}</span>
+          <span class="cbox__topics">{l.topics}</span>
+        </li>
+      ))
+    }
+  </ol>
+  <figcaption class="cbox__hint">
+    Move one honest step deeper as the person opens up.
+  </figcaption>
+</figure>
+
+<style>
+  .cbox {
+    margin: 1.75rem 0 2.25rem;
+    padding: 1.25rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card, 12px);
+  }
+
+  .cbox__title {
+    margin: 0 0 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    text-align: center;
+  }
+
+  .cbox__levels {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cbox__level {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+  }
+
+  .cbox__name {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .cbox__topics {
+    font-size: 0.9rem;
+    text-align: right;
+    opacity: 0.92;
+  }
+
+  /* Each level a step deeper in green. */
+  .cbox__level--1 {
+    background: var(--color-surface);
+    color: var(--color-text);
+  }
+  .cbox__level--2 {
+    background: color-mix(in srgb, var(--color-accent) 45%, var(--color-surface));
+    color: var(--color-text);
+  }
+  .cbox__level--3 {
+    background: var(--color-accent);
+    color: #ffffff;
+  }
+  .cbox__level--4 {
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+  }
+
+  .cbox__hint {
+    margin: 0.85rem 0 0;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-align: center;
+  }
+
+  @media (max-width: 30rem) {
+    .cbox__level {
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .cbox__topics {
+      text-align: left;
+    }
+  }
+</style>
