@@ -83,6 +83,21 @@ function parseWebp(buf) {
   return undefined;
 }
 
+function parseSvg(buf) {
+  // Text format: read the opening <svg> tag and take its explicit
+  // width/height (numbers only, no % or other units), falling back to
+  // the viewBox's width/height. Enough for the site's own tool artwork.
+  const head = buf.toString('utf8', 0, 4096);
+  const tag = head.match(/<svg[^>]*>/i);
+  if (!tag) return undefined;
+  const w = tag[0].match(/\bwidth="([\d.]+)(?:px)?"/i);
+  const h = tag[0].match(/\bheight="([\d.]+)(?:px)?"/i);
+  if (w && h) return { width: Math.round(+w[1]), height: Math.round(+h[1]) };
+  const vb = tag[0].match(/\bviewBox="[\d.-]+\s+[\d.-]+\s+([\d.]+)\s+([\d.]+)"/i);
+  if (vb) return { width: Math.round(+vb[1]), height: Math.round(+vb[2]) };
+  return undefined;
+}
+
 function parse(buf) {
   if (buf.length < 12) return undefined;
   if (buf[0] === 0x89 && buf[1] === 0x50) return parsePng(buf);
@@ -91,6 +106,8 @@ function parse(buf) {
   if (buf.toString('ascii', 0, 4) === 'RIFF' && buf.toString('ascii', 8, 12) === 'WEBP') {
     return parseWebp(buf);
   }
+  // SVG (or XML-prologue SVG) starts with '<'.
+  if (buf[0] === 0x3c) return parseSvg(buf);
   return undefined;
 }
 
