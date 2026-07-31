@@ -17,6 +17,7 @@ key_articles:
   - "/how-to-share-the-gospel-at-work/"
   - "/how-to-share-the-gospel-with-family/"
   - "/questions-to-start-spiritual-conversations/"
+  - "/evangelism-for-introverts/"
   - "/how-to-share-your-testimony/"
   - "/3-circles/"
   - "/movement-resources/7-stories-of-hope-complete-facilitation-guide/"

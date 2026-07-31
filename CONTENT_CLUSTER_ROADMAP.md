@@ -115,7 +115,9 @@ but marked Improve in CONTENT_AUDIT.md.
   (`/questions-to-start-spiritual-conversations/`, shipped 2026-07-29; the
   question-bank resource, complements the Conversation Quadrant framework
   in How to Evangelize rather than duplicating it) ·
-  ☆ Evangelism for Introverts (`hypothesis`, strong brand fit).
+  ★ Evangelism for Introverts (`/evangelism-for-introverts/`, shipped
+  2026-07-29; `hypothesis` on volume, strong brand fit; on the "gospel's
+  own power, not personality" footing).
 - **Linking:** pillar ↔ every supporting; 3 Circles article ↔ 3
   Circles tool page; What Is the Gospel links back from every gospel
   article's first section.
