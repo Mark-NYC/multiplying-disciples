@@ -103,8 +103,12 @@ but marked Improve in CONTENT_AUDIT.md.
   Gospel (I) · ★ 7 Stories of Hope to Read With a Seeker · ★(I) 4
   Responses to the Gospel (expand from stub) · ☆ What Is the Gospel?
   (definitional cornerstone) · ☆ Gospel Conversations: How to Start
-  One (Conversation Box / quadrant) · ☆ How to Share the Gospel at
-  Work (`hypothesis`) · ☆ How to Share the Gospel with Family
+  One (Conversation Box / quadrant) · ★ How to Share the Gospel at
+  Work (`/how-to-share-the-gospel-at-work/`, shipped 2026-07-29; the
+  situational gospel guide — distinct from the Testimony cluster's
+  at-work page and cross-linked with it: this one is the gospel message
+  plus workplace constraints, keyword "how to share the gospel at work")
+  · ☆ How to Share the Gospel with Family
   (`hypothesis`) · ☆ 20 Questions That Open Spiritual Conversations ·
   ☆ Evangelism for Introverts (`hypothesis`, strong brand fit).
 - **Linking:** pillar ↔ every supporting; 3 Circles article ↔ 3
