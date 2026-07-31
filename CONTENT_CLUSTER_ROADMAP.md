@@ -155,7 +155,11 @@ but marked Improve in CONTENT_AUDIT.md.
   A Simple Plan (`/one-on-one-discipleship/`, shipped 2026-07-29; Mark's
   reproducible pathway — Conversation Box + 4-1-1 → gather oikos + 7
   Stories of Hope → as they believe, commands of Christ + Church Waffle,
-  then they repeat with their own oikos; tools at obey.tools) · ☆ New Believer Follow-Up: The First 30 Days · ☆
+  then they repeat with their own oikos; tools at obey.tools) · ★ New Believer Follow-Up: The First 30 Days
+  (`/new-believer-follow-up/`, shipped 2026-07-29; Mark's framework — teach
+  self-feeding with SOS via reading Mark together, turn the 4-1-1 tools
+  into habits, and the 3-2-1 weekly rhythm, gated on FAT; goal is time WITH
+  them until following and fishing stick) · ☆
   Obedience-Based Discipleship (carries the "love and obedience"
   legacy equity) · ☆ Discipleship Questions That Actually Go Somewhere
   (`hypothesis`).

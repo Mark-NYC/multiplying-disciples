@@ -10,6 +10,7 @@ intro: >
 key_articles:
   - "/how-to-make-disciples/"
   - "/one-on-one-discipleship/"
+  - "/new-believer-follow-up/"
   - "/what-is-a-disciple/"
   - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
   - "/unlock-the-power-of-friendly-accountability/"
