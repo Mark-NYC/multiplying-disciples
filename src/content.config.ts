@@ -1,5 +1,5 @@
 import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { glob, file } from 'astro/loaders';
 
 // Every migrated page must be traceable back to its original WordPress URL
 // and its Search Console priority tier until the full export replaces
@@ -255,4 +255,24 @@ const hubs = defineCollection({
   }),
 });
 
-export const collections = { articles, tools, hubs, fieldNotes };
+// H3X podcast episodes, sourced from the full cached RSS feed
+// (src/data/h3x-episodes.json, regenerated from the feed the
+// covo-multipliers "Cache H3X Podcast Feed" Action commits). An article
+// embeds one by id via the PodcastEmbed component; a missing id renders
+// nothing. Kept a separate collection (like fieldNotes) so audio can
+// enrich an article without living in its body — the article stays the
+// knowledge asset, the episode is supporting evidence. See
+// PODCAST_INTEGRATION_STRATEGY.md and PODCAST_EPISODE_MAP.md.
+const episodes = defineCollection({
+  loader: file('./src/data/h3x-episodes.json'),
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.string().optional(),
+    audioUrl: z.string().url().optional(),
+    episodeUrl: z.string().url().optional(),
+    guid: z.string().optional(),
+    description: z.string().default(''),
+  }),
+});
+
+export const collections = { articles, tools, hubs, fieldNotes, episodes };

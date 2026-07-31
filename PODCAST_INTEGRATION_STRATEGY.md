@@ -33,15 +33,16 @@ Consequence, stated plainly so nothing here is mistaken for guesswork:
 | Evergreen **scoring model** (Step 4) | **Complete** | Method, not data |
 | Tiered roadmap (Step 6) | **Complete** | Infra + article-side |
 | Per-article reception plan (Steps 8, 9) | **Complete** | Built from the repo |
-| Per-**episode** classification (Step 2) | **Done for recent 25 → PODCAST_EPISODE_MAP.md**; back-catalog needs full feed | rss.app export gave the last 25; anchor.fm serves all ~257 |
-| **Top-20 evergreen** list (Step 4) | **Scored for recent 25**; full Top-20 needs full feed | Same |
-| Master-matrix **episode column** (Step 7) | **Populated for recent 25** | Same |
+| Per-**episode** classification (Step 2) | **Done — all 261 → PODCAST_EPISODE_CATALOG.csv** | Full anchor.fm feed captured |
+| **Top-20 evergreen** list (Step 4) | **Done (hand-curated) → PODCAST_EPISODE_MAP.md §2** | Full catalog scored |
+| Master-matrix (Step 7) | **Done — full catalog → CSV + map** | Full catalog |
 
-> **Update:** the recent 25 episodes have now been classified, scored,
-> and mapped from **real feed data** — see **PODCAST_EPISODE_MAP.md**.
-> The rss.app feed truncates to a recent window; capturing the full
-> ~257-episode archive needs the anchor.fm feed via the CI-cache Action
-> (§6, items 1–2).
+> **Update (feed now in hand):** the full H3X archive — **261 items,
+> Apr 2021 → Jul 2026** — was captured to `imports/h3x-feed.json` via
+> the CI-cache Action (§6) and analyzed. All 261 episodes are
+> classified/scored in **PODCAST_EPISODE_CATALOG.csv**; the editorial
+> layer (Top-20, proven veins, full-catalog heatmap, the catalog↔traffic
+> mismatch finding) is in **PODCAST_EPISODE_MAP.md**.
 
 The catalog is **~223–257 episodes** (search results disagree; the RSS
 `<item>` count is authoritative), weekly, hosted by **Mark & Dave**
