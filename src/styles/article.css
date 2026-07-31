@@ -755,6 +755,75 @@
   font-weight: 600;
 }
 
+/* --- Podcast embed -------------------------------------------
+   An H3X episode embedded inside an article as supporting evidence
+   (see PodcastEmbed.astro). Same card language as the Field Note, but
+   a primary-colored top rule and a native audio player, so audio reads
+   as a cited source that deepens the article rather than a story. */
+
+.podcast-embed {
+  margin: 3rem 0;
+  padding: 1.75rem 1.75rem 1.5rem;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-primary);
+  border-radius: var(--radius-card);
+  box-shadow: var(--fm-shadow);
+}
+
+.podcast-embed__label {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.podcast-embed__date {
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.podcast-embed__title {
+  margin: 0 0 0.6rem;
+  color: var(--color-primary);
+}
+
+.podcast-embed__intro {
+  margin: 0 0 1rem;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.podcast-embed__player {
+  width: 100%;
+  margin: 0.25rem 0 1rem;
+}
+
+.podcast-embed__summary {
+  margin: 0 0 1rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.podcast-embed__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.88rem;
+}
+
+.podcast-embed__meta a {
+  color: var(--color-accent-hover);
+  font-weight: 600;
+}
+
 /* --- Field Note photo ---------------------------------------
    An inline photo presented as a field record (see
    FieldNoteImage.astro): a full-width real photo, then a compact

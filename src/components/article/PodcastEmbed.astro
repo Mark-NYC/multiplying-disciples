@@ -1,0 +1,83 @@
+---
+// PodcastEmbed — embeds one H3X episode into an article as supporting
+// evidence / deeper teaching. Mirrors FieldNote: an article references
+// an episode by id; a missing id renders nothing (never a placeholder,
+// never "episode coming soon"). Episodes come from the `episodes`
+// content collection (src/data/h3x-episodes.json, refreshed by the
+// covo-multipliers "Cache H3X Podcast Feed" Action).
+//
+// Usage (inside an .mdx article body):
+//   import PodcastEmbed from '../../components/article/PodcastEmbed.astro';
+//   <PodcastEmbed
+//     id="charisma-can-fill-a-room-faithfulness-carries-a-movement"
+//     intro="Optional editorial lead-in framing why this episode belongs here."
+//   />
+//
+// The episode is evidence, not the article's answer and not a second
+// CTA — place it at the point of proof (after a claim, before the how).
+// See PODCAST_INTEGRATION_STRATEGY.md (§1a, §8) and PODCAST_EPISODE_MAP.md.
+import { getCollection } from 'astro:content';
+
+interface Props {
+  id: string;
+  intro?: string;
+}
+
+const { id, intro } = Astro.props;
+
+const episodes = await getCollection('episodes');
+const entry = episodes.find((e) => e.id === id);
+const ep = entry?.data;
+
+function formatDate(raw?: string): string {
+  if (!raw) return '';
+  const d = new Date(raw);
+  return isNaN(d.getTime())
+    ? ''
+    : d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+}
+
+const date = formatDate(ep?.pubDate);
+
+const SUMMARY_MAX = 320;
+const rawSummary = ep?.description ?? '';
+const summary =
+  rawSummary.length > SUMMARY_MAX
+    ? rawSummary.slice(0, SUMMARY_MAX).replace(/\s+\S*$/, '') + '…'
+    : rawSummary;
+
+const APPLE_SHOW = 'https://podcasts.apple.com/us/podcast/h3x/id1562206185';
+const SPOTIFY_SHOW = 'https://open.spotify.com/show/2NNDtnQaRLeqRU2N3LVayR';
+---
+
+{
+  ep && (
+    <aside class="podcast-embed" aria-label={`H3X podcast episode: ${ep.title}`}>
+      <p class="podcast-embed__label">
+        H3X Podcast{date && <span class="podcast-embed__date"> · {date}</span>}
+      </p>
+      <h3 class="podcast-embed__title">{ep.title}</h3>
+
+      {intro && <p class="podcast-embed__intro">{intro}</p>}
+
+      {ep.audioUrl && (
+        <audio class="podcast-embed__player" controls preload="none" src={ep.audioUrl}>
+          Your browser can’t play this audio.{' '}
+          <a href={ep.episodeUrl ?? SPOTIFY_SHOW}>Listen to the episode</a>.
+        </audio>
+      )}
+
+      {summary && <p class="podcast-embed__summary">{summary}</p>}
+
+      <p class="podcast-embed__meta">
+        {ep.episodeUrl && (
+          <a href={ep.episodeUrl} target="_blank" rel="noopener">
+            Listen to the full episode &rarr;
+          </a>
+        )}
+        <a href={APPLE_SHOW} target="_blank" rel="noopener">Apple Podcasts</a>
+        <a href={SPOTIFY_SHOW} target="_blank" rel="noopener">Spotify</a>
+      </p>
+    </aside>
+  )
+}
