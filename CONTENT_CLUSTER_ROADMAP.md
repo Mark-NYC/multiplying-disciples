@@ -159,10 +159,12 @@ but marked Improve in CONTENT_AUDIT.md.
   (`/new-believer-follow-up/`, shipped 2026-07-29; Mark's framework — teach
   self-feeding with SOS via reading Mark together, turn the 4-1-1 tools
   into habits, and the 3-2-1 weekly rhythm, gated on FAT; goal is time WITH
-  them until following and fishing stick) · ☆
-  Obedience-Based Discipleship (carries the "love and obedience"
-  legacy equity) · ☆ Discipleship Questions That Actually Go Somewhere
-  (`hypothesis`).
+  them until following and fishing stick) · ☆ Obedience-Based Discipleship
+  (`/obedience-based-discipleship/`, shipped 2026-08-01; the method/philosophy
+  — obey what Jesus said over accumulating information, love -> obedience per
+  John 14:15, add info only as fast as it is obeyed; claims the
+  `/love-and-obedience-.../` legacy redirect) · ☆ Discipleship Questions That
+  Actually Go Somewhere (`hypothesis`).
 - **Linking:** pillar ↔ all; What Is a Disciple ← linked from Meet
   Jesus bridges; pillar links forward to Disciple Training pillar
   ("ready to train others?").

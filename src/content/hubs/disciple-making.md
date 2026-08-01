@@ -11,6 +11,7 @@ key_articles:
   - "/how-to-make-disciples/"
   - "/one-on-one-discipleship/"
   - "/new-believer-follow-up/"
+  - "/obedience-based-discipleship/"
   - "/what-is-a-disciple/"
   - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
   - "/unlock-the-power-of-friendly-accountability/"
