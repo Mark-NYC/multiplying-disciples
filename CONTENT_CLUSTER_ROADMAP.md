@@ -222,13 +222,21 @@ but marked Improve in CONTENT_AUDIT.md.
 - **Pillar:** ★(I) **What Is a Simple Church?** — exists, expand to
   pillar depth.
 - **Supporting:** ★ Three Thirds Bible Study Process · ★ Church
-  Waffle · ☆ How to Start a Simple Church (the how-to twin of the
-  pillar) · ☆ House Church vs. Simple Church vs. Microchurch
-  (`hypothesis`) · ☆ What Makes a Church a Church? (Acts 2:36-47,
-  already the Waffle's frame) · ☆ What Are the Commands of Christ?
+  Waffle · ☆ How to Start a Simple Church
+  (`/how-to-start-a-simple-church/`, shipped 2026-08-01; the how-to twin of
+  the pillar — church is the fruit of disciple-making, gather a family, give
+  it a Three Thirds rhythm, grow health with the Waffle) · ☆ House Church vs.
+  Simple Church vs. Microchurch (`hypothesis`) · ☆ What Makes a Church a
+  Church? (`/what-makes-a-church-a-church/`, shipped 2026-08-01; Acts 2:36-47
+  marks, the Waffle's frame) · ☆ What Are the Commands of Christ?
   (bridge article → obey.tools; also serves Cluster 0) · ☆ Your First
-  Simple Church Gathering (checklist-style) · ☆ Baptism: Who Can
-  Baptize, and When? (`hypothesis`, recurring practitioner question).
+  Simple Church Gathering (`/your-first-simple-church-gathering/`, shipped
+  2026-08-01; checklist-style, Three Thirds sized for a first meeting) · ☆
+  When a Discipleship Group Becomes a Church
+  (`/when-a-discipleship-group-becomes-a-church/`, shipped 2026-08-01; the
+  discovery-group → church threshold, Acts 2 marks as a transition) · ☆
+  Baptism: Who Can Baptize, and When? (`hypothesis`, recurring practitioner
+  question).
 - **Linking:** pillar ↔ all; Church Waffle ↔ What Makes a Church;
   forward bridge to Leadership ("when your church starts a church").
 - **Primary CTA:** **Tool** (Church Waffle) on practice articles;

@@ -9,6 +9,10 @@ intro: >
   to the wider disciple-making movement.
 key_articles:
   - "/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/"
+  - "/how-to-start-a-simple-church/"
+  - "/what-makes-a-church-a-church/"
+  - "/your-first-simple-church-gathering/"
+  - "/when-a-discipleship-group-becomes-a-church/"
   - "/movement-resources/12-practice-church-circle/"
   - "/what-are-the-commands-of-christ/"
   - "/three-thirds/"
