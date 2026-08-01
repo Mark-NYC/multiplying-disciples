@@ -234,7 +234,13 @@ but marked Improve in CONTENT_AUDIT.md.
   2026-08-01; checklist-style, Three Thirds sized for a first meeting) · ☆
   When a Discipleship Group Becomes a Church
   (`/when-a-discipleship-group-becomes-a-church/`, shipped 2026-08-01; the
-  discovery-group → church threshold, Acts 2 marks as a transition) · ☆
+  discovery-group → church threshold, Acts 2 marks as a transition, "the messy
+  middle") · ☆ What Makes a Church Healthy?
+  (`/what-makes-a-church-healthy/`, shipped 2026-08-01; the RIGHT HAND of Mark's
+  paired handy guide — church health as emergent fruit of kingdom ownership, not
+  organized functions; counts 1 Head / 2 Authorities / 3 Servants / 4 Marks of
+  Maturity (the four selfs) / 5 Loves of Acts 2. Left Hand = What Makes a Church
+  a Church; between them = the messy middle) · ☆
   Baptism: Who Can Baptize, and When? (`hypothesis`, recurring practitioner
   question).
 - **Linking:** pillar ↔ all; Church Waffle ↔ What Makes a Church;

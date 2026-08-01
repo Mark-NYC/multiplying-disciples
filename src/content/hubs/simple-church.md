@@ -11,6 +11,7 @@ key_articles:
   - "/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/"
   - "/how-to-start-a-simple-church/"
   - "/what-makes-a-church-a-church/"
+  - "/what-makes-a-church-healthy/"
   - "/your-first-simple-church-gathering/"
   - "/when-a-discipleship-group-becomes-a-church/"
   - "/movement-resources/12-practice-church-circle/"
