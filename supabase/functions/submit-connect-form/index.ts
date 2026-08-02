@@ -11,10 +11,11 @@
 // The response reports { saved, email_sent } and the browser messages
 // accordingly.
 //
-// Spam/abuse controls: a hidden honeypot + durable, DB-backed rate
-// limiting keyed by a salted hash of the client IP (counts recent rows,
-// so it holds across ephemeral instances). Idempotency: the client sends
-// a per-submission key stored under a unique constraint; a replayed key
+// Spam/abuse controls: Cloudflare Turnstile (verified server-side, the
+// primary control) + a hidden honeypot + durable, DB-backed rate limiting
+// keyed by a salted hash of the client IP (counts recent rows, so it holds
+// across ephemeral instances). Idempotency: the client sends a
+// per-submission key stored under a unique constraint; a replayed key
 // returns the existing row instead of inserting a duplicate or
 // re-emailing.
 //
@@ -25,7 +26,9 @@
 // Required env (Supabase auto-injects SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY):
 //   RESEND_API_KEY, CONNECT_FROM_EMAIL, CONNECT_REPLY_TO_EMAIL,
 //   CONNECT_NOTIFICATION_EMAIL,
-//   (optional) CONNECT_ALLOWED_ORIGINS, CONNECT_IP_HASH_SALT
+//   CONNECT_TURNSTILE_SECRET_KEY (set to enforce Turnstile),
+//   (optional) CONNECT_ALLOWED_ORIGINS, CONNECT_IP_HASH_SALT,
+//   (optional) CONNECT_TURNSTILE_DEV_BYPASS=true (local/test only)
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { corsHeaders } from './cors.ts';
@@ -33,6 +36,7 @@ import { validate } from './validation.ts';
 import { LIMITS, RATE_MAX, RATE_WINDOW_SECONDS } from '../_shared/model.ts';
 import { buildFollowUpEmail, buildInternalEmail, sendEmail } from '../_shared/emails.ts';
 import { clientIp, hashIp } from '../_shared/security.ts';
+import { turnstileEnv, verifyTurnstile } from '../_shared/turnstile.ts';
 
 function json(
   body: unknown,
@@ -121,9 +125,34 @@ Deno.serve(async (req) => {
     }
   }
 
+  const ip = clientIp(req);
+
+  // Turnstile (primary bot control). Verified server-side before any save
+  // or email. Placed AFTER the idempotent-replay check so a legitimate
+  // timeout retry of an already-saved submission — which reuses its
+  // idempotency key but may carry a stale/expired token — is answered from
+  // the replay path above rather than rejected here. A brand-new
+  // submission always needs a fresh, valid token.
+  {
+    const ts = await verifyTurnstile(body.turnstile_token, ip, turnstileEnv());
+    if (ts.skipped && ts.reason === 'unconfigured') {
+      console.warn(
+        'submit-connect-form: TURNSTILE NOT CONFIGURED — submissions are not verified. Set CONNECT_TURNSTILE_SECRET_KEY to enforce.',
+      );
+    }
+    if (!ts.ok) {
+      // Generic, human copy. The widget resets and the visitor can retry.
+      return json(
+        { ok: false, error: 'We couldn’t verify your submission. Please try again.' },
+        400,
+        req,
+      );
+    }
+  }
+
   // Durable rate limiting: count this IP's saved submissions in the
   // window. Holds across instances because it reads the table.
-  const ipHash = await hashIp(clientIp(req), Deno.env.get('CONNECT_IP_HASH_SALT') ?? '');
+  const ipHash = await hashIp(ip, Deno.env.get('CONNECT_IP_HASH_SALT') ?? '');
   {
     const since = new Date(Date.now() - RATE_WINDOW_SECONDS * 1000).toISOString();
     const { count } = await supabase

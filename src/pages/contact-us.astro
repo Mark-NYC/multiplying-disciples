@@ -148,6 +148,12 @@ const canonical = 'https://multiplyingdisciples.us/contact-us/';
           ></textarea>
         </div>
 
+        {/* Cloudflare Turnstile — server-verified before anything is saved
+            or emailed. Managed mode usually solves with no interaction. */}
+        <div class="connect-form__field">
+          <div id="cf-turnstile" class="connect-form__turnstile"></div>
+        </div>
+
         <button type="submit" class="button connect-form__submit" id="cf-submit">
           <span data-label-default>Send</span>
           <span data-label-sending hidden>Sending…</span>
@@ -177,11 +183,76 @@ const canonical = 'https://multiplyingdisciples.us/contact-us/';
   </section>
 </BaseLayout>
 
+{/* Cloudflare Turnstile API. is:inline so Astro/Vite leaves it as a plain
+    third-party script tag rather than trying to bundle it. */}
+<script is:inline async defer src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+
 <script>
   import { CONNECT_SUBMIT_FUNCTION_URL } from '../data/site';
 
   const form = document.getElementById('connect-form') as HTMLFormElement | null;
   if (form) {
+    // --- Cloudflare Turnstile ------------------------------------------
+    // The public site key comes from the PUBLIC_TURNSTILE_SITE_KEY env var
+    // (Vercel → Environment Variables), inlined at build by Vite. Falls
+    // back to Cloudflare's "always passes" TEST key so local dev works with
+    // no setup. The SECRET key lives only in the Edge Function.
+    const env = import.meta.env as Record<string, string | undefined>;
+    const TURNSTILE_SITE_KEY = env.PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA';
+    const getTurnstile = (): any => (window as unknown as { turnstile?: any }).turnstile;
+    let turnstileWidgetId: string | null = null;
+
+    function renderTurnstile() {
+      const holder = document.getElementById('cf-turnstile');
+      const ts = getTurnstile();
+      if (!holder || !ts || turnstileWidgetId !== null) return;
+      try {
+        turnstileWidgetId = ts.render(holder, {
+          sitekey: TURNSTILE_SITE_KEY,
+          action: 'connect_form',
+          theme: 'auto',
+        });
+      } catch (err) {
+        console.error('Turnstile render failed', err);
+      }
+    }
+    function turnstileToken(): string {
+      const ts = getTurnstile();
+      if (ts && turnstileWidgetId !== null) {
+        try {
+          return ts.getResponse(turnstileWidgetId) || '';
+        } catch {
+          /* fall through */
+        }
+      }
+      return '';
+    }
+    function resetTurnstile() {
+      const ts = getTurnstile();
+      if (ts && turnstileWidgetId !== null) {
+        try {
+          ts.reset(turnstileWidgetId);
+        } catch {
+          /* ignore */
+        }
+      }
+    }
+
+    // api.js loads async — render as soon as it's available.
+    if (getTurnstile()) {
+      renderTurnstile();
+    } else {
+      let tries = 0;
+      const iv = setInterval(() => {
+        if (getTurnstile()) {
+          clearInterval(iv);
+          renderTurnstile();
+        } else if (++tries > 150) {
+          clearInterval(iv);
+        }
+      }, 100);
+    }
+    // -------------------------------------------------------------------
     const submitBtn = document.getElementById('cf-submit') as HTMLButtonElement;
     const labelDefault = submitBtn.querySelector('[data-label-default]') as HTMLElement;
     const labelSending = submitBtn.querySelector('[data-label-sending]') as HTMLElement;
@@ -351,6 +422,7 @@ const canonical = 'https://multiplyingdisciples.us/contact-us/';
       const params = new URLSearchParams(window.location.search);
       const payload = {
         idempotency_key: ensureIdemKey(),
+        turnstile_token: turnstileToken(),
         first_name: value('cf-first-name'),
         email: value('cf-email'),
         country: value('cf-country'),
@@ -410,8 +482,10 @@ const canonical = 'https://multiplyingdisciples.us/contact-us/';
         successPanel.hidden = false;
         successPanel.focus();
       } catch (err) {
-        // Values are preserved (we never cleared the form). Re-enable and
-        // let them retry.
+        // Values are preserved (we never cleared the form). Refresh the
+        // Turnstile token (single-use / may have expired) so the next
+        // attempt gets a fresh one, then re-enable and let them retry.
+        resetTurnstile();
         const message = err instanceof Error ? err.message : 'Something went wrong. Please try again.';
         showSummary(message);
         submitting = false;
@@ -593,6 +667,10 @@ const canonical = 'https://multiplyingdisciples.us/contact-us/';
   .connect-form__summary:focus {
     outline: 2px solid var(--color-clay);
     outline-offset: 2px;
+  }
+
+  .connect-form__turnstile {
+    min-height: 65px;
   }
 
   .connect-form__submit {
