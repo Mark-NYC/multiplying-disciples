@@ -43,9 +43,29 @@ handler and a separate delivery column; don't overload this one.
 - **Idempotency** — the browser sends a per-submission `idempotency_key`
   stored under a unique constraint; a replayed key returns the existing
   row instead of inserting a duplicate or re-emailing.
+- **Cloudflare Turnstile** *(primary)* — the browser renders a Turnstile
+  widget and sends its token; the function verifies it against Cloudflare
+  (`_shared/turnstile.ts`) before anything is saved or emailed. Enforcement
+  turns on when `CONNECT_TURNSTILE_SECRET_KEY` is set; until then the check
+  is skipped (a warning is logged) so the form keeps working during rollout,
+  after which a missing/invalid token fails closed. Verification runs
+  **after** the idempotent-replay check, so a legitimate timeout retry of an
+  already-saved submission isn't blocked by a stale token.
 
-Cloudflare Turnstile is **not** used (the site doesn't currently support
-it). Add it later if abuse warrants.
+### Turnstile keys
+
+- **Site key** (public) — set as the **Vercel** environment variable
+  `PUBLIC_TURNSTILE_SITE_KEY` (Vercel → Settings → Environment Variables).
+  Astro inlines it into the front end at build (`import.meta.env`). Local
+  dev falls back to Cloudflare's "always passes" test key.
+- **Secret key** — set as the Supabase Function secret
+  `CONNECT_TURNSTILE_SECRET_KEY` (below). It never reaches the browser.
+- The site key and secret must be switched to real values **together** — a
+  real secret rejects tokens minted by the test site key.
+- **Shared-project note:** this project also runs CoVo's `register`
+  function, which uses `TURNSTILE_SECRET_KEY`. The Connect form uses the
+  distinct `CONNECT_TURNSTILE_SECRET_KEY` so the two sites' widgets stay
+  independent — do not merge them.
 
 ## Environment variables (Function secrets)
 
@@ -61,8 +81,13 @@ in the front end.
 | `CONNECT_REPLY_TO_EMAIL` | both | Reply-to on the visitor follow-up (e.g. `contact@multiplyingdisciples.us`) |
 | `CONNECT_NOTIFICATION_EMAIL` | both | Where internal notifications are delivered |
 | `CONNECT_IP_HASH_SALT` | submit | Salt for the IP hash. **Set in production** so hashes aren't guessable from a known IP |
+| `CONNECT_TURNSTILE_SECRET_KEY` | submit | Cloudflare Turnstile **secret** key. Set to enforce Turnstile; unset = skipped (rollout). Distinct from CoVo's `TURNSTILE_SECRET_KEY` on this shared project |
+| `CONNECT_TURNSTILE_DEV_BYPASS` | submit | *(optional)* `true` to skip Turnstile locally without a secret. **Never set in production** |
 | `CONNECT_RETRY_SECRET` | retry | Shared secret required in the `x-retry-secret` header to run the retry function |
 | `CONNECT_ALLOWED_ORIGINS` | submit | *(optional)* extra CORS origins, comma-separated |
+
+> The Turnstile **site** key is not a function secret — it's the Vercel
+> front-end env var `PUBLIC_TURNSTILE_SITE_KEY` (see *Turnstile keys* above).
 
 ## Deploy (run after the site owner approves)
 

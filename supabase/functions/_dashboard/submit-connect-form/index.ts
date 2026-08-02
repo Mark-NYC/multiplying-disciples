@@ -125,6 +125,95 @@ async function hashIp(ip: string, salt: string): Promise<string> {
   return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
+// Cloudflare Turnstile — server-side verification for the Connect form.
+//
+// Turnstile is the primary bot control. The browser renders a Turnstile
+// widget and sends the resulting token; this verifies it against
+// Cloudflare before anything is saved or emailed. Never trust the client:
+// a token is only proof of a human when Cloudflare confirms it here.
+//
+// Rollout / config policy (mirrors how the rest of this function fails
+// safe):
+//   * secret set               → verify against Cloudflare; a missing or
+//                                 invalid token fails closed (rejected).
+//   * secret unset + devBypass → skip (explicit local/test opt-in only).
+//   * secret unset + no bypass → skip, but log a warning. This lets the
+//                                 form keep working during rollout BEFORE
+//                                 the secret is set; set the secret to
+//                                 enforce.
+//
+// This module has no local imports on purpose so the Dashboard bundler
+// (_dashboard/build.mjs) can inline it verbatim. It never logs the secret
+// or the token.
+//
+// NOTE: this Supabase project is shared with CoVo Multipliers, whose
+// `register` function uses TURNSTILE_SECRET_KEY. To keep the two sites'
+// widgets independent, the Connect form uses its own CONNECT_-prefixed
+// secret name.
+
+interface TurnstileEnv {
+  secret: string | undefined;
+  devBypass: boolean;
+}
+
+interface TurnstileResult {
+  ok: boolean;
+  // True when verification was skipped (dev bypass, or not yet configured).
+  skipped?: boolean;
+  reason?: string;
+}
+
+type FetchLike = (input: string, init?: RequestInit) => Promise<Response>;
+
+const SITEVERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+
+// Reads the Turnstile config from function secrets. CONNECT_-prefixed so
+// it never collides with CoVo's TURNSTILE_SECRET_KEY on the shared project.
+function turnstileEnv(): TurnstileEnv {
+  return {
+    secret: Deno.env.get('CONNECT_TURNSTILE_SECRET_KEY') || undefined,
+    devBypass: Deno.env.get('CONNECT_TURNSTILE_DEV_BYPASS') === 'true',
+  };
+}
+
+async function verifyTurnstile(
+  token: unknown,
+  remoteIp: string | null,
+  env: TurnstileEnv,
+  fetchImpl: FetchLike = fetch,
+): Promise<TurnstileResult> {
+  if (!env.secret) {
+    if (env.devBypass) return { ok: true, skipped: true, reason: 'dev_bypass' };
+    // Not configured yet — don't block legitimate users during rollout.
+    return { ok: true, skipped: true, reason: 'unconfigured' };
+  }
+
+  // Secret is configured → enforcement is on. A missing token fails closed.
+  if (typeof token !== 'string' || token.trim() === '') {
+    return { ok: false, reason: 'missing_token' };
+  }
+
+  const form = new URLSearchParams();
+  form.set('secret', env.secret);
+  form.set('response', token);
+  if (remoteIp && remoteIp !== 'unknown') form.set('remoteip', remoteIp);
+
+  try {
+    const res = await fetchImpl(SITEVERIFY_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: form.toString(),
+    });
+    const data = (await res.json().catch(() => ({}))) as { success?: boolean };
+    if (data && data.success === true) return { ok: true };
+    return { ok: false, reason: 'verification_failed' };
+  } catch (_err) {
+    // Couldn't reach Cloudflare. Fail closed — ask a real user to retry
+    // rather than wave through an unverified submission once enforcing.
+    return { ok: false, reason: 'siteverify_unreachable' };
+  }
+}
+
 // Email building + sending for the Connect form (via Resend).
 //
 // Two emails per submission:
@@ -509,10 +598,11 @@ function validate(body: Record<string, unknown>): ValidationResult {
 // The response reports { saved, email_sent } and the browser messages
 // accordingly.
 //
-// Spam/abuse controls: a hidden honeypot + durable, DB-backed rate
-// limiting keyed by a salted hash of the client IP (counts recent rows,
-// so it holds across ephemeral instances). Idempotency: the client sends
-// a per-submission key stored under a unique constraint; a replayed key
+// Spam/abuse controls: Cloudflare Turnstile (verified server-side, the
+// primary control) + a hidden honeypot + durable, DB-backed rate limiting
+// keyed by a salted hash of the client IP (counts recent rows, so it holds
+// across ephemeral instances). Idempotency: the client sends a
+// per-submission key stored under a unique constraint; a replayed key
 // returns the existing row instead of inserting a duplicate or
 // re-emailing.
 //
@@ -523,7 +613,9 @@ function validate(body: Record<string, unknown>): ValidationResult {
 // Required env (Supabase auto-injects SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY):
 //   RESEND_API_KEY, CONNECT_FROM_EMAIL, CONNECT_REPLY_TO_EMAIL,
 //   CONNECT_NOTIFICATION_EMAIL,
-//   (optional) CONNECT_ALLOWED_ORIGINS, CONNECT_IP_HASH_SALT
+//   CONNECT_TURNSTILE_SECRET_KEY (set to enforce Turnstile),
+//   (optional) CONNECT_ALLOWED_ORIGINS, CONNECT_IP_HASH_SALT,
+//   (optional) CONNECT_TURNSTILE_DEV_BYPASS=true (local/test only)
 
 
 function json(
@@ -613,9 +705,34 @@ Deno.serve(async (req) => {
     }
   }
 
+  const ip = clientIp(req);
+
+  // Turnstile (primary bot control). Verified server-side before any save
+  // or email. Placed AFTER the idempotent-replay check so a legitimate
+  // timeout retry of an already-saved submission — which reuses its
+  // idempotency key but may carry a stale/expired token — is answered from
+  // the replay path above rather than rejected here. A brand-new
+  // submission always needs a fresh, valid token.
+  {
+    const ts = await verifyTurnstile(body.turnstile_token, ip, turnstileEnv());
+    if (ts.skipped && ts.reason === 'unconfigured') {
+      console.warn(
+        'submit-connect-form: TURNSTILE NOT CONFIGURED — submissions are not verified. Set CONNECT_TURNSTILE_SECRET_KEY to enforce.',
+      );
+    }
+    if (!ts.ok) {
+      // Generic, human copy. The widget resets and the visitor can retry.
+      return json(
+        { ok: false, error: 'We couldn’t verify your submission. Please try again.' },
+        400,
+        req,
+      );
+    }
+  }
+
   // Durable rate limiting: count this IP's saved submissions in the
   // window. Holds across instances because it reads the table.
-  const ipHash = await hashIp(clientIp(req), Deno.env.get('CONNECT_IP_HASH_SALT') ?? '');
+  const ipHash = await hashIp(ip, Deno.env.get('CONNECT_IP_HASH_SALT') ?? '');
   {
     const since = new Date(Date.now() - RATE_WINDOW_SECONDS * 1000).toISOString();
     const { count } = await supabase

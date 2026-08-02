@@ -62,6 +62,7 @@ function bundle(name, modulePaths) {
 bundle('submit-connect-form', [
   '_shared/model.ts',
   '_shared/security.ts',
+  '_shared/turnstile.ts',
   '_shared/emails.ts',
   'submit-connect-form/cors.ts',
   'submit-connect-form/validation.ts',
