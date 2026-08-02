@@ -1,0 +1,69 @@
+---
+// ToolDownload — a prominent download button for a tool file (usually a
+// PDF served from public/downloads/). Renders a centered button with a
+// download icon plus an optional sublabel (file type / size), styled to
+// match the site's global .button.
+//
+// Usage:
+//   <ToolDownload
+//     href="/downloads/church-handy-guide-right-hand.pdf"
+//     label="Download the tool (PDF)"
+//     sublabel="Right Hand handy guide · 5 pages"
+//   />
+interface Props {
+  href: string;
+  label: string;
+  sublabel?: string;
+}
+
+const { href, label, sublabel } = Astro.props;
+---
+
+<div class="fm-tool-download">
+  <a class="button fm-tool-download__button" href={href} download>
+    <svg
+      class="fm-tool-download__icon"
+      viewBox="0 0 24 24"
+      width="18"
+      height="18"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M12 3v12" />
+      <path d="M7 10l5 5 5-5" />
+      <path d="M5 21h14" />
+    </svg>
+    <span>{label}</span>
+  </a>
+  {sublabel && <p class="fm-tool-download__sublabel">{sublabel}</p>}
+</div>
+
+<style>
+  .fm-tool-download {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1.75rem 0;
+  }
+
+  .fm-tool-download__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .fm-tool-download__icon {
+    flex: none;
+  }
+
+  .fm-tool-download__sublabel {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+</style>
