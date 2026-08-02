@@ -8,6 +8,7 @@ intro: >
   front door to our full library: what it means, why it costs something,
   and how to actually start.
 key_articles:
+  - "/how-to-multiply-disciples-and-churches/"
   - "/how-to-make-disciples/"
   - "/one-on-one-discipleship/"
   - "/new-believer-follow-up/"

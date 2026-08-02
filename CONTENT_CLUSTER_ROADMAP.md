@@ -136,6 +136,18 @@ but marked Improve in CONTENT_AUDIT.md.
 
 ## Cluster 3 — Making Disciples
 
+- **SITE CORNERSTONE (cross-cluster):** ★ **How to Multiply Disciples and
+  Churches** (`/how-to-multiply-disciples-and-churches/`, shipped 2026-08-02).
+  The flagship foundation the whole library flows out of. Thesis:
+  "Multiplication is not a strategy. It is the result of reproducing the life
+  and ministry patterns of Jesus in others until they naturally reproduce
+  those same patterns in someone else." Backbone: Jesus is the model /
+  generations the goal (Mark 3:14 be-with + send-out; 2 Tim 2:2), withness
+  ("cannot reproduce DNA you do not carry"), immediate obedience, habits/
+  rhythms observed in Acts 2 = the Church Waffle, MAWL, the Two-Church Vision,
+  and "multiplication is patient" (not acceleration/info/events/curriculum/
+  mass training). Featured first in the disciple-making hub; links out to every
+  cluster (gospel, disciple-making, training, simple church, CPM/leadership).
 - **Purpose:** be the clearest practical answer on the internet to
   "how do I actually disciple someone."
 - **Audience:** believers with one person in front of them.
