@@ -13,6 +13,7 @@ key_articles:
   - "/one-on-one-discipleship/"
   - "/new-believer-follow-up/"
   - "/obedience-based-discipleship/"
+  - "/addition-vs-multiplication-in-ministry/"
   - "/what-is-a-disciple/"
   - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
   - "/unlock-the-power-of-friendly-accountability/"

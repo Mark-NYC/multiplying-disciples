@@ -14,6 +14,7 @@ key_articles:
   - "/what-makes-a-church-healthy/"
   - "/your-first-simple-church-gathering/"
   - "/when-a-discipleship-group-becomes-a-church/"
+  - "/how-a-simple-church-starts-another-church/"
   - "/movement-resources/12-practice-church-circle/"
   - "/what-are-the-commands-of-christ/"
   - "/three-thirds/"

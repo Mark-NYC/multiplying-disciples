@@ -8,7 +8,13 @@ intro: >
   of disciples and churches. This hub covers what makes them work and how
   pastors can move past common objections.
 key_articles:
+  - "/how-to-multiply-disciples-and-churches/"
   - "/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/"
+  - "/what-are-generations-of-churches/"
+  - "/addition-vs-multiplication-in-ministry/"
+  - "/how-to-identify-and-train-emerging-leaders/"
+  - "/how-to-step-back-without-abandoning-new-leaders/"
+  - "/why-disciple-making-movements-stall/"
   - "/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/"
   - "/disciple-making-movement-dmm-key-characteristics-and-definition/"
   - "/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/"
