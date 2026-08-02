@@ -77,7 +77,21 @@ const featured = [
   ...sorted.filter((entry) => !entry.data.featured),
 ].slice(0, 3);
 const featuredIds = new Set(featured.map((entry) => entry.id));
-const listEntries = sorted.filter((entry) => !featuredIds.has(entry.id));
+
+// The list below the featured band is ordered by most recently updated
+// first (updated ?? date), newest at the top. Undated articles fall to the
+// end (title-sorted), since we have no reliable way to place them by
+// recency. The featured band above keeps its own tier-based selection.
+const listEntries = sorted
+  .filter((entry) => !featuredIds.has(entry.id))
+  .sort((a, b) => {
+    const dateA = bestDate(a);
+    const dateB = bestDate(b);
+    if (dateA && dateB) return dateB.valueOf() - dateA.valueOf();
+    if (dateA && !dateB) return -1;
+    if (!dateA && dateB) return 1;
+    return a.data.title.localeCompare(b.data.title);
+  });
 
 const featuredCards = featured.map((entry, index) => {
   const image = entry.data.og_image ?? entry.data.hero_image;
