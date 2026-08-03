@@ -61,10 +61,74 @@ const SPOTIFY_SHOW = 'https://open.spotify.com/show/2NNDtnQaRLeqRU2N3LVayR';
       {intro && <p class="podcast-embed__intro">{intro}</p>}
 
       {ep.audioUrl && (
-        <audio class="podcast-embed__player" controls preload="none" src={ep.audioUrl}>
-          Your browser can’t play this audio.{' '}
-          <a href={ep.episodeUrl ?? SPOTIFY_SHOW}>Listen to the episode</a>.
-        </audio>
+        <div class="pod-player" data-pod-player>
+          <audio class="pod-player__audio" preload="none" src={ep.audioUrl} />
+
+          <div class="pod-player__transport">
+            <button
+              type="button"
+              class="pod-player__btn pod-player__skip"
+              data-skip="-15"
+              aria-label="Skip back 15 seconds"
+            >
+              <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+                <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-dasharray="42 8" stroke-linecap="round" transform="rotate(-90 12 12)" />
+                <path d="M12 2.6 8.7 4.4 12 6.2Z" fill="currentColor" />
+                <text x="12" y="15.3" text-anchor="middle" font-size="7.2" font-weight="700" fill="currentColor">15</text>
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              class="pod-player__btn pod-player__play"
+              data-play
+              aria-label="Play"
+              aria-pressed="false"
+            >
+              <svg data-icon-play class="pod-player__icon" viewBox="0 0 24 24" width="36" height="36" aria-hidden="true">
+                <path d="M8 5.4 19 12 8 18.6Z" fill="currentColor" />
+              </svg>
+              <svg data-icon-pause class="pod-player__icon is-hidden" viewBox="0 0 24 24" width="36" height="36" aria-hidden="true">
+                <rect x="7" y="5.4" width="3.4" height="13.2" rx="1.3" fill="currentColor" />
+                <rect x="13.6" y="5.4" width="3.4" height="13.2" rx="1.3" fill="currentColor" />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              class="pod-player__btn pod-player__skip"
+              data-skip="30"
+              aria-label="Skip forward 30 seconds"
+            >
+              <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+                <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-dasharray="42 8" stroke-linecap="round" transform="rotate(-90 12 12)" />
+                <path d="M12 2.6 15.3 4.4 12 6.2Z" fill="currentColor" />
+                <text x="12" y="15.3" text-anchor="middle" font-size="7.2" font-weight="700" fill="currentColor">30</text>
+              </svg>
+            </button>
+          </div>
+
+          <div class="pod-player__scrub">
+            <span class="pod-player__time" data-current>0:00</span>
+            <input
+              class="pod-player__range"
+              type="range"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              aria-label="Seek"
+              data-range
+            />
+            <span class="pod-player__time pod-player__time--end" data-remaining>0:00</span>
+          </div>
+
+          <div class="pod-player__footer">
+            <button type="button" class="pod-player__speed" data-speed aria-label="Playback speed">
+              1×
+            </button>
+          </div>
+        </div>
       )}
 
       {summary && <p class="podcast-embed__summary">{summary}</p>}
@@ -81,3 +145,103 @@ const SPOTIFY_SHOW = 'https://open.spotify.com/show/2NNDtnQaRLeqRU2N3LVayR';
     </aside>
   )
 }
+
+<script is:inline>
+  // Progressive enhancement for every PodcastEmbed on the page. The
+  // native <audio> is the source of truth; these controls drive it. No
+  // JS → the audio element still exists and the "Listen on…" links work.
+  // is:inline (plain JS, run-once guard) because Astro does not hoist a
+  // component's bundled <script> when the component is rendered via MDX.
+  (function () {
+    if (window.__h3xPodPlayer) return;
+    window.__h3xPodPlayer = true;
+
+    function fmt(t) {
+      if (!isFinite(t) || t < 0) t = 0;
+      var m = Math.floor(t / 60);
+      var s = Math.floor(t % 60);
+      return m + ':' + String(s).padStart(2, '0');
+    }
+
+    var SPEEDS = [1, 1.25, 1.5, 2];
+
+    function initPlayer(root) {
+      var audio = root.querySelector('audio');
+      var playBtn = root.querySelector('[data-play]');
+      var iconPlay = root.querySelector('[data-icon-play]');
+      var iconPause = root.querySelector('[data-icon-pause]');
+      var range = root.querySelector('[data-range]');
+      var cur = root.querySelector('[data-current]');
+      var rem = root.querySelector('[data-remaining]');
+      var speedBtn = root.querySelector('[data-speed]');
+      if (!audio || !playBtn || !range || !cur || !rem) return;
+
+      var speedIndex = 0;
+
+      function paint() {
+        var dur = audio.duration || 0;
+        var pct = dur ? (audio.currentTime / dur) * 100 : 0;
+        range.value = String(pct);
+        range.style.setProperty('--pct', pct + '%');
+        cur.textContent = fmt(audio.currentTime);
+        rem.textContent = '-' + fmt(Math.max(0, dur - audio.currentTime));
+      }
+
+      playBtn.addEventListener('click', function () {
+        if (audio.paused) audio.play();
+        else audio.pause();
+      });
+      audio.addEventListener('play', function () {
+        if (iconPlay) iconPlay.classList.add('is-hidden');
+        if (iconPause) iconPause.classList.remove('is-hidden');
+        playBtn.setAttribute('aria-label', 'Pause');
+        playBtn.setAttribute('aria-pressed', 'true');
+      });
+      audio.addEventListener('pause', function () {
+        if (iconPlay) iconPlay.classList.remove('is-hidden');
+        if (iconPause) iconPause.classList.add('is-hidden');
+        playBtn.setAttribute('aria-label', 'Play');
+        playBtn.setAttribute('aria-pressed', 'false');
+      });
+      audio.addEventListener('ended', function () {
+        audio.currentTime = 0;
+      });
+      audio.addEventListener('loadedmetadata', paint);
+      audio.addEventListener('timeupdate', paint);
+
+      root.querySelectorAll('[data-skip]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var delta = parseFloat(btn.getAttribute('data-skip') || '0');
+          var dur = audio.duration || Number.MAX_SAFE_INTEGER;
+          audio.currentTime = Math.max(0, Math.min(dur, audio.currentTime + delta));
+        });
+      });
+
+      range.addEventListener('input', function () {
+        var dur = audio.duration || 0;
+        if (dur) audio.currentTime = (parseFloat(range.value) / 100) * dur;
+        range.style.setProperty('--pct', range.value + '%');
+      });
+
+      if (speedBtn) {
+        speedBtn.addEventListener('click', function () {
+          speedIndex = (speedIndex + 1) % SPEEDS.length;
+          audio.playbackRate = SPEEDS[speedIndex];
+          speedBtn.textContent = SPEEDS[speedIndex] + '×';
+        });
+      }
+
+      paint();
+    }
+
+    function initAll() {
+      document.querySelectorAll('[data-pod-player]').forEach(initPlayer);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAll);
+    } else {
+      initAll();
+    }
+  })();
+</script>
