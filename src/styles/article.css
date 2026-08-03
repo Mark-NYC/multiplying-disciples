@@ -942,19 +942,42 @@
   color: var(--color-text-muted);
 }
 
-.podcast-embed__meta {
+.podcast-embed__platforms {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1.25rem;
+  align-items: center;
+  gap: 0.7rem;
   margin: 0;
   padding-top: 1rem;
   border-top: 1px solid var(--color-border);
-  font-size: 0.88rem;
 }
 
-.podcast-embed__meta a {
-  color: var(--color-accent-hover);
-  font-weight: 600;
+.podcast-embed__platform {
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  line-height: 0;
+  background: transparent;
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.podcast-embed__platform img {
+  display: block;
+  height: 40px;
+  width: auto;
+  border-radius: 8px;
+}
+
+.podcast-embed__platform:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 6px 18px rgba(189, 90, 34, 0.35);
+}
+
+.podcast-embed__platform:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 /* --- Field Note photo ---------------------------------------

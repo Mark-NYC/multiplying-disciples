@@ -48,6 +48,8 @@ const summary =
 
 const APPLE_SHOW = 'https://podcasts.apple.com/us/podcast/h3x/id1562206185';
 const SPOTIFY_SHOW = 'https://open.spotify.com/show/2NNDtnQaRLeqRU2N3LVayR';
+const YOUTUBE_PLAYLIST =
+  'https://www.youtube.com/playlist?list=PL1YoQQDZVDO68yuhJzvcu11DQxF3H_y4O';
 ---
 
 {
@@ -135,15 +137,35 @@ const SPOTIFY_SHOW = 'https://open.spotify.com/show/2NNDtnQaRLeqRU2N3LVayR';
 
       {summary && <p class="podcast-embed__summary">{summary}</p>}
 
-      <p class="podcast-embed__meta">
-        {ep.episodeUrl && (
-          <a href={ep.episodeUrl} target="_blank" rel="noopener">
-            Listen to the full episode &rarr;
-          </a>
-        )}
-        <a href={APPLE_SHOW} target="_blank" rel="noopener">Apple Podcasts</a>
-        <a href={SPOTIFY_SHOW} target="_blank" rel="noopener">Spotify</a>
-      </p>
+      <div class="podcast-embed__platforms">
+        <a
+          class="podcast-embed__platform"
+          href={SPOTIFY_SHOW}
+          target="_blank"
+          rel="noopener"
+          aria-label="Listen on Spotify"
+        >
+          <img src="/images/podcast/spotify-button.webp" alt="Listen on Spotify" width="285" height="96" loading="lazy" />
+        </a>
+        <a
+          class="podcast-embed__platform"
+          href={APPLE_SHOW}
+          target="_blank"
+          rel="noopener"
+          aria-label="Listen on Apple Podcasts"
+        >
+          <img src="/images/podcast/apple-podcasts-button.webp" alt="Listen on Apple Podcasts" width="394" height="96" loading="lazy" />
+        </a>
+        <a
+          class="podcast-embed__platform"
+          href={YOUTUBE_PLAYLIST}
+          target="_blank"
+          rel="noopener"
+          aria-label="Watch on YouTube"
+        >
+          <img src="/images/podcast/youtube-button.webp" alt="Watch on YouTube" width="285" height="96" loading="lazy" />
+        </a>
+      </div>
     </aside>
   )
 }
