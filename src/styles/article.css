@@ -965,6 +965,8 @@
   display: block;
   height: 36px;
   width: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 0; /* override the global img border-radius */
 }
 
 .podcast-embed__platform:hover {
