@@ -39,12 +39,25 @@ function formatDate(raw?: string): string {
 
 const date = formatDate(ep?.pubDate);
 
-const SUMMARY_MAX = 320;
+// Keep the blurb to one short paragraph: the opening sentence(s) up to
+// ~220 chars, ended cleanly on a sentence boundary rather than a
+// mid-word chop.
+const SUMMARY_MAX = 220;
 const rawSummary = ep?.description ?? '';
-const summary =
-  rawSummary.length > SUMMARY_MAX
-    ? rawSummary.slice(0, SUMMARY_MAX).replace(/\s+\S*$/, '') + '…'
-    : rawSummary;
+
+function toOneParagraph(text: string): string {
+  if (!text || text.length <= SUMMARY_MAX) return text;
+  const window = text.slice(0, SUMMARY_MAX);
+  const lastStop = Math.max(
+    window.lastIndexOf('. '),
+    window.lastIndexOf('! '),
+    window.lastIndexOf('? '),
+  );
+  if (lastStop > SUMMARY_MAX * 0.5) return window.slice(0, lastStop + 1).trim();
+  return window.replace(/\s+\S*$/, '').trim() + '…';
+}
+
+const summary = toOneParagraph(rawSummary);
 
 const APPLE_SHOW = 'https://podcasts.apple.com/us/podcast/h3x/id1562206185';
 const SPOTIFY_SHOW = 'https://open.spotify.com/show/2NNDtnQaRLeqRU2N3LVayR';
