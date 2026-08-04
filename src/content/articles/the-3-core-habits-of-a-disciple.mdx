@@ -28,6 +28,9 @@ notes: >
   contains 2 unrelated files — dropped, surrounding prose kept intact.
 ---
 
+import PodcastEmbed from '../../components/article/PodcastEmbed.astro';
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
+
 What's the **fundamental difference** between merely believing and truly following Jesus as a **disciple**? While millions identify as Christians, Jesus called us to make **disciples who obey** everything He commanded (Matthew 28:18-20).
 
 > In this article you will learn the <span class="fm-underline fm-underline--shape-a fm-underline--clay">three foundational habits</span> that transform ordinary believers into disciple-makers who multiply movements.
@@ -181,6 +184,17 @@ The 3 Circles works because:
 
 *Who needs to hear your story this week? What would change if you committed to sharing the 3 Circles with just one person in the next seven days? How many lives might be transformed if you mastered and multiplied this simple tool?*
 
+<section id="listen-core-habits" aria-label="Podcast: the rhythms of a multiplier are caught, not hacked">
+
+Listen to why these habits cannot be shortcut into your calendar, and how multiplying disciples actually catch them in the normal flow of life.
+
+<PodcastEmbed
+  id="the-rhythms-of-a-multiplier-cant-be-hacked-they-have-to-be-caught"
+  intro="Habits are not tasks you bolt onto a busy week; they are rhythms you learn by living them near someone who already has them. Mark and Dave trace how the rhythms of a multiplier get caught, and why that changes how you grow the three habits below."
+/>
+
+</section>
+
 ## Conclusion: Living as a Disciple Who Makes Disciples
 
 Jorge stood in the shallow river, helping his friend Manuel into the water for baptism. Six months earlier, Jorge had been a nominal believer who never shared his faith. Now he was discipling five people who were all sharing the gospel regularly.
@@ -212,3 +226,9 @@ The future of the gospel's spread doesn't depend on eloquent preachers or elabor
 As Jorge discovered, "These habits aren't complicated, but they're transformative. When I began to practice them daily, not only did my own life change, but I started seeing the ripple effects in others. Now I'm watching my disciples make their own disciples."
 
 *Will you join the movement of disciples who make disciples through these simple, reproducible habits? What might God do through your faithful obedience in the next six months?*
+
+<ArticleMediaBar
+  slug="/the-3-core-habits-of-a-disciple/"
+  listen={{ target: 'listen-core-habits', label: 'Listen' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
+/>

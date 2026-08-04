@@ -117,6 +117,8 @@ import ArticleImage from '../../components/article/ArticleImage.astro';
 import InsightCard from '../../components/article/InsightCard.astro';
 import PracticeCard from '../../components/article/PracticeCard.astro';
 import PullQuote from '../../components/article/PullQuote.astro';
+import PodcastEmbed from '../../components/article/PodcastEmbed.astro';
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
 
 This article will empower you with the [skills for evangelizing](https://www.covomultipliers.com/blog/how-to-share-the-gospel/) to seamlessly integrate the [Conversation Quadrant tool](https://conversationquadrant.com/), the 15-Second Testimony tool, and the 3 Circles Gospel tool into your evangelistic endeavors. You'll learn to navigate conversations with poise, overcome uncertainties, and nurture lasting discipleship.
 
@@ -131,6 +133,17 @@ Are you prepared to make a profound impact on people's lives through the power o
 />
 
 Evangelism is the act of sharing the Gospel message with others, inviting them to experience a personal relationship with Jesus Christ. For the bigger picture of the message itself and how to invite a response, see the guide to [how to share the gospel](/how-to-share-the-gospel/); this article zooms in on the conversation skills that get you there.
+
+<section id="listen-evangelize" aria-label="Podcast: bold proclamation and a listening life">
+
+Listen to how bold gospel proclamation and a quiet, listening presence work together, and why you need both to be an effective witness.
+
+<PodcastEmbed
+  id="how-listening-and-shaking-the-salt-fits-into-gospeling"
+  intro="Evangelism is not only speaking, and not only listening. This episode works through the tension of proclaiming the gospel boldly while living the kind of attentive, salt-shaking life that makes people want to hear it."
+/>
+
+</section>
 
 ## Frequently Asked Questions
 
@@ -349,3 +362,9 @@ So, go forth with boldness and compassion, shining the light of the Gospel where
 > The gospel is an invitation to follow Jesus as Lord; that means that God does the work when we obey and share.
 
 Learn how you can multiply disciples by **[getting started with these starter tools](/starter-tools/)**.
+
+<ArticleMediaBar
+  slug="/how-to-evangelize-ultimate-step-by-step-guide/"
+  listen={{ target: 'listen-evangelize', label: 'Listen' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
+/>

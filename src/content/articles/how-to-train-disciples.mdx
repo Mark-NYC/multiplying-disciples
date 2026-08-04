@@ -89,6 +89,8 @@ import WarningCard from '../../components/article/WarningCard.astro';
 import ScriptureBlock from '../../components/article/ScriptureBlock.astro';
 import PullQuote from '../../components/article/PullQuote.astro';
 import PracticeCard from '../../components/article/PracticeCard.astro';
+import PodcastEmbed from '../../components/article/PodcastEmbed.astro';
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
 
 Plenty of us disciple a person or two. Far fewer train those disciples to make disciples, and that is exactly where multiplication stalls. This is about closing that gap: how to turn the people you are discipling into disciple-makers who can do it without you.
 
@@ -179,6 +181,17 @@ You do not become a trainer by finishing an article about training. You become o
 4. **Ask the multiplying question:** who are they going to train in this next?
 </PracticeCard>
 
+<section id="listen-train-disciples" aria-label="Podcast: training happens through withness, not just lessons">
+
+Listen to what changed when a group of young disciples joined a real ministry trip, and why training sticks when people see the life behind the lesson.
+
+<PodcastEmbed
+  id="leaders-grow-through-time-with-in-the-boat"
+  intro="Most training stalls because people only get the lesson, never the life behind it. Mark, Dave, and Marcus unpack what happened when young disciples came along on a real trip, the withness that turns information into a leader who can train someone else."
+/>
+
+</section>
+
 ## Frequently asked questions
 
 ### What is disciple training?
@@ -200,3 +213,9 @@ No. You need to be able to do the thing you are training, and be willing to let 
 ### Where can I get disciple-making training?
 
 Start by training one person in something you already know how to do. Beyond that, the most useful training is hands-on and coached: find a setting where you can practice making disciples with other people and get honest feedback, instead of only sitting through a workshop. Learning to train disciples happens best in real practice alongside others, not in theory alone.
+
+<ArticleMediaBar
+  slug="/how-to-train-disciples/"
+  listen={{ target: 'listen-train-disciples', label: 'Listen' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
+/>
