@@ -88,6 +88,8 @@ import PracticeCard from '../../components/article/PracticeCard.astro';
 import WarningCard from '../../components/article/WarningCard.astro';
 import ScriptureBlock from '../../components/article/ScriptureBlock.astro';
 import PullQuote from '../../components/article/PullQuote.astro';
+import PodcastEmbed from '../../components/article/PodcastEmbed.astro';
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
 
 Most Christians believe the gospel and still almost never say it to anyone. Not because they don't care, but because no one ever showed them a simple way to move from "I should" to actually opening their mouth. This walks through that, from the message itself to the moment you ask someone to respond.
 
@@ -211,6 +213,17 @@ You do not learn to share the gospel by reading one more article about it. You l
 
 If you want to get better at this with other people before the conversation that counts, that is exactly what a live lab is for.
 
+<section id="listen-spiritual-conversations" aria-label="Podcast: how to actually start a spiritual conversation">
+
+Listen to a practical breakdown of the hardest part for most people: getting from small talk to a real conversation about Jesus without it feeling forced.
+
+<PodcastEmbed
+  id="how-to-actually-have-spiritual-conversations"
+  intro="Most of us do not struggle to believe the gospel; we struggle to start the conversation. Mark walks through the Conversation Box, a simple, repeatable way to move from small talk to the good news without being awkward or needing to be a natural evangelist."
+/>
+
+</section>
+
 ## Frequently asked questions
 
 ### What does it mean to share the gospel?
@@ -232,3 +245,9 @@ Some people will say no, and that is not failure. Jesus and the apostles were re
 ### Do I need training to share the gospel?
 
 No. You need to know the gospel well enough to say it and be willing to open your mouth. Training and practice make you more comfortable and clear, and a tool like the 3 Circles or a short testimony gives you a reliable path, but the qualification to start is faith and obedience, not expertise.
+
+<ArticleMediaBar
+  slug="/how-to-share-the-gospel/"
+  listen={{ target: 'listen-spiritual-conversations', label: 'Listen' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
+/>
