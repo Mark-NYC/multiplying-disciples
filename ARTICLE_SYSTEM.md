@@ -531,9 +531,17 @@ an action appears only where a real embed/download exists):
 | DMM: Key Characteristics & Definition | Listen · Share | "What Actually Starts Movements" — Emmanuel Prinz; converted `.md` → `.mdx`, replaced a bare Spotify link with the embed (Wave 3) |
 | The Secret Ingredient of Trustworthy Leaders | Listen · Share | "Charisma Can Fill a Room" (podcast already embedded; wrapped + wired) (Wave 3) |
 | 15-Second Testimony Examples | Watch · Share | existing video (no H3X episode for the testimony cluster → no Listen) (Wave 3) |
+| Three Thirds | Listen · Share | "Why We Do Scripture Deep Dives" — the DBS method inside a Three Thirds meeting (added fit) |
+| 5 Surprising Ways to Attract Multiplying Leaders | Watch · Listen · Share | 1:1 episode "5 Ways to Attract Multiplying Leaders with Mark" + converted the article's bare YouTube link to a real embed; `.md` → `.mdx` (added fit) |
+| Unleashing the Movement (Paul in Ephesus) | Listen · Share | "What Paul Did Daily for Two Years That Changed Asia Minor" (added fit) |
+| How to Share the Gospel at Work | Listen · Share | "Your Job Is Not in the Way of Your Calling" (added fit) |
+| How to Identify and Train Emerging Leaders | Listen · Share | "You Can't Recruit the Leaders You Need" (added fit) |
 
-**Waves 1–3 rollout, 2026-08-04 (22 articles total: 21 rolled out + the
-reference).** Podcast-only bars carry no Watch because no real companion
+**Waves 1–3 + added fits, 2026-08-04 (27 articles total: 26 rolled out +
+the reference).** The five "added fits" are articles beyond the original
+top-25 that had an unusually direct, catalog-confirmed H3X match and enough
+substance to earn a bar (e.g. Three Thirds ↔ the scripture-deep-dive
+episode). Podcast-only bars carry no Watch because no real companion
 video exists yet — leave the `watch` prop off until one does, and the
 button lights up automatically. **Deferred (real assets don't exist yet):
 7 Stories of Hope**, **How to Share Your Testimony** (testimony cluster has
