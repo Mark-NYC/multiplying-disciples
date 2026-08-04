@@ -256,6 +256,14 @@ const shareLabel = share?.label ?? 'Share';
     border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
     box-shadow: var(--fm-shadow), 0 10px 30px rgba(31, 37, 35, 0.12);
+    /* Pin the content row to exactly one control tall. A flex row here
+       otherwise resolves a taller cross-size and centres the controls in
+       the extra space, so the buttons drift out of the bar; a definite
+       height keeps every control vertically centred, aligned, and inside
+       the bar. box-sizing so the height is the content, padding sits
+       outside it. */
+    box-sizing: content-box;
+    height: var(--amb-btn);
   }
 
   .amb__eyebrow {
@@ -279,11 +287,6 @@ const shareLabel = share?.label ?? 'Share';
     flex: 1 1 auto;
     min-width: 0;
     justify-content: flex-end;
-    /* Hug the 44px controls: a nested flex row otherwise reserves extra
-       cross-axis space and centres the buttons in it, making the bar
-       taller than its controls. The controls never exceed --amb-btn
-       (single line, min-height floor), so this only removes dead space. */
-    max-height: var(--amb-btn);
   }
 
   .amb__item {
