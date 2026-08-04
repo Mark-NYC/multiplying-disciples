@@ -249,24 +249,141 @@ Listen to a deeper conversation about <the specific angle>.
 </section>
 ```
 
-### The sticky media bar (`ArticleMediaBar`)
+### The sticky media bar (`ArticleMediaBar`) — a per-article media policy
 
-A compact, dismissible bar fixed near the bottom of the viewport with
-three action slots plus a close. Watch and Listen are **in-page anchors**
-that smooth-scroll to the matching section; the third slot is
-**contextual**: it shows Get the Guide while the reader is in the first
-~75% of the article, then crossfades once to Share in the final quarter,
-because a finished reader is the one most likely to pass the article on.
-Both live in one grid cell so the swap never shifts the layout or resizes
-a button, and with no JavaScript the Guide stays put.
+The media bar is **not one fixed toolbar**. It is a flexible,
+article-level component that adapts to the media and tool a given article
+actually has. Its job is to:
 
-It is wayfinding for media the article already contains: the media
-actions never link out (no Spotify/Apple/YouTube links in the bar) and
-never trigger a download directly (Get the Guide scrolls to the existing
-download rather than firing it). The Share half is the one exception to
-"never links out" — it shares the article itself (native share sheet on
-mobile, copy-link with a "Copied" state on desktop). Mount it from the
-article body, after the media it points at:
+1. surface the media formats the article actually contains,
+2. surface a practical resource when one exists,
+3. transition toward sharing after the reader has received value, and
+4. stay visually balanced even when only one action is available.
+
+It is **opt-in, article by article** — never applied to every article
+automatically. Mount it deliberately from the article body, only where the
+policy below says it earns its place. It is a compact, dismissible bar
+fixed near the bottom of the viewport.
+
+#### Core principle: only real destinations
+
+Every action the bar shows must point at a real section that exists on
+that same article. **Never render a dead, placeholder, or irrelevant
+button.** An action whose target id is not on the page is dropped at
+runtime, so a mis-set or not-yet-built target fails safe (the button
+simply doesn't render) rather than offering a broken jump.
+
+The possible actions are **Watch · Listen · Guide/Tool · Share · Close**.
+Which of them appear is entirely a function of what the article provides.
+
+#### When to render the bar at all
+
+Render the bar only when the article has at least one of: a **video**, an
+**audio** embed, or a **downloadable resource**. When it has none of
+those, **do not render the bar** — the single exception is an article that
+has *explicitly* opted into Share-only behavior (a page worth sharing that
+carries no media or tool). Absent that opt-in, no media and no tool means
+no bar.
+
+#### Downloadable-resource (Guide/Tool) behavior
+
+**When the article has a downloadable resource** (a Left/Right-Hand guide,
+a tool PDF, and so on):
+
+- Show the **Guide/Tool** button through the main reading portion.
+- At roughly the **final 25%** of the article (the share threshold), the
+  Guide/Tool button transitions **once** into a **Share** button.
+- Use a subtle **fade/crossfade**; keep the button **width stable** so the
+  bar does not jump (both live in one reserved slot).
+- The transition happens **only once** per reading session and does not
+  revert on scroll-up.
+- **Before** the transition, clicking Guide/Tool **scrolls to the existing
+  download section** — it never fires the download itself.
+- **After** the transition, clicking Share uses the **Web Share API** with
+  a graceful fallback (copy the canonical URL).
+- **If JavaScript is unavailable, the Guide/Tool stays shown** (the swap is
+  a progressive enhancement; the anchor still works).
+
+**When the article has no downloadable resource:**
+
+- **Do not render an empty Guide/Tool slot.**
+- Show the **Share** button once the reader reaches ~the final 25%.
+- Before that point, the bar carries only the available media actions and
+  Close.
+- Share fades into its reserved place **without a disruptive layout
+  shift**; the bar stays stable and visually balanced.
+
+#### Media availability — every combination
+
+Only render actions with valid targets. Close is always present (omitted
+from the table). "Threshold" is ~the final 25%.
+
+| Article has | Before threshold | After threshold |
+| --- | --- | --- |
+| video + audio + resource | Watch · Listen · Guide | Watch · Listen · Share |
+| video + audio, no resource | Watch · Listen | Watch · Listen · Share |
+| video + resource | Watch · Guide | Watch · Share |
+| audio + resource | Listen · Guide | Listen · Share |
+| video only, no resource | Watch | Watch · Share |
+| audio only, no resource | Listen | Listen · Share |
+| resource only | Guide | Share |
+| no media, no resource | *bar not rendered* (unless Share-only is explicitly enabled) | — |
+
+#### Layout and alignment
+
+**Mobile — a native bottom-toolbar model.** Available media buttons form a
+**left-aligned action group** starting at the left edge of the bar, with
+**consistent gaps within the group**. The **Close control stays pinned to
+the far right**, with **flexible empty space** between the action group and
+Close. This matters most when an article has only one media action: a lone
+Watch or Listen sits at the **left**, never centered in the toolbar, and is
+**not stretched** across the full width.
+
+```
+Video only:        Watch                          (×)
+Audio only:        Listen                         (×)
+Video + audio:     Watch · Listen                 (×)
+Video + tool:      Watch · Guide                  (×)
+Audio + tool:      Listen · Guide                 (×)
+After threshold:   Watch · Share                  (×)
+             or:   Listen · Share                 (×)
+```
+
+Do not center a single media button in the full toolbar, and do not
+stretch one button across all available width (unless that behavior is
+specifically approved later). The layout is: a left-aligned action group,
+a right-aligned Close, consistent gaps within the group, and flexible
+space between the group and Close.
+
+**Desktop.** Keep the bar centered within its max width. Actions may remain
+grouped together, with Close **visually separated and secondary**. Never
+leave an empty button slot.
+
+#### Article configuration model
+
+Conceptually the bar is configured per article by *which targets exist*.
+The current component exposes that as props; the intended fields map as
+follows (name the concept in review; use the prop when authoring):
+
+| Concept | Meaning | Current prop |
+| --- | --- | --- |
+| `videoTarget` | id of the video section → show **Watch** | `watch={{ target, label, shortLabel? }}` |
+| `audioTarget` | id of the podcast section → show **Listen** | `listen={{ target, label, shortLabel? }}` |
+| `toolTarget` / `toolLabel` | id + label of the download section → show **Guide/Tool** before the threshold | `tool={{ target, label, shortLabel? }}` |
+| `shareEnabled` / `shareThreshold` | turn on Share and set the threshold | `share={{ url, title, label? }}` + `swapAt` (default `0.75`) |
+| `showMediaBar` | render the bar at all | render (or omit) the component; `revealAt` sets when it appears |
+
+Decision logic:
+
+- `videoTarget` present → show **Watch**.
+- `audioTarget` present → show **Listen**.
+- `toolTarget` present → show **Guide/Tool** before the threshold, **Share**
+  after it.
+- no `toolTarget` + sharing enabled → introduce **Share** at the threshold.
+- no valid targets → **do not render** the bar.
+
+Authoring example (mount in the article body, after the media it points
+at):
 
 ```mdx
 import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
@@ -280,71 +397,109 @@ import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
 />
 ```
 
-Props:
-
 | Prop | Purpose |
 | --- | --- |
 | `slug` | required; emitted in analytics event data and keys the dismissal storage |
-| `watch` / `listen` / `tool` | each `{ target, label, shortLabel? }`; `target` is the id of the on-page `<section>`/wrapper to scroll to, `shortLabel` is the narrow-width label. Omit an action you don't have. `tool` is the Guide half of the contextual slot |
-| `share` | optional `{ url?, title?, label? }`. When `tool` is also set it becomes the contextual action the Guide crossfades to in the final quarter; on its own it renders as a normal always-on action. Native share sheet on mobile (`navigator.share`), copy-link with a "Copied" state on desktop. `url`/`title` fall back at runtime to the page's canonical link and title — pass `frontmatter.canonical` / `frontmatter.title` to be explicit |
+| `watch` / `listen` / `tool` | each `{ target, label, shortLabel? }`; `target` is the id of the on-page `<section>`/wrapper to scroll to, `shortLabel` is the narrow-width label. Omit an action the article doesn't have. `tool` is the Guide/Tool half of the contextual slot |
+| `share` | optional `{ url?, title?, label? }`. With `tool` also set, it is the action the Guide/Tool crossfades to at the threshold; without `tool` it is the Share introduced at the threshold. Native share sheet on mobile (`navigator.share`), copy-link fallback on desktop. `url`/`title` fall back at runtime to the page's canonical link and title — pass `frontmatter.canonical` / `frontmatter.title` to be explicit |
 | `eyebrow` | desktop lead-in label before the actions; defaults to "Explore this article" |
-| `revealAt` | fraction of the article scrolled before the bar appears (0–1); default `0.2` |
-| `swapAt` | fraction of the article at which Guide crossfades to Share (0–1); default `0.75`. Only applies when both `tool` and `share` are set |
-| `headerOffset` | px left above the target when scrolling to it; default `24` (the site header is not sticky today) |
+| `revealAt` | fraction scrolled before the bar appears (0–1); default `0.2` |
+| `swapAt` | the share threshold — fraction of the article at which Guide/Tool → Share (0–1); default `0.75` |
+| `headerOffset` | px left above a target when scrolling to it; default `24` (the site header is not sticky today, but this keeps targets clear of any future sticky header) |
 
-An action whose `target` id is **not on the page is dropped at runtime**.
-That is the intended way to keep **Listen hidden until the article
-actually has a relevant episode**: leave the `listen` prop off (or point
-it at a section you add later), and the button simply won't render.
+#### Anchor requirements
 
-Behavior — all built in, do not re-implement:
-
-- Hidden near the top; appears after ~`revealAt` of the article is
-  scrolled; hides again as the reader reaches the site footer so it never
-  covers the closing CTA.
-- The Guide → Share swap fires once at ~`swapAt` and does not revert if
-  the reader scrolls back up (once per page view). The crossfade is a
-  subtle opacity/visibility fade, disabled under `prefers-reduced-motion`.
-- Dismissible; the dismissal persists for the browser session via
-  `sessionStorage` (keyed by slug).
-- Compact by design: buttons sit at the 44px tap-target floor
-  (`--amb-btn`) and the row hugs them, so the bar is only as tall as its
-  controls.
-- Smooth scroll, downgraded to an instant jump under
-  `prefers-reduced-motion`.
-- After a jump, keyboard focus moves to the target section
-  (`tabindex="-1"`, `focus({ preventScroll: true })`) without yanking the
-  viewport for mouse users.
-- Keyboard accessible with visible Growth-Green focus rings and ARIA
-  labels; respects mobile safe-area insets; no horizontal overflow at
-  narrow widths (desktop shows the eyebrow + full labels; mobile drops
-  the eyebrow and uses `shortLabel`s).
-
-Analytics: it pushes to the site's `window.dataLayer` (the same
-convention as `ecosystem-tracking.js` and `intro-video.js`), so events
-flow the moment GA4/GTM is wired up — no new provider. Event names, each
-carrying `article_slug` (plus `target_type` and `target_id` on the action
-events):
-
-`article_media_bar_view` · `article_media_bar_watch` ·
-`article_media_bar_listen` · `article_media_bar_guide` ·
-`article_media_bar_share` (with `method: 'web_share' | 'copy'`) ·
-`article_media_bar_swap` (Guide → Share, fired once) ·
-`article_media_bar_dismiss`.
-
-Anchor IDs: use stable, **descriptive** ids on the media wrappers
-(`watch-the-five-ws`, `listen-the-first-church`, `get-the-guide`), not
-generic ones, and pick names that won't collide with a heading's
+Every enabled action must point at a **stable anchor on the same article**:
+Watch → the video section, Listen → the podcast section, Guide/Tool → the
+existing resource/download section. Use descriptive ids on the media
+wrappers (`watch-the-five-ws`, `listen-the-first-church`, `get-the-guide`),
+not generic ones, and pick names that won't collide with a heading's
 github-slugger auto-slug. If you rename a section, update the matching
-`target`.
+target. **Do not** link the bar directly to an external podcast platform
+(Spotify/Apple/YouTube) and **do not** trigger a file download from the
+bar — it always **scrolls to the embedded section first**.
 
-**Scope (MVP).** The bar is mounted from the article body on purpose —
-that is what keeps it on that one article. It is **not** wired into
-`ArticleLayout` and is **not** a sitewide feature yet. Add it only to
-cornerstone/pillar articles with 2+ media assets. The prop API is
-deliberately general so a later pass could lift it into the layout behind
-an opt-in frontmatter flag (e.g. `media_bar:`) once GA4 measurement
-confirms it earns its place; until then, keep it article-scoped.
+#### Share behavior
+
+Share uses the **current article title and canonical URL**. Prefer the
+**Web Share API**; provide a graceful fallback (copy the canonical URL,
+with a brief "Copied" state). Track Share **separately** from the media and
+tool actions (see analytics).
+
+#### Analytics
+
+The bar pushes to the site's `window.dataLayer` (same convention as
+`ecosystem-tracking.js` and `intro-video.js`), so events flow the moment
+GA4/GTM is wired up — no new provider. Standard event names:
+
+- `article_media_bar_view`
+- `article_media_bar_watch`
+- `article_media_bar_listen`
+- `article_media_bar_tool`
+- `article_media_bar_share`
+- `article_media_bar_swap`
+- `article_media_bar_dismiss`
+
+Each event should carry: the **article slug**, the **action type**, the
+**target id** where relevant, **whether a downloadable resource exists** on
+the article, and the **current scroll stage** where useful (e.g. before vs
+after the share threshold). Share additionally records its method
+(`web_share` vs `copy`).
+
+#### Accessibility and behavior invariants
+
+Preserve these for **every** configuration:
+
+- minimum **44px** tap targets;
+- keyboard accessible, with **visible focus states**;
+- **reduced-motion** support (crossfade and smooth-scroll become instant);
+- **no autoplay** of video or audio;
+- **no horizontal scrolling** at any width;
+- **mobile safe-area** support (`env(safe-area-inset-bottom)`);
+- **stable layout during transitions** (no jump/resize on the swap);
+- **no wrapped button labels**;
+- targets are not hidden behind a sticky header (`headerOffset`);
+- **graceful behavior with no JavaScript** (anchors still work; Guide/Tool
+  stays shown).
+
+#### Scope and compliance status
+
+**Scope (opt-in, not sitewide).** The bar is mounted from the article body
+on purpose — that is what keeps it on the intended article. It is **not**
+wired into `ArticleLayout`. Add it deliberately per article, following the
+policy above. A later pass could lift it into the layout behind an opt-in
+frontmatter flag (e.g. `media_bar:`) once measurement justifies it; until
+then, keep it article-scoped.
+
+**Current implementation vs this policy.** The shipped `ArticleMediaBar`
+follows most of the policy (real-target-only rendering, the Guide→Share
+crossfade with stable width and once-per-session behavior, no-JS Guide
+default, anchor-only scrolling, Web Share + copy fallback, and every
+accessibility invariant). Known gaps to reconcile before calling it fully
+compliant across all article types:
+
+1. **Mobile layout** stretches the media buttons to fill the width equally
+   (`.amb__item { flex: 1 1 0 }`) instead of the left-aligned natural-width
+   group + flexible space + right Close described above. Fixes: don't grow
+   the items, left-align the action group, push Close right with an auto
+   margin / spacer.
+2. **Tool event name**: the tool action currently emits
+   `article_media_bar_guide`, not the standard `article_media_bar_tool`.
+   Rename for consistency with this policy (or document the alias).
+3. **No-tool Share timing**: with `share` but no `tool`, Share currently
+   renders as an always-on action from `revealAt`, not introduced at the
+   threshold. Gate the no-tool Share on `swapAt` so it appears in the final
+   quarter, matching the resource-less rule above.
+4. **Analytics payload**: events currently carry `article_slug` (+
+   `target_type`/`target_id`, and `method` on Share); they do **not** yet
+   include whether a downloadable resource exists or the scroll stage. Add
+   those fields.
+5. **Config surface**: the component takes prop objects (`watch`/`listen`/
+   `tool`/`share` + `swapAt`) rather than the flat `videoTarget`/
+   `audioTarget`/`toolTarget`/`shareEnabled`/`shareThreshold`/`showMediaBar`
+   field names. The mapping table above is the source of truth; either name
+   is acceptable as long as behavior matches, but a future refactor may
+   align the names.
 
 ## CTA behavior and fallback
 

@@ -138,15 +138,15 @@ const shareLabel = share?.label ?? 'Share';
               >
                 <span class="amb__icon" aria-hidden="true">
                   {action.icon === 'play' && (
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                      <path d="M8 5v14l11-7z" />
+                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+                      <path d="M8.7 6 18.5 12 8.7 18Z" />
                     </svg>
                   )}
                   {action.icon === 'audio' && (
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
-                      <rect x="3" y="13" width="4" height="7" rx="1.5" />
-                      <rect x="17" y="13" width="4" height="7" rx="1.5" />
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12.5v-.5a7 7 0 0 1 14 0v.5" />
+                      <rect x="3.4" y="12" width="3.6" height="7" rx="1.8" />
+                      <rect x="17" y="12" width="3.6" height="7" rx="1.8" />
                     </svg>
                   )}
                 </span>
@@ -167,10 +167,10 @@ const shareLabel = share?.label ?? 'Share';
                   data-swap="guide"
                 >
                   <span class="amb__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M12 3v12" />
-                      <path d="M7 10l5 5 5-5" />
-                      <path d="M5 21h14" />
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M12 4v9" />
+                      <path d="M8.2 9.8 12 13.6 15.8 9.8" />
+                      <path d="M5.5 19h13" />
                     </svg>
                   </span>
                   <span class="amb__label">{tool.label}</span>
@@ -190,11 +190,11 @@ const shareLabel = share?.label ?? 'Share';
                   aria-hidden={hasSwap ? 'true' : undefined}
                 >
                   <span class="amb__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="18" cy="5" r="3" />
-                      <circle cx="6" cy="12" r="3" />
-                      <circle cx="18" cy="19" r="3" />
-                      <path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" />
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="17.5" cy="6.2" r="2.6" />
+                      <circle cx="6.5" cy="12" r="2.6" />
+                      <circle cx="17.5" cy="17.8" r="2.6" />
+                      <path d="M8.85 10.9 15.15 7.3M8.85 13.1 15.15 16.7" />
                     </svg>
                   </span>
                   <span class="amb__label" aria-live="polite">{shareLabel}</span>
@@ -205,9 +205,11 @@ const shareLabel = share?.label ?? 'Share';
         </ul>
 
         <button type="button" class="amb__close" data-media-dismiss aria-label="Dismiss this bar">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <path d="M6 6l12 12M18 6L6 18" />
-          </svg>
+          <span class="amb__close__dot" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7.3 7.3 16.7 16.7M16.7 7.3 7.3 16.7" />
+            </svg>
+          </span>
         </button>
       </div>
     </div>
@@ -220,6 +222,9 @@ const shareLabel = share?.label ?? 'Share';
        (Apple's 44px minimum) AND the height the action row hugs, so the
        bar stays as short as the controls allow. */
     --amb-btn: 44px;
+    /* One rhythm value drives every gap in the toolbar so the spacing
+       between Watch, Listen, the contextual slot, and Close is identical. */
+    --amb-gap: 0.45rem;
     position: fixed;
     left: 0;
     right: 0;
@@ -250,7 +255,7 @@ const shareLabel = share?.label ?? 'Share';
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: var(--amb-gap);
     padding: 0.35rem 0.6rem;
     background: var(--color-bg);
     border: 1px solid var(--color-border);
@@ -283,7 +288,7 @@ const shareLabel = share?.label ?? 'Share';
     padding: 0;
     display: flex;
     align-items: stretch;
-    gap: 0.4rem;
+    gap: var(--amb-gap);
     flex: 1 1 auto;
     min-width: 0;
     justify-content: flex-end;
@@ -361,36 +366,79 @@ const shareLabel = share?.label ?? 'Share';
     flex: none;
   }
 
+  /* Fixed 17px optical box with a block-level SVG: every glyph is centred
+     on the same square so the icons read as one size and the icon-to-label
+     gap is identical on every button; `display:block` drops the inline-SVG
+     baseline gap so no icon sits a pixel high or low. */
+  .amb__icon svg {
+    display: block;
+    width: 17px;
+    height: 17px;
+  }
+
+  /* Tight, uniform line box so labels share one baseline (the flex row
+     centres them; line-height:1 removes half-leading drift). */
+  .amb__label {
+    line-height: 1;
+  }
+
   /* The short label is a mobile-only swap; hidden by default. */
   .amb__label--short {
     display: none;
   }
 
+  /* Close: a quiet, native-feeling ghost control. The 44px hit area meets
+     the tap-target floor and matches the row height, but the visible chip
+     is a small neutral circle, so it reads clearly as secondary to the
+     green actions without competing for attention. */
   .amb__close {
     flex: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    /* Meets the tap-target floor and matches the action-row height. */
     width: var(--amb-btn);
     height: var(--amb-btn);
     padding: 0;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-button);
-    background: transparent;
-    color: var(--color-text-muted);
+    border: none;
+    background: none;
     cursor: pointer;
+  }
+
+  .amb__close__dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(31, 37, 35, 0.05);
+    color: var(--color-text-muted);
     transition: background-color 0.15s ease, color 0.15s ease;
   }
 
-  .amb__close:hover {
-    background: var(--color-surface);
+  .amb__close__dot svg {
+    display: block;
+    width: 14px;
+    height: 14px;
+  }
+
+  .amb__close:hover .amb__close__dot {
+    background: rgba(31, 37, 35, 0.09);
     color: var(--color-text);
   }
 
-  /* Visible focus for keyboard users — matches the site's Growth Green ring. */
-  .amb__action:focus-visible,
+  /* Visible focus for keyboard users — matches the site's Growth Green ring.
+     The close ring hugs its circular chip rather than the invisible hit box. */
+  .amb__action:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
   .amb__close:focus-visible {
+    outline: none;
+  }
+
+  .amb__close:focus-visible .amb__close__dot {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
   }
@@ -400,14 +448,15 @@ const shareLabel = share?.label ?? 'Share';
      when the word is short. The bar is intentionally shorter here. */
   @media (max-width: 560px) {
     .amb {
+      /* A touch tighter rhythm at phone widths, still uniform everywhere. */
+      --amb-gap: 0.4rem;
       padding: 0 0.75rem;
       bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
     }
 
     .amb__inner {
-      gap: 0.4rem;
-      /* ~20% shorter than the previous bar: the phantom flex gap is gone
-         (see .amb__actions max-height) and the vertical padding is trimmed,
+      /* ~20% shorter than the previous bar: the definite content height
+         removes the phantom flex gap and the vertical padding is trimmed,
          while a little breathing room around the 44px controls remains. */
       padding: 0.35rem 0.4rem;
     }
@@ -416,19 +465,14 @@ const shareLabel = share?.label ?? 'Share';
       display: none;
     }
 
-    .amb__actions {
-      justify-content: space-between;
-      gap: 0.35rem;
-    }
-
     .amb__item {
       flex: 1 1 0;
     }
 
     .amb__action {
       width: 100%;
-      padding: 0.2rem 0.35rem;
-      gap: 0.3rem;
+      padding: 0.2rem 0.4rem;
+      gap: 0.34rem;
       font-size: 0.82rem;
     }
 
