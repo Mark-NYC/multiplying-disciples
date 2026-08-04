@@ -27,6 +27,9 @@ notes: >
   has no inline images, matching the original).
 ---
 
+import PodcastEmbed from '../../components/article/PodcastEmbed.astro';
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
+
 The Great Commission given by Jesus in Matthew 28:18-20 is a call for all Christians to make disciples of all nations, baptizing them in the name of the Father, Son, and Holy Spirit and teaching them to obey everything Jesus commanded.
 
 Church planting movements are one of the most effective ways to accomplish the Great Commission, as they are focused on reaching people who are far from God and multiplying disciples and churches rapidly.
@@ -128,3 +131,20 @@ Whether we are called to be missionaries overseas or to start new churches in ou
 ### Next Steps
 
 Want to learn more? Get started with these [simple starter tools](/starter-tools/).
+
+<section id="listen-power-multiplication" aria-label="Podcast: multiplication until there is no place left">
+
+Listen to why multiplication, not addition, is what it takes to see the Great Commission actually finished.
+
+<PodcastEmbed
+  id="from-addition-to-multiplication-the-emmaus-road"
+  intro="We long for disciples multiplying until there is no place left. This episode presses on the difference between adding believers and multiplying disciples and churches, the same shift that decides whether the Great Commission gets finished."
+/>
+
+</section>
+
+<ArticleMediaBar
+  slug="/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/"
+  listen={{ target: 'listen-power-multiplication', label: 'Listen' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
+/>

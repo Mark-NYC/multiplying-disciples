@@ -524,16 +524,23 @@ an action appears only where a real embed/download exists):
 | Biblical Fasting and Prayer | Watch · Listen · Share | existing video + "Breaking Bread" (Wave 2) |
 | Finding a Person of Peace | Listen · Share | "How Prophecy & Healing Led Me to the Mission Field" — David Campbell (Wave 2) |
 | How to Train Disciples | Listen · Share | "Leaders Grow Through Time With in The Boat" (Wave 2) |
+| What Is a Simple Church | Listen · Share | "Tribe Is the Model" (Wave 3) |
+| The Power of Multiplication | Listen · Share | "From Addition to Multiplication: The Emmaus Road"; converted `.md` → `.mdx` (Wave 3) |
+| When a Discipleship Group Becomes a Church | Listen · Share | "How to Identify Elders in the Messy Middle" (Wave 3) |
+| Apostles Meaning | Listen · Share | "The Apostolic Challenge" (Wave 3) |
+| DMM: Key Characteristics & Definition | Listen · Share | "What Actually Starts Movements" — Emmanuel Prinz; converted `.md` → `.mdx`, replaced a bare Spotify link with the embed (Wave 3) |
+| The Secret Ingredient of Trustworthy Leaders | Listen · Share | "Charisma Can Fill a Room" (podcast already embedded; wrapped + wired) (Wave 3) |
+| 15-Second Testimony Examples | Watch · Share | existing video (no H3X episode for the testimony cluster → no Listen) (Wave 3) |
 
-**Waves 1–2 rollout, 2026-08-04 (15 articles total).** Podcast-only bars
-carry no Watch because no real companion video exists yet — leave the
-`watch` prop off until one does, and the button lights up automatically.
-**Deferred (real assets don't exist yet): 7 Stories of Hope** (no video,
-episode, or downloadable) and **How to Share Your Testimony** (the whole
-testimony cluster has no H3X episode, and no video or worksheet exists, so
-only Share would be real — not worth a bar). Revisit each once a real
-companion video, episode, or downloadable exists. Wave 3 follows the same
-"real targets only" rule.
+**Waves 1–3 rollout, 2026-08-04 (22 articles total: 21 rolled out + the
+reference).** Podcast-only bars carry no Watch because no real companion
+video exists yet — leave the `watch` prop off until one does, and the
+button lights up automatically. **Deferred (real assets don't exist yet):
+7 Stories of Hope**, **How to Share Your Testimony** (testimony cluster has
+no H3X episode; no video or worksheet), **Prayer Walking** (no episode,
+video, or downloadable), and **New Believer Follow-Up** (no episode, video,
+or downloadable — only Share would be real). Revisit each once a real
+companion video, episode, or downloadable exists.
 
 ## CTA behavior and fallback
 

@@ -113,6 +113,7 @@ import ArticleImage from '../../components/article/ArticleImage.astro';
 import PracticeCard from '../../components/article/PracticeCard.astro';
 import InsightCard from '../../components/article/InsightCard.astro';
 import PullQuote from '../../components/article/PullQuote.astro';
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
 
 {/*
   TODO (Field Note): once a real, approved testimony story exists in
@@ -324,3 +325,9 @@ Share it in a way that reflects your own experience and highlights the work of G
 For the bigger picture — how to shape and share your whole story, not just the 15-second version — see our guide on [how to share your testimony](/how-to-share-your-testimony/).
 
 <PullQuote>Let your testimony be a beacon of hope and encouragement to those around you, even in a mere 15 seconds.</PullQuote>
+
+<ArticleMediaBar
+  slug="/15-second-testimony-examples-ignite-your-faith/"
+  watch={{ target: 'watch-how-to-share-your-testimony', label: 'Watch' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
+/>
