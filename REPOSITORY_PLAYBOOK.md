@@ -203,7 +203,7 @@ their peril:
   matrix, mobile/desktop alignment, config model, analytics, accessibility
   invariants, and the current-compliance gaps) lives in ARTICLE_SYSTEM.md,
   "The sticky media bar", which also carries the live-rollout list. It is
-  live on 22 cornerstone articles as of the Wave 1-3 rollout (2026-08-04);
+  live on 27 cornerstone articles as of the Wave 1-3 rollout plus added fits (2026-08-04);
   each bar is configured to the real media that article has (no fabricated
   Watch/Listen targets), and only articles with a real video, H3X episode,
   or downloadable qualify.

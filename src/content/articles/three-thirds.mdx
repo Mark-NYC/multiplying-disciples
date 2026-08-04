@@ -84,6 +84,8 @@ import WarningCard from '../../components/article/WarningCard.astro';
 import InsightCard from '../../components/article/InsightCard.astro';
 import PracticeCard from '../../components/article/PracticeCard.astro';
 import PullQuote from '../../components/article/PullQuote.astro';
+import PodcastEmbed from '../../components/article/PodcastEmbed.astro';
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
 
 {/*
   TODO (Field Note): once a real, approved story of a group actually
@@ -249,6 +251,17 @@ Simple church focuses on organic relationships and participatory gatherings. Thr
 
 **Difference:** Simple church may or may not include accountability and goal-setting. Three Thirds is non-negotiable on these. You can run Three Thirds *within* a simple church model, but simple church alone doesn't guarantee multiplication without the accountability structure.
 
+<section id="listen-three-thirds" aria-label="Podcast: why we run scripture deep dives">
+
+Listen to why the meeting is built to train, not just inform: a scripture deep dive teaches a group to see patterns, solve problems, and actually obey Jesus together.
+
+<PodcastEmbed
+  id="why-we-do-scripture-deep-dives-and-how-to-run-one"
+  intro="Most Bible studies help people understand a passage. A scripture deep dive, the engine inside a Three Thirds meeting, trains a group to see patterns, wrestle real problems, and follow Jesus in daily life. Chuck Wood and Dave walk through why it works and how to run one."
+/>
+
+</section>
+
 ## The Bottom Line
 
 <PullQuote>Three Thirds isn't a Bible study method. It's a disciple-making factory.</PullQuote>
@@ -264,3 +277,9 @@ Start with one group. Run it for 12 weeks without compromising the structure. Th
 The Great Commission doesn't need better content. It needs better process.
 
 This is the process.
+
+<ArticleMediaBar
+  slug="/three-thirds/"
+  listen={{ target: 'listen-three-thirds', label: 'Listen' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
+/>

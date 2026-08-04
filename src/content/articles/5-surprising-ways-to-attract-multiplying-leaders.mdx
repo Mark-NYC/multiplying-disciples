@@ -26,11 +26,29 @@ notes: >
   og_image omitted.
 ---
 
+import PodcastEmbed from '../../components/article/PodcastEmbed.astro';
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
+
 Attracting multiplying leaders is a critical element of realizing God's vision of a world where every nation and people group is engaged with the Gospel. In order to see this vision come to fruition, it is necessary to focus on identifying and developing leaders in the work.
 
 Jesus was the master of attracting multiplying leaders, and there are five key elements to his strategy.
 
-[Watch: Mark Goering unpacks the 5 ways listed in this article](https://youtu.be/d-ciGPyrqkw)
+<section id="watch-attract-leaders" aria-label="Video: the 5 ways to attract multiplying leaders">
+
+Watch Mark Goering walk through all five of these in a few minutes.
+
+<div style={{ width: '100%', aspectRatio: '16 / 9', overflow: 'hidden', borderRadius: '12px' }}>
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/d-ciGPyrqkw"
+    title="Mark Goering: 5 Ways to Attract Multiplying Leaders"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowFullScreen
+    style={{ width: '100%', height: '100%', border: 0 }}
+  />
+</div>
+
+</section>
 
 ### 1. The Compelling Vision Cast
 
@@ -97,3 +115,21 @@ Finally, we must be intentional about investing in multiplying leaders. We must 
 Investing in multiplying leaders is essential for us to be able to bring the kingdom of God to earth. By investing in their growth and development, we can create an environment where they can thrive and be effective in their role. We must also be intentional about connecting them with other multiplying leaders, so that they can build relationships and support one another. Ultimately, investing in multiplying leaders is an important step in fulfilling the Great Commission.
 
 Learn how you can multiply disciples by [getting started with these starter tools](/starter-tools/).
+
+<section id="listen-attract-leaders" aria-label="Podcast: stop recruiting leaders, start attracting them">
+
+Listen to the counterintuitive case behind this whole idea: you do not recruit multiplying leaders, you attract them by how you live and invest.
+
+<PodcastEmbed
+  id="5-ways-to-attract-multiplying-leaders-with-mark"
+  intro="Stop recruiting leaders. In this episode Mark lays out why attraction, not recruitment, is what actually multiplies leadership, and walks through the core principles for drawing out and investing in the emerging leaders already around you."
+/>
+
+</section>
+
+<ArticleMediaBar
+  slug="/5-surprising-ways-to-attract-multiplying-leaders/"
+  watch={{ target: 'watch-attract-leaders', label: 'Watch' }}
+  listen={{ target: 'listen-attract-leaders', label: 'Listen' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
+/>
