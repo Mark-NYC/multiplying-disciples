@@ -70,6 +70,9 @@ import ScriptureBlock from '../../components/article/ScriptureBlock.astro';
 import InsightCard from '../../components/article/InsightCard.astro';
 import PracticeCard from '../../components/article/PracticeCard.astro';
 import ArticleCTAInline from '../../components/article/ArticleCTAInline.astro';
+import ToolDownload from '../../components/article/ToolDownload.astro';
+import PodcastEmbed from '../../components/article/PodcastEmbed.astro';
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
 
 When people ask how to start a simple church, they usually picture a launch: a living room set up like a small sanctuary, a start date, a plan for music and a talk. Set that picture down. A simple church is not a meeting you launch. It is a spiritual family that has Christ as King in loving God, loving others, and making disciples. You do not manufacture a family by scheduling a service. You grow one by making a few disciples and gathering them around Jesus.
 
@@ -139,6 +142,25 @@ Starting the church is only the left hand of the work. There is a right hand too
 This week, take the first real step: write down two or three people you could begin discipling toward faith, or a few new believers you could gather. Pray for them by name, and pick a time and place you could first meet. You do not need the whole church figured out. You need a few people and a next gathering.
 </PracticeCard>
 
+<div id="get-the-guide">
+<ToolDownload
+  href="/downloads/handy-guide-to-simple-church-left-hand.pdf"
+  label="Download the Handy Guide (PDF)"
+  sublabel="The five W's of a church start, with the Scriptures behind each one"
+/>
+</div>
+
+<section id="listen-start-simple-church" aria-label="Podcast: what a simple, decentralized church really is">
+
+Listen to a conversation on why simple church feels so unfamiliar, and what it looks like to find Jesus in a living room rather than a building.
+
+<PodcastEmbed
+  id="anarchy-church-vs-decentralized-ecclesiology-whats-the-difference-really"
+  intro="If starting a church without a building or a stage feels strange, this episode is for you. Neal Karsten works through why decentralized, house-to-house church is not chaos but a return to something simple and biblical, the same picture behind starting one yourself."
+/>
+
+</section>
+
 ## Frequently asked questions
 
 ### How do I start a simple church?
@@ -156,3 +178,10 @@ Fewer than most people think. Jesus set the floor at two or three gathered in hi
 ## Where to go next
 
 Starting a simple church grows straight out of [one-on-one discipleship](/one-on-one-discipleship/), so if you are not yet discipling anyone, start there. To be clear on what actually makes a gathering a church, read [what makes a church a church](/what-makes-a-church-a-church/), and when you are ready to hold your first meeting, [your first simple church gathering](/your-first-simple-church-gathering/) walks through exactly what to do. Then pick a few names and a time, and begin.
+
+<ArticleMediaBar
+  slug="/how-to-start-a-simple-church/"
+  listen={{ target: 'listen-start-simple-church', label: 'Listen' }}
+  tool={{ target: 'get-the-guide', label: 'Get the Guide', shortLabel: 'Guide' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
+/>

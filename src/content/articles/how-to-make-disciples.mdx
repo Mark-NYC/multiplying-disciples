@@ -85,6 +85,8 @@ import ScriptureBlock from '../../components/article/ScriptureBlock.astro';
 import PullQuote from '../../components/article/PullQuote.astro';
 import ChurchWaffle from '../../components/article/ChurchWaffle.astro';
 import FieldNote from '../../components/article/FieldNote.astro';
+import PodcastEmbed from '../../components/article/PodcastEmbed.astro';
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
 
 ## What It Means to Make Disciples
 
@@ -234,6 +236,17 @@ You do not learn how to make disciples by finishing an article about it. You lea
 4. **Decide your own obedience.** Name one thing you will do this week because of what you have read here, and tell someone you did it.
 </PracticeCard>
 
+<section id="listen-make-disciples" aria-label="Podcast: disciple-making is caught, not just taught">
+
+Listen to what it looks like when disciple-making stops being a lesson and becomes something people catch by doing it alongside you.
+
+<PodcastEmbed
+  id="dont-teach-it-let-them-catch-it-the-power-of-immersion"
+  intro="You do not hand someone a disciple-making life through information. This episode drops into an immersive trip where young believers caught fire by doing the real thing, gospel, prayer, and obedience, in the normal flow of a few days together."
+/>
+
+</section>
+
 ## Frequently asked questions
 
 ### What does it mean to make disciples?
@@ -255,3 +268,9 @@ Both, and community is essential. A one-to-one relationship is often where it st
 ### How long does it take to make a disciple?
 
 There is no fixed timeline, because you are aiming at a changed life rather than a completed syllabus. Some habits form in weeks; maturity takes years. Look for the real marker instead of a finish line: a disciple who is following Jesus and has begun helping someone else do the same.
+
+<ArticleMediaBar
+  slug="/how-to-make-disciples/"
+  listen={{ target: 'listen-make-disciples', label: 'Listen' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
+/>

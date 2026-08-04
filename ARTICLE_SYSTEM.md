@@ -517,15 +517,23 @@ an action appears only where a real embed/download exists):
 | How to Share the Gospel | Listen · Share | "How to Actually Have Spiritual Conversations" |
 | Understanding Biblical Discipleship | Listen · Share | "Reading the NT Backwards"; article converted `.md` → `.mdx` for the components |
 | Discover the 12 Disciples of Jesus | Guide · Share | printable chart download (no H3X episode exists for this cluster → no Listen) |
+| How to Make Disciples | Listen · Share | "Don't Teach It, Let Them Catch It" (Wave 2) |
+| How to Start a Simple Church | Listen · Guide | Left-Hand guide + "Anarchy Church vs. Decentralized Ecclesiology" (Wave 2) |
+| The 3 Core Habits of a Disciple | Listen · Share | "Rhythms of a Multiplier"; converted `.md` → `.mdx` (Wave 2) |
+| How to Evangelize | Listen · Share | "Listening and Shaking the Salt fits into Gospeling" (Wave 2) |
+| Biblical Fasting and Prayer | Watch · Listen · Share | existing video + "Breaking Bread" (Wave 2) |
+| Finding a Person of Peace | Listen · Share | "How Prophecy & Healing Led Me to the Mission Field" — David Campbell (Wave 2) |
+| How to Train Disciples | Listen · Share | "Leaders Grow Through Time With in The Boat" (Wave 2) |
 
-**Wave 1 rollout, 2026-08-04.** Podcast-only bars (How to Multiply, How to
-Share the Gospel, Understanding) carry no Watch because no real companion
-video exists yet — leave the `watch` prop off until one does, and the
-button lights up automatically. **Deferred from Wave 1: 7 Stories of Hope**
-— it has no video, no matching H3X episode, and no downloadable file, so a
-Share-only bar wasn't worth it; revisit once a walkthrough video or a
-facilitation-guide PDF exists. See MEDIA rollout waves in the review notes;
-Waves 2–3 follow the same "real targets only" rule.
+**Waves 1–2 rollout, 2026-08-04 (15 articles total).** Podcast-only bars
+carry no Watch because no real companion video exists yet — leave the
+`watch` prop off until one does, and the button lights up automatically.
+**Deferred (real assets don't exist yet): 7 Stories of Hope** (no video,
+episode, or downloadable) and **How to Share Your Testimony** (the whole
+testimony cluster has no H3X episode, and no video or worksheet exists, so
+only Share would be real — not worth a bar). Revisit each once a real
+companion video, episode, or downloadable exists. Wave 3 follows the same
+"real targets only" rule.
 
 ## CTA behavior and fallback
 
