@@ -189,6 +189,34 @@ The three parts (video, podcast, tool) are independent — an article can
 embed any of them on its own. The media bar is what ties them together
 into wayfinding, and only makes sense once at least two are present.
 
+### The Exact Question Rule (governs every Watch and Listen)
+
+Media is not chosen because it belongs to the same broad topic. Media is
+chosen because it answers the **next question the reader naturally has
+after finishing the article**. The practical question must match — not
+just the category.
+
+> **Good** — Article: *How to Share the Gospel* · Podcast: *How to
+> Actually Have Spiritual Conversations* (same practical question: how do
+> I actually start and carry the conversation).
+>
+> **Bad** — Article: *How to Share the Gospel* · Podcast: *general
+> evangelism philosophy* (same category, different question — it does not
+> help the reader do the thing the article teaches).
+
+Apply the test literally, to **both Watch and Listen**: *would a reader
+who just finished this article feel this video/episode deepens the exact
+thing they came to understand or obey?* If the honest answer is "it's
+close" or "it's related," that is a **no** — leave the action off. An
+adjacent leadership topic, a similar ministry philosophy, or the same
+broad category with a different practical question all fail the rule.
+
+Acceptable fits share the article's **framework, biblical passage,
+practical process, or are a direct expansion** of it. When nothing in the
+catalog clears that bar, **do not substitute an adjacent episode to keep
+the button count** — a missing Listen is better than a weak one. Trust
+over completeness: every button that survives must be worth the click.
+
 ### Video embeds
 
 There is no video component; articles embed YouTube inline with the
