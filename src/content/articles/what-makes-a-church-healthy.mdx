@@ -89,6 +89,8 @@ import PracticeCard from '../../components/article/PracticeCard.astro';
 import ArticleCTAInline from '../../components/article/ArticleCTAInline.astro';
 import ArticleImage from '../../components/article/ArticleImage.astro';
 import ToolDownload from '../../components/article/ToolDownload.astro';
+import PodcastEmbed from '../../components/article/PodcastEmbed.astro';
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
 
 When people ask what makes a church healthy, they usually reach for things they can build: better programs, a stronger service, more committed volunteers, the right structure. Set that instinct down. A healthy church is not something you assemble. It is something that grows. If [what makes a church a church](/what-makes-a-church-a-church/) is the left hand, the simple picture of a church start, then this is the right hand: what a church looks like as it grows up into health. And the first thing to understand about that health is that you cannot make it happen.
 
@@ -126,11 +128,13 @@ Health leaves marks. As a church matures, certain things start to show up on the
   caption="The Right Hand of the handy guide: the five signs of a healthy church counted on the fingers, from One Head to the five functions, which a healthy church expresses as the five loves of Acts 2."
 />
 
+<div id="get-the-guide">
 <ToolDownload
   href="/downloads/church-handy-guide-right-hand.pdf"
   label="Download the Right Hand tool (PDF)"
   sublabel="Handy Guide to a Mature Church, with the Scriptures behind each element"
 />
+</div>
 
 Notice these are not tasks you assign. They are fruit you recognize. A church can be young and small and still show early signs of every one, and a church can be large and busy and be missing most of them. Size is not the measure. Emerging ownership is.
 
@@ -166,6 +170,17 @@ Let us not become weary in doing good, for at the proper season we will reap a h
 Take one church or gathering you are part of and walk the right hand over it. One: is it answering to Jesus, or to a person? Two: is the Word and the Spirit leading, or a tradition? Three: are servant leaders emerging from within? Four: ask the four questions honestly, who selects leaders, who gives, who reproduces, who decides around the Word? Five: which of the five loves are alive? Name the single edge where health is closest to emerging, and take one step to nurture it, not to force it.
 </PracticeCard>
 
+<section id="listen-church-health" aria-label="Podcast: learning church health by living it">
+
+Listen to a conversation on why church health is caught more than taught, and how ordinary believers grow a mature church by participating in one.
+
+<PodcastEmbed
+  id="the-genius-of-the-two-church-model"
+  intro="Health is not information you install; it is a culture people learn by living it. Mark and Dave unpack the two-church model, a way for ordinary believers to learn church by taking part in one gathering while starting rhythms with people in their own world."
+/>
+
+</section>
+
 ## Frequently asked questions
 
 ### What makes a church healthy?
@@ -183,3 +198,10 @@ No, not directly. Health emerges; it is not manufactured. You can plant and wate
 ## Where to go next
 
 This right hand of the guide only makes sense next to the left: [what makes a church a church](/what-makes-a-church-a-church/), the five W's of a church start. Between the two is the messy middle, which [when a discipleship group becomes a church](/when-a-discipleship-group-becomes-a-church/) walks through. If you are just beginning, start with [how to start a simple church](/how-to-start-a-simple-church/), keep it simple, and trust that health will emerge as the family takes hold of Jesus for itself.
+
+<ArticleMediaBar
+  slug="/what-makes-a-church-healthy/"
+  listen={{ target: 'listen-church-health', label: 'Listen' }}
+  tool={{ target: 'get-the-guide', label: 'Get the Guide', shortLabel: 'Guide' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
+/>

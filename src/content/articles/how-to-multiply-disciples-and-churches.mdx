@@ -87,6 +87,8 @@ import WarningCard from '../../components/article/WarningCard.astro';
 import PullQuote from '../../components/article/PullQuote.astro';
 import ArticleImage from '../../components/article/ArticleImage.astro';
 import ArticleCTAInline from '../../components/article/ArticleCTAInline.astro';
+import PodcastEmbed from '../../components/article/PodcastEmbed.astro';
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
 
 Almost everyone who wants to multiply disciples starts by looking for the right strategy: the program, the curriculum, the event, the system that will finally make it happen. That is the wrong place to look. After years of watching ordinary Christians actually do this, I am convinced of one thing above all.
 
@@ -268,6 +270,17 @@ This week, take one step in each direction of the pattern:
 Then get on the calendar to do it again next week. That repeated rhythm, not a program, is how disciples and churches multiply.
 </PracticeCard>
 
+<section id="listen-multiplication" aria-label="Podcast: why multiplication needs both disciples and churches">
+
+Listen to a conversation on why aiming at only disciples, or only churches, quietly stalls, and how a clear pathway from lost to leader is what actually reaches generations.
+
+<PodcastEmbed
+  id="why-just-make-disciples-isnt-enough"
+  intro="What you aim at is what you reproduce. Mark and Dave make the case that multiplication needs both a disciple and a church in its DNA, and trace the pathway from lost to leader and from church start to church health that keeps generations coming."
+/>
+
+</section>
+
 ## Frequently asked questions
 
 ### What does it mean to multiply disciples and churches?
@@ -289,3 +302,9 @@ Most disciple-making does not multiply because it leans on substitutes that cann
 ## Where to go next
 
 This is the foundation the rest of the site is built on, so start wherever you are on the path. If you are new to it, learn [how to make disciples](/how-to-make-disciples/) and walk one person through [one-on-one discipleship](/one-on-one-discipleship/). If you are ready to reach people, begin with [sharing the gospel](/how-to-share-the-gospel/). If disciples are gathering, learn [how to start a simple church](/how-to-start-a-simple-church/) and [what makes a church healthy](/what-makes-a-church-healthy/). And as you are ready to hand it all off, move into [training disciples](/how-to-train-disciples/) and [the power of multiplication](/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/). Pick one person and one step this week. That is how it always starts.
+
+<ArticleMediaBar
+  slug="/how-to-multiply-disciples-and-churches/"
+  listen={{ target: 'listen-multiplication', label: 'Listen' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
+/>

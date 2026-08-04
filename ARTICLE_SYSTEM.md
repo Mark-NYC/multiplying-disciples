@@ -501,6 +501,32 @@ compliant across all article types:
    is acceptable as long as behavior matches, but a future refactor may
    align the names.
 
+#### Live rollout
+
+The bar is deployed **only** on the articles below (each configured to the
+real media that article actually has — no fabricated Watch/Listen targets;
+an action appears only where a real embed/download exists):
+
+| Article | Actions | Notes |
+| --- | --- | --- |
+| What Makes a Church a Church? | Watch · Listen · Guide | reference implementation |
+| Four Fields of Kingdom Growth | Watch · Listen · Guide | full config (existing video + Toolbox PDF + Addison episode) |
+| The Three Circles Gospel Presentation | Watch · Listen · Share | existing video + "Lost and Found Party" episode |
+| What Makes a Church Healthy | Listen · Guide | Right-Hand guide + "Two Church Model" episode (Guide→Share at threshold) |
+| How to Multiply Disciples and Churches | Listen · Share | "Why Just Make Disciples Isn't Enough" |
+| How to Share the Gospel | Listen · Share | "How to Actually Have Spiritual Conversations" |
+| Understanding Biblical Discipleship | Listen · Share | "Reading the NT Backwards"; article converted `.md` → `.mdx` for the components |
+| Discover the 12 Disciples of Jesus | Guide · Share | printable chart download (no H3X episode exists for this cluster → no Listen) |
+
+**Wave 1 rollout, 2026-08-04.** Podcast-only bars (How to Multiply, How to
+Share the Gospel, Understanding) carry no Watch because no real companion
+video exists yet — leave the `watch` prop off until one does, and the
+button lights up automatically. **Deferred from Wave 1: 7 Stories of Hope**
+— it has no video, no matching H3X episode, and no downloadable file, so a
+Share-only bar wasn't worth it; revisit once a walkthrough video or a
+facilitation-guide PDF exists. See MEDIA rollout waves in the review notes;
+Waves 2–3 follow the same "real targets only" rule.
+
 ## CTA behavior and fallback
 
 See CTA_GUIDE.md. Summary: `article_cta` picks one of three types

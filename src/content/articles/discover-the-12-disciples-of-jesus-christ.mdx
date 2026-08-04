@@ -111,6 +111,8 @@ notes: >
 ---
 
 import DiscipleCard from '../../components/article/DiscipleCard.astro';
+import ToolDownload from '../../components/article/ToolDownload.astro';
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
 
 The **12 disciples of Jesus in order** weren’t chosen randomly. Jesus called each disciple intentionally—and understanding the **order in which Jesus called them** helps you see how His disciple-making pattern unfolds. If you’re looking for a clear list, a simple explanation, and an infographic showing the disciples in order of calling, this guide gives you everything in one place.
 
@@ -139,6 +141,14 @@ Below you’ll find the **12 disciples in order of calling**, along with notes, 
 
 
 *Infographic: the 12 disciples in the order Jesus called them.*
+
+<div id="get-the-chart">
+<ToolDownload
+  href="/wp-content/uploads/2025/01/12-Disciples-of-Jesus-in-Order-Called-with-Bible-References.webp"
+  label="Get the printable 12 Disciples chart"
+  sublabel="Names, order, and Bible references, ready to print or save for study"
+/>
+</div>
 
 ### Who were the 12 disciples of Jesus in order of calling?
 
@@ -1750,3 +1760,9 @@ By following Jesus’ model of ministry, we can train and equip believers to bec
 Get starter tools and coaching to multiply disciples, leaders, and churches in your city.
 
 [Start Training](/free-training/) &middot; [Connect](/contact-us/)
+
+<ArticleMediaBar
+  slug="/discover-the-12-disciples-of-jesus-christ/"
+  tool={{ target: 'get-the-chart', label: 'Get the Chart', shortLabel: 'Chart' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
+/>

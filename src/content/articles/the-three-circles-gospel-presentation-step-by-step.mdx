@@ -106,6 +106,8 @@ import ArticleImage from '../../components/article/ArticleImage.astro';
 import FieldNoteImage from '../../components/article/FieldNoteImage.astro';
 import PracticeCard from '../../components/article/PracticeCard.astro';
 import InsightCard from '../../components/article/InsightCard.astro';
+import PodcastEmbed from '../../components/article/PodcastEmbed.astro';
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
 
 {/*
   TODO (Field Note): once a real, approved story of someone actually
@@ -329,6 +331,17 @@ With just a piece of paper and a pen, you can help others understand the fundame
   <a href="https://youtu.be/vHTKavU63K8" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: 'clamp(40px, 10vw, 44px)', padding: 'clamp(8px, 2.4vw, 10px) clamp(11px, 3.2vw, 17px)', border: '1px solid rgba(31, 37, 35, 0.08)', borderRadius: '999px', background: '#ffffff', boxShadow: '0 5px 16px rgba(31, 37, 35, 0.12)', color: '#1F2523', fontSize: 'clamp(0.78rem, 3.3vw, 0.95rem)', fontWeight: 600, lineHeight: 1.2, textDecoration: 'none' }}>🇻🇳 Vietnamese – 3 Vòng tròn</a>
 </div>
 
+<section id="listen-three-circles" aria-label="Podcast: turning ordinary moments into gospel conversations">
+
+Listen to a conversation on getting past the fear of starting, and turning ordinary hospitality into the kind of moment where a tool like this one gets used.
+
+<PodcastEmbed
+  id="how-to-host-a-lost-and-found-party-turning-hospitality-into-outreach"
+  intro="A diagram only helps if you ever get to draw it. On H3X, Mark and Dave walk through how everyday hospitality opens the door to real gospel conversations, the natural home for a simple tool like the three circles."
+/>
+
+</section>
+
 ## Frequently Asked Questions
 
 ### 1. What is the 3 Circles gospel sharing method?
@@ -371,3 +384,10 @@ In the context of the 3 Circles gospel sharing method, hindrances to turning and
 Recognizing these different types of "soil" can help us understand how to highlight and exhort the listener to turn from the barriers in their life.
 
 [Listen to the related episode on Spotify](https://open.spotify.com/episode/60UpURTbj6LkX2m901WEAJ)
+
+<ArticleMediaBar
+  slug="/the-three-circles-gospel-presentation-step-by-step/"
+  watch={{ target: 'watch-the-3-circles-gospel-presentation', label: 'Watch' }}
+  listen={{ target: 'listen-three-circles', label: 'Listen' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
+/>
