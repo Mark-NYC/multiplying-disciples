@@ -311,7 +311,8 @@ Full reference: CTA_GUIDE.md.
 - Resource cards keep a fixed internal order (image, label, price, button
   pinned to bottom), reserved image area, 2-up grid below 540px.
 - **Analytics reality check:** tracking pushes to `window.dataLayer` exist
-  (ecosystem CTAs, site search) but are **inert until GA4/GTM is wired up**
+  (ecosystem CTAs, site search, homepage video, the article media bar's
+  `article_media_bar_*` events) but are **inert until GA4/GTM is wired up**
   — no analytics service is connected in this repo today. The full
   UTM/event schema for when it is lives in ECOSYSTEM_GROWTH_STRATEGY.md.
   Search analytics deliberately never include query text (privacy decision,
