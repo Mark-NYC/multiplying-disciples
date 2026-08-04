@@ -69,6 +69,8 @@ notes: >
 ---
 
 import InsightCard from '../../components/article/InsightCard.astro';
+import PodcastEmbed from '../../components/article/PodcastEmbed.astro';
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
 
 > A simple church is a spiritual family that has Christ as King in the areas of loving God, loving others, and making disciples.
 
@@ -119,3 +121,20 @@ So, why would someone choose to be part of a house church? There are a number of
 Simple churches are a valuable and effective way to build community and further the kingdom of God. They prioritize **intimacy, discipleship, and mission**, and they are adaptable and flexible to the needs of their members.
 
 Learn how you can multiply disciples by [getting started with these starter tools](/starter-tools/).
+
+<section id="listen-simple-church" aria-label="Podcast: why the tribe, not the institution, is the model">
+
+Listen to the case that a simple church is not a shrunken institution but a spiritual family, the tribe God has always used to carry his mission.
+
+<PodcastEmbed
+  id="tribe-is-the-model-scaling-gods-way-in-an-age-of-collapse"
+  intro="When structures wobble, most leaders reach for more structure. Mark and Dave argue the opposite: God's way of scaling has always been the tribe, a spiritual family, which is exactly what a simple church is meant to be."
+/>
+
+</section>
+
+<ArticleMediaBar
+  slug="/what-is-a-simple-church-meeting-christ-in-a-spiritual-family/"
+  listen={{ target: 'listen-simple-church', label: 'Listen' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
+/>
