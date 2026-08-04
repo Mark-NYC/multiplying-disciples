@@ -251,13 +251,22 @@ Listen to a deeper conversation about <the specific angle>.
 
 ### The sticky media bar (`ArticleMediaBar`)
 
-A compact, dismissible bar fixed near the bottom of the viewport with up
-to three actions — Watch, Listen, Get the Guide — each an **in-page
-anchor** that smooth-scrolls to the matching section. It is wayfinding
-for media the article already contains: it never links out (no
-Spotify/Apple/YouTube links in the bar) and never triggers a download
-directly (Get the Guide scrolls to the existing download rather than
-firing it). Mount it from the article body, after the media it points at:
+A compact, dismissible bar fixed near the bottom of the viewport with
+three action slots plus a close. Watch and Listen are **in-page anchors**
+that smooth-scroll to the matching section; the third slot is
+**contextual**: it shows Get the Guide while the reader is in the first
+~75% of the article, then crossfades once to Share in the final quarter,
+because a finished reader is the one most likely to pass the article on.
+Both live in one grid cell so the swap never shifts the layout or resizes
+a button, and with no JavaScript the Guide stays put.
+
+It is wayfinding for media the article already contains: the media
+actions never link out (no Spotify/Apple/YouTube links in the bar) and
+never trigger a download directly (Get the Guide scrolls to the existing
+download rather than firing it). The Share half is the one exception to
+"never links out" — it shares the article itself (native share sheet on
+mobile, copy-link with a "Copied" state on desktop). Mount it from the
+article body, after the media it points at:
 
 ```mdx
 import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
@@ -267,6 +276,7 @@ import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
   watch={{ target: 'watch-the-five-ws', label: 'Watch' }}
   listen={{ target: 'listen-the-first-church', label: 'Listen' }}
   tool={{ target: 'get-the-guide', label: 'Get the Guide', shortLabel: 'Guide' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
 />
 ```
 
@@ -275,9 +285,11 @@ Props:
 | Prop | Purpose |
 | --- | --- |
 | `slug` | required; emitted in analytics event data and keys the dismissal storage |
-| `watch` / `listen` / `tool` | each `{ target, label, shortLabel? }`; `target` is the id of the on-page `<section>`/wrapper to scroll to, `shortLabel` is the narrow-width label. Omit an action you don't have |
+| `watch` / `listen` / `tool` | each `{ target, label, shortLabel? }`; `target` is the id of the on-page `<section>`/wrapper to scroll to, `shortLabel` is the narrow-width label. Omit an action you don't have. `tool` is the Guide half of the contextual slot |
+| `share` | optional `{ url?, title?, label? }`. When `tool` is also set it becomes the contextual action the Guide crossfades to in the final quarter; on its own it renders as a normal always-on action. Native share sheet on mobile (`navigator.share`), copy-link with a "Copied" state on desktop. `url`/`title` fall back at runtime to the page's canonical link and title — pass `frontmatter.canonical` / `frontmatter.title` to be explicit |
 | `eyebrow` | desktop lead-in label before the actions; defaults to "Explore this article" |
 | `revealAt` | fraction of the article scrolled before the bar appears (0–1); default `0.2` |
+| `swapAt` | fraction of the article at which Guide crossfades to Share (0–1); default `0.75`. Only applies when both `tool` and `share` are set |
 | `headerOffset` | px left above the target when scrolling to it; default `24` (the site header is not sticky today) |
 
 An action whose `target` id is **not on the page is dropped at runtime**.
@@ -290,8 +302,14 @@ Behavior — all built in, do not re-implement:
 - Hidden near the top; appears after ~`revealAt` of the article is
   scrolled; hides again as the reader reaches the site footer so it never
   covers the closing CTA.
+- The Guide → Share swap fires once at ~`swapAt` and does not revert if
+  the reader scrolls back up (once per page view). The crossfade is a
+  subtle opacity/visibility fade, disabled under `prefers-reduced-motion`.
 - Dismissible; the dismissal persists for the browser session via
   `sessionStorage` (keyed by slug).
+- Compact by design: buttons sit at the 44px tap-target floor
+  (`--amb-btn`) and the row hugs them, so the bar is only as tall as its
+  controls.
 - Smooth scroll, downgraded to an instant jump under
   `prefers-reduced-motion`.
 - After a jump, keyboard focus moves to the target section
@@ -309,7 +327,9 @@ carrying `article_slug` (plus `target_type` and `target_id` on the action
 events):
 
 `article_media_bar_view` · `article_media_bar_watch` ·
-`article_media_bar_listen` · `article_media_bar_tool` ·
+`article_media_bar_listen` · `article_media_bar_guide` ·
+`article_media_bar_share` (with `method: 'web_share' | 'copy'`) ·
+`article_media_bar_swap` (Guide → Share, fired once) ·
 `article_media_bar_dismiss`.
 
 Anchor IDs: use stable, **descriptive** ids on the media wrappers

@@ -120,17 +120,22 @@ The article media bar (`ArticleMediaBar`) reuses these tokens rather than
 inventing a loud floating widget. Warm Paper (`--color-bg`) pill on a
 hairline `--color-border`, `--radius-card` corners, and one lifted shadow
 (`--fm-shadow` plus a slightly deeper drop) so it reads as distinct but
-quiet. Actions are the standard Primary Green `.button` scale (never
-oversized — ≥44px touch target via padding, not bulk); the lead-in label
-is a mono gold-free eyebrow in Primary Green; the close control is a small
+quiet. Actions are the standard Primary Green `.button` scale, sized to a
+single `--amb-btn` (44px) tap-target floor with the row hugging that
+height so the bar stays as short as its controls (never oversized — the
+padding is trimmed, not the target); the lead-in label is a mono
+gold-free eyebrow in Primary Green; the close control is a matching 44px
 outlined icon button. Centered within a 44rem max-width (the article
 reading column) on desktop; full-row with `shortLabel`s on mobile. Icons
 are inline accessible SVGs paired with text labels (`aria-hidden`), no
-icon library added for three glyphs. Focus rings are the sitewide 2px
-Growth Green; the show/hide transition and smooth scroll are disabled
-under `prefers-reduced-motion`; the bar sits above the mobile safe-area
-via `env(safe-area-inset-bottom)`. It is article-scoped, not a sitewide
-chrome element.
+icon library added for the handful of glyphs. The third slot is
+contextual — Guide crossfades once to Share in the article's final
+quarter — with both buttons stacked in one grid cell so the swap never
+resizes the slot or shifts the row. Focus rings are the sitewide 2px
+Growth Green; the show/hide transition, the Guide→Share crossfade, and
+smooth scroll are all disabled under `prefers-reduced-motion`; the bar
+sits above the mobile safe-area via `env(safe-area-inset-bottom)`. It is
+article-scoped, not a sitewide chrome element.
 
 ## Eyebrows, badges, meta
 

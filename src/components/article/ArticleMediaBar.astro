@@ -1,9 +1,16 @@
 ---
 // ArticleMediaBar — a compact, dismissible sticky bar pinned near the
 // bottom of the viewport that lets a reader jump to an article's own
-// supporting media (video, podcast) and its tool download. Every action
-// is an in-page anchor, never an external link: the bar is wayfinding
-// for media the article already contains.
+// supporting media (video, podcast) and its tool download. The media
+// actions are in-page anchors, never external links: the bar is
+// wayfinding for media the article already contains.
+//
+// Contextual third action: while the reader is in the first ~75% of the
+// article the third slot is the tool download ("Get the Guide"); once
+// they reach the final ~25% it crossfades once to a Share action, because
+// a finished reader is the one most likely to pass the article on. Both
+// buttons occupy the same grid cell so the swap never shifts the layout
+// or resizes a button. With no JavaScript the Guide stays put.
 //
 // MVP scope: this is deliberately mounted from inside a single article's
 // MDX body (What Makes a Church a Church?), so it only ships on that
@@ -18,6 +25,7 @@
 //     watch={{ target: 'watch-the-five-ws', label: 'Watch' }}
 //     listen={{ target: 'listen-the-first-church', label: 'Listen' }}
 //     tool={{ target: 'get-the-guide', label: 'Get the Guide', shortLabel: 'Guide' }}
+//     share={{ url: frontmatter.canonical, title: frontmatter.title }}
 //   />
 //
 // An action prop that is omitted (or whose target id is not on the page)
@@ -45,12 +53,31 @@ interface Props {
   eyebrow?: string;
   watch?: Action;
   listen?: Action;
+  /**
+   * The tool download action ("Get the Guide"). Shown while the reader is
+   * in the first ~75% of the article; after that it crossfades to `share`
+   * (when `share` is also provided).
+   */
   tool?: Action;
+  /**
+   * Optional share control. When `tool` is also present it becomes the
+   * contextual action the Guide swaps to in the final quarter of the
+   * article; on its own it renders as a normal always-on action. On
+   * mobile it opens the native share sheet (navigator.share); on desktop
+   * it copies the link with a brief "Copied" state. `url`/`title` fall
+   * back at runtime to the page's canonical link and title.
+   */
+  share?: { label?: string; url?: string; title?: string };
   /**
    * Fraction of the article a reader must scroll past before the bar
    * appears (0–1). Defaults to 0.2 (≈20%).
    */
   revealAt?: number;
+  /**
+   * Fraction of the article at which the Guide crossfades to Share (0–1).
+   * Defaults to 0.75 (≈final quarter).
+   */
+  swapAt?: number;
   /**
    * Pixels to leave above a target when scrolling to it, so a (future)
    * sticky header never covers the section. The site header is not
@@ -65,27 +92,35 @@ const {
   watch,
   listen,
   tool,
+  share,
   revealAt = 0.2,
+  swapAt = 0.75,
   headerOffset = 24,
 } = Astro.props;
 
-// Build the ordered action list; each carries the icon key used to pick
-// the inline SVG below. Actions with no target are dropped here; the
-// client script drops any whose target id is missing from the DOM.
-const actions = [
+// The two fixed nav actions (Watch, Listen). The contextual third slot
+// (Guide ⇄ Share) is rendered separately below so the two can share one
+// grid cell. Each carries the icon key used to pick its inline SVG.
+const navActions = [
   watch ? { ...watch, kind: 'watch', icon: 'play' } : null,
   listen ? { ...listen, kind: 'listen', icon: 'audio' } : null,
-  tool ? { ...tool, kind: 'tool', icon: 'download' } : null,
 ].filter((a): a is Action & { kind: string; icon: string } => a !== null);
+
+// The third slot is "contextual" (Guide that swaps to Share) only when we
+// actually have both; otherwise whichever one exists is a normal action.
+const hasSwap = Boolean(tool && share);
+const hasAnything = navActions.length > 0 || tool || share;
+const shareLabel = share?.label ?? 'Share';
 ---
 
 {
-  actions.length > 0 && (
+  hasAnything && (
     <div
       class="amb"
       data-article-media-bar
       data-slug={slug}
       data-reveal={revealAt}
+      data-swap-at={swapAt}
       data-offset={headerOffset}
       hidden
     >
@@ -93,7 +128,7 @@ const actions = [
         <span class="amb__eyebrow" aria-hidden="true">{eyebrow}</span>
 
         <ul class="amb__actions">
-          {actions.map((action) => (
+          {navActions.map((action) => (
             <li class="amb__item">
               <a
                 class="amb__action"
@@ -108,45 +143,65 @@ const actions = [
                     </svg>
                   )}
                   {action.icon === 'audio' && (
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="16"
-                      height="16"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
                       <rect x="3" y="13" width="4" height="7" rx="1.5" />
                       <rect x="17" y="13" width="4" height="7" rx="1.5" />
                     </svg>
                   )}
-                  {action.icon === 'download' && (
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="16"
-                      height="16"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
+                </span>
+                <span class="amb__label">{action.label}</span>
+                {action.shortLabel && <span class="amb__label amb__label--short">{action.shortLabel}</span>}
+              </a>
+            </li>
+          ))}
+
+          {(tool || share) && (
+            <li class:list={['amb__item', 'amb__item--swap', { 'amb__item--stacked': hasSwap }]} data-media-swap>
+              {tool && (
+                <a
+                  class="amb__action"
+                  href={`#${tool.target}`}
+                  data-media-action="guide"
+                  data-media-target={tool.target}
+                  data-swap="guide"
+                >
+                  <span class="amb__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M12 3v12" />
                       <path d="M7 10l5 5 5-5" />
                       <path d="M5 21h14" />
                     </svg>
-                  )}
-                </span>
-                <span class="amb__label">{action.label}</span>
-                {action.shortLabel && (
-                  <span class="amb__label amb__label--short">{action.shortLabel}</span>
-                )}
-              </a>
+                  </span>
+                  <span class="amb__label">{tool.label}</span>
+                  {tool.shortLabel && <span class="amb__label amb__label--short">{tool.shortLabel}</span>}
+                </a>
+              )}
+
+              {share && (
+                <button
+                  type="button"
+                  class="amb__action amb__action--share"
+                  data-media-share
+                  data-swap="share"
+                  data-share-url={share.url ?? ''}
+                  data-share-title={share.title ?? ''}
+                  aria-label="Share this article"
+                  aria-hidden={hasSwap ? 'true' : undefined}
+                >
+                  <span class="amb__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="18" cy="5" r="3" />
+                      <circle cx="6" cy="12" r="3" />
+                      <circle cx="18" cy="19" r="3" />
+                      <path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" />
+                    </svg>
+                  </span>
+                  <span class="amb__label" aria-live="polite">{shareLabel}</span>
+                </button>
+              )}
             </li>
-          ))}
+          )}
         </ul>
 
         <button type="button" class="amb__close" data-media-dismiss aria-label="Dismiss this bar">
@@ -161,6 +216,10 @@ const actions = [
 
 <style>
   .amb {
+    /* Single source of truth for the control size: the tap-target floor
+       (Apple's 44px minimum) AND the height the action row hugs, so the
+       bar stays as short as the controls allow. */
+    --amb-btn: 44px;
     position: fixed;
     left: 0;
     right: 0;
@@ -191,8 +250,8 @@ const actions = [
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.5rem 0.65rem;
+    gap: 0.6rem;
+    padding: 0.35rem 0.6rem;
     background: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
@@ -220,6 +279,11 @@ const actions = [
     flex: 1 1 auto;
     min-width: 0;
     justify-content: flex-end;
+    /* Hug the 44px controls: a nested flex row otherwise reserves extra
+       cross-axis space and centres the buttons in it, making the bar
+       taller than its controls. The controls never exceed --amb-btn
+       (single line, min-height floor), so this only removes dead space. */
+    max-height: var(--amb-btn);
   }
 
   .amb__item {
@@ -227,14 +291,50 @@ const actions = [
     min-width: 0;
   }
 
+  /* The contextual slot stacks Guide and Share in one grid cell so a swap
+     never changes the slot's width or shifts neighbours. Both children
+     stay in layout (visibility, not display), so the cell is always as
+     wide as the wider of the two. */
+  .amb__item--stacked {
+    display: grid;
+    align-items: stretch;
+  }
+
+  .amb__item--stacked > [data-swap] {
+    grid-area: 1 / 1;
+    width: 100%;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+
+  /* Default (and no-JS) state: Guide shown, Share hidden. */
+  .amb__item--stacked > [data-swap='share'] {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .amb__item--stacked.is-share > [data-swap='guide'] {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .amb__item--stacked.is-share > [data-swap='share'] {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
   .amb__action {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.4rem;
-    /* ≥44px touch target height without an oversized button. */
-    min-height: 44px;
-    padding: 0.4rem 0.85rem;
+    /* ≥44px touch target height without an oversized button; the reduced
+       vertical padding trims the bar's height while this floor keeps the
+       tap target at Apple's 44px minimum. */
+    min-height: var(--amb-btn);
+    padding: 0.25rem 0.85rem;
     border-radius: var(--radius-button);
     background: var(--color-primary);
     color: var(--color-primary-text);
@@ -243,6 +343,8 @@ const actions = [
     line-height: 1.1;
     text-decoration: none;
     white-space: nowrap;
+    cursor: pointer;
+    border: none;
     transition: background-color 0.15s ease;
   }
 
@@ -266,8 +368,9 @@ const actions = [
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    /* Meets the tap-target floor and matches the action-row height. */
+    width: var(--amb-btn);
+    height: var(--amb-btn);
     padding: 0;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-button);
@@ -291,16 +394,19 @@ const actions = [
 
   /* Narrow screens: drop the eyebrow, let the actions fill the row and
      swap to short labels. Icons stay so each action still reads clearly
-     when the word is short. */
+     when the word is short. The bar is intentionally shorter here. */
   @media (max-width: 560px) {
     .amb {
       padding: 0 0.75rem;
-      bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+      bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
     }
 
     .amb__inner {
-      gap: 0.5rem;
-      padding: 0.45rem 0.5rem;
+      gap: 0.4rem;
+      /* ~20% shorter than the previous bar: the phantom flex gap is gone
+         (see .amb__actions max-height) and the vertical padding is trimmed,
+         while a little breathing room around the 44px controls remains. */
+      padding: 0.35rem 0.4rem;
     }
 
     .amb__eyebrow {
@@ -318,7 +424,7 @@ const actions = [
 
     .amb__action {
       width: 100%;
-      padding: 0.4rem 0.4rem;
+      padding: 0.2rem 0.35rem;
       gap: 0.3rem;
       font-size: 0.82rem;
     }
@@ -338,7 +444,8 @@ const actions = [
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .amb {
+    .amb,
+    .amb__item--stacked > [data-swap] {
       transition: none;
     }
   }
@@ -357,20 +464,22 @@ const actions = [
     function initBar(bar) {
       var slug = bar.getAttribute('data-slug') || window.location.pathname;
       var revealAt = parseFloat(bar.getAttribute('data-reveal') || '0.2');
+      var swapAt = parseFloat(bar.getAttribute('data-swap-at') || '0.75');
       var offset = parseInt(bar.getAttribute('data-offset') || '24', 10);
       var storageKey = 'articleMediaBarDismissed:' + slug;
 
       var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      // Drop any action whose target section is not actually on the page,
-      // so the bar never offers a dead jump ("update cleanly if an action
-      // is unavailable").
+      // Drop any nav action whose target section is not on the page, so the
+      // bar never offers a dead jump. The contextual slot is left alone (its
+      // Guide target is the author's responsibility) so a missing id can
+      // never take the Share half down with it.
       var actions = Array.prototype.slice.call(bar.querySelectorAll('[data-media-action]'));
       actions.forEach(function (link) {
         var id = link.getAttribute('data-media-target');
         if (!id || !document.getElementById(id)) {
           var item = link.closest('.amb__item');
-          if (item) item.remove();
+          if (item && !item.classList.contains('amb__item--swap')) item.remove();
         }
       });
       if (!bar.querySelector('[data-media-action]')) return; // nothing left to offer
@@ -389,6 +498,29 @@ const actions = [
       var shown = false; // has the reveal event fired at least once
       var visible = false;
 
+      // Contextual Guide ⇄ Share swap (only when both halves exist).
+      var swapSlot = bar.querySelector('.amb__item--stacked');
+      var guideEl = swapSlot && swapSlot.querySelector('[data-swap="guide"]');
+      var shareEl = swapSlot && swapSlot.querySelector('[data-swap="share"]');
+      var swapped = false;
+
+      function doSwap() {
+        if (swapped || !swapSlot || !shareEl) return;
+        swapped = true;
+        var hadFocus = guideEl && document.activeElement === guideEl;
+        swapSlot.classList.add('is-share');
+        if (guideEl) guideEl.setAttribute('aria-hidden', 'true');
+        shareEl.removeAttribute('aria-hidden');
+        if (hadFocus) {
+          try {
+            shareEl.focus({ preventScroll: true });
+          } catch (e) {
+            shareEl.focus();
+          }
+        }
+        pushEvent('article_media_bar_swap', { article_slug: slug, from: 'guide', to: 'share' });
+      }
+
       function setVisible(next) {
         if (next === visible) return;
         visible = next;
@@ -405,6 +537,8 @@ const actions = [
         var articleTop = rect.top + window.scrollY;
         var height = article.offsetHeight || 1;
         var progress = (window.scrollY - articleTop) / height;
+
+        if (!swapped && progress >= swapAt) doSwap();
 
         var show = progress >= revealAt;
 
@@ -432,8 +566,8 @@ const actions = [
       window.addEventListener('resize', onScroll, { passive: true });
       update();
 
-      // Smooth-scroll each action to its section, then move keyboard focus
-      // to the section without yanking the viewport again for mouse users.
+      // Smooth-scroll each in-page action to its section, then move keyboard
+      // focus there without yanking the viewport again for mouse users.
       actions.forEach(function (link) {
         link.addEventListener('click', function (event) {
           var id = link.getAttribute('data-media-target');
@@ -462,6 +596,83 @@ const actions = [
           }
         });
       });
+
+      // Share: native share sheet where available (mobile), otherwise
+      // copy-to-clipboard with a brief "Copied" state (desktop). URL and
+      // title fall back to the page's canonical link and document title.
+      var shareBtn = bar.querySelector('[data-media-share]');
+      if (shareBtn) {
+        var labelEl = shareBtn.querySelector('.amb__label');
+        var defaultLabel = labelEl ? labelEl.textContent : 'Share';
+        var canonicalEl = document.querySelector('link[rel="canonical"]');
+
+        var getShareUrl = function () {
+          return (
+            shareBtn.getAttribute('data-share-url') ||
+            (canonicalEl && canonicalEl.href) ||
+            window.location.href
+          );
+        };
+        var getShareTitle = function () {
+          return shareBtn.getAttribute('data-share-title') || document.title;
+        };
+
+        var flashCopied = function () {
+          if (!labelEl) return;
+          labelEl.textContent = 'Copied';
+          shareBtn.setAttribute('data-copied', '');
+          window.setTimeout(function () {
+            labelEl.textContent = defaultLabel;
+            shareBtn.removeAttribute('data-copied');
+          }, 1600);
+        };
+
+        var legacyCopy = function (text) {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'absolute';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand('copy');
+          } catch (e) {}
+          document.body.removeChild(ta);
+        };
+
+        shareBtn.addEventListener('click', function () {
+          var url = getShareUrl();
+          var title = getShareTitle();
+
+          if (navigator.share) {
+            navigator
+              .share({ title: title, url: url })
+              .then(function () {
+                pushEvent('article_media_bar_share', { article_slug: slug, method: 'web_share' });
+              })
+              .catch(function () {
+                // User dismissed the share sheet, or it failed — stay quiet.
+              });
+            return;
+          }
+
+          var onCopied = function () {
+            flashCopied();
+            pushEvent('article_media_bar_share', { article_slug: slug, method: 'copy' });
+          };
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(onCopied, function () {
+              legacyCopy(url);
+              onCopied();
+            });
+          } else {
+            legacyCopy(url);
+            onCopied();
+          }
+        });
+      }
 
       var closeBtn = bar.querySelector('[data-media-dismiss]');
       if (closeBtn) {
