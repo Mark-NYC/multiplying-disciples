@@ -192,6 +192,17 @@ their peril:
   published article to its hub.
 - Article-specific components (`DiscipleCard`, `RoleFact`) stay
   article-specific — don't generalize them without cause.
+- **The sticky media bar (`ArticleMediaBar`) is a per-article policy, not a
+  default.** Add it deliberately, article by article — never automatically
+  to every article. It renders only the actions that have a real on-page
+  target (Watch/Listen/Guide-or-Tool), transitions the Guide/Tool to Share
+  after ~the final 25% (or introduces Share when there is no tool), and does
+  not render at all when an article has no video, audio, or downloadable
+  resource. It only ever scrolls to an embedded section — it never links to
+  an external platform or fires a download. Full policy (combinations
+  matrix, mobile/desktop alignment, config model, analytics, accessibility
+  invariants, and the current-compliance gaps) lives in ARTICLE_SYSTEM.md,
+  "The sticky media bar".
 - Bold key phrases in body text ("bold-keyword standard") is an accepted
   scanning aid from the leadership-batch rollout; use it sparingly and
   consistently.
