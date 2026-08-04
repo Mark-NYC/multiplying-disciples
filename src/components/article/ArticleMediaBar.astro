@@ -1,0 +1,494 @@
+---
+// ArticleMediaBar — a compact, dismissible sticky bar pinned near the
+// bottom of the viewport that lets a reader jump to an article's own
+// supporting media (video, podcast) and its tool download. Every action
+// is an in-page anchor, never an external link: the bar is wayfinding
+// for media the article already contains.
+//
+// MVP scope: this is deliberately mounted from inside a single article's
+// MDX body (What Makes a Church a Church?), so it only ships on that
+// page. The API is kept small enough that a later pass could lift it to
+// other cornerstone articles without a rewrite — but it is NOT a
+// sitewide system yet. Do not wire it into ArticleLayout.
+//
+// Usage (inside an .mdx article body, after the media it points at):
+//   import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
+//   <ArticleMediaBar
+//     slug="/what-makes-a-church-a-church/"
+//     watch={{ target: 'watch-the-five-ws', label: 'Watch' }}
+//     listen={{ target: 'listen-the-first-church', label: 'Listen' }}
+//     tool={{ target: 'get-the-guide', label: 'Get the Guide', shortLabel: 'Guide' }}
+//   />
+//
+// An action prop that is omitted (or whose target id is not on the page)
+// simply renders no button — that is how the Listen action stays hidden
+// until an article actually has a relevant episode.
+//
+// The component's <script> is `is:inline` on purpose: Astro does not
+// hoist a component's bundled <script> when the component is rendered
+// through MDX (the same reason PodcastEmbed.astro uses is:inline), so
+// the behaviour is written as guarded vanilla JS.
+
+interface Action {
+  /** The id of the on-page section this action scrolls to. */
+  target: string;
+  /** Full label (desktop). */
+  label: string;
+  /** Optional shorter label used at narrow widths. Falls back to label. */
+  shortLabel?: string;
+}
+
+interface Props {
+  /** Article slug, emitted in analytics event data. */
+  slug: string;
+  /** Small lead-in label shown before the actions on desktop. */
+  eyebrow?: string;
+  watch?: Action;
+  listen?: Action;
+  tool?: Action;
+  /**
+   * Fraction of the article a reader must scroll past before the bar
+   * appears (0–1). Defaults to 0.2 (≈20%).
+   */
+  revealAt?: number;
+  /**
+   * Pixels to leave above a target when scrolling to it, so a (future)
+   * sticky header never covers the section. The site header is not
+   * sticky today, so this is a small breathing-room default.
+   */
+  headerOffset?: number;
+}
+
+const {
+  slug,
+  eyebrow = 'Explore this article',
+  watch,
+  listen,
+  tool,
+  revealAt = 0.2,
+  headerOffset = 24,
+} = Astro.props;
+
+// Build the ordered action list; each carries the icon key used to pick
+// the inline SVG below. Actions with no target are dropped here; the
+// client script drops any whose target id is missing from the DOM.
+const actions = [
+  watch ? { ...watch, kind: 'watch', icon: 'play' } : null,
+  listen ? { ...listen, kind: 'listen', icon: 'audio' } : null,
+  tool ? { ...tool, kind: 'tool', icon: 'download' } : null,
+].filter((a): a is Action & { kind: string; icon: string } => a !== null);
+---
+
+{
+  actions.length > 0 && (
+    <div
+      class="amb"
+      data-article-media-bar
+      data-slug={slug}
+      data-reveal={revealAt}
+      data-offset={headerOffset}
+      hidden
+    >
+      <div class="amb__inner" role="region" aria-label="Jump to this article's media and guide">
+        <span class="amb__eyebrow" aria-hidden="true">{eyebrow}</span>
+
+        <ul class="amb__actions">
+          {actions.map((action) => (
+            <li class="amb__item">
+              <a
+                class="amb__action"
+                href={`#${action.target}`}
+                data-media-action={action.kind}
+                data-media-target={action.target}
+              >
+                <span class="amb__icon" aria-hidden="true">
+                  {action.icon === 'play' && (
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  )}
+                  {action.icon === 'audio' && (
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="16"
+                      height="16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
+                      <rect x="3" y="13" width="4" height="7" rx="1.5" />
+                      <rect x="17" y="13" width="4" height="7" rx="1.5" />
+                    </svg>
+                  )}
+                  {action.icon === 'download' && (
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="16"
+                      height="16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M12 3v12" />
+                      <path d="M7 10l5 5 5-5" />
+                      <path d="M5 21h14" />
+                    </svg>
+                  )}
+                </span>
+                <span class="amb__label">{action.label}</span>
+                {action.shortLabel && (
+                  <span class="amb__label amb__label--short">{action.shortLabel}</span>
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <button type="button" class="amb__close" data-media-dismiss aria-label="Dismiss this bar">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  )
+}
+
+<style>
+  .amb {
+    position: fixed;
+    left: 0;
+    right: 0;
+    /* Sit above the mobile safe-area (home indicator) rather than under it. */
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    z-index: 40;
+    padding: 0 1rem;
+    /* Push the bar down and fade it out when hidden; the [hidden]
+       attribute below removes it entirely for no-JS / dismissed states. */
+    opacity: 0;
+    transform: translateY(0.75rem);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+  }
+
+  .amb.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .amb[hidden] {
+    display: none;
+  }
+
+  .amb__inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.65rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--fm-shadow), 0 10px 30px rgba(31, 37, 35, 0.12);
+  }
+
+  .amb__eyebrow {
+    flex: none;
+    padding-left: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .amb__actions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: stretch;
+    gap: 0.4rem;
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: flex-end;
+  }
+
+  .amb__item {
+    display: flex;
+    min-width: 0;
+  }
+
+  .amb__action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    /* ≥44px touch target height without an oversized button. */
+    min-height: 44px;
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-button);
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+  }
+
+  .amb__action:hover {
+    background: var(--color-primary-hover);
+    color: var(--color-primary-text);
+  }
+
+  .amb__icon {
+    display: inline-flex;
+    flex: none;
+  }
+
+  /* The short label is a mobile-only swap; hidden by default. */
+  .amb__label--short {
+    display: none;
+  }
+
+  .amb__close {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-button);
+    background: transparent;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .amb__close:hover {
+    background: var(--color-surface);
+    color: var(--color-text);
+  }
+
+  /* Visible focus for keyboard users — matches the site's Growth Green ring. */
+  .amb__action:focus-visible,
+  .amb__close:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* Narrow screens: drop the eyebrow, let the actions fill the row and
+     swap to short labels. Icons stay so each action still reads clearly
+     when the word is short. */
+  @media (max-width: 560px) {
+    .amb {
+      padding: 0 0.75rem;
+      bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .amb__inner {
+      gap: 0.5rem;
+      padding: 0.45rem 0.5rem;
+    }
+
+    .amb__eyebrow {
+      display: none;
+    }
+
+    .amb__actions {
+      justify-content: space-between;
+      gap: 0.35rem;
+    }
+
+    .amb__item {
+      flex: 1 1 0;
+    }
+
+    .amb__action {
+      width: 100%;
+      padding: 0.4rem 0.4rem;
+      gap: 0.3rem;
+      font-size: 0.82rem;
+    }
+
+    .amb__label {
+      display: none;
+    }
+
+    .amb__label--short {
+      display: inline;
+    }
+
+    /* Actions that have no short label keep their full label on mobile. */
+    .amb__action:not(:has(.amb__label--short)) .amb__label {
+      display: inline;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .amb {
+      transition: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    if (window.__articleMediaBar) return;
+    window.__articleMediaBar = true;
+
+    function pushEvent(name, data) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({ event: name }, data));
+    }
+
+    function initBar(bar) {
+      var slug = bar.getAttribute('data-slug') || window.location.pathname;
+      var revealAt = parseFloat(bar.getAttribute('data-reveal') || '0.2');
+      var offset = parseInt(bar.getAttribute('data-offset') || '24', 10);
+      var storageKey = 'articleMediaBarDismissed:' + slug;
+
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Drop any action whose target section is not actually on the page,
+      // so the bar never offers a dead jump ("update cleanly if an action
+      // is unavailable").
+      var actions = Array.prototype.slice.call(bar.querySelectorAll('[data-media-action]'));
+      actions.forEach(function (link) {
+        var id = link.getAttribute('data-media-target');
+        if (!id || !document.getElementById(id)) {
+          var item = link.closest('.amb__item');
+          if (item) item.remove();
+        }
+      });
+      if (!bar.querySelector('[data-media-action]')) return; // nothing left to offer
+
+      // Respect a dismissal from earlier in this browser session.
+      var dismissed = false;
+      try {
+        dismissed = sessionStorage.getItem(storageKey) === '1';
+      } catch (e) {}
+      if (dismissed) return; // leave it [hidden]; no listeners, no work
+
+      bar.hidden = false;
+
+      var article = document.querySelector('article');
+      var stopEl = document.querySelector('.site-footer');
+      var shown = false; // has the reveal event fired at least once
+      var visible = false;
+
+      function setVisible(next) {
+        if (next === visible) return;
+        visible = next;
+        bar.classList.toggle('is-visible', next);
+        if (next && !shown) {
+          shown = true;
+          pushEvent('article_media_bar_view', { article_slug: slug });
+        }
+      }
+
+      function update() {
+        if (!article) return;
+        var rect = article.getBoundingClientRect();
+        var articleTop = rect.top + window.scrollY;
+        var height = article.offsetHeight || 1;
+        var progress = (window.scrollY - articleTop) / height;
+
+        var show = progress >= revealAt;
+
+        // Hide as the reader reaches the footer / final CTA so the bar
+        // never covers the closing content.
+        if (show && stopEl) {
+          var stopTop = stopEl.getBoundingClientRect().top;
+          if (stopTop < window.innerHeight * 0.95) show = false;
+        }
+
+        setVisible(show);
+      }
+
+      var ticking = false;
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(function () {
+          ticking = false;
+          update();
+        });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      update();
+
+      // Smooth-scroll each action to its section, then move keyboard focus
+      // to the section without yanking the viewport again for mouse users.
+      actions.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+          var id = link.getAttribute('data-media-target');
+          var kind = link.getAttribute('data-media-action');
+          var el = document.getElementById(id);
+          if (!el) return; // fall back to native anchor jump
+          event.preventDefault();
+
+          pushEvent('article_media_bar_' + kind, {
+            article_slug: slug,
+            target_type: kind,
+            target_id: id,
+          });
+
+          var top = el.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({
+            top: top < 0 ? 0 : top,
+            behavior: reduceMotion ? 'auto' : 'smooth',
+          });
+
+          if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1');
+          try {
+            el.focus({ preventScroll: true });
+          } catch (e) {
+            el.focus();
+          }
+        });
+      });
+
+      var closeBtn = bar.querySelector('[data-media-dismiss]');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+          try {
+            sessionStorage.setItem(storageKey, '1');
+          } catch (e) {}
+          pushEvent('article_media_bar_dismiss', { article_slug: slug });
+          setVisible(false);
+          window.removeEventListener('scroll', onScroll);
+          window.removeEventListener('resize', onScroll);
+          // Fully remove after the fade so it can't trap focus.
+          window.setTimeout(function () {
+            bar.hidden = true;
+          }, reduceMotion ? 0 : 220);
+        });
+      }
+    }
+
+    function initAll() {
+      document.querySelectorAll('[data-article-media-bar]').forEach(initBar);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAll);
+    } else {
+      initAll();
+    }
+  })();
+</script>

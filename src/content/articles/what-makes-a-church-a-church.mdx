@@ -83,6 +83,8 @@ import InsightCard from '../../components/article/InsightCard.astro';
 import PracticeCard from '../../components/article/PracticeCard.astro';
 import ArticleCTAInline from '../../components/article/ArticleCTAInline.astro';
 import ToolDownload from '../../components/article/ToolDownload.astro';
+import PodcastEmbed from '../../components/article/PodcastEmbed.astro';
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
 
 Ask ten people what makes a church a church and you will get ten answers about buildings, denominations, ordained pastors, a certain style of service, or a minimum crowd. None of those is what Scripture points to. The Bible does not define the church by its address or its size. It defines the church by who it belongs to and what it does together, and the whole thing is simple enough to count on one hand.
 
@@ -108,11 +110,30 @@ Now count it out. Who, What, Where, When, and Why. When those five are present, 
 **Why?** To host God's presence and do everything for his glory (1 Corinthians 10:31). Underneath every practice, this is the point: a family gathered around Jesus, for God.
 </InsightCard>
 
+<section id="watch-the-five-ws" aria-label="Video: walking through the five W's of a church">
+
+Watch Mark walk through the five W's on one hand, straight from the birth of the church in Acts 2.
+
+<div style={{ width: '100%', aspectRatio: '16 / 9', overflow: 'hidden', borderRadius: '12px' }}>
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/c3KPWVyP0gI"
+    title="Mark Goering walks through the five W's of a church from Acts 2"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowFullScreen
+    style={{ width: '100%', height: '100%', border: 0 }}
+  />
+</div>
+
+</section>
+
+<div id="get-the-guide">
 <ToolDownload
   href="/downloads/handy-guide-to-simple-church-left-hand.pdf"
   label="Download the Handy Guide (PDF)"
   sublabel="The five W's of church, with the Scriptures and discussion questions behind each one"
 />
+</div>
 
 That is a church, whether it happens in a temple courtyard or a living room. Notice what is on your hand and what is not. Baptized believers, the practices, homes, a daily rhythm, and the glory of God are all here. A building, a budget, a stage, and a paid staff are not.
 
@@ -133,6 +154,17 @@ A church does not require a dedicated building; the New Testament church met in 
 The five W's also help you see honestly when a gathering has not become a church yet. A Bible study can meet faithfully every week and still be missing several of them: no baptized believers who confess Jesus as Lord (the Who), none of the practices beyond discussion (the What), no shared life beyond the meeting (the Where and When). That is not a criticism. A discovery Bible study full of seeking people is doing exactly what it should. It simply has not become a church yet.
 
 The honest question is not "do we meet?" but "which of the five W's are actually true of us?" That is worth naming plainly, because a group that knows it is not yet a church can grow into one on purpose. This is the messy middle, and knowing where the line is helps you see [when a discipleship group becomes a church](/when-a-discipleship-group-becomes-a-church/).
+
+<section id="listen-the-first-church" aria-label="Podcast: how the first church took shape in Acts 2">
+
+Listen to a deeper conversation about how a room of new believers crossed from meeting to church.
+
+<PodcastEmbed
+  id="the-12-habits-of-highly-effective-disciples"
+  intro="Mark and Dave sit with the same passage behind this guide, Acts 2:36-47, and trace how the first church took shape through a simple pattern of identity, devotion, and overflow. It is the audio companion to the five W's, and a good listen for a group asking whether it has become a church yet."
+/>
+
+</section>
 
 <ArticleCTAInline frontmatter={frontmatter} />
 
@@ -161,3 +193,10 @@ No. The first churches met in homes and were often led by ordinary believers, no
 ## Where to go next
 
 If this is what a church is, the next questions are practical: [how to start a simple church](/how-to-start-a-simple-church/), what to do at [your first simple church gathering](/your-first-simple-church-gathering/), and how to tell [when a discipleship group becomes a church](/when-a-discipleship-group-becomes-a-church/) as it moves through the messy middle. To turn the What of the guide into practices you can grow one at a time, use the [Church Waffle](/movement-resources/12-practice-church-circle/).
+
+<ArticleMediaBar
+  slug="/what-makes-a-church-a-church/"
+  watch={{ target: 'watch-the-five-ws', label: 'Watch' }}
+  listen={{ target: 'listen-the-first-church', label: 'Listen' }}
+  tool={{ target: 'get-the-guide', label: 'Get the Guide', shortLabel: 'Guide' }}
+/>
