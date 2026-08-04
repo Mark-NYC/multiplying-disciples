@@ -47,6 +47,13 @@ interface Props {
   listen?: Action;
   tool?: Action;
   /**
+   * Optional share control. Provide it (even as `{}`) to render a share
+   * button. On mobile it opens the native share sheet (navigator.share);
+   * on desktop it copies the link with a brief "Copied" state. `url` and
+   * `title` fall back at runtime to the page's canonical link and title.
+   */
+  share?: { label?: string; url?: string; title?: string };
+  /**
    * Fraction of the article a reader must scroll past before the bar
    * appears (0–1). Defaults to 0.2 (≈20%).
    */
@@ -65,6 +72,7 @@ const {
   watch,
   listen,
   tool,
+  share,
   revealAt = 0.2,
   headerOffset = 24,
 } = Astro.props;
@@ -148,6 +156,27 @@ const actions = [
             </li>
           ))}
         </ul>
+
+        {share && (
+          <button
+            type="button"
+            class="amb__share"
+            data-media-share
+            data-share-url={share.url ?? ''}
+            data-share-title={share.title ?? ''}
+            aria-label="Share this article"
+          >
+            <span class="amb__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3" />
+                <circle cx="6" cy="12" r="3" />
+                <circle cx="18" cy="19" r="3" />
+                <path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" />
+              </svg>
+            </span>
+            <span class="amb__share-label" aria-live="polite">{share.label ?? 'Share'}</span>
+          </button>
+        )}
 
         <button type="button" class="amb__close" data-media-dismiss aria-label="Dismiss this bar">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
@@ -282,8 +311,36 @@ const actions = [
     color: var(--color-text);
   }
 
+  /* Share is a secondary action (outlined green), visually a step quieter
+     than the primary media buttons so the bar keeps one clear focus. */
+  .amb__share {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 44px;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-button);
+    background: transparent;
+    color: var(--color-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.1;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .amb__share:hover {
+    background: var(--color-surface);
+    color: var(--color-primary);
+  }
+
   /* Visible focus for keyboard users — matches the site's Growth Green ring. */
   .amb__action:focus-visible,
+  .amb__share:focus-visible,
   .amb__close:focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
@@ -334,6 +391,25 @@ const actions = [
     /* Actions that have no short label keep their full label on mobile. */
     .amb__action:not(:has(.amb__label--short)) .amb__label {
       display: inline;
+    }
+
+    /* Share collapses to an icon-only square so it never crowds the three
+       media actions; the native share sheet is the label on mobile. */
+    .amb__share {
+      flex: none;
+      width: 44px;
+      padding: 0.4rem;
+    }
+
+    .amb__share-label {
+      /* Visually hidden but still the accessible name is on the button. */
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
     }
   }
 
@@ -462,6 +538,83 @@ const actions = [
           }
         });
       });
+
+      // Share: native share sheet where available (mobile), otherwise
+      // copy-to-clipboard with a brief "Copied" state (desktop). URL and
+      // title fall back to the page's canonical link and document title.
+      var shareBtn = bar.querySelector('[data-media-share]');
+      if (shareBtn) {
+        var shareLabel = shareBtn.querySelector('.amb__share-label');
+        var defaultLabel = shareLabel ? shareLabel.textContent : 'Share';
+        var canonicalEl = document.querySelector('link[rel="canonical"]');
+
+        var getShareUrl = function () {
+          return (
+            shareBtn.getAttribute('data-share-url') ||
+            (canonicalEl && canonicalEl.href) ||
+            window.location.href
+          );
+        };
+        var getShareTitle = function () {
+          return shareBtn.getAttribute('data-share-title') || document.title;
+        };
+
+        var flashCopied = function () {
+          if (!shareLabel) return;
+          shareLabel.textContent = 'Copied';
+          shareBtn.setAttribute('data-copied', '');
+          window.setTimeout(function () {
+            shareLabel.textContent = defaultLabel;
+            shareBtn.removeAttribute('data-copied');
+          }, 1600);
+        };
+
+        var legacyCopy = function (text) {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'absolute';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand('copy');
+          } catch (e) {}
+          document.body.removeChild(ta);
+        };
+
+        shareBtn.addEventListener('click', function () {
+          var url = getShareUrl();
+          var title = getShareTitle();
+
+          if (navigator.share) {
+            navigator
+              .share({ title: title, url: url })
+              .then(function () {
+                pushEvent('article_media_bar_share', { article_slug: slug, method: 'web_share' });
+              })
+              .catch(function () {
+                // User dismissed the share sheet, or it failed — stay quiet.
+              });
+            return;
+          }
+
+          var onCopied = function () {
+            flashCopied();
+            pushEvent('article_media_bar_share', { article_slug: slug, method: 'copy' });
+          };
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(onCopied, function () {
+              legacyCopy(url);
+              onCopied();
+            });
+          } else {
+            legacyCopy(url);
+            onCopied();
+          }
+        });
+      }
 
       var closeBtn = bar.querySelector('[data-media-dismiss]');
       if (closeBtn) {

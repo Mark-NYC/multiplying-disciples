@@ -126,7 +126,11 @@ is a mono gold-free eyebrow in Primary Green; the close control is a small
 outlined icon button. Centered within a 44rem max-width (the article
 reading column) on desktop; full-row with `shortLabel`s on mobile. Icons
 are inline accessible SVGs paired with text labels (`aria-hidden`), no
-icon library added for three glyphs. Focus rings are the sitewide 2px
+icon library added for the handful of glyphs. The optional Share control
+is a quieter `.button--secondary`-style outlined-green pill on desktop
+(icon + label) and collapses to an icon-only square on mobile (the native
+share sheet is the label there), so it reads as secondary to the primary
+media actions and never crowds them. Focus rings are the sitewide 2px
 Growth Green; the show/hide transition and smooth scroll are disabled
 under `prefers-reduced-motion`; the bar sits above the mobile safe-area
 via `env(safe-area-inset-bottom)`. It is article-scoped, not a sitewide

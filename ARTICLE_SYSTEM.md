@@ -254,10 +254,12 @@ Listen to a deeper conversation about <the specific angle>.
 A compact, dismissible bar fixed near the bottom of the viewport with up
 to three actions — Watch, Listen, Get the Guide — each an **in-page
 anchor** that smooth-scrolls to the matching section. It is wayfinding
-for media the article already contains: it never links out (no
-Spotify/Apple/YouTube links in the bar) and never triggers a download
+for media the article already contains: the media actions never link out
+(no Spotify/Apple/YouTube links in the bar) and never trigger a download
 directly (Get the Guide scrolls to the existing download rather than
-firing it). Mount it from the article body, after the media it points at:
+firing it). The only outbound-ish action is the optional Share control
+(see the `share` prop), which shares the article itself. Mount it from
+the article body, after the media it points at:
 
 ```mdx
 import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
@@ -267,6 +269,7 @@ import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
   watch={{ target: 'watch-the-five-ws', label: 'Watch' }}
   listen={{ target: 'listen-the-first-church', label: 'Listen' }}
   tool={{ target: 'get-the-guide', label: 'Get the Guide', shortLabel: 'Guide' }}
+  share={{ url: frontmatter.canonical, title: frontmatter.title }}
 />
 ```
 
@@ -276,6 +279,7 @@ Props:
 | --- | --- |
 | `slug` | required; emitted in analytics event data and keys the dismissal storage |
 | `watch` / `listen` / `tool` | each `{ target, label, shortLabel? }`; `target` is the id of the on-page `<section>`/wrapper to scroll to, `shortLabel` is the narrow-width label. Omit an action you don't have |
+| `share` | optional `{ url?, title?, label? }`; provide it (even as `{}`) to render a share control. On mobile it opens the native share sheet (`navigator.share`, icon-only so it never crowds the media actions); on desktop it copies the link with a brief "Copied" state. `url`/`title` fall back at runtime to the page's canonical link and title — pass `frontmatter.canonical` / `frontmatter.title` to be explicit. It is the one exception to "never links out": it shares the article, not a media section |
 | `eyebrow` | desktop lead-in label before the actions; defaults to "Explore this article" |
 | `revealAt` | fraction of the article scrolled before the bar appears (0–1); default `0.2` |
 | `headerOffset` | px left above the target when scrolling to it; default `24` (the site header is not sticky today) |
@@ -310,6 +314,7 @@ events):
 
 `article_media_bar_view` · `article_media_bar_watch` ·
 `article_media_bar_listen` · `article_media_bar_tool` ·
+`article_media_bar_share` (with `method: 'web_share' | 'copy'`) ·
 `article_media_bar_dismiss`.
 
 Anchor IDs: use stable, **descriptive** ids on the media wrappers
