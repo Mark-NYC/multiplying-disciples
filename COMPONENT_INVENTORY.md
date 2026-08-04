@@ -44,6 +44,9 @@ Current inventory after the 2026-07 sitewide consistency pass.
 | `PullQuote.astro` | large serif pulled sentence | no box |
 | `FieldNote.astro` | real approved field story by id; renders nothing otherwise | backed by `src/content/field-notes/` |
 | `FieldNoteImage.astro` | inline photo shown as a field record: full-width photo, mono `FIELD NOTE · LOCATION` line, plain sentence, thin green left rule (no card/wash/shadow) | presentational (props `src`/`alt`/`location`/`caption`, optional `date`/`credit`); distinct from `FieldNote` (collection-backed by id) — owner-confirmed photos only, never invented details; auto width/height + lazy |
+| `PodcastEmbed.astro` | one H3X episode as supporting audio, by id (custom `<audio>` player + platform links); renders nothing for a missing id | backed by the `episodes` collection (`src/data/h3x-episodes.json`); pick on subject not title. See PODCAST_INTEGRATION_STRATEGY.md and ARTICLE_SYSTEM.md "Supporting media" |
+| `ToolDownload.astro` | prominent centered download button for a tool file (PDF), with optional sublabel | styled to the global `.button`; wrap in an id'd element when the media bar targets it |
+| `ArticleMediaBar.astro` | compact, dismissible sticky bar (Watch / Listen / Get the Guide) that smooth-scrolls to the article's own video/podcast/tool sections | in-page anchors only (never links out); session-persistent dismissal; reduced-motion + focus + safe-area aware; `window.dataLayer` events. Cornerstone articles with 2+ media assets only; article-scoped MVP (mounted from the body, not the layout). See ARTICLE_SYSTEM.md "Supporting media" |
 | `RelatedArticles.astro` | thin wrapper capping the shared box at 3 links | used by ArticleLayout |
 | `ArticleCTA.astro` | the one end-of-article CTA (tool/lab/community/none) | see CTA_GUIDE.md |
 | `DiscipleCard.astro` | per-disciple card (12-disciples article only) | article-specific |

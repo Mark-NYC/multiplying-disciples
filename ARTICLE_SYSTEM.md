@@ -124,6 +124,8 @@ global.css); both belong to the same visual family.
 | `PullQuote` | one memorable sentence from the article's own text | 1 (2 in a very long article) |
 | `FieldNote` | a real, approved field story by id | see "Field Notes" below |
 | `FieldNoteImage` | a real ministry photo shown as a field record: mono `FIELD NOTE · LOCATION` line plus one plain sentence, thin green rule | 0–1 per article; owner-confirmed photo, real `location`, factual `caption` only — never invented details. See "Field Notes" below |
+| `PodcastEmbed` | one H3X episode as supporting evidence, by id | pick on the episode's subject, not its title; missing/unknown id renders nothing. See "Supporting media" below and PODCAST_INTEGRATION_STRATEGY.md |
+| `ArticleMediaBar` | the sticky "jump to this article's media" bar (Watch / Listen / Get the Guide) | cornerstone/pillar articles with 2+ media assets only; article-scoped MVP. See "Supporting media" below |
 | `RelatedArticles` | rendered by the layout — don't place manually | — |
 | `ArticleCTA` | rendered by the layout — don't place manually | — |
 | `DiscipleCard`, `RoleFact` | article-specific patterns (12-disciples, APEST) | not general-purpose |
@@ -172,6 +174,157 @@ import FieldNoteImage from '../../components/article/FieldNoteImage.astro';
 `credit` are optional. The image lives under `public/` (e.g.
 `public/images/<article-slug>/`) so the rehype pipeline can add its
 intrinsic `width`/`height` for zero layout shift.
+
+## Supporting media (video, podcast, and the sticky media bar)
+
+A cornerstone article can carry its own supporting media — a video
+walkthrough, an H3X podcast episode, and its tool download — plus a small
+sticky bar that lets readers jump straight to them. This is opt-in and
+**selective**: it earns its place only on a pillar/cornerstone article
+that has **two or more** distinct media assets to point at. Do not add
+the bar to an ordinary article, and do not make it sitewide (see "Scope"
+below). Reference implementation: `what-makes-a-church-a-church.mdx`.
+
+The three parts (video, podcast, tool) are independent — an article can
+embed any of them on its own. The media bar is what ties them together
+into wayfinding, and only makes sense once at least two are present.
+
+### Video embeds
+
+There is no video component; articles embed YouTube inline with the
+site's standard privacy-enhanced pattern (already used by
+`four-fields-of-kingdom-growth`, `the-three-circles-...`,
+`biblical-fasting-and-prayer`, and others). Copy it as-is rather than
+inventing a component:
+
+```mdx
+<section id="watch-<descriptive>" aria-label="Video: <what it shows>">
+
+Watch Mark walk through <the specific thing>, straight from <source>.
+
+<div style={{ width: '100%', aspectRatio: '16 / 9', overflow: 'hidden', borderRadius: '12px' }}>
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/<VIDEO_ID>"
+    title="<A real, descriptive sentence — not just the article name>"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowFullScreen
+    style={{ width: '100%', height: '100%', border: 0 }}
+  />
+</div>
+
+</section>
+```
+
+Rules: always `youtube-nocookie.com` (privacy-enhanced — the site
+convention); always the `aspectRatio` wrapper so there is zero layout
+shift and the frame stays 16:9 on mobile; `loading="lazy"`; a real
+descriptive `title` for accessibility; never autoplay. Place the video
+where it strengthens the article (near the claim it illustrates), not
+dumped at the end. Wrap it in a `<section>` with a stable, descriptive
+`id` when the media bar needs to target it.
+
+### Podcast embeds (`PodcastEmbed`)
+
+Embed one H3X episode by id; a missing or unknown id renders nothing
+(never a placeholder). The full selection rubric, editorial placement
+rules, and per-episode matrix live in **PODCAST_INTEGRATION_STRATEGY.md**
+and **PODCAST_EPISODE_MAP.md** — read those before choosing. Choose on
+the episode's actual subject (show notes, Scripture, metadata in
+`PODCAST_EPISODE_CATALOG.csv` / `src/data/h3x-episodes.json`), never on
+its title alone, and never force a weak match. If nothing fits, leave the
+podcast (and the bar's Listen action) off; both can be added later with
+no layout change. Frame it with the `intro` prop, and wrap it in a
+`<section id="listen-...">` when the media bar targets it.
+
+```mdx
+import PodcastEmbed from '../../components/article/PodcastEmbed.astro';
+
+<section id="listen-<descriptive>" aria-label="Podcast: <topic>">
+
+Listen to a deeper conversation about <the specific angle>.
+
+<PodcastEmbed id="<episode-id>" intro="Why this episode belongs here, framed to the article's own claim." />
+
+</section>
+```
+
+### The sticky media bar (`ArticleMediaBar`)
+
+A compact, dismissible bar fixed near the bottom of the viewport with up
+to three actions — Watch, Listen, Get the Guide — each an **in-page
+anchor** that smooth-scrolls to the matching section. It is wayfinding
+for media the article already contains: it never links out (no
+Spotify/Apple/YouTube links in the bar) and never triggers a download
+directly (Get the Guide scrolls to the existing download rather than
+firing it). Mount it from the article body, after the media it points at:
+
+```mdx
+import ArticleMediaBar from '../../components/article/ArticleMediaBar.astro';
+
+<ArticleMediaBar
+  slug="/what-makes-a-church-a-church/"
+  watch={{ target: 'watch-the-five-ws', label: 'Watch' }}
+  listen={{ target: 'listen-the-first-church', label: 'Listen' }}
+  tool={{ target: 'get-the-guide', label: 'Get the Guide', shortLabel: 'Guide' }}
+/>
+```
+
+Props:
+
+| Prop | Purpose |
+| --- | --- |
+| `slug` | required; emitted in analytics event data and keys the dismissal storage |
+| `watch` / `listen` / `tool` | each `{ target, label, shortLabel? }`; `target` is the id of the on-page `<section>`/wrapper to scroll to, `shortLabel` is the narrow-width label. Omit an action you don't have |
+| `eyebrow` | desktop lead-in label before the actions; defaults to "Explore this article" |
+| `revealAt` | fraction of the article scrolled before the bar appears (0–1); default `0.2` |
+| `headerOffset` | px left above the target when scrolling to it; default `24` (the site header is not sticky today) |
+
+An action whose `target` id is **not on the page is dropped at runtime**.
+That is the intended way to keep **Listen hidden until the article
+actually has a relevant episode**: leave the `listen` prop off (or point
+it at a section you add later), and the button simply won't render.
+
+Behavior — all built in, do not re-implement:
+
+- Hidden near the top; appears after ~`revealAt` of the article is
+  scrolled; hides again as the reader reaches the site footer so it never
+  covers the closing CTA.
+- Dismissible; the dismissal persists for the browser session via
+  `sessionStorage` (keyed by slug).
+- Smooth scroll, downgraded to an instant jump under
+  `prefers-reduced-motion`.
+- After a jump, keyboard focus moves to the target section
+  (`tabindex="-1"`, `focus({ preventScroll: true })`) without yanking the
+  viewport for mouse users.
+- Keyboard accessible with visible Growth-Green focus rings and ARIA
+  labels; respects mobile safe-area insets; no horizontal overflow at
+  narrow widths (desktop shows the eyebrow + full labels; mobile drops
+  the eyebrow and uses `shortLabel`s).
+
+Analytics: it pushes to the site's `window.dataLayer` (the same
+convention as `ecosystem-tracking.js` and `intro-video.js`), so events
+flow the moment GA4/GTM is wired up — no new provider. Event names, each
+carrying `article_slug` (plus `target_type` and `target_id` on the action
+events):
+
+`article_media_bar_view` · `article_media_bar_watch` ·
+`article_media_bar_listen` · `article_media_bar_tool` ·
+`article_media_bar_dismiss`.
+
+Anchor IDs: use stable, **descriptive** ids on the media wrappers
+(`watch-the-five-ws`, `listen-the-first-church`, `get-the-guide`), not
+generic ones, and pick names that won't collide with a heading's
+github-slugger auto-slug. If you rename a section, update the matching
+`target`.
+
+**Scope (MVP).** The bar is mounted from the article body on purpose —
+that is what keeps it on that one article. It is **not** wired into
+`ArticleLayout` and is **not** a sitewide feature yet. Add it only to
+cornerstone/pillar articles with 2+ media assets. The prop API is
+deliberately general so a later pass could lift it into the layout behind
+an opt-in frontmatter flag (e.g. `media_bar:`) once GA4 measurement
+confirms it earns its place; until then, keep it article-scoped.
 
 ## CTA behavior and fallback
 
