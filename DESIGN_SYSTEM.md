@@ -124,8 +124,12 @@ quiet. Actions are the standard Primary Green `.button` scale, sized to a
 single `--amb-btn` (44px) tap-target floor with the row hugging that
 height so the bar stays as short as its controls (never oversized — the
 padding is trimmed, not the target); the lead-in label is a mono
-gold-free eyebrow in Primary Green; the close control is a matching 44px
-outlined icon button. Centered within a 44rem max-width (the article
+gold-free eyebrow in Primary Green; the close control is a quiet,
+iOS-style ghost button — a small neutral circle inside a 44px hit area,
+lower visual weight than the green actions so it never competes with them.
+All toolbar spacing runs off one `--amb-gap` token so the rhythm between
+every control is identical, and icons render at a fixed 17px optical box
+so they read as one size. Centered within a 44rem max-width (the article
 reading column) on desktop; full-row with `shortLabel`s on mobile. Icons
 are inline accessible SVGs paired with text labels (`aria-hidden`), no
 icon library added for the handful of glyphs. The third slot is
