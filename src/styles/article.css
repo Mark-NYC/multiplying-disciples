@@ -1599,24 +1599,117 @@
 .fm-story__k--question { color: var(--color-clay-text); }
 .fm-story__k--note { color: var(--color-text-muted); }
 
+/* The per-story facilitation-guide link is a real, obvious button — a
+   secondary (outlined green) action so it reads clearly as "get the
+   guide" without the seven of them out-shouting the single primary Lab
+   CTA. Sentence case + body font (not mono/uppercase) so the label is
+   legible; the arrow points up-right because it opens an off-site guide
+   (obey.tools). Fills primary green on hover/focus. Radius/weight/size
+   come from the sitewide .button scale (DESIGN_SYSTEM.md "Buttons"). */
 .fm-story__link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  margin: 0.35rem 0 0;
+  gap: 0.5rem;
+  margin: 0.85rem 0 0;
+  padding: 0.5rem 1.15rem;
+  border: 1.5px solid var(--color-accent);
+  border-radius: var(--radius-button);
+  background: transparent;
+  color: var(--color-accent-hover);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.fm-story__link:hover,
+.fm-story__link:focus-visible {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary-text);
+  transform: translateY(-1px);
+}
+
+.fm-story__link svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fm-story__link { transition: none; }
+  .fm-story__link:hover,
+  .fm-story__link:focus-visible { transform: none; }
+}
+
+/* --- At a Glance summary (.fm-glance) ----------------------------
+   A compact method summary as a semantic <dl>: mono term labels + plain
+   definitions, one row each, hairline-separated. White card with a green
+   identity edge (Insight family). Built to be the strongest scannable
+   semantic block near the top of a how-to page. Rendered by AtAGlance.astro. */
+.fm-glance {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-card);
+  box-shadow: var(--fm-shadow);
+}
+
+.fm-glance__label {
+  margin: 0 0 0.9rem;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--color-accent-hover);
-  text-decoration: none;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
 }
 
-.fm-story__link:hover { color: var(--color-primary); }
+.fm-glance__list {
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
 
-.fm-story__link svg {
-  width: 13px;
-  height: 13px;
-  flex-shrink: 0;
+.fm-glance__row {
+  display: grid;
+  grid-template-columns: 10.5rem 1fr;
+  gap: 0.35rem 1.25rem;
+  align-items: baseline;
+  margin: 0;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.fm-glance__row:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.fm-glance__row dt {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.fm-glance__row dd {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+@media (max-width: 560px) {
+  .fm-glance__row { grid-template-columns: 1fr; gap: 0.15rem; }
 }

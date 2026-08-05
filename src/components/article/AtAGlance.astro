@@ -1,0 +1,40 @@
+---
+// AtAGlance — a compact, highly scannable method summary rendered as a
+// semantic <dl> (term/definition pairs) in a bordered card. Built for
+// the top of a how-to page so a skimming reader AND a search engine get
+// the "what / who / how long / format / goal" in one dense, structured
+// block. The <dl> markup is deliberate: it gives the summary real
+// machine-readable structure, not just styled text. CSS lives in
+// src/styles/article.css (.fm-glance).
+//
+// Usage:
+//   <AtAGlance items={[
+//     { term: "What it is", def: "…" },
+//     { term: "Who it's for", def: "…" },
+//   ]} />
+interface Item {
+  term: string;
+  def: string;
+}
+
+interface Props {
+  label?: string;
+  items: Item[];
+}
+
+const { label = 'At a Glance', items } = Astro.props;
+---
+
+<div class="fm-glance">
+  <p class="fm-glance__label">{label}</p>
+  <dl class="fm-glance__list">
+    {
+      items.map((it) => (
+        <div class="fm-glance__row">
+          <dt>{it.term}</dt>
+          <dd>{it.def}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</div>
