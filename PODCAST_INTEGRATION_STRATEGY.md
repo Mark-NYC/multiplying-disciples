@@ -378,6 +378,14 @@ slot** · Outputs (Embed / FAQ / Field Note) · Priority.
 How to place an embed so it *strengthens* the page instead of
 decorating it:
 
+- **The Exact Question Rule comes first (gate, not guideline).** Before
+  placement, the episode must pass the test in ARTICLE_SYSTEM.md → "The
+  Exact Question Rule": it has to answer the *next practical question* the
+  reader has after the article, sharing its framework, passage, or
+  process — not merely its broad topic. Same category but a different
+  practical question fails. If nothing in the catalog clears the bar,
+  leave Listen off; never substitute an adjacent episode to keep the
+  button count. This governs Watch as much as Listen.
 - **Embed at the point of proof, not the top.** Put the player where the
   article makes a claim the episode substantiates — right after the
   "here's the principle" paragraph, before "here's how." Audio as
