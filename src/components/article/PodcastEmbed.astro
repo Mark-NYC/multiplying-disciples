@@ -87,8 +87,10 @@ const YOUTUBE_PLAYLIST =
               aria-label="Skip back 15 seconds"
             >
               <svg viewBox="0 0 24 24" width="60" height="60" aria-hidden="true">
-                <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-dasharray="42 8" stroke-linecap="round" transform="rotate(-90 12 12)" />
-                <path d="M12 2.6 8.7 4.4 12 6.2Z" fill="currentColor" />
+                <g class="pod-player__arrow" data-arrow>
+                  <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-dasharray="42 8" stroke-linecap="round" transform="rotate(-90 12 12)" />
+                  <path d="M12 2.6 8.7 4.4 12 6.2Z" fill="currentColor" />
+                </g>
                 <text x="12" y="15.3" text-anchor="middle" font-size="7.2" font-weight="700" fill="currentColor">15</text>
               </svg>
             </button>
@@ -117,8 +119,10 @@ const YOUTUBE_PLAYLIST =
             >
               <svg viewBox="0 0 24 24" width="60" height="60" aria-hidden="true">
                 <g transform="translate(24 0) scale(-1 1)">
-                  <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-dasharray="42 8" stroke-linecap="round" transform="rotate(-90 12 12)" />
-                  <path d="M12 2.6 8.7 4.4 12 6.2Z" fill="currentColor" />
+                  <g class="pod-player__arrow" data-arrow>
+                    <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-dasharray="42 8" stroke-linecap="round" transform="rotate(-90 12 12)" />
+                    <path d="M12 2.6 8.7 4.4 12 6.2Z" fill="currentColor" />
+                  </g>
                 </g>
                 <text x="12" y="15.3" text-anchor="middle" font-size="7.2" font-weight="700" fill="currentColor">30</text>
               </svg>
@@ -247,10 +251,23 @@ const YOUTUBE_PLAYLIST =
       audio.addEventListener('timeupdate', paint);
 
       root.querySelectorAll('[data-skip]').forEach(function (btn) {
+        var arrow = btn.querySelector('[data-arrow]');
+        if (arrow) {
+          arrow.addEventListener('animationend', function () {
+            arrow.classList.remove('is-spinning');
+          });
+        }
         btn.addEventListener('click', function () {
           var delta = parseFloat(btn.getAttribute('data-skip') || '0');
           var dur = audio.duration || Number.MAX_SAFE_INTEGER;
           audio.currentTime = Math.max(0, Math.min(dur, audio.currentTime + delta));
+          // Spin the arrow one full turn around the static number. Reset
+          // first (force reflow) so rapid taps restart the animation.
+          if (arrow) {
+            arrow.classList.remove('is-spinning');
+            void arrow.getBoundingClientRect();
+            arrow.classList.add('is-spinning');
+          }
         });
       });
 
