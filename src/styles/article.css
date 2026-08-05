@@ -1331,3 +1331,235 @@
     padding: 1.4rem 1.25rem 1.6rem;
   }
 }
+
+/* --- Three-Thirds framework module (.fm-thirds) ------------------
+   The 3/3rds discovery process as three color-edged step panels plus a
+   meta strip. Same white-card + border + --fm-shadow grammar as the
+   Insight/Practice cards; the three brand accents each carry one 3px
+   identity edge (gold = reflection, green = discovery, clay =
+   commissioning). Rendered by Thirds.astro. */
+.fm-thirds {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.85rem;
+  margin: 2.5rem 0 0;
+}
+
+.fm-third {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--fm-shadow);
+  padding: 1.05rem 1.1rem 1.15rem;
+}
+
+.fm-third--back { border-top-color: var(--color-gold); }
+.fm-third--up { border-top-color: var(--color-accent); }
+.fm-third--ahead { border-top-color: var(--color-clay); }
+
+.fm-third__top {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.fm-third__frac {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--color-primary);
+  background: var(--color-surface);
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-pill);
+}
+
+.fm-third__label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.fm-third--back .fm-third__label { color: var(--color-gold-text); }
+.fm-third--up .fm-third__label { color: var(--color-accent-hover); }
+.fm-third--ahead .fm-third__label { color: var(--color-clay-text); }
+
+.fm-third__title {
+  margin: 0 !important;
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-ink);
+}
+
+.fm-third__desc {
+  margin: 0 !important;
+  font-size: 0.94rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.fm-third__time {
+  margin-top: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 0.22rem 0.6rem;
+}
+
+.fm-third__time svg {
+  width: 12px;
+  height: 12px;
+  opacity: 0.7;
+}
+
+.fm-thirds__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.4rem;
+  margin: 1rem 0 0 !important;
+  padding: 0.7rem 1rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-primary);
+}
+
+.fm-thirds__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+@media (max-width: 560px) {
+  .fm-thirds { grid-template-columns: 1fr; }
+}
+
+/* --- Discovery step-rail (.fm-steprail) --------------------------
+   An ordered, connected list of steps for a repeatable mechanic (the
+   weekly Look Up loop). A step may carry a question set; a `pray`/
+   `pause` key marks a non-question beat. Rendered by StepRail.astro.
+   The !important guards override the article body's own ol/li rules. */
+.fm-steprail__intro {
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 2.5rem 0 0 !important;
+}
+
+.fm-steprail {
+  list-style: none !important;
+  margin: 1.1rem 0 0 !important;
+  padding: 0 !important;
+  position: relative;
+}
+
+.fm-steprail::before {
+  content: "";
+  position: absolute;
+  left: calc(0.9rem - 1px);
+  top: 0.9rem;
+  bottom: 0.9rem;
+  width: 2px;
+  background: var(--color-border);
+}
+
+.fm-step {
+  position: relative;
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  margin: 0 !important;
+  padding: 0.35rem 0 1rem !important;
+}
+
+.fm-step::before { content: none; }
+.fm-step:last-child { padding-bottom: 0 !important; }
+
+.fm-step__num {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fm-step__body {
+  padding-top: 0.15rem;
+  min-width: 0;
+}
+
+.fm-step__t {
+  font-weight: 700;
+  color: var(--color-ink);
+  font-size: 1.02rem;
+  line-height: 1.3;
+}
+
+.fm-step__d {
+  margin: 0.15rem 0 0 !important;
+  font-size: 0.94rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.fm-qgroup {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0.55rem 0 0;
+}
+
+.fm-q {
+  display: flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.fm-q__k {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-accent-hover);
+}
+
+.fm-q--pause {
+  background: #fdf8f4;
+  border-color: #e8d6c6;
+  color: var(--color-clay-text);
+  font-style: italic;
+}
+
+.fm-q--pause .fm-q__k { color: var(--color-clay-text); }
