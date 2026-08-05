@@ -1,0 +1,25 @@
+---
+// Facet — a run-in labeled line for a repeating content schema (the
+// clearest case is each of the 7 Stories of Hope: "Who this reaches",
+// "The hope", "The question", plus supplementary "note" facets like
+// "The truth"/"The power"). A light typographic label convention, NOT a
+// card: it makes a repeating shape scannable without boxing anything.
+// The mono label is color-coded by `tone` per DESIGN_SYSTEM.md (gold =
+// context, green = the payoff, clay = the prompt, muted = supplementary).
+// CSS lives in src/styles/article.css (.fm-story__row / .fm-story__k).
+//
+// Reserve it for a section that genuinely repeats the same shape — not
+// as a label for ordinary paragraphs.
+//
+// Usage: <Facet label="The hope" tone="hope">Your past doesn't disqualify you.</Facet>
+interface Props {
+  label: string;
+  tone?: 'who' | 'hope' | 'question' | 'note';
+}
+
+const { label, tone = 'note' } = Astro.props;
+---
+
+<p class:list={['fm-story__row', tone === 'hope' && 'fm-story__row--hope']}>
+  <span class:list={['fm-story__k', `fm-story__k--${tone}`]}>{label}</span><slot />
+</p>

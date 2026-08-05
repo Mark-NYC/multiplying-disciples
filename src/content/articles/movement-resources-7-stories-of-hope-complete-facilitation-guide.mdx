@@ -165,6 +165,26 @@ notes: >
   the "why this works" theory stay as prose on purpose (design the
   spine, not every list). Reuses existing tokens/radii/shadow — no new
   brand colors, no other page touched.
+
+  2026-08-05 (reference section — labeled story schema + Scripture
+  voice): the seven stories all share a hidden shape (who it reaches →
+  narrative → the hope → a verse or insight → a question), previously
+  rendered as bold run-in labels in prose. Added two light components:
+  Facet.astro (a mono run-in label color-coded by tone — gold "who",
+  green "hope", clay "question", muted "note" for supplementary lines
+  like "The truth"/"The power"/"The foundation"/"The warning") and
+  StoryLink.astro (the per-story facilitation-guide link styled as a
+  quiet mono arrow-link, anchor text unchanged). Verbatim Scripture that
+  stood as its own labeled line was moved into the existing
+  ScriptureBlock (its reserved serif voice): stories 1, 2, 3, 7 (Luke
+  7:50, 18:14, 19:9-10, 15:24). Stories 4-6 keep their middle lines as
+  muted Facets because those are commentary, not verbatim Scripture
+  (ScriptureBlock is for verbatim quotes only), and the embedded verses
+  in 5-6 were left inside their narrative rather than surgically
+  extracted. Original order and wording preserved; the variable middle
+  labels ("Jesus' Words"/"The Reversal"/etc.) were folded into the
+  Scripture reference. Typographic only — the stories are still not
+  carded. CSS in article.css (.fm-story*).
 ---
 
 import ArticleIntro from '../../components/article/ArticleIntro.astro';
@@ -177,6 +197,9 @@ import PullQuote from '../../components/article/PullQuote.astro';
 import FieldNote from '../../components/article/FieldNote.astro';
 import Thirds from '../../components/article/Thirds.astro';
 import StepRail from '../../components/article/StepRail.astro';
+import ScriptureBlock from '../../components/article/ScriptureBlock.astro';
+import Facet from '../../components/article/Facet.astro';
+import StoryLink from '../../components/article/StoryLink.astro';
 
 <ArticleIntro>This **facilitation guide** walks you through the **7 Stories of Hope in the Bible**—a proven Bible discovery process for helping a spiritually curious friend who is open to Jesus but not yet ready to commit. These aren't random inspirational passages; they're seven Gospel accounts, paired with a weekly 3/3rds process, chosen to help a "yellow light" seeker discover who Jesus really is and respond in repentance and faith.</ArticleIntro>
 
@@ -198,37 +221,41 @@ Not sure where to start? Read the stories below, then jump straight to [how to l
 
 ### 1. Hope for the Rejected: The Woman Weeping at Jesus' Feet (Luke 7:36-50)
 
-**Who This Reaches:** Those who feel disqualified by their past, carry shame, or believe they're too far gone.
+<Facet label="Who this reaches" tone="who">Those who feel disqualified by their past, carry shame, or believe they're too far gone.</Facet>
 
 A woman "known as a sinner" crashes a Pharisee's dinner party to worship Jesus. She weeps at his feet, wiping them with her hair and expensive perfume. The religious elite are disgusted. Jesus receives her with open arms.
 
-**The Hope:** Your past doesn't disqualify you. Faith saves you.
+<Facet label="The hope" tone="hope">Your past doesn't disqualify you. Faith saves you.</Facet>
 
-**Jesus' Words:** "Your faith has saved you; go in peace."
+<ScriptureBlock reference="Luke 7:50">
+"Your faith has saved you; go in peace."
+</ScriptureBlock>
 
-**The Question:** Do you see yourself as the woman—broken and desperate—or the Pharisee—self-righteous and judgmental?
+<Facet label="The question" tone="question">Do you see yourself as the woman—broken and desperate—or the Pharisee—self-righteous and judgmental?</Facet>
 
-[Start the 1st Story facilitation guide](https://obey.tools/hope-for-the-rejected-the-woman-weeping-at-jesus-feet-luke-736-50/)
+<StoryLink href="https://obey.tools/hope-for-the-rejected-the-woman-weeping-at-jesus-feet-luke-736-50/">Start the 1st Story facilitation guide</StoryLink>
 
 ### 2. Hope for the Non-Religious: Pharisee & Tax Collector (Luke 18:9-17)
 
-**Who This Reaches:** Those who think Christianity is for "religious people" or who feel like they could never measure up.
+<Facet label="Who this reaches" tone="who">Those who think Christianity is for "religious people" or who feel like they could never measure up.</Facet>
 
 Two men pray. The Pharisee thanks God he's not like "those sinners"—listing his religious achievements. The tax collector can't even look up, beating his chest: "God, have mercy on me, a sinner."
 
 Jesus' verdict shocks everyone: the tax collector went home justified before God, not the religious man.
 
-**The Hope:** God doesn't want your performance—he wants your honesty.
+<Facet label="The hope" tone="hope">God doesn't want your performance—he wants your honesty.</Facet>
 
-**The Reversal:** "Everyone who exalts himself will be humbled, and he who humbles himself will be exalted."
+<ScriptureBlock reference="Luke 18:14">
+"Everyone who exalts himself will be humbled, and he who humbles himself will be exalted."
+</ScriptureBlock>
 
-**The Question:** Which man's prayer sounds more like yours?
+<Facet label="The question" tone="question">Which man's prayer sounds more like yours?</Facet>
 
-[Start the 2nd Story facilitation guide](https://obey.tools/hope-for-the-non-religious-pharisee-tax-collector-luke-189-17/)
+<StoryLink href="https://obey.tools/hope-for-the-non-religious-pharisee-tax-collector-luke-189-17/">Start the 2nd Story facilitation guide</StoryLink>
 
 ### 3. Hope Changes Things: Zacchaeus (Luke 19:1-10)
 
-**Who This Reaches:** Those who wonder if real change is possible or if they've gone too far.
+<Facet label="Who this reaches" tone="who">Those who wonder if real change is possible or if they've gone too far.</Facet>
 
 Zacchaeus was a chief tax collector—rich, powerful, and hated for extorting his own people. Curiosity drove him to climb a tree just to see Jesus pass by.
 
@@ -236,33 +263,35 @@ Jesus didn't just see him—he invited himself to Zacchaeus' house. The crowd gr
 
 That same day, he pledged to give half his possessions to the poor and repay everyone he'd cheated four times over. That's not behavior modification—that's transformation.
 
-**The Hope:** When Jesus shows up, everything changes.
+<Facet label="The hope" tone="hope">When Jesus shows up, everything changes.</Facet>
 
-**Jesus' Declaration:** "Today salvation has come to this house... For the Son of Man came to seek and to save the lost."
+<ScriptureBlock reference="Luke 19:9-10">
+"Today salvation has come to this house... For the Son of Man came to seek and to save the lost."
+</ScriptureBlock>
 
-**The Question:** What in your life needs to change if you follow Jesus?
+<Facet label="The question" tone="question">What in your life needs to change if you follow Jesus?</Facet>
 
-[Start the 3rd Story facilitation guide](https://obey.tools/hope-changes-things-zacchaeus-luke-1818-30/)
+<StoryLink href="https://obey.tools/hope-changes-things-zacchaeus-luke-1818-30/">Start the 3rd Story facilitation guide</StoryLink>
 
 ### 4. Hope Forgives: Unforgiving Servant (Matthew 18:21-35)
 
-**Who This Reaches:** Those trapped in bitterness, unforgiveness, or resentment.
+<Facet label="Who this reaches" tone="who">Those trapped in bitterness, unforgiveness, or resentment.</Facet>
 
 A servant owed his master an impossible debt—millions in today's money. He begged for mercy, and shockingly, the master canceled the entire debt.
 
 But that same servant immediately grabbed a fellow servant by the throat, demanding repayment of a few dollars. When the master heard about it, he reinstated the original debt.
 
-**The Hope:** We've been forgiven an unpayable debt. We can forgive others.
+<Facet label="The hope" tone="hope">We've been forgiven an unpayable debt. We can forgive others.</Facet>
 
-**The Truth:** Being forgiven transforms us into people who forgive. Holding onto bitterness means you haven't grasped how much you've been forgiven.
+<Facet label="The truth" tone="note">Being forgiven transforms us into people who forgive. Holding onto bitterness means you haven't grasped how much you've been forgiven.</Facet>
 
-**The Question:** Who do you need to forgive? What debt are you holding against someone that's smaller than what God has forgiven you?
+<Facet label="The question" tone="question">Who do you need to forgive? What debt are you holding against someone that's smaller than what God has forgiven you?</Facet>
 
-[Start the 4th Story facilitation guide](https://obey.tools/hope-forgives-unforgiving-servant-matthew-1821-35/)
+<StoryLink href="https://obey.tools/hope-forgives-unforgiving-servant-matthew-1821-35/">Start the 4th Story facilitation guide</StoryLink>
 
 ### 5. Hope Through Death: Thieves on the Cross (Luke 23:26-43)
 
-**Who This Reaches:** Those who think it's too late, who feel they've wasted too much time or done too much damage.
+<Facet label="Who this reaches" tone="who">Those who think it's too late, who feel they've wasted too much time or done too much damage.</Facet>
 
 Two criminals dying beside Jesus. One mocked him. The other—with his last breaths—turned to Jesus: "Remember me when you come into your kingdom."
 
@@ -270,35 +299,35 @@ Jesus' response is the clearest picture of grace in Scripture: "Today you will b
 
 No baptism. No good works. No time to make amends. Just faith in his final moments.
 
-**The Hope:** It's never too late to turn to Jesus. Even at the point of death, faith saves.
+<Facet label="The hope" tone="hope">It's never too late to turn to Jesus. Even at the point of death, faith saves.</Facet>
 
-**The Power:** You don't need time to clean up your life first. You just need to turn to Jesus and ask.
+<Facet label="The power" tone="note">You don't need time to clean up your life first. You just need to turn to Jesus and ask.</Facet>
 
-**The Question:** Do you believe it could really be this simple?
+<Facet label="The question" tone="question">Do you believe it could really be this simple?</Facet>
 
-[Start the 5th Story facilitation guide](https://obey.tools/hope-through-death-thieves-on-the-cross/)
+<StoryLink href="https://obey.tools/hope-through-death-thieves-on-the-cross/">Start the 5th Story facilitation guide</StoryLink>
 
 ### 6. Hope Rose From The Dead: Resurrection (Luke 24:1-20)
 
-**Who This Reaches:** Those who need proof that this is real, that Jesus is who he claimed to be.
+<Facet label="Who this reaches" tone="who">Those who need proof that this is real, that Jesus is who he claimed to be.</Facet>
 
 The women came to the tomb expecting to anoint a dead body. Instead, they found an empty tomb and angels declaring, "He is not here; he has risen!"
 
 The disciples didn't believe them at first. They needed to see for themselves. And when they did, everything changed.
 
-**The Hope:** Jesus conquered death. He's alive. And because he lives, we can face tomorrow.
+<Facet label="The hope" tone="hope">Jesus conquered death. He's alive. And because he lives, we can face tomorrow.</Facet>
 
-**The Truth:** This isn't a philosophy or a nice idea. Christianity stands or falls on the historical reality of the resurrection. If Jesus rose from the dead, everything he said is true.
+<Facet label="The truth" tone="note">This isn't a philosophy or a nice idea. Christianity stands or falls on the historical reality of the resurrection. If Jesus rose from the dead, everything he said is true.</Facet>
 
-**The Foundation:** Your hope isn't in a dead teacher—it's in a living Savior.
+<Facet label="The foundation" tone="note">Your hope isn't in a dead teacher—it's in a living Savior.</Facet>
 
-**The Question:** Do you believe Jesus actually rose from the dead? What would change in your life if you knew for certain that Jesus is alive?
+<Facet label="The question" tone="question">Do you believe Jesus actually rose from the dead? What would change in your life if you knew for certain that Jesus is alive?</Facet>
 
-[Start the 6th Story facilitation guide](https://obey.tools/hope-rose-from-the-dead-resurrection-luke-241-20/)
+<StoryLink href="https://obey.tools/hope-rose-from-the-dead-resurrection-luke-241-20/">Start the 6th Story facilitation guide</StoryLink>
 
 ### 7. Hope is Waiting For You: Prodigal Son (Luke 15:11-32)
 
-**Who This Reaches:** Those who've walked away from God and wonder if they can ever come back—plus those who stayed but resent it.
+<Facet label="Who this reaches" tone="who">Those who've walked away from God and wonder if they can ever come back—plus those who stayed but resent it.</Facet>
 
 A son demanded his inheritance early—essentially wishing his father dead. He took the money and wasted it on wild living. When he hit rock bottom, feeding pigs and starving, he decided to go home and beg to be a servant.
 
@@ -306,15 +335,17 @@ But while he was still far off, his father saw him, ran to him, threw his arms a
 
 Meanwhile, the older brother—who'd stayed and worked faithfully—grew bitter and refused to join the celebration.
 
-**The Hope:** No matter how far you've run, God is watching for your return. He's not waiting to punish you—he's waiting to celebrate you.
+<Facet label="The hope" tone="hope">No matter how far you've run, God is watching for your return. He's not waiting to punish you—he's waiting to celebrate you.</Facet>
 
-**The Warning:** You can be physically close to God but spiritually far—resentful, self-righteous, unmoved by grace.
+<Facet label="The warning" tone="note">You can be physically close to God but spiritually far—resentful, self-righteous, unmoved by grace.</Facet>
 
-**The Invitation:** "This son of mine was dead and is alive again; he was lost and is found."
+<ScriptureBlock reference="Luke 15:24">
+"This son of mine was dead and is alive again; he was lost and is found."
+</ScriptureBlock>
 
-**The Question:** Are you the younger son who ran away, or the older son who stayed but resented? Either way—will you come home?
+<Facet label="The question" tone="question">Are you the younger son who ran away, or the older son who stayed but resented? Either way—will you come home?</Facet>
 
-[Start the 7th Story facilitation guide](https://obey.tools/hope-is-waiting-for-you-prodigal-son-luke-1511-32/)
+<StoryLink href="https://obey.tools/hope-is-waiting-for-you-prodigal-son-luke-1511-32/">Start the 7th Story facilitation guide</StoryLink>
 
 ## How To Lead The 7 Stories of Hope: The 3/3rds Process
 

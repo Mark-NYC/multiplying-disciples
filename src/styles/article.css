@@ -1563,3 +1563,60 @@
 }
 
 .fm-q--pause .fm-q__k { color: var(--color-clay-text); }
+
+/* --- Story schema labels (.fm-story) ----------------------------
+   A light run-in label convention for the repeating shape of each of
+   the 7 Stories of Hope (who it reaches / the hope / the question, plus
+   supplementary "note" facets). Typographic only — NOT a card; the one
+   washed element per story is its ScriptureBlock. Labels are mono and
+   color-coded to meaning per DESIGN_SYSTEM.md. Rendered by Facet.astro
+   and StoryLink.astro. The !important guards override the article body's
+   own paragraph rules. */
+.fm-story__row {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  margin: 0 0 0.75rem !important;
+  color: var(--color-text);
+}
+
+.fm-story__row--hope {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.fm-story__k {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-right: 0.55rem;
+  white-space: nowrap;
+}
+
+.fm-story__k--who { color: var(--color-gold-text); }
+.fm-story__k--hope { color: var(--color-accent-hover); }
+.fm-story__k--question { color: var(--color-clay-text); }
+.fm-story__k--note { color: var(--color-text-muted); }
+
+.fm-story__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.35rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-accent-hover);
+  text-decoration: none;
+}
+
+.fm-story__link:hover { color: var(--color-primary); }
+
+.fm-story__link svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
