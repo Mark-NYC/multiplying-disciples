@@ -1,0 +1,23 @@
+---
+// StoryLink — a story's single "facilitation guide" outbound link,
+// styled as a quiet mono arrow-link so it reads as the one action at the
+// end of each labeled story without competing with the schema above it.
+// Keeps the exact destination and link text it's given (the anchor text
+// is preserved, only the styling changes). CSS lives in
+// src/styles/article.css (.fm-story__link).
+//
+// Usage:
+//   <StoryLink href="https://obey.tools/...">Start the 1st Story facilitation guide</StoryLink>
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a class="fm-story__link" href={href}>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+    <path d="M5 12h14M13 6l6 6-6 6" />
+  </svg>
+  <span><slot /></span>
+</a>
