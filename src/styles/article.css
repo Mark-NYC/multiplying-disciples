@@ -1646,3 +1646,70 @@
   .fm-story__link:hover,
   .fm-story__link:focus-visible { transform: none; }
 }
+
+/* --- At a Glance summary (.fm-glance) ----------------------------
+   A compact method summary as a semantic <dl>: mono term labels + plain
+   definitions, one row each, hairline-separated. White card with a green
+   identity edge (Insight family). Built to be the strongest scannable
+   semantic block near the top of a how-to page. Rendered by AtAGlance.astro. */
+.fm-glance {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-card);
+  box-shadow: var(--fm-shadow);
+}
+
+.fm-glance__label {
+  margin: 0 0 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+}
+
+.fm-glance__list {
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.fm-glance__row {
+  display: grid;
+  grid-template-columns: 10.5rem 1fr;
+  gap: 0.35rem 1.25rem;
+  align-items: baseline;
+  margin: 0;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.fm-glance__row:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.fm-glance__row dt {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.fm-glance__row dd {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+@media (max-width: 560px) {
+  .fm-glance__row { grid-template-columns: 1fr; gap: 0.15rem; }
+}

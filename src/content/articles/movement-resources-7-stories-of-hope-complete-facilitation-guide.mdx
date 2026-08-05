@@ -185,6 +185,25 @@ notes: >
   labels ("Jesus' Words"/"The Reversal"/etc.) were folded into the
   Scripture reference. Typographic only — the stories are still not
   carded. CSS in article.css (.fm-story*).
+
+  2026-08-05 (SEO recovery sprint — entities, summary, anchors): the
+  intro now names and defines the method's core entities in the first
+  ~150 words — Discovery Bible Study (DBS), Disciple Making Movement
+  (DMM), Three Thirds, person of peace, Luke 10, Acts 17 — with
+  reciprocal in-body links out to the DMM, Three Thirds, and Person of
+  Peace pillars so Google reads this page inside the right entity
+  cluster. Added an <AtAGlance> summary (semantic <dl>: what it is / who
+  it's for / how long / meeting format / primary goal) as the strongest
+  scannable block up top. Varied the seven Obey.Tools anchor labels so
+  they no longer repeat the exact-match phrase "facilitation guide" (that
+  phrase now stays on-page in the title/H1, not handed off-site 7×);
+  links still sit after each story's explanation. Companion inbound links
+  added from How to Evangelize (DBS + "Stories of Hope"), Finding a
+  Person of Peace ("read the Bible together"), The Three Circles (the
+  "not ready yet" reader), and the 12 Disciples pillar (Personal
+  Application). Word count up ~115, all entity/intent-bearing; action-
+  first order and editorial voice preserved. CSS in article.css
+  (.fm-glance).
 ---
 
 import ArticleIntro from '../../components/article/ArticleIntro.astro';
@@ -200,8 +219,21 @@ import StepRail from '../../components/article/StepRail.astro';
 import ScriptureBlock from '../../components/article/ScriptureBlock.astro';
 import Facet from '../../components/article/Facet.astro';
 import StoryLink from '../../components/article/StoryLink.astro';
+import AtAGlance from '../../components/article/AtAGlance.astro';
 
-<ArticleIntro>This **facilitation guide** walks you through the **7 Stories of Hope in the Bible**—a proven Bible discovery process for helping a spiritually curious friend who is open to Jesus but not yet ready to commit. These aren't random inspirational passages; they're seven Gospel accounts, paired with a weekly 3/3rds process, chosen to help a "yellow light" seeker discover who Jesus really is and respond in repentance and faith.</ArticleIntro>
+<ArticleIntro>The **7 Stories of Hope** are a **Discovery Bible Study (DBS)**: instead of preaching at a spiritually curious friend, you read seven short Gospel stories *with* them—one a week—and let them discover who Jesus is for themselves. It's the gentlest on-ramp into a [Disciple Making Movement (DMM)](/disciple-making-movement-dmm-key-characteristics-and-definition/), where evangelism and discipleship become one conversation.</ArticleIntro>
+
+Every meeting runs on the same [Three Thirds (3/3rds)](/three-thirds/) rhythm, and you lead it with a [person of peace](/finding-persons-of-peace-a-key-strategy-for-evangelism-and-disciple-making/)—someone God has already prepared to welcome you (Luke 10). The stories are built for the "yellow light" seeker of Acts 17: curious, not yet convinced, and worth walking with patiently.
+
+<AtAGlance
+  items={[
+    { term: "What it is", def: "A Discovery Bible Study—seven Gospel stories you read with a seeker, not lessons you teach at them." },
+    { term: "Who it's for", def: 'A "yellow light" person of peace (Luke 10): open to Jesus, but not yet ready to commit.' },
+    { term: "How long", def: "About seven weeks—one story per week, 1 to 1.5 hours each." },
+    { term: "Meeting format", def: "The Three Thirds (3/3rds): Look Back, Look Up, Look Ahead. Groups under 10, ideally in their home." },
+    { term: "Primary goal", def: "Help them meet Jesus, repent and believe, and start making disciples themselves." },
+  ]}
+/>
 
 ## Jump to a Story
 
@@ -233,7 +265,7 @@ A woman "known as a sinner" crashes a Pharisee's dinner party to worship Jesus. 
 
 <Facet label="The question" tone="question">Do you see yourself as the woman—broken and desperate—or the Pharisee—self-righteous and judgmental?</Facet>
 
-<StoryLink href="https://obey.tools/hope-for-the-rejected-the-woman-weeping-at-jesus-feet-luke-736-50/">Start the 1st Story facilitation guide</StoryLink>
+<StoryLink href="https://obey.tools/hope-for-the-rejected-the-woman-weeping-at-jesus-feet-luke-736-50/">Lead this story step by step</StoryLink>
 
 ### 2. Hope for the Non-Religious: Pharisee & Tax Collector (Luke 18:9-17)
 
@@ -251,7 +283,7 @@ Jesus' verdict shocks everyone: the tax collector went home justified before God
 
 <Facet label="The question" tone="question">Which man's prayer sounds more like yours?</Facet>
 
-<StoryLink href="https://obey.tools/hope-for-the-non-religious-pharisee-tax-collector-luke-189-17/">Start the 2nd Story facilitation guide</StoryLink>
+<StoryLink href="https://obey.tools/hope-for-the-non-religious-pharisee-tax-collector-luke-189-17/">Get this story's discussion questions</StoryLink>
 
 ### 3. Hope Changes Things: Zacchaeus (Luke 19:1-10)
 
@@ -271,7 +303,7 @@ That same day, he pledged to give half his possessions to the poor and repay eve
 
 <Facet label="The question" tone="question">What in your life needs to change if you follow Jesus?</Facet>
 
-<StoryLink href="https://obey.tools/hope-changes-things-zacchaeus-luke-1818-30/">Start the 3rd Story facilitation guide</StoryLink>
+<StoryLink href="https://obey.tools/hope-changes-things-zacchaeus-luke-1818-30/">Walk a group through Zacchaeus</StoryLink>
 
 ### 4. Hope Forgives: Unforgiving Servant (Matthew 18:21-35)
 
@@ -287,7 +319,7 @@ But that same servant immediately grabbed a fellow servant by the throat, demand
 
 <Facet label="The question" tone="question">Who do you need to forgive? What debt are you holding against someone that's smaller than what God has forgiven you?</Facet>
 
-<StoryLink href="https://obey.tools/hope-forgives-unforgiving-servant-matthew-1821-35/">Start the 4th Story facilitation guide</StoryLink>
+<StoryLink href="https://obey.tools/hope-forgives-unforgiving-servant-matthew-1821-35/">See how to lead this story</StoryLink>
 
 ### 5. Hope Through Death: Thieves on the Cross (Luke 23:26-43)
 
@@ -305,7 +337,7 @@ No baptism. No good works. No time to make amends. Just faith in his final momen
 
 <Facet label="The question" tone="question">Do you believe it could really be this simple?</Facet>
 
-<StoryLink href="https://obey.tools/hope-through-death-thieves-on-the-cross/">Start the 5th Story facilitation guide</StoryLink>
+<StoryLink href="https://obey.tools/hope-through-death-thieves-on-the-cross/">Prepare this story to share</StoryLink>
 
 ### 6. Hope Rose From The Dead: Resurrection (Luke 24:1-20)
 
@@ -323,7 +355,7 @@ The disciples didn't believe them at first. They needed to see for themselves. A
 
 <Facet label="The question" tone="question">Do you believe Jesus actually rose from the dead? What would change in your life if you knew for certain that Jesus is alive?</Facet>
 
-<StoryLink href="https://obey.tools/hope-rose-from-the-dead-resurrection-luke-241-20/">Start the 6th Story facilitation guide</StoryLink>
+<StoryLink href="https://obey.tools/hope-rose-from-the-dead-resurrection-luke-241-20/">Guide a group through the resurrection</StoryLink>
 
 ### 7. Hope is Waiting For You: Prodigal Son (Luke 15:11-32)
 
@@ -345,7 +377,7 @@ Meanwhile, the older brother—who'd stayed and worked faithfully—grew bitter 
 
 <Facet label="The question" tone="question">Are you the younger son who ran away, or the older son who stayed but resented? Either way—will you come home?</Facet>
 
-<StoryLink href="https://obey.tools/hope-is-waiting-for-you-prodigal-son-luke-1511-32/">Start the 7th Story facilitation guide</StoryLink>
+<StoryLink href="https://obey.tools/hope-is-waiting-for-you-prodigal-son-luke-1511-32/">Lead the Prodigal Son discovery</StoryLink>
 
 ## How To Lead The 7 Stories of Hope: The 3/3rds Process
 
