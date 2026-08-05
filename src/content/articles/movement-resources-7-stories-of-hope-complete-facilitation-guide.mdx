@@ -150,6 +150,21 @@ notes: >
   For?" Q&As. Companion change: the /stories-of-hope/ hub was reframed off
   the identical "7 Stories of Hope bible study set" targeting so the two
   pages stop competing for the same query.
+
+  2026-08-05 (how-to spine — designed step modules): added two new
+  opt-in components in the fm-* family (Thirds.astro, StepRail.astro;
+  CSS in article.css) and applied them only to the repeatable process,
+  not the reference/theory. "The Framework: Three Equal Parts" now
+  renders as <Thirds> — three color-edged panels (gold Look Back /
+  green Look Up / clay Look Ahead) with time chips and a meta strip,
+  replacing three bold lines. Story 1's "2/3 LOOK UP" discovery loop
+  now renders as <StepRail> — a connected numbered rail with the three
+  discovery questions broken out as chips and the "pause to pray" beat
+  set apart, replacing the nested numbered/bulleted list. Step copy was
+  lightly tightened, not changed in substance; the seven stories and
+  the "why this works" theory stay as prose on purpose (design the
+  spine, not every list). Reuses existing tokens/radii/shadow — no new
+  brand colors, no other page touched.
 ---
 
 import ArticleIntro from '../../components/article/ArticleIntro.astro';
@@ -160,6 +175,8 @@ import WarningCard from '../../components/article/WarningCard.astro';
 import PracticeCard from '../../components/article/PracticeCard.astro';
 import PullQuote from '../../components/article/PullQuote.astro';
 import FieldNote from '../../components/article/FieldNote.astro';
+import Thirds from '../../components/article/Thirds.astro';
+import StepRail from '../../components/article/StepRail.astro';
 
 <ArticleIntro>This **facilitation guide** walks you through the **7 Stories of Hope in the Bible**—a proven Bible discovery process for helping a spiritually curious friend who is open to Jesus but not yet ready to commit. These aren't random inspirational passages; they're seven Gospel accounts, paired with a weekly 3/3rds process, chosen to help a "yellow light" seeker discover who Jesus really is and respond in repentance and faith.</ArticleIntro>
 
@@ -305,12 +322,14 @@ The power isn't just in the stories—it's in the **process**. The 3/3rds method
 
 ### The Framework: Three Equal Parts
 
-**1/3 Look Back** (20-30 min): Pastoral Care and Accountability
-**2/3 Look Up** (20-30 min): New Teaching and Practice
-**3/3 Look Ahead** (20-30 min): Planning and Commissioning
-
-Total time: 1 to 1.5 hours per story
-Frequency: Once per week
+<Thirds
+  parts={[
+    { variant: 'back', frac: '1/3', label: 'Look Back', title: 'Pastoral care & accountability', time: '20–30 min', body: "Reconnect, follow up on last week's obedience, and pray for real needs." },
+    { variant: 'up', frac: '2/3', label: 'Look Up', title: 'New teaching & practice', time: '20–30 min', body: "Discover this week's story together — they talk 80%, you talk 20%." },
+    { variant: 'ahead', frac: '3/3', label: 'Look Ahead', title: 'Planning & commissioning', time: '20–30 min', body: "Decide what to do and who to tell this week, then pray." },
+  ]}
+  meta={['Total ≈ 1–1.5 hrs per story', 'Once per week', 'Groups under 10']}
+/>
 
 ## Story 1: Hope for the Rejected (Luke 7:36-50)
 
@@ -325,16 +344,20 @@ Frequency: Once per week
 
 ### 2/3 LOOK UP (20-30 minutes)
 
-**Discovery, not lecture. Talk 20%, let them talk 80%:**
-
-1. **Tell the story** as best as you can remember (don't read it yet)
-2. **Ask everyone to retell** the story as a group (pair up if larger group)
-3. **Read the story** from the Bible: Luke 7:36-50
-4. **Discuss with the 3 Questions** (encourage ALL to participate):
-   - What does this story say about Jesus or God?
-   - What does this story say about people?
-   - Pause to pray and listen.
-   - How will you obey the story?
+<StepRail
+  intro="Discovery, not lecture — they talk 80%, you talk 20%."
+  steps={[
+    { n: '1', title: 'Tell the story', body: "From memory, as best you can — don't read it yet." },
+    { n: '2', title: 'Retell it together', body: "Ask the group to rebuild the story; pair up if it's a larger group." },
+    { n: '3', title: 'Read it from the Bible', body: "Now open Scripture and read the passage aloud: Luke 7:36-50." },
+    { n: '4', title: 'Discuss the 3 questions', body: 'Encourage everyone to take part.', questions: [
+      { k: 'Q1', text: 'What does this story say about Jesus or God?' },
+      { k: 'Q2', text: 'What does this story say about people?' },
+      { k: 'pray', text: 'Pause to pray and listen.' },
+      { k: 'Q3', text: 'How will you obey the story?' },
+    ] },
+  ]}
+/>
 
 **Critical Rules:**
 

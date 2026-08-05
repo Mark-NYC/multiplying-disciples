@@ -1,0 +1,70 @@
+---
+// Thirds — the 3/3rds discovery framework rendered as three separated,
+// color-edged step panels (Look Back / Look Up / Look Ahead) plus an
+// optional meta strip. Same card grammar as InsightCard/PracticeCard;
+// the three brand accents each carry one 3px identity edge (gold =
+// reflection, green = discovery, clay = commissioning). CSS lives in
+// src/styles/article.css (.fm-thirds).
+//
+// A structural upgrade for the one repeatable *mechanic* on a how-to
+// page — not routine decoration. Reserve it for a genuine equal-parts
+// process; most sections should stay prose (see ARTICLE_SYSTEM.md).
+//
+// Usage:
+//   <Thirds
+//     parts={[
+//       { variant: 'back',  frac: '1/3', label: 'Look Back',  title: '…', time: '20–30 min', body: '…' },
+//       { variant: 'up',    frac: '2/3', label: 'Look Up',    title: '…', time: '20–30 min', body: '…' },
+//       { variant: 'ahead', frac: '3/3', label: 'Look Ahead', title: '…', time: '20–30 min', body: '…' },
+//     ]}
+//     meta={['Total ≈ 1–1.5 hrs per story', 'Once per week', 'Groups under 10']}
+//   />
+interface Part {
+  variant: 'back' | 'up' | 'ahead';
+  frac: string;
+  label: string;
+  title: string;
+  time?: string;
+  body?: string;
+}
+
+interface Props {
+  parts: Part[];
+  meta?: string[];
+}
+
+const { parts, meta = [] } = Astro.props;
+---
+
+<div class="fm-thirds">
+  {
+    parts.map((p) => (
+      <div class:list={['fm-third', `fm-third--${p.variant}`]}>
+        <div class="fm-third__top">
+          <span class="fm-third__frac">{p.frac}</span>
+          <span class="fm-third__label">{p.label}</span>
+        </div>
+        <p class="fm-third__title">{p.title}</p>
+        {p.body && <p class="fm-third__desc">{p.body}</p>}
+        {p.time && (
+          <span class="fm-third__time">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 7v5l3 2" />
+            </svg>
+            {p.time}
+          </span>
+        )}
+      </div>
+    ))
+  }
+</div>
+{
+  meta.length > 0 && (
+    <p class="fm-thirds__meta">
+      {meta.map((m) => (
+        <span>{m}</span>
+      ))}
+    </p>
+  )
+}

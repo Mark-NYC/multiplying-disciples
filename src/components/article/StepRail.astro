@@ -1,0 +1,68 @@
+---
+// StepRail — an ordered, connected list of steps for a repeatable
+// process (e.g. the weekly "Look Up" discovery loop). Optional `intro`
+// lead-in; a step may carry a `questions` set rendered as scannable
+// chips, where a `pray`/`pause` key marks a non-question beat. CSS lives
+// in src/styles/article.css (.fm-steprail).
+//
+// Like Thirds, this is for a real sequence a reader runs step by step —
+// numbering carries meaning, so it isn't decoration. Use it on the
+// how-to spine, not on every list.
+//
+// Usage:
+//   <StepRail
+//     intro="Discovery, not lecture — they talk 80%, you talk 20%."
+//     steps={[
+//       { n: '1', title: 'Tell the story', body: '…' },
+//       { n: '4', title: 'Discuss the 3 questions', questions: [
+//         { k: 'Q1', text: '…' },
+//         { k: 'pray', text: 'Pause to pray and listen.' },
+//         { k: 'Q3', text: '…' },
+//       ] },
+//     ]}
+//   />
+interface Question {
+  k: string;
+  text: string;
+}
+
+interface Step {
+  n: string;
+  title: string;
+  body?: string;
+  questions?: Question[];
+}
+
+interface Props {
+  intro?: string;
+  steps: Step[];
+}
+
+const { intro, steps } = Astro.props;
+const isPause = (k: string) => /^(pray|pause)$/i.test(k);
+---
+
+{intro && <p class="fm-steprail__intro">{intro}</p>}
+<ol class="fm-steprail">
+  {
+    steps.map((s) => (
+      <li class="fm-step">
+        <span class="fm-step__num">{s.n}</span>
+        <div class="fm-step__body">
+          <div class="fm-step__t">{s.title}</div>
+          {s.body && <p class="fm-step__d">{s.body}</p>}
+          {s.questions && s.questions.length > 0 && (
+            <div class="fm-qgroup">
+              {s.questions.map((q) => (
+                <div class:list={['fm-q', isPause(q.k) && 'fm-q--pause']}>
+                  <span class="fm-q__k">{q.k.toUpperCase()}</span>
+                  <span>{q.text}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </li>
+    ))
+  }
+</ol>
