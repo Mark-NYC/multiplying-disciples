@@ -10,6 +10,9 @@ primary_keyword: "stories of hope facilitation guide"
 secondary_keywords:
   - "7 stories of hope"
   - "stories of hope bible study"
+author:
+  name: "Mark Goering"
+  url: "/about/"
 hub: "stories-of-hope"
 related_articles:
   - "/the-three-circles-gospel-presentation-step-by-step/"
@@ -17,8 +20,8 @@ related_articles:
   - "/15-second-testimony-examples-ignite-your-faith/"
 related_tools: []
 external_links:
-  - label: "Obey.Tools facilitation guides (per-story)"
-    url: "https://obey.tools/"
+  - label: "7 Stories of Hope on Obey.Tools"
+    url: "https://obey.tools/stories-of-hope.html"
 og_image: "/wp-content/uploads/2025/11/7-Stories-of-Hope-in-the-Bible-1.webp"
 status: "migrated"
 migration_priority: "tier-1"
@@ -204,6 +207,31 @@ notes: >
   Application). Word count up ~115, all entity/intent-bearing; action-
   first order and editorial voice preserved. CSS in article.css
   (.fm-glance).
+
+  2026-08-05 (author + Obey.Tools link repair): added author (Mark
+  Goering, /about/) — the site's standard byline used on 15+ articles —
+  so the page now carries a visible byline and a schema.org Person
+  (EEAT). Repaired the Obey.Tools links: the seven per-story buttons had
+  long WordPress-style permalinks used nowhere else on the site, and the
+  Zacchaeus one was internally broken (slug "…zacchaeus-luke-1818-30",
+  but Zacchaeus is Luke 19:1-10). The rest of the site canonically links
+  the stories to https://obey.tools/stories-of-hope.html (used in
+  4-responses, one-on-one-discipleship, how-to-start-a-simple-church),
+  so all seven buttons and the external_links entry now point there.
+  Could not verify obey.tools liveness from the build env (egress policy
+  blocks it, 403 on CONNECT) — chose the URL the site itself treats as
+  canonical everywhere else. If real per-story obey.tools pages exist,
+  swap the individual hrefs back in.
+
+  2026-08-05 (per-story Obey.Tools links, supplied by Mark): the real
+  per-story pages do exist, at short .html slugs matching the site
+  convention. Wired each button to its own: hope-for-the-rejected,
+  hope-for-the-nonreligious, hope-changes-things, hope-forgives,
+  hope-through-death, hope-rose-from-the-dead, hope-is-waiting-for-you
+  (all under obey.tools/….html). The overview external_links entry stays
+  on stories-of-hope.html. Deep per-story linking restored, this time to
+  correct, owner-confirmed URLs (the old permalinks were wrong — the
+  Zacchaeus one pointed at the wrong passage).
 ---
 
 import ArticleIntro from '../../components/article/ArticleIntro.astro';
@@ -265,7 +293,7 @@ A woman "known as a sinner" crashes a Pharisee's dinner party to worship Jesus. 
 
 <Facet label="The question" tone="question">Do you see yourself as the woman—broken and desperate—or the Pharisee—self-righteous and judgmental?</Facet>
 
-<StoryLink href="https://obey.tools/hope-for-the-rejected-the-woman-weeping-at-jesus-feet-luke-736-50/">Lead this story step by step</StoryLink>
+<StoryLink href="https://obey.tools/hope-for-the-rejected.html">Lead this story step by step</StoryLink>
 
 ### 2. Hope for the Non-Religious: Pharisee & Tax Collector (Luke 18:9-17)
 
@@ -283,7 +311,7 @@ Jesus' verdict shocks everyone: the tax collector went home justified before God
 
 <Facet label="The question" tone="question">Which man's prayer sounds more like yours?</Facet>
 
-<StoryLink href="https://obey.tools/hope-for-the-non-religious-pharisee-tax-collector-luke-189-17/">Get this story's discussion questions</StoryLink>
+<StoryLink href="https://obey.tools/hope-for-the-nonreligious.html">Get this story's discussion questions</StoryLink>
 
 ### 3. Hope Changes Things: Zacchaeus (Luke 19:1-10)
 
@@ -303,7 +331,7 @@ That same day, he pledged to give half his possessions to the poor and repay eve
 
 <Facet label="The question" tone="question">What in your life needs to change if you follow Jesus?</Facet>
 
-<StoryLink href="https://obey.tools/hope-changes-things-zacchaeus-luke-1818-30/">Walk a group through Zacchaeus</StoryLink>
+<StoryLink href="https://obey.tools/hope-changes-things.html">Walk a group through Zacchaeus</StoryLink>
 
 ### 4. Hope Forgives: Unforgiving Servant (Matthew 18:21-35)
 
@@ -319,7 +347,7 @@ But that same servant immediately grabbed a fellow servant by the throat, demand
 
 <Facet label="The question" tone="question">Who do you need to forgive? What debt are you holding against someone that's smaller than what God has forgiven you?</Facet>
 
-<StoryLink href="https://obey.tools/hope-forgives-unforgiving-servant-matthew-1821-35/">See how to lead this story</StoryLink>
+<StoryLink href="https://obey.tools/hope-forgives.html">See how to lead this story</StoryLink>
 
 ### 5. Hope Through Death: Thieves on the Cross (Luke 23:26-43)
 
@@ -337,7 +365,7 @@ No baptism. No good works. No time to make amends. Just faith in his final momen
 
 <Facet label="The question" tone="question">Do you believe it could really be this simple?</Facet>
 
-<StoryLink href="https://obey.tools/hope-through-death-thieves-on-the-cross/">Prepare this story to share</StoryLink>
+<StoryLink href="https://obey.tools/hope-through-death.html">Prepare this story to share</StoryLink>
 
 ### 6. Hope Rose From The Dead: Resurrection (Luke 24:1-20)
 
@@ -355,7 +383,7 @@ The disciples didn't believe them at first. They needed to see for themselves. A
 
 <Facet label="The question" tone="question">Do you believe Jesus actually rose from the dead? What would change in your life if you knew for certain that Jesus is alive?</Facet>
 
-<StoryLink href="https://obey.tools/hope-rose-from-the-dead-resurrection-luke-241-20/">Guide a group through the resurrection</StoryLink>
+<StoryLink href="https://obey.tools/hope-rose-from-the-dead.html">Guide a group through the resurrection</StoryLink>
 
 ### 7. Hope is Waiting For You: Prodigal Son (Luke 15:11-32)
 
@@ -377,7 +405,7 @@ Meanwhile, the older brother—who'd stayed and worked faithfully—grew bitter 
 
 <Facet label="The question" tone="question">Are you the younger son who ran away, or the older son who stayed but resented? Either way—will you come home?</Facet>
 
-<StoryLink href="https://obey.tools/hope-is-waiting-for-you-prodigal-son-luke-1511-32/">Lead the Prodigal Son discovery</StoryLink>
+<StoryLink href="https://obey.tools/hope-is-waiting-for-you.html">Lead the Prodigal Son discovery</StoryLink>
 
 ## How To Lead The 7 Stories of Hope: The 3/3rds Process
 
