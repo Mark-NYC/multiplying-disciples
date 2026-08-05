@@ -21,6 +21,10 @@ interface Props {
   publishedDate?: Date;
   updatedDate?: Date;
   noindex?: boolean;
+  // Opt-in FAQ pairs (see the articles schema). Each becomes a
+  // schema.org Question in a FAQPage block; only pass Q&As that are
+  // visible in the page body.
+  faq?: { question: string; answer: string }[];
 }
 
 const {
@@ -35,6 +39,7 @@ const {
   publishedDate,
   updatedDate,
   noindex = false,
+  faq = [],
 } = Astro.props;
 
 const pageTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
@@ -104,6 +109,25 @@ const jsonLd =
         description,
         url: canonical,
       };
+
+// Optional FAQPage block, emitted only when the page supplies visible
+// Q&As. Kept separate from the Article/WebPage graph so it stays valid
+// on its own.
+const faqJsonLd =
+  faq.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      }
+    : undefined;
 ---
 
 <title>{pageTitle}</title>
@@ -129,3 +153,4 @@ const jsonLd =
 {ogImageMeta?.alt && <meta name="twitter:image:alt" content={ogImageMeta.alt} />}
 
 <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+{faqJsonLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(faqJsonLd)} />}

@@ -190,6 +190,22 @@ const articles = defineCollection({
     // Canonical end-of-article CTA (see comment above the articleCta
     // schema and CTA_GUIDE.md).
     article_cta: articleCta,
+    // Opt-in FAQ structured data. Each entry emits a schema.org
+    // Question/Answer in a FAQPage JSON-LD block (see SEO.astro). Only
+    // use it for Q&As that are genuinely visible in the article body —
+    // the `answer` text should restate what a reader can see on the
+    // page. Note: Google restricted FAQ rich results to authoritative
+    // gov/health sites in 2023, so this is valid, machine-readable
+    // structured data (useful for semantic/AI parsing), not a rich-result
+    // guarantee. Omit the field and no FAQPage block is emitted.
+    faq: z
+      .array(
+        z.object({
+          question: z.string(),
+          answer: z.string(),
+        }),
+      )
+      .default([]),
     ...migrationFields,
   }),
 });

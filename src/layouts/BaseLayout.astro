@@ -16,6 +16,7 @@ interface Props {
   publishedDate?: Date;
   updatedDate?: Date;
   noindex?: boolean;
+  faq?: { question: string; answer: string }[];
 }
 
 const {
@@ -30,6 +31,7 @@ const {
   publishedDate,
   updatedDate,
   noindex,
+  faq,
 } = Astro.props;
 ---
 
@@ -56,6 +58,7 @@ const {
       publishedDate={publishedDate}
       updatedDate={updatedDate}
       noindex={noindex}
+      faq={faq}
     />
     <slot name="head" />
   </head>
