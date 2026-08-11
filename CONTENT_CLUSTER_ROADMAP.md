@@ -169,9 +169,9 @@ but marked Improve in CONTENT_AUDIT.md.
   (`/why-disciple-making-movements-stall/`, hub church-planting-movements — a
   new diagnostic article not previously on the roadmap: information over
   obedience, addition over multiplication, skipping withness).
-  All seven (cornerstone + six) are logged in CONTENT_AUDIT.md. Still unbuilt
-  from Cluster 7's plan: the **CPM pillar "What Is a Church Planting Movement?"**
-  (the head-term definitional center these articles roll up into) and MAWL.
+  All seven (cornerstone + six) are logged in CONTENT_AUDIT.md. The **CPM
+  pillar "What Is a Church Planting Movement?"** these articles roll up into
+  shipped 2026-08-11 (see Cluster 7). Still unbuilt from Cluster 7's plan: MAWL.
 - **Purpose:** be the clearest practical answer on the internet to
   "how do I actually disciple someone."
 - **Audience:** believers with one person in front of them.
@@ -324,10 +324,14 @@ but marked Improve in CONTENT_AUDIT.md.
 - **Primary intent:** informational + frameworks ("church planting
   movement", "DMM", "APEST", "MAWL").
 - **Hub:** `/church-planting-movements/` (sub-hub: `/four-fields/`).
-- **Pillar:** ☆ **What Is a Church Planting Movement?** — the head
-  term is unowned today (the DMM article covers its sibling; this one
-  is missing), and 8 existing articles orbit it with nowhere to roll
-  up.
+- **Pillar:** ★ **What Is a Church Planting Movement?**
+  (`/what-is-a-church-planting-movement/`, shipped 2026-08-11) — the
+  head-term definitional center the cluster's 15+ CPM/DMM/leadership
+  articles previously had nowhere to roll up into. Built on David Garrison
+  as the primary source (his CPM definition + Ten Universal Elements),
+  distinguished from the DMM sibling (linked, not restated), Community CTA.
+  Added first in the church-planting-movements hub key_articles (ahead of
+  the cornerstone).
 - **Supporting (existing, all ★):** DMM: Key Characteristics (I) ·
   10 Qualities of Every CPM · The Power of Multiplication (I) · 4
   Stages of Movement · The Multiplier Mandate · Paul in Ephesus ·
@@ -351,10 +355,11 @@ but marked Improve in CONTENT_AUDIT.md.
   bridge from Simple Church pillar.
 - **Primary CTA:** **Community** (Tribe / CoVo Multipliers) — these
   readers need peers and coaching, not another intro lab.
-- **Priority:** Phase 2 pillar (☆ CPM pillar still the one open head-term
-  gap); the new-article backlog is largely done — 4 of the planned new pieces
-  shipped 2026-08-02 with the multiplication cluster (generations, identify/train
-  leaders, step back, why movements stall), leaving only MAWL and the CPM pillar.
+- **Priority:** ✅ CPM pillar shipped 2026-08-11 (the last open head-term gap
+  in the cluster); the new-article backlog is now essentially done — 4 of the
+  planned new pieces shipped 2026-08-02 with the multiplication cluster
+  (generations, identify/train leaders, step back, why movements stall), leaving
+  only MAWL.
 - **Business value:** Medium direct, high retention — this is the
   cluster the community lives in.
 - **Size:** ~21 articles (18★ / ~3☆) after the 2026-08-02 additions.
@@ -596,8 +601,9 @@ long-tail expansion.
 2026-08-11):** Discipleship Questions (Making Disciples) · Disciple
 Training support block — Curriculum, Evangelism Training, Commands of
 Christ Training, How to Train New Believers · House Church vs. Simple
-Church vs. Microchurch · What Is an Oikos? · How to Pray for Lost Friends ·
-the CPM pillar *What Is a Church Planting Movement?* Note: since
+Church vs. Microchurch · What Is an Oikos? · How to Pray for Lost Friends.
+(~~the CPM pillar *What Is a Church Planting Movement?*~~ ✅ shipped
+2026-08-11.) Note: since
 2026-08-04 the actual work has been an SEO/media-bar enrichment sprint on
 existing cornerstones (sticky media bar waves 1–3, video/podcast embeds,
 7 Stories of Hope + 12 Disciples SEO repair), not new articles.
@@ -668,7 +674,7 @@ pages. Five of eight clusters lack a pillar:
 | How to Share the Gospel | Sharing the Gospel | GSC — verses page alone has 8.3k impressions; "how to evangelize" page exists but the larger "share the gospel" family is unowned. |
 | How to Make Disciples | Making Disciples | redirect-equity — "ridiculously-simple-3-ways-to-make-disciples" and three sibling URLs ranked and now redirect to a page not built for that query. |
 | Disciple Training (pillar + hub) | Disciple Training | GSC (four-fields-training: 495 impressions with zero optimization) + business priority; the whole cluster routes to KMT/labs. |
-| What Is a Church Planting Movement? | Leadership | structural — 8+ existing CPM articles orbit a missing definitional center; DMM has one, CPM does not. |
+| ~~What Is a Church Planting Movement?~~ ✅ shipped 2026-08-11 | Leadership | structural — 15+ existing CPM articles orbited a missing definitional center; now built at `/what-is-a-church-planting-movement/` (Garrison-sourced), rolling them up. |
 
 ## 2. Missing definitional cornerstones
 

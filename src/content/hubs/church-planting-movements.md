@@ -8,6 +8,7 @@ intro: >
   of disciples and churches. This hub covers what makes them work and how
   pastors can move past common objections.
 key_articles:
+  - "/what-is-a-church-planting-movement/"
   - "/how-to-multiply-disciples-and-churches/"
   - "/the-power-of-multiplication-how-church-planting-movements-accomplish-the-great-commission/"
   - "/what-are-generations-of-churches/"
