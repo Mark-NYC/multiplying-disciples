@@ -340,8 +340,9 @@ but marked Improve in CONTENT_AUDIT.md.
   Attract Multiplying Leaders · APEST · Four Fields (book) ·
   Four Fields training [shared with Cluster 4].
 - **Supporting (new):** ★ MAWL: Model, Assist, Watch, Leave
-  (`/mawl-model-assist-watch-leave/`, shipped 2026-08-11; built on Curtis
-  Sergeant, the deep-dive the Disciple Training pillar points to — Lab CTA;
+  (`/mawl-model-assist-watch-leave/`, shipped 2026-08-11; the deep-dive the
+  Disciple Training pillar points to, with Curtis Sergeant noted only as a
+  helpful resource, not originator — Lab CTA;
   positioning under disciple-training vs. this hub left as a note for Mark) ·
   ★ What Are Generations of Churches?
   (`/what-are-generations-of-churches/`, shipped 2026-08-02 — fulfils the
