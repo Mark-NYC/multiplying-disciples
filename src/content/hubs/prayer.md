@@ -10,6 +10,7 @@ intro: >
 key_articles:
   - "/biblical-fasting-and-prayer/"
   - "/a-step-by-step-guide-to-prayer-walking-scriptures-and-changing-lives/"
+  - "/what-is-an-oikos/"
   - "/christian-prayer-wheel-a-structured-hour-of-prayer-that-actually-works/"
   - "/prayer-is-essential-12-key-prayer-points-for-disciple-making-movements/"
 related_tools: []
