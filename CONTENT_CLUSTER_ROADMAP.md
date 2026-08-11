@@ -148,6 +148,30 @@ but marked Improve in CONTENT_AUDIT.md.
   and "multiplication is patient" (not acceleration/info/events/curriculum/
   mass training). Featured first in the disciple-making hub; links out to every
   cluster (gospel, disciple-making, training, simple church, CPM/leadership).
+- **MULTIPLICATION SUPPORTING CLUSTER (shipped 2026-08-02):** six articles
+  built off the cornerstone in one pass, each Lab CTA and wired into its hub —
+  pulling forward the bulk of Cluster 7's new ☆ set ahead of schedule:
+  ★ Addition vs. Multiplication in Ministry
+  (`/addition-vs-multiplication-in-ministry/`, hub disciple-making) ·
+  ★ How a Simple Church Starts Another Church
+  (`/how-a-simple-church-starts-another-church/`, hub simple-church — the
+  sending-not-splitting reproduction article, Cluster 5) ·
+  ★ What Are Generations of Churches?
+  (`/what-are-generations-of-churches/`, hub church-planting-movements —
+  fulfils the roadmap's ☆ "Generational Mapping" intent) ·
+  ★ How to Identify and Train Emerging Leaders
+  (`/how-to-identify-and-train-emerging-leaders/`, hub church-planting-movements)
+  and ★ How to Step Back Without Abandoning New Leaders
+  (`/how-to-step-back-without-abandoning-new-leaders/`, hub
+  church-planting-movements) — together these fulfil the ☆ "How to Raise Up
+  Leaders (not recruit them)" intent, split into identify/train and release ·
+  ★ Why Disciple-Making Movements Stall
+  (`/why-disciple-making-movements-stall/`, hub church-planting-movements — a
+  new diagnostic article not previously on the roadmap: information over
+  obedience, addition over multiplication, skipping withness).
+  All seven (cornerstone + six) are logged in CONTENT_AUDIT.md. Still unbuilt
+  from Cluster 7's plan: the **CPM pillar "What Is a Church Planting Movement?"**
+  (the head-term definitional center these articles roll up into) and MAWL.
 - **Purpose:** be the clearest practical answer on the internet to
   "how do I actually disciple someone."
 - **Audience:** believers with one person in front of them.
@@ -254,7 +278,10 @@ but marked Improve in CONTENT_AUDIT.md.
   Maturity (the four selfs) / 5 Loves of Acts 2. Left Hand = What Makes a Church
   a Church; between them = the messy middle) · ☆
   Baptism: Who Can Baptize, and When? (`hypothesis`, recurring practitioner
-  question).
+  question) · ★ How a Simple Church Starts Another Church
+  (`/how-a-simple-church-starts-another-church/`, shipped 2026-08-02 with the
+  multiplication cluster; the sending-not-splitting reproduction article that is
+  the forward bridge to Leadership — "when your church starts a church").
 - **Linking:** pillar ↔ all; Church Waffle ↔ What Makes a Church;
   forward bridge to Leadership ("when your church starts a church").
 - **Primary CTA:** **Tool** (Church Waffle) on practice articles;
@@ -307,19 +334,30 @@ but marked Improve in CONTENT_AUDIT.md.
   Pastors' Objections · Lone Wolf · Trustworthy Leaders · 5 Ways to
   Attract Multiplying Leaders · APEST · Four Fields (book) ·
   Four Fields training [shared with Cluster 4].
-- **Supporting (new ☆):** MAWL: Model, Assist, Watch, Leave ·
-  Generational Mapping (with the 4 Fields tool) · How to Raise Up
-  Leaders (not recruit them).
+- **Supporting (new):** ☆ MAWL: Model, Assist, Watch, Leave (still unbuilt) ·
+  ★ What Are Generations of Churches?
+  (`/what-are-generations-of-churches/`, shipped 2026-08-02 — fulfils the
+  planned "Generational Mapping" intent) · ★ How to Identify and Train Emerging
+  Leaders (`/how-to-identify-and-train-emerging-leaders/`, shipped 2026-08-02)
+  and ★ How to Step Back Without Abandoning New Leaders
+  (`/how-to-step-back-without-abandoning-new-leaders/`, shipped 2026-08-02) —
+  together fulfilling the planned "How to Raise Up Leaders (not recruit them)"
+  intent · ★ Why Disciple-Making Movements Stall
+  (`/why-disciple-making-movements-stall/`, shipped 2026-08-02; a new diagnostic
+  article added beyond the original plan). All four shipped with the
+  multiplication cluster off the site cornerstone (see Cluster 3).
 - **Linking:** new pillar rolls up all CPM/DMM articles; APEST +
   leadership articles interlink as a leadership sub-spine; forward
   bridge from Simple Church pillar.
 - **Primary CTA:** **Community** (Tribe / CoVo Multipliers) — these
   readers need peers and coaching, not another intro lab.
-- **Priority:** Phase 2 pillar; Phase 3 the rest (library already
-  exists; work here is consolidation + linking, not volume).
+- **Priority:** Phase 2 pillar (☆ CPM pillar still the one open head-term
+  gap); the new-article backlog is largely done — 4 of the planned new pieces
+  shipped 2026-08-02 with the multiplication cluster (generations, identify/train
+  leaders, step back, why movements stall), leaving only MAWL and the CPM pillar.
 - **Business value:** Medium direct, high retention — this is the
   cluster the community lives in.
-- **Size:** 17 articles (14★ / 3☆).
+- **Size:** ~21 articles (18★ / ~3☆) after the 2026-08-02 additions.
 
 ---
 
@@ -356,6 +394,15 @@ but marked Improve in CONTENT_AUDIT.md.
 
 \* 38 unique existing articles; Three Thirds, Four Fields training,
 Jesus the Leader, and 7 Stories each serve two clusters.
+
+**Note (2026-08-11):** the table shows the *planned* architecture, not
+shipped counts. The 2026-08-02 multiplication pass shipped the
+cross-cluster cornerstone plus a six-article supporting cluster, three of
+which (Why Movements Stall, Addition vs. Multiplication, How a Simple
+Church Starts Another Church, and the two raise-up-leaders pieces) were
+added beyond the original per-cluster targets — so Clusters 3/5/7 now carry
+more articles than planned here. Reconcile the target table in a later pass;
+CONTENT_AUDIT.md holds the authoritative shipped inventory.
 
 ## Implementation phases
 
@@ -528,22 +575,41 @@ Finish Testimony (~~3-minute~~ ✅ shipped 2026-07-28 as
 `/sharing-your-testimony-at-work-or-in-church/`; ~~testimony-vs-gospel~~
 ✅ shipped 2026-07-29 as `/testimony-vs-gospel/` — Cluster 1 is now
 complete), the Gospel
-situational set (work, family, questions, introverts, 4 Responses
-expansion), Making Disciples support (one-on-one, follow-up,
-obedience-based, questions), Training support (curriculum, Jesus
-trained the Twelve, evangelism training, new believers), Simple
-Church core (How to Start, House vs Simple, What Makes a Church,
-First Gathering), Oikos + Pray for Lost Friends, and the CPM pillar.
-Rationale: completes every cluster's minimum viable shape so internal
-linking and topical authority compound before long-tail expansion.
+situational set (~~work~~ ✅, ~~family~~ ✅, ~~questions~~ ✅,
+~~introverts~~ ✅, ~~4 Responses expansion~~ ✅ — all shipped 2026-07-29),
+Making Disciples support (~~one-on-one~~ ✅, ~~follow-up~~ ✅,
+~~obedience-based~~ ✅ shipped 2026-08-01; **questions** still open),
+Training support (curriculum, Jesus trained the Twelve, evangelism
+training, new believers — **all still open, the largest remaining Phase 2
+block**), Simple Church core (~~How to Start~~ ✅, House vs Simple,
+~~What Makes a Church~~ ✅, ~~First Gathering~~ ✅ — plus the extra
+2026-08-01 additions What Makes a Church Healthy and When a Discipleship
+Group Becomes a Church), Oikos + Pray for Lost Friends (both open), and
+the CPM pillar (open). **Pulled forward out of order (2026-08-02):** the
+site cornerstone *How to Multiply Disciples and Churches* + a six-article
+multiplication cluster (see Cluster 3), which shipped most of Cluster 7's
+new-article backlog early. Rationale: completes every cluster's minimum
+viable shape so internal linking and topical authority compound before
+long-tail expansion.
+
+**Remaining Phase 2 gaps (verified against `src/content/articles/`
+2026-08-11):** Discipleship Questions (Making Disciples) · Disciple
+Training support block — Curriculum, Evangelism Training, Commands of
+Christ Training, How to Train New Believers · House Church vs. Simple
+Church vs. Microchurch · What Is an Oikos? · How to Pray for Lost Friends ·
+the CPM pillar *What Is a Church Planting Movement?* Note: since
+2026-08-04 the actual work has been an SEO/media-bar enrichment sprint on
+existing cornerstones (sticky media bar waves 1–3, video/podcast embeds,
+7 Stories of Hope + 12 Disciples SEO repair), not new articles.
 
 ### Phase 3 — remainder
-Leadership new articles (MAWL, Generational Mapping, Raising
-Leaders), Meet Jesus additions (Who Is Jesus, What Did Jesus Command,
-How Jesus Made Disciples), Simple Church long-tail (Baptism, Luke
-10), the Muddy Boots merge + redirect, hub intro upgrades, and the
-consolidation/refresh backlog from CONTENT_AUDIT.md. Rationale:
-valuable but dependent on the spine existing first.
+Leadership new articles (**MAWL still open**; ~~Generational Mapping~~ ✅
+and ~~Raising Leaders~~ ✅ shipped early 2026-08-02 as What Are Generations
+of Churches / Identify-and-Train + Step-Back), Meet Jesus additions (Who Is
+Jesus, What Did Jesus Command, How Jesus Made Disciples), Simple Church
+long-tail (Baptism, Luke 10), the Muddy Boots merge + redirect, hub intro
+upgrades, and the consolidation/refresh backlog from CONTENT_AUDIT.md.
+Rationale: valuable but dependent on the spine existing first.
 
 ## Open editorial & technical debt
 
