@@ -171,7 +171,8 @@ but marked Improve in CONTENT_AUDIT.md.
   obedience, addition over multiplication, skipping withness).
   All seven (cornerstone + six) are logged in CONTENT_AUDIT.md. The **CPM
   pillar "What Is a Church Planting Movement?"** these articles roll up into
-  shipped 2026-08-11 (see Cluster 7). Still unbuilt from Cluster 7's plan: MAWL.
+  shipped 2026-08-11 (see Cluster 7). MAWL shipped 2026-08-11 too, completing
+  Cluster 7's new-article backlog.
 - **Purpose:** be the clearest practical answer on the internet to
   "how do I actually disciple someone."
 - **Audience:** believers with one person in front of them.
@@ -338,7 +339,10 @@ but marked Improve in CONTENT_AUDIT.md.
   Pastors' Objections · Lone Wolf · Trustworthy Leaders · 5 Ways to
   Attract Multiplying Leaders · APEST · Four Fields (book) ·
   Four Fields training [shared with Cluster 4].
-- **Supporting (new):** ☆ MAWL: Model, Assist, Watch, Leave (still unbuilt) ·
+- **Supporting (new):** ★ MAWL: Model, Assist, Watch, Leave
+  (`/mawl-model-assist-watch-leave/`, shipped 2026-08-11; built on Curtis
+  Sergeant, the deep-dive the Disciple Training pillar points to — Lab CTA;
+  positioning under disciple-training vs. this hub left as a note for Mark) ·
   ★ What Are Generations of Churches?
   (`/what-are-generations-of-churches/`, shipped 2026-08-02 — fulfils the
   planned "Generational Mapping" intent) · ★ How to Identify and Train Emerging
@@ -358,8 +362,9 @@ but marked Improve in CONTENT_AUDIT.md.
 - **Priority:** ✅ CPM pillar shipped 2026-08-11 (the last open head-term gap
   in the cluster); the new-article backlog is now essentially done — 4 of the
   planned new pieces shipped 2026-08-02 with the multiplication cluster
-  (generations, identify/train leaders, step back, why movements stall), leaving
-  only MAWL.
+  (generations, identify/train leaders, step back, why movements stall), and
+  MAWL shipped 2026-08-11. **Cluster 7's new-article backlog is complete;** the
+  remaining work here is consolidation, linking, and CTR, not new volume.
 - **Business value:** Medium direct, high retention — this is the
   cluster the community lives in.
 - **Size:** ~21 articles (18★ / ~3☆) after the 2026-08-02 additions.
@@ -609,9 +614,10 @@ existing cornerstones (sticky media bar waves 1–3, video/podcast embeds,
 7 Stories of Hope + 12 Disciples SEO repair), not new articles.
 
 ### Phase 3 — remainder
-Leadership new articles (**MAWL still open**; ~~Generational Mapping~~ ✅
-and ~~Raising Leaders~~ ✅ shipped early 2026-08-02 as What Are Generations
-of Churches / Identify-and-Train + Step-Back), Meet Jesus additions (Who Is
+Leadership new articles (~~MAWL~~ ✅ shipped 2026-08-11;
+~~Generational Mapping~~ ✅ and ~~Raising Leaders~~ ✅ shipped early 2026-08-02
+as What Are Generations of Churches / Identify-and-Train + Step-Back — the
+Leadership new-article set is now complete), Meet Jesus additions (Who Is
 Jesus, What Did Jesus Command, How Jesus Made Disciples), Simple Church
 long-tail (Baptism, Luke 10), the Muddy Boots merge + redirect, hub intro
 upgrades, and the consolidation/refresh backlog from CONTENT_AUDIT.md.

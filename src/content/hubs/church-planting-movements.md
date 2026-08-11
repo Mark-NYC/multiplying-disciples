@@ -15,6 +15,7 @@ key_articles:
   - "/addition-vs-multiplication-in-ministry/"
   - "/how-to-identify-and-train-emerging-leaders/"
   - "/how-to-step-back-without-abandoning-new-leaders/"
+  - "/mawl-model-assist-watch-leave/"
   - "/why-disciple-making-movements-stall/"
   - "/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/"
   - "/disciple-making-movement-dmm-key-characteristics-and-definition/"
