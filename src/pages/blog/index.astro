@@ -240,6 +240,13 @@ const featuredCards = featured.map((entry, index) => {
     margin-bottom: 2.5rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--color-border);
+    /* Contain the topic row's horizontal overflow to this wrapper. The
+       pill list below is its own overflow-x scroller, but as a flex-item
+       scroll container its overflow still leaks into the page's scroll
+       width, adding a stray horizontal scrollbar to the whole page.
+       `clip` (not `hidden`) stops that leak on the x-axis while leaving
+       overflow-y visible, so the pills' hover lift/shadow aren't cut. */
+    overflow-x: clip;
   }
 
   /* Single-row horizontal scroller instead of a wrapping cloud — the
@@ -258,6 +265,12 @@ const featuredCards = featured.map((entry, index) => {
     list-style: none;
     margin: 0;
     padding: 0.15rem 0.1rem;
+    /* Flex item inside the (display:flex) scroller: without this it keeps
+       its default min-width:auto and refuses to shrink below the combined
+       width of its no-wrap pills, so overflow-x never engages and the row
+       pushes the whole page wider than the viewport. min-width:0 lets it
+       shrink to the scroller and scroll its overflow internally instead. */
+    min-width: 0;
     overflow-x: auto;
     scroll-behavior: smooth;
     scroll-snap-type: x proximity;
