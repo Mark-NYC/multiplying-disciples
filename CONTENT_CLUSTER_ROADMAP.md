@@ -311,9 +311,11 @@ but marked Improve in CONTENT_AUDIT.md.
   to the 4-1-1 tool
   (obey.tools/4-questions.html) as the Practice/tool CTA next step) · ★ How to
   Pray for Lost Friends (`/how-to-pray-for-lost-friends/`, shipped 2026-08-11;
-  the name-list practice, completes the oikos ↔ person-of-peace ↔
-  pray-for-lost-friends triangle, Practice/tool CTA to the 10:02 oikos-prayer
-  habit) · ☆ Luke 10: Jesus'
+  core idea is the Conversation Box as a tracked, shared practice — track each
+  name on two fronts, prayer and share/conversation stage, and pray + celebrate
+  progress by name in corporate gatherings; completes the oikos ↔
+  person-of-peace ↔ pray-for-lost-friends triangle, Practice/tool CTA to the
+  Conversation Box on obey.tools) · ☆ Luke 10: Jesus'
   Sending Pattern (`hypothesis`; underpins person-of-peace and
   bridges to Training).
 - **Linking:** oikos ↔ person of peace ↔ prayer-for-lost-friends form
