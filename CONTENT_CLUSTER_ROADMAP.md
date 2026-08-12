@@ -309,8 +309,11 @@ but marked Improve in CONTENT_AUDIT.md.
   explainer that owns the term, maps the oikos by four lenses
   (passion/people/place/profession, aligned to the 4-1-1 tool), and hands off
   to the 4-1-1 tool
-  (obey.tools/4-questions.html) as the Practice/tool CTA next step) · ☆ How to
-  Pray for Lost Friends (name-list practice) · ☆ Luke 10: Jesus'
+  (obey.tools/4-questions.html) as the Practice/tool CTA next step) · ★ How to
+  Pray for Lost Friends (`/how-to-pray-for-lost-friends/`, shipped 2026-08-11;
+  the name-list practice, completes the oikos ↔ person-of-peace ↔
+  pray-for-lost-friends triangle, Practice/tool CTA to the 10:02 oikos-prayer
+  habit) · ☆ Luke 10: Jesus'
   Sending Pattern (`hypothesis`; underpins person-of-peace and
   bridges to Training).
 - **Linking:** oikos ↔ person of peace ↔ prayer-for-lost-friends form
@@ -318,7 +321,8 @@ but marked Improve in CONTENT_AUDIT.md.
 - **Primary CTA:** **Practice** (tool: Oikos map / prayer-walk
   exercise) — this cluster's honest next step is prayer, not a lab.
 - **Priority:** Phase 2 (~~person of peace~~ ✅ 2026-07-27 + ~~oikos~~ ✅
-  2026-08-11), Phase 3 rest (How to Pray for Lost Friends, Luke 10).
+  2026-08-11 + ~~pray for lost friends~~ ✅ 2026-08-11 — the oikos triangle is
+  now complete), Phase 3 rest (Luke 10).
 - **Business value:** Medium-high; strong brand fit, moderate volume.
 - **Size:** 8 articles (4★ / 4☆… counting the improve as existing).
 
@@ -612,7 +616,7 @@ long-tail expansion.
 2026-08-11):** Discipleship Questions (Making Disciples) · Disciple
 Training support block — Curriculum, Evangelism Training, Commands of
 Christ Training, How to Train New Believers · House Church vs. Simple
-Church vs. Microchurch · ~~What Is an Oikos?~~ ✅ shipped 2026-08-11 · How to Pray for Lost Friends.
+Church vs. Microchurch · ~~What Is an Oikos?~~ ✅ shipped 2026-08-11 · ~~How to Pray for Lost Friends~~ ✅ shipped 2026-08-11.
 (~~the CPM pillar *What Is a Church Planting Movement?*~~ ✅ shipped
 2026-08-11.) Note: since
 2026-08-04 the actual work has been an SEO/media-bar enrichment sprint on
