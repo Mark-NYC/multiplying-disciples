@@ -306,8 +306,9 @@ but marked Improve in CONTENT_AUDIT.md.
 - **Supporting:** ★ Christian Prayer Wheel · ★ 12 Key Prayer Points ·
   ★(I) Finding a Person of Peace (expand to own the head term) · ★
   What Is an Oikos? (`/what-is-an-oikos/`, shipped 2026-08-11; definitional
-  explainer that owns the term and hands the mapping practice off to the
-  3 Core Habits Oikos Map, Practice/tool CTA) · ☆ How to
+  explainer that owns the term, maps the oikos by the 4-1-1 tool's
+  passion/place/profession lenses, and hands off to the 4-1-1 tool
+  (obey.tools/4-questions.html) as the Practice/tool CTA next step) · ☆ How to
   Pray for Lost Friends (name-list practice) · ☆ Luke 10: Jesus'
   Sending Pattern (`hypothesis`; underpins person-of-peace and
   bridges to Training).
