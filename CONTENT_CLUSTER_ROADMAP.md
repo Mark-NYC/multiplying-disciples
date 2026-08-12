@@ -304,8 +304,11 @@ but marked Improve in CONTENT_AUDIT.md.
 - **Pillar:** ★ **How to Pray Walk Your Neighborhood** (best current
   performer) — with ☆ Person of Peace as a co-anchor.
 - **Supporting:** ★ Christian Prayer Wheel · ★ 12 Key Prayer Points ·
-  ★(I) Finding a Person of Peace (expand to own the head term) · ☆
-  What Is an Oikos? (relationship-map explainer + tool) · ☆ How to
+  ★(I) Finding a Person of Peace (expand to own the head term) · ★
+  What Is an Oikos? (`/what-is-an-oikos/`, shipped 2026-08-11; definitional
+  explainer that owns the term, maps the oikos by the 4-1-1 tool's
+  passion/place/profession lenses, and hands off to the 4-1-1 tool
+  (obey.tools/4-questions.html) as the Practice/tool CTA next step) · ☆ How to
   Pray for Lost Friends (name-list practice) · ☆ Luke 10: Jesus'
   Sending Pattern (`hypothesis`; underpins person-of-peace and
   bridges to Training).
@@ -313,7 +316,8 @@ but marked Improve in CONTENT_AUDIT.md.
   a tight triangle; each links forward to Sharing the Gospel pillar.
 - **Primary CTA:** **Practice** (tool: Oikos map / prayer-walk
   exercise) — this cluster's honest next step is prayer, not a lab.
-- **Priority:** Phase 2 (person of peace + oikos), Phase 3 rest.
+- **Priority:** Phase 2 (~~person of peace~~ ✅ 2026-07-27 + ~~oikos~~ ✅
+  2026-08-11), Phase 3 rest (How to Pray for Lost Friends, Luke 10).
 - **Business value:** Medium-high; strong brand fit, moderate volume.
 - **Size:** 8 articles (4★ / 4☆… counting the improve as existing).
 
@@ -607,7 +611,7 @@ long-tail expansion.
 2026-08-11):** Discipleship Questions (Making Disciples) · Disciple
 Training support block — Curriculum, Evangelism Training, Commands of
 Christ Training, How to Train New Believers · House Church vs. Simple
-Church vs. Microchurch · What Is an Oikos? · How to Pray for Lost Friends.
+Church vs. Microchurch · ~~What Is an Oikos?~~ ✅ shipped 2026-08-11 · How to Pray for Lost Friends.
 (~~the CPM pillar *What Is a Church Planting Movement?*~~ ✅ shipped
 2026-08-11.) Note: since
 2026-08-04 the actual work has been an SEO/media-bar enrichment sprint on
@@ -691,8 +695,9 @@ and featured-snippet capture:
 - What Is the Gospel? (structural — every gospel article assumes it)
 - What Is a Disciple? (structural; redirect-equity via
   "discovering-the-disciple-meaning")
-- What Is an Oikos? (structural; the tool exists in article bodies —
-  3 Core Habits teaches oikos mapping — but no page owns the term)
+- ~~What Is an Oikos?~~ ✅ shipped 2026-08-11 at `/what-is-an-oikos/`
+  (owns the term; hands the mapping practice off to the 3 Core Habits Oikos
+  Map, which taught it but had no definitional page)
 - What Are the Commands of Christ? (structural + business — the menu
   and CTAs now point to obey.tools with no on-site page explaining
   the thing being linked to)
