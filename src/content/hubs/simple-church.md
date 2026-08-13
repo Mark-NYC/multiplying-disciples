@@ -12,6 +12,7 @@ key_articles:
   - "/how-to-start-a-simple-church/"
   - "/what-makes-a-church-a-church/"
   - "/what-makes-a-church-healthy/"
+  - "/house-church-vs-simple-church/"
   - "/your-first-simple-church-gathering/"
   - "/when-a-discipleship-group-becomes-a-church/"
   - "/how-a-simple-church-starts-another-church/"
