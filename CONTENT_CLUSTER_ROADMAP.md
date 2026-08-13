@@ -231,8 +231,12 @@ but marked Improve in CONTENT_AUDIT.md.
   slide list into a bespoke training landing page,
   `src/pages/kingdom-ministry-training.astro`) · ★ How to Get Started in
   Four Fields Training · ★ Content vs. Systems · ★(I) Jesus the
-  Leader (expand toward "How Jesus Trained His Disciples") · ☆
-  Discipleship Training Curriculum (Free, Reproducible) · ☆ Commands
+  Leader (expand toward "How Jesus Trained His Disciples") · ★
+  Discipleship Training Curriculum (`/discipleship-training-curriculum/`,
+  shipped 2026-08-11; a simple, reproducible sequence of obey.tools starter
+  tools — 4-1-1 → Conversation Box → 7 Stories of Hope → Commands of Christ →
+  Church Waffle → leadership — to equip a disciple to follow & fish, Mark 1:17;
+  Lab CTA, links every named tool) · ☆ Commands
   of Christ Training (bridge article → obey.tools) · ☆ Evangelism
   Training That Actually Produces Evangelism · ☆ How to Train New
   Believers · ☆ Disciple Training for Small Churches (`hypothesis`,
@@ -605,9 +609,9 @@ situational set (~~work~~ ✅, ~~family~~ ✅, ~~questions~~ ✅,
 ~~introverts~~ ✅, ~~4 Responses expansion~~ ✅ — all shipped 2026-07-29),
 Making Disciples support (~~one-on-one~~ ✅, ~~follow-up~~ ✅,
 ~~obedience-based~~ ✅ shipped 2026-08-01; **questions** still open),
-Training support (curriculum, Jesus trained the Twelve, evangelism
-training, new believers — **all still open, the largest remaining Phase 2
-block**), Simple Church core (~~How to Start~~ ✅, ~~House vs Simple~~ ✅ 2026-08-11,
+Training support (~~curriculum~~ ✅ 2026-08-11, Jesus trained the Twelve,
+evangelism training, new believers — **the rest of this block is the largest
+remaining Phase 2 work**), Simple Church core (~~How to Start~~ ✅, ~~House vs Simple~~ ✅ 2026-08-11,
 ~~What Makes a Church~~ ✅, ~~First Gathering~~ ✅ — plus the extra
 2026-08-01 additions What Makes a Church Healthy and When a Discipleship
 Group Becomes a Church), Oikos + Pray for Lost Friends (both open), and
@@ -620,8 +624,8 @@ long-tail expansion.
 
 **Remaining Phase 2 gaps (verified against `src/content/articles/`
 2026-08-11):** Discipleship Questions (Making Disciples) · Disciple
-Training support block — Curriculum, Evangelism Training, Commands of
-Christ Training, How to Train New Believers · ~~House Church vs. Simple
+Training support block — ~~Curriculum~~ ✅ shipped 2026-08-11, Evangelism
+Training, Commands of Christ Training, How to Train New Believers · ~~House Church vs. Simple
 Church vs. Microchurch~~ ✅ shipped 2026-08-11 · ~~What Is an Oikos?~~ ✅ shipped 2026-08-11 · ~~How to Pray for Lost Friends~~ ✅ shipped 2026-08-11.
 (~~the CPM pillar *What Is a Church Planting Movement?*~~ ✅ shipped
 2026-08-11.) Note: since
