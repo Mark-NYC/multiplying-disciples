@@ -262,8 +262,12 @@ but marked Improve in CONTENT_AUDIT.md.
   Waffle · ☆ How to Start a Simple Church
   (`/how-to-start-a-simple-church/`, shipped 2026-08-01; the how-to twin of
   the pillar — church is the fruit of disciple-making, gather a family, give
-  it a Three Thirds rhythm, grow health with the Waffle) · ☆ House Church vs.
-  Simple Church vs. Microchurch (`hypothesis`) · ☆ What Makes a Church a
+  it a Three Thirds rhythm, grow health with the Waffle) · ★ House Church vs.
+  Simple Church vs. Microchurch (`/house-church-vs-simple-church/`, shipped
+  2026-08-11; core idea is that the container does not change a church's health
+  or fruitfulness — house church can be the prevailing model in a living room;
+  simple church is about the priesthood of believers in Body life, health not
+  model; Church Waffle tool CTA) · ☆ What Makes a Church a
   Church? (`/what-makes-a-church-a-church/`, shipped 2026-08-01; Acts 2:36-47
   marks, the Waffle's frame) · ☆ What Are the Commands of Christ?
   (bridge article → obey.tools; also serves Cluster 0) · ☆ Your First
@@ -603,7 +607,7 @@ Making Disciples support (~~one-on-one~~ ✅, ~~follow-up~~ ✅,
 ~~obedience-based~~ ✅ shipped 2026-08-01; **questions** still open),
 Training support (curriculum, Jesus trained the Twelve, evangelism
 training, new believers — **all still open, the largest remaining Phase 2
-block**), Simple Church core (~~How to Start~~ ✅, House vs Simple,
+block**), Simple Church core (~~How to Start~~ ✅, ~~House vs Simple~~ ✅ 2026-08-11,
 ~~What Makes a Church~~ ✅, ~~First Gathering~~ ✅ — plus the extra
 2026-08-01 additions What Makes a Church Healthy and When a Discipleship
 Group Becomes a Church), Oikos + Pray for Lost Friends (both open), and
@@ -617,8 +621,8 @@ long-tail expansion.
 **Remaining Phase 2 gaps (verified against `src/content/articles/`
 2026-08-11):** Discipleship Questions (Making Disciples) · Disciple
 Training support block — Curriculum, Evangelism Training, Commands of
-Christ Training, How to Train New Believers · House Church vs. Simple
-Church vs. Microchurch · ~~What Is an Oikos?~~ ✅ shipped 2026-08-11 · ~~How to Pray for Lost Friends~~ ✅ shipped 2026-08-11.
+Christ Training, How to Train New Believers · ~~House Church vs. Simple
+Church vs. Microchurch~~ ✅ shipped 2026-08-11 · ~~What Is an Oikos?~~ ✅ shipped 2026-08-11 · ~~How to Pray for Lost Friends~~ ✅ shipped 2026-08-11.
 (~~the CPM pillar *What Is a Church Planting Movement?*~~ ✅ shipped
 2026-08-11.) Note: since
 2026-08-04 the actual work has been an SEO/media-bar enrichment sprint on
