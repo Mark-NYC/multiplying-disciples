@@ -237,8 +237,11 @@ but marked Improve in CONTENT_AUDIT.md.
   tools — 4-1-1 → Conversation Box → 7 Stories of Hope → Commands of Christ →
   Church Waffle → leadership — to equip a disciple to follow & fish, Mark 1:17;
   Lab CTA, links every named tool) · ☆ Commands
-  of Christ Training (bridge article → obey.tools) · ☆ Evangelism
-  Training That Actually Produces Evangelism · ☆ How to Train New
+  of Christ Training (bridge article → obey.tools) · ★ Evangelism
+  Training That Actually Produces Evangelism (`/evangelism-training/`, shipped
+  2026-08-11; core idea is three ingredients — reps, a community of practice,
+  and simple tools — the train-others layer above Cluster 2's individual how-to;
+  Lab CTA as the community of practice) · ☆ How to Train New
   Believers · ☆ Disciple Training for Small Churches (`hypothesis`,
   pastor-facing).
 - **Linking:** pillar ↔ all; curriculum article links every named
@@ -624,8 +627,8 @@ long-tail expansion.
 
 **Remaining Phase 2 gaps (verified against `src/content/articles/`
 2026-08-11):** Discipleship Questions (Making Disciples) · Disciple
-Training support block — ~~Curriculum~~ ✅ shipped 2026-08-11, Evangelism
-Training, Commands of Christ Training, How to Train New Believers · ~~House Church vs. Simple
+Training support block — ~~Curriculum~~ ✅ shipped 2026-08-11, ~~Evangelism
+Training~~ ✅ shipped 2026-08-11, Commands of Christ Training, How to Train New Believers · ~~House Church vs. Simple
 Church vs. Microchurch~~ ✅ shipped 2026-08-11 · ~~What Is an Oikos?~~ ✅ shipped 2026-08-11 · ~~How to Pray for Lost Friends~~ ✅ shipped 2026-08-11.
 (~~the CPM pillar *What Is a Church Planting Movement?*~~ ✅ shipped
 2026-08-11.) Note: since
