@@ -11,6 +11,8 @@ intro: >
 key_articles:
   - "/how-to-train-disciples/"
   - "/discipleship-training-curriculum/"
+  - "/evangelism-training/"
+  - "/commands-of-christ-training/"
   - "/how-to-get-started-in-four-fields-training/"
   - "/content-vs-systems-the-game-changer-for-leadership-development/"
   - "/jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark/"
