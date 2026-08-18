@@ -246,8 +246,12 @@ but marked Improve in CONTENT_AUDIT.md.
   Training That Actually Produces Evangelism (`/evangelism-training/`, shipped
   2026-08-11; core idea is three ingredients — reps, a community of practice,
   and simple tools — the train-others layer above Cluster 2's individual how-to;
-  Lab CTA as the community of practice) · ☆ How to Train New
-  Believers · ☆ Disciple Training for Small Churches (`hypothesis`,
+  Lab CTA as the community of practice) · ★ How to Train New
+  Believers (`/how-to-train-new-believers/`, shipped 2026-08-11; the paradigm
+  layer — we give high-directive content because new believers cannot yet hear
+  God, so obedience to Jesus' clear commands trains their ear, then release as
+  they mature; hands the how off to new-believer-follow-up / curriculum /
+  three-thirds; Lab CTA) · ☆ Disciple Training for Small Churches (`hypothesis`,
   pastor-facing).
 - **Linking:** pillar ↔ all; curriculum article links every named
   tool; every article's CTA row points at KMT or a lab.
@@ -633,7 +637,7 @@ long-tail expansion.
 **Remaining Phase 2 gaps (verified against `src/content/articles/`
 2026-08-11):** Discipleship Questions (Making Disciples) · Disciple
 Training support block — ~~Curriculum~~ ✅ shipped 2026-08-11, ~~Evangelism
-Training~~ ✅ shipped 2026-08-11, ~~Commands of Christ Training~~ ✅ shipped 2026-08-11, How to Train New Believers · ~~House Church vs. Simple
+Training~~ ✅ shipped 2026-08-11, ~~Commands of Christ Training~~ ✅ shipped 2026-08-11, ~~How to Train New Believers~~ ✅ shipped 2026-08-11 (Disciple Training support block complete except the `hypothesis` "Small Churches" piece) · ~~House Church vs. Simple
 Church vs. Microchurch~~ ✅ shipped 2026-08-11 · ~~What Is an Oikos?~~ ✅ shipped 2026-08-11 · ~~How to Pray for Lost Friends~~ ✅ shipped 2026-08-11.
 (~~the CPM pillar *What Is a Church Planting Movement?*~~ ✅ shipped
 2026-08-11.) Note: since
