@@ -200,8 +200,10 @@ but marked Improve in CONTENT_AUDIT.md.
   (`/obedience-based-discipleship/`, shipped 2026-08-01; the method/philosophy
   — obey what Jesus said over accumulating information, love -> obedience per
   John 14:15, add info only as fast as it is obeyed; claims the
-  `/love-and-obedience-.../` legacy redirect) · ☆ Discipleship Questions That
-  Actually Go Somewhere (`hypothesis`).
+  `/love-and-obedience-.../` legacy redirect) · ★ Discipleship Questions That
+  Actually Go Somewhere (`/discipleship-questions/`, shipped 2026-08-11; vague
+  check-ins change nothing — questions that go somewhere are specific, tied to
+  obedience, and end in a next step, grouped look back/in/out/forward; Lab CTA).
 - **Linking:** pillar ↔ all; What Is a Disciple ← linked from Meet
   Jesus bridges; pillar links forward to Disciple Training pillar
   ("ready to train others?").
@@ -635,7 +637,10 @@ viable shape so internal linking and topical authority compound before
 long-tail expansion.
 
 **Remaining Phase 2 gaps (verified against `src/content/articles/`
-2026-08-11):** Discipleship Questions (Making Disciples) · Disciple
+2026-08-11):** ~~Discipleship Questions (Making Disciples)~~ ✅ shipped
+2026-08-11 — **PHASE 2 COMPLETE** (only the optional `hypothesis`-flagged
+"Disciple Training for Small Churches" remains, which the roadmap already
+treats as beyond the minimum). · Disciple
 Training support block — ~~Curriculum~~ ✅ shipped 2026-08-11, ~~Evangelism
 Training~~ ✅ shipped 2026-08-11, ~~Commands of Christ Training~~ ✅ shipped 2026-08-11, ~~How to Train New Believers~~ ✅ shipped 2026-08-11 (Disciple Training support block complete except the `hypothesis` "Small Churches" piece) · ~~House Church vs. Simple
 Church vs. Microchurch~~ ✅ shipped 2026-08-11 · ~~What Is an Oikos?~~ ✅ shipped 2026-08-11 · ~~How to Pray for Lost Friends~~ ✅ shipped 2026-08-11.

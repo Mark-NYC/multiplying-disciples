@@ -17,6 +17,7 @@ key_articles:
   - "/what-is-a-disciple/"
   - "/understanding-biblical-discipleship-a-complete-guide-to-following-jesus/"
   - "/unlock-the-power-of-friendly-accountability/"
+  - "/discipleship-questions/"
   - "/the-3-core-habits-of-a-disciple/"
   - "/3-circles/"
   - "/movement-resources/7-stories-of-hope-complete-facilitation-guide/"

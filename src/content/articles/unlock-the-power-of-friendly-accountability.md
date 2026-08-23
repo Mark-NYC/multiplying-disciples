@@ -90,7 +90,7 @@ One way is through regular meetings with other disciple makers.
 
 **Key Practice: Meet Regularly**
 
-These meetings can provide a space for sharing successes, challenges, and prayer requests. They can also be an opportunity for accountability, where disciple makers can ask one another about their progress in making disciples and provide encouragement and support.
+These meetings can provide a space for sharing successes, challenges, and prayer requests. They can also be an opportunity for accountability, where disciple makers can ask one another about their progress in making disciples and provide encouragement and support. A few [discipleship questions that actually go somewhere](/discipleship-questions/), tied to obedience and ending in a next step, keep that accountability from drifting into a vague check-in.
 
 **Key Practice: Use Accountability Tools**
 
