@@ -25,6 +25,13 @@ interface Props {
   // schema.org Question in a FAQPage block; only pass Q&As that are
   // visible in the page body.
   faq?: { question: string; answer: string }[];
+  // Opt-in sitewide entity schema (Organization + WebSite). Set once,
+  // on the homepage, so Google/AI have a single authoritative
+  // Organization node (logo + real sameAs profiles) and a WebSite node
+  // that advertises the real /search/?q= endpoint. Every other page
+  // keeps only the lightweight publisher stub in its Article/WebPage
+  // graph — no duplicate Organization entities across the site.
+  siteSchema?: boolean;
 }
 
 const {
@@ -40,6 +47,7 @@ const {
   updatedDate,
   noindex = false,
   faq = [],
+  siteSchema = false,
 } = Astro.props;
 
 const pageTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
@@ -128,6 +136,41 @@ const faqJsonLd =
         })),
       }
     : undefined;
+
+// Sitewide entity graph, emitted once (homepage). The Organization's
+// sameAs uses only the real, owner-provided social profiles in
+// site.ts; the WebSite's SearchAction points at the real /search/
+// GET endpoint (see the header/menu search forms). Logo is the square
+// brand mark. No address/phone/contact is asserted here — Organization
+// is the correct type for a ministry resource site, not LocalBusiness.
+const organizationJsonLd = siteSchema
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: SITE.name,
+      url: SITE.url,
+      logo: new URL('/md-logo-square.webp', SITE.url).toString(),
+      description: SITE.description,
+      sameAs: Object.values(SITE.social).filter(Boolean),
+    }
+  : undefined;
+
+const websiteJsonLd = siteSchema
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: SITE.name,
+      url: SITE.url,
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${SITE.url}/search/?q={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    }
+  : undefined;
 ---
 
 <title>{pageTitle}</title>
@@ -154,3 +197,5 @@ const faqJsonLd =
 
 <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 {faqJsonLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(faqJsonLd)} />}
+{organizationJsonLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(organizationJsonLd)} />}
+{websiteJsonLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(websiteJsonLd)} />}

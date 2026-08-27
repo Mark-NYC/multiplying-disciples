@@ -28,11 +28,25 @@ import { COVO_LABS_URL } from '../data/site';
 ---
 
 <BaseLayout
-  title="Multiplying Disciples | Simple Tools, Live Practice, Real Multiplication"
-  description="Learn simple biblical tools, practice them in live disciple-making labs, and take real steps with people you know."
+  title="Multiplying Disciples | Simple Tools & Live Practice"
+  description="Simple biblical tools and live practice labs that help ordinary Christians share the gospel, make and train disciples, and start simple churches that multiply."
   canonical="https://multiplyingdisciples.us/"
   type="website"
+  siteSchema={true}
 >
+  <!-- Hero LCP: the hero photo is a scoped-CSS background-image, so the
+       browser can't discover it until after CSS parses. Preload it (and
+       flag it high priority) so it starts downloading immediately —
+       purely a load-order hint, no visual or layout change. Homepage
+       only, via the head slot. -->
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    href="/wp-content/uploads/home/Untitled-design-52.webp"
+    type="image/webp"
+    fetchpriority="high"
+  />
   <!-- 1. HERO — names the outcome (make disciples who multiply) and gets
        a visitor to one of two actions immediately: join a lab, or start
        lighter with a tool. Three short proof points replace the old
@@ -40,7 +54,7 @@ import { COVO_LABS_URL } from '../data/site';
   <section class="hero">
     <div class="hero__inner">
       <h1>Make disciples who <span class="hero__highlight fm-underline fm-underline--shape-a fm-underline--clay-text">multiply.</span></h1>
-      <p class="hero__subhead">Simple tools and live practice to help you obey Jesus with real people.</p>
+      <p class="hero__subhead">Simple biblical tools and live practice to help you share the gospel, make disciples, and start churches that multiply.</p>
 
       <p class="hero__ctas">
         <a class="button" href="/#ch-practice">Join a Live Lab</a>
@@ -278,27 +292,28 @@ import { COVO_LABS_URL } from '../data/site';
         <span class="field-quote__mark" aria-hidden="true">&ldquo;</span>
         <div class="field-quote__primary-text">
           <p>
-            I used the Conversation Box with my coworker two days after the lab. It was the first
-            spiritual conversation I had ever started.
+            This gave me language for what I was already doing so I could actually pass it on.
+            I&rsquo;ve started walking people through it instead of just doing it myself.
           </p>
-          <footer>&mdash; Lab participant</footer>
+          <footer>&mdash; Andy K.</footer>
         </div>
       </blockquote>
 
       <div class="field-quote__supporting">
         <blockquote class="field-quote__quote">
           <p>
-            I stopped collecting disciple-making resources and finally used one with someone that
-            week.
+            The last three labs gave me tools I&rsquo;m already using. The rhythms piece changed
+            how I structure my week.
           </p>
-          <footer>&mdash; Lab participant</footer>
+          <footer>&mdash; Jeff M.</footer>
         </blockquote>
-        {/* Second supporting-quote slot, intentionally empty: add a
-            blockquote.field-quote__quote here only when a real,
-            approved testimonial naming one specific action exists
-            (e.g. started a Discovery Bible Study, shared the gospel
-            for the first time). Never invented copy, never a visible
-            placeholder. */}
+        <blockquote class="field-quote__quote">
+          <p>
+            Going through this with other practitioners made it feel real, not theory. Something is
+            actually happening now.
+          </p>
+          <footer>&mdash; Marcus T.</footer>
+        </blockquote>
       </div>
     </div>
   </section>
