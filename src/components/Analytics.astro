@@ -1,0 +1,38 @@
+---
+// GA4 loader — intentionally inert until configured. It renders NOTHING
+// unless a Measurement ID is provided at build time via the
+// PUBLIC_GA4_ID environment variable (PUBLIC_ so Astro exposes it to the
+// client). No ID set => no script, no network calls, no tracking. This
+// keeps analytics ready to switch on without shipping a hardcoded ID or
+// a broken tag.
+//
+// To enable: set PUBLIC_GA4_ID=G-XXXXXXXXXX in the hosting environment
+// (Vercel → Project → Settings → Environment Variables) and redeploy.
+//
+// Note: the site's own cross-ecosystem CTA tracking (see
+// src/lib/ecosystem-tracking.js) pushes GTM-style events onto
+// window.dataLayer. Raw gtag/GA4 does not forward those custom events on
+// its own — surfacing them in GA4 needs a GTM container (a separate
+// decision). Basic GA4 pageviews work as soon as the ID is set.
+const GA4_ID = import.meta.env.PUBLIC_GA4_ID;
+---
+
+{
+  GA4_ID && (
+    <>
+      <script
+        is:inline
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
+      />
+      <script is:inline define:vars={{ GA4_ID }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', GA4_ID);
+      </script>
+    </>
+  )
+}
