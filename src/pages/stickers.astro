@@ -22,9 +22,18 @@ interface Sticker {
   buyUrl: string;
 }
 
-// The six real stickers, verbatim from the previous page: same images,
-// prices, and exact Sticker Mule item URLs.
+// The real stickers with their exact Sticker Mule item URLs. The six
+// carried verbatim from the previous page keep their same images and
+// prices; the 3 Circles QR Code version leads the grid as the most
+// popular sticker — its QR links to the tool videos in the top languages.
 const STICKERS: Sticker[] = [
+  {
+    name: '3 Circles QR Code Sticker',
+    image: '/wp-content/uploads/2026/09/3-circles-qr-code-sticker-1024x787.webp',
+    alt: '3 Circles gospel presentation sticker with a QR code linking to the tool videos in the top languages',
+    price: 'Starting at $.14',
+    buyUrl: 'https://www.stickermule.com/multiplyingdisciples/item/21208425',
+  },
   {
     name: '3 Circles Sticker',
     image: '/wp-content/uploads/2025/10/3-circles-sticker-cheap-1024x792.webp',
