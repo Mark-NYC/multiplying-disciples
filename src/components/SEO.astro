@@ -176,7 +176,19 @@ const websiteJsonLd = siteSchema
 <title>{pageTitle}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
-{noindex && <meta name="robots" content="noindex, nofollow" />}
+{
+  /* Indexable pages get the full-visibility preview directive that the old
+     WordPress/Yoast site emitted by default and the Astro rebuild dropped:
+     without it Google falls back to max-image-preview:standard, shrinking the
+     large image previews (including the /wp-content/ images) this site
+     historically surfaced in Search and AI surfaces. noindex pages keep the
+     original noindex, nofollow and never get a preview directive. */
+  noindex ? (
+    <meta name="robots" content="noindex, nofollow" />
+  ) : (
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  )
+}
 
 <meta property="og:type" content={type === 'article' ? 'article' : 'website'} />
 <meta property="og:site_name" content={SITE.name} />
