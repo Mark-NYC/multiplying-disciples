@@ -35,7 +35,11 @@ but marked Improve in CONTENT_AUDIT.md.
 - **Supporting:** ★(I) What Does "Apostle" Actually Mean? · ★(I)
   Jesus the Leader (Mark) [shared with Training] · ☆ Who Is Jesus? A
   Plain Introduction (`hypothesis`) · ☆ What Did Jesus Command His
-  Followers? (Commands of Christ bridge) · ★ How Jesus Made Disciples
+  Followers? (`/what-did-jesus-command/`, shipped 2026-08-11; the Commands of
+  Christ bridge — the Bible-question, love-centered Gospel survey (Matt 22:37-40,
+  John 13:34, Matt 28:20) for the curious 12-Disciples reader; distinct from and
+  cross-linked with the Cluster 5 what-are-the-commands practical list to avoid
+  cannibalization; Commands-of-Christ tool CTA → obey.tools) · ★ How Jesus Made Disciples
   (`/how-jesus-made-disciples/`, shipped 2026-08-11; the Gospel-of-Mark pattern
   — called ordinary people, with him + sent out (Mark 3:14), trained/released,
   aimed at multiplication — told so it reads as reproducible; bridges the 12
@@ -660,8 +664,8 @@ Leadership new articles (~~MAWL~~ ✅ shipped 2026-08-11;
 ~~Generational Mapping~~ ✅ and ~~Raising Leaders~~ ✅ shipped early 2026-08-02
 as What Are Generations of Churches / Identify-and-Train + Step-Back — the
 Leadership new-article set is now complete), Meet Jesus additions (Who Is
-Jesus, What Did Jesus Command, ~~How Jesus Made Disciples~~ ✅ shipped
-2026-08-11), Simple Church
+Jesus, ~~What Did Jesus Command~~ ✅ 2026-08-11, ~~How Jesus Made Disciples~~ ✅
+shipped 2026-08-11), Simple Church
 long-tail (Baptism, Luke 10), the Muddy Boots merge + redirect, hub intro
 upgrades, and the consolidation/refresh backlog from CONTENT_AUDIT.md.
 Rationale: valuable but dependent on the spine existing first.

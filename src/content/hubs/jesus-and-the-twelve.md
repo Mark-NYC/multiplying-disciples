@@ -10,6 +10,7 @@ intro: >
 key_articles:
   - "/discover-the-12-disciples-of-jesus-christ/"
   - "/how-jesus-made-disciples/"
+  - "/what-did-jesus-command/"
   - "/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/"
   - "/unlocking-the-power-of-apest-the-ultimate-guide/"
   - "/jesus-the-leader-examining-how-he-identified-trained-and-sent-leaders-in-the-gospel-of-mark/"
