@@ -9,6 +9,7 @@ intro: >
   why the pattern still matters.
 key_articles:
   - "/discover-the-12-disciples-of-jesus-christ/"
+  - "/who-is-jesus/"
   - "/how-jesus-made-disciples/"
   - "/what-did-jesus-command/"
   - "/apostles-meaning-unlock-biblical-roles-greek-origins-and-modern-mission/"

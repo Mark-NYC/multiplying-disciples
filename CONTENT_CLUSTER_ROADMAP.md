@@ -33,8 +33,12 @@ but marked Improve in CONTENT_AUDIT.md.
 - **Pillar:** ★(I) The 12 Disciples of Jesus, in Order — 116k
   impressions; the front door of the whole site.
 - **Supporting:** ★(I) What Does "Apostle" Actually Mean? · ★(I)
-  Jesus the Leader (Mark) [shared with Training] · ☆ Who Is Jesus? A
-  Plain Introduction (`hypothesis`) · ☆ What Did Jesus Command His
+  Jesus the Leader (Mark) [shared with Training] · ★ Who Is Jesus? A
+  Plain Introduction (`/who-is-jesus/`, shipped 2026-08-11; seeker-facing
+  top-of-funnel — real person, more than a teacher / is Jesus God, what he came
+  to do, low-pressure first steps; Tool CTA → the 7 Stories of Hope at
+  obey.tools/stories-of-hope.html; inbound link from the 12 Disciples pillar) ·
+  ☆ What Did Jesus Command His
   Followers? (`/what-did-jesus-command/`, shipped 2026-08-11; the Commands of
   Christ bridge — the Bible-question, love-centered Gospel survey (Matt 22:37-40,
   John 13:34, Matt 28:20) for the curious 12-Disciples reader; distinct from and
@@ -663,9 +667,10 @@ existing cornerstones (sticky media bar waves 1–3, video/podcast embeds,
 Leadership new articles (~~MAWL~~ ✅ shipped 2026-08-11;
 ~~Generational Mapping~~ ✅ and ~~Raising Leaders~~ ✅ shipped early 2026-08-02
 as What Are Generations of Churches / Identify-and-Train + Step-Back — the
-Leadership new-article set is now complete), Meet Jesus additions (Who Is
-Jesus, ~~What Did Jesus Command~~ ✅ 2026-08-11, ~~How Jesus Made Disciples~~ ✅
-shipped 2026-08-11), Simple Church
+Leadership new-article set is now complete), Meet Jesus additions (~~Who Is
+Jesus~~ ✅ 2026-08-11, ~~What Did Jesus Command~~ ✅ 2026-08-11, ~~How Jesus Made
+Disciples~~ ✅ shipped 2026-08-11 — the Meet Jesus new-article set is now
+complete), Simple Church
 long-tail (Baptism, Luke 10), the Muddy Boots merge + redirect, hub intro
 upgrades, and the consolidation/refresh backlog from CONTENT_AUDIT.md.
 Rationale: valuable but dependent on the spine existing first.
