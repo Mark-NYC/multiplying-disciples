@@ -37,6 +37,18 @@ handler and a separate delivery column; don't overload this one.
 ## Spam / abuse controls
 
 - **Honeypot** — a hidden `company` field; filled → silently dropped.
+- **Content spam filter** (`_shared/spam.ts`) — an independent layer that
+  catches what gets past Turnstile and the honeypot (paid CAPTCHA solvers,
+  real-browser bots). It scores the submission's content and, like the
+  honeypot, drops a spammy one **silently** (returns a fake success so the
+  spammer gets no signal) without saving or emailing. High-precision rules:
+  a URL inside a name/country/postal field, HTML/BBCode link markup, or 2+
+  URLs are dropped outright; a single link, spammy TLDs, promotional
+  keywords (SEO / pharma / gambling / crypto), and non-name-shaped names
+  add to a score that must corroborate before crossing the threshold — so a
+  genuine seeker (even one who pastes one link or mentions "loan") is never
+  dropped. Dropped submissions are logged (`dropped spam (reason=…)`) but
+  their content is not.
 - **Durable rate limiting** — counts saved rows for a salted hash of the
   client IP within a 60s window (max 5). It reads the table, so it holds
   across ephemeral Edge instances (unlike per-instance memory).

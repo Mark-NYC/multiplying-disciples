@@ -37,6 +37,7 @@ import { LIMITS, RATE_MAX, RATE_WINDOW_SECONDS } from '../_shared/model.ts';
 import { buildFollowUpEmail, buildInternalEmail, sendEmail } from '../_shared/emails.ts';
 import { clientIp, hashIp } from '../_shared/security.ts';
 import { turnstileEnv, verifyTurnstile } from '../_shared/turnstile.ts';
+import { spamCheck } from '../_shared/spam.ts';
 
 function json(
   body: unknown,
@@ -95,6 +96,26 @@ Deno.serve(async (req) => {
     return json({ ok: false, errors: result.errors }, 400, req);
   }
   const data = result.data;
+
+  // Content spam filter: an independent layer that catches what gets past
+  // Turnstile and the honeypot (paid solvers, real-browser bots). Like the
+  // honeypot, drop silently — pretend it worked so the spammer gets no
+  // signal to iterate against — but store and email nothing.
+  {
+    const verdict = spamCheck({
+      first_name: data.first_name,
+      country: data.country,
+      postal_code: data.postal_code,
+      other_interest: data.other_interest,
+      message: data.message,
+    });
+    if (verdict.spam) {
+      console.warn(
+        `submit-connect-form: dropped spam (reason=${verdict.reason}, score=${verdict.score})`,
+      );
+      return accepted(req, true);
+    }
+  }
 
   // Idempotency key: one per submission attempt. Use the client's if
   // present and sane, else generate one so every row has a unique key.
