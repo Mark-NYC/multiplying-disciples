@@ -304,6 +304,44 @@ function nameLooksSpammy(name: string): boolean {
   return false;
 }
 
+// Random-string gibberish detection — the tell of headless bots that fill
+// every field with junk like "bLiCOsbqrNPnEDUXmt" or "Gdpkhjco". Tuned to
+// leave real names alone (incl. non-English / transliterated ones), so
+// callers require MORE THAN ONE field to look random before dropping.
+//
+// 'y' counts as a vowel and is excluded from consonant runs so real names
+// and places (Kyrgyzstan, Nguyen, Krishnan, Szczepan) are not flagged.
+const VOWEL_RE = /[aeiouy]/i;
+const CONSONANT_RUN_RE = /[bcdfghjklmnpqrstvwxz]{5,}/i;
+
+function tokenLooksRandom(tok: string): boolean {
+  const letters = tok.replace(/[^a-z]/gi, '');
+  if (letters.length < 5) return false;
+
+  // Random internal capitalization (bLiCO…): count lower→upper flips after
+  // the first character. Real names have at most one (McDonald, DeShawn).
+  let caseFlips = 0;
+  for (let i = 1; i < tok.length; i++) {
+    if (/[a-z]/.test(tok[i - 1]) && /[A-Z]/.test(tok[i])) caseFlips++;
+  }
+  if (caseFlips >= 2) return true;
+
+  // Five or more consonants in a row (excluding y).
+  if (CONSONANT_RUN_RE.test(letters)) return true;
+
+  // Almost no vowels in a reasonably long token.
+  const vowels = (letters.match(new RegExp(VOWEL_RE, 'gi')) || []).length;
+  if (letters.length >= 6 && vowels / letters.length < 0.2) return true;
+
+  return false;
+}
+
+// A field is gibberish if any of its whitespace-separated tokens looks
+// random. Checks each token so "John bLiCOsbqrNPnEDUXmt" is still caught.
+function fieldLooksRandom(value: string): boolean {
+  return value.split(/\s+/).some(tokenLooksRandom);
+}
+
 function spamCheck(input: SpamInput): SpamResult {
   const identity = [input.first_name, input.country, input.postal_code];
   const freeText = [input.other_interest ?? '', input.message ?? ''];
@@ -330,6 +368,19 @@ function spamCheck(input: SpamInput): SpamResult {
   // --- Scored rules (need to corroborate) ----------------------------
   let score = 0;
   const reasons: string[] = [];
+
+  // Random-string gibberish. One field alone could be an unusual real name,
+  // so weight it so that TWO or more junk fields (the bot signature) cross
+  // the threshold while a single odd field does not.
+  const randomFields = [
+    input.first_name,
+    input.country,
+    input.other_interest ?? '',
+  ].filter((f) => f && fieldLooksRandom(f)).length;
+  if (randomFields > 0) {
+    score += randomFields * 2;
+    reasons.push(`gibberish x${randomFields}`);
+  }
 
   if (urlCount === 1) {
     score += 2;

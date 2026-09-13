@@ -44,10 +44,14 @@ handler and a separate delivery column; don't overload this one.
   spammer gets no signal) without saving or emailing. High-precision rules:
   a URL inside a name/country/postal field, HTML/BBCode link markup, or 2+
   URLs are dropped outright; a single link, spammy TLDs, promotional
-  keywords (SEO / pharma / gambling / crypto), and non-name-shaped names
-  add to a score that must corroborate before crossing the threshold — so a
-  genuine seeker (even one who pastes one link or mentions "loan") is never
-  dropped. Dropped submissions are logged (`dropped spam (reason=…)`) but
+  keywords (SEO / pharma / gambling / crypto), non-name-shaped names, and
+  random-string gibberish (headless bots that fill every field with junk
+  like `bLiCOsbqrNPnEDUXmt` / `Gdpkhjco` — detected by random internal
+  capitalization, long consonant runs, or near-zero vowel ratio) add to a
+  score that must corroborate before crossing the threshold — so a genuine
+  seeker (even one who pastes one link, mentions "loan", or has an unusual
+  transliterated name) is never dropped. Gibberish needs 2+ junk fields to
+  trip, which is the bot signature; one odd field alone passes. Dropped submissions are logged (`dropped spam (reason=…)`) but
   their content is not.
 - **Durable rate limiting** — counts saved rows for a salted hash of the
   client IP within a 60s window (max 5). It reads the table, so it holds
