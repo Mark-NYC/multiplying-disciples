@@ -1,5 +1,5 @@
 ---
-title: "3 Circles"
+title: "3 Circles Gospel Presentation: Complete Guide"
 description: "How to use the 3 Circles gospel presentation, step by step, in a real conversation."
 slug: "/3-circles-guide/"
 canonical: "https://multiplyingdisciples.us/3-circles-guide/"

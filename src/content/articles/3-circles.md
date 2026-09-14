@@ -1,5 +1,5 @@
 ---
-title: "3 Circles"
+title: "3 Circles Google Slides Deck: Free Download"
 description: "The Three Circles Gospel Tool Google Slides deck — a simple way to share the Gospel and make disciples using three drawn circles."
 slug: "/3-circles/"
 canonical: "https://multiplyingdisciples.us/3-circles/"
