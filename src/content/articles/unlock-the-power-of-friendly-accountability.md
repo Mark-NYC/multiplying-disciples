@@ -147,7 +147,7 @@ With these tools and insights, those pursuing disciple making movements in every
 
 Learn how you can multiply disciples by [getting started with these starter tools](/starter-tools/).
 
-![](/wp-content/uploads/2025/01/Includes-3-Circles-Video-1-1024x576.webp)
+![Multiplying Disciples starter tools, including the 3 Circles gospel video](/wp-content/uploads/2025/01/Includes-3-Circles-Video-1-1024x576.webp)
 
 ## Four Fields of Kingdom Growth Action Guide
 

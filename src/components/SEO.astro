@@ -51,9 +51,16 @@ const {
 } = Astro.props;
 
 const pageTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
-const resolvedImage = ogImage
-  ? new URL(ogImage, SITE.url).toString()
-  : undefined;
+
+// Sitewide social-sharing fallback. Any page that doesn't pass its own
+// ogImage falls back to a single branded 1200x630 card so links are
+// never shared image-less (the homepage, utility pages, and the many
+// migrated articles with no lead image). An explicit page-level
+// ogImage always overrides it. Resolved to an absolute URL — social
+// scrapers require it.
+const DEFAULT_OG_IMAGE = '/og-default.png';
+const usingDefaultOg = !ogImage;
+const resolvedImage = new URL(ogImage ?? DEFAULT_OG_IMAGE, SITE.url).toString();
 
 const MIME_BY_EXT: Record<string, string> = {
   webp: 'image/webp',
@@ -72,7 +79,15 @@ const ogImageMeta =
         type: MIME_BY_EXT[ogImage.split('.').pop()?.toLowerCase() ?? ''],
         alt: ogImageAlt,
       }
-    : undefined;
+    : usingDefaultOg
+      ? {
+          // Known intrinsic values of the branded fallback card.
+          width: 1200,
+          height: 630,
+          type: 'image/png',
+          alt: `${SITE.name} — ${SITE.tagline}`,
+        }
+      : undefined;
 
 // Article schema image array: the explicit ordered list when provided,
 // otherwise the single social image (prior behavior).

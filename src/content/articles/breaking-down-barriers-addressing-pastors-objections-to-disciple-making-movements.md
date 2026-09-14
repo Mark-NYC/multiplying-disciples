@@ -9,8 +9,8 @@ related_articles:
   - "/10-qualities-present-in-every-church-planting-movement-keys-to-sustainable-growth-and-multiplication/"
   - "/unleashing-the-movement-how-paul-catalyzed-a-disciple-making-movement-in-ephesus-lessons-for-todays-church/"
 related_tools: []
-og_image: "/wp-content/uploads/2023/04/multiplication.jpeg"
-hero_image: "/wp-content/uploads/2023/04/multiplication.jpeg"
+og_image: "/wp-content/uploads/2023/04/multiplication.webp"
+hero_image: "/wp-content/uploads/2023/04/multiplication.webp"
 status: "migrated"
 migration_priority: "tier-3"
 original_url: "https://multiplyingdisciples.us/breaking-down-barriers-addressing-pastors-objections-to-disciple-making-movements/"
