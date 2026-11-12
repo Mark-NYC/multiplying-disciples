@@ -15,13 +15,13 @@ async function listPosts(key: string, org: string, channel: string, status: stri
   const entries: {id:string;text:string;dueAt:string}[] = [];
   let after: string | null = null;
   for (let i=0;i<10;i++) {
-    const query = `query($org: String!, $channels: [String!], $after: String) {
-      posts(first: 50, after: $after, input:{organizationId:$org, filter:{status:[${status}], channelIds:$channels}}) {
+    const query = `query {
+      posts(first: 50, ${after ? `after: ${JSON.stringify(after)},` : ""} input:{organizationId:${JSON.stringify(org)}, filter:{status:[${status}], channelIds:[${JSON.stringify(channel)}]}}) {
         edges { node {id text dueAt} }
         pageInfo {hasNextPage endCursor}
       }
     }`;
-    const data = await graphql(key,query,{org,channels:[channel],after});
+    const data = await graphql(key,query);
     const page = data.posts;
     entries.push(...page.edges.map((e: {node:any})=>e.node));
     if (!page.pageInfo.hasNextPage) return entries;
@@ -65,7 +65,7 @@ Deno.serve(async (request: Request) => {
           ... on MutationError {message}
         }
       }`;
-      const response = await graphql(key,query,{input:{text:note.text,channelId:channel,schedulingType:"automatic",mode:"customScheduled",dueAt:note.dueAt}});
+      const response = await graphql(key,query);
       if (!response.createPost?.post?.id) throw new Error(`Buffer rejected ${note.id}: ${JSON.stringify(response.createPost)}`);
       created.push({id:note.id,bufferId:response.createPost.post.id,dueAt:note.dueAt});
     }
