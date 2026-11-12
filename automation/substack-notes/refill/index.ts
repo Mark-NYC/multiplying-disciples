@@ -2,7 +2,7 @@
 // Source: automation/substack-notes/queue.json on the repository's default branch.
 const SOURCE = "https://raw.githubusercontent.com/Mark-NYC/multiplying-disciples/claude/multiply-disciples-astro-migration-c04n1x/automation/substack-notes/queue.json";
 const API = "https://api.buffer.com";
-const textKey = (s: string) => s.trim().replace(/\\s+/g, " ").toLowerCase();
+const textKey = (s: string) => s.trim().replace(/\s+/g, " ").toLowerCase();
 type Note = { id: string; text: string; dueAt: string; status: "approved" | "draft" | "hold" };
 async function graphql(key: string, query: string, variables?: Record<string, unknown>) {
   const response = await fetch(API, { method:"POST", headers: {"Authorization": `Bearer ${key}`, "Content-Type":"application/json"}, body: JSON.stringify({query, variables}) });
