@@ -59,12 +59,7 @@ Deno.serve(async (request: Request) => {
     // Simultaneous executions must be prevented at scheduler level; otherwise two runs can race.
     const created: {id:string;bufferId:string;dueAt:string}[]=[];
     for (const note of candidates.slice(0,available)) {
-      const query = `mutation($input: CreatePostInput!) {
-        createPost(input:$input) {
-          ... on PostActionSuccess { post {id text dueAt} }
-          ... on MutationError {message}
-        }
-      }`;
+      const query = `mutation { createPost(input:{text:${JSON.stringify(note.text)},channelId:${JSON.stringify(channel)},schedulingType:automatic,mode:customScheduled,dueAt:${JSON.stringify(note.dueAt)}}) { ... on PostActionSuccess {post {id text dueAt}} ... on MutationError {message} } }`;
       const response = await graphql(key,query);
       if (!response.createPost?.post?.id) throw new Error(`Buffer rejected ${note.id}: ${JSON.stringify(response.createPost)}`);
       created.push({id:note.id,bufferId:response.createPost.post.id,dueAt:note.dueAt});
